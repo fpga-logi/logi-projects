@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/375/trunk/platform/logibone/logibone_mining/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port
+END
+sha256_e0.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/!svn/ver/362/trunk/platform/logibone/logibone_mining/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_e0.vhd
+END
+sha256_pipeline.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/!svn/ver/362/trunk/platform/logibone/logibone_mining/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_pipeline.vhd
+END
+sha256_e1.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/!svn/ver/362/trunk/platform/logibone/logibone_mining/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_e1.vhd
+END
+sha256_maj.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/!svn/ver/362/trunk/platform/logibone/logibone_mining/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_maj.vhd
+END
+top.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/!svn/ver/362/trunk/platform/logibone/logibone_mining/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/top.vhd
+END
+sha256_transform.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/!svn/ver/362/trunk/platform/logibone/logibone_mining/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_transform.vhd
+END
+Logibone.py
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/!svn/ver/372/trunk/platform/logibone/logibone_mining/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/Logibone.py
+END
+sha256_s0.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/!svn/ver/362/trunk/platform/logibone/logibone_mining/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_s0.vhd
+END
+miner.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/!svn/ver/362/trunk/platform/logibone/logibone_mining/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/miner.vhd
+END
+uart.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/362/trunk/platform/logibone/logibone_mining/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/uart.vhd
+END
+sha256_s1.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/!svn/ver/362/trunk/platform/logibone/logibone_mining/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_s1.vhd
+END
+config.py
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/!svn/ver/375/trunk/platform/logibone/logibone_mining/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/config.py
+END
+README.md
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/!svn/ver/362/trunk/platform/logibone/logibone_mining/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/README.md
+END
+miner.py
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/362/trunk/platform/logibone/logibone_mining/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/miner.py
+END
+sha256_ch.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/!svn/ver/362/trunk/platform/logibone/logibone_mining/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_ch.vhd
+END
