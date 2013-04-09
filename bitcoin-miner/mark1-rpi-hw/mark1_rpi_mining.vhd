@@ -142,7 +142,7 @@ divider : simple_counter
 			  E => X"00000000",
 			  Q => counter_output
 			  );
-LED(0) <= counter_output(24);
+--LED(0) <= counter_output(24);
 
 
 mem_interface0 : spi2ad_bus
@@ -287,10 +287,17 @@ port map(clk => clk_sys ,
            q => result_latched );
 						
 	fifoB_wr	<= '0' ;
-						
-	LED(1) <= hit_latched ;	
-	LED(2) <= loading ;
-	LED(7 downto 3) <= step(5 downto 1) ;
+	
+
+	LED <= latch_loop(7 downto 0);
+--	LED(1) <= hit_latched ;	
+--	LED(2) <= loading ;
+--	--LED(7 downto 3) <= step(5 downto 1) ;
+--	LED(3) <= SYS_SPI_SCK ;
+--	LED(4) <= SYS_SPI_SS ;
+--	LED(5) <= '0' ;
+--	LED(6) <= SYS_SPI_MOSI ;
+--	LED(7) <= '0' ;
 										
 					
 end Behavioral;
