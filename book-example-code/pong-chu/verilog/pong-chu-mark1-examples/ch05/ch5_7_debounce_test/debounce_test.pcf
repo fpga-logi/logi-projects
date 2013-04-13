@@ -1,0 +1,44 @@
+//! **************************************************************************
+// Written by: Map P.15xf on Thu Oct 04 17:06:14 2012
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "an<0>" LOCATE = SITE "P114" LEVEL 1;
+COMP "an<1>" LOCATE = SITE "P115" LEVEL 1;
+COMP "an<2>" LOCATE = SITE "P117" LEVEL 1;
+COMP "an<3>" LOCATE = SITE "P112" LEVEL 1;
+COMP "btn<0>" LOCATE = SITE "P61" LEVEL 1;
+COMP "btn<1>" LOCATE = SITE "P59" LEVEL 1;
+COMP "clk" LOCATE = SITE "P55" LEVEL 1;
+COMP "sseg<0>" LOCATE = SITE "P102" LEVEL 1;
+COMP "sseg<1>" LOCATE = SITE "P95" LEVEL 1;
+COMP "sseg<2>" LOCATE = SITE "P105" LEVEL 1;
+COMP "sseg<3>" LOCATE = SITE "P111" LEVEL 1;
+COMP "sseg<4>" LOCATE = SITE "P101" LEVEL 1;
+COMP "sseg<5>" LOCATE = SITE "P98" LEVEL 1;
+COMP "sseg<6>" LOCATE = SITE "P97" LEVEL 1;
+COMP "sseg<7>" LOCATE = SITE "P104" LEVEL 1;
+COMP "reset" LOCATE = SITE "P57" LEVEL 1;
+TIMEGRP clk = BEL "db_reg" BEL "db_unit/q_reg_0" BEL "db_unit/q_reg_1" BEL
+        "db_unit/q_reg_2" BEL "db_unit/q_reg_3" BEL "db_unit/q_reg_4" BEL
+        "db_unit/q_reg_5" BEL "db_unit/q_reg_6" BEL "db_unit/q_reg_7" BEL
+        "db_unit/q_reg_8" BEL "db_unit/q_reg_9" BEL "db_unit/q_reg_10" BEL
+        "db_unit/q_reg_11" BEL "db_unit/q_reg_12" BEL "db_unit/q_reg_13" BEL
+        "db_unit/q_reg_14" BEL "db_unit/q_reg_15" BEL "db_unit/q_reg_16" BEL
+        "db_unit/q_reg_17" BEL "db_unit/q_reg_18" BEL
+        "db_unit/state_reg_FSM_FFd1" BEL "db_unit/state_reg_FSM_FFd3" BEL
+        "db_unit/state_reg_FSM_FFd2" BEL "disp_unit/q_reg_0" BEL
+        "disp_unit/q_reg_1" BEL "disp_unit/q_reg_2" BEL "disp_unit/q_reg_3"
+        BEL "disp_unit/q_reg_4" BEL "disp_unit/q_reg_5" BEL
+        "disp_unit/q_reg_6" BEL "disp_unit/q_reg_7" BEL "disp_unit/q_reg_8"
+        BEL "disp_unit/q_reg_9" BEL "disp_unit/q_reg_10" BEL
+        "disp_unit/q_reg_11" BEL "disp_unit/q_reg_12" BEL "disp_unit/q_reg_13"
+        BEL "disp_unit/q_reg_14" BEL "disp_unit/q_reg_15" BEL
+        "disp_unit/q_reg_16" BEL "disp_unit/q_reg_17" BEL "b_reg_0" BEL
+        "b_reg_1" BEL "b_reg_2" BEL "b_reg_3" BEL "b_reg_4" BEL "b_reg_5" BEL
+        "b_reg_6" BEL "b_reg_7" BEL "d_reg_0" BEL "d_reg_1" BEL "d_reg_2" BEL
+        "d_reg_3" BEL "d_reg_4" BEL "d_reg_5" BEL "d_reg_6" BEL "d_reg_7" BEL
+        "btn_reg" BEL "clk_BUFGP/BUFG";
+TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
+SCHEMATIC END;
+

@@ -1,0 +1,628 @@
+;=========================================================
+; Square circuit with UART and multiplier interface 
+;=========================================================
+;Program operation:
+;  - read a and b from switch
+;  - calculate a*a + b*b 
+;  - display data on HyperTerminal and 7-seg led
+
+;=========================================================
+; Data constants 
+;=========================================================
+;selected ASCII codes
+constant ASCII_0,  30
+constant ASCII_1,  31
+constant ASCII_2,  32
+constant ASCII_3,  33
+constant ASCII_a,  61
+constant ASCII_b,  62
+constant ASCII_c,  63
+constant ASCII_d,  64
+constant ASCII_o,  6F
+constant ASCII_r,  72
+constant ASCII_E,  45
+constant ASCII_S,  53
+constant ASCII_Q,  51
+constant ASCII_D_U,44   ; upper_case D
+constant ASCII_GT, 3E   ; >
+constant ASCII_SP, 20   ; space
+constant ASCII_CR, 0D   ; carriage return
+constant ASCII_LF, 0A   ; line feed
+
+;=========================================================
+; Data ram address alias
+;=========================================================
+constant a_lsb, 00    
+constant b_lsb, 02    
+constant aa_lsb, 04    
+constant aa_msb, 05   
+constant bb_lsb, 06    
+constant bb_msb, 07   
+constant aabb_lsb, 08    
+constant aabb_msb, 09   
+constant aabb_cout, 0A   
+constant led0, 10
+constant led1, 11
+constant led2, 12
+constant led3, 13
+
+;=========================================================
+; Register alias
+;=========================================================
+;commonly used local variables
+namereg s0, data       ;reg for temporary data
+namereg s1, addr       ;reg for temporary mem & i/o port addr
+namereg s2, i          ;general-purpose loop index
+;global variables
+namereg sc, switch_a_b ;ram offset for current switch input 
+namereg sd, tx_data    ;data to be tx by uart
+
+;=========================================================
+; Port alias
+;=========================================================
+;------------input port definitions---------------------
+constant rd_flag_port, 00 
+; 4 flags (xxxxtrsc):
+;   t: uart tx full
+;   r: uart rx not empty
+;   s: s button flag
+;   c: c button flag
+constant sw_port,         01   ;8-bit switches
+constant uart_rx_port,    02   ;uart receiver port 
+constant mult_prod0_port, 03   ;multiplication product 8 LSBs
+constant mult_prod1_port, 04   ;multiplication product 8 MSBs
+;------------output port definitions---------------------
+constant sseg0_port,     00    ;7-seg led 0
+constant sseg1_port,     01    ;7-seg led 1
+constant sseg2_port,     02    ;7-seg led 2
+constant sseg3_port,     03    ;7-seg led 3
+constant uart_tx_port,   04    ;uart receiver port 
+constant mult_src0_port, 05    ;multiplier operand 0
+constant mult_src1_port, 06    ;multiplier operand 1
+
+;=========================================================
+; Main program
+;=========================================================
+;Calling hierarchy:
+;
+;main
+;  - init
+;      - tx_prompt
+;          - tx_one_byte  
+;  - proc_btn
+;      - init
+;  - proc_uart
+;      - tx_prompt
+;      - init
+;      - proc_uart_err
+;          - tx_one_byte
+;      - dump_mem
+;          - tx_prompt
+;          - disp_ram_addr
+;             - tx_one_byte
+;          - disp_ram_data
+;             - tx_one_byte
+;             - get_upper_nibble
+;             - get_lower_nibble
+;             - hex_to_ascii
+;  - square
+;      - mult_hard
+;  - load_led_pttn 
+;      - get_lower_nibble
+;      - get_upper_nibble
+;      - hex_to_led
+;  - disp_led
+;  
+; =========================================================
+   call init               ;initialization
+forever:
+   ;main loop body
+   call proc_btn           ;check & process buttons
+   call proc_uart          ;check & process uart rx
+   call square             ;calculate square
+   call load_led_pttn      ;store led patterns to ram
+   call disp_led           ;output led pattern
+   jump forever
+
+;=========================================================
+;routine: init
+;  function: perform initialization, clear register/ram
+;  output register: 
+;    switch_a_b: cleared to 0
+;  temp register: data, i
+;=========================================================
+init:
+   ;clear memory
+   load i, 40              ;unitize loop index to 64
+   load data, 00
+clr_mem_loop:
+   store data, (i)
+   sub i, 01               ;dec loop index
+   jump nz, clr_mem_loop   ;repeat until i=0
+   ;clear register 
+   load switch_a_b, 00
+   call tx_prompt           
+   return  
+
+;=========================================================
+;routine: proc_btn
+;  function: check two buttons and process the display
+;  input reg: 
+;     switch_a_b: ram offset (0 for a and 2 for b)   
+;  output register: 
+;     s3: store input port flag      
+;     switch_a_b: may be toggled
+;  temp register used: data, addr
+;=========================================================
+proc_btn:
+   input s3, rd_flag_port  ;get flag
+   ;check and process c button
+   test s3, 01             ;check c button flag
+   jump z, chk_btns        ;flag not set
+   call init               ;flag set, clear
+   jump proc_btn_done
+chk_btns:
+   ;check and process s button
+   test s3, 02             ;check s button flag
+   jump z, proc_btn_done   ;flag not set
+   input data, sw_port     ;get switch
+   load addr, a_lsb        ;get addr of a
+   add addr, switch_a_b    ;add offset
+   store data, (addr)      ;write data to ram
+   ;update current disp position
+   xor switch_a_b, 02      ;toggle between 00, 02
+proc_btn_done:
+   return
+
+;=========================================================
+;routine: proc_uart
+;  function: read uart input char: 
+;    a or b: read a or b from switch; 
+;    c: clear;   d: dump/display data ram  other: error
+;  input reg: s3 (input port flag)
+;  temp register used: data
+;    s4: store received uart char or 00 (no uart input)
+;=========================================================
+proc_uart :
+   test s3, 04             ;check uart rx status
+   jump z, uart_rx_done    ;go to done if rx empty
+   ;process received char
+   input s4, uart_rx_port  ;get char
+   ;check if received char is a
+   compare s4, ASCII_a     ;check ASCII a
+   jump nz, chk_ascii_b    ;no, check next
+   input data, sw_port     ;get switch
+   store data, a_lsb       ;writ a to data ram
+   call tx_prompt          ;new prompt line
+   jump uart_rx_done
+chk_ascii_b:
+   ;check if received char is b
+   compare s4, ASCII_b     ;check ASCII b
+   jump nz, chk_ascii_c    ;no, check next
+   input data, sw_port     ;get switch
+   store data, b_lsb       ;writ b to data ram
+   call tx_prompt          ;new prompt line
+   jump uart_rx_done
+chk_ascii_c:
+   ;check if received char is c
+   compare s4, ASCII_c     ;check ASCII c
+   jump nz, chk_ascii_d    ;no check next
+   call init               ;clear
+   jump uart_rx_done
+chk_ascii_d:
+   ;check if received char is d
+   compare s4, ASCII_d        ;check ASCII d
+   jump nz, ascii_undefined
+   call dump_mem           ;dump/display ram
+   jump uart_rx_done
+ascii_undefined:       
+   ;undefined char          
+   call proc_uart_error        
+uart_rx_done:
+   return
+
+;=========================================================
+;routine: proc_uart_error
+;  function: display "Error" for unknown uart char
+;=========================================================
+proc_uart_error:
+   load tx_data, ASCII_LF
+   call tx_one_byte        ;transmit LF
+   load tx_data, ASCII_CR
+   call tx_one_byte        ;transmit CR
+   load tx_data, ASCII_SP
+   call tx_one_byte        ;transmit SP
+   call tx_one_byte        ;transmit SP
+   load tx_data, ASCII_E
+   call tx_one_byte        ;transmit E
+   load tx_data, ASCII_r
+   call tx_one_byte        ;transmit r
+   load tx_data, ASCII_r
+   call tx_one_byte        ;transmit r
+   load tx_data, ASCII_o
+   call tx_one_byte        ;transmit o
+   load tx_data, ASCII_r
+   call tx_one_byte        ;transmit r
+   call tx_prompt
+   return
+
+;=========================================================
+;routine: dump_mem
+;  function:  when d received, dump 64 bytes of ram as
+;    001000 XX XX XX XX XX XX XX XX
+;    010000 XX XX XX XX XX XX XX XX
+;    . . .
+;    111000 XX XX XX XX XX XX XX XX
+;  temp register used: 
+;    s3: as outer loop index
+;    s4: ram base address 
+;=========================================================
+dump_mem:
+   load s3, 00             ;addr used as loop index
+dump_loop:
+   ;loop body
+   load s4, s3             ;get ram base addr (xxx000)
+   sl0 s4
+   sl0 s4
+   sl0 s4
+   call disp_ram_addr
+   call disp_ram_data
+   add s3, 01              ;inc loop index
+   compare s3, 08
+   jump nz, dump_loop      ;loop not reach 8 yet
+   call tx_prompt          ;new prompt
+   return
+
+;=========================================================
+;routine: tx_prompt
+;  function: generate prompt "SQ>"
+;  temp register: tx_data
+;=========================================================
+tx_prompt:
+   load tx_data, ASCII_LF
+   call tx_one_byte        ;transmit LF
+   load tx_data, ASCII_CR
+   call tx_one_byte        ;transmit CR
+   load tx_data, ASCII_S
+   call tx_one_byte        ;transmit S
+   load tx_data, ASCII_Q
+   call tx_one_byte        ;transmit Q
+   load tx_data, ASCII_GT
+   call tx_one_byte        ;transmit >
+   load tx_data, ASCII_SP
+   call tx_one_byte        ;transmit SP
+   return
+
+;=========================================================
+;routine: disp_ram_addr
+;  function: display 6-bit ram addr
+;     bbb000
+;  input register: 
+;     s4: base address
+;  temp register: 
+;     i, s7: 1-bit mask
+;=========================================================
+disp_ram_addr:
+   ;new line
+   load tx_data, ASCII_LF
+   call tx_one_byte        ;transmit LF
+   load tx_data, ASCII_CR
+   call tx_one_byte        ;transmit CR
+   load tx_data, ASCII_SP
+   call tx_one_byte        ;transmit SP
+   call tx_one_byte        ;transmit SP
+   ;initialize the loop index and mask
+   load i, 06              ;addr used as loop index
+   load s7, 20             ;set mask to 0010_0000
+tx_loop:
+   ;loop body
+   load tx_data, ASCII_1   ;load default ASCII 1
+   test s7, s4             ;check the bit
+   jump nz, tx_01          ;the bit is 1
+   load tx_data, ASCII_0;  ;the bit is 0, load ASCII 0
+tx_01:
+   call tx_one_byte        ;transmit the ASCII 1 or 0
+   ;update loop index and mask
+   sr0 s7                  ;shift mask bit
+   sub  i, 01              ;dec loop index
+   jump nz, tx_loop        ;loop not reach 0 yet
+   ;done with loop, send ASCII space
+   load tx_data, ASCII_SP  ;load ASCII SP
+   call tx_one_byte        ;transmit SP
+   return
+
+;=========================================================
+;routine: disp_ram_data
+;  function: 8-byte data in form of
+;     00 11 22 33 44 55 66 77 88
+;  input register: 
+;     s4: ram base address (xxx000)
+;  tmp register: i, addr, data
+;=========================================================
+disp_ram_data:
+   ;initialize the loop index and mask
+   load i, 08              ;addr used as loop index
+d_ram_loop:
+   ;loop body
+   load addr, s4
+   add addr, i
+   sub addr, 01             ;calculate addr offset
+   ;send upper nibble
+   fetch data, (addr)
+   call get_upper_nibble
+   call hex_to_ascii       ;convert to ascii
+   load tx_data, data   
+   call tx_one_byte
+   ;send lower nibble
+   fetch data, (addr)
+   call get_lower_nibble
+   call hex_to_ascii       ;convert to ascii
+   load tx_data, data
+   call tx_one_byte
+   ;send a space
+   load tx_data, ASCII_SP;   
+   call tx_one_byte        ;transmit SP
+   sub i, 01               ;dec loop index
+   jump nz, d_ram_loop     ;loop not reach 0 yet
+   return
+
+;=========================================================
+;routine: hex_to_ascii
+;  function: convert a hex number to ascii code
+;            add 30 for 0-9, add 37 for A-F
+;  input register: data
+;=========================================================
+hex_to_ascii:
+   compare data, 0a
+   jump c, add_30          ;0 to 9, offset 30
+   add data, 07            ;a to f, extra offset 07
+add_30:
+   add data, 30
+   return
+
+;=========================================================
+;routine: tx_one_byte
+;  function: wait until uart tx fifo not full; 
+;            then write a byte to fifo 
+;  input register: tx_data
+;  tmp register:
+;     s6: read port flag
+;=========================================================
+tx_one_byte:
+   input s6, rd_flag_port   
+   test s6, 08                  ;check uart_tx_full
+   jump nz, tx_one_byte         ;yes, keep on waiting
+   output tx_data, uart_tx_port ;no, write to uart tx fifo
+   return
+
+;=========================================================
+;routine: load_led_pttn
+;  function: read 3 LSBs of switch input and convert the 
+;            desired values to four led patterns and 
+;            load them to ram
+;            switch: 000:a; 001:b; 010:a^2; 011:b^2;
+;                    others: a^2 + b^2
+;  tmp register used: data, addr
+;    s6: data from sw input port
+
+;=========================================================
+load_led_pttn:
+   input s6, sw_port       ;get switch
+   sl0 s6                  ;*2 to obtain addr offset
+   compare s6, 08          ;sw>100?
+   jump c, sw_ok           ;no
+   load s6, 08             ;yes, sw error, make default
+sw_ok:
+   ;process byte 0, lower nibble
+   load addr, a_lsb
+   add addr, s6            ;get lower addr
+   fetch data, (s6)        ;get lower byte
+   call get_lower_nibble   ;get lower nibble
+   call hex_to_led         ;convert to led pattern
+   store data, led0
+   ;process byte 0, upper nibble
+   fetch data, (addr)
+   call get_upper_nibble                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+   call hex_to_led
+   store data, led1
+   ;process byte 1, lower nibble
+   add addr, 01            ;get upper addr
+   fetch data, (addr)
+   call get_lower_nibble
+   call hex_to_led
+   store data, led2
+   ;process byte 1, upper nibble
+   fetch data, (addr)
+   call get_upper_nibble
+   call hex_to_led
+   ;check for sw=100 to process carry as led dp
+   compare s6, 08          ;display final result?
+   jump nz, led_done       ;no
+   add addr, 01            ;get carry addr
+   fetch s6, (addr)        ;s6 to store carry
+   test s6, 01             ;carry=1?
+   jump z, led_done        ;no
+   and data, 7F            ;yes, assert msb (dp) to 0
+led_done:
+   store data, led3
+   return
+
+;=========================================================
+;routine: disp_led
+;  function: output four led patterns
+;  tmp register used: data
+;=========================================================
+disp_led:
+   fetch data, led0
+   output data, sseg0_port
+   fetch data, led1
+   output data, sseg1_port
+   fetch data, led2
+   output data, sseg2_port
+   fetch data, led3
+   output data, sseg3_port
+   return
+
+;=========================================================
+;routine: hex_to_led
+;  function: convert a hex digit to 7-seg led pattern
+;  input register: data
+;  output register: data
+;=========================================================
+hex_to_led:                 
+   compare data, 00         
+   jump nz, comp_hex_1    
+   load data, 81          ;7seg pattern 0
+   jump hex_done          
+comp_hex_1:                 
+   compare   data, 01         
+   jump nz, comp_hex_2    
+   load data, CF          ;7seg pattern 1
+   jump hex_done          
+comp_hex_2:                 
+   compare data, 02         
+   jump nz, comp_hex_3    
+   load data, 92          ;7seg pattern 2
+   jump hex_done          
+comp_hex_3:                 
+   compare data, 03         
+   jump nz, comp_hex_4    
+   load data, 86          ;7seg pattern 3
+   jump hex_done          
+comp_hex_4:                 
+   compare data, 04         
+   jump nz, comp_hex_5    
+   load data, CC          ;7seg pattern 4
+   jump hex_done          
+comp_hex_5:                 
+   compare data, 05         
+   jump nz, comp_hex_6    
+   load data, A4          ;7seg pattern 5
+   jump hex_done          
+comp_hex_6:                 
+   compare data, 06         
+   jump nz, comp_hex_7    
+   load data, A0          ;7seg pattern 6
+   jump hex_done          
+comp_hex_7:                 
+   compare data, 07         
+   jump nz, comp_hex_8    
+   load data, 8F          ;7seg pattern 7
+   jump hex_done          
+comp_hex_8:                 
+   compare data, 08         
+   jump nz, comp_hex_9    
+   load data, 80          ;7seg pattern 8
+   jump hex_done          
+comp_hex_9:                 
+   compare data, 09         
+   jump nz, comp_hex_a    
+   load data, 84          ;7seg pattern 9
+   jump hex_done          
+comp_hex_a:                 
+   compare data, 0A         
+   jump nz, comp_hex_b    
+   load data, 88          ;7seg pattern a
+   jump hex_done          
+comp_hex_b:
+   compare data, 0B
+   jump nz, comp_hex_c
+   load data, E0          ;7seg pattern b
+   jump hex_done
+comp_hex_c:
+   compare data, 0C
+   jump nz, comp_hex_d
+   load data, B1          ;7seg pattern C
+   jump hex_done
+comp_hex_d:
+   compare data, 0D
+   jump nz, comp_hex_e
+   load data, C2          ;7seg pattern d
+   jump hex_done
+comp_hex_e:
+   compare data, 0E
+   jump nz, comp_hex_f
+   load data, B0          ;7seg pattern E
+   jump hex_done
+comp_hex_f:
+   load data, B8          ;7seg pattern f
+hex_done:
+   return
+   
+;=========================================================
+;routine: get_lower_nibble
+;  function: get lower 4-bit of data
+;  input register: data
+;  output register: data
+;=========================================================
+get_lower_nibble:
+   and data, 0F           ;clear upper nibble
+   return
+
+;=========================================================
+;routine: get_lupper_nible
+;  function: get upper 4-bit of in_data
+;  input register: data
+;  output register: data
+;=========================================================
+get_upper_nibble:
+   sr0 data               ;right shift 4 times
+   sr0 data
+   sr0 data
+   sr0 data
+   return
+
+;=========================================================
+;routine: square
+;  function: calculate a*a + b*b
+;     data/result stored in ram started w/ SQ_BASE_ADDR     
+;  temp register: s3, s4, s5, s6, data
+;=========================================================
+
+square: 
+   ;calculate a*a
+   fetch s3, a_lsb        ;load a
+   fetch s4, a_lsb        ;load a
+   call mult_hard         ;calculate a*a
+   store s6, aa_lsb       ;store lower byte of a*a
+   store s5, aa_msb       ;store upper byte of a*a
+   ;calculate b*b
+   fetch s3, b_lsb        ;load b
+   fetch s4, b_lsb        ;load b
+   call mult_hard         ;calculate b*b
+   store s6, bb_lsb       ;store lower byte of b*b
+   store s5, bb_msb       ;store upper byte of b*b
+   ;calculate a*a+b*b
+   fetch data, aa_lsb     ;get lower byte of a*a
+   add data, s6           ;add lower byte of a*a+b*b
+   store data, aabb_lsb   ;store lower byte of a*a+b*b
+   fetch data, aa_msb     ;get upper byte of a*a
+   addcy data, s5         ;add upper byte of a*a+b*b
+   store data, aabb_msb   ;store upper byte of a*a+b*b
+   load data, 00          ;clear data, but keep carry
+   addcy data, 00         ;get carry from previous +
+   store data, aabb_cout  ;store carry of a*a+b*b
+   return
+;=========================================================
+;routine: mult_hard
+;  function: 8-bit unsigned multiplication using
+;            external combinational multilplier;
+;  input register:
+;     s3: multiplicand
+;     s4: multiplier
+;  output register:
+;     s5: upper byte of product
+;     s6: lower byte of product
+;  temp register: 
+;=========================================================
+mult_hard:
+   output s3, mult_src0_port
+   output s4, mult_src1_port
+   input s5, mult_prod1_port
+   input s6, mult_prod0_port
+   return
+
+
+
+
+
