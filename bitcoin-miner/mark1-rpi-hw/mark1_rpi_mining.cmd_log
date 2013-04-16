@@ -1,0 +1,10 @@
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.syr" 
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.syr" 
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc mark1_rpi_mining.ucf -p xc6slx9-tqg144-2 mark1_rpi_mining.ngc mark1_rpi_mining.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o mark1_rpi_mining_map.ncd mark1_rpi_mining.ngd mark1_rpi_mining.pcf 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc mark1_rpi_mining.ucf -p xc6slx9-tqg144-2 mark1_rpi_mining.ngc mark1_rpi_mining.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o mark1_rpi_mining_map.ncd mark1_rpi_mining.ngd mark1_rpi_mining.pcf 
+par -w -intstyle ise -ol high -mt off mark1_rpi_mining_map.ncd mark1_rpi_mining.ncd mark1_rpi_mining.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml mark1_rpi_mining.twx mark1_rpi_mining.ncd -o mark1_rpi_mining.twr mark1_rpi_mining.pcf -ucf mark1_rpi_mining.ucf 
+bitgen -intstyle ise -f mark1_rpi_mining.ut mark1_rpi_mining.ncd 

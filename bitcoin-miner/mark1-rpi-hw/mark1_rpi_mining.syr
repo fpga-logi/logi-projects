@@ -1,0 +1,1148 @@
+Release 14.1 - xst P.15xf (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> 
+Reading design: mark1_rpi_mining.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "mark1_rpi_mining.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "mark1_rpi_mining"
+Output Format                      : NGC
+Target Device                      : xc6slx9-2-tqg144
+
+---- Source Options
+Top Module Name                    : mark1_rpi_mining
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/ipcore_dir/clock_gen.vhd" into library work
+Parsing entity <clock_gen>.
+Parsing architecture <xilinx> of entity <clock_gen>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/ipcore_dir/clock_gen/example_design/clock_gen_exdes.vhd" into library work
+Parsing entity <clock_gen_exdes>.
+Parsing architecture <xilinx> of entity <clock_gen_exdes>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_s1.vhd" into library work
+Parsing entity <sha256_s1>.
+Parsing architecture <Behavioral> of entity <sha256_s1>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_s0.vhd" into library work
+Parsing entity <sha256_s0>.
+Parsing architecture <Behavioral> of entity <sha256_s0>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_maj.vhd" into library work
+Parsing entity <sha256_maj>.
+Parsing architecture <Behavioral> of entity <sha256_maj>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_e1.vhd" into library work
+Parsing entity <sha256_e1>.
+Parsing architecture <Behavioral> of entity <sha256_e1>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_e0.vhd" into library work
+Parsing entity <sha256_e0>.
+Parsing architecture <Behavioral> of entity <sha256_e0>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_ch.vhd" into library work
+Parsing entity <sha256_ch>.
+Parsing architecture <Behavioral> of entity <sha256_ch>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_transform.vhd" into library work
+Parsing entity <sha256_transform>.
+Parsing architecture <Behavioral> of entity <sha256_transform>.
+Parsing VHDL file "/home/jpiat/development/FPGA/fpga-cam/hw/rtl/utils/utils_pack.vhd" into library work
+Parsing package <utils_pack>.
+Parsing package body <utils_pack>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_pipeline.vhd" into library work
+Parsing entity <sha256_pipeline>.
+Parsing architecture <Behavioral> of entity <sha256_pipeline>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-hard/peripheral/peripheral_pack.vhd" into library work
+Parsing package <peripheral_pack>.
+Parsing package body <peripheral_pack>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-hard/peripheral/latch_peripheral.vhd" into library work
+Parsing entity <latch_peripheral>.
+Parsing architecture <Behavioral> of entity <latch_peripheral>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/miner.vhd" into library work
+Parsing entity <miner>.
+Parsing architecture <Behavioral> of entity <miner>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-hard/peripheral/addr_latches_peripheral.vhd" into library work
+Parsing entity <addr_latches_peripheral>.
+Parsing architecture <Behavioral> of entity <addr_latches_peripheral>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-hard/interface/spi2ad_bus.vhd" into library work
+Parsing entity <spi2ad_bus>.
+Parsing architecture <RTL> of entity <spi2ad_bus>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-hard/interface/interface_pack.vhd" into library work
+Parsing package <interface_pack>.
+Parsing package body <interface_pack>.
+Parsing VHDL file "/home/jpiat/development/FPGA/fpga-cam/hw/rtl/utils/simple_counter.vhd" into library work
+Parsing entity <simple_counter>.
+Parsing architecture <Behavioral> of entity <simple_counter>.
+Parsing VHDL file "/home/jpiat/development/FPGA/fpga-cam/hw/rtl/utils/reset_generator.vhd" into library work
+Parsing entity <reset_generator>.
+Parsing architecture <Behavioral> of entity <reset_generator>.
+Parsing VHDL file "/home/jpiat/development/FPGA/fpga-cam/hw/rtl/utils/generic_latch.vhd" into library work
+Parsing entity <generic_latch>.
+Parsing architecture <Behavioral> of entity <generic_latch>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.vhd" into library work
+Parsing entity <mark1_rpi_mining>.
+Parsing architecture <Behavioral> of entity <mark1_rpi_mining>.
+WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.vhd" Line 189: Partially associated formal latch_output cannot have actual OPEN
+WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.vhd" Line 190: Partially associated formal latch_output cannot have actual OPEN
+WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.vhd" Line 191: Partially associated formal latch_output cannot have actual OPEN
+WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.vhd" Line 192: Partially associated formal latch_output cannot have actual OPEN
+WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.vhd" Line 193: Partially associated formal latch_output cannot have actual OPEN
+WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.vhd" Line 194: Partially associated formal latch_output cannot have actual OPEN
+WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.vhd" Line 195: Partially associated formal latch_output cannot have actual OPEN
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <mark1_rpi_mining> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <clock_gen> (architecture <xilinx>) from library <work>.
+
+Elaborating entity <reset_generator> (architecture <Behavioral>) with generics from library <work>.
+
+Elaborating entity <simple_counter> (architecture <Behavioral>) with generics from library <work>.
+
+Elaborating entity <spi2ad_bus> (architecture <RTL>) with generics from library <work>.
+
+Elaborating entity <addr_latches_peripheral> (architecture <Behavioral>) with generics from library <work>.
+
+Elaborating entity <latch_peripheral> (architecture <Behavioral>) with generics from library <work>.
+
+Elaborating entity <miner> (architecture <Behavioral>) with generics from library <work>.
+
+Elaborating entity <sha256_pipeline> (architecture <Behavioral>) with generics from library <work>.
+
+Elaborating entity <sha256_transform> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <sha256_e0> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <sha256_e1> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <sha256_ch> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <sha256_maj> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <sha256_s0> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <sha256_s1> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:92 - "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.vhd" Line 262: resetn should be on the sensitivity list of the process
+
+Elaborating entity <generic_latch> (architecture <Behavioral>) with generics from library <work>.
+WARNING:HDLCompiler:1127 - "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.vhd" Line 289: Assignment to fifob_wr ignored, since the identifier is never used
+WARNING:HDLCompiler:634 - "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.vhd" Line 92: Net <bus_fifo_out[15]> does not have a driver.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <mark1_rpi_mining>.
+    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.vhd".
+WARNING:Xst:647 - Input <PB<3:1>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <DIP_SW> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.vhd" line 118: Output port <CLK_OUT1> of the instance <sys_clocks_gen> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.vhd" line 118: Output port <LOCKED> of the instance <sys_clocks_gen> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.vhd" line 173: Output port <latch_output<0>> of the instance <info_latches> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.vhd" line 173: Output port <latch_output<1>> of the instance <info_latches> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.vhd" line 173: Output port <latch_output<2>> of the instance <info_latches> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.vhd" line 173: Output port <latch_output<3>> of the instance <info_latches> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.vhd" line 173: Output port <latch_output<4>> of the instance <info_latches> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.vhd" line 173: Output port <latch_output<5>> of the instance <info_latches> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/mark1_rpi_mining.vhd" line 173: Output port <latch_output<6>> of the instance <info_latches> is unconnected or connected to loadless signal.
+WARNING:Xst:653 - Signal <bus_fifo_out> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Found 352-bit register for signal <load>.
+    Found 6-bit register for signal <loadctr>.
+    Found 32-bit register for signal <nonce>.
+    Found 16-bit register for signal <state_register>.
+    Found 1-bit register for signal <hit_latched>.
+    Found 1-bit register for signal <wr_old>.
+    Found 6-bit register for signal <step>.
+    Found 6-bit adder for signal <loadctr[5]_GND_11_o_add_5_OUT> created at line 219.
+    Found 6-bit adder for signal <step[5]_GND_11_o_add_13_OUT> created at line 233.
+    Found 32-bit adder for signal <nonce[31]_GND_11_o_add_15_OUT> created at line 238.
+    Found 32-bit subtractor for signal <currnonce> created at line 101.
+    Found 6-bit comparator greater for signal <loading> created at line 226
+    Summary:
+	inferred   4 Adder/Subtractor(s).
+	inferred 414 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   5 Multiplexer(s).
+Unit <mark1_rpi_mining> synthesized.
+
+Synthesizing Unit <clock_gen>.
+    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/ipcore_dir/clock_gen.vhd".
+    Summary:
+	no macro.
+Unit <clock_gen> synthesized.
+
+Synthesizing Unit <reset_generator>.
+    Related source file is "/home/jpiat/development/FPGA/fpga-cam/hw/rtl/utils/reset_generator.vhd".
+        HOLD_0 = 1000
+    Found 31-bit register for signal <counter0>.
+    Found 1-bit register for signal <resetn_0>.
+    Found 31-bit subtractor for signal <GND_14_o_GND_14_o_sub_2_OUT<30:0>> created at line 51.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  32 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <reset_generator> synthesized.
+
+Synthesizing Unit <simple_counter>.
+    Related source file is "/home/jpiat/development/FPGA/fpga-cam/hw/rtl/utils/simple_counter.vhd".
+        NBIT = 32
+    Found 32-bit register for signal <Qp>.
+    Found 32-bit adder for signal <Qp[31]_GND_16_o_mux_3_OUT> created at line 62.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  32 D-type flip-flop(s).
+Unit <simple_counter> synthesized.
+
+Synthesizing Unit <spi2ad_bus>.
+    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-hard/interface/spi2ad_bus.vhd".
+        ADDR_WIDTH = 16
+        DATA_WIDTH = 16
+    Found 4-bit register for signal <bit_count>.
+    Found 16-bit register for signal <data_out_sr>.
+    Found 16-bit register for signal <data_in_latched>.
+    Found 16-bit register for signal <addr_bus>.
+    Found 15-bit register for signal <data_in_sr<14:0>>.
+    Found 1-bit register for signal <wr>.
+    Found 1-bit register for signal <rd>.
+    Found 1-bit register for signal <data_confn>.
+    Found 1-bit register for signal <auto_inc>.
+    Found 1-bit register for signal <rd_wrn>.
+    Found 1-bit register for signal <data_byte>.
+    Found 1-bit register for signal <wr_latched>.
+    Found 1-bit register for signal <rd_latched>.
+    Found 16-bit register for signal <addr_bus_latched>.
+    Found 4-bit adder for signal <bit_count[3]_GND_51_o_add_0_OUT> created at line 75.
+    Found 16-bit adder for signal <addr_bus_latched[15]_GND_51_o_add_12_OUT> created at line 113.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  91 D-type flip-flop(s).
+	inferred   3 Multiplexer(s).
+Unit <spi2ad_bus> synthesized.
+
+Synthesizing Unit <addr_latches_peripheral>.
+    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-hard/peripheral/addr_latches_peripheral.vhd".
+        ADDR_WIDTH = 16
+        WIDTH = 16
+        NB = 8
+    Found 16-bit 8-to-1 multiplexer for signal <addr_bus[2]_latches_outs[7][15]_wide_mux_8_OUT> created at line 77.
+    Found 1-bit tristate buffer for signal <data_bus_out<15>> created at line 77
+    Found 1-bit tristate buffer for signal <data_bus_out<14>> created at line 77
+    Found 1-bit tristate buffer for signal <data_bus_out<13>> created at line 77
+    Found 1-bit tristate buffer for signal <data_bus_out<12>> created at line 77
+    Found 1-bit tristate buffer for signal <data_bus_out<11>> created at line 77
+    Found 1-bit tristate buffer for signal <data_bus_out<10>> created at line 77
+    Found 1-bit tristate buffer for signal <data_bus_out<9>> created at line 77
+    Found 1-bit tristate buffer for signal <data_bus_out<8>> created at line 77
+    Found 1-bit tristate buffer for signal <data_bus_out<7>> created at line 77
+    Found 1-bit tristate buffer for signal <data_bus_out<6>> created at line 77
+    Found 1-bit tristate buffer for signal <data_bus_out<5>> created at line 77
+    Found 1-bit tristate buffer for signal <data_bus_out<4>> created at line 77
+    Found 1-bit tristate buffer for signal <data_bus_out<3>> created at line 77
+    Found 1-bit tristate buffer for signal <data_bus_out<2>> created at line 77
+    Found 1-bit tristate buffer for signal <data_bus_out<1>> created at line 77
+    Found 1-bit tristate buffer for signal <data_bus_out<0>> created at line 77
+    Summary:
+	inferred   9 Multiplexer(s).
+	inferred  16 Tristate(s).
+Unit <addr_latches_peripheral> synthesized.
+
+Synthesizing Unit <latch_peripheral>.
+    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-hard/peripheral/latch_peripheral.vhd".
+        ADDR_WIDTH = 16
+        WIDTH = 16
+WARNING:Xst:647 - Input <addr_bus> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <rd_bus> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 16-bit register for signal <outputq>.
+    Found 16-bit register for signal <inputq>.
+    Summary:
+	inferred  32 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <latch_peripheral> synthesized.
+
+Synthesizing Unit <miner>.
+    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/miner.vhd".
+        DEPTH = 1
+    Summary:
+	no macro.
+Unit <miner> synthesized.
+
+Synthesizing Unit <sha256_pipeline>.
+    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_pipeline.vhd".
+        DEPTH = 1
+    Found 32-bit adder for signal <hash<255:224>> created at line 73.
+    Found 32-bit adder for signal <hash<223:192>> created at line 74.
+    Found 32-bit adder for signal <hash<191:160>> created at line 75.
+    Found 32-bit adder for signal <hash<159:128>> created at line 76.
+    Found 32-bit adder for signal <hash<127:96>> created at line 77.
+    Found 32-bit adder for signal <hash<95:64>> created at line 78.
+    Found 32-bit adder for signal <hash<63:32>> created at line 79.
+    Found 32-bit adder for signal <hash<31:0>> created at line 80.
+    Found 6-bit adder for signal <PWR_21_o_step[5]_add_16_OUT> created at line 87.
+    Found 64x32-bit Read Only RAM for signal <rounds[0].round_k>
+    Found 64x32-bit Read Only RAM for signal <rounds[1].round_k>
+    Summary:
+	inferred   2 RAM(s).
+	inferred   9 Adder/Subtractor(s).
+Unit <sha256_pipeline> synthesized.
+
+Synthesizing Unit <sha256_transform>.
+    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_transform.vhd".
+    Found 256-bit register for signal <s_out>.
+    Found 512-bit register for signal <w_out>.
+    Found 32-bit adder for signal <n0038> created at line 137.
+    Found 32-bit adder for signal <n0041> created at line 137.
+    Found 32-bit adder for signal <n0044> created at line 137.
+    Found 32-bit adder for signal <t> created at line 137.
+    Found 32-bit adder for signal <n0050> created at line 142.
+    Found 32-bit adder for signal <n0053> created at line 142.
+    Found 32-bit adder for signal <s1[31]_w_in[31]_add_6_OUT> created at line 142.
+    Found 32-bit adder for signal <s_in[127]_t[31]_add_7_OUT> created at line 145.
+    Found 32-bit adder for signal <n0062> created at line 147.
+    Found 32-bit adder for signal <t[31]_maj[31]_add_9_OUT> created at line 147.
+    Summary:
+	inferred  10 Adder/Subtractor(s).
+	inferred 768 D-type flip-flop(s).
+Unit <sha256_transform> synthesized.
+
+Synthesizing Unit <sha256_e0>.
+    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_e0.vhd".
+    Summary:
+Unit <sha256_e0> synthesized.
+
+Synthesizing Unit <sha256_e1>.
+    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_e1.vhd".
+    Summary:
+Unit <sha256_e1> synthesized.
+
+Synthesizing Unit <sha256_ch>.
+    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_ch.vhd".
+    Summary:
+Unit <sha256_ch> synthesized.
+
+Synthesizing Unit <sha256_maj>.
+    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_maj.vhd".
+    Summary:
+	no macro.
+Unit <sha256_maj> synthesized.
+
+Synthesizing Unit <sha256_s0>.
+    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_s0.vhd".
+    Summary:
+Unit <sha256_s0> synthesized.
+
+Synthesizing Unit <sha256_s1>.
+    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/sha256_s1.vhd".
+    Summary:
+Unit <sha256_s1> synthesized.
+
+Synthesizing Unit <generic_latch>.
+    Related source file is "/home/jpiat/development/FPGA/fpga-cam/hw/rtl/utils/generic_latch.vhd".
+        NBIT = 32
+    Found 32-bit register for signal <Qp>.
+    Summary:
+	inferred  32 D-type flip-flop(s).
+Unit <generic_latch> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 4
+ 64x32-bit single-port Read Only RAM                   : 4
+# Adders/Subtractors                                   : 66
+ 16-bit adder                                          : 1
+ 31-bit subtractor                                     : 1
+ 32-bit adder                                          : 58
+ 32-bit subtractor                                     : 1
+ 4-bit adder                                           : 1
+ 6-bit adder                                           : 4
+# Registers                                            : 49
+ 1-bit register                                        : 11
+ 15-bit register                                       : 1
+ 16-bit register                                       : 21
+ 256-bit register                                      : 4
+ 31-bit register                                       : 1
+ 32-bit register                                       : 3
+ 352-bit register                                      : 1
+ 4-bit register                                        : 1
+ 512-bit register                                      : 4
+ 6-bit register                                        : 2
+# Comparators                                          : 1
+ 6-bit comparator greater                              : 1
+# Multiplexers                                         : 26
+ 1-bit 2-to-1 multiplexer                              : 10
+ 16-bit 2-to-1 multiplexer                             : 12
+ 16-bit 8-to-1 multiplexer                             : 1
+ 31-bit 2-to-1 multiplexer                             : 1
+ 32-bit 2-to-1 multiplexer                             : 1
+ 6-bit 2-to-1 multiplexer                              : 1
+# Tristates                                            : 16
+ 1-bit tristate buffer                                 : 16
+# Xors                                                 : 48
+ 10-bit xor2                                           : 4
+ 22-bit xor2                                           : 8
+ 29-bit xor2                                           : 8
+ 3-bit xor2                                            : 4
+ 32-bit xor2                                           : 24
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <mark1_rpi_mining>.
+The following registers are absorbed into counter <loadctr>: 1 register on signal <loadctr>.
+The following registers are absorbed into counter <nonce>: 1 register on signal <nonce>.
+The following registers are absorbed into counter <step>: 1 register on signal <step>.
+Unit <mark1_rpi_mining> synthesized (advanced).
+
+Synthesizing (advanced) Unit <sha256_pipeline>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_rounds[0].round_k> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 64-word x 32-bit                    |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <step>          |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <rounds[0].round_k> |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_rounds[1].round_k> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 64-word x 32-bit                    |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <PWR_21_o_step[5]_add_16_OUT> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <rounds[1].round_k> |          |
+    -----------------------------------------------------------------------
+Unit <sha256_pipeline> synthesized (advanced).
+
+Synthesizing (advanced) Unit <sha256_transform>.
+	The following adders/subtractors are grouped into adder tree <Madd_t1> :
+ 	<Madd_n0038> in block <sha256_transform>, 	<Madd_n0041> in block <sha256_transform>, 	<Madd_n0044> in block <sha256_transform>, 	<Madd_t> in block <sha256_transform>.
+	The following adders/subtractors are grouped into adder tree <Madd_s1[31]_w_in[31]_add_6_OUT1> :
+ 	<Madd_n0050> in block <sha256_transform>, 	<Madd_n0053> in block <sha256_transform>, 	<Madd_s1[31]_w_in[31]_add_6_OUT> in block <sha256_transform>.
+Unit <sha256_transform> synthesized (advanced).
+
+Synthesizing (advanced) Unit <simple_counter>.
+The following registers are absorbed into counter <Qp>: 1 register on signal <Qp>.
+Unit <simple_counter> synthesized (advanced).
+
+Synthesizing (advanced) Unit <spi2ad_bus>.
+The following registers are absorbed into counter <bit_count>: 1 register on signal <bit_count>.
+Unit <spi2ad_bus> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 4
+ 64x32-bit single-port distributed Read Only RAM       : 4
+# Adders/Subtractors                                   : 33
+ 16-bit adder                                          : 1
+ 31-bit subtractor                                     : 1
+ 32-bit adder                                          : 28
+ 32-bit subtractor                                     : 1
+ 6-bit adder                                           : 2
+# Adder Trees                                          : 8
+ 32-bit / 4-inputs adder tree                          : 4
+ 32-bit / 5-inputs adder tree                          : 4
+# Counters                                             : 5
+ 32-bit up counter                                     : 2
+ 4-bit up counter                                      : 1
+ 6-bit up counter                                      : 2
+# Registers                                            : 3849
+ Flip-Flops                                            : 3849
+# Comparators                                          : 1
+ 6-bit comparator greater                              : 1
+# Multiplexers                                         : 24
+ 1-bit 2-to-1 multiplexer                              : 10
+ 16-bit 2-to-1 multiplexer                             : 12
+ 16-bit 8-to-1 multiplexer                             : 1
+ 31-bit 2-to-1 multiplexer                             : 1
+# Xors                                                 : 48
+ 10-bit xor2                                           : 4
+ 22-bit xor2                                           : 8
+ 29-bit xor2                                           : 8
+ 3-bit xor2                                            : 4
+ 32-bit xor2                                           : 24
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2677 - Node <divider/Qp_25> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <divider/Qp_26> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <divider/Qp_27> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <divider/Qp_28> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <divider/Qp_29> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <divider/Qp_30> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <divider/Qp_31> of sequential type is unconnected in block <mark1_rpi_mining>.
+INFO:Xst:1901 - Instance sys_clocks_gen/pll_base_inst in unit sys_clocks_gen/pll_base_inst of type PLL_BASE has been replaced by PLL_ADV
+WARNING:Xst:2042 - Unit addr_latches_peripheral: 16 internal tristates are replaced by logic (pull-up yes): data_bus_out<0>, data_bus_out<10>, data_bus_out<11>, data_bus_out<12>, data_bus_out<13>, data_bus_out<14>, data_bus_out<15>, data_bus_out<1>, data_bus_out<2>, data_bus_out<3>, data_bus_out<4>, data_bus_out<5>, data_bus_out<6>, data_bus_out<7>, data_bus_out<8>, data_bus_out<9>.
+
+Optimizing unit <mark1_rpi_mining> ...
+
+Optimizing unit <spi2ad_bus> ...
+
+Optimizing unit <reset_generator> ...
+
+Optimizing unit <addr_latches_peripheral> ...
+
+Optimizing unit <latch_peripheral> ...
+
+Optimizing unit <sha256_pipeline> ...
+
+Optimizing unit <sha256_transform> ...
+
+Optimizing unit <sha256_ch> ...
+
+Optimizing unit <generic_latch> ...
+WARNING:Xst:2677 - Node <mem_interface0/rd> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <mem_interface0/rd_latched> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[6].latch_i/outputq_15> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[6].latch_i/outputq_14> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[6].latch_i/outputq_13> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[6].latch_i/outputq_12> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[6].latch_i/outputq_11> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[6].latch_i/outputq_10> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[6].latch_i/outputq_9> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[6].latch_i/outputq_8> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[6].latch_i/outputq_7> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[6].latch_i/outputq_6> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[6].latch_i/outputq_5> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[6].latch_i/outputq_4> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[6].latch_i/outputq_3> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[6].latch_i/outputq_2> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[6].latch_i/outputq_1> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[6].latch_i/outputq_0> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[5].latch_i/outputq_15> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[5].latch_i/outputq_14> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[5].latch_i/outputq_13> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[5].latch_i/outputq_12> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[5].latch_i/outputq_11> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[5].latch_i/outputq_10> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[5].latch_i/outputq_9> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[5].latch_i/outputq_8> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[5].latch_i/outputq_7> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[5].latch_i/outputq_6> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[5].latch_i/outputq_5> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[5].latch_i/outputq_4> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[5].latch_i/outputq_3> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[5].latch_i/outputq_2> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[5].latch_i/outputq_1> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[5].latch_i/outputq_0> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[4].latch_i/outputq_15> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[4].latch_i/outputq_14> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[4].latch_i/outputq_13> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[4].latch_i/outputq_12> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[4].latch_i/outputq_11> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[4].latch_i/outputq_10> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[4].latch_i/outputq_9> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[4].latch_i/outputq_8> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[4].latch_i/outputq_7> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[4].latch_i/outputq_6> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[4].latch_i/outputq_5> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[4].latch_i/outputq_4> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[4].latch_i/outputq_3> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[4].latch_i/outputq_2> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[4].latch_i/outputq_1> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[4].latch_i/outputq_0> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[3].latch_i/outputq_15> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[3].latch_i/outputq_14> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[3].latch_i/outputq_13> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[3].latch_i/outputq_12> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[3].latch_i/outputq_11> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[3].latch_i/outputq_10> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[3].latch_i/outputq_9> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[3].latch_i/outputq_8> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[3].latch_i/outputq_7> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[3].latch_i/outputq_6> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[3].latch_i/outputq_5> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[3].latch_i/outputq_4> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[3].latch_i/outputq_3> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[3].latch_i/outputq_2> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[3].latch_i/outputq_1> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[3].latch_i/outputq_0> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[2].latch_i/outputq_15> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[2].latch_i/outputq_14> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[2].latch_i/outputq_13> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[2].latch_i/outputq_12> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[2].latch_i/outputq_11> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[2].latch_i/outputq_10> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[2].latch_i/outputq_9> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[2].latch_i/outputq_8> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[2].latch_i/outputq_7> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[2].latch_i/outputq_6> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[2].latch_i/outputq_5> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[2].latch_i/outputq_4> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[2].latch_i/outputq_3> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[2].latch_i/outputq_2> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[2].latch_i/outputq_1> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[2].latch_i/outputq_0> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[1].latch_i/outputq_15> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[1].latch_i/outputq_14> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[1].latch_i/outputq_13> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[1].latch_i/outputq_12> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[1].latch_i/outputq_11> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[1].latch_i/outputq_10> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[1].latch_i/outputq_9> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[1].latch_i/outputq_8> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[1].latch_i/outputq_7> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[1].latch_i/outputq_6> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[1].latch_i/outputq_5> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[1].latch_i/outputq_4> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[1].latch_i/outputq_3> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[1].latch_i/outputq_2> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[1].latch_i/outputq_1> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[1].latch_i/outputq_0> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[0].latch_i/outputq_15> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[0].latch_i/outputq_14> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[0].latch_i/outputq_13> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[0].latch_i/outputq_12> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[0].latch_i/outputq_11> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[0].latch_i/outputq_10> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[0].latch_i/outputq_9> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[0].latch_i/outputq_8> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[0].latch_i/outputq_7> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[0].latch_i/outputq_6> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[0].latch_i/outputq_5> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[0].latch_i/outputq_4> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[0].latch_i/outputq_3> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[0].latch_i/outputq_2> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[0].latch_i/outputq_1> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:2677 - Node <info_latches/gen_latches[0].latch_i/outputq_0> of sequential type is unconnected in block <mark1_rpi_mining>.
+WARNING:Xst:1293 - FF/Latch <reset0/counter0_10> has a constant value of 0 in block <mark1_rpi_mining>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <reset0/counter0_11> has a constant value of 0 in block <mark1_rpi_mining>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <reset0/counter0_12> has a constant value of 0 in block <mark1_rpi_mining>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <reset0/counter0_13> has a constant value of 0 in block <mark1_rpi_mining>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <reset0/counter0_14> has a constant value of 0 in block <mark1_rpi_mining>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <reset0/counter0_15> has a constant value of 0 in block <mark1_rpi_mining>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <reset0/counter0_16> has a constant value of 0 in block <mark1_rpi_mining>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <reset0/counter0_17> has a constant value of 0 in block <mark1_rpi_mining>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <reset0/counter0_18> has a constant value of 0 in block <mark1_rpi_mining>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <reset0/counter0_19> has a constant value of 0 in block <mark1_rpi_mining>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <reset0/counter0_20> has a constant value of 0 in block <mark1_rpi_mining>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <reset0/counter0_21> has a constant value of 0 in block <mark1_rpi_mining>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <reset0/counter0_22> has a constant value of 0 in block <mark1_rpi_mining>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <reset0/counter0_23> has a constant value of 0 in block <mark1_rpi_mining>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <reset0/counter0_24> has a constant value of 0 in block <mark1_rpi_mining>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <reset0/counter0_25> has a constant value of 0 in block <mark1_rpi_mining>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <reset0/counter0_26> has a constant value of 0 in block <mark1_rpi_mining>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <reset0/counter0_27> has a constant value of 0 in block <mark1_rpi_mining>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <reset0/counter0_28> has a constant value of 0 in block <mark1_rpi_mining>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <reset0/counter0_29> has a constant value of 0 in block <mark1_rpi_mining>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <reset0/counter0_30> has a constant value of 0 in block <mark1_rpi_mining>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block mark1_rpi_mining, actual ratio is 131.
+Optimizing block <mark1_rpi_mining> to meet ratio 100 (+ 5) of 1430 slices :
+WARNING:Xst:2254 - Area constraint could not be met for block <mark1_rpi_mining>, final ratio is 132.
+FlipFlop step_0 has been replicated 1 time(s)
+FlipFlop step_1 has been replicated 2 time(s)
+FlipFlop step_2 has been replicated 2 time(s)
+FlipFlop step_3 has been replicated 2 time(s)
+FlipFlop step_4 has been replicated 2 time(s)
+FlipFlop step_5 has been replicated 2 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 3798
+ Flip-Flops                                            : 3798
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : mark1_rpi_mining.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 8257
+#      GND                         : 1
+#      INV                         : 62
+#      LUT1                        : 57
+#      LUT2                        : 1249
+#      LUT3                        : 2863
+#      LUT4                        : 785
+#      LUT5                        : 166
+#      LUT6                        : 757
+#      MUXCY                       : 1131
+#      MUXF7                       : 16
+#      VCC                         : 1
+#      XORCY                       : 1169
+# FlipFlops/Latches                : 3798
+#      FD                          : 3072
+#      FDC                         : 214
+#      FDC_1                       : 16
+#      FDCE                        : 457
+#      FDE                         : 16
+#      FDP                         : 6
+#      FDRE                        : 17
+# Clock Buffers                    : 5
+#      BUFG                        : 4
+#      BUFGP                       : 1
+# IO Buffers                       : 13
+#      IBUF                        : 3
+#      IBUFG                       : 1
+#      OBUF                        : 9
+# Others                           : 1
+#      PLL_ADV                     : 1
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9tqg144-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:            3798  out of  11440    33%  
+ Number of Slice LUTs:                 5939  out of   5720   103% (*) 
+    Number used as Logic:              5939  out of   5720   103% (*) 
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   6814
+   Number with an unused Flip Flop:    3016  out of   6814    44%  
+   Number with an unused LUT:           875  out of   6814    12%  
+   Number of fully used LUT-FF pairs:  2923  out of   6814    42%  
+   Number of unique control sets:        13
+
+IO Utilization: 
+ Number of IOs:                          23
+ Number of bonded IOBs:                  14  out of    102    13%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                5  out of     16    31%  
+ Number of PLL_ADVs:                      1  out of      2    50%  
+
+WARNING:Xst:1336 -  (*) More than 100% of Device resources are used
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+------------------------------------+------------------------+-------+
+Clock Signal                        | Clock buffer(FF name)  | Load  |
+------------------------------------+------------------------+-------+
+sys_clocks_gen/pll_base_inst/CLKOUT1| BUFG                   | 556   |
+sys_clocks_gen/pll_base_inst/CLKOUT2| BUFG                   | 3170  |
+SYS_SPI_SCK                         | BUFGP                  | 72    |
+------------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 12.408ns (Maximum Frequency: 80.594MHz)
+   Minimum input arrival time before clock: 5.370ns
+   Maximum output required time after clock: 6.642ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'sys_clocks_gen/pll_base_inst/CLKOUT1'
+  Clock period: 7.047ns (frequency: 141.908MHz)
+  Total number of paths / destination ports: 8197 / 1378
+-------------------------------------------------------------------------
+Delay:               7.047ns (Levels of Logic = 3)
+  Source:            mem_interface0/addr_bus_5 (FF)
+  Destination:       load_0 (FF)
+  Source Clock:      sys_clocks_gen/pll_base_inst/CLKOUT1 rising
+  Destination Clock: sys_clocks_gen/pll_base_inst/CLKOUT1 rising
+
+  Data Path: mem_interface0/addr_bus_5 to load_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.525   1.181  mem_interface0/addr_bus_5 (mem_interface0/addr_bus_5)
+     LUT6:I0->O            8   0.254   1.172  cs_fifo_GND_11_o_AND_13_o11 (cs_fifo_GND_11_o_AND_13_o11)
+     LUT3:I0->O            1   0.235   0.682  cs_fifo_GND_11_o_AND_13_o_SW0 (N01)
+     LUT6:I5->O          358   0.254   2.442  cs_fifo_GND_11_o_AND_13_o (cs_fifo_GND_11_o_AND_13_o)
+     FDCE:CE                   0.302          load_0
+    ----------------------------------------
+    Total                      7.047ns (1.570ns logic, 5.477ns route)
+                                       (22.3% logic, 77.7% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'sys_clocks_gen/pll_base_inst/CLKOUT2'
+  Clock period: 12.408ns (frequency: 80.594MHz)
+  Total number of paths / destination ports: 161151404 / 3251
+-------------------------------------------------------------------------
+Delay:               12.408ns (Levels of Logic = 32)
+  Source:            step_2 (FF)
+  Destination:       miner0/outer/rounds[0].transform/s_out_31 (FF)
+  Source Clock:      sys_clocks_gen/pll_base_inst/CLKOUT2 rising
+  Destination Clock: sys_clocks_gen/pll_base_inst/CLKOUT2 rising
+
+  Data Path: step_2 to miner0/outer/rounds[0].transform/s_out_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q           142   0.525   2.614  step_2 (step_2)
+     LUT6:I2->O           10   0.254   1.008  Mmux_state_register[0]_GND_11_o_MUX_1342_o1111_25 (Mmux_state_register[0]_GND_11_o_MUX_1342_o1111_1)
+     LUT4:I3->O            2   0.254   0.726  miner0/outer/rounds[0].transform/calc_ch/Mxor_q_7_xo<0>1 (miner0/outer/rounds[0].transform/ch<7>)
+     LUT3:I2->O            1   0.254   0.682  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd17 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd17)
+     LUT4:I3->O            1   0.254   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_lut<0>8 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_lut<0>8)
+     MUXCY:S->O            1   0.215   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>_7 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>8)
+     MUXCY:CI->O           1   0.023   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>_8 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>9)
+     MUXCY:CI->O           1   0.023   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>_9 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>10)
+     MUXCY:CI->O           1   0.023   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>_10 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>11)
+     MUXCY:CI->O           1   0.023   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>_11 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>12)
+     MUXCY:CI->O           1   0.023   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>_12 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>13)
+     MUXCY:CI->O           1   0.023   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>_13 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>14)
+     MUXCY:CI->O           1   0.023   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>_14 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>15)
+     MUXCY:CI->O           1   0.023   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>_15 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>16)
+     MUXCY:CI->O           1   0.023   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>_16 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>17)
+     MUXCY:CI->O           1   0.023   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>_17 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>18)
+     MUXCY:CI->O           1   0.023   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>_18 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>19)
+     MUXCY:CI->O           1   0.023   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>_19 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>20)
+     MUXCY:CI->O           1   0.023   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>_20 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>21)
+     MUXCY:CI->O           1   0.023   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>_21 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>22)
+     MUXCY:CI->O           1   0.023   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>_22 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>23)
+     MUXCY:CI->O           1   0.023   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>_23 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>24)
+     MUXCY:CI->O           1   0.023   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>_24 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>25)
+     MUXCY:CI->O           1   0.023   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>_25 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_cy<0>26)
+     XORCY:CI->O           2   0.206   0.726  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd1_xor<0>_26 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd_271)
+     LUT3:I2->O            1   0.254   0.682  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd327 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd327)
+     LUT4:I3->O            1   0.254   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd3_lut<0>28 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd3_lut<0>28)
+     MUXCY:S->O            1   0.215   0.000  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd3_cy<0>_27 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd3_cy<0>28)
+     XORCY:CI->O           3   0.206   0.994  miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd3_xor<0>_28 (miner0/outer/rounds[0].transform/ADDERTREE_INTERNAL_Madd_293)
+     LUT3:I0->O            1   0.235   0.682  miner0/outer/rounds[0].transform/Madd_t[31]_maj[31]_add_9_OUT29 (miner0/outer/rounds[0].transform/Madd_t[31]_maj[31]_add_9_OUT29)
+     LUT4:I3->O            1   0.254   0.000  miner0/outer/rounds[0].transform/Madd_t[31]_maj[31]_add_9_OUT_lut<0>30 (miner0/outer/rounds[0].transform/Madd_t[31]_maj[31]_add_9_OUT_lut<0>30)
+     MUXCY:S->O            0   0.215   0.000  miner0/outer/rounds[0].transform/Madd_t[31]_maj[31]_add_9_OUT_cy<0>_29 (miner0/outer/rounds[0].transform/Madd_t[31]_maj[31]_add_9_OUT_cy<0>30)
+     XORCY:CI->O           1   0.206   0.000  miner0/outer/rounds[0].transform/Madd_t[31]_maj[31]_add_9_OUT_xor<0>_30 (miner0/outer/rounds[0].transform/t[31]_maj[31]_add_9_OUT<31>)
+     FD:D                      0.074          miner0/outer/rounds[0].transform/s_out_31
+    ----------------------------------------
+    Total                     12.408ns (4.293ns logic, 8.114ns route)
+                                       (34.6% logic, 65.4% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'SYS_SPI_SCK'
+  Clock period: 7.992ns (frequency: 125.125MHz)
+  Total number of paths / destination ports: 713 / 103
+-------------------------------------------------------------------------
+Delay:               3.996ns (Levels of Logic = 2)
+  Source:            mem_interface0/bit_count_0 (FF)
+  Destination:       mem_interface0/data_out_sr_15 (FF)
+  Source Clock:      SYS_SPI_SCK rising
+  Destination Clock: SYS_SPI_SCK falling
+
+  Data Path: mem_interface0/bit_count_0 to mem_interface0/data_out_sr_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              9   0.525   1.252  mem_interface0/bit_count_0 (mem_interface0/bit_count_0)
+     LUT4:I0->O           16   0.254   1.637  mem_interface0/GND_51_o_GND_51_o_equal_4_o<3>1 (mem_interface0/GND_51_o_GND_51_o_equal_4_o)
+     LUT6:I0->O            1   0.254   0.000  mem_interface0/Mmux_data_out_sr[14]_data_bus_in[15]_mux_4_OUT161 (mem_interface0/data_out_sr[14]_data_bus_in[15]_mux_4_OUT<9>)
+     FDC_1:D                   0.074          mem_interface0/data_out_sr_9
+    ----------------------------------------
+    Total                      3.996ns (1.107ns logic, 2.889ns route)
+                                       (27.7% logic, 72.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'sys_clocks_gen/pll_base_inst/CLKOUT2'
+  Total number of paths / destination ports: 17 / 17
+-------------------------------------------------------------------------
+Offset:              4.175ns (Levels of Logic = 2)
+  Source:            PB<0> (PAD)
+  Destination:       state_register_0 (FF)
+  Destination Clock: sys_clocks_gen/pll_base_inst/CLKOUT2 rising
+
+  Data Path: PB<0> to state_register_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.328   0.681  PB_0_IBUF (PB_0_IBUF)
+     INV:I->O             28   0.255   1.452  PB<0>_inv1_INV_0 (PB<0>_inv)
+     FDC:CLR                   0.459          state_register_0
+    ----------------------------------------
+    Total                      4.175ns (2.042ns logic, 2.133ns route)
+                                       (48.9% logic, 51.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SYS_SPI_SCK'
+  Total number of paths / destination ports: 75 / 75
+-------------------------------------------------------------------------
+Offset:              5.370ns (Levels of Logic = 2)
+  Source:            SYS_SPI_SS (PAD)
+  Destination:       mem_interface0/addr_bus_latched_15 (FF)
+  Destination Clock: SYS_SPI_SCK rising
+
+  Data Path: SYS_SPI_SS to mem_interface0/addr_bus_latched_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            57   1.328   2.305  SYS_SPI_SS_IBUF (SYS_SPI_SS_IBUF)
+     LUT5:I0->O           16   0.254   1.181  mem_interface0/_n0115_inv1 (mem_interface0/_n0115_inv)
+     FDE:CE                    0.302          mem_interface0/addr_bus_latched_0
+    ----------------------------------------
+    Total                      5.370ns (1.884ns logic, 3.486ns route)
+                                       (35.1% logic, 64.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'sys_clocks_gen/pll_base_inst/CLKOUT1'
+  Total number of paths / destination ports: 11 / 11
+-------------------------------------------------------------------------
+Offset:              4.175ns (Levels of Logic = 2)
+  Source:            PB<0> (PAD)
+  Destination:       reset0/counter0_9 (FF)
+  Destination Clock: sys_clocks_gen/pll_base_inst/CLKOUT1 rising
+
+  Data Path: PB<0> to reset0/counter0_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.328   0.681  PB_0_IBUF (PB_0_IBUF)
+     INV:I->O             28   0.255   1.452  PB<0>_inv1_INV_0 (PB<0>_inv)
+     FDC:CLR                   0.459          reset0/resetn_0
+    ----------------------------------------
+    Total                      4.175ns (2.042ns logic, 2.133ns route)
+                                       (48.9% logic, 51.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'sys_clocks_gen/pll_base_inst/CLKOUT2'
+  Total number of paths / destination ports: 6 / 6
+-------------------------------------------------------------------------
+Offset:              5.777ns (Levels of Logic = 1)
+  Source:            step_4 (FF)
+  Destination:       LED<6> (PAD)
+  Source Clock:      sys_clocks_gen/pll_base_inst/CLKOUT2 rising
+
+  Data Path: step_4 to LED<6>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q           143   0.525   2.340  step_4 (step_4)
+     OBUF:I->O                 2.912          LED_6_OBUF (LED<6>)
+    ----------------------------------------
+    Total                      5.777ns (3.437ns logic, 2.340ns route)
+                                       (59.5% logic, 40.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'sys_clocks_gen/pll_base_inst/CLKOUT1'
+  Total number of paths / destination ports: 7 / 2
+-------------------------------------------------------------------------
+Offset:              6.642ns (Levels of Logic = 2)
+  Source:            loadctr_4 (FF)
+  Destination:       LED<2> (PAD)
+  Source Clock:      sys_clocks_gen/pll_base_inst/CLKOUT1 rising
+
+  Data Path: loadctr_4 to LED<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             7   0.525   1.365  loadctr_4 (loadctr_4)
+     LUT6:I0->O           36   0.254   1.586  LED<2>1 (LED_2_OBUF)
+     OBUF:I->O                 2.912          LED_2_OBUF (LED<2>)
+    ----------------------------------------
+    Total                      6.642ns (3.691ns logic, 2.951ns route)
+                                       (55.6% logic, 44.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'SYS_SPI_SCK'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.118ns (Levels of Logic = 1)
+  Source:            mem_interface0/data_out_sr_15 (FF)
+  Destination:       SYS_SPI_MISO (PAD)
+  Source Clock:      SYS_SPI_SCK falling
+
+  Data Path: mem_interface0/data_out_sr_15 to SYS_SPI_MISO
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC_1:C->Q            1   0.525   0.681  mem_interface0/data_out_sr_15 (mem_interface0/data_out_sr_15)
+     OBUF:I->O                 2.912          SYS_SPI_MISO_OBUF (SYS_SPI_MISO)
+    ----------------------------------------
+    Total                      4.118ns (3.437ns logic, 0.681ns route)
+                                       (83.5% logic, 16.5% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock SYS_SPI_SCK
+------------------------------------+---------+---------+---------+---------+
+                                    | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                        |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+------------------------------------+---------+---------+---------+---------+
+SYS_SPI_SCK                         |    5.307|         |    3.996|         |
+sys_clocks_gen/pll_base_inst/CLKOUT1|         |         |    7.925|         |
+------------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sys_clocks_gen/pll_base_inst/CLKOUT1
+------------------------------------+---------+---------+---------+---------+
+                                    | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                        |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+------------------------------------+---------+---------+---------+---------+
+SYS_SPI_SCK                         |    1.324|         |         |         |
+sys_clocks_gen/pll_base_inst/CLKOUT1|    7.047|         |         |         |
+sys_clocks_gen/pll_base_inst/CLKOUT2|    1.324|         |         |         |
+------------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sys_clocks_gen/pll_base_inst/CLKOUT2
+------------------------------------+---------+---------+---------+---------+
+                                    | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                        |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+------------------------------------+---------+---------+---------+---------+
+sys_clocks_gen/pll_base_inst/CLKOUT1|   11.203|         |         |         |
+sys_clocks_gen/pll_base_inst/CLKOUT2|   12.408|         |         |         |
+------------------------------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 26.00 secs
+Total CPU time to Xst completion: 24.94 secs
+ 
+--> 
+
+
+Total memory usage is 453356 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  160 (   0 filtered)
+Number of infos    :   12 (   0 filtered)
+
