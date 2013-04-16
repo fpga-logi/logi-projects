@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated   -->
+<!--     by the Xilinx ISE software.  Any direct editing or        -->
+<!--     changes made to this file may result in unpredictable     -->
+<!--     behavior or data corruption.  It is strongly advised that -->
+<!--     users do not edit the contents of this file.              -->
+<!--                                                               -->
+<!-- Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.    -->
+
+<messages>
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/Pong_Chu_SRC/Mark1_Pong_Chu/ch04/list_ch04_15_disp_hex_mux.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/Pong_Chu_SRC/Mark1_Pong_Chu/ch05/list_ch05_06_db_fsm.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/Pong_Chu_SRC/Mark1_Pong_Chu/ch05/list_ch05_07_debounce_test.v&quot; into library work</arg>
+</msg>
+
+</messages>
+
