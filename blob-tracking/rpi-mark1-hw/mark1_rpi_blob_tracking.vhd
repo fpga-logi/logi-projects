@@ -170,13 +170,13 @@ port map(clk => clk_sys ,
 	  wr => bus_wr , rd => bus_rd 
 );
 
-cs_image_fifo <= '1' when bus_addr(15 downto 10) = "000000" else
+cs_image_fifo <= '1' when bus_addr(15 downto 3) = "0000000000000" else
 			  '0' ;
 
-cs_blob_fifo <= '1' when bus_addr(15 downto 10) = "000001" else
+cs_blob_fifo <= '1' when bus_addr(15 downto 3) = "0000000000001" else
 			  '0' ;
 			  
-cs_latches <= '1' when bus_addr(15 downto 10) = "000010" else
+cs_latches <= '1' when bus_addr(15 downto 3) = "0000000000010" else
 			  '0' ;
 
 bus_data_in <= bus_fifo_out when cs_image_fifo = '1' else
@@ -185,7 +185,7 @@ bus_data_in <= bus_fifo_out when cs_image_fifo = '1' else
 					(others => '1');
 
 bi_fifo0 : fifo_peripheral 
-		generic map(ADDR_WIDTH => 16,WIDTH => 16, SIZE => 4096, BURST_SIZE => 512)--16384)
+		generic map(ADDR_WIDTH => 16,WIDTH => 16, SIZE => 4096, BURST_SIZE => 4)
 		port map(
 			clk => clk_sys,
 			resetn => sys_resetn,
@@ -210,7 +210,7 @@ fifo_blobs : fifo_peripheral
 		generic map(ADDR_WIDTH => 16,
 						WIDTH => 16, 
 						SIZE => 1024, 
-						BURST_SIZE => 512,
+						BURST_SIZE => 4,
 						SYNC_LOGIC_INTERFACE => true)
 		port map(
 			clk => clk_sys,
