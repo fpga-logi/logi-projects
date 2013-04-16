@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2013-04-16T08:32:27</DateModified>
+  <DateModified>2013-04-16T08:33:43</DateModified>
   <ModuleName>logibone_blob_tracking</ModuleName>
   <SummaryTimeStamp>2013-04-16T08:32:03</SummaryTimeStamp>
   <SavedFilePath>/home/jpiat/development/FPGA/logi-family/logi-projects/blob-tracking/logibone-hw/iseconfig/logibone_blob_tracking.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/blob-tracking/logibone-hw</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/blob-tracking/logibone-hw/</ImplementationReportsDirectory>
   <DateInitialized>2013-04-16T08:22:25</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
