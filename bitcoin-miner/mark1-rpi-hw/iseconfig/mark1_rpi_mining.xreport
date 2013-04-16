@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2013-04-09T14:51:06</DateModified>
+  <DateModified>2013-04-16T11:46:02</DateModified>
   <ModuleName>mark1_rpi_mining</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
   <SavedFilePath>/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/iseconfig/mark1_rpi_mining.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/</ImplementationReportsDirectory>
   <DateInitialized>2013-04-09T14:51:02</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
