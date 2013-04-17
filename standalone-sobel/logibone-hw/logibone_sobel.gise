@@ -68,6 +68,7 @@
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="logibone_sobel_summary.xml"/>
     <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="logibone_sobel_usage.xml"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="logibone_sobel_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="planAhead_run_1"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="usage_statistics_webtalk.html"/>
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="webtalk.log"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
@@ -106,7 +107,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1362466319" xil_pn:in_ck="3722643101991389650" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="8674436096669834828" xil_pn:start_ts="1362466307">
+    <transform xil_pn:end_ts="1366128953" xil_pn:in_ck="4805115023719996567" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="8674436096669834828" xil_pn:start_ts="1366128944">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -124,12 +125,13 @@
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1358327932" xil_pn:in_ck="-8738972537252267729" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="285014893917798651" xil_pn:start_ts="1358327932">
+    <transform xil_pn:end_ts="1366124357" xil_pn:in_ck="-8738972537252267729" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="285014893917798651" xil_pn:start_ts="1366124357">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1362466324" xil_pn:in_ck="5858348203547914648" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-5918313909893007138" xil_pn:start_ts="1362466319">
+    <transform xil_pn:end_ts="1366128962" xil_pn:in_ck="5858348203547914648" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-5918313909893007138" xil_pn:start_ts="1366128953">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
@@ -137,9 +139,11 @@
       <outfile xil_pn:name="logibone_sobel.ngd"/>
       <outfile xil_pn:name="logibone_sobel_ngdbuild.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1362466341" xil_pn:in_ck="9039124174737496025" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="1448924893915930207" xil_pn:start_ts="1362466324">
+    <transform xil_pn:end_ts="1366128980" xil_pn:in_ck="9039124174737496025" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="1448924893915930207" xil_pn:start_ts="1366128962">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
       <outfile xil_pn:name="logibone_sobel.pcf"/>
       <outfile xil_pn:name="logibone_sobel_map.map"/>
@@ -150,7 +154,7 @@
       <outfile xil_pn:name="logibone_sobel_summary.xml"/>
       <outfile xil_pn:name="logibone_sobel_usage.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1362466356" xil_pn:in_ck="5039608108253928114" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1362466341">
+    <transform xil_pn:end_ts="1366128995" xil_pn:in_ck="5039608108253928114" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1366128980">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -165,14 +169,9 @@
       <outfile xil_pn:name="logibone_sobel_pad.txt"/>
       <outfile xil_pn:name="logibone_sobel_par.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1358780948" xil_pn:in_ck="-1859935212026323578" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1358780936">
+    <transform xil_pn:end_ts="1366129011" xil_pn:in_ck="-1859935212026323578" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1366128995">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
       <outfile xil_pn:name="logibone_sobel.bgn"/>
       <outfile xil_pn:name="logibone_sobel.bit"/>
@@ -186,10 +185,11 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="InputRemoved"/>
     </transform>
-    <transform xil_pn:end_ts="1362466356" xil_pn:in_ck="-4994934400677110187" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1362466351">
+    <transform xil_pn:end_ts="1366128995" xil_pn:in_ck="-4994934400677110187" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1366128990">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>

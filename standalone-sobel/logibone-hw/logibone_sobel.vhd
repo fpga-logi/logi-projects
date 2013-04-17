@@ -102,6 +102,7 @@ architecture Behavioral of logibone_sobel is
 	signal write_pixel : std_logic ;
 	for all : sobel3x3 use entity work.sobel3x3(RTL) ;
 	for all : gauss3x3 use entity work.gauss3x3(RTL) ;
+	for all : muxed_addr_interface use entity work.muxed_addr_interface(RTL_v2);
 begin
 	
 	resetn <= PB(0) ;
@@ -135,12 +136,15 @@ divider : simple_counter
 			  Q => counter_output
 			  );
 LED(0) <= counter_output(24);
-LED(1) <= NOT GPMC_CSN(1) ;
+LED(1) <= (GPMC_BE0N XOR GPMC_BE1N) ;
+
+
 mem_interface0 : muxed_addr_interface
 generic map(ADDR_WIDTH => 16 , DATA_WIDTH =>  16)
 port map(clk => clk_sys ,
 	  resetn => sys_resetn ,
 	  data	=> GPMC_AD,
+	  --ext_clk => GPMC_CLK, 
 	  wrn => GPMC_WEN, oen => GPMC_OEN, addr_en_n => GPMC_ADVN, csn => GPMC_CSN(1),
 	  be1n => GPMC_BE1N, be0n => GPMC_BE0N, 
 	  data_bus_out	=> bus_data_out,
@@ -229,11 +233,11 @@ port map(
  		pixel_data_out => pixel_from_hyst
 );
 
-
-output_pxclk <= pxclk_from_hyst ;
-output_href <= href_from_hyst ;
-output_vsync <= vsync_from_hyst ;
-output_pixel <= pixel_from_hyst ;
+--
+--output_pxclk <= pxclk_from_hyst ;
+--output_href <= href_from_hyst ;
+--output_vsync <= vsync_from_hyst ;
+--output_pixel <= pixel_from_hyst ;
 
 --output_pxclk <= pxclk_from_sobel ;
 --output_href <= href_from_sobel ;
@@ -245,10 +249,10 @@ output_pixel <= pixel_from_hyst ;
 --output_vsync <= vsync_from_gauss ;
 --output_pixel <= pixel_from_gauss ;
 
---output_pxclk <= pxclk_from_interface ;
---output_href <= href_from_interface ;
---output_vsync <= vsync_from_interface ;
---output_pixel <= pixel_from_interface ;
+output_pxclk <= pxclk_from_interface ;
+output_href <= href_from_interface ;
+output_vsync <= vsync_from_interface ;
+output_pixel <= pixel_from_interface ;
 --output_pixel <= X"FF" ;
 		
 	process(clk_sys, sys_resetn)

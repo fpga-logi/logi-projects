@@ -289,10 +289,10 @@ port map(clk => clk_sys ,
 	fifoB_wr	<= '0' ;
 	
 
---	LED(7 downto 1) <= latch_loop(7 downto 1);
-	LED(1) <= hit_latched ;	
-	LED(2) <= loading ;
-	LED(7 downto 3) <= step(5 downto 1) ;
+	LED(7 downto 1) <= latch_loop(7 downto 1);
+	--LED(1) <= hit_latched ;	
+	--LED(2) <= loading ;
+	--LED(7 downto 3) <= step(5 downto 1) ;
 										
 					
 end Behavioral;

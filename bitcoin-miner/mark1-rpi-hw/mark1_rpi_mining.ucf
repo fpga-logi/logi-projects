@@ -14,7 +14,7 @@ NET SYS_SPI_SCK TNM_NET = clkspi_grp;
 
 ##### Clock Period Constraints #####
 TIMESPEC TS_PER_CLK50 = PERIOD "clk50_grp" 20.0 ns;
-TIMESPEC TS_PER_CLK100 = PERIOD "clk100_grp" 20.0 ns;
+TIMESPEC TS_PER_CLKSPI= PERIOD "clkspi_grp" 20.0 ns;
 NET SYS_SPI_SCK CLOCK_DEDICATED_ROUTE = FALSE;
 
 #######################
