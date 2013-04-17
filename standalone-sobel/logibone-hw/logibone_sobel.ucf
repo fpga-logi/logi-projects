@@ -10,9 +10,11 @@
 
 ##### Grouping Constraints #####
 NET "OSC_FPGA" TNM_NET = clk50_grp;
+NET "GPMC_CLK" TNM_NET = clk100_grp;
 #PIN "sys_clocks_gen/clkout2_buf.O" CLOCK_DEDICATED_ROUTE = FALSE;
 ##### Clock Period Constraints #####
 TIMESPEC TS_PER_CLK50 = PERIOD "clk50_grp" 20.0 ns;
+TIMESPEC TS_PER_CLK100 = PERIOD "clk100_grp" 10.0 ns;
 
 #######################
 # Pin LOC Constraints #
@@ -24,7 +26,7 @@ TIMESPEC TS_PER_CLK50 = PERIOD "clk50_grp" 20.0 ns;
 NET "OSC_FPGA"				LOC = "P92";
 #GPMC PORT##############################################################################
 #GPMC CLK
-NET "GPMC_CLK"           LOC = "P95"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   # 
+NET "GPMC_CLK"           LOC = "P95"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = FAST  ;   # 
 #GPMC CONTROL
 NET "GPMC_CSN<2>"          LOC = "P104"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   # 
 NET "GPMC_CSN<1>"          LOC = "P102"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;  # 
