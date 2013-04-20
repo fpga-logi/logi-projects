@@ -33,6 +33,8 @@ use work.conf_pack.all ;
 use work.filter_pack.all ;
 use work.image_pack.all ;
 use work.blob_pack.all ;
+use work.classifier_pack.all ;
+use work.primitive_pack.all ;
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
 library UNISIM;
@@ -80,18 +82,17 @@ architecture Behavioral of mark1_rpi_blob_tracking is
 	signal counter_output : std_logic_vector(31 downto 0);
 	signal fifo_output : std_logic_vector(15 downto 0);
 	signal fifo_input : std_logic_vector(15 downto 0);
-	signal latch_output : std_logic_vector(15 downto 0);
+	signal color_lut_data_out : std_logic_vector(15 downto 0);
 	signal image_fifo_wr : std_logic ;
 	signal blob_fifo_input : std_logic_vector(15 downto 0);
 	signal bus_blob_fifo_out : std_logic_vector(15 downto 0);
 	signal blob_fifo_wr, cs_blob_fifo : std_logic ;
 	signal bus_data_in, bus_data_out : std_logic_vector(15 downto 0);
 	signal bus_fifo_out, bus_latch_out : std_logic_vector(15 downto 0);
-	signal latches_data_out : std_logic_vector(15 downto 0);
 	signal bus_addr : std_logic_vector(15 downto 0);
 	signal bus_wr, bus_rd, bus_cs : std_logic ;
-	signal cs_image_fifo, cs_latches : std_logic ;
-	
+	signal cs_image_fifo, cs_color_lut : std_logic ;
+	signal color_index : std_logic_vector(15 downto 0);
 	
 	signal cam_data : std_logic_vector(7 downto 0);
 	signal cam_sioc, cam_siod : std_logic ;
@@ -100,7 +101,7 @@ architecture Behavioral of mark1_rpi_blob_tracking is
 	signal rom_addr : std_logic_vector(7 downto 0);
 	signal rom_data : std_logic_vector(15 downto 0);
 	
-	signal pixel_from_interface : std_logic_vector(7 downto 0);
+	signal pixel_y_from_interface, pixel_u_from_interface, pixel_v_from_interface : std_logic_vector(7 downto 0);
 	signal pxclk_from_interface, href_from_interface, vsync_from_interface : std_logic ;
 	signal pixel_from_bin : std_logic_vector(7 downto 0);
 	signal pxclk_from_bin, href_from_bin, vsync_from_bin : std_logic ;
@@ -115,6 +116,8 @@ architecture Behavioral of mark1_rpi_blob_tracking is
 	signal pixel_buffer : std_logic_vector(15 downto 0);	
 	signal pixel_count :std_logic_vector(7 downto 0);
 	signal write_pixel : std_logic ;
+	
+	signal color_lut_out : std_logic_vector(7 downto 0);
 	
 	for all : yuv_register_rom use entity work.yuv_register_rom(ov7725_qvga);
 begin
@@ -176,12 +179,12 @@ cs_image_fifo <= '1' when bus_addr(15 downto 3) = "0000000000000" else
 cs_blob_fifo <= '1' when bus_addr(15 downto 3) = "0000000000001" else
 			  '0' ;
 			  
-cs_latches <= '1' when bus_addr(15 downto 3) = "0000000000010" else
+cs_color_lut <= '1' when bus_addr(15 downto 12) = "0001" else
 			  '0' ;
 
 bus_data_in <= bus_fifo_out when cs_image_fifo = '1' else
 					bus_blob_fifo_out when cs_blob_fifo = '1' else
-					latches_data_out when cs_latches = '1' else
+					color_lut_data_out when cs_color_lut = '1' else
 					(others => '1');
 
 bi_fifo0 : fifo_peripheral 
@@ -231,23 +234,6 @@ fifo_blobs : fifo_peripheral
 			fullB => open,
 			burst_available_B => open
 		);		
-		
-latches0 : latch_peripheral
-generic map(ADDR_WIDTH => 16,   WIDTH => 16)
-port map(
-	clk => clk_sys,
-	resetn => sys_resetn,
-	addr_bus => bus_addr,
-	wr_bus => bus_wr,
-	rd_bus => bus_rd,
-	cs_bus => cs_latches,
-	data_bus_in	=> bus_data_out,
-	data_bus_out => latches_data_out,
-	latch_input => pixel_high_thresh  & pixel_low_thresh,
-	latch_output(15 downto 8) => pixel_high_thresh ,
-	latch_output(7 downto 0) => pixel_low_thresh
-);
-
  
  conf_rom : yuv_register_rom
 	port map(
@@ -274,7 +260,10 @@ port map(
 					pixel_data => cam_data, 
 					pxclk => cam_pclk, href => cam_href, vsync => cam_vsync,
 					pixel_clock_out => pxclk_from_interface, hsync_out => href_from_interface, vsync_out => vsync_from_interface,
-					y_data => pixel_from_interface
+					y_data => pixel_y_from_interface,
+					u_data => pixel_u_from_interface,
+					v_data => pixel_v_from_interface
+					
 		);	
 		
 	cam_xclk <= clk_24;
@@ -287,21 +276,31 @@ port map(
 	PMOD4_0 <= cam_reset ;
 	cam_reset <= resetn ;
 
-binarization0 : synced_binarization
+classifier_lut : dpram_NxN	
+	generic map(SIZE => 4096, NBIT => 2, ADDR_WIDTH => 12)
+	port map(
+ 		clk => clk_sys ,
+ 		we =>  (bus_wr AND cs_color_lut),
+ 		
+ 		di => bus_data_out(1 downto 0), 
+		a	=> bus_addr(11 downto 0),
+ 		dpra => color_index(11 downto 0),
+		spo => color_lut_data_out(1 downto 0),
+		dpo => color_lut_out(1 downto 0) 		
+	); 
+
+classification0 : color_classifier
 port map( 		clk => clk_sys, 
  		resetn => sys_resetn ,
  		pixel_clock => pxclk_from_interface, hsync => href_from_interface, vsync => vsync_from_interface,
  		pixel_clock_out => pxclk_from_bin, hsync_out => href_from_bin, vsync_out => vsync_from_bin,
-		pixel_data_1 => pixel_from_interface,
-		pixel_data_2 => x"0F",
-		pixel_data_3 => x"0F",
-		upper_bound_1	=> pixel_low_thresh,
-		upper_bound_2	=> x"FF",
-		upper_bound_3	=> x"FF",
-		lower_bound_1	=> pixel_high_thresh,
-		lower_bound_2	=>x"00",
-		lower_bound_3	=>x"00",
-		pixel_data_out => pixel_from_bin
+		pixel_y => pixel_y_from_interface,
+		pixel_u => pixel_u_from_interface,
+		pixel_v => pixel_v_from_interface,
+		pixel_class => pixel_from_bin,
+		
+		color_index => color_index(11 downto 0),
+		lut_in => color_lut_out
 );
 
 
@@ -347,7 +346,7 @@ output_pixel <= pixel_from_erode ;
 --output_pxclk <= pxclk_from_interface ;
 --output_href <= href_from_interface ;
 --output_vsync <= vsync_from_interface ;
---output_pixel <= pixel_from_interface ;
+--output_pixel <= pixel_y_from_interface ;
 	
 --pix2fifo : pixel2fifo 
 --port map(
