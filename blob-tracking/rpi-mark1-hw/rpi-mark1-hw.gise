@@ -48,6 +48,7 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="mark1_rpi_blob_tracking.unroutes" xil_pn:subbranch="Par"/>
     <file xil_pn:fileType="FILE_XPI" xil_pn:name="mark1_rpi_blob_tracking.xpi"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="mark1_rpi_blob_tracking.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="mark1_rpi_blob_tracking_envsettings.html"/>
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="mark1_rpi_blob_tracking_guide.ncd" xil_pn:origination="imported"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="mark1_rpi_blob_tracking_map.map" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="mark1_rpi_blob_tracking_map.mrp" xil_pn:subbranch="Map"/>
@@ -62,6 +63,9 @@
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="mark1_rpi_blob_tracking_summary.xml"/>
     <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="mark1_rpi_blob_tracking_usage.xml"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="mark1_rpi_blob_tracking_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="pwm.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="pwm.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="pwm.xst"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
@@ -98,7 +102,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1366285218" xil_pn:in_ck="5499006687009934632" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-8204626701577797889" xil_pn:start_ts="1366285200">
+    <transform xil_pn:end_ts="1366465375" xil_pn:in_ck="3978496504097777923" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-8204626701577797889" xil_pn:start_ts="1366465361">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -114,7 +118,18 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1366285225" xil_pn:in_ck="3349253509276457790" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="1263609036130373073" xil_pn:start_ts="1366285218">
+    <transform xil_pn:end_ts="1366465381" xil_pn:in_ck="3349253509276457790" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="1263609036130373073" xil_pn:start_ts="1366465375">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
+    </transform>
+    <transform xil_pn:end_ts="1366465407" xil_pn:in_ck="989039089619786399" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="1448924893915930207" xil_pn:start_ts="1366465381">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="NotReadyToRun"/>
@@ -124,7 +139,7 @@
       <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputRemoved"/>
     </transform>
-    <transform xil_pn:end_ts="1366285256" xil_pn:in_ck="989039089619786399" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="1448924893915930207" xil_pn:start_ts="1366285225">
+    <transform xil_pn:end_ts="1366465461" xil_pn:in_ck="2936912678380865048" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1366465407">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="NotReadyToRun"/>
@@ -134,17 +149,7 @@
       <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputRemoved"/>
     </transform>
-    <transform xil_pn:end_ts="1366285288" xil_pn:in_ck="2936912678380865048" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1366285256">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="WarningsGenerated"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
-    </transform>
-    <transform xil_pn:end_ts="1366285287" xil_pn:in_ck="-1057306768761967461" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1366285278">
+    <transform xil_pn:end_ts="1366465461" xil_pn:in_ck="-1057306768761967461" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1366465456">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="NotReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>

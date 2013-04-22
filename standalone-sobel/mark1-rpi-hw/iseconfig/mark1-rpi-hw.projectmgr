@@ -9,24 +9,28 @@
          <ClosedNodesVersion>2</ClosedNodesVersion>
          <ClosedNode>/block3X3 - RTL |home|jpiat|development|FPGA|logi-family|hard-cv|hw|rtl|image|block3X3.vhd</ClosedNode>
          <ClosedNode>/dp_fifo - Behavioral |home|jpiat|development|FPGA|logi-family|hard-cv|hw|rtl|utils|dp_fifo.vhd</ClosedNode>
-         <ClosedNode>/gauss3x3 - Arithmetic |home|jpiat|development|FPGA|logi-family|hard-cv|hw|rtl|image|filter|gauss3x3.vhd</ClosedNode>
+         <ClosedNode>/gauss3x3 - Arithmetic |home|jpiat|development|FPGA|logi-family|hard-cv|hw|rtl|image|filter|gauss3x3.vhd/block0 - block3X3 - RTL</ClosedNode>
+         <ClosedNode>/gauss3x3 - Arithmetic |home|jpiat|development|FPGA|logi-family|hard-cv|hw|rtl|image|filter|gauss3x3.vhd/delay_sync - generic_delay - Behavioral</ClosedNode>
          <ClosedNode>/mark1_rpi_sobel - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|standalone-sobel|mark1-rpi-hw|mark1_rpi_sobel.vhd/bi_fifo0 - fifo_peripheral - RTL</ClosedNode>
          <ClosedNode>/mark1_rpi_sobel - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|standalone-sobel|mark1-rpi-hw|mark1_rpi_sobel.vhd/bi_fifo0 - fifo_peripheral - RTL/fifo_B - dp_fifo - Behavioral</ClosedNode>
+         <ClosedNode>/mark1_rpi_sobel - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|standalone-sobel|mark1-rpi-hw|mark1_rpi_sobel.vhd/gaussian_filter - gauss3x3 - RTL</ClosedNode>
          <ClosedNode>/mark1_rpi_sobel - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|standalone-sobel|mark1-rpi-hw|mark1_rpi_sobel.vhd/gaussian_filter - gauss3x3 - RTL/block0 - block3X3 - RTL</ClosedNode>
          <ClosedNode>/mark1_rpi_sobel - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|standalone-sobel|mark1-rpi-hw|mark1_rpi_sobel.vhd/gaussian_filter - gauss3x3 - RTL/delay_sync - generic_delay - Behavioral</ClosedNode>
          <ClosedNode>/mark1_rpi_sobel - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|standalone-sobel|mark1-rpi-hw|mark1_rpi_sobel.vhd/hysteresis - hyst_threshold - RTL</ClosedNode>
          <ClosedNode>/mark1_rpi_sobel - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|standalone-sobel|mark1-rpi-hw|mark1_rpi_sobel.vhd/pixel_from_fifo - fifo2pixel - Behavioral</ClosedNode>
+         <ClosedNode>/mark1_rpi_sobel - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|standalone-sobel|mark1-rpi-hw|mark1_rpi_sobel.vhd/sobel_filter - sobel3x3 - RTL</ClosedNode>
          <ClosedNode>/mark1_rpi_sobel - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|standalone-sobel|mark1-rpi-hw|mark1_rpi_sobel.vhd/sobel_filter - sobel3x3 - RTL/delay_sync - generic_delay - Behavioral</ClosedNode>
          <ClosedNode>/sobel3x3 - Arithmetic |home|jpiat|development|FPGA|logi-family|hard-cv|hw|rtl|image|filter|sobel3x3.vhd</ClosedNode>
+         <ClosedNode>/sobel3x3_pixel_pipeline - RTL |home|jpiat|development|FPGA|logi-family|hard-cv|hw|rtl|image|filter|sobel3x3_pixel_pipeline.vhd/block0 - block3X3_pixel_pipeline - Behavioral</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>mem_interface0 - spi2ad_bus - RTL (/home/jpiat/development/FPGA/logi-family/logi-hard/interface/spi2ad_bus.vhd)</SelectedItem>
+         <SelectedItem>sobel3x3_pixel_pipeline - RTL (/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/filter/sobel3x3_pixel_pipeline.vhd)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >2</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >14</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000278000000020000000000000000000000000200000064ffffffff000000810000000300000002000002780000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000249000000020000000000000000000000000200000064ffffffff000000810000000300000002000002490000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>mem_interface0 - spi2ad_bus - RTL (/home/jpiat/development/FPGA/logi-family/logi-hard/interface/spi2ad_bus.vhd)</CurrentItem>
+      <CurrentItem>sobel3x3_pixel_pipeline - RTL (/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/filter/sobel3x3_pixel_pipeline.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -34,13 +38,13 @@
          <ClosedNode>Design Utilities</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000128000000010000000100000000000000000000000064ffffffff000000810000000000000001000001280000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000123000000010000000100000000000000000000000064ffffffff000000810000000000000001000001230000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView guiview="File" >
       <ClosedNodes>
@@ -77,13 +81,13 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem>Design Summary/Reports</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000121000000010000000100000000000000000000000064ffffffff000000810000000000000001000001210000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000123000000010000000100000000000000000000000064ffffffff000000810000000000000001000001230000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem>Design Summary/Reports</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_XCO" guiview="Process" >
       <ClosedNodes>
@@ -91,13 +95,13 @@
          <ClosedNode>CORE Generator</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000121000000010000000100000000000000000000000064ffffffff000000810000000000000001000001210000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000123000000010000000100000000000000000000000064ffffffff000000810000000000000001000001230000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_UCF" guiview="Process" >
       <ClosedNodes>
@@ -105,13 +109,13 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000128000000010000000100000000000000000000000064ffffffff000000810000000000000001000001280000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f2000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f20000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000014c0000011d01000000060100000002</SourceProcessView>
    <CurrentView>Implementation</CurrentView>
