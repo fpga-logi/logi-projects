@@ -102,61 +102,73 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1366465375" xil_pn:in_ck="3978496504097777923" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-8204626701577797889" xil_pn:start_ts="1366465361">
+    <transform xil_pn:end_ts="1367672079" xil_pn:in_ck="-8611631013369382407" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-8204626701577797889" xil_pn:start_ts="1367672063">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputAdded"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking.lso"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking.ngc"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking.ngr"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking.prj"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking.stx"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking.syr"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking.xst"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking_xst.xrpt"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
     </transform>
     <transform xil_pn:end_ts="1366285218" xil_pn:in_ck="7419478576223576290" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-2521242644322852818" xil_pn:start_ts="1366285218">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1366465381" xil_pn:in_ck="3349253509276457790" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="1263609036130373073" xil_pn:start_ts="1366465375">
+    <transform xil_pn:end_ts="1367672084" xil_pn:in_ck="9014755350209086023" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="1263609036130373073" xil_pn:start_ts="1367672079">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputAdded"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking.bld"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking.ngd"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking_ngdbuild.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1366465407" xil_pn:in_ck="989039089619786399" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="1448924893915930207" xil_pn:start_ts="1366465381">
+    <transform xil_pn:end_ts="1367672113" xil_pn:in_ck="989039089619786399" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="1448924893915930207" xil_pn:start_ts="1367672084">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking.pcf"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking_map.map"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking_map.mrp"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking_map.ncd"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking_map.ngm"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking_map.xrpt"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking_summary.xml"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking_usage.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1366465461" xil_pn:in_ck="2936912678380865048" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1366465407">
+    <transform xil_pn:end_ts="1367672170" xil_pn:in_ck="2936912678380865048" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1367672113">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking.ncd"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking.pad"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking.par"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking.ptwx"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking.unroutes"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking.xpi"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking_pad.csv"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking_pad.txt"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking_par.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1366465461" xil_pn:in_ck="-1057306768761967461" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1366465456">
+    <transform xil_pn:end_ts="1367672170" xil_pn:in_ck="-1057306768761967461" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1367672165">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking.twr"/>
+      <outfile xil_pn:name="mark1_rpi_blob_tracking.twx"/>
     </transform>
   </transforms>
 

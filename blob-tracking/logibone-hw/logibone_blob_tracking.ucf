@@ -31,31 +31,31 @@ NET "OSC_FPGA"				LOC = "P92";
 #GPMC CLK
 NET "GPMC_CLK"           LOC = "P95"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   # 
 #GPMC CONTROL
-NET "GPMC_CSN<2>"          LOC = "P104"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   # 
-NET "GPMC_CSN<1>"          LOC = "P102"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;  # 
-NET "GPMC_CSN<0>"          LOC = "P97"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   # 
-NET "GPMC_ADVN"          LOC = "P121"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   #
-NET "GPMC_OEN"           LOC = "P120"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   #  
-NET "GPMC_BE0N"          LOC = "P119"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   # 
-NET "GPMC_BE1N"          LOC = "P46"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   # 
-NET "GPMC_WEN"          LOC = "P118"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;  # 
+NET "GPMC_CSN<2>"          LOC = "P104"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  |  IOB=FORCE ;   # 
+NET "GPMC_CSN<1>"          LOC = "P102"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  |  IOB=FORCE ;  # 
+NET "GPMC_CSN<0>"          LOC = "P97"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  |  IOB=FORCE ;   # 
+NET "GPMC_ADVN"          LOC = "P121"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW   |  IOB=FORCE;   #
+NET "GPMC_OEN"           LOC = "P120"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW   |  IOB=FORCE;   #  
+NET "GPMC_BE0N"          LOC = "P119"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  |  IOB=FORCE ;   # 
+NET "GPMC_BE1N"          LOC = "P46"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW   |  IOB=FORCE;   # 
+NET "GPMC_WEN"          LOC = "P118"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  |  IOB=FORCE ;  # 
 #GPMC A/D
-NET "GPMC_AD<0>"           LOC = "P98"| IOSTANDARD = LVTTL | SLEW = SLOW  ;   # 
-NET "GPMC_AD<1>"           LOC = "P99"| IOSTANDARD = LVTTL | SLEW = SLOW  ;   # 
-NET "GPMC_AD<2>"           LOC = "P124"| IOSTANDARD = LVTTL | SLEW = SLOW  ;   # 
-NET "GPMC_AD<3>"           LOC = "P123"| IOSTANDARD = LVTTL | SLEW = SLOW  ;   # 
-NET "GPMC_AD<4>"           LOC = "P100"| IOSTANDARD = LVTTL | SLEW = SLOW  ;  # 
-NET "GPMC_AD<5>"           LOC = "P101"| IOSTANDARD = LVTTL |  SLEW = SLOW  ;   # 
-NET "GPMC_AD<6>"           LOC = "P127"| IOSTANDARD = LVTTL |  SLEW = SLOW  ;   # 
-NET "GPMC_AD<7>"           LOC = "P126"| IOSTANDARD = LVTTL |  SLEW = SLOW  ;   # 
-NET "GPMC_AD<8>"           LOC = "P105"| IOSTANDARD = LVTTL |  SLEW = SLOW  ;   # 
-NET "GPMC_AD<9>"           LOC = "P115"| IOSTANDARD = LVTTL |  SLEW = SLOW  ;   # 
-NET "GPMC_AD<10>"          LOC = "P114"| IOSTANDARD = LVTTL |  SLEW = SLOW  ;  # 
-NET "GPMC_AD<11>"          LOC = "P94"| IOSTANDARD = LVTTL |  SLEW = SLOW  ;   # 
-NET "GPMC_AD<12>"          LOC = "P116"| IOSTANDARD = LVTTL |  SLEW = SLOW  ;   # 
-NET "GPMC_AD<13>"          LOC = "P117"| IOSTANDARD = LVTTL |  SLEW = SLOW  ;  # 
-NET "GPMC_AD<14>"          LOC = "P111"| IOSTANDARD = LVTTL |  SLEW = SLOW  ;  # 
-NET "GPMC_AD<15>"          LOC = "P112"| IOSTANDARD = LVTTL |  SLEW = SLOW  ;   # 
+NET "GPMC_AD<0>"           LOC = "P98"| IOSTANDARD = LVTTL | SLEW = SLOW   |  IOB=FORCE ;   # 
+NET "GPMC_AD<1>"           LOC = "P99"| IOSTANDARD = LVTTL | SLEW = SLOW   |  IOB=FORCE;   # 
+NET "GPMC_AD<2>"           LOC = "P124"| IOSTANDARD = LVTTL | SLEW = SLOW  |  IOB=FORCE;   # 
+NET "GPMC_AD<3>"           LOC = "P123"| IOSTANDARD = LVTTL | SLEW = SLOW  |  IOB=FORCE;   # 
+NET "GPMC_AD<4>"           LOC = "P100"| IOSTANDARD = LVTTL | SLEW = SLOW  |  IOB=FORCE;  # 
+NET "GPMC_AD<5>"           LOC = "P101"| IOSTANDARD = LVTTL |  SLEW = SLOW |  IOB=FORCE ;   # 
+NET "GPMC_AD<6>"           LOC = "P127"| IOSTANDARD = LVTTL |  SLEW = SLOW |  IOB=FORCE ;   # 
+NET "GPMC_AD<7>"           LOC = "P126"| IOSTANDARD = LVTTL |  SLEW = SLOW |  IOB=FORCE ;   # 
+NET "GPMC_AD<8>"           LOC = "P105"| IOSTANDARD = LVTTL |  SLEW = SLOW |  IOB=FORCE;   # 
+NET "GPMC_AD<9>"           LOC = "P115"| IOSTANDARD = LVTTL |  SLEW = SLOW |  IOB=FORCE;   # 
+NET "GPMC_AD<10>"          LOC = "P114"| IOSTANDARD = LVTTL |  SLEW = SLOW |  IOB=FORCE ;  # 
+NET "GPMC_AD<11>"          LOC = "P94"| IOSTANDARD = LVTTL |  SLEW = SLOW  |  IOB=FORCE;   # 
+NET "GPMC_AD<12>"          LOC = "P116"| IOSTANDARD = LVTTL |  SLEW = SLOW |  IOB=FORCE ;   # 
+NET "GPMC_AD<13>"          LOC = "P117"| IOSTANDARD = LVTTL |  SLEW = SLOW |  IOB=FORCE ;  # 
+NET "GPMC_AD<14>"          LOC = "P111"| IOSTANDARD = LVTTL |  SLEW = SLOW |  IOB=FORCE ;  # 
+NET "GPMC_AD<15>"          LOC = "P112"| IOSTANDARD = LVTTL |  SLEW = SLOW |  IOB=FORCE ;   # 
 #LED######################################################################################
 NET "LED<0>"           LOC = "P55" | IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   # 
 NET "LED<1>"           LOC = "P93"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   # 

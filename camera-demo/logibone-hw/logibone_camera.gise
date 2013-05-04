@@ -29,6 +29,9 @@
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/par.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="binary_filter.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="binary_filter.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="binary_filter.xst"/>
     <file xil_pn:fileType="FILE_ASY" xil_pn:name="ipcore_dir/clock_gen.asy" xil_pn:origination="imported"/>
     <file xil_pn:fileType="FILE_UCF" xil_pn:name="ipcore_dir/clock_gen.ucf" xil_pn:origination="imported"/>
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="ipcore_dir/coregen.log"/>
@@ -70,6 +73,9 @@
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="logibone_camera_summary.xml"/>
     <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="logibone_camera_usage.xml"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="logibone_camera_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="threshold_decomposition.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="threshold_decomposition.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="threshold_decomposition.xst"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="usage_statistics_webtalk.html"/>
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="webtalk.log"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
@@ -108,19 +114,13 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
-      <outfile xil_pn:name="logibone_camera.lso"/>
-      <outfile xil_pn:name="logibone_camera.ngc"/>
-      <outfile xil_pn:name="logibone_camera.ngr"/>
-      <outfile xil_pn:name="logibone_camera.prj"/>
-      <outfile xil_pn:name="logibone_camera.stx"/>
-      <outfile xil_pn:name="logibone_camera.syr"/>
-      <outfile xil_pn:name="logibone_camera.xst"/>
-      <outfile xil_pn:name="logibone_camera_xst.xrpt"/>
-      <outfile xil_pn:name="webtalk_pn.xml"/>
-      <outfile xil_pn:name="xst"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1366482397" xil_pn:in_ck="6761049645652539331" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="4529280899360645359" xil_pn:start_ts="1366482397">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -130,62 +130,51 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_ngo"/>
-      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
-      <outfile xil_pn:name="logibone_camera.bld"/>
-      <outfile xil_pn:name="logibone_camera.ngd"/>
-      <outfile xil_pn:name="logibone_camera_ngdbuild.xrpt"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1366619958" xil_pn:in_ck="-5515587575712711231" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="1448924893915930207" xil_pn:start_ts="1366619947">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
-      <outfile xil_pn:name="logibone_camera.pcf"/>
-      <outfile xil_pn:name="logibone_camera_map.map"/>
-      <outfile xil_pn:name="logibone_camera_map.mrp"/>
-      <outfile xil_pn:name="logibone_camera_map.ncd"/>
-      <outfile xil_pn:name="logibone_camera_map.ngm"/>
-      <outfile xil_pn:name="logibone_camera_map.xrpt"/>
-      <outfile xil_pn:name="logibone_camera_summary.xml"/>
-      <outfile xil_pn:name="logibone_camera_usage.xml"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1366619971" xil_pn:in_ck="-9046718294307695302" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1366619958">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
-      <outfile xil_pn:name="logibone_camera.ncd"/>
-      <outfile xil_pn:name="logibone_camera.pad"/>
-      <outfile xil_pn:name="logibone_camera.par"/>
-      <outfile xil_pn:name="logibone_camera.ptwx"/>
-      <outfile xil_pn:name="logibone_camera.unroutes"/>
-      <outfile xil_pn:name="logibone_camera.xpi"/>
-      <outfile xil_pn:name="logibone_camera_pad.csv"/>
-      <outfile xil_pn:name="logibone_camera_pad.txt"/>
-      <outfile xil_pn:name="logibone_camera_par.xrpt"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1366619980" xil_pn:in_ck="-6038391580115230694" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1366619971">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
-      <outfile xil_pn:name="logibone_camera.bgn"/>
-      <outfile xil_pn:name="logibone_camera.bit"/>
-      <outfile xil_pn:name="logibone_camera.drc"/>
-      <outfile xil_pn:name="logibone_camera.ut"/>
-      <outfile xil_pn:name="usage_statistics_webtalk.html"/>
-      <outfile xil_pn:name="webtalk.log"/>
-      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1366619971" xil_pn:in_ck="-7470918721655925827" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1366619966">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
-      <outfile xil_pn:name="logibone_camera.twr"/>
-      <outfile xil_pn:name="logibone_camera.twx"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
   </transforms>
 

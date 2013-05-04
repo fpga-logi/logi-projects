@@ -8,6 +8,7 @@
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
          <ClosedNode>/addr_latches_peripheral - Behavioral |home|jpiat|development|FPGA|logi-family|hard-cv|hw|rtl|bus|peripheral|addr_latches_peripheral.vhd</ClosedNode>
+         <ClosedNode>/erode3x3 - Behavioral |home|jpiat|development|FPGA|logi-family|hard-cv|hw|rtl|image|filter|erode3x3.vhd</ClosedNode>
          <ClosedNode>/logibone_blob_tracking - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|blob-tracking|logibone-hw|logibone_blob_tracking.vhd/bi_fifo0 - fifo_peripheral - RTL</ClosedNode>
          <ClosedNode>/logibone_blob_tracking - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|blob-tracking|logibone-hw|logibone_blob_tracking.vhd/binarization0 - synced_binarization - Behavioral</ClosedNode>
          <ClosedNode>/logibone_blob_tracking - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|blob-tracking|logibone-hw|logibone_blob_tracking.vhd/blob_tracker - blob_detection - Behavioral</ClosedNode>
@@ -23,13 +24,13 @@
          <ClosedNode>/tb_pgm - test |home|jpiat|development|FPGA|logi-family|hard-cv|hw|simulation|camera|pgm.vhd</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>logibone_blob_tracking - Behavioral (/home/jpiat/development/FPGA/logi-family/logi-projects/blob-tracking/logibone-hw/logibone_blob_tracking.vhd)</SelectedItem>
+         <SelectedItem>logibone_blob_tracking.ucf (/home/jpiat/development/FPGA/logi-family/logi-projects/blob-tracking/logibone-hw/logibone_blob_tracking.ucf)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >2</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >24</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000242000000020000000000000000000000000200000064ffffffff000000810000000300000002000002420000000100000003000000000000000100000003</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>logibone_blob_tracking - Behavioral (/home/jpiat/development/FPGA/logi-family/logi-projects/blob-tracking/logibone-hw/logibone_blob_tracking.vhd)</CurrentItem>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000283000000020000000000000000000000000200000064ffffffff000000810000000300000002000002830000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>logibone_blob_tracking.ucf (/home/jpiat/development/FPGA/logi-family/logi-projects/blob-tracking/logibone-hw/logibone_blob_tracking.ucf)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
       <ClosedNodes>
@@ -41,13 +42,13 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem>Design Summary/Reports</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001b6000000010000000100000000000000000000000064ffffffff000000810000000000000001000001b60000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000132000000010000000100000000000000000000000064ffffffff000000810000000000000001000001320000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem>Design Summary/Reports</CurrentItem>
    </ItemView>
    <ItemView guiview="File" >
       <ClosedNodes>
@@ -88,4 +89,18 @@
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000014c0000011d01000000060100000002</SourceProcessView>
    <CurrentView>Implementation</CurrentView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_UCF" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f2000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f20000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
 </Project>

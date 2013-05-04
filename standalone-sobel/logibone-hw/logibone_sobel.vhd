@@ -43,7 +43,8 @@ port( OSC_FPGA : in std_logic;
 		
 		--gpmc interface
 		GPMC_CSN : in std_logic_vector(2 downto 0);
-		GPMC_WEN, GPMC_OEN, GPMC_ADVN, GPMC_CLK, GPMC_BE0N, GPMC_BE1N:	in std_logic;
+		GPMC_BEN:	in std_logic_vector(1 downto 0);
+		GPMC_WEN, GPMC_OEN, GPMC_ADVN, GPMC_CLK :	in std_logic;
 		GPMC_AD :	inout std_logic_vector(15 downto 0)	
 );
 end logibone_sobel;
@@ -136,7 +137,8 @@ divider : simple_counter
 			  Q => counter_output
 			  );
 LED(0) <= counter_output(24);
-LED(1) <= (GPMC_BE0N XOR GPMC_BE1N) ;
+LED(1) <= counter_output(25);
+--LED(1) <= (GPMC_BEN(0) AND GPMC_BEN(1)) ;
 
 
 mem_interface0 : muxed_addr_interface
@@ -146,7 +148,8 @@ port map(clk => clk_sys ,
 	  data	=> GPMC_AD,
 	  --ext_clk => GPMC_CLK, 
 	  wrn => GPMC_WEN, oen => GPMC_OEN, addr_en_n => GPMC_ADVN, csn => GPMC_CSN(1),
-	  be1n => GPMC_BE1N, be0n => GPMC_BE0N, 
+	  be1n => GPMC_BEN(1), be0n => GPMC_BEN(0), 
+	  --be1n => '0', be0n => '0', 
 	  data_bus_out	=> bus_data_out,
 	  data_bus_in	=> bus_data_in ,
 	  addr_bus	=> bus_addr, 
@@ -234,10 +237,10 @@ port map(
 );
 
 --
---output_pxclk <= pxclk_from_hyst ;
---output_href <= href_from_hyst ;
---output_vsync <= vsync_from_hyst ;
---output_pixel <= pixel_from_hyst ;
+output_pxclk <= pxclk_from_hyst ;
+output_href <= href_from_hyst ;
+output_vsync <= vsync_from_hyst ;
+output_pixel <= pixel_from_hyst ;
 
 --output_pxclk <= pxclk_from_sobel ;
 --output_href <= href_from_sobel ;
@@ -249,10 +252,10 @@ port map(
 --output_vsync <= vsync_from_gauss ;
 --output_pixel <= pixel_from_gauss ;
 
-output_pxclk <= pxclk_from_interface ;
-output_href <= href_from_interface ;
-output_vsync <= vsync_from_interface ;
-output_pixel <= pixel_from_interface ;
+--output_pxclk <= pxclk_from_interface ;
+--output_href <= href_from_interface ;
+--output_vsync <= vsync_from_interface ;
+--output_pixel <= pixel_from_interface ;
 --output_pixel <= X"FF" ;
 		
 	process(clk_sys, sys_resetn)
