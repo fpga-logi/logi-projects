@@ -304,7 +304,7 @@ port map( 		clk => clk_sys,
 );
 
 
-erode0 : erode3x3 
+smooth0 : classifier_smoother 
 generic map(WIDTH => 320, HEIGHT => 240)
 port map(
  		clk => clk_sys, 
