@@ -1,0 +1,12 @@
+These file builds a python wrapper for the mpu9150 library :
+
+git://github.com/Pansenti/linux-mpu9150.git
+
+just copy the two files into the cloned git folder and run :
+
+python setup.py build
+python setup.py install
+
+To test the installation run the test_dmp.py file (with imu connected to I2C bus 1)
+
+You will need the python-dev package installed to build the package.  
