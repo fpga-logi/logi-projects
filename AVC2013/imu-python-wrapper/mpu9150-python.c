@@ -74,7 +74,7 @@ static PyObject* getFusedEuler(PyObject* self, PyObject* arg)
 static PyObject* getRawGyro(PyObject* self, PyObject* arg)
 {
 	PyObject* transferTuple;
-	transferTuple = Py_BuildValue("(fff)",mpu.rawGyro[0], mpu.rawGyro[1], mpu.rawGyro[2] );
+	transferTuple = Py_BuildValue("(hhh)",mpu.rawGyro[0], mpu.rawGyro[1], mpu.rawGyro[2] );
 	/*transferTuple = PyTuple_New(3);
 	PyTuple_SetItem(transferTuple, 0, Py_BuildValue("f",mpu.rawGyro[0] ));
 	PyTuple_SetItem(transferTuple, 1, Py_BuildValue("f",mpu.rawGyro[1] ));
@@ -85,7 +85,7 @@ static PyObject* getRawGyro(PyObject* self, PyObject* arg)
 static PyObject* getCalAcc(PyObject* self, PyObject* arg)
 {
 	PyObject* transferTuple;
-	transferTuple = Py_BuildValue("(fff)",mpu.calibratedAccel[0], mpu.calibratedAccel[1], mpu.calibratedAccel[2] );
+	transferTuple = Py_BuildValue("(hhh)",mpu.calibratedAccel[0], mpu.calibratedAccel[1], mpu.calibratedAccel[2] );
 	/*transferTuple = PyTuple_New(3);
 	PyTuple_SetItem(transferTuple, 0, Py_BuildValue("f",mpu.calibratedAccel[0] ));
 	PyTuple_SetItem(transferTuple, 1, Py_BuildValue("f",mpu.calibratedAccel[1] ));
@@ -97,7 +97,7 @@ static PyObject* getCalMag(PyObject* self, PyObject* arg)
 {
 	PyObject* transferTuple;
 	//transferTuple = PyTuple_New(3);
-	transferTuple = Py_BuildValue("(fff)",mpu.calibratedMag[0], mpu.calibratedMag[1], mpu.calibratedMag[2] );
+	transferTuple = Py_BuildValue("(hhh)",mpu.calibratedMag[0], mpu.calibratedMag[1], mpu.calibratedMag[2] );
 	/*PyTuple_SetItem(transferTuple, 0, Py_BuildValue("f",mpu.calibratedMag[0] ));
 	PyTuple_SetItem(transferTuple, 1, Py_BuildValue("f",mpu.calibratedMag[1] ));
 	PyTuple_SetItem(transferTuple, 2, Py_BuildValue("f",mpu.calibratedMag[2] ));*/
