@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/logibone-ram-test/logibone_ram_test.ncd
-OUTFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/logibone-ram-test/logibone_ram_test.bit
+INFILE=D:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-Projects\Logi-projects\logibone-ram-test\logibone_ram_test.ncd
+OUTFILE=D:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-Projects\Logi-projects\logibone-ram-test\logibone_ram_test.bit
 FAMILY=Spartan6
 PART=xc6slx9-2tqg144
-WORKINGDIR=/home/jpiat/development/FPGA/logi-family/logi-projects/logibone-ram-test
+WORKINGDIR=D:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-Projects\Logi-projects\logibone-ram-test
 LICENSE=WebPack
-USER_INFO=__174162038_174162039_174422429
+USER_INFO=202672454_0_0_338
