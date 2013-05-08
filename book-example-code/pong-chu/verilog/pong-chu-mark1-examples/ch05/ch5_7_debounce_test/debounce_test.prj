@@ -1,0 +1,3 @@
+verilog work "../list_ch05_06_db_fsm.v"
+verilog work "../../ch04/list_ch04_15_disp_hex_mux.v"
+verilog work "../list_ch05_07_debounce_test.v"

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<generated_project xmlns="http://www.xilinx.com/XMLSchema" xmlns:xil_pn="http://www.xilinx.com/XMLSchema">
+
+  <!--                                                          -->
+
+  <!--             For tool use only. Do not edit.              -->
+
+  <!--                                                          -->
+
+  <!-- ProjectNavigator created generated project file.         -->
+
+  <!-- For use in tracking generated file and other information -->
+
+  <!-- allowing preservation of process status.                 -->
+
+  <!--                                                          -->
+
+  <!-- Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved. -->
+
+  <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
+
+  <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="mark1-rpi-hw.xise"/>
+
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/par.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="block3X3_pixel_pipeline.bld"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="block3X3_pixel_pipeline.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="block3X3_pixel_pipeline.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="block3X3_pixel_pipeline.ncd" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="block3X3_pixel_pipeline.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="block3X3_pixel_pipeline.ngd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="block3X3_pixel_pipeline.ngr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="block3X3_pixel_pipeline.par" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="block3X3_pixel_pipeline.pcf" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="block3X3_pixel_pipeline.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="block3X3_pixel_pipeline.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="block3X3_pixel_pipeline.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="block3X3_pixel_pipeline.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="block3X3_pixel_pipeline.twx" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="block3X3_pixel_pipeline.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="block3X3_pixel_pipeline.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="block3X3_pixel_pipeline_envsettings.html"/>
+    <file xil_pn:fileType="FILE_NCD" xil_pn:name="block3X3_pixel_pipeline_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="block3X3_pixel_pipeline_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="block3X3_pixel_pipeline_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="block3X3_pixel_pipeline_map.ncd" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="block3X3_pixel_pipeline_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="block3X3_pixel_pipeline_pad.csv" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="block3X3_pixel_pipeline_pad.txt" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="block3X3_pixel_pipeline_summary.html"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="block3X3_pixel_pipeline_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="ipcore_dir/coregen.log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="mark1_rpi_sobel.bgn" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="mark1_rpi_sobel.bit" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="mark1_rpi_sobel.bld"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="mark1_rpi_sobel.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_DRC" xil_pn:name="mark1_rpi_sobel.drc" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="mark1_rpi_sobel.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="mark1_rpi_sobel.ncd" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="mark1_rpi_sobel.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="mark1_rpi_sobel.ngd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="mark1_rpi_sobel.ngr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="mark1_rpi_sobel.par" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="mark1_rpi_sobel.pcf" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="mark1_rpi_sobel.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="mark1_rpi_sobel.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="mark1_rpi_sobel.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="mark1_rpi_sobel.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="mark1_rpi_sobel.twx" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="mark1_rpi_sobel.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="mark1_rpi_sobel.ut" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="mark1_rpi_sobel.xst"/>
+    <file xil_pn:fileType="FILE_NCD" xil_pn:name="mark1_rpi_sobel_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="mark1_rpi_sobel_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="mark1_rpi_sobel_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="mark1_rpi_sobel_map.ncd" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="mark1_rpi_sobel_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="mark1_rpi_sobel_pad.csv" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="mark1_rpi_sobel_pad.txt" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="mark1_rpi_sobel_preroute.twr" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="mark1_rpi_sobel_preroute.twx" xil_pn:subbranch="Map"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="mark1_rpi_sobel_summary.html"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="mark1_rpi_sobel_xst.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="sobel3x3.bld"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="sobel3x3.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="sobel3x3.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="sobel3x3.ncd" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="sobel3x3.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="sobel3x3.ngd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="sobel3x3.ngr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="sobel3x3.par" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="sobel3x3.pcf" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="sobel3x3.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="sobel3x3.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="sobel3x3.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="sobel3x3.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="sobel3x3.twx" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="sobel3x3.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="sobel3x3.xst"/>
+    <file xil_pn:fileType="FILE_NCD" xil_pn:name="sobel3x3_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="sobel3x3_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="sobel3x3_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="sobel3x3_map.ncd" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="sobel3x3_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="sobel3x3_pad.csv" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="sobel3x3_pad.txt" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="sobel3x3_pixel_pipeline.bld"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="sobel3x3_pixel_pipeline.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="sobel3x3_pixel_pipeline.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="sobel3x3_pixel_pipeline.ncd" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="sobel3x3_pixel_pipeline.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="sobel3x3_pixel_pipeline.ngd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="sobel3x3_pixel_pipeline.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="sobel3x3_pixel_pipeline.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="sobel3x3_pixel_pipeline.par" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="sobel3x3_pixel_pipeline.pcf" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="sobel3x3_pixel_pipeline.prj"/>
+    <file xil_pn:fileType="FILE_TRCE_MISC" xil_pn:name="sobel3x3_pixel_pipeline.ptwx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="sobel3x3_pixel_pipeline.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="sobel3x3_pixel_pipeline.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="sobel3x3_pixel_pipeline.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="sobel3x3_pixel_pipeline.twx" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="sobel3x3_pixel_pipeline.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XPI" xil_pn:name="sobel3x3_pixel_pipeline.xpi"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="sobel3x3_pixel_pipeline.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="sobel3x3_pixel_pipeline_envsettings.html"/>
+    <file xil_pn:fileType="FILE_NCD" xil_pn:name="sobel3x3_pixel_pipeline_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="sobel3x3_pixel_pipeline_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="sobel3x3_pixel_pipeline_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="sobel3x3_pixel_pipeline_map.ncd" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="sobel3x3_pixel_pipeline_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="sobel3x3_pixel_pipeline_map.xrpt"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="sobel3x3_pixel_pipeline_ngdbuild.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="sobel3x3_pixel_pipeline_pad.csv" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="sobel3x3_pixel_pipeline_pad.txt" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="sobel3x3_pixel_pipeline_par.xrpt"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="sobel3x3_pixel_pipeline_summary.html"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="sobel3x3_pixel_pipeline_summary.xml"/>
+    <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="sobel3x3_pixel_pipeline_usage.xml"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="sobel3x3_pixel_pipeline_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="sobel3x3_summary.html"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="sobel3x3_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="usage_statistics_webtalk.html"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="webtalk.log"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
+  </files>
+
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1366217309" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1366217309">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1366274716" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="6246544744880957151" xil_pn:start_ts="1366274716">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1366274716" xil_pn:in_ck="2088049057168484748" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="6801718947886193454" xil_pn:start_ts="1366274716">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="ipcore_dir/clock_gen.vhd"/>
+      <outfile xil_pn:name="ipcore_dir/clock_gen/example_design/clock_gen_exdes.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1366274716" xil_pn:in_ck="-4881357408278203013" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1366274716">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1366274716" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="2675940169582904929" xil_pn:start_ts="1366274716">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1366274716" xil_pn:in_ck="-4881357408278203013" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="250970745955965653" xil_pn:start_ts="1366274716">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1366274716" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="3190259655737475704" xil_pn:start_ts="1366274716">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1366275137" xil_pn:in_ck="7213263952699570388" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="5299925422792437639" xil_pn:start_ts="1366275128">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="block3X3_pixel_pipeline.ngr"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.lso"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.ngc"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.ngr"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.prj"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.stx"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.syr"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.xst"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_xst.xrpt"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
+    </transform>
+    <transform xil_pn:end_ts="1366274724" xil_pn:in_ck="-7445700095110987226" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="8996588939048344438" xil_pn:start_ts="1366274724">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1366275142" xil_pn:in_ck="-6700185710405658381" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="4889189163985697657" xil_pn:start_ts="1366275137">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.bld"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.ngd"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_ngdbuild.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1366275170" xil_pn:in_ck="4217904797756814647" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="1448924893915930207" xil_pn:start_ts="1366275142">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.pcf"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_map.map"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_map.mrp"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_map.ncd"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_map.ngm"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_map.xrpt"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_summary.xml"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_usage.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1366275184" xil_pn:in_ck="7789567743604008923" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1366275170">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.ncd"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.pad"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.par"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.ptwx"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.unroutes"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.xpi"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_pad.csv"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_pad.txt"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_par.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1366275184" xil_pn:in_ck="1875995469655400999" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1366275179">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.twr"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.twx"/>
+    </transform>
+  </transforms>
+
+</generated_project>

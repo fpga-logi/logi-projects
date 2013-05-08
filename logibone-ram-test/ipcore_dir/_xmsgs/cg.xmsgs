@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="error" file="sim" num="569" delta="old" >Failed to set default project options.
+</msg>
+
+<msg type="error" file="sim" num="621" delta="old" >Unable to create project from file &apos;<arg fmt="%s" index="1">D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-Projects/Logi-projects/logibone-ram-test/ipcore_dir/clock_gen.xco</arg>&apos;.
+</msg>
+
+</messages>
+

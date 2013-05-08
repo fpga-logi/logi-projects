@@ -1,0 +1,7 @@
+install python-json, python-mmap, python-ncurses
+
+execute addr_mux.sh
+execute gpmc_config/setup_gpmc
+execute Logibone.py for testing, should return {21, 55, 55, 14}
+modify config.py for your worker
+execute logibone_miner.py ... and get rich
