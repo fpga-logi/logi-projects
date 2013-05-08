@@ -25,9 +25,13 @@
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="sdram_tester_tb_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="logibone_ram_test_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="logibone_sdram_test_tb_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="logibone_sdram_test_tb_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="logibone_sdram_test_tb_isim_beh.wdb"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="logibone_sdram_test_tb_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="mt48lc8m16a2_stx_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="sdram_tester_tb_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="sdram_tester_tb_isim_beh.wdb"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
   </files>
 
@@ -35,24 +39,22 @@
     <transform xil_pn:end_ts="1368032447" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1368032447">
       <status xil_pn:value="SuccessfullyRun"/>
     </transform>
-    <transform xil_pn:end_ts="1368032580" xil_pn:in_ck="-7705630521360876131" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1368032580">
+    <transform xil_pn:end_ts="1368054693" xil_pn:in_ck="-7531110047017963540" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1368054693">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputAdded"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="logibone_sdram_test.vhd"/>
+      <outfile xil_pn:name="logibone_sdram_test_tb.vhd"/>
+      <outfile xil_pn:name="mt48lc8m16a2.vhd"/>
+      <outfile xil_pn:name="mti_pkg.vhd"/>
       <outfile xil_pn:name="sdram_hamster.vhd"/>
       <outfile xil_pn:name="sdram_tester.vhd"/>
       <outfile xil_pn:name="sdram_tester_tb.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1368032580" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-3748136233260486440" xil_pn:start_ts="1368032580">
+    <transform xil_pn:end_ts="1368053198" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-385603639989285444" xil_pn:start_ts="1368053198">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1368032580" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-6518430049728662186" xil_pn:start_ts="1368032580">
+    <transform xil_pn:end_ts="1368053198" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-5695965265723876806" xil_pn:start_ts="1368053198">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
@@ -62,45 +64,33 @@
       <outfile xil_pn:name="ipcore_dir/clock_gen.vhd"/>
       <outfile xil_pn:name="ipcore_dir/clock_gen/example_design/clock_gen_exdes.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1368032580" xil_pn:in_ck="7492985519921250437" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1368032580">
+    <transform xil_pn:end_ts="1368054693" xil_pn:in_ck="7612421792624391124" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1368054693">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="ipcore_dir/clock_gen.vhd"/>
       <outfile xil_pn:name="ipcore_dir/clock_gen/example_design/clock_gen_exdes.vhd"/>
       <outfile xil_pn:name="logibone_sdram_test.vhd"/>
+      <outfile xil_pn:name="logibone_sdram_test_tb.vhd"/>
+      <outfile xil_pn:name="mt48lc8m16a2.vhd"/>
+      <outfile xil_pn:name="mti_pkg.vhd"/>
       <outfile xil_pn:name="sdram_hamster.vhd"/>
       <outfile xil_pn:name="sdram_tester.vhd"/>
       <outfile xil_pn:name="sdram_tester_tb.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1368032583" xil_pn:in_ck="7492985519921250437" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-5022385791867142832" xil_pn:start_ts="1368032580">
+    <transform xil_pn:end_ts="1368054698" xil_pn:in_ck="7612421792624391124" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="4787965730166423243" xil_pn:start_ts="1368054693">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
-      <outfile xil_pn:name="sdram_tester_tb_beh.prj"/>
-      <outfile xil_pn:name="sdram_tester_tb_isim_beh.exe"/>
+      <outfile xil_pn:name="logibone_sdram_test_tb_beh.prj"/>
+      <outfile xil_pn:name="logibone_sdram_test_tb_isim_beh.exe"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1368032583" xil_pn:in_ck="7970385447746366321" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="4891499914359842493" xil_pn:start_ts="1368032583">
+    <transform xil_pn:end_ts="1368054698" xil_pn:in_ck="-4826604006844363115" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-1355760272305216040" xil_pn:start_ts="1368054698">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="isim.cmd"/>
-      <outfile xil_pn:name="sdram_tester_tb_isim_beh.wdb"/>
+      <outfile xil_pn:name="logibone_sdram_test_tb_isim_beh.wdb"/>
     </transform>
   </transforms>
 
