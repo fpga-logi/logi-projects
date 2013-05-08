@@ -156,7 +156,7 @@ sdram_ctrl0 : sdram_controller
   port map(
       clock_100 => clk_mem,
       clock_100_delayed_3ns => clk_off,
-      rst => resetn,
+      rst => (NOT resetn),
 
    -- Signals to/from the SDRAM chip
    DRAM_ADDR   => DRAM_ADDR,
