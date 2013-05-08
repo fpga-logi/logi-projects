@@ -8,10 +8,7 @@
 <!-- Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-Projects/Logi-projects/logibone-sdram_test/ipcore_dir/clock_gen.vhd&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-Projects/Logi-projects/logibone-sdram_test/ipcore_dir/clock_gen/example_design/clock_gen_exdes.vhd&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/logi-projects/logibone-sdram_test/ipcore_dir/clock_gen.vhd&quot; into library work</arg>
 </msg>
 
 </messages>

@@ -92,6 +92,7 @@ with state select
 							
 with state select
 	reset_addr_count <=  '1' when DONE,
+								'1' when INIT, --only for sim
 								'0' when others ;
 process(clk, resetn)
 begin
@@ -132,7 +133,7 @@ begin
 	next_state <= state ;
 	case state is
 		when INIT =>
-			if addr_count = addr_count_max then
+			if addr_count = 0 then --addr_count_max then
 				next_state <= WRITE_SDRAM ;
 			end if ;
 		when WRITE_SDRAM =>
