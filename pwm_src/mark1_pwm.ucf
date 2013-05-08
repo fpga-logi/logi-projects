@@ -1,0 +1,9 @@
+NET CLK		LOC="P55";
+NET rst LOC="P51";
+NET btnU  LOC= "P56";
+NET btnUp  LOC= "P58";
+NET btnDown  LOC= "P57";
+#NET servo_out LOC = "P140";
+NET servo_out1 LOC = "P97";
+NET "btnUp" CLOCK_DEDICATED_ROUTE = FALSE;
+net led0 loc = "P41";

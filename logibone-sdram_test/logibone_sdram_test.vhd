@@ -200,7 +200,6 @@ port map(
 	);
 
 
-
 LED(0) <= test_done;
 LED(1) <= test_failed;
 
