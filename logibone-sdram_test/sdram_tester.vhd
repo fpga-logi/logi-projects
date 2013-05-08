@@ -87,6 +87,7 @@ end process ;
 with state select
 	en_addr_count <= (not pending) when WRITE_SDRAM,
 						  (data_valid) when READ_SDRAM,
+						  '1' when INIT,
 						   '0' when others ;
 							
 with state select
@@ -104,7 +105,7 @@ begin
 		end if ;
 	end if ;
 end process ;
-
+address <= addr_count ;
 
 en_cycle_count <= '1' when state = READ_SDRAM and addr_count = addr_count_max else
 						'0';
