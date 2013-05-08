@@ -1,0 +1,97 @@
+######################################################
+######################################################
+## These constraints are for MARK-1 RPI/FPGA shield ##
+######################################################
+######################################################
+
+######################
+# Timing Constraints #
+######################
+
+##### Grouping Constraints #####
+NET "OSC_FPGA" TNM_NET = clk50_grp;
+NET "GPMC_CLK" TNM_NET = clk100_grp;
+NET "PMOD1_10" TNM_NET = clkcam_grp;
+PIN "sys_clocks_gen/clkout2_buf.O" CLOCK_DEDICATED_ROUTE = FALSE;
+NET "PMOD1_10" CLOCK_DEDICATED_ROUTE = FALSE;
+##### Clock Period Constraints #####
+TIMESPEC TS_PER_CLK50 = PERIOD "clk50_grp" 20.0 ns;
+TIMESPEC TS_PER_CLK100 = PERIOD "clk100_grp" 10.0 ns;
+TIMESPEC TS_PER_CLK24 = PERIOD "clkcam_grp" 40.0 ns;
+
+#######################
+# Pin LOC Constraints #
+#######################
+
+
+
+#OSCILLATOR
+NET "OSC_FPGA"				LOC = "P92";
+#GPMC PORT##############################################################################
+#GPMC CLK
+NET "GPMC_CLK"           LOC = "P95"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   # 
+#GPMC CONTROL
+NET "GPMC_CSN<2>"          LOC = "P104"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  |  IOB=FORCE ;   # 
+NET "GPMC_CSN<1>"          LOC = "P102"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  |  IOB=FORCE ;  # 
+NET "GPMC_CSN<0>"          LOC = "P97"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  |  IOB=FORCE ;   # 
+NET "GPMC_ADVN"          LOC = "P121"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW   |  IOB=FORCE;   #
+NET "GPMC_OEN"           LOC = "P120"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW   |  IOB=FORCE;   #  
+NET "GPMC_BE0N"          LOC = "P119"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  |  IOB=FORCE ;   # 
+NET "GPMC_BE1N"          LOC = "P46"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW   |  IOB=FORCE;   # 
+NET "GPMC_WEN"          LOC = "P118"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  |  IOB=FORCE ;  # 
+#GPMC A/D
+NET "GPMC_AD<0>"           LOC = "P98"| IOSTANDARD = LVTTL | SLEW = SLOW   |  IOB=FORCE ;   # 
+NET "GPMC_AD<1>"           LOC = "P99"| IOSTANDARD = LVTTL | SLEW = SLOW   |  IOB=FORCE;   # 
+NET "GPMC_AD<2>"           LOC = "P124"| IOSTANDARD = LVTTL | SLEW = SLOW  |  IOB=FORCE;   # 
+NET "GPMC_AD<3>"           LOC = "P123"| IOSTANDARD = LVTTL | SLEW = SLOW  |  IOB=FORCE;   # 
+NET "GPMC_AD<4>"           LOC = "P100"| IOSTANDARD = LVTTL | SLEW = SLOW  |  IOB=FORCE;  # 
+NET "GPMC_AD<5>"           LOC = "P101"| IOSTANDARD = LVTTL |  SLEW = SLOW |  IOB=FORCE ;   # 
+NET "GPMC_AD<6>"           LOC = "P127"| IOSTANDARD = LVTTL |  SLEW = SLOW |  IOB=FORCE ;   # 
+NET "GPMC_AD<7>"           LOC = "P126"| IOSTANDARD = LVTTL |  SLEW = SLOW |  IOB=FORCE ;   # 
+NET "GPMC_AD<8>"           LOC = "P105"| IOSTANDARD = LVTTL |  SLEW = SLOW |  IOB=FORCE;   # 
+NET "GPMC_AD<9>"           LOC = "P115"| IOSTANDARD = LVTTL |  SLEW = SLOW |  IOB=FORCE;   # 
+NET "GPMC_AD<10>"          LOC = "P114"| IOSTANDARD = LVTTL |  SLEW = SLOW |  IOB=FORCE ;  # 
+NET "GPMC_AD<11>"          LOC = "P94"| IOSTANDARD = LVTTL |  SLEW = SLOW  |  IOB=FORCE;   # 
+NET "GPMC_AD<12>"          LOC = "P116"| IOSTANDARD = LVTTL |  SLEW = SLOW |  IOB=FORCE ;   # 
+NET "GPMC_AD<13>"          LOC = "P117"| IOSTANDARD = LVTTL |  SLEW = SLOW |  IOB=FORCE ;  # 
+NET "GPMC_AD<14>"          LOC = "P111"| IOSTANDARD = LVTTL |  SLEW = SLOW |  IOB=FORCE ;  # 
+NET "GPMC_AD<15>"          LOC = "P112"| IOSTANDARD = LVTTL |  SLEW = SLOW |  IOB=FORCE ;   # 
+#LED######################################################################################
+NET "LED<0>"           LOC = "P55" | IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   # 
+NET "LED<1>"           LOC = "P93"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   # 
+#PUSH BUTTONS##############################################################################
+NET "PB<0>"           LOC = "P88" | IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   # 
+NET "PB<1>"           LOC = "P75" | IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   # 
+#BB SPI PORT################################################################################
+#NET "BB_SPI_MISO"	LOC = "P51";
+#NET "BB_SPI_SCK"	LOC = "P50";
+#NET "BB_SPI_SS"	LOC = "P48";
+#NET "BB_SPI_MOSI"	LOC = "P47";
+#PMOD1######################################################################################
+NET "PMOD1_1"	LOC = "P67"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;
+NET "PMOD1_2"	LOC = "P62"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;
+NET "PMOD1_3"	LOC = "P58"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  |PULLUP;
+NET "PMOD1_4"	LOC = "P56"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;
+NET "PMOD1_7"	LOC = "P66"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;
+NET "PMOD1_8"	LOC = "P61"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;
+NET "PMOD1_9"	LOC = "P59"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  | PULLUP;
+NET "PMOD1_10"	LOC = "P57"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;
+#PMOD2########################################################################################
+NET "PMOD2<0>"	LOC = "P85"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW ;
+NET "PMOD2<1>"	LOC = "P83"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW ;
+NET "PMOD2<2>"	LOC = "P81"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW ;
+NET "PMOD2<3>"	LOC = "P79"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW ;
+NET "PMOD2<4>"	LOC = "P84"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW ;
+NET "PMOD2<5>"	LOC = "P82"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW ;
+NET "PMOD2<6>"	LOC = "P80"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW ;
+NET "PMOD2<7>"	LOC = "P78"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW ;
+#SATA##########################################################################################
+#NET "SATA_D1_P"	LOC = "P44";
+#NET "SATA_D1_N"	LOC = "P43";
+#NET "SATA_D2_P"	LOC = "P41";
+#NET "SATA_D2_N"	LOC = "P40";
+
+NET "MODE<0>" LOC = "P69" | IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW ;
+NET "MODE<1>" LOC = "P60" | IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW ;
+NET "INIT" LOC = "P39" | IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW ;
+#RAM - "RAM21" IS NOT ROUTED!!  = ADR15 (SRAM) = DQ13 (SDRAM)
