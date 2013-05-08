@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/407/trunk/platform/mark1/mark1_beaglebone_mining/ipcore_dir
+END
+clock_gen.vho
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/407/trunk/platform/mark1/mark1_beaglebone_mining/ipcore_dir/clock_gen.vho
+END
+clock_gen.ucf
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/407/trunk/platform/mark1/mark1_beaglebone_mining/ipcore_dir/clock_gen.ucf
+END
+clock_gen.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/407/trunk/platform/mark1/mark1_beaglebone_mining/ipcore_dir/clock_gen.vhd
+END
+clock_gen.gise
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/413/trunk/platform/mark1/mark1_beaglebone_mining/ipcore_dir/clock_gen.gise
+END
+clock_gen.xise
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/407/trunk/platform/mark1/mark1_beaglebone_mining/ipcore_dir/clock_gen.xise
+END
