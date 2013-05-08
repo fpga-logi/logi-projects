@@ -89,6 +89,48 @@ component sdram_controller is
 	end component;
 
 
+component mt48lc8m16a2 IS
+    GENERIC (
+        tAC       : TIME    :=  5.0 ns;     -- Timing parameter for -8E device
+        tAH       : TIME    :=  1.0 ns;
+        tAS       : TIME    :=  2.0 ns;
+        tCH       : TIME    :=  3.0 ns;
+        tCL       : TIME    :=  3.0 ns;
+      --   tCK       : TIME    :=  7.5 ns;          -- 133mhz operation
+        tCK       : TIME    :=  10.0 ns;          -- 100mhz operation
+        tDH       : TIME    :=  1.0 ns;
+        tDS       : TIME    :=  2.0 ns;
+        tCKH      : TIME    :=  1.0 ns;
+        tCKS      : TIME    :=  2.0 ns;
+        tCMH      : TIME    :=  1.0 ns;
+        tCMS      : TIME    :=  2.0 ns;
+        tHZ       : TIME    :=  6.0 ns;
+        tOH       : TIME    :=  3.0 ns;
+        tMRD      : INTEGER :=  2;
+        tRAS      : TIME    := 50.0 ns;
+        tRC       : TIME    := 70.0 ns;
+        tRCD      : TIME    := 20.0 ns;
+        tRP       : TIME    := 20.0 ns;
+        tRRD      : TIME    := 20.0 ns;
+        tWR       : INTEGER :=  2;
+        addr_bits : INTEGER := 13;
+        data_bits : INTEGER := 16;
+        col_bits  : INTEGER :=  11
+    );
+    PORT (
+        Dq    : INOUT STD_LOGIC_VECTOR (data_bits - 1 DOWNTO 0) := (OTHERS => 'Z');
+        Addr  : IN    STD_LOGIC_VECTOR (addr_bits - 1 DOWNTO 0) := (OTHERS => '0');
+        Ba    : IN    STD_LOGIC_VECTOR := "00";
+        Clk   : IN    STD_LOGIC := '0';
+        Cke   : IN    STD_LOGIC := '0';
+        Cs_n  : IN    STD_LOGIC := '1';
+        Ras_n : IN    STD_LOGIC := '0';
+        Cas_n : IN    STD_LOGIC := '0';
+        We_n  : IN    STD_LOGIC := '0';
+        Dqm   : IN    STD_LOGIC_VECTOR (1 DOWNTO 0) := "00"
+    );
+END component;
+
 	signal clk_mem, clk_off : std_logic ;
 	signal resetn  : std_logic ;
 	signal test_done, test_failed : std_logic ;
@@ -98,7 +140,7 @@ component sdram_controller is
    
    signal mem_data_out, mem_data_in : std_logic_vector(31 downto 0);
 	
-	signal DRAM_ADDR   :   STD_LOGIC_VECTOR (12 downto 0);
+	signal 	DRAM_ADDR   :   STD_LOGIC_VECTOR (12 downto 0);
 	signal 	DRAM_BA      :    STD_LOGIC_VECTOR (1 downto 0);
 	signal	DRAM_CAS_N   :    STD_LOGIC;
 	signal	DRAM_CKE      :    STD_LOGIC;
@@ -114,7 +156,19 @@ component sdram_controller is
 begin
 
 
-
+sdram_cmp : mt48lc8m16a2 
+    PORT map(
+        Dq    => DRAM_DQ,
+        Addr  => DRAM_ADDR,
+        Ba    => DRAM_BA,
+        Clk   => DRAM_CLK,
+        Cke   => DRAM_CKE,
+        Cs_n  => DRAM_CS_N,
+        Ras_n => DRAM_RAS_N,
+        Cas_n => DRAM_CAS_N,
+        We_n  => DRAM_WE_N,
+        Dqm  => DRAM_DQM
+    );
 
 
 sdram_ctrl0 : sdram_controller
@@ -127,7 +181,7 @@ sdram_ctrl0 : sdram_controller
   port map(
       clock_100 => clk_mem,
       clock_100_delayed_3ns => clk_off,
-      rst => resetn,
+      rst => (NOT resetn),
 
    -- Signals to/from the SDRAM chip
    DRAM_ADDR   => DRAM_ADDR,
@@ -183,10 +237,12 @@ port map(
  clk_off_process :process
    begin
 		wait for 3 ns ;
-		clk_off <= '0';
-		wait for clk_period/2;
-		clk_off <= '1';
-		wait for clk_period/2;
+		loop1 : while true loop
+			clk_off <= '0';
+			wait for clk_period/2;
+			clk_off <= '1';
+			wait for clk_period/2;
+		end loop loop1 ;
    end process;
 	
 	stim_proc: process
