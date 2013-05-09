@@ -1,17 +1,23 @@
 import fcntl, os, time, struct, binascii
 import mark1Rpi, mpu9150
 
-class avc_platform:
+class AvcPlatform(object):
 
 	blob_fifo_id = 0
 	blob_fifo_base_address = 0x0000
 	classifier_lut_base_address = 0x1000
 	servo_base_address = {0x2000, 0x2001}
-	enc_base_address = {0x2002, 0x2003}
+	enc_base_address = {0x2002, 0x2004}
 
 	MIN_ANGLE = -45.0
 	MAX_ANGLE = 45.0
 	PULSE_CENTER = 127
+
+ 	_instance = None
+	def __new__(cls, *args, **kwargs):
+		if not cls._instance:
+			cls._instance = super(AvcPlatform, cls).__new__(cls, *args, **kwargs)
+		return cls._instance
 	
 	def __init__(self):
 		mark1Rpi.fifoOpen(0)
@@ -30,8 +36,8 @@ class avc_platform:
 		self.setServoPulse(index, pulse)
 
 	def getEncoderValue(self, index):
-		count_tuple = mark1Rpi.directRead(enc_base_address(index), 2);
-		return (count_tuple(0) << 8 + count_tuple(1))
+		count_tuple = mark1Rpi.directRead(enc_base_address(index), 4);
+		return ((count_tuple(0) << 24) + (count_tuple(1) << 16) + (count_tuple(2) << 8) + count_tuple(3))
 
 	def getPlatformAttitude(self):
 		i = mpu9150.mpuRead()

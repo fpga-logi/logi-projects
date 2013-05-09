@@ -161,7 +161,7 @@ architecture Behavioral of avc_platform is
 	
 	-- PWM related signals
 	signal pwm_value_1, pwm_value_0 : std_logic_vector(15 downto 0);
-	signal enc_value_1, enc_value_0 : std_logic_vector(15 downto 0);
+	signal enc_value_1, enc_value_0 : std_logic_vector(31 downto 0);
 	signal pwm_clk, pwm_rst : std_logic ;
 	
 	-- Encoders related signal
@@ -235,7 +235,7 @@ begin
 	cs_color_lut <= '1' when bus_addr(15 downto 12) = "0001" else
 				  '0' ; -- 4096 * 16bit address space
 				  
-	cs_latches <= '1' when bus_addr(15 downto 2) = "00100000000000" else
+	cs_latches <= '1' when bus_addr(15 downto 3) = "0010000000000" else
 				  '0' ; -- 4 * 16bit address space
 
 	bus_data_in <= bus_blob_fifo_out when cs_blob_fifo = '1' else
@@ -271,7 +271,7 @@ begin
 		);		
  
 	addr_latches_Inst : addr_latches_peripheral
-		generic map(ADDR_WIDTH => 16, WIDTH => 16, NB => 4)
+		generic map(ADDR_WIDTH => 16, WIDTH => 16, NB => 8)
 		port map(
 			clk => clk_sys, resetn => sys_resetn,
 			addr_bus => bus_addr, 
@@ -282,12 +282,20 @@ begin
 			data_bus_out => bus_latches_data_out,
 			latch_input(0) => pwm_value_0,
 			latch_input(1) => pwm_value_1,
-			latch_input(2) => enc_value_0,
-			latch_input(3) => enc_value_1,
+			latch_input(2) => enc_value_0(15 downto 0),
+			latch_input(3) => enc_value_0(31 downto 16),
+			latch_input(4) => enc_value_1(15 downto 0),
+			latch_input(5) => enc_value_1(31 downto 16),
+			latch_input(6) => (others => '0'), -- for future use
+			latch_input(7) => (others => '0'), -- for future use
 			latch_output(0) => pwm_value_0,
 			latch_output(1) => pwm_value_1,
 			latch_output(2) => open,
-			latch_output(3) => open
+			latch_output(3) => open,
+			latch_output(4) => open,
+			latch_output(5) => open,
+			latch_output(6) => open,
+			latch_output(7) => open
 		);
 		
 	classifier_lut : dpram_NxN	
@@ -438,7 +446,7 @@ begin
 	end process ;
 	ENC_A_RE <= ENC_A and (NOT ENC_A_OLD) ;		  
 	encoder_chan0 : up_down_counter
-		 generic map(NBIT => 16)
+		 generic map(NBIT => 32)
 		 port map( clk => clk_sys,
 					  resetn => pwm_rst,
 					  sraz => '0',
@@ -449,7 +457,7 @@ begin
 					  Q => enc_value_0
 					  );
 	 encoder_chan1 : up_down_counter
-		 generic map(NBIT => 16)
+		 generic map(NBIT => 32)
 		 port map( clk => clk_sys,
 					  resetn => pwm_rst,
 					  sraz => '0',
