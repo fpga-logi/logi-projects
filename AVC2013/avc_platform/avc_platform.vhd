@@ -164,6 +164,9 @@ architecture Behavioral of avc_platform is
 	signal enc_value_1, enc_value_0 : std_logic_vector(15 downto 0);
 	signal pwm_clk, pwm_rst : std_logic ;
 	
+	-- Encoders related signal
+	signal ENC_A_OLD, ENC_A_RE  : std_logic_vector(1 downto 0); 
+	
 	for all : yuv_register_rom use entity work.yuv_register_rom(ov7725_qvga);
 begin
 	
@@ -424,13 +427,22 @@ begin
 			  servo_position => pwm_value_1(7 downto 0),
 			  servo_out => PWM(1));
 			  
--- Encoders counter instantiation			  
-	 encoder_chan0 : up_down_counter
+-- Encoders counter instantiation	
+	process(clk_sys, sys_resetn)
+	begin
+		if sys_resetn = '0' then
+			ENC_A_OLD <= (others => '0');
+		elsif clk_sys'event and clk_sys = '1' then
+			ENC_A_OLD <= ENC_A ;
+		end if ;
+	end process ;
+	ENC_A_RE <= ENC_A and (NOT ENC_A_OLD) ;		  
+	encoder_chan0 : up_down_counter
 		 generic map(NBIT => 16)
 		 port map( clk => clk_sys,
 					  resetn => pwm_rst,
 					  sraz => '0',
-					  en => ENC_A(0) ,  -- must detect rising edge
+					  en => ENC_A_RE(0) ,  -- must detect rising edge
 					  load => '0',
 					  up_downn => ENC_B(0),
 					  E => (others => '0'),
@@ -441,7 +453,7 @@ begin
 		 port map( clk => clk_sys,
 					  resetn => pwm_rst,
 					  sraz => '0',
-					  en => ENC_A(1) , -- must detect rising edge 
+					  en => ENC_A_RE(1) , -- must detect rising edge 
 					  load => '0',
 					  up_downn => ENC_B(1),
 					  E => (others => '0'),
