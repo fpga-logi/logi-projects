@@ -21,8 +21,173 @@
 
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="avc_platform.xise"/>
 
-  <files xmlns="http://www.xilinx.com/XMLSchema"/>
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/par.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="avc_platform.bgn" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="avc_platform.bit" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="avc_platform.bld"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="avc_platform.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_DRC" xil_pn:name="avc_platform.drc" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="avc_platform.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="avc_platform.ncd" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="avc_platform.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="avc_platform.ngd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="avc_platform.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="avc_platform.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="avc_platform.par" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="avc_platform.pcf" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="avc_platform.prj"/>
+    <file xil_pn:fileType="FILE_TRCE_MISC" xil_pn:name="avc_platform.ptwx"/>
+    <file xil_pn:fileType="FILE_SPL" xil_pn:name="avc_platform.spl"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="avc_platform.stx"/>
+    <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="avc_platform.sym" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="avc_platform.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="avc_platform.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="avc_platform.twx" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="avc_platform.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="avc_platform.ut" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:fileType="FILE_XPI" xil_pn:name="avc_platform.xpi"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="avc_platform.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="avc_platform_envsettings.html"/>
+    <file xil_pn:fileType="FILE_NCD" xil_pn:name="avc_platform_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="avc_platform_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="avc_platform_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="avc_platform_map.ncd" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="avc_platform_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="avc_platform_map.xrpt"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="avc_platform_ngdbuild.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="avc_platform_pad.csv" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="avc_platform_pad.txt" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="avc_platform_par.xrpt"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="avc_platform_summary.html"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="avc_platform_summary.xml"/>
+    <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="avc_platform_usage.xml"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="avc_platform_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="ipcore_dir/coregen.log"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="usage_statistics_webtalk.html"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="webtalk.log"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
+  </files>
 
-  <transforms xmlns="http://www.xilinx.com/XMLSchema"/>
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1368101640" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1368101640">
+      <status xil_pn:value="SuccessfullyRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1368101640" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="8267198809260289887" xil_pn:start_ts="1368101640">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1368101640" xil_pn:in_ck="2088049057168484748" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="7516961085325602222" xil_pn:start_ts="1368101640">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="ipcore_dir/clock_gen.vhd"/>
+      <outfile xil_pn:name="ipcore_dir/clock_gen/example_design/clock_gen_exdes.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1368101640" xil_pn:in_ck="-4881357408278203013" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1368101640">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1368101640" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="1098976162641616353" xil_pn:start_ts="1368101640">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1368101640" xil_pn:in_ck="-4881357408278203013" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="250970745955965653" xil_pn:start_ts="1368101640">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1368101640" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="2072690583561928696" xil_pn:start_ts="1368101640">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1368104609" xil_pn:in_ck="6446123898402364913" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-7907035084999458297" xil_pn:start_ts="1368104594">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="avc_platform.lso"/>
+      <outfile xil_pn:name="avc_platform.ngc"/>
+      <outfile xil_pn:name="avc_platform.ngr"/>
+      <outfile xil_pn:name="avc_platform.prj"/>
+      <outfile xil_pn:name="avc_platform.stx"/>
+      <outfile xil_pn:name="avc_platform.syr"/>
+      <outfile xil_pn:name="avc_platform.xst"/>
+      <outfile xil_pn:name="avc_platform_xst.xrpt"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
+    </transform>
+    <transform xil_pn:end_ts="1368101648" xil_pn:in_ck="2276940508962149793" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="9151202500218192630" xil_pn:start_ts="1368101648">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1368104615" xil_pn:in_ck="-7925841141407743227" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-2159050240921245319" xil_pn:start_ts="1368104609">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+      <outfile xil_pn:name="avc_platform.bld"/>
+      <outfile xil_pn:name="avc_platform.ngd"/>
+      <outfile xil_pn:name="avc_platform_ngdbuild.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1368104642" xil_pn:in_ck="-7925841141407743226" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="1448924893915930207" xil_pn:start_ts="1368104615">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+      <outfile xil_pn:name="avc_platform.pcf"/>
+      <outfile xil_pn:name="avc_platform_map.map"/>
+      <outfile xil_pn:name="avc_platform_map.mrp"/>
+      <outfile xil_pn:name="avc_platform_map.ncd"/>
+      <outfile xil_pn:name="avc_platform_map.ngm"/>
+      <outfile xil_pn:name="avc_platform_map.xrpt"/>
+      <outfile xil_pn:name="avc_platform_summary.xml"/>
+      <outfile xil_pn:name="avc_platform_usage.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1368104698" xil_pn:in_ck="6310036934307734815" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1368104642">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+      <outfile xil_pn:name="avc_platform.ncd"/>
+      <outfile xil_pn:name="avc_platform.pad"/>
+      <outfile xil_pn:name="avc_platform.par"/>
+      <outfile xil_pn:name="avc_platform.ptwx"/>
+      <outfile xil_pn:name="avc_platform.unroutes"/>
+      <outfile xil_pn:name="avc_platform.xpi"/>
+      <outfile xil_pn:name="avc_platform_pad.csv"/>
+      <outfile xil_pn:name="avc_platform_pad.txt"/>
+      <outfile xil_pn:name="avc_platform_par.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1368104803" xil_pn:in_ck="-4093045044320464991" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="396117104113915555" xil_pn:start_ts="1368104753">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+      <outfile xil_pn:name="avc_platform.bgn"/>
+      <outfile xil_pn:name="avc_platform.bit"/>
+      <outfile xil_pn:name="avc_platform.drc"/>
+      <outfile xil_pn:name="avc_platform.ut"/>
+      <outfile xil_pn:name="usage_statistics_webtalk.html"/>
+      <outfile xil_pn:name="webtalk.log"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1368104698" xil_pn:in_ck="-7925841141407743358" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1368104692">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+      <outfile xil_pn:name="avc_platform.twr"/>
+      <outfile xil_pn:name="avc_platform.twx"/>
+    </transform>
+  </transforms>
 
 </generated_project>

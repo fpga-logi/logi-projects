@@ -225,8 +225,8 @@ begin
 		);
 
 -- chip select configuration
-	cs_blob_fifo <= '1' when bus_addr(15 downto 10) = "000000" else
-				  '0' ; -- 1024 * 16bit address space
+	cs_blob_fifo <= '1' when bus_addr(15 downto 3) = "0000000000000" else
+				  '0' ; -- 8 * 16bit address space
 				  
 	cs_color_lut <= '1' when bus_addr(15 downto 12) = "0001" else
 				  '0' ; -- 4096 * 16bit address space
@@ -244,7 +244,7 @@ begin
 		generic map(ADDR_WIDTH => 16,
 						WIDTH => 16, 
 						SIZE => 1024, 
-						BURST_SIZE => 512,
+						BURST_SIZE => 4,
 						SYNC_LOGIC_INTERFACE => true)
 		port map(
 			clk => clk_sys,
