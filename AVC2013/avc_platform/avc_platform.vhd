@@ -427,10 +427,10 @@ begin
 -- Encoders counter instantiation			  
 	 encoder_chan0 : up_down_counter
 		 generic map(NBIT => 16)
-		 port map( clk => ENC_A(0),
+		 port map( clk => clk_sys,
 					  resetn => pwm_rst,
 					  sraz => '0',
-					  en => '1' , 
+					  en => ENC_A(0) ,  -- must detect rising edge
 					  load => '0',
 					  up_downn => ENC_B(0),
 					  E => (others => '0'),
@@ -438,10 +438,10 @@ begin
 					  );
 	 encoder_chan1 : up_down_counter
 		 generic map(NBIT => 16)
-		 port map( clk => ENC_A(1),
+		 port map( clk => clk_sys,
 					  resetn => pwm_rst,
 					  sraz => '0',
-					  en => '1' , 
+					  en => ENC_A(1) , -- must detect rising edge 
 					  load => '0',
 					  up_downn => ENC_B(1),
 					  E => (others => '0'),
