@@ -161,6 +161,7 @@ architecture Behavioral of avc_platform is
 	
 	-- PWM related signals
 	signal pwm_value_1, pwm_value_0 : std_logic_vector(15 downto 0);
+	signal enc_value_1, enc_value_0 : std_logic_vector(15 downto 0);
 	signal pwm_clk, pwm_rst : std_logic ;
 	
 	for all : yuv_register_rom use entity work.yuv_register_rom(ov7725_qvga);
@@ -267,7 +268,7 @@ begin
 		);		
  
 	addr_latches_Inst : addr_latches_peripheral
-		generic map(ADDR_WIDTH => 16, WIDTH => 16, NB => 2)
+		generic map(ADDR_WIDTH => 16, WIDTH => 16, NB => 4)
 		port map(
 			clk => clk_sys, resetn => sys_resetn,
 			addr_bus => bus_addr, 
@@ -278,8 +279,12 @@ begin
 			data_bus_out => bus_latches_data_out,
 			latch_input(0) => pwm_value_0,
 			latch_input(1) => pwm_value_1,
+			latch_input(2) => enc_value_0,
+			latch_input(3) => enc_value_1,
 			latch_output(0) => pwm_value_0,
-			latch_output(1) => pwm_value_1
+			latch_output(1) => pwm_value_1,
+			latch_output(2) => open,
+			latch_output(3) => open
 		);
 		
 	classifier_lut : dpram_NxN	
@@ -418,6 +423,30 @@ begin
 			  rst => pwm_rst,
 			  servo_position => pwm_value_1(7 downto 0),
 			  servo_out => PWM(1));
+			  
+-- Encoders counter instantiation			  
+	 encoder_chan0 : up_down_counter
+		 generic map(NBIT => 16)
+		 port map( clk => ENC_A(0),
+					  resetn => pwm_rst,
+					  sraz => '0',
+					  en => '1' , 
+					  load => '0',
+					  up_downn => ENC_B(0),
+					  E => (others => '0'),
+					  Q => enc_value_0
+					  );
+	 encoder_chan1 : up_down_counter
+		 generic map(NBIT => 16)
+		 port map( clk => ENC_A(1),
+					  resetn => pwm_rst,
+					  sraz => '0',
+					  en => '1' , 
+					  load => '0',
+					  up_downn => ENC_B(1),
+					  E => (others => '0'),
+					  Q => enc_value_1
+					  );
 
 end Behavioral;
 
