@@ -30,8 +30,8 @@ class avc_platform:
 		self.setServoPulse(index, pulse)
 
 	def getEncoderValue(self, index):
-		count = mark1Rpi.directWrite(enc_base_address(index), 2);
-		return count
+		count_tuple = mark1Rpi.directRead(enc_base_address(index), 2);
+		return (count_tuple(0) << 8 + count_tuple(1))
 
 	def getPlatformAttitude(self):
 		i = mpu9150.mpuRead()
