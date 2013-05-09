@@ -50,7 +50,7 @@ port(
 end sdram_tester;
 
 architecture Behavioral of sdram_tester is
-type tester_state is (INIT, WRITE_SDRAM, READ_SDRAM, DONE);
+type tester_state is (INIT, WRITE_SDRAM, READ_SDRAM, WAIT_VALID, DONE);
 
 constant addr_count_max : std_logic_vector(ADDR_WIDTH-1 downto 0) := (others => '1');
 constant cycle_count_max : std_logic_vector(1 downto 0) := (others => '1');
@@ -86,7 +86,7 @@ end process ;
 
 with state select
 	en_addr_count <= (not pending) when WRITE_SDRAM,
-						  (data_valid) when READ_SDRAM,
+						  (data_valid) when WAIT_VALID,
 						  '1' when INIT,
 						   '0' when others ;
 							
@@ -108,7 +108,7 @@ begin
 end process ;
 address <= addr_count ;
 
-en_cycle_count <= '1' when state = READ_SDRAM and addr_count = addr_count_max else
+en_cycle_count <= '1' when state = WAIT_VALID and data_valid = '1' and addr_count = addr_count_max else
 						'0';
 							
 with state select
@@ -137,16 +137,22 @@ begin
 				next_state <= WRITE_SDRAM ;
 			end if ;
 		when WRITE_SDRAM =>
-			if addr_count = addr_count_max then
+			if addr_count = addr_count_max and pending = '0' then
 				next_state <= READ_SDRAM ;
 			end if ;
 		when READ_SDRAM =>
+			if pending = '0' then
+				next_state <= WAIT_VALID ;
+			end if ;
+		when WAIT_VALID =>
 			if data_valid = '1' and data_in /= current_data then
 				next_state <= DONE ;
-			elsif addr_count = addr_count_max and cycle_count = cycle_count_max then
+			elsif data_valid = '1' and addr_count = addr_count_max and cycle_count = cycle_count_max then
 				next_state <= DONE ;
-			elsif addr_count = addr_count_max then
+			elsif data_valid = '1' and addr_count = addr_count_max then
 				next_state <= WRITE_SDRAM ;
+			elsif data_valid = '1' then
+				next_state <= READ_SDRAM ;
 			end if ;
 		when DONE =>
 		when others =>
@@ -154,7 +160,7 @@ begin
 	end case ;
 end process ;
 
-failed_d <= '1' when state = READ_SDRAM and data_valid = '1' and data_in /= current_data else
+failed_d <= '1' when state = WAIT_VALID and data_valid = '1' and data_in /= current_data else
 				'0' ;
 failed_en <= failed_d ;
 
@@ -177,7 +183,7 @@ with state select
 			'0' when others ;
 			
 with state select
-	rd <= (not pending) when READ_SDRAM,
+	rd <= '1' when READ_SDRAM,
 			'0' when others ;
 
 

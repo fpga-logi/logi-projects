@@ -208,11 +208,11 @@ sdram_ctrl0 : sdram_controller
    );
 
 tester0 : sdram_tester
-generic map(ADDR_WIDTH => 24,
+generic map(ADDR_WIDTH => 8,
 		DATA_WIDTH => 32 )
 port map(
 	clk => clk_mem, resetn => resetn ,
-	address => test_addr,
+	address => test_addr(7 downto 0),
 	data_in => mem_data_out,
 	data_out => mem_data_in,
 	rd => read_request,
@@ -223,6 +223,7 @@ port map(
 	test_done => test_done,
 	test_failed => test_failed
 	);
+test_addr(23 downto 8) <= (others => '0');
 
 
  clk_mem_process :process
