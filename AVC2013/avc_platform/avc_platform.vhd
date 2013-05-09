@@ -30,11 +30,12 @@ use work.utils_pack.all ;
 use work.peripheral_pack.all ;
 use work.interface_pack.all ;
 use work.conf_pack.all ;
-use work.filter_pack.all ;
 use work.image_pack.all ;
 use work.blob_pack.all ;
 use work.classifier_pack.all ;
 use work.primitive_pack.all ;
+
+
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
 library UNISIM;
@@ -68,6 +69,7 @@ end avc_platform;
 
 architecture Behavioral of avc_platform is
 
+-- Component declaration
 	COMPONENT clock_gen
 	PORT(
 		CLK_IN1 : IN std_logic;          
@@ -77,50 +79,89 @@ architecture Behavioral of avc_platform is
 		LOCKED : OUT std_logic
 		);
 	END COMPONENT;
-
 	
+	component clock_divider is
+	generic(
+	 slow_clock_period   : integer := 20000000;
+	 system_clock_period : integer := 50
+	 );
+	port (clk     : in  std_logic;
+		  rst     : in  std_logic;
+		  pwm_clk : out std_logic;
+		  pwm_rst : out std_logic);
+	end component;
+	
+	component servo_controller is
+	generic(
+	 clock_period             : integer := 32;
+	 minimum_high_pulse_width : integer := 1000000;
+	 maximum_high_pulse_width : integer := 2000000
+	 );
+	port (clk            : in  std_logic;
+		  rst            : in  std_logic;
+		  servo_position : in  std_logic_vector (0 to 7);
+		  servo_out       : out std_logic);
+	end component;
+	
+	
+
+	-- Constant declaration
+	constant system_clk_freq : integer      := 120_000_000;
+	constant system_clk_period_ns : integer := (1000000000 / system_clk_freq);  -- convert frequency to period
+   constant system_clk_period_ps : integer := (system_clk_period_ns * 1000);
+	constant servo_clock_period_ps : integer := 32000;
+	constant servo_clock_period_ns : integer := servo_clock_period_ps /1000;
+	-- Systemc clocking and reset
 	signal clk_sys, clk_100, clk_24, clk_locked : std_logic ;
 	signal resetn , sys_resetn : std_logic ;
 	
+	
+	-- Led counter
 	signal counter_output : std_logic_vector(31 downto 0);
-	signal fifo_output : std_logic_vector(15 downto 0);
-	signal fifo_input : std_logic_vector(15 downto 0);
-	signal color_lut_data_out : std_logic_vector(15 downto 0);
-	signal image_fifo_wr : std_logic ;
-	signal blob_fifo_input : std_logic_vector(15 downto 0);
-	signal bus_blob_fifo_out : std_logic_vector(15 downto 0);
-	signal blob_fifo_wr, cs_blob_fifo : std_logic ;
+	
+	
+	--Memory interface signals
 	signal bus_data_in, bus_data_out : std_logic_vector(15 downto 0);
-	signal bus_fifo_out, bus_latch_out : std_logic_vector(15 downto 0);
 	signal bus_addr : std_logic_vector(15 downto 0);
 	signal bus_wr, bus_rd, bus_cs : std_logic ;
-	signal cs_image_fifo, cs_color_lut : std_logic ;
-	signal color_index : std_logic_vector(15 downto 0);
 	
+	-- Peripheral output signals
+	signal bus_color_lut_data_out : std_logic_vector(15 downto 0);
+	signal bus_blob_fifo_out : std_logic_vector(15 downto 0);
+	signal bus_latches_data_out : std_logic_vector(15 downto 0);
+	
+	-- Peripheral logic side input signals
+	signal blob_fifo_input : std_logic_vector(15 downto 0);
+	signal blob_fifo_wr : std_logic ;
+	
+	
+	-- Peripheral chip select
+	signal cs_blob_fifo, cs_color_lut, cs_latches : std_logic ;
+	
+	
+	-- Camera configuration and interface signals
 	signal cam_data : std_logic_vector(7 downto 0);
 	signal cam_sioc, cam_siod : std_logic ;
 	signal cam_xclk, cam_pclk, cam_vsync, cam_href, cam_reset : std_logic ;
-	
 	signal rom_addr : std_logic_vector(7 downto 0);
 	signal rom_data : std_logic_vector(15 downto 0);
 	
+	
+	--Pixel pipeline signals
 	signal pixel_y_from_interface, pixel_u_from_interface, pixel_v_from_interface : std_logic_vector(7 downto 0);
 	signal pxclk_from_interface, href_from_interface, vsync_from_interface : std_logic ;
 	signal pixel_from_bin : std_logic_vector(7 downto 0);
 	signal pxclk_from_bin, href_from_bin, vsync_from_bin : std_logic ;
 	signal pixel_from_erode : std_logic_vector(7 downto 0);
 	signal pxclk_from_erode, href_from_erode, vsync_from_erode : std_logic ;
-	signal pixel_low_thresh, pixel_high_thresh : std_logic_vector(7 downto 0);
 	
-	
-	signal output_pxclk, output_href , output_vsync : std_logic ;
-	signal output_pixel : std_logic_vector(7 downto 0);
-	signal hsync_rising_edge, vsync_rising_edge, pxclk_rising_edge, hsync_old, vsync_old, pxclk_old, write_pixel_old : std_logic ;
-	signal pixel_buffer : std_logic_vector(15 downto 0);	
-	signal pixel_count :std_logic_vector(7 downto 0);
-	signal write_pixel : std_logic ;
-	
+	-- Classifier signals
+	signal color_index : std_logic_vector(15 downto 0);
 	signal color_lut_out : std_logic_vector(7 downto 0);
+	
+	-- PWM related signals
+	signal pwm_value_1, pwm_value_0 : std_logic_vector(15 downto 0);
+	signal pwm_clk, pwm_rst : std_logic ;
 	
 	for all : yuv_register_rom use entity work.yuv_register_rom(ov7725_qvga);
 begin
@@ -163,35 +204,42 @@ begin
 	LED(1) <= cam_vsync;
 	LED(2) <= cam_href;
 	LED(3) <= not cs_blob_fifo ;
-	LED(4) <= not cs_image_fifo;
+	LED(4) <= not cs_latches;
 	LED(7 downto 5) <= counter_output(27 downto 25);
 
 
-mem_interface0 : spi2ad_bus
-	generic map(ADDR_WIDTH => 16 , DATA_WIDTH =>  16)
-	port map(
-		clk => clk_sys ,
-		resetn => sys_resetn ,
-		mosi => SYS_SPI_MOSI,
-		miso => SYS_SPI_MISO,
-		sck => SYS_SPI_SCK,
-		ss => SYS_SPI_SS,
-		data_bus_out	=> bus_data_out,
-		data_bus_in	=> bus_data_in ,
-		addr_bus	=> bus_addr, 
-		wr => bus_wr , rd => bus_rd 
-	);
+-- Memory interface instantiation
+	mem_interface0 : spi2ad_bus
+		generic map(ADDR_WIDTH => 16 , DATA_WIDTH =>  16)
+		port map(
+			clk => clk_sys ,
+			resetn => sys_resetn ,
+			mosi => SYS_SPI_MOSI,
+			miso => SYS_SPI_MISO,
+			sck => SYS_SPI_SCK,
+			ss => SYS_SPI_SS,
+			data_bus_out	=> bus_data_out,
+			data_bus_in	=> bus_data_in ,
+			addr_bus	=> bus_addr, 
+			wr => bus_wr , rd => bus_rd 
+		);
 
-cs_blob_fifo <= '1' when bus_addr(15 downto 10) = "000000" else
-			  '0' ;
-			  
-cs_color_lut <= '1' when bus_addr(15 downto 10) = "000001" else
-			  '0' ;
+-- chip select configuration
+	cs_blob_fifo <= '1' when bus_addr(15 downto 10) = "000000" else
+				  '0' ; -- 1024 * 16bit address space
+				  
+	cs_color_lut <= '1' when bus_addr(15 downto 12) = "0001" else
+				  '0' ; -- 4096 * 16bit address space
+				  
+	cs_latches <= '1' when bus_addr(15 downto 2) = "00100000000000" else
+				  '0' ; -- 4 * 16bit address space
 
-bus_data_in <= bus_blob_fifo_out when cs_blob_fifo = '1' else
-					color_lut_data_out when cs_color_lut = '1' else
-					(others => '1');
-
+	bus_data_in <= bus_blob_fifo_out when cs_blob_fifo = '1' else
+						bus_color_lut_data_out when cs_color_lut = '1' else
+						bus_latches_data_out when cs_latches = '1' else 
+						(others => '1');
+						
+-- Peripherals instantiation
 	fifo_blobs : fifo_peripheral 
 		generic map(ADDR_WIDTH => 16,
 						WIDTH => 16, 
@@ -218,6 +266,37 @@ bus_data_in <= bus_blob_fifo_out when cs_blob_fifo = '1' else
 			burst_available_B => open
 		);		
  
+	addr_latches_Inst : addr_latches_peripheral
+		generic map(ADDR_WIDTH => 16, WIDTH => 16, NB => 2)
+		port map(
+			clk => clk_sys, resetn => sys_resetn,
+			addr_bus => bus_addr, 
+			wr_bus => bus_wr, 
+			rd_bus => bus_rd, 
+			cs_bus => cs_latches,
+			data_bus_in	=> bus_data_out,
+			data_bus_out => bus_latches_data_out,
+			latch_input(0) => pwm_value_0,
+			latch_input(1) => pwm_value_1,
+			latch_output(0) => pwm_value_0,
+			latch_output(1) => pwm_value_1
+		);
+		
+	classifier_lut : dpram_NxN	
+		generic map(SIZE => 4096, NBIT => 2, ADDR_WIDTH => 12)
+		port map(
+			clk => clk_sys ,
+			we =>  (bus_wr AND cs_color_lut),
+			
+			di => bus_data_out(1 downto 0), 
+			a	=> bus_addr(11 downto 0),
+			dpra => color_index(11 downto 0),
+			spo => bus_color_lut_data_out(1 downto 0),
+			dpo => color_lut_out(1 downto 0) 		
+		); 
+	bus_color_lut_data_out(15 downto 2) <= (others => '0');
+ 
+-- Camera Interface and configuration instantiation 
 	conf_rom : yuv_register_rom
 		port map(
 			clk => clk_sys, en => '1' ,
@@ -260,19 +339,8 @@ bus_data_in <= bus_blob_fifo_out when cs_blob_fifo = '1' else
 	PMOD4_0 <= cam_reset ;
 	cam_reset <= resetn ;
 
-	classifier_lut : dpram_NxN	
-		generic map(SIZE => 4096, NBIT => 2, ADDR_WIDTH => 12)
-		port map(
-			clk => clk_sys ,
-			we =>  (bus_wr AND cs_color_lut),
-			
-			di => bus_data_out(1 downto 0), 
-			a	=> bus_addr(11 downto 0),
-			dpra => color_index(11 downto 0),
-			spo => color_lut_data_out(1 downto 0),
-			dpo => color_lut_out(1 downto 0) 		
-		); 
-
+	
+-- Pixel Pipeline instantiation
 	classification0 : color_classifier
 		port map(
 				clk => clk_sys, 
@@ -315,7 +383,41 @@ bus_data_in <= bus_blob_fifo_out when cs_blob_fifo = '1' else
 				mem_data =>blob_fifo_input,
 				mem_wr => blob_fifo_wr
 		);
-			
+
+-- Control peripheral instantiation
+	Inst_clock_divider : clock_divider
+		generic map (
+		slow_clock_period   => servo_clock_period_PS ,
+		system_clock_period => system_clk_period_ps
+		)
+		port map(
+		clk     => clk_sys,
+		rst     => (not sys_resetn),
+		pwm_clk => pwm_clk,
+		pwm_rst => pwm_rst
+		);
+
+	servo_controller_0_Inst : servo_controller
+	  generic map(
+		 clock_period => 32,
+		 minimum_high_pulse_width => 1000000,
+		 maximum_high_pulse_width => 2000000
+		 )
+	  port map(clk => pwm_clk,
+			  rst => pwm_rst,
+			  servo_position => pwm_value_0(7 downto 0),
+			  servo_out => PWM(0));
+		  
+	servo_controller_1_Inst : servo_controller
+	  generic map(
+		 clock_period => 32,
+		 minimum_high_pulse_width => 1000000,
+		 maximum_high_pulse_width => 2000000
+		 )
+	  port map(clk => pwm_clk,
+			  rst => pwm_rst,
+			  servo_position => pwm_value_1(7 downto 0),
+			  servo_out => PWM(1));
 
 end Behavioral;
 

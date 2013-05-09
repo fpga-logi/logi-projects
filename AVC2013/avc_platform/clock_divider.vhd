@@ -22,9 +22,9 @@ use IEEE.STD_LOGIC_1164.all;
 use IEEE.STD_LOGIC_ARITH.all;
 use IEEE.STD_LOGIC_UNSIGNED.all;
 
-library work;
-use work.all;
-use work.log2_clock_divider.all;
+
+library work ;
+use work.utils_pack.all ;
 
 
 -- Uncomment the following library declaration if using
@@ -50,7 +50,7 @@ end clock_divider;
 architecture Behavioral of clock_divider is
   constant clock_divider_value : integer := ((slow_clock_period /2) / system_clock_period);
 
-  signal clock_divider_counter    : std_logic_vector(((log2(clock_divider_value)) + 1) downto 0);
+  signal clock_divider_counter    : std_logic_vector((nbit(clock_divider_value) + 1) downto 0);
   signal slow_clk_internal        : std_logic;
   signal slow_rst_internal_stage1 : std_logic;
   signal slow_rst_internal_stage2 : std_logic;
