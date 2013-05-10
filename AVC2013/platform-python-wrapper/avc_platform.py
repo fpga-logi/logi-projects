@@ -8,16 +8,11 @@ class AvcPlatform(object):
 	classifier_lut_base_address = 0x1000
 	servo_base_address = {0x2000, 0x2001}
 	enc_base_address = {0x2002, 0x2004}
+	leds_base_address = 0x2002
 
 	MIN_ANGLE = -45.0
 	MAX_ANGLE = 45.0
 	PULSE_CENTER = 127
-
- 	_instance = None
-	def __new__(cls, *args, **kwargs):
-		if not cls._instance:
-			cls._instance = super(AvcPlatform, cls).__new__(cls, *args, **kwargs)
-		return cls._instance
 	
 	def __init__(self):
 		mark1Rpi.fifoOpen(0)
@@ -28,7 +23,10 @@ class AvcPlatform(object):
 		mpu9150.setAccCal(acc_cal_file)
 	
 	def setServoPulse(self, index, pos):
-		mark1Rpi.directWrite(servo_base_address(index), (0,pos), 2);
+		mark1Rpi.directWrite(self.servo_base_address(index), (0,pos));
+
+	def setLeds(self, val):
+		mark1Rpi.directWrite(self.leds_base_address, (val,0));
 	
 	def setServoAngle(self, index, angle):
 		quanta = 255/(MAX_ANGLE-MIN_ANGLE)
@@ -36,25 +34,25 @@ class AvcPlatform(object):
 		self.setServoPulse(index, pulse)
 
 	def getEncoderValue(self, index):
-		count_tuple = mark1Rpi.directRead(enc_base_address(index), 4);
-		return ((count_tuple(0) << 24) + (count_tuple(1) << 16) + (count_tuple(2) << 8) + count_tuple(3))
+		count_tuple = mark1Rpi.directRead(self.enc_base_address(index), 4);
+		return ((count_tuple(3) << 24) + (count_tuple(2) << 16) + (count_tuple(1) << 8) + count_tuple(0))
 
 	def getPlatformAttitude(self):
 		i = mpu9150.mpuRead()
 		return (i, mpu9150.getFusedEuler(), mpu9150.getRawGyro())
 
-	def setColorLut(self, lut_file)
+	def setColorLut(self, lut_file):
 		f = open(lut_file, "rb")
 		values_tuple = ()
 		tuple_size = 0
 		try:
 			byte = f.read(1)
 			while byte != "":
-				values_tuple = values_tuple + 0x00
 				values_tuple = values_tuple + byte
+				values_tuple = values_tuple + 0x00
 				tuple_size = tuple_size + 2
 				byte = f.read(1)
-			mark1Rpi.directWrite(classifier_lut_base_address, values_tuple, tuple_size);
+			mark1Rpi.directWrite(self.classifier_lut_base_address, values_tuple, tuple_size);
 		finally:
 			f.close()
 
@@ -72,5 +70,8 @@ class AvcPlatform(object):
 		return blobs_tuple
 
 if __name__ == "__main__":
-	
+	robot = AvcPlatform()
+	robot.setLeds(0x55)
+	time.sleep(2)
+	robot.setLeds(0xAA)
 
