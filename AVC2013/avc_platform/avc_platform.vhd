@@ -205,11 +205,6 @@ begin
 		  
 		  
 	LED(0) <= counter_output(24);
-	LED(1) <= cam_vsync;
-	LED(2) <= cam_href;
-	LED(3) <= not cs_blob_fifo ;
-	LED(4) <= not cs_latches;
-	LED(7 downto 5) <= counter_output(27 downto 25);
 
 
 -- Memory interface instantiation
@@ -290,7 +285,8 @@ begin
 			latch_input(7) => (others => '0'), -- for future use
 			latch_output(0) => pwm_value_0,
 			latch_output(1) => pwm_value_1,
-			latch_output(2) => open,
+			latch_output(2)(7 downto 1) => LED(7 downto 1),
+			latch_output(2)(0) =>  open,
 			latch_output(3) => open,
 			latch_output(4) => open,
 			latch_output(5) => open,
