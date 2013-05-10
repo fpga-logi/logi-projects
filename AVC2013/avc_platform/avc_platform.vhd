@@ -106,13 +106,13 @@ architecture Behavioral of avc_platform is
 	
 
 	-- Constant declaration
-	constant system_clk_freq : integer      := 120_000_000;
+	constant system_clk_freq : integer      := 96_000_000;
 	constant system_clk_period_ns : integer := (1000000000 / system_clk_freq);  -- convert frequency to period
    constant system_clk_period_ps : integer := (system_clk_period_ns * 1000);
 	constant servo_clock_period_ps : integer := 32000;
 	constant servo_clock_period_ns : integer := servo_clock_period_ps /1000;
 	-- Systemc clocking and reset
-	signal clk_sys, clk_100, clk_24, clk_locked : std_logic ;
+	signal clk_sys, clk_100,  clk_24, clk_locked : std_logic ;
 	signal resetn , sys_resetn : std_logic ;
 	
 	
