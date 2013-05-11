@@ -23,7 +23,7 @@ class AvcPlatform(object):
 		mpu9150.setAccCal(acc_cal_file)
 	
 	def setServoPulse(self, index, pos):
-		mark1Rpi.directWrite(self.servo_base_address[index], (0,pos));
+		mark1Rpi.directWrite(self.servo_base_address[index], (pos,0));
 
 	def setLeds(self, val):
 		mark1Rpi.directWrite(self.leds_base_address, (val,0));
