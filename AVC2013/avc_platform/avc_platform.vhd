@@ -63,7 +63,11 @@ port( OSC_FPGA : in std_logic;
 		
 		--spi
 		SYS_SPI_SCK, SYS_SPI_SS, SYS_SPI_MOSI : in std_logic ;
-		SYS_SPI_MISO : out std_logic 
+		SYS_SPI_MISO : out std_logic ;
+		
+		--RPI GPIO
+		GPIO_GEN : inout std_logic_vector(3 downto 0);
+		GPIO_GCLK : in std_logic 
 );
 end avc_platform;
 
