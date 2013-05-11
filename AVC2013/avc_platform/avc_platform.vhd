@@ -408,7 +408,7 @@ begin
 		)
 		port map(
 		clk     => clk_sys,
-		rst     => (not sys_resetn),
+		rst     => (sys_resetn),
 		pwm_clk => pwm_clk,
 		pwm_rst => pwm_rst
 		);
