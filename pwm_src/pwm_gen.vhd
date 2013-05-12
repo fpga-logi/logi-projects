@@ -21,6 +21,8 @@ library ieee;
 use ieee.std_logic_1164.all;
 --use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
+library ieee_proposed;
+use ieee_proposed.fixed_pkg.all;
 
 
 -- Uncomment the following library declaration if using
@@ -56,7 +58,7 @@ architecture Behavioral of pwm_gen is
   constant system_clk_period_ps : integer := (system_clk_period_ns * 1000);
 
 --**********************************************************************
-  constant servo_clock_period_ps : integer := 32000;
+  constant servo_clock_period_ps : integer := 128000;
   constant servo_clock_period_ns : integer := servo_clock_period_ps /1000;
 --**********************************************************************
 
