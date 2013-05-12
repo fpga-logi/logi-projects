@@ -1,5 +1,9 @@
-import fcntl, os, time, struct, binascii
+import fcntl, os, time, struct, binascii, math
 import mark1Rpi, mpu9150
+
+MIN_ANGLE = -45.0
+MAX_ANGLE = 45.0
+PULSE_CENTER = 127
 
 class AvcPlatform(object):
 
@@ -9,10 +13,6 @@ class AvcPlatform(object):
 	servo_base_address = [0x2000, 0x2001]
 	enc_base_address = [0x2002, 0x2004]
 	leds_base_address = 0x2002
-
-	MIN_ANGLE = -45.0
-	MAX_ANGLE = 45.0
-	PULSE_CENTER = 127
 	
 	def __init__(self):
 		mark1Rpi.fifoOpen(0)
@@ -22,16 +22,16 @@ class AvcPlatform(object):
 		mpu9150.setMagCal(mag_cal_file)
 		mpu9150.setAccCal(acc_cal_file)
 	
-	def setServoPulse(self, index, pos):
+	def setServoPulse(self, index, pos):	
 		mark1Rpi.directWrite(self.servo_base_address[index], (pos,0));
-
+	
 	def setLeds(self, val):
 		mark1Rpi.directWrite(self.leds_base_address, (val,0));
 	
 	def setServoAngle(self, index, angle):
-		quanta = 255/(MAX_ANGLE-MIN_ANGLE)
-		pulse = 127 + (quanta * angle)
-		self.setServoPulse(index, pulse)
+		quanta = 255.0/(MAX_ANGLE-MIN_ANGLE)
+		pulse = 127.0 + (quanta * angle)
+		self.setServoPulse(index, int(round(pulse)))
 
 	def getEncoderValue(self, index):
 		count_tuple = mark1Rpi.directRead(self.enc_base_address[index], 4);
@@ -61,11 +61,11 @@ class AvcPlatform(object):
 		blobs_tuple = ()
 		for i in range(len(blob_data)):
 			blob_info = ()
-			blob_info = blob_info + (((blob_data[i] & 0x03) << 8)+blob_data[i+1]) # posx0
-			blob_info = blob_info + (((blob_data[i+2] & 0x0F) << 6)+((0x3F & blob_data[i+1])>>2)) # posy0
-			blob_info = blob_info + (((blob_data[i+3] & 0x2F) << 4)+((0xF0 & blob_data[i+2])>>4)) # posx1
-			blob_info = blob_info + ((blob_data[i+4] << 2)+((0xC0 & blob_data[i+3])>>6)) # posy1
-			blob_info = blob_info + blob_data[i+5] # blob class
+			blob_info = blob_info + (((blob_data(i) & 0x03) << 8)+blob_data(i+1)) # posx0
+			blob_info = blob_info + (((blob_data(i+2) & 0x0F) << 6)+((0x3F & blob_data(i+1))>>2)) # posy0
+			blob_info = blob_info + (((blob_data(i+3) & 0x2F) << 4)+((0xF0 & blob_data(i+2))>>4)) # posx1
+			blob_info = blob_info + ((blob_data(i+4) << 2)+((0xC0 & blob_data(i+3))>>6)) # posy1
+			blob_info = blob_info + blob_data(i+5) # blob class
 			blobs_tuple = blobs_tuple + blob_info
 		return blobs_tuple
 
@@ -76,5 +76,10 @@ if __name__ == "__main__":
 	robot.setLeds(0xAA)
 	print robot.getEncoderValue(0)
 	print robot.getEncoderValue(1)
-	
-
+	i = 0
+	while True:
+		val = math.sin(i)*45.0
+		robot.setServoAngle(0, val)
+		robot.setServoAngle(1, val)
+		i = i + 1
+		time.sleep(0.1)
