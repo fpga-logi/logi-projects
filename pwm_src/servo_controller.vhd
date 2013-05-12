@@ -35,7 +35,7 @@ use ieee.std_logic_unsigned.all;
 
 entity servo_controller is
   generic(
-    clock_period             : integer := 32;
+    clock_period             : integer := 128;
     minimum_high_pulse_width : integer := 1000000;
     maximum_high_pulse_width : integer := 2000000
     );
@@ -46,7 +46,7 @@ entity servo_controller is
 end servo_controller;
 
 architecture Behavioral of servo_controller is
-  constant servo_PWM_period                      : integer := 25000000;
+  constant servo_PWM_period                      : integer := 20000000;
   constant servo_PWM_clock_periods               : integer := servo_PWM_period/clock_period;
   constant PWM_resolution_per_step               : integer := ((maximum_high_pulse_width - minimum_high_pulse_width)/  2**(servo_position'length));
   constant PWM_resolution_per_step_clock_periods : integer := PWM_resolution_per_step / clock_period;
