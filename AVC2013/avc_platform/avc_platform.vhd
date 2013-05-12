@@ -84,17 +84,6 @@ architecture Behavioral of avc_platform is
 		);
 	END COMPONENT;
 	
-	component clock_divider is
-	generic(
-	 slow_clock_period   : integer := 20000000;
-	 system_clock_period : integer := 50
-	 );
-	port (clk     : in  std_logic;
-		  rst     : in  std_logic;
-		  pwm_clk : out std_logic;
-		  pwm_rst : out std_logic);
-	end component;
-	
 	component servo_controller is
 	generic(
 	 clock_period             : integer := 32;
@@ -110,13 +99,13 @@ architecture Behavioral of avc_platform is
 	
 
 	-- Constant declaration
-	constant system_clk_freq : integer      := 96_000_000;
+	constant system_clk_freq : integer      := 100_000_000;
 	constant system_clk_period_ns : integer := (1000000000 / system_clk_freq);  -- convert frequency to period
    constant system_clk_period_ps : integer := (system_clk_period_ns * 1000);
-	constant servo_clock_period_ps : integer := 32000;
+	constant servo_clock_period_ps : integer := 20000;
 	constant servo_clock_period_ns : integer := servo_clock_period_ps /1000;
 	-- Systemc clocking and reset
-	signal clk_sys, clk_100,  clk_24, clk_locked : std_logic ;
+	signal clk_sys, clk_100,  clk_96, clk_24, clk_locked : std_logic ;
 	signal resetn , sys_resetn : std_logic ;
 	
 	
@@ -172,6 +161,7 @@ architecture Behavioral of avc_platform is
 	signal ENC_A_OLD, ENC_A_RE  : std_logic_vector(1 downto 0); 
 	
 	for all : yuv_register_rom use entity work.yuv_register_rom(ov7725_qvga);
+	for all : servo_controller use entity work.servo_controller(Behavioral_V2);
 begin
 	
 	resetn <= PB(0) ;
@@ -181,10 +171,10 @@ begin
 		CLK_IN1 => OSC_FPGA,
 		CLK_OUT1 => clk_100,
 		CLK_OUT2 => clk_24,
-		CLK_OUT3 => clk_sys, --120Mhz system clock
+		CLK_OUT3 => clk_96, --96Mhz system clock
 		LOCKED => clk_locked
 	);
-
+	clk_sys <= clk_100 ;
 
 	reset0: reset_generator 
 	generic map(HOLD_0 => 1000)
@@ -401,37 +391,26 @@ begin
 		);
 
 -- Control peripheral instantiation
-	Inst_clock_divider : clock_divider
-		generic map (
-		slow_clock_period   => servo_clock_period_PS ,
-		system_clock_period => system_clk_period_ps
-		)
-		port map(
-		clk     => clk_sys,
-		rst     => (sys_resetn),
-		pwm_clk => pwm_clk,
-		pwm_rst => pwm_rst
-		);
 
 	servo_controller_0_Inst : servo_controller
 	  generic map(
-		 clock_period => 32,
+		 clock_period => 10,
 		 minimum_high_pulse_width => 1000000,
 		 maximum_high_pulse_width => 2000000
 		 )
-	  port map(clk => pwm_clk,
-			  rst => pwm_rst,
+	  port map(clk => clk_sys,
+			  rst => (not sys_resetn),
 			  servo_position => pwm_value_0(7 downto 0),
 			  servo_out => PWM(0));
 		  
 	servo_controller_1_Inst : servo_controller
 	  generic map(
-		 clock_period => 32,
+		 clock_period => 10,
 		 minimum_high_pulse_width => 1000000,
 		 maximum_high_pulse_width => 2000000
 		 )
-	  port map(clk => pwm_clk,
-			  rst => pwm_rst,
+	  port map(clk => clk_sys,
+			  rst => (not sys_resetn),
 			  servo_position => pwm_value_1(7 downto 0),
 			  servo_out => PWM(1));
 			  
