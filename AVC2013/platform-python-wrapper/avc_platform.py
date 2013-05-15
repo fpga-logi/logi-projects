@@ -12,6 +12,7 @@ class AvcPlatform(object):
 	classifier_lut_base_address = 0x1000
 	servo_base_address = [0x2000, 0x2001]
 	enc_base_address = [0x2002, 0x2004]
+	encoder_control_address = 0x2003
 	leds_base_address = 0x2002
 	
 	def __init__(self):
@@ -37,9 +38,42 @@ class AvcPlatform(object):
 		count_tuple = mark1Rpi.directRead(self.enc_base_address[index], 4);
 		return ((count_tuple[3] << 24) + (count_tuple[2] << 16) + (count_tuple[1] << 8) + count_tuple[0])
 
+	def resetEncoders(self):
+		control_val =  mark1Rpi.directRead(self.encoder_control_address, 2)
+		control_val[0] = control_val[0] | 0x03 
+		mark1Rpi.directWrite(self.encoder_control_address, control_val) % going high
+		control_val[0] = control_val[0] & 0xFC 
+		mark1Rpi.directWrite(self.encoder_control_address, control_val) % going low
+
+	def enableEncoders(self):
+		control_val =  mark1Rpi.directRead(self.encoder_control_address, 2)
+		control_val[0] = control_val[0] | 0x0C 
+		mark1Rpi.directWrite(self.encoder_control_address, control_val) % high enable bits
+
+	def disableEncoders(self):
+		control_val =  mark1Rpi.directRead(self.encoder_control_address, 2)
+		control_val[0] = control_val[0] & 0xF3 
+		mark1Rpi.directWrite(self.encoder_control_address, control_val) % high enable bits
+
+	def setSpeed(self, speed):
+		byte_speed = int(speed)
+		mark1Rpi.directWrite(self.pid_address, ((byte_speed & 0x00FF),((byte_speed & 0xFF00) >> 8))) 
+
+	def setP(self, p_coeff):
+		byte_coef = int(p_coeff*256)
+		mark1Rpi.directWrite(self.pcoef_address ((byte_coef & 0x00FF),((byte_coef & 0xFF00) >> 8))) 
+
+	def setI(self, i_coeff):
+		byte_coef = int(i_coeff*256)
+		mark1Rpi.directWrite(self.icoeff_address, ((byte_coef & 0x00FF),((byte_coef & 0xFF00) >> 8))) 
+
+	def setD(self, d_coeff):
+		byte_coef = int(d_coeff*256)
+		mark1Rpi.directWrite(self.dcoeff_address, ((byte_coef & 0x00FF),((byte_coef & 0xFF00) >> 8))) 
+
 	def getPlatformAttitude(self):
 		i = mpu9150.mpuRead()
-		return (i, mpu9150.getFusedEuler(), mpu9150.getRawGyro())
+		return (i, mpu9150.getFusedEuler(), mpu9150.getRawGyro()) 
 
 	def setColorLut(self, lut_file):
 		f = open(lut_file, "rb")

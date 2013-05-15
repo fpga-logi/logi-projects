@@ -237,15 +237,15 @@ port map(
 );
 
 --
-output_pxclk <= pxclk_from_hyst ;
-output_href <= href_from_hyst ;
-output_vsync <= vsync_from_hyst ;
-output_pixel <= pixel_from_hyst ;
+--output_pxclk <= pxclk_from_hyst ;
+--output_href <= href_from_hyst ;
+--output_vsync <= vsync_from_hyst ;
+--output_pixel <= pixel_from_hyst ;
 
---output_pxclk <= pxclk_from_sobel ;
---output_href <= href_from_sobel ;
---output_vsync <= vsync_from_sobel ;
---output_pixel <= pixel_from_sobel ;
+output_pxclk <= pxclk_from_sobel ;
+output_href <= href_from_sobel ;
+output_vsync <= vsync_from_sobel ;
+output_pixel <= pixel_from_sobel ;
 
 --output_pxclk <= pxclk_from_gauss ;
 --output_href <= href_from_gauss ;
