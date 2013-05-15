@@ -59,7 +59,7 @@ process(clk, resetn)
 	end process ;
 	CHAN_A_RE <= (CHAN_A and (NOT CHAN_A_OLD)) and en;	
 	
-up_downn <= CHAN_B when 	POL = '1' else
+	up_downn <= CHAN_B when POL = '1' else
 				(NOT CHAN_B) ;
 	
 	counter : up_down_counter
