@@ -159,9 +159,9 @@ architecture Behavioral of avc_platform is
 	
 	-- Encoders related signal
 	signal ENC_A_OLD, ENC_A_RE  : std_logic_vector(1 downto 0); 
+	signal ENCODERS_CONTROL : std_logic_vector(15 downto 0);
 	
 	for all : yuv_register_rom use entity work.yuv_register_rom(ov7725_qvga);
-	for all : servo_controller use entity work.servo_controller(Behavioral_V2);
 begin
 	
 	resetn <= PB(0) ;
@@ -281,7 +281,7 @@ begin
 			latch_output(1) => pwm_value_1,
 			latch_output(2)(7 downto 1) => LED(7 downto 1),
 			latch_output(2)(0) =>  open,
-			latch_output(3) => open,
+			latch_output(3) => ENCODERS_CONTROL,
 			latch_output(4) => open,
 			latch_output(5) => open,
 			latch_output(6) => open,
@@ -415,6 +415,9 @@ begin
 			  servo_out => PWM(1));
 			  
 -- Encoders counter instantiation	
+-- ENCODERS_CONTROL :  ... | encoder_1 enable | encoder_0 enable | encoder_1 reset | encoder_0 reset
+
+
 	process(clk_sys, sys_resetn)
 	begin
 		if sys_resetn = '0' then
@@ -423,11 +426,12 @@ begin
 			ENC_A_OLD <= ENC_A ;
 		end if ;
 	end process ;
-	ENC_A_RE <= ENC_A and (NOT ENC_A_OLD) ;		  
+	ENC_A_RE <= (ENC_A and (NOT ENC_A_OLD)) and  ENCODERS_CONTROL(3 downto 2);	
+	
 	encoder_chan0 : up_down_counter
 		 generic map(NBIT => 32)
 		 port map( clk => clk_sys,
-					  resetn => pwm_rst,
+					  resetn => ENCODERS_CONTROL(0),
 					  sraz => '0',
 					  en => ENC_A_RE(0) ,  -- must detect rising edge
 					  load => '0',
@@ -438,7 +442,7 @@ begin
 	 encoder_chan1 : up_down_counter
 		 generic map(NBIT => 32)
 		 port map( clk => clk_sys,
-					  resetn => pwm_rst,
+					  resetn => ENCODERS_CONTROL(1),
 					  sraz => '0',
 					  en => ENC_A_RE(1) , -- must detect rising edge 
 					  load => '0',
