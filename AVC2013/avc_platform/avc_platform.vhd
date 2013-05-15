@@ -97,6 +97,16 @@ architecture Behavioral of avc_platform is
 	end component;
 	
 	
+	
+	component quad_encoder_block is
+	generic(NBIT : positive := 32; POL : std_logic := '1');
+	port(
+	clk, resetn : in std_logic ;
+	en, reset : in std_logic ;
+	CHAN_A, CHAN_B : in std_logic ;
+	count : out std_logic_vector((NBIT-1) downto 0)
+	);
+	end component;
 
 	-- Constant declaration
 	constant system_clk_freq : integer      := 100_000_000;
@@ -417,39 +427,27 @@ begin
 -- Encoders counter instantiation	
 -- ENCODERS_CONTROL :  ... | encoder_1 enable | encoder_0 enable | encoder_1 reset | encoder_0 reset
 
-
-	process(clk_sys, sys_resetn)
-	begin
-		if sys_resetn = '0' then
-			ENC_A_OLD <= (others => '0');
-		elsif clk_sys'event and clk_sys = '1' then
-			ENC_A_OLD <= ENC_A ;
-		end if ;
-	end process ;
-	ENC_A_RE <= (ENC_A and (NOT ENC_A_OLD)) and  ENCODERS_CONTROL(3 downto 2);	
 	
-	encoder_chan0 : up_down_counter
-		 generic map(NBIT => 32)
-		 port map( clk => clk_sys,
-					  resetn => ENCODERS_CONTROL(0),
-					  sraz => '0',
-					  en => ENC_A_RE(0) ,  -- must detect rising edge
-					  load => '0',
-					  up_downn => ENC_B(0),
-					  E => (others => '0'),
-					  Q => enc_value_0
-					  );
-	 encoder_chan1 : up_down_counter
-		 generic map(NBIT => 32)
-		 port map( clk => clk_sys,
-					  resetn => ENCODERS_CONTROL(1),
-					  sraz => '0',
-					  en => ENC_A_RE(1) , -- must detect rising edge 
-					  load => '0',
-					  up_downn => ENC_B(1),
-					  E => (others => '0'),
-					  Q => enc_value_1
-					  );
+		encoder_chan0 : quad_encoder_block
+			generic map(NBIT => 32, POL => '0')
+			port map( clk => clk_sys,
+				resetn => sys_resetn,
+				reset => ENCODERS_CONTROL(0),
+				en => ENCODERS_CONTROL(2),
+				CHAN_A => ENC_A(0) , 
+				CHAN_B => ENC_B(0) , 
+				count => enc_value_0 );
+
+		encoder_chan1 : quad_encoder_block
+			generic map(NBIT => 32, POL => '0')
+			port map( clk => clk_sys,
+				resetn => sys_resetn,
+				reset => ENCODERS_CONTROL(1),
+				en => ENCODERS_CONTROL(3),
+				CHAN_A => ENC_A(1) , 
+				CHAN_B => ENC_B(1) , 
+				count => enc_value_1
+			);
 
 end Behavioral;
 
