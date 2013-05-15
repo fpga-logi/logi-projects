@@ -333,19 +333,19 @@ begin
 			latch_output(7) => open
 		);
 		
-	classifier_lut : dpram_NxN	
-		generic map(SIZE => 4096, NBIT => 2, ADDR_WIDTH => 12)
+	classifier_lut_inst : classifier_lut	
+		generic map(CLASS_WIDTH => 2, INDEX_WIDTH => 12)
 		port map(
 			clk => clk_sys ,
-			we =>  (bus_wr AND cs_color_lut),
-			
-			di => bus_data_out(1 downto 0), 
-			a	=> bus_addr(11 downto 0),
-			dpra => color_index(11 downto 0),
-			spo => bus_color_lut_data_out(1 downto 0),
-			dpo => color_lut_out(1 downto 0) 		
+			resetn => sys_resetn,
+			we =>  cs_color_lut,
+			cs =>cs_color_lut ,
+			data_in => bus_data_out, 
+			bus_addr	=> bus_addr,
+			class_index => color_index(11 downto 0),
+			data_out => bus_color_lut_data_out,
+			class_value => color_lut_out(1 downto 0) 		
 		); 
-	bus_color_lut_data_out(15 downto 2) <= (others => '0');
  
 -- Camera Interface and configuration instantiation 
 	conf_rom : yuv_register_rom
