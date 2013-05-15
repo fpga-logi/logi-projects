@@ -53,7 +53,7 @@ class AvcPlatform(object):
 	def disableEncoders(self):
 		control_val =  mark1Rpi.directRead(self.encoder_control_address, 2)
 		control_val[0] = control_val[0] & 0xF3 
-		mark1Rpi.directWrite(self.encoder_control_address, control_val) % high enable bits
+		mark1Rpi.directWrite(self.encoder_control_address, control_val) % low enable bits
 
 	def setSpeed(self, speed):
 		byte_speed = int(speed)
