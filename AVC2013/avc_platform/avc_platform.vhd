@@ -158,6 +158,8 @@ architecture Behavioral of avc_platform is
 	signal pxclk_from_interface, href_from_interface, vsync_from_interface : std_logic ;
 	signal pixel_from_ds : std_logic_vector(7 downto 0);
 	signal pxclk_from_ds, href_from_ds, vsync_from_ds : std_logic ;
+	signal pixel_from_switch : std_logic_vector(7 downto 0);
+	signal pxclk_from_switch, href_from_switch, vsync_from_switch : std_logic ;
 	signal pixel_from_bin : std_logic_vector(7 downto 0);
 	signal pxclk_from_bin, href_from_bin, vsync_from_bin : std_logic ;
 	signal pixel_from_erode : std_logic_vector(7 downto 0);
@@ -392,19 +394,37 @@ begin
 
 	
 -- Pixel Pipeline instantiation
+	video_switch_inst : video_switch
+		generic map(NB	=> 2)
+		port map(pixel_clock(0) => pxclk_from_interface,
+					pixel_clock(1) => pxclk_from_erode,
+				   hsync(0) => href_from_interface, 
+					hsync(1) => href_from_erode, 
+					vsync(0) => vsync_from_interface,
+					vsync(1) => vsync_from_erode,
+					pixel_data(0) =>pixel_y_from_interface,
+					pixel_data(1) => (pixel_from_erode(1 downto 0)&"000000"),
+					pixel_clock_out => pxclk_from_switch,
+					hsync_out=> href_from_switch,
+					vsync_out => vsync_from_switch,
+					pixel_data_out => pixel_from_switch,
+					channel(0) => DIP_SW(0),
+					channel(7 downto 1) => (others => '0')
+		);
+
 
 	ds_image : down_scaler
 		generic map(SCALING_FACTOR => 2, INPUT_WIDTH => 320, INPUT_HEIGHT => 240 )
 		port map(
 			clk => clk_sys,
 			resetn => sys_resetn,
-			pixel_clock => pxclk_from_interface, 
-			hsync => href_from_interface,
-			vsync => vsync_from_interface,
+			pixel_clock => pxclk_from_switch, 
+			hsync => href_from_switch,
+			vsync => vsync_from_switch,
 			pixel_clock_out => pxclk_from_ds, 
 			hsync_out => href_from_ds, 
 			vsync_out=> vsync_from_ds,
-			pixel_data_in => pixel_y_from_interface,
+			pixel_data_in => pixel_from_switch,
 			pixel_data_out=> pixel_from_ds
 		); 
 		
