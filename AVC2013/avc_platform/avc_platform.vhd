@@ -132,14 +132,17 @@ architecture Behavioral of avc_platform is
 	signal bus_color_lut_data_out : std_logic_vector(15 downto 0);
 	signal bus_blob_fifo_out : std_logic_vector(15 downto 0);
 	signal bus_latches_data_out : std_logic_vector(15 downto 0);
+	signal bus_preview_fifo_out : std_logic_vector(15 downto 0);
 	
 	-- Peripheral logic side input signals
 	signal blob_fifo_input : std_logic_vector(15 downto 0);
 	signal blob_fifo_wr : std_logic ;
+	signal preview_fifo_input : std_logic_vector(15 downto 0);
+	signal preview_fifo_wr : std_logic ;
 	
 	
 	-- Peripheral chip select
-	signal cs_blob_fifo, cs_color_lut, cs_latches : std_logic ;
+	signal cs_blob_fifo, cs_color_lut, cs_latches, cs_preview_fifo : std_logic ;
 	
 	
 	-- Camera configuration and interface signals
@@ -153,6 +156,8 @@ architecture Behavioral of avc_platform is
 	--Pixel pipeline signals
 	signal pixel_y_from_interface, pixel_u_from_interface, pixel_v_from_interface : std_logic_vector(7 downto 0);
 	signal pxclk_from_interface, href_from_interface, vsync_from_interface : std_logic ;
+	signal pixel_from_ds : std_logic_vector(7 downto 0);
+	signal pxclk_from_ds, href_from_ds, vsync_from_ds : std_logic ;
 	signal pixel_from_bin : std_logic_vector(7 downto 0);
 	signal pxclk_from_bin, href_from_bin, vsync_from_bin : std_logic ;
 	signal pixel_from_erode : std_logic_vector(7 downto 0);
@@ -230,6 +235,8 @@ begin
 -- chip select configuration
 	cs_blob_fifo <= '1' when bus_addr(15 downto 3) = "0000000000000" else
 				  '0' ; -- 8 * 16bit address space
+	cs_preview_fifo <= '1' when bus_addr(15 downto 3) = "0000000000001" else
+				  '0' ; -- 8 * 16bit address space
 				  
 	cs_color_lut <= '1' when bus_addr(15 downto 12) = "0001" else
 				  '0' ; -- 4096 * 16bit address space
@@ -240,6 +247,7 @@ begin
 	bus_data_in <= bus_blob_fifo_out when cs_blob_fifo = '1' else
 						bus_color_lut_data_out when cs_color_lut = '1' else
 						bus_latches_data_out when cs_latches = '1' else 
+						bus_preview_fifo_out when cs_preview_fifo = '1' else
 						(others => '1');
 						
 -- Peripherals instantiation
@@ -268,6 +276,33 @@ begin
 			fullB => open,
 			burst_available_B => open
 		);		
+		
+	-- Peripherals instantiation
+	fifo_preview : fifo_peripheral 
+		generic map(ADDR_WIDTH => 16,
+						WIDTH => 16, 
+						SIZE => 4096, 
+						BURST_SIZE => 4,
+						SYNC_LOGIC_INTERFACE => false)
+		port map(
+			clk => clk_sys,
+			resetn => sys_resetn,
+			addr_bus => bus_addr,
+			wr_bus => bus_wr,
+			rd_bus => bus_rd,
+			cs_bus => cs_preview_fifo,
+			wrB => preview_fifo_wr,
+			rdA => '0',
+			data_bus_in => bus_data_out,
+			data_bus_out => bus_preview_fifo_out,
+			inputB => preview_fifo_input, 
+			outputA => open,
+			emptyA => open,
+			fullA => open,
+			emptyB => open,
+			fullB => open,
+			burst_available_B => open
+		);	
  
 	addr_latches_Inst : addr_latches_peripheral
 		generic map(ADDR_WIDTH => 16, WIDTH => 16, NB => 8)
@@ -298,19 +333,19 @@ begin
 			latch_output(7) => open
 		);
 		
-	classifier_lut : dpram_NxN	
-		generic map(SIZE => 4096, NBIT => 2, ADDR_WIDTH => 12)
+	classifier_lut_inst : classifier_lut	
+		generic map(CLASS_WIDTH => 2, INDEX_WIDTH => 12)
 		port map(
 			clk => clk_sys ,
-			we =>  (bus_wr AND cs_color_lut),
-			
-			di => bus_data_out(1 downto 0), 
-			a	=> bus_addr(11 downto 0),
-			dpra => color_index(11 downto 0),
-			spo => bus_color_lut_data_out(1 downto 0),
-			dpo => color_lut_out(1 downto 0) 		
+			resetn => sys_resetn,
+			we =>  cs_color_lut,
+			cs =>cs_color_lut ,
+			data_in => bus_data_out, 
+			bus_addr	=> bus_addr,
+			class_index => color_index(11 downto 0),
+			data_out => bus_color_lut_data_out,
+			class_value => color_lut_out(1 downto 0) 		
 		); 
-	bus_color_lut_data_out(15 downto 2) <= (others => '0');
  
 -- Camera Interface and configuration instantiation 
 	conf_rom : yuv_register_rom
@@ -357,6 +392,34 @@ begin
 
 	
 -- Pixel Pipeline instantiation
+
+	ds_image : down_scaler
+		generic map(SCALING_FACTOR => 2, INPUT_WIDTH => 320, INPUT_HEIGHT => 240 )
+		port map(
+			clk => clk_sys,
+			resetn => sys_resetn,
+			pixel_clock => pxclk_from_interface, 
+			hsync => href_from_interface,
+			vsync => vsync_from_interface,
+			pixel_clock_out => pxclk_from_ds, 
+			hsync_out => href_from_ds, 
+			vsync_out=> vsync_from_ds,
+			pixel_data_in => pixel_y_from_interface,
+			pixel_data_out=> pixel_from_ds
+		); 
+		
+		pixel_to_fifo : pixel2fifo
+		generic map(ADD_SYNC => false)
+		port map(
+			clk => clk_sys, resetn => sys_resetn,
+			pixel_clock => pxclk_from_ds, 
+			hsync => href_from_ds, 
+			vsync => vsync_from_ds,
+			pixel_data_in => pixel_from_ds,
+			fifo_data => preview_fifo_input,
+			fifo_wr => preview_fifo_wr
+		);	
+
 	classification0 : color_classifier
 		port map(
 				clk => clk_sys, 
