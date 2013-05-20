@@ -34,7 +34,30 @@ begin
    -- and to generate active-low enable signal
    sel <= std_logic_vector(q_reg(N-1 downto N-2));
    process(sel,in0,in1,in2,in3)
-   begin
+--	  begin
+--			case sel is
+--				when "00" =>
+--					--an <= "1110";
+--					an <= "0001";	--active high
+--					sseg <= in0;
+--				when "01" =>
+--					--an <= "1101";
+--					an <= "0010";
+--					sseg <= in1;
+--				when "10" =>
+--					--an <= "1011";
+--					an <= "0100";
+--					sseg <= in2;
+--				when others =>
+--					--an <= "0111";
+--					an <= "1000";
+--					sseg <= in3;
+--			end case;
+--	end process;
+--end arch;
+
+
+ begin
       case sel is
          when "00" =>
             an <= "1110";
