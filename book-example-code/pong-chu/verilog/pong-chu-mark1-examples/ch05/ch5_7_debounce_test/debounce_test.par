@@ -1,21 +1,21 @@
-Release 14.1 par P.15xf (nt64)
+Release 14.4 par P.49d (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-MJONES-PC::  Thu Oct 04 17:06:17 2012
+MJ-PC::  Sat Apr 13 18:44:11 2013
 
 par -w -intstyle ise -ol high -mt off debounce_test_map.ncd debounce_test.ncd
 debounce_test.pcf 
 
 
 Constraints file: debounce_test.pcf.
-Loading device for application Rf_Device from file '6slx9.nph' in environment C:\Xilinx\14.1\ISE_DS\ISE\.
+Loading device for application Rf_Device from file '6slx9.nph' in environment C:\Xilinx\14.4\ISE_DS\ISE\.
    "debounce_test" is an NCD, version 3.2, device xc6slx9, package tqg144, speed -3
 
 Initializing temperature to 85.000 Celsius. (default - Range: 0.000 to 85.000 Celsius)
 Initializing voltage to 1.140 Volts. (default - Range: 1.140 to 1.260 Volts)
 
 
-Device speed data version:  "PRODUCTION 1.21 2012-04-23".
+Device speed data version:  "PRODUCTION 1.23 2012-12-04".
 
 
 
@@ -40,8 +40,8 @@ Slice Logic Utilization:
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                    25 out of   1,430    1%
-  Nummber of MUXCYs used:                       56 out of   2,860    1%
+  Number of occupied Slices:                    27 out of   1,430    1%
+  Number of MUXCYs used:                        56 out of   2,860    1%
   Number of LUT Flip Flop pairs used:           76
     Number with an unused Flip Flop:            18 out of      76   23%
     Number with an unused LUT:                   0 out of      76    0%
@@ -57,7 +57,7 @@ Slice Logic Distribution:
 
 IO Utilization:
   Number of bonded IOBs:                        16 out of     102   15%
-    Number of LOCed IOBs:                       16 out of      16  100%
+    Number of LOCed IOBs:                        4 out of      16   25%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      32    0%
@@ -88,35 +88,35 @@ Specific Feature Utilization:
 Overall effort level (-ol):   High 
 Router effort level (-rl):    High 
 
-Starting initial Timing Analysis.  REAL time: 5 secs 
-Finished initial Timing Analysis.  REAL time: 5 secs 
+Starting initial Timing Analysis.  REAL time: 2 secs 
+Finished initial Timing Analysis.  REAL time: 2 secs 
 
 Starting Router
 
 
-Phase  1  : 265 unrouted;      REAL time: 5 secs 
+Phase  1  : 265 unrouted;      REAL time: 3 secs 
 
-Phase  2  : 193 unrouted;      REAL time: 5 secs 
+Phase  2  : 193 unrouted;      REAL time: 3 secs 
 
-Phase  3  : 45 unrouted;      REAL time: 5 secs 
+Phase  3  : 44 unrouted;      REAL time: 3 secs 
 
-Phase  4  : 45 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
+Phase  4  : 44 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 3 secs 
 
 Updating file: debounce_test.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
+Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 3 secs 
 
-Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
+Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 3 secs 
 
-Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
+Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 3 secs 
 
-Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
+Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 3 secs 
 
-Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
+Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 3 secs 
 
-Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
-Total REAL time to Router completion: 6 secs 
-Total CPU time to Router completion: 6 secs 
+Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 3 secs 
+Total REAL time to Router completion: 3 secs 
+Total CPU time to Router completion: 3 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -134,7 +134,7 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|           clk_BUFGP | BUFGMUX_X3Y13| No   |   17 |  0.075     |  1.143      |
+|           clk_BUFGP | BUFGMUX_X3Y13| No   |   17 |  0.099     |  1.178      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -154,8 +154,8 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH | SETUP       |    16.544ns|     3.456ns|       0|           0
-   50%                                      | HOLD        |     0.444ns|            |       0|           0
+  TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH | SETUP       |    16.969ns|     3.031ns|       0|           0
+   50%                                      | HOLD        |     0.463ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -166,10 +166,10 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 6 secs 
-Total CPU time to PAR completion: 6 secs 
+Total REAL time to PAR completion: 3 secs 
+Total CPU time to PAR completion: 3 secs 
 
-Peak Memory Usage:  295 MB
+Peak Memory Usage:  292 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.

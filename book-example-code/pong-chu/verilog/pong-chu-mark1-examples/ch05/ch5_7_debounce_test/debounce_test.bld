@@ -1,1149 +1,451 @@
-Release 14.1 ngdbuild P.15xf (nt64)
+Release 14.4 ngdbuild P.49d (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-Command Line: C:\Xilinx\14.1\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe
--intstyle ise -dd _ngo -aul -aut -nt timestamp -uc D:/My
-Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf -p
-xc6slx9-tqg144-3 debounce_test.ngc debounce_test.ngd
+Command Line: C:\Xilinx\14.4\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe
+-intstyle ise -dd _ngo -aul -aut -nt timestamp -uc
+D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/p
+ong-chu/ucf/Mark1_EDU_RA2.ucf -p xc6slx9-tqg144-3 debounce_test.ngc
+debounce_test.ngd
 
-Reading NGO file "D:/My
-Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/Pong_Chu_SRC/Mark1_Pong_Chu/ch05/ch5
-_7_debounce_test/debounce_test.ngc" ...
+Reading NGO file
+"D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/
+pong-chu/verilog/pong-chu-mark1-examples/ch05/ch5_7_debounce_test/debounce_test.
+ngc" ...
 Gathering constraint information from source properties...
 Done.
 
-Annotating constraints to design from ucf file "D:/My
-Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf" ...
+Annotating constraints to design from ucf file
+"D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/
+pong-chu/ucf/Mark1_EDU_RA2.ucf" ...
 Resolving constraint associations...
 Checking Constraint Associations...
-INFO:ConstraintSystem:59 - Constraint <NET "nes_clk"  	LOC = P92	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(28)]: NET
-   "nes_clk" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <NET "nes_clk"  	LOC = P132	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(28)]: NET "nes_clk" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
 WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "nes_clk"  	LOC = P92	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(28)]' could not
-   be found and so the Locate constraint will be removed.
+   '<NET "nes_clk"  	LOC = P132	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(28)]' could not be found and so the Locate
+   constraint will be removed.
 
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(28)]: NET
-   "nes_clk" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(28)]: NET "nes_clk" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "nes_lat"  	LOC = P88	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(29)]: NET
-   "nes_lat" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "nes_lat"  	LOC = P88	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(29)]' could not
-   be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(29)]: NET
-   "nes_lat" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "nes1_dat"    LOC = P87	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(30)]: NET
-   "nes1_dat" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <NET "nes_lat"  	LOC = P131	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(29)]: NET "nes_lat" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
 WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "nes1_dat"    LOC = P87	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(30)]' could not
-   be found and so the Locate constraint will be removed.
+   '<NET "nes_lat"  	LOC = P131	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(29)]' could not be found and so the Locate
+   constraint will be removed.
 
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(30)]: NET
-   "nes1_dat" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(29)]: NET "nes_lat" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "nes2_dat"  	LOC = P82	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(31)]: NET
-   "nes2_dat" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "nes2_dat"  	LOC = P82	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(31)]' could not
-   be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(31)]: NET
-   "nes2_dat" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "btn<2>"   LOC = P58	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(46)]: NET
-   "btn<2>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <NET "nes1_dat"    LOC = P127	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(30)]: NET "nes1_dat" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
 WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "btn<2>"   LOC = P58	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(46)]' could not
-   be found and so the Locate constraint will be removed.
+   '<NET "nes1_dat"    LOC = P127	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(30)]' could not be found and so the Locate
+   constraint will be removed.
 
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(46)]: NET
-   "btn<2>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(30)]: NET "nes1_dat" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "led<0>"  LOC = P44	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(63)]: NET
-   "led<0>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "led<0>"  LOC = P44	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(63)]' could not
-   be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(63)]: NET
-   "led<0>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "led<1>"  LOC = P45	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(64)]: NET
-   "led<1>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <NET "nes2_dat"  	LOC = P120	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(31)]: NET "nes2_dat" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
 WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "led<1>"  LOC = P45	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(64)]' could not
-   be found and so the Locate constraint will be removed.
+   '<NET "nes2_dat"  	LOC = P120	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(31)]' could not be found and so the Locate
+   constraint will be removed.
 
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(64)]: NET
-   "led<1>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(31)]: NET "nes2_dat" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "led<2>"  LOC = P46	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(65)]: NET
-   "led<2>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "led<2>"  LOC = P46	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(65)]' could not
-   be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(65)]: NET
-   "led<2>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "led<3>"  LOC = P47	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(66)]: NET
-   "led<3>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <NET "btn<2>"   LOC = P56	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(36)]: NET "btn<2>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
 WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "led<3>"  LOC = P47	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(66)]' could not
-   be found and so the Locate constraint will be removed.
+   '<NET "btn<2>"   LOC = P56	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(36)]' could not be found and so the Locate
+   constraint will be removed.
 
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(66)]: NET
-   "led<3>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(36)]: NET "btn<2>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "led<4>"  LOC = P48	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(67)]: NET
-   "led<4>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "led<4>"  LOC = P48	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(67)]' could not
-   be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(67)]: NET
-   "led<4>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "led<5>"  LOC = P50	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(68)]: NET
-   "led<5>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <NET "rgb<0>"  LOC = P116 	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(43)]: NET "rgb<0>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
 WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "led<5>"  LOC = P50	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(68)]' could not
-   be found and so the Locate constraint will be removed.
+   '<NET "rgb<0>"  LOC = P116 	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(43)]' could not be found and so the Locate
+   constraint will be removed.
 
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(68)]: NET
-   "led<5>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <DRIVE=24 |>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(43)]: NET "rgb<0>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "led<6>"  LOC = P51	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(69)]: NET
-   "led<6>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <SLEW=FAST	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(43)]: NET "rgb<0>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "led<6>"  LOC = P51	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(69)]' could not
-   be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(69)]: NET
-   "led<6>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(43)]: NET "rgb<0>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "led<7>"  LOC = P56	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(70)]: NET
-   "led<7>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "led<7>"  LOC = P56	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(70)]' could not
-   be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(70)]: NET
-   "led<7>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "sw<0>"  LOC = P12	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(86)]: NET
-   "sw<0>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <NET "rgb<1>"  LOC = P112 	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(44)]: NET "rgb<1>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
 WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "sw<0>"  LOC = P12	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(86)]' could not
-   be found and so the Locate constraint will be removed.
+   '<NET "rgb<1>"  LOC = P112 	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(44)]' could not be found and so the Locate
+   constraint will be removed.
 
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(86)]: NET
-   "sw<0>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <DRIVE=24 |>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(44)]: NET "rgb<1>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "sw<1>"  LOC = P11	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(87)]: NET
-   "sw<1>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <SLEW=FAST	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(44)]: NET "rgb<1>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "sw<1>"  LOC = P11	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(87)]' could not
-   be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(87)]: NET
-   "sw<1>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(44)]: NET "rgb<1>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "sw<2>"  LOC = P10	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(88)]: NET
-   "sw<2>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "sw<2>"  LOC = P10	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(88)]' could not
-   be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(88)]: NET
-   "sw<2>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "sw<3>"  LOC = P9	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(89)]: NET
-   "sw<3>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <NET "rgb<2>"  LOC = P111 	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(45)]: NET "rgb<2>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
 WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "sw<3>"  LOC = P9	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(89)]' could not
-   be found and so the Locate constraint will be removed.
+   '<NET "rgb<2>"  LOC = P111 	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(45)]' could not be found and so the Locate
+   constraint will be removed.
 
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(89)]: NET
-   "sw<3>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <DRIVE=24 |>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(45)]: NET "rgb<2>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "sw<4>"  LOC = P8	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(90)]: NET
-   "sw<4>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <SLEW=FAST	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(45)]: NET "rgb<2>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "sw<4>"  LOC = P8	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(90)]' could not
-   be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(90)]: NET
-   "sw<4>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(45)]: NET "rgb<2>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "sw<5>"  LOC = P7	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(91)]: NET
-   "sw<5>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "sw<5>"  LOC = P7	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(91)]' could not
-   be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(91)]: NET
-   "sw<5>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "sw<6>"  LOC = P6	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(92)]: NET
-   "sw<6>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <NET "vsync"   LOC = P134 	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(46)]: NET "vsync" not found.  Please verify
+   that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
 WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "sw<6>"  LOC = P6	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(92)]' could not
-   be found and so the Locate constraint will be removed.
+   '<NET "vsync"   LOC = P134 	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(46)]' could not be found and so the Locate
+   constraint will be removed.
 
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(92)]: NET
-   "sw<6>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <DRIVE=24 |>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(46)]: NET "vsync" not found.  Please verify
+   that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "sw<7>"  LOC = P5	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(93)]: NET
-   "sw<7>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <SLEW=FAST	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(46)]: NET "vsync" not found.  Please verify
+   that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "sw<7>"  LOC = P5	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(93)]' could not
-   be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(93)]: NET
-   "sw<7>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(46)]: NET "vsync" not found.  Please verify
+   that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "rx"  LOC = P43	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(100)]: NET "rx"
-   not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "rx"  LOC = P43	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(100)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(100)]: NET "rx"
-   not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "tx"  LOC = P41	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(101)]: NET "tx"
-   not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <NET "hsync"   LOC = P137  	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(47)]: NET "hsync" not found.  Please verify
+   that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
 WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "tx"  LOC = P41	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(101)]' could
-   not be found and so the Locate constraint will be removed.
+   '<NET "hsync"   LOC = P137  	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(47)]' could not be found and so the Locate
+   constraint will be removed.
 
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(101)]: NET "tx"
-   not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <DRIVE=24 |>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(47)]: NET "hsync" not found.  Please verify
+   that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "dac_0" LOC = P2	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(106)]: NET
-   "dac_0" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <SLEW=FAST	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(47)]: NET "hsync" not found.  Please verify
+   that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "dac_0" LOC = P2	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(106)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(106)]: NET
-   "dac_0" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(47)]: NET "hsync" not found.  Please verify
+   that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "dac_1" LOC = P1	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(107)]: NET
-   "dac_1" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "dac_1" LOC = P1	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(107)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(107)]: NET
-   "dac_1" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "dac_2" LOC = P40	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(108)]: NET
-   "dac_2" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <NET "led<0>"  LOC = P41	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(55)]: NET "led<0>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
 WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "dac_2" LOC = P40	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(108)]' could
-   not be found and so the Locate constraint will be removed.
+   '<NET "led<0>"  LOC = P41	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(55)]' could not be found and so the Locate
+   constraint will be removed.
 
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(108)]: NET
-   "dac_2" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(55)]: NET "led<0>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "pd<0>" LOC = P143	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(113)]: NET
-   "pd<0>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "pd<0>" LOC = P143	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(113)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(113)]: NET
-   "pd<0>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "pd<1>" LOC = P142	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(114)]: NET
-   "pd<1>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <NET "led<1>"  LOC = P43	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(56)]: NET "led<1>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
 WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "pd<1>" LOC = P142	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(114)]' could
-   not be found and so the Locate constraint will be removed.
+   '<NET "led<1>"  LOC = P43	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(56)]' could not be found and so the Locate
+   constraint will be removed.
 
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(114)]: NET
-   "pd<1>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(56)]: NET "led<1>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "pd<2>" LOC = P141	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(115)]: NET
-   "pd<2>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "pd<2>" LOC = P141	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(115)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(115)]: NET
-   "pd<2>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "pd<3>" LOC = P140	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(116)]: NET
-   "pd<3>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <NET "led<2>"  LOC = P44	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(57)]: NET "led<2>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
 WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "pd<3>" LOC = P140	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(116)]' could
-   not be found and so the Locate constraint will be removed.
+   '<NET "led<2>"  LOC = P44	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(57)]' could not be found and so the Locate
+   constraint will be removed.
 
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(116)]: NET
-   "pd<3>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(57)]: NET "led<2>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "pd<4>" LOC = P139	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(117)]: NET
-   "pd<4>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "pd<4>" LOC = P139	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(117)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(117)]: NET
-   "pd<4>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "pd<5>" LOC = P138	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(118)]: NET
-   "pd<5>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <NET "led<3>"  LOC = P45	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(58)]: NET "led<3>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
 WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "pd<5>" LOC = P138	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(118)]' could
-   not be found and so the Locate constraint will be removed.
+   '<NET "led<3>"  LOC = P45	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(58)]' could not be found and so the Locate
+   constraint will be removed.
 
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(118)]: NET
-   "pd<5>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(58)]: NET "led<3>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "pd<6>" LOC = P137	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(119)]: NET
-   "pd<6>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "pd<6>" LOC = P137	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(119)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(119)]: NET
-   "pd<6>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "pd<7>" LOC = P134	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(120)]: NET
-   "pd<7>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <NET "led<4>"  LOC = P46	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(59)]: NET "led<4>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
 WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "pd<7>" LOC = P134	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(120)]' could
-   not be found and so the Locate constraint will be removed.
+   '<NET "led<4>"  LOC = P46	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(59)]' could not be found and so the Locate
+   constraint will be removed.
 
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(120)]: NET
-   "pd<7>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(59)]: NET "led<4>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "pmrd" LOC = P133	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(121)]: NET
-   "pmrd" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "pmrd" LOC = P133	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(121)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(121)]: NET
-   "pmrd" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "pmwr" LOC = P132	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(122)]: NET
-   "pmwr" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <NET "led<5>"  LOC = P47	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(60)]: NET "led<5>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
 WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "pmwr" LOC = P132	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(122)]' could
-   not be found and so the Locate constraint will be removed.
+   '<NET "led<5>"  LOC = P47	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(60)]' could not be found and so the Locate
+   constraint will be removed.
 
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(122)]: NET
-   "pmwr" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(60)]: NET "led<5>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "addr_data" LOC = P131	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(123)]: NET
-   "addr_data" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "addr_data" LOC = P131	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(123)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(123)]: NET
-   "addr_data" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "an_l"  LOC = P116	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(135)]: NET
-   "an_l" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <NET "led<6>"  LOC = P48	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(61)]: NET "led<6>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
 WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "an_l"  LOC = P116	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(135)]' could
-   not be found and so the Locate constraint will be removed.
+   '<NET "led<6>"  LOC = P48	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(61)]' could not be found and so the Locate
+   constraint will be removed.
 
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(135)]: NET
-   "an_l" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(61)]: NET "led<6>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
-INFO:ConstraintSystem:59 - Constraint <NET "rgb<0>"  LOC = P121 	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(160)]: NET
-   "rgb<0>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "rgb<0>"  LOC = P121 	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(160)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <DRIVE=24 |> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(160)]: NET
-   "rgb<0>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <SLEW=FAST	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(160)]: NET
-   "rgb<0>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(160)]: NET
-   "rgb<0>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "rgb<1>"  LOC = P120 	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(161)]: NET
-   "rgb<1>" not found.  Please verify that:
+INFO:ConstraintSystem:59 - Constraint <NET "led<7>"  LOC = P50	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(62)]: NET "led<7>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
 WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "rgb<1>"  LOC = P120 	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(161)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <DRIVE=24 |> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(161)]: NET
-   "rgb<1>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <SLEW=FAST	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(161)]: NET
-   "rgb<1>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(161)]: NET
-   "rgb<1>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "rgb<2>"  LOC = P119 	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(162)]: NET
-   "rgb<2>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "rgb<2>"  LOC = P119 	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(162)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <DRIVE=24 |> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(162)]: NET
-   "rgb<2>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <SLEW=FAST	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(162)]: NET
-   "rgb<2>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(162)]: NET
-   "rgb<2>" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "vsync"   LOC = P118 	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(163)]: NET
-   "vsync" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "vsync"   LOC = P118 	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(163)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <DRIVE=24 |> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(163)]: NET
-   "vsync" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <SLEW=FAST	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(163)]: NET
-   "vsync" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(163)]: NET
-   "vsync" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "hsync"   LOC = P123  	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(164)]: NET
-   "hsync" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "hsync"   LOC = P123  	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(164)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <DRIVE=24 |> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(164)]: NET
-   "hsync" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <SLEW=FAST	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(164)]: NET
-   "hsync" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(164)]: NET
-   "hsync" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "ps2c_1" LOC=P85	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(170)]: NET
-   "ps2c_1" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "ps2c_1" LOC=P85	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(170)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(170)]: NET
-   "ps2c_1" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "ps2d_1" LOC=P84 |> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(171)]: NET
-   "ps2d_1" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "ps2d_1" LOC=P84 |> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(171)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(171)]: NET
-   "ps2d_1" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "ps2c_2" LOC=P100	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(176)]: NET
-   "ps2c_2" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "ps2c_2" LOC=P100	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(176)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(176)]: NET
-   "ps2c_2" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "ps2d_2" LOC=P94	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(177)]: NET
-   "ps2d_2" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "ps2d_2" LOC=P94	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(177)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(177)]: NET
-   "ps2d_2" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "s_d0" LOC = P35	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(183)]: NET
-   "s_d0" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "s_d0" LOC = P35	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(183)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(183)]: NET
-   "s_d0" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "s_d1" LOC = P34	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(184)]: NET
-   "s_d1" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "s_d1" LOC = P34	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(184)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(184)]: NET
-   "s_d1" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "s_d2" LOC = P33	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(185)]: NET
-   "s_d2" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "s_d2" LOC = P33	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(185)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(185)]: NET
-   "s_d2" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "s_d3" LOC = P32	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(186)]: NET
-   "s_d3" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "s_d3" LOC = P32	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(186)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(186)]: NET
-   "s_d3" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "s_d4" LOC = P30	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(187)]: NET
-   "s_d4" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "s_d4" LOC = P30	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(187)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(187)]: NET
-   "s_d4" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "s_d5" LOC = P29	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(188)]: NET
-   "s_d5" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "s_d5" LOC = P29	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(188)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(188)]: NET
-   "s_d5" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "s_d6" LOC = P27	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(189)]: NET
-   "s_d6" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "s_d6" LOC = P27	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(189)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(189)]: NET
-   "s_d6" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "s_d7" LOC = P26	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(190)]: NET
-   "s_d7" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "s_d7" LOC = P26	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(190)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(190)]: NET
-   "s_d7" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "s_d8" LOC = P24	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(191)]: NET
-   "s_d8" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "s_d8" LOC = P24	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(191)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(191)]: NET
-   "s_d8" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "s_d9" LOC = P23	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(192)]: NET
-   "s_d9" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "s_d9" LOC = P23	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(192)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(192)]: NET
-   "s_d9" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "s_d10" LOC = P22	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(193)]: NET
-   "s_d10" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "s_d10" LOC = P22	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(193)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(193)]: NET
-   "s_d10" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "s_d11" LOC = P21	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(194)]: NET
-   "s_d11" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "s_d11" LOC = P21	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(194)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(194)]: NET
-   "s_d11" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "s_d12" LOC = P17	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(195)]: NET
-   "s_d12" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "s_d12" LOC = P17	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(195)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(195)]: NET
-   "s_d12" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "s_d13" LOC = P16	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(196)]: NET
-   "s_d13" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "s_d13" LOC = P16	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(196)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(196)]: NET
-   "s_d13" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "s_scl" LOC = P15	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(197)]: NET
-   "s_scl" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "s_scl" LOC = P15	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(197)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(197)]: NET
-   "s_scl" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-INFO:ConstraintSystem:59 - Constraint <NET "s_sda" LOC = P14	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(198)]: NET
-   "s_sda" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "s_sda" LOC = P14	|> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(198)]' could
-   not be found and so the Locate constraint will be removed.
-
-INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;> [D:/My
-   Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(198)]: NET
-   "s_sda" not found.  Please verify that:
+   '<NET "led<7>"  LOC = P50	|>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(62)]' could not be found and so the Locate
+   constraint will be removed.
+
+INFO:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33;>
+   [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-co
+   de/pong-chu/ucf/Mark1_EDU_RA2.ucf(62)]: NET "led<7>" not found.  Please
+   verify that:
    1. The specified design element actually exists in the original design.
    2. The specified object is spelled correctly in the constraint source file.
 
@@ -1160,12 +462,12 @@ Partition Implementation Status
 
 NGDBUILD Design Results Summary:
   Number of errors:     0
-  Number of warnings:  63
+  Number of warnings:  18
 
-Total memory usage is 159604 kilobytes
+Total memory usage is 157592 kilobytes
 
 Writing NGD file "debounce_test.ngd" ...
-Total REAL time to NGDBUILD completion:  6 sec
-Total CPU time to NGDBUILD completion:   6 sec
+Total REAL time to NGDBUILD completion:  3 sec
+Total CPU time to NGDBUILD completion:   3 sec
 
 Writing NGDBUILD log file "debounce_test.bld"...
