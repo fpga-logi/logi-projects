@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2012-11-02T15:00:52</DateModified>
+  <DateModified>2013-04-13T18:43:37</DateModified>
   <ModuleName>debounce_test</ModuleName>
   <SummaryTimeStamp>2012-10-04T16:55:13</SummaryTimeStamp>
-  <SavedFilePath>D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/Pong_Chu_SRC/Mark1_Pong_Chu/ch05/ch5_7_debounce_test/iseconfig/debounce_test.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/Pong_Chu_SRC/Mark1_Pong_Chu/ch05/ch5_7_debounce_test\</ImplementationReportsDirectory>
+  <SavedFilePath>D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/verilog/pong-chu-mark1-examples/ch05/ch5_7_debounce_test/iseconfig/debounce_test.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/verilog/pong-chu-mark1-examples/ch05/ch5_7_debounce_test\</ImplementationReportsDirectory>
   <DateInitialized>2012-07-12T14:14:45</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

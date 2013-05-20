@@ -20,6 +20,9 @@
 <msg type="info" file="Map" num="215" delta="old" >The Interim Design Summary has been generated in the MAP Report (.mrp).
 </msg>
 
+<msg type="info" file="Place" num="834" delta="new" >Only a subset of IOs are locked. Out of <arg fmt="%d" index="1">16</arg> IOs, <arg fmt="%d" index="2">4</arg> are locked and <arg fmt="%d" index="3">12</arg> are not locked. <arg fmt="%s" index="4">If you would like to print the names of these IOs, please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1.</arg> 
+</msg>
+
 <msg type="info" file="Pack" num="1650" delta="old" >Map created a placed design.
 </msg>
 

@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=D:\My Documents\Dropbox\Prj\Valent\Mark1\SRC\FPGA\Pong_Chu_SRC\Mark1_Pong_Chu\ch05\ch5_7_debounce_test\debounce_test.ncd
-OUTFILE=D:\My Documents\Dropbox\Prj\Valent\Mark1\SRC\FPGA\Pong_Chu_SRC\Mark1_Pong_Chu\ch05\ch5_7_debounce_test\debounce_test.bit
+INFILE=D:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\book-example-code\pong-chu\verilog\pong-chu-mark1-examples\ch05\ch5_7_debounce_test\debounce_test.ncd
+OUTFILE=D:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\book-example-code\pong-chu\verilog\pong-chu-mark1-examples\ch05\ch5_7_debounce_test\debounce_test.bit
 FAMILY=Spartan6
 PART=xc6slx9-3tqg144
-WORKINGDIR=D:\My Documents\Dropbox\Prj\Valent\Mark1\SRC\FPGA\Pong_Chu_SRC\Mark1_Pong_Chu\ch05\ch5_7_debounce_test
+WORKINGDIR=D:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\book-example-code\pong-chu\verilog\pong-chu-mark1-examples\ch05\ch5_7_debounce_test
 LICENSE=WebPack
-USER_INFO=210677741_0_0_679
+USER_INFO=202672454_0_0_239
