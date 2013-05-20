@@ -5,7 +5,7 @@ use ieee.numeric_std.all;
 entity debounce_test is
    port(
       clk: in std_logic;
-      btn: in std_logic_vector(3 downto 0);
+      n_btn: in std_logic_vector(3 downto 0);
       an: out std_logic_vector(3 downto 0);
       sseg: out std_logic_vector(7 downto 0)
    );
@@ -17,7 +17,13 @@ architecture arch of debounce_test is
    signal b_count, d_count: std_logic_vector(7 downto 0);
    signal btn_reg, db_reg: std_logic;
    signal db_level, db_tick, btn_tick, clr: std_logic;
+	signal btn: std_logic_vector(3 downto 0);
+	
+	
 begin
+
+	btn <= not(n_btn);
+
    --=================================================
    -- component instantiation
    --=================================================
