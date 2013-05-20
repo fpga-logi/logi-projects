@@ -49,9 +49,9 @@ port( OSC_FPGA : in std_logic;
 		LED : out std_logic_vector(7 downto 0);	
 		
 			--PMOD
-		PMOD4_6, PMOD4_2  : inout std_logic ; -- used as SCL, SDA
-		PMOD4_0, PMOD4_3 : out std_logic ; -- used as reset and xclk 
-		PMOD4_7, PMOD4_1, PMOD4_5, PMOD4_4 : in std_logic ; -- used as pclk, href, vsync
+		PMOD4_9, PMOD4_3  : inout std_logic ; -- used as SCL, SDA
+		PMOD4_1, PMOD4_4 : out std_logic ; -- used as reset and xclk 
+		PMOD4_10, PMOD4_2, PMOD4_8, PMOD4_7 : in std_logic ; -- used as pclk, href, vsync
 		PMOD3 : in std_logic_vector(7 downto 0); -- used as cam data
 		
 		PWM : out std_logic_vector(1 downto 0);
@@ -191,7 +191,7 @@ begin
 		CLK_OUT3 => clk_96, --96Mhz system clock
 		LOCKED => clk_locked
 	);
-	clk_sys <= clk_100 ;
+	clk_sys <= clk_96 ;
 
 	reset0: reset_generator 
 	generic map(HOLD_0 => 1000)
@@ -250,7 +250,7 @@ begin
 						bus_color_lut_data_out when cs_color_lut = '1' else
 						bus_latches_data_out when cs_latches = '1' else 
 						bus_preview_fifo_out when cs_preview_fifo = '1' else
-						(others => '1');
+						(others => '0');
 						
 -- Peripherals instantiation
 	fifo_blobs : fifo_peripheral 
@@ -283,7 +283,7 @@ begin
 	fifo_preview : fifo_peripheral 
 		generic map(ADDR_WIDTH => 16,
 						WIDTH => 16, 
-						SIZE => 4096, 
+						SIZE => 8192,--8192, 
 						BURST_SIZE => 4,
 						SYNC_LOGIC_INTERFACE => false)
 		port map(
@@ -326,8 +326,8 @@ begin
 			latch_input(7) => (others => '0'), -- for future use
 			latch_output(0) => pwm_value_0,
 			latch_output(1) => pwm_value_1,
-			latch_output(2)(7 downto 1) => LED(7 downto 1),
-			latch_output(2)(0) =>  open,
+			latch_output(2)(7 downto 3) => LED(7 downto 3),
+			latch_output(2)(2 downto 0) =>  open,
 			latch_output(3) => ENCODERS_CONTROL,
 			latch_output(4) => open,
 			latch_output(5) => open,
@@ -363,11 +363,14 @@ begin
 			clock => clk_sys, 
 			resetn => sys_resetn ,		
 			i2c_clk => clk_24 ,
-			scl => PMOD4_6,
-			sda => PMOD4_2, 
+			scl => PMOD4_9,
+			sda => PMOD4_3, 
 			reg_addr => rom_addr ,
 			reg_data => rom_data
 		);	
+
+--PMOD4_9 <= SYS_I2C_SCL ;
+--PMOD4_3 <= SYS_I2C_SDA ; 
 		
 	camera0: yuv_camera_interface
 		port map(
@@ -383,35 +386,40 @@ begin
 		);	
 		
 	cam_xclk <= clk_24;
-	PMOD4_3 <= cam_xclk ;
-	--cam_data <= PMOD2 ;
+	PMOD4_4 <= cam_xclk ;
 	cam_data <= PMOD3(3) & PMOD3(7) & PMOD3(2) & PMOD3(6) & PMOD3(1) & PMOD3(5) & PMOD3(0) & PMOD3(4) ;
-	cam_pclk <= PMOD4_7 ;
-	cam_href <= PMOD4_1 ;
-	cam_vsync <= PMOD4_5 ;
-	PMOD4_0 <= cam_reset ;
+	cam_pclk <= PMOD4_10 ;
+	cam_href <= PMOD4_2 ;
+	cam_vsync <= PMOD4_8 ;
+	PMOD4_1 <= cam_reset ;
 	cam_reset <= resetn ;
 
+	LED(1) <= cam_vsync ;
+	LED(2) <= cs_preview_fifo ;
 	
 -- Pixel Pipeline instantiation
-	video_switch_inst : video_switch
-		generic map(NB	=> 2)
-		port map(pixel_clock(0) => pxclk_from_interface,
-					pixel_clock(1) => pxclk_from_erode,
-				   hsync(0) => href_from_interface, 
-					hsync(1) => href_from_erode, 
-					vsync(0) => vsync_from_interface,
-					vsync(1) => vsync_from_erode,
-					pixel_data(0) =>pixel_y_from_interface,
-					pixel_data(1) => (pixel_from_erode(1 downto 0)&"000000"),
-					pixel_clock_out => pxclk_from_switch,
-					hsync_out=> href_from_switch,
-					vsync_out => vsync_from_switch,
-					pixel_data_out => pixel_from_switch,
-					channel(0) => DIP_SW(0),
-					channel(7 downto 1) => (others => '0')
-		);
+--	video_switch_inst : video_switch
+--		generic map(NB	=> 2)
+--		port map(pixel_clock(0) => pxclk_from_interface,
+--					pixel_clock(1) => pxclk_from_erode,
+--				   hsync(0) => href_from_interface, 
+--					hsync(1) => href_from_erode, 
+--					vsync(0) => vsync_from_interface,
+--					vsync(1) => vsync_from_erode,
+--					pixel_data(0) =>pixel_y_from_interface,
+--					pixel_data(1) => (pixel_from_erode(1 downto 0)&"000000"),
+--					pixel_clock_out => pxclk_from_switch,
+--					hsync_out=> href_from_switch,
+--					vsync_out => vsync_from_switch,
+--					pixel_data_out => pixel_from_switch,
+--					channel(0) => DIP_SW(0),
+--					channel(7 downto 1) => (others => '0')
+--		);
 
+vsync_from_switch <= vsync_from_interface ;
+href_from_switch <= href_from_interface;
+pxclk_from_switch <= pxclk_from_interface ;
+pixel_from_switch <= pixel_y_from_interface ;
 
 	ds_image : down_scaler
 		generic map(SCALING_FACTOR => 2, INPUT_WIDTH => 320, INPUT_HEIGHT => 240 )
@@ -429,17 +437,21 @@ begin
 		); 
 		
 		pixel_to_fifo : pixel2fifo
-		generic map(ADD_SYNC => false)
+		generic map(ADD_SYNC => true)
 		port map(
 			clk => clk_sys, resetn => sys_resetn,
 			pixel_clock => pxclk_from_ds, 
 			hsync => href_from_ds, 
 			vsync => vsync_from_ds,
 			pixel_data_in => pixel_from_ds,
+--			pixel_clock => pxclk_from_interface, 
+--			hsync => href_from_interface, 
+--			vsync => vsync_from_interface,
+--			pixel_data_in => pixel_y_from_interface,
 			fifo_data => preview_fifo_input,
 			fifo_wr => preview_fifo_wr
 		);	
-
+	
 	classification0 : color_classifier
 		port map(
 				clk => clk_sys, 
