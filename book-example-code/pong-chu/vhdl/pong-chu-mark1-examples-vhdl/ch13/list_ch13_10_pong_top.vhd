@@ -4,8 +4,8 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 entity pong_top is
    port(
-      clk, reset: in std_logic;
-      btn: in std_logic_vector (1 downto 0);
+      clk, n_reset: in std_logic;
+      n_btn: in std_logic_vector (1 downto 0);
       hsync, vsync: out std_logic;
       rgb: out   std_logic_vector (2 downto 0)
    );
@@ -25,7 +25,13 @@ architecture arch of pong_top is
    signal timer_tick, timer_start, timer_up: std_logic;
    signal ball_reg, ball_next: unsigned(1 downto 0);
    signal ball: std_logic_vector(1 downto 0);
+	signal reset: std_logic;
+	signal btn: std_logic_vector(1 downto 0);
+	
 begin
+	reset <= not(n_reset);
+	btn <= not(n_btn);
+
    -- instantiate video synchonization unit
    vga_sync_unit: entity work.vga_sync
       port map(clk=>clk, reset=>reset,
