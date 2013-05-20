@@ -5,871 +5,286 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;nes_clk&quot;  	LOC = P92	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(28)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">nes_clk</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;nes_clk&quot;  	LOC = P132	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(28)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">nes_clk</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;nes_clk&quot;  	LOC = P92	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(28)]&apos; could not be found and so the Locate constraint will be removed.
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;nes_clk&quot;  	LOC = P132	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(28)]&apos; could not be found and so the Locate constraint will be removed.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(28)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">nes_clk</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(28)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">nes_clk</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;nes_lat&quot;  	LOC = P88	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(29)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">nes_lat</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;nes_lat&quot;  	LOC = P131	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(29)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">nes_lat</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;nes_lat&quot;  	LOC = P88	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(29)]&apos; could not be found and so the Locate constraint will be removed.
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;nes_lat&quot;  	LOC = P131	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(29)]&apos; could not be found and so the Locate constraint will be removed.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(29)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">nes_lat</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(29)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">nes_lat</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;nes1_dat&quot;    LOC = P87	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(30)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">nes1_dat</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;nes1_dat&quot;    LOC = P127	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(30)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">nes1_dat</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;nes1_dat&quot;    LOC = P87	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(30)]&apos; could not be found and so the Locate constraint will be removed.
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;nes1_dat&quot;    LOC = P127	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(30)]&apos; could not be found and so the Locate constraint will be removed.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(30)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">nes1_dat</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(30)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">nes1_dat</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;nes2_dat&quot;  	LOC = P82	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(31)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">nes2_dat</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;nes2_dat&quot;  	LOC = P120	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(31)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">nes2_dat</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;nes2_dat&quot;  	LOC = P82	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(31)]&apos; could not be found and so the Locate constraint will be removed.
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;nes2_dat&quot;  	LOC = P120	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(31)]&apos; could not be found and so the Locate constraint will be removed.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(31)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">nes2_dat</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(31)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">nes2_dat</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;btn&lt;2&gt;&quot;   LOC = P58	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(46)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">btn&lt;2&gt;</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;btn&lt;2&gt;&quot;   LOC = P56	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(36)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">btn&lt;2&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;btn&lt;2&gt;&quot;   LOC = P58	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(46)]&apos; could not be found and so the Locate constraint will be removed.
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;btn&lt;2&gt;&quot;   LOC = P56	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(36)]&apos; could not be found and so the Locate constraint will be removed.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(46)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">btn&lt;2&gt;</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(36)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">btn&lt;2&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;led&lt;0&gt;&quot;  LOC = P44	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(63)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;0&gt;</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;rgb&lt;0&gt;&quot;  LOC = P116 	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(43)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;0&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;led&lt;0&gt;&quot;  LOC = P44	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(63)]&apos; could not be found and so the Locate constraint will be removed.
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;rgb&lt;0&gt;&quot;  LOC = P116 	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(43)]&apos; could not be found and so the Locate constraint will be removed.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(63)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;0&gt;</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;DRIVE=24 |&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(43)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;0&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;led&lt;1&gt;&quot;  LOC = P45	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(64)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;1&gt;</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;SLEW=FAST	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(43)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;0&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;led&lt;1&gt;&quot;  LOC = P45	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(64)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(64)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;1&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;led&lt;2&gt;&quot;  LOC = P46	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(65)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;2&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;led&lt;2&gt;&quot;  LOC = P46	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(65)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(65)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;2&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;led&lt;3&gt;&quot;  LOC = P47	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(66)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;3&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;led&lt;3&gt;&quot;  LOC = P47	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(66)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(66)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;3&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;led&lt;4&gt;&quot;  LOC = P48	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(67)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;4&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;led&lt;4&gt;&quot;  LOC = P48	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(67)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(67)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;4&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;led&lt;5&gt;&quot;  LOC = P50	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(68)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;5&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;led&lt;5&gt;&quot;  LOC = P50	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(68)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(68)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;5&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;led&lt;6&gt;&quot;  LOC = P51	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(69)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;6&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;led&lt;6&gt;&quot;  LOC = P51	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(69)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(69)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;6&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;led&lt;7&gt;&quot;  LOC = P56	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(70)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;7&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;led&lt;7&gt;&quot;  LOC = P56	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(70)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(70)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;7&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;sw&lt;0&gt;&quot;  LOC = P12	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(86)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw&lt;0&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;sw&lt;0&gt;&quot;  LOC = P12	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(86)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(86)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw&lt;0&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;sw&lt;1&gt;&quot;  LOC = P11	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(87)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw&lt;1&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;sw&lt;1&gt;&quot;  LOC = P11	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(87)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(87)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw&lt;1&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;sw&lt;2&gt;&quot;  LOC = P10	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(88)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw&lt;2&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;sw&lt;2&gt;&quot;  LOC = P10	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(88)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(88)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw&lt;2&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;sw&lt;3&gt;&quot;  LOC = P9	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(89)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw&lt;3&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;sw&lt;3&gt;&quot;  LOC = P9	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(89)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(89)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw&lt;3&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;sw&lt;4&gt;&quot;  LOC = P8	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(90)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw&lt;4&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;sw&lt;4&gt;&quot;  LOC = P8	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(90)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(90)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw&lt;4&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;sw&lt;5&gt;&quot;  LOC = P7	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(91)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw&lt;5&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;sw&lt;5&gt;&quot;  LOC = P7	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(91)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(91)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw&lt;5&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;sw&lt;6&gt;&quot;  LOC = P6	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(92)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw&lt;6&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;sw&lt;6&gt;&quot;  LOC = P6	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(92)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(92)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw&lt;6&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;sw&lt;7&gt;&quot;  LOC = P5	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(93)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw&lt;7&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;sw&lt;7&gt;&quot;  LOC = P5	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(93)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(93)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw&lt;7&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;rx&quot;  LOC = P43	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(100)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rx</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;rx&quot;  LOC = P43	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(100)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(100)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rx</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;tx&quot;  LOC = P41	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(101)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">tx</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;tx&quot;  LOC = P41	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(101)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(101)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">tx</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;dac_0&quot; LOC = P2	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(106)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">dac_0</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;dac_0&quot; LOC = P2	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(106)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(106)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">dac_0</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;dac_1&quot; LOC = P1	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(107)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">dac_1</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;dac_1&quot; LOC = P1	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(107)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(107)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">dac_1</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;dac_2&quot; LOC = P40	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(108)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">dac_2</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;dac_2&quot; LOC = P40	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(108)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(108)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">dac_2</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;pd&lt;0&gt;&quot; LOC = P143	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(113)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">pd&lt;0&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;pd&lt;0&gt;&quot; LOC = P143	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(113)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(113)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">pd&lt;0&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;pd&lt;1&gt;&quot; LOC = P142	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(114)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">pd&lt;1&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;pd&lt;1&gt;&quot; LOC = P142	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(114)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(114)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">pd&lt;1&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;pd&lt;2&gt;&quot; LOC = P141	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(115)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">pd&lt;2&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;pd&lt;2&gt;&quot; LOC = P141	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(115)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(115)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">pd&lt;2&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;pd&lt;3&gt;&quot; LOC = P140	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(116)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">pd&lt;3&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;pd&lt;3&gt;&quot; LOC = P140	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(116)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(116)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">pd&lt;3&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;pd&lt;4&gt;&quot; LOC = P139	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(117)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">pd&lt;4&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;pd&lt;4&gt;&quot; LOC = P139	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(117)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(117)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">pd&lt;4&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;pd&lt;5&gt;&quot; LOC = P138	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(118)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">pd&lt;5&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;pd&lt;5&gt;&quot; LOC = P138	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(118)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(118)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">pd&lt;5&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;pd&lt;6&gt;&quot; LOC = P137	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(119)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">pd&lt;6&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;pd&lt;6&gt;&quot; LOC = P137	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(119)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(119)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">pd&lt;6&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;pd&lt;7&gt;&quot; LOC = P134	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(120)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">pd&lt;7&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;pd&lt;7&gt;&quot; LOC = P134	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(120)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(120)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">pd&lt;7&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;pmrd&quot; LOC = P133	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(121)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">pmrd</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;pmrd&quot; LOC = P133	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(121)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(121)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">pmrd</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;pmwr&quot; LOC = P132	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(122)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">pmwr</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;pmwr&quot; LOC = P132	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(122)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(122)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">pmwr</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;addr_data&quot; LOC = P131	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(123)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">addr_data</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;addr_data&quot; LOC = P131	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(123)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(123)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">addr_data</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;an_l&quot;  LOC = P116	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(135)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">an_l</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;an_l&quot;  LOC = P116	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(135)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(135)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">an_l</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;rgb&lt;0&gt;&quot;  LOC = P121 	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(160)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;0&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;rgb&lt;0&gt;&quot;  LOC = P121 	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(160)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;DRIVE=24 |&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(160)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;0&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;SLEW=FAST	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(160)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;0&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(160)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;0&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;rgb&lt;1&gt;&quot;  LOC = P120 	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(161)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;1&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;rgb&lt;1&gt;&quot;  LOC = P120 	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(161)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;DRIVE=24 |&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(161)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;1&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;SLEW=FAST	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(161)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;1&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(161)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;1&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;rgb&lt;2&gt;&quot;  LOC = P119 	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(162)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;2&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;rgb&lt;2&gt;&quot;  LOC = P119 	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(162)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;DRIVE=24 |&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(162)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;2&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;SLEW=FAST	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(162)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;2&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(162)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;2&gt;</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;vsync&quot;   LOC = P118 	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(163)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">vsync</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;vsync&quot;   LOC = P118 	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(163)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;DRIVE=24 |&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(163)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">vsync</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;SLEW=FAST	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(163)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">vsync</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(163)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">vsync</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;hsync&quot;   LOC = P123  	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(164)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">hsync</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;hsync&quot;   LOC = P123  	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(164)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;DRIVE=24 |&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(164)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">hsync</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;SLEW=FAST	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(164)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">hsync</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(164)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">hsync</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;ps2c_1&quot; LOC=P85	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(170)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">ps2c_1</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;ps2c_1&quot; LOC=P85	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(170)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(170)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">ps2c_1</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;ps2d_1&quot; LOC=P84 |&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(171)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">ps2d_1</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;ps2d_1&quot; LOC=P84 |&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(171)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(171)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">ps2d_1</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;ps2c_2&quot; LOC=P100	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(176)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">ps2c_2</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;ps2c_2&quot; LOC=P100	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(176)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(176)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">ps2c_2</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;ps2d_2&quot; LOC=P94	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(177)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">ps2d_2</arg>&quot; not found.  Please verify that:
-1. The specified design element actually exists in the original design.
-2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;ps2d_2&quot; LOC=P94	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(177)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(177)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">ps2d_2</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(43)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;0&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;s_d0&quot; LOC = P35	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(183)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d0</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;rgb&lt;1&gt;&quot;  LOC = P112 	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(44)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;1&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;s_d0&quot; LOC = P35	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(183)]&apos; could not be found and so the Locate constraint will be removed.
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;rgb&lt;1&gt;&quot;  LOC = P112 	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(44)]&apos; could not be found and so the Locate constraint will be removed.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(183)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d0</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;DRIVE=24 |&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(44)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;1&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;s_d1&quot; LOC = P34	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(184)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d1</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;SLEW=FAST	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(44)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;1&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;s_d1&quot; LOC = P34	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(184)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(184)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d1</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(44)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;1&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;s_d2&quot; LOC = P33	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(185)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d2</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;rgb&lt;2&gt;&quot;  LOC = P111 	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(45)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;2&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;s_d2&quot; LOC = P33	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(185)]&apos; could not be found and so the Locate constraint will be removed.
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;rgb&lt;2&gt;&quot;  LOC = P111 	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(45)]&apos; could not be found and so the Locate constraint will be removed.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(185)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d2</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;DRIVE=24 |&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(45)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;2&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;s_d3&quot; LOC = P32	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(186)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d3</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;SLEW=FAST	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(45)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;2&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;s_d3&quot; LOC = P32	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(186)]&apos; could not be found and so the Locate constraint will be removed.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(186)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d3</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(45)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">rgb&lt;2&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;s_d4&quot; LOC = P30	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(187)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d4</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;vsync&quot;   LOC = P134 	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(46)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">vsync</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;s_d4&quot; LOC = P30	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(187)]&apos; could not be found and so the Locate constraint will be removed.
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;vsync&quot;   LOC = P134 	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(46)]&apos; could not be found and so the Locate constraint will be removed.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(187)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d4</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;DRIVE=24 |&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(46)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">vsync</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;s_d5&quot; LOC = P29	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(188)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d5</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;SLEW=FAST	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(46)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">vsync</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;s_d5&quot; LOC = P29	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(188)]&apos; could not be found and so the Locate constraint will be removed.
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(188)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d5</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(46)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">vsync</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;s_d6&quot; LOC = P27	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(189)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d6</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;hsync&quot;   LOC = P137  	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(47)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">hsync</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;s_d6&quot; LOC = P27	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(189)]&apos; could not be found and so the Locate constraint will be removed.
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;hsync&quot;   LOC = P137  	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(47)]&apos; could not be found and so the Locate constraint will be removed.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(189)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d6</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;DRIVE=24 |&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(47)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">hsync</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;s_d7&quot; LOC = P26	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(190)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d7</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;SLEW=FAST	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(47)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">hsync</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
-</msg>
-
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;s_d7&quot; LOC = P26	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(190)]&apos; could not be found and so the Locate constraint will be removed.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(190)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d7</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(47)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">hsync</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;s_d8&quot; LOC = P24	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(191)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d8</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;led&lt;0&gt;&quot;  LOC = P41	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(55)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;0&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;s_d8&quot; LOC = P24	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(191)]&apos; could not be found and so the Locate constraint will be removed.
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;led&lt;0&gt;&quot;  LOC = P41	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(55)]&apos; could not be found and so the Locate constraint will be removed.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(191)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d8</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(55)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;0&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;s_d9&quot; LOC = P23	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(192)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d9</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;led&lt;1&gt;&quot;  LOC = P43	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(56)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;1&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;s_d9&quot; LOC = P23	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(192)]&apos; could not be found and so the Locate constraint will be removed.
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;led&lt;1&gt;&quot;  LOC = P43	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(56)]&apos; could not be found and so the Locate constraint will be removed.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(192)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d9</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(56)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;1&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;s_d10&quot; LOC = P22	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(193)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d10</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;led&lt;2&gt;&quot;  LOC = P44	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(57)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;2&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;s_d10&quot; LOC = P22	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(193)]&apos; could not be found and so the Locate constraint will be removed.
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;led&lt;2&gt;&quot;  LOC = P44	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(57)]&apos; could not be found and so the Locate constraint will be removed.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(193)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d10</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(57)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;2&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;s_d11&quot; LOC = P21	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(194)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d11</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;led&lt;3&gt;&quot;  LOC = P45	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(58)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;3&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;s_d11&quot; LOC = P21	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(194)]&apos; could not be found and so the Locate constraint will be removed.
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;led&lt;3&gt;&quot;  LOC = P45	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(58)]&apos; could not be found and so the Locate constraint will be removed.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(194)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d11</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(58)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;3&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;s_d12&quot; LOC = P17	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(195)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d12</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;led&lt;4&gt;&quot;  LOC = P46	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(59)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;4&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;s_d12&quot; LOC = P17	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(195)]&apos; could not be found and so the Locate constraint will be removed.
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;led&lt;4&gt;&quot;  LOC = P46	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(59)]&apos; could not be found and so the Locate constraint will be removed.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(195)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d12</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(59)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;4&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;s_d13&quot; LOC = P16	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(196)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d13</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;led&lt;5&gt;&quot;  LOC = P47	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(60)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;5&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;s_d13&quot; LOC = P16	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(196)]&apos; could not be found and so the Locate constraint will be removed.
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;led&lt;5&gt;&quot;  LOC = P47	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(60)]&apos; could not be found and so the Locate constraint will be removed.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(196)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_d13</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(60)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;5&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;s_scl&quot; LOC = P15	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(197)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_scl</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;led&lt;6&gt;&quot;  LOC = P48	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(61)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;6&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;s_scl&quot; LOC = P15	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(197)]&apos; could not be found and so the Locate constraint will be removed.
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;led&lt;6&gt;&quot;  LOC = P48	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(61)]&apos; could not be found and so the Locate constraint will be removed.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(197)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_scl</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(61)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;6&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;s_sda&quot; LOC = P14	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(198)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_sda</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;led&lt;7&gt;&quot;  LOC = P50	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(62)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;7&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>
 
-<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;s_sda&quot; LOC = P14	|&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(198)]&apos; could not be found and so the Locate constraint will be removed.
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;led&lt;7&gt;&quot;  LOC = P50	|&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(62)]&apos; could not be found and so the Locate constraint will be removed.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="59" delta="old" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/UCF/Mark1_EDU.ucf(198)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">s_sda</arg>&quot; not found.  Please verify that:
+<msg type="info" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;IOSTANDARD = LVCMOS33;&gt; [D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf(62)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">led&lt;7&gt;</arg>&quot; not found.  Please verify that:
 1. The specified design element actually exists in the original design.
 2. The specified object is spelled correctly in the constraint source file.
 </msg>

@@ -1,11 +1,16 @@
 -- Listing 3.20
+--******************************************************************
+-- Port to Mark1 Notes: 
+-- * changed sw(7:0) to sw(3:0)  MJ
+-- * Notes: Search for --! to see the changed sections
+--*******************************************************************/
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 entity fp_adder_test is
    port(
       clk: in std_logic;
-      sw: in std_logic_vector(7 downto 0);
+      sw: in std_logic_vector(3 downto 0);
       btn: in std_logic_vector(3 downto 0);
       an: out std_logic_vector(3 downto 0);
       sseg: out std_logic_vector(7 downto 0)
@@ -26,9 +31,11 @@ begin
    sign1 <= '0';
    exp1 <= "1000";
    frac1<= '1' &  sw(1) & sw(0) & "10101";
-   sign2 <= sw(7);
+   --!sign2 <= sw(7);
+	sign2 <= sw(3);
    exp2 <= btn;
-   frac2 <= '1' & sw(6 downto 0);
+   --!frac2 <= '1' & sw(6 downto 0);
+	frac2 <= '1' & sw(3 downto 1) & sw(3 downto 0);
 
    -- instantiate fp adder
    fp_add_unit: entity work.fp_adder
