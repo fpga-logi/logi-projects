@@ -57,3 +57,8 @@ map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -reg
 par -w -intstyle ise -ol high -mt off debounce_test_map.ncd debounce_test.ncd debounce_test.pcf 
 trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml debounce_test.twx debounce_test.ncd -o debounce_test.twr debounce_test.pcf 
 bitgen -intstyle ise -f debounce_test.ut debounce_test.ncd 
+ngdbuild -intstyle ise -dd _ngo -aul -aut -nt timestamp -uc D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/ucf/Mark1_EDU_RA2.ucf -p xc6slx9-tqg144-3 debounce_test.ngc debounce_test.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o debounce_test_map.ncd debounce_test.ngd debounce_test.pcf 
+par -w -intstyle ise -ol high -mt off debounce_test_map.ncd debounce_test.ncd debounce_test.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml debounce_test.twx debounce_test.ncd -o debounce_test.twr debounce_test.pcf 
+bitgen -intstyle ise -f debounce_test.ut debounce_test.ncd 

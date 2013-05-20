@@ -1,14 +1,14 @@
-Release 14.1 - Bitgen P.15xf (nt64)
+Release 14.4 - Bitgen P.49d (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 Loading device for application Rf_Device from file '6slx9.nph' in environment
-C:\Xilinx\14.1\ISE_DS\ISE\.
+C:\Xilinx\14.4\ISE_DS\ISE\.
    "debounce_test" is an NCD, version 3.2, device xc6slx9, package tqg144, speed
 -3
 Opened constraints file debounce_test.pcf.
 
-Thu Oct 04 17:06:37 2012
+Sat Apr 13 18:44:24 2013
 
-C:\Xilinx\14.1\ISE_DS\ISE\bin\nt64\unwrapped\bitgen.exe -intstyle ise -w -g DebugBitstream:No -g Binary:no -g CRC:Enable -g Reset_on_err:No -g ConfigRate:2 -g ProgPin:PullUp -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp -g TmsPin:PullUp -g UnusedPin:PullDown -g UserID:0xFFFFFFFF -g ExtMasterCclk_en:No -g SPI_buswidth:1 -g TIMER_CFG:0xFFFF -g multipin_wakeup:No -g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 -g GWE_cycle:6 -g LCK_cycle:NoWait -g Security:None -g DonePipe:Yes -g DriveDone:No -g en_sw_gsr:No -g drive_awake:No -g sw_clk:Startupclk -g sw_gwe_cycle:5 -g sw_gts_cycle:4 debounce_test.ncd 
+C:\Xilinx\14.4\ISE_DS\ISE\bin\nt64\unwrapped\bitgen.exe -intstyle ise -w -g DebugBitstream:No -g Binary:no -g CRC:Enable -g Reset_on_err:No -g ConfigRate:2 -g ProgPin:PullUp -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp -g TmsPin:PullUp -g UnusedPin:PullDown -g UserID:0xFFFFFFFF -g ExtMasterCclk_en:No -g SPI_buswidth:1 -g TIMER_CFG:0xFFFF -g multipin_wakeup:No -g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 -g GWE_cycle:6 -g LCK_cycle:NoWait -g Security:None -g DonePipe:Yes -g DriveDone:No -g en_sw_gsr:No -g drive_awake:No -g sw_clk:Startupclk -g sw_gwe_cycle:5 -g sw_gts_cycle:4 debounce_test.ncd 
 
 Summary of Bitgen Options:
 +----------------------+----------------------+
@@ -94,8 +94,6 @@ Summary of Bitgen Options:
 +----------------------+----------------------+
 | ExtMasterCclk_divide | 1*                   |
 +----------------------+----------------------+
-| MaskVectorFile       | No*                  |
-+----------------------+----------------------+
 | CrcCoverage          | No*                  |
 +----------------------+----------------------+
 | glutmask             | Yes*                 |
@@ -117,6 +115,8 @@ Summary of Bitgen Options:
 | TIMER_CFG            | 0xFFFF               |
 +----------------------+----------------------+
 | spi_buswidth         | 1**                  |
++----------------------+----------------------+
+| TimeStamp            | Default*             |
 +----------------------+----------------------+
 | IEEE1532             | No*                  |
 +----------------------+----------------------+

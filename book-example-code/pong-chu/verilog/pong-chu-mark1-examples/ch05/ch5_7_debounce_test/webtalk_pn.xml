@@ -3,11 +3,11 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pn" timeStamp="Thu Oct 04 17:06:16 2012">
+<application name="pn" timeStamp="Sat Apr 13 18:44:10 2013">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="E5692492183A440F9A71E6DD60ECD2D9" type="project"/>
-<property name="ProjectIteration" value="10" type="project"/>
-<property name="ProjectFile" value="D:/My Documents/Dropbox/Prj/Valent/Mark1/SRC/FPGA/Pong_Chu_SRC/Mark1_Pong_Chu/ch05/ch5_7_debounce_test/ch5_7_debounce_test.xise" type="project"/>
+<property name="ProjectIteration" value="11" type="project"/>
+<property name="ProjectFile" value="D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/book-example-code/pong-chu/verilog/pong-chu-mark1-examples/ch05/ch5_7_debounce_test/ch5_7_debounce_test.xise" type="project"/>
 <property name="ProjectCreationTimestamp" value="2012-07-12T14:14:27" type="project"/>
 </section>
 <section name="Project Statistics" visible="true">
@@ -24,7 +24,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PROP_UserConstraintEditorPreference" value="Text Editor" type="process"/>
 <property name="PROP_intProjectCreationTimestamp" value="2012-07-12T14:14:27" type="design"/>
 <property name="PROP_intWbtProjectID" value="E5692492183A440F9A71E6DD60ECD2D9" type="design"/>
-<property name="PROP_intWbtProjectIteration" value="10" type="process"/>
+<property name="PROP_intWbtProjectIteration" value="11" type="process"/>
 <property name="PROP_intWorkingDirLocWRTProjDir" value="Same" type="design"/>
 <property name="PROP_intWorkingDirUsed" value="No" type="design"/>
 <property name="PROP_xilxBitgStart_IntDone" value="true" type="process"/>
