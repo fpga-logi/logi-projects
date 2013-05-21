@@ -178,6 +178,10 @@ architecture Behavioral of avc_platform is
 	signal ENC_A_OLD, ENC_A_RE  : std_logic_vector(1 downto 0); 
 	signal ENCODERS_CONTROL : std_logic_vector(15 downto 0);
 	
+	-- i2c routing signals
+	
+	signal i2c_scl_route, i2c_sda_route : std_logic ;
+	
 	for all : yuv_register_rom use entity work.yuv_register_rom(ov7725_qvga);
 begin
 	
@@ -352,7 +356,7 @@ begin
 -- Camera Interface and configuration instantiation 
 	conf_rom : yuv_register_rom
 		port map(
-			clk => clk_sys, en => '1' ,
+			clk => clk_24, en => '1' ,
 			data => rom_data,
 			addr => rom_addr
 		); 
@@ -360,7 +364,7 @@ begin
 	camera_conf_block : i2c_conf 
 		generic map(ADD_WIDTH => 8 , SLAVE_ADD => "0100001")
 		port map(
-			clock => clk_sys, 
+			clock => clk_24, 
 			resetn => sys_resetn ,		
 			i2c_clk => clk_24 ,
 			scl => PMOD4_9,
@@ -369,8 +373,15 @@ begin
 			reg_data => rom_data
 		);	
 
---PMOD4_9 <= SYS_I2C_SCL ;
---PMOD4_3 <= SYS_I2C_SDA ; 
+--PMOD4_9<= 'Z' when SYS_I2C_SCL = '1' else
+--			 '0' ;
+--
+--PMOD4_3 <= 'Z' when SYS_I2C_SDA = '1' else
+--			  '0' ;
+--
+--SYS_I2C_SDA <= '0' when PMOD4_3 = '0' else
+--					'Z' ;
+ 
 		
 	camera0: yuv_camera_interface
 		port map(
