@@ -427,10 +427,10 @@ begin
 --					channel(7 downto 1) => (others => '0')
 --		);
 
-vsync_from_switch <= vsync_from_interface ;
-href_from_switch <= href_from_interface;
-pxclk_from_switch <= pxclk_from_interface ;
-pixel_from_switch <= pixel_y_from_interface ;
+vsync_from_switch <= vsync_from_bin ;
+href_from_switch <= href_from_bin;
+pxclk_from_switch <= pxclk_from_bin ;
+pixel_from_switch <= pixel_from_bin(1 downto 0) & "000000" ;
 
 	ds_image : down_scaler
 		generic map(SCALING_FACTOR => 2, INPUT_WIDTH => 320, INPUT_HEIGHT => 240 )
