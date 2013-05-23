@@ -41,19 +41,19 @@ class AvcPlatform(object):
 	def resetEncoders(self):
 		control_val =  mark1Rpi.directRead(self.encoder_control_address, 2)
 		control_val[0] = control_val[0] | 0x03 
-		mark1Rpi.directWrite(self.encoder_control_address, control_val) % going high
+		mark1Rpi.directWrite(self.encoder_control_address, control_val) # going high
 		control_val[0] = control_val[0] & 0xFC 
-		mark1Rpi.directWrite(self.encoder_control_address, control_val) % going low
+		mark1Rpi.directWrite(self.encoder_control_address, control_val) # going low
 
 	def enableEncoders(self):
 		control_val =  mark1Rpi.directRead(self.encoder_control_address, 2)
 		control_val[0] = control_val[0] | 0x0C 
-		mark1Rpi.directWrite(self.encoder_control_address, control_val) % high enable bits
+		mark1Rpi.directWrite(self.encoder_control_address, control_val) # high enable bits
 
 	def disableEncoders(self):
 		control_val =  mark1Rpi.directRead(self.encoder_control_address, 2)
 		control_val[0] = control_val[0] & 0xF3 
-		mark1Rpi.directWrite(self.encoder_control_address, control_val) % low enable bits
+		mark1Rpi.directWrite(self.encoder_control_address, control_val) # low enable bits
 
 	def setSpeed(self, speed):
 		byte_speed = int(speed)
@@ -78,17 +78,26 @@ class AvcPlatform(object):
 	def setColorLut(self, lut_file):
 		f = open(lut_file, "rb")
 		values_tuple = ()
-		tuple_size = 0
 		try:
 			byte = f.read(1)
 			while byte != "":
-				values_tuple = values_tuple + byte
-				values_tuple = values_tuple + 0x00
-				tuple_size = tuple_size + 2
+				#print byte
+				unpacked_val = struct.unpack('B',byte)
+                                values_tuple = values_tuple + unpacked_val
+				values_tuple = values_tuple + unpacked_val
 				byte = f.read(1)
-			mark1Rpi.directWrite(self.classifier_lut_base_address, values_tuple, tuple_size);
+			#print values_tuple
+			print 'sending : ', str(len(values_tuple)), 'in the color lut'
+			#print hex(values_tuple[0]),hex(values_tuple[1]),hex(values_tuple[2])
+			mark1Rpi.directWrite(self.classifier_lut_base_address, values_tuple);
+			print 'done !\n'
 		finally:
 			f.close()
+	
+	def printColorLut(self):
+		values_tuple = mark1Rpi.directRead(self.classifier_lut_base_address, 1024);
+		for val in values_tuple :
+			print hex(val)
 
 	def getBlobPos(self):
 		blob_data = fifoRead(0, 32*3*2) # 32 blobs of 6 octet
@@ -110,10 +119,13 @@ if __name__ == "__main__":
 	robot.setLeds(0xAA)
 	print robot.getEncoderValue(0)
 	print robot.getEncoderValue(1)
+	robot.setColorLut('lut_file.lut')
+	print 'lut sent \n'
+	robot.printColorLut()
 	i = 0
-	while True:
-		val = math.sin(i)*45.0
-		robot.setServoAngle(0, val)
-		robot.setServoAngle(1, val)
-		i = i + 1
-		time.sleep(0.1)
+	#while True:
+	#	val = math.sin(i)*45.0
+	#	robot.setServoAngle(0, val)
+	#	robot.setServoAngle(1, val)
+	#	i = i + 1
+	#	time.sleep(1)
