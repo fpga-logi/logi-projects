@@ -13,6 +13,8 @@ class ColorBlob:
 		self.width = x1-x0
 		self.height = y1-y0
 		self.blob_class = blob_class
+		self.cogx = self.x + self.width/2
+		self.cogy = self.y + self.height/2
 
 
 class AvcPlatform(object):
