@@ -29,6 +29,7 @@
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/par.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="ipcore_dir/coregen.log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="mark1_rpi_mining.bgn" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="mark1_rpi_mining.bit" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="mark1_rpi_mining.bld"/>
@@ -83,7 +84,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1369642533" xil_pn:in_ck="2088049057168484748" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="1586133252354992791" xil_pn:start_ts="1369642533">
+    <transform xil_pn:end_ts="1369645352" xil_pn:in_ck="2088049057168484748" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="1586133252354992791" xil_pn:start_ts="1369645352">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ipcore_dir/clock_gen.vhd"/>
@@ -105,7 +106,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1369644208" xil_pn:in_ck="-4432259939844489832" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="7031045458169655600" xil_pn:start_ts="1369644180">
+    <transform xil_pn:end_ts="1369645381" xil_pn:in_ck="-4432259939844489832" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="7031045458169655600" xil_pn:start_ts="1369645352">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -123,11 +124,11 @@
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1369642565" xil_pn:in_ck="-5900716571066004653" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-7929663917823418785" xil_pn:start_ts="1369642564">
+    <transform xil_pn:end_ts="1369645381" xil_pn:in_ck="-5900716571066004653" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-7929663917823418785" xil_pn:start_ts="1369645381">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1369644216" xil_pn:in_ck="-7137607802818193888" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-5234966488511381630" xil_pn:start_ts="1369644208">
+    <transform xil_pn:end_ts="1369645388" xil_pn:in_ck="-7137607802818193888" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-5234966488511381630" xil_pn:start_ts="1369645381">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -137,7 +138,7 @@
       <outfile xil_pn:name="mark1_rpi_mining.ngd"/>
       <outfile xil_pn:name="mark1_rpi_mining_ngdbuild.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1369644291" xil_pn:in_ck="7186283038949773473" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="1448924893915930207" xil_pn:start_ts="1369644216">
+    <transform xil_pn:end_ts="1369645458" xil_pn:in_ck="7186283038949773473" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="1448924893915930207" xil_pn:start_ts="1369645388">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -151,7 +152,7 @@
       <outfile xil_pn:name="mark1_rpi_mining_summary.xml"/>
       <outfile xil_pn:name="mark1_rpi_mining_usage.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1369644376" xil_pn:in_ck="2647861111672573114" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1369644291">
+    <transform xil_pn:end_ts="1369645538" xil_pn:in_ck="2647861111672573114" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1369645458">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -166,7 +167,7 @@
       <outfile xil_pn:name="mark1_rpi_mining_pad.txt"/>
       <outfile xil_pn:name="mark1_rpi_mining_par.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1369644393" xil_pn:in_ck="-4007163326082484310" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1369644376">
+    <transform xil_pn:end_ts="1369645553" xil_pn:in_ck="-4007163326082484310" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1369645538">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
@@ -178,7 +179,7 @@
       <outfile xil_pn:name="webtalk.log"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1369644376" xil_pn:in_ck="-1999412556047653347" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1369644361">
+    <transform xil_pn:end_ts="1369645538" xil_pn:in_ck="-1999412556047653347" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1369645524">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
