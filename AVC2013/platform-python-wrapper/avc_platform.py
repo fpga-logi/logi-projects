@@ -138,5 +138,5 @@ if __name__ == "__main__":
 	while True:
 		mark1Rpi.fifoReset(0)
 		blobs = robot.getBlobPos()
-		print "x:", blobs[0].x,", y:", blobs[0].y
+		print "x:", blobs[0].cogx,", y:", blobs[0].cogy
 		time.sleep(0.5)
