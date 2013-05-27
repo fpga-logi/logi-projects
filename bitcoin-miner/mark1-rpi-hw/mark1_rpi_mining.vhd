@@ -146,7 +146,7 @@ LED(0) <= counter_output(24);
 
 
 mem_interface0 : spi2ad_bus
-generic map(ADDR_WIDTH => 16 , DATA_WIDTH =>  16)
+generic map(ADDR_WIDTH => 16 , DATA_WIDTH =>  16, BIG_ENDIAN => false)
 port map(clk => clk_sys ,
 	  resetn => sys_resetn ,
 	  mosi => SYS_SPI_MOSI,
