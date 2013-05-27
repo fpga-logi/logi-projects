@@ -183,6 +183,8 @@ architecture Behavioral of avc_platform is
 	signal i2c_scl_route, i2c_sda_route : std_logic ;
 	
 	for all : yuv_register_rom use entity work.yuv_register_rom(ov7725_qvga);
+	constant IMAGE_WIDTH : integer := 320 ;
+	constant IMAGE_HEIGHT : integer := 240 ;
 begin
 	
 	resetn <= PB(0) ;
@@ -409,31 +411,39 @@ begin
 	LED(2) <= cs_preview_fifo ;
 	
 -- Pixel Pipeline instantiation
---	video_switch_inst : video_switch
---		generic map(NB	=> 2)
---		port map(pixel_clock(0) => pxclk_from_interface,
---					pixel_clock(1) => pxclk_from_erode,
---				   hsync(0) => href_from_interface, 
---					hsync(1) => href_from_erode, 
---					vsync(0) => vsync_from_interface,
---					vsync(1) => vsync_from_erode,
---					pixel_data(0) =>pixel_y_from_interface,
---					pixel_data(1) => (pixel_from_erode(1 downto 0)&"000000"),
---					pixel_clock_out => pxclk_from_switch,
---					hsync_out=> href_from_switch,
---					vsync_out => vsync_from_switch,
---					pixel_data_out => pixel_from_switch,
---					channel(0) => DIP_SW(0),
---					channel(7 downto 1) => (others => '0')
---		);
+	video_switch_inst : video_switch
+		generic map(NB	=> 4)
+		port map(pixel_clock(0) => pxclk_from_interface,
+					pixel_clock(1) => pxclk_from_interface,
+					pixel_clock(2) => pxclk_from_interface,
+					pixel_clock(3) => pxclk_from_erode,
+					
+				   hsync(0) => href_from_interface, 
+					hsync(1) => href_from_interface,
+					hsync(2) => href_from_interface,
+					hsync(3) => href_from_erode, 
+					
+					vsync(0) => vsync_from_interface,
+					vsync(1) => vsync_from_interface,
+					vsync(2) => vsync_from_interface,
+					vsync(3) => vsync_from_erode,
+					
+					pixel_data(0) =>pixel_y_from_interface,
+					pixel_data(1) =>pixel_u_from_interface,
+					pixel_data(2) =>pixel_v_from_interface,
+					pixel_data(3) => (pixel_from_erode(1 downto 0)&"000000"),
+					
+					pixel_clock_out => pxclk_from_switch,
+					hsync_out=> href_from_switch,
+					vsync_out => vsync_from_switch,
+					pixel_data_out => pixel_from_switch,
+					channel(1 downto 0) => DIP_SW(1 downto 0),
+					channel(7 downto 2) => (others => '0')
+		);
 
-vsync_from_switch <= vsync_from_bin ;
-href_from_switch <= href_from_bin;
-pxclk_from_switch <= pxclk_from_bin ;
-pixel_from_switch <= pixel_from_bin(1 downto 0) & "000000" ;
 
 	ds_image : down_scaler
-		generic map(SCALING_FACTOR => 2, INPUT_WIDTH => 320, INPUT_HEIGHT => 240 )
+		generic map(SCALING_FACTOR => 2, INPUT_WIDTH => IMAGE_WIDTH, INPUT_HEIGHT => IMAGE_HEIGHT )
 		port map(
 			clk => clk_sys,
 			resetn => sys_resetn,
@@ -480,7 +490,7 @@ pixel_from_switch <= pixel_from_bin(1 downto 0) & "000000" ;
 
 
 	smooth0 : classifier_smoother 
-		generic map(WIDTH => 320, HEIGHT => 240)
+		generic map(WIDTH => IMAGE_WIDTH, HEIGHT => IMAGE_HEIGHT)
 		port map(
 				clk => clk_sys, 
 				resetn => sys_resetn ,
@@ -492,7 +502,7 @@ pixel_from_switch <= pixel_from_bin(1 downto 0) & "000000" ;
 
 
 	blob_tracker : blob_detection 
-		generic map(LINE_SIZE => 320)
+		generic map(LINE_SIZE => IMAGE_WIDTH)
 		port map(
 				clk => clk_sys, 
 				resetn => sys_resetn ,
