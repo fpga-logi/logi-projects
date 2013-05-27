@@ -1,4 +1,5 @@
 # Output products list for <clock_gen>
+_xmsgs/pn_parser.xmsgs
 clock_gen/clk_wiz_v3_5_readme.txt
 clock_gen/doc/clk_wiz_gsg521.pdf
 clock_gen/doc/clk_wiz_v3_5_readme.txt

@@ -297,7 +297,7 @@ class Miner(object):
 
 if __name__ == "__main__":
   import config
-  from mark1 import Mark1
+  from mark1_rpi import Mark1
   miner = Miner(config, open("miner.log", "a"))
   try:
     miner.run()
