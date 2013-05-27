@@ -32,6 +32,7 @@ class ColorSpaceView(QtGui.QGraphicsView):
 		if event.button() == QtCore.Qt.LeftButton:
 			self.pressed = 1
 			self.pos_0 = event.pos()
+			print self.pos_0
 			
 	def getPlanes(self):
 		return self.planes
@@ -74,6 +75,13 @@ class Example(QtGui.QWidget):
 		self.y_label = QtGui.QLabel("Y=0", self)
 		self.y_label.setGeometry(5, 270, 50, 10)
 
+
+		u_label = QtGui.QLabel("U", self)
+		u_label.setGeometry(280, 250, 15, 15)
+
+		v_label = QtGui.QLabel("V", self)
+		v_label.setGeometry(5, 5, 15, 15)
+
 		sld = QtGui.QSlider(QtCore.Qt.Horizontal, self)
 		sld.setFocusPolicy(QtCore.Qt.NoFocus)
 		sld.setGeometry(50, 260, 200, 30)
@@ -104,15 +112,15 @@ class Example(QtGui.QWidget):
 	def generate_lut(self):
 		planes = self.graphic_view.getPlanes()
 		if len(planes) == 2 :
-			f = open('lut_file.lut', 'w')
+			f = open('lut_file.lut', 'wb')
 			var8 = 0
 			acc = 0
 			for y in range(0, 16):			
-				for u in range(0,16):
-					for v in range(0,16):
-						y_pos = y << 4
-						u_pos = u << 4
-						v_pos = v << 4
+				for v in range(0,16):
+					for u in range(0,16):
+						y_pos = (y << 4) & 0xF0
+						u_pos = (u << 4) & 0xF0
+						v_pos = (v << 4) & 0xF0
 						corner0_eqx = ((planes[0][1] -planes[1][1])/(planes[0][0] - planes[1][0]))*(y_pos) +  planes[0][1];
 						corner0_eqy = ((planes[0][2] - planes[1][2])/(planes[0][0] - planes[1][0]))*(y_pos) +  planes[0][2];
 						corner1_eqx = ((planes[0][3] - planes[1][3])/(planes[0][0] - planes[1][0]))*(y_pos) +  planes[0][3];
