@@ -35,6 +35,9 @@
 #include <pthread.h>
 #include <syslog.h>
 #include <fcntl.h>
+#include <fcntl.h>
+#include <math.h>
+
 
 #include "../../mjpg_streamer.h"
 #include "../../utils.h"
@@ -47,18 +50,30 @@
 
 #define WIDTH 160
 #define HEIGHT 120
+#define NB_CHAN 2
+#define COLOR_MODE
+#define FIFO_ID 1
 
 /* private functions and variables to this plugin */
 static pthread_t   worker;
 static globals     *pglobal;
 static pthread_mutex_t controls_mutex;
 static int plugin_number;
-unsigned char grab_buffer[WIDTH*HEIGHT*3] ; 
+unsigned char grab_buffer[WIDTH*HEIGHT*3*2] ; 
+unsigned char rgb_buffer[WIDTH*HEIGHT*3] ;
 
 void *worker_thread(void *);
 void worker_cleanup(void *);
 void help(void);
 
+
+
+int min(int a, int b){
+	if(a > b ){
+		return b ;	
+	}
+	return a ;
+}
 
 /*** plugin interface functions ***/
 
@@ -101,13 +116,12 @@ Return Value: 0
 ******************************************************************************/
 int input_run(void)
 {
-    pglobal->buf = malloc(256 * 1024);
+    pglobal->buf = malloc(512 * 1024);
     if(pglobal->buf == NULL) {
         fprintf(stderr, "could not allocate memory\n");
         exit(EXIT_FAILURE);
     }
-    fifo_open(1);
-    if( fifo_open(1) < 0){
+    if( fifo_open(FIFO_ID) < 0){
     	fprintf(stderr, "could not open fifo !  (try sudo ...)\n");
 	exit(EXIT_FAILURE);
     }
@@ -145,46 +159,72 @@ Return Value: NULL
 void *worker_thread(void *arg)
 {
     int i = 0;
+    float y, u, v ;
+    float r, g, b ;
     int remaining ; 
     char * fPointer ;
     int outlen = 0;
     int vsync = 0 ;
+    unsigned short vsync1, vsync2 ;
+    unsigned char * start_buffer, * end_ptr;
     /* set cleanup handler to cleanup allocated ressources */
     pthread_cleanup_push(worker_cleanup, NULL);
 
     while(!pglobal->stop) {
 	pthread_mutex_lock(&pglobal->db);
 	//TODO: need to iterate to get the vsync signal and then grab a full frame
-	fifo_reset(1);	
-	fifo_read(1, grab_buffer, WIDTH*HEIGHT*3);
+	fifo_reset(FIFO_ID);	
+	fifo_read(FIFO_ID, grab_buffer, WIDTH*HEIGHT*3*NB_CHAN);
 	i = 0 ;
 	vsync = 0 ;
-	while(!vsync && i < (WIDTH*HEIGHT*3)){
-		unsigned short * shortVal ;
-		shortVal = &grab_buffer[i];
-		if(*shortVal == 0x55AA){
-			i+=2 ;
-			//if( (i < (WIDTH*HEIGHT*2)) && grab_buffer[i+(WIDTH*HEIGHT)] == 0x55){
-				vsync = 1 ;
-				fPointer = &grab_buffer[i];	
-				break ;	
-			//}	
-		}
-		i ++ ;
+	start_buffer = grab_buffer ;
+	end_ptr = &start_buffer[WIDTH*HEIGHT*NB_CHAN*3];
+	vsync1 = *((unsigned short *) start_buffer) ;
+	vsync2 = *((unsigned short *) &start_buffer[(WIDTH*HEIGHT*NB_CHAN)+2]) ;
+	while(vsync1 != 0x55AA && vsync2 != 0x55AA && start_buffer < end_ptr){
+			start_buffer+=2 ;
+			vsync1 = *((unsigned short *) start_buffer) ;
+			vsync2 = *((unsigned short *) &start_buffer[(WIDTH*HEIGHT*NB_CHAN)+2]) ;
+	}
+	if(vsync1 == 0x55AA && vsync2 == 0x55AA){
+			vsync = 1 ;
+			fPointer = start_buffer ;
 	}
 	if(vsync){
 		DBG("Vsync found !\n");
+		#ifdef COLOR_MODE
+		for(i = 0 ; i < WIDTH*HEIGHT ; i ++){
+			y = (float) fPointer[(i*2)] ;
+			if(i%2 == 1){
+				u = (float) fPointer[(i*2)+1];
+				v = (float) fPointer[(i*2)+3];
+			}else{
+				u = (float) fPointer[(i*2)-1];
+        	        	v = (float) fPointer[(i*2)+1];
+			}
+			r =  y + (1.4075 * (v - 128.0));
+			g =  y - (0.3455 * (u - 128.0)) - (0.7169 * (v - 128.0));
+			b =  y + (1.7790 * (u - 128.0)) ;
+			rgb_buffer[(i*3)] = (unsigned char) abs(min(r, 255)) ;
+			rgb_buffer[(i*3)+1] = (unsigned char) abs(min(g, 255)) ;
+			rgb_buffer[(i*3)+2] = (unsigned char) abs(min(b, 255)) ;
+		} 
+		
+		if(!write_jpegmem_rgb(rgb_buffer, WIDTH, HEIGHT, &pglobal->buf, &outlen, 100)){
+			printf("compression error !\n");	
+			exit(EXIT_FAILURE);
+		}
+		#else
 		if(!write_jpegmem_gray(fPointer, WIDTH, HEIGHT, &pglobal->buf, &outlen, 100)){
 			printf("compression error !\n");	
 			exit(EXIT_FAILURE);
 		}
+		#endif
 		pglobal->size = outlen ;
 
 		/* signal fresh_frame */
 		pthread_cond_broadcast(&pglobal->db_update);
 		
-	}else{
-		printf("no vsync \n");	
 	}
 	pthread_mutex_unlock(&pglobal->db);
     }
