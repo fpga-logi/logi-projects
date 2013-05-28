@@ -15,7 +15,7 @@ OTHER_HEADERS = ../../mjpg_streamer.h ../../utils.h ../output.h ../input.h $(FIF
 
 CFLAGS += -O2 -DLINUX -D_GNU_SOURCE -Wall -shared -fPIC
 #CFLAGS += -DDEBUG
-LFLAGS += -lpthread -ldl -ljpeg
+LFLAGS += -lpthread -ldl -ljpeg -lm
 
 all: input_memory.so
 
