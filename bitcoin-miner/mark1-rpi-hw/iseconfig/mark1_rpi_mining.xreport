@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2013-04-20T19:49:03</DateModified>
+  <DateModified>2013-05-27T10:15:05</DateModified>
   <ModuleName>mark1_rpi_mining</ModuleName>
   <SummaryTimeStamp>2013-04-17T18:30:54</SummaryTimeStamp>
   <SavedFilePath>/home/jpiat/development/FPGA/logi-family/logi-projects/bitcoin-miner/mark1-rpi-hw/iseconfig/mark1_rpi_mining.xreport</SavedFilePath>

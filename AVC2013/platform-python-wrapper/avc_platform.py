@@ -5,6 +5,18 @@ MIN_ANGLE = -45.0
 MAX_ANGLE = 45.0
 PULSE_CENTER = 127
 
+class ColorBlob:
+	
+	def __init__(self, x0, y0, x1, y1, blob_class):
+		self.x = x0
+		self.y = y0
+		self.width = x1-x0
+		self.height = y1-y0
+		self.blob_class = blob_class
+		self.cogx = self.x + self.width/2
+		self.cogy = self.y + self.height/2
+
+
 class AvcPlatform(object):
 
 	blob_fifo_id = 0
@@ -84,7 +96,7 @@ class AvcPlatform(object):
 				#print byte
 				unpacked_val = struct.unpack('B',byte)
                                 values_tuple = values_tuple + unpacked_val
-				values_tuple = values_tuple + unpacked_val
+				#values_tuple = values_tuple + unpacked_val
 				byte = f.read(1)
 			#print values_tuple
 			print 'sending : ', str(len(values_tuple)), 'in the color lut'
@@ -100,16 +112,16 @@ class AvcPlatform(object):
 			print hex(val)
 
 	def getBlobPos(self):
-		blob_data = fifoRead(0, 32*3*2) # 32 blobs of 6 octet
-		blobs_tuple = ()
-		for i in range(len(blob_data)):
-			blob_info = ()
-			blob_info = blob_info + (((blob_data(i) & 0x03) << 8)+blob_data(i+1)) # posx0
-			blob_info = blob_info + (((blob_data(i+2) & 0x0F) << 6)+((0x3F & blob_data(i+1))>>2)) # posy0
-			blob_info = blob_info + (((blob_data(i+3) & 0x2F) << 4)+((0xF0 & blob_data(i+2))>>4)) # posx1
-			blob_info = blob_info + ((blob_data(i+4) << 2)+((0xC0 & blob_data(i+3))>>6)) # posy1
-			blob_info = blob_info + blob_data(i+5) # blob class
-			blobs_tuple = blobs_tuple + blob_info
+		blob_data = mark1Rpi.fifoRead(0, 32*3*2) # 32 blobs of 6 octet
+		blobs_tuple = []
+		for i in range(0, len(blob_data), 6):
+			y0 = blob_data[i]+((blob_data[i+1] & 0x03) << 8)  # posy0
+			x0 = ((blob_data[i+2] & 0x0F) << 6)+((0x3F & blob_data[i+1])>>2) # posx0
+			y1 = ((blob_data[i+3] & 0x2F) << 4)+((0xF0 & blob_data[i+2])>>4) # posy1
+			x1 = (blob_data[i+4] << 2)+((0xC0 & blob_data[i+3])>>6) # posx1
+			blob_class = blob_data[i+5] # blob class
+			new_blob = ColorBlob(x0, y0, x1, y1, blob_class)
+			blobs_tuple.insert(i/6,new_blob)
 		return blobs_tuple
 
 if __name__ == "__main__":
@@ -123,9 +135,8 @@ if __name__ == "__main__":
 	print 'lut sent \n'
 	robot.printColorLut()
 	i = 0
-	#while True:
-	#	val = math.sin(i)*45.0
-	#	robot.setServoAngle(0, val)
-	#	robot.setServoAngle(1, val)
-	#	i = i + 1
-	#	time.sleep(1)
+	while True:
+		mark1Rpi.fifoReset(0)
+		blobs = robot.getBlobPos()
+		print "x:", blobs[0].cogx,", y:", blobs[0].cogy
+		time.sleep(0.5)
