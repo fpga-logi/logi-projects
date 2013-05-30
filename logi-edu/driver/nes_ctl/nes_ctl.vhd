@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: 
+-- Engineer: Michael Jones
 -- 
 -- Create Date:    09:47:04 05/23/2013 
 -- Design Name: 
@@ -15,6 +15,7 @@
 -- Revision: 
 -- Revision 0.01 - File Created
 -- Additional Comments: 
+-- for info in NES protocol:
 --//http://www.mit.edu/~tarvizo/nes-controller.html
 ----------------------------------------------------------------------------------
 library IEEE;
@@ -155,68 +156,6 @@ begin
 			end if;
 		end if;
 	end process;
-
-
-
-	
---		--STATE MACHINE - WORKED
---	process(clk)
---	begin
---		if(clk'event and clk = '1') then
---			--m_tick_q <= m_tick;
---			if(m_tick = '1') then
---				case state_reg is
---					when s0 =>
---						state_next <= s1;
---						led <= "00000001";
---					when s1 =>
---						state_next <= s2;
---						led <= "00000010";
---					when s2 =>
---						state_next <= s3;
---						led <= "00000100";
---					when s3 =>
---						state_next <= s4;
---						led <= "00001000";
---					when s4 =>
---						state_next <= s5;
---						led <= "00010000";
---					when s5 =>
---						state_next <= s0;
---						led <= "00100000";
---				end case;
---			end if;
---		end if;
---	end process;
-
---	--STATE MACHINE - SIMULATES BUT F'S UP[ WHEN RUNNING IT.
---	process(m_tick)
---	begin
---		if(m_tick = '1') then
---					state_next <= s0;
---					led <= x"00";
---				case state_reg is
---					when s0 =>
---						state_next <= s1;
---						led <= "00000001";
---					when s1 =>
---						state_next <= s2;
---						led <= "00000010";
---					when s2 =>
---						state_next <= s3;
---						led <= "00000100";
---					when s3 =>
---						state_next <= s4;
---						led <= "00001000";
---					when s4 =>
---						state_next <= s5;
---						led <= "00010000";
---					when s5 =>
---						state_next <= s0;
---						led <= "00100000";
---				end case;	
---		end if;
---	end process;
 	
 	
 end arch;
