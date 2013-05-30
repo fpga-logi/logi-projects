@@ -63,11 +63,6 @@ NET "vsync"   LOC = P134 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//P1_1
 NET "hsync"   LOC = P137  	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//P1_4	- #NET "p1_4" LOC = P123;#NET "p1_4" LOC = P123;
 
 
-
-
-
-
-
 #========================================================
 # 8 discrete LEDs
 #========================================================
@@ -127,12 +122,11 @@ NET "sseg<7>"  LOC = P1	|	IOSTANDARD = LVCMOS33; 	# decimal point p2_10
 
 #========================================================
 # UART to USB (FTDI)
-# P43 - ftdi_tx	= async output	- rx of uart
-#	P41 - ftdi_rx = async input	- tx of the uart
+# TX = FGPA TX  = Host RX
+# RX = FPGA RX  = Host TX
 #========================================================
-NET "rx"  LOC = P34	|	IOSTANDARD = LVCMOS33;	
-NET "tx"  LOC = P35	|	IOSTANDARD = LVCMOS33;
-
+NET "rx"  LOC = P35	|	IOSTANDARD = LVCMOS33;	
+NET "tx"  LOC = P34	|	IOSTANDARD = LVCMOS33;
 
 #//Mark1 RA1 Version****************************************************
 #
