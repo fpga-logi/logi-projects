@@ -1,0 +1,437 @@
+##========================================================
+##    Pin assignment for Xilinx
+##    Mark1 - Pong Chu book compatible - (work in progress)
+##   	- Intended for use the the MARK1 and EDU expansion 
+##  	* Notes:
+## 	- reversed the order of pb,sw,led,sseg,an.  The order should be MSB to LSB - left to right
+##========================================================
+##========================================================
+## Board Version RA.2
+## - Will leave the UCF file name the same for subseguent board
+## This will allow for the project to simply be rebuilt without the need
+## to restructure.
+##========================================================
+NET "clk" TNM_NET = clk;
+TIMESPEC TS_clk = PERIOD "clk" 50 MHz HIGH 50%;
+
+
+##========================================================
+## clock and reset
+##========================================================
+NET "clk"    LOC = P55;
+
+##========================================================
+## NES controller pins
+##========================================================
+NET "nes_clk"  	LOC = P132	|	IOSTANDARD = LVCMOS33;	#PMOD4_2
+NET "nes_lat"  	LOC = P131	|	IOSTANDARD = LVCMOS33;	#PMOD4_3
+NET "nes1_dat"    LOC = P127	|	IOSTANDARD = LVCMOS33;	#PMOD4_4
+NET "nes2_dat"  	LOC = P120	|	IOSTANDARD = LVCMOS33;	#PMOD4_10
+#
+## Reversed UCF defenitions to fix reversed order on RA.1 for now.
+#NET "btn<0>"   LOC = P58	|	IOSTANDARD = LVCMOS33;		
+#NET "btn<1>"   LOC = P57	|	IOSTANDARD = LVCMOS33;
+#NET "btn<2>"   LOC = P56	|	IOSTANDARD = LVCMOS33;
+#NET "btn<3>"  	LOC = P51 	|	IOSTANDARD = LVCMOS33;  #btn<3> also used as reset
+
+# Reversed UCF defenitions to fix reversed order on RA.1 for now.
+NET "n_btn<0>"   LOC = P58;		
+NET "n_btn<1>"   LOC = P57;
+NET "n_btn<2>"   LOC = P56;
+#NET "n_btn<3>"  	LOC = P51;  #btn<3> also used as reset
+NET "n_reset"  	LOC = P51;  #btn<3> also used as reset
+
+#=========================================================
+## 4 slide switches
+#==========================================================
+# This is how the pins should be laid out.  Needs reversed on PCB					
+
+# Reversed UCF defenitions to fix reversed order on RA.1 for now.
+NET "sw<0>"  LOC = P59	|	IOSTANDARD = LVCMOS33;
+NET "sw<1>"  LOC = P61	|	IOSTANDARD = LVCMOS33;
+NET "sw<2>"  LOC = P62	|	IOSTANDARD = LVCMOS33;
+NET "sw<3>"  LOC = P66	|	IOSTANDARD = LVCMOS33;
+
+
+###========================================================
+### VGA outputs
+###========================================================
+NET "rgb<0>"  LOC = P116 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//R0	- P1_7 #NET "p1_7" LOC = P121;
+NET "rgb<1>"  LOC = P112 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//G0	- P1_8 #NET "p1_8" LOC = P120;
+NET "rgb<2>"  LOC = P111 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//B0	- P1_9 #NET "p1_9" LOC = P119;
+NET "vsync"   LOC = P134 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//P1_10	- #NET  LOC = P123;
+NET "hsync"   LOC = P137  	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//P1_4	- #NET "p1_4" LOC = P123;#NET "p1_4" LOC = P123;
+
+
+#========================================================
+# 8 discrete LEDs
+#========================================================
+# Reversed UCF defenitions to fix reversed order on RA.1 for now.
+NET "led<0>"  LOC = P41	|	IOSTANDARD = LVCMOS33;
+NET "led<1>"  LOC = P43	|	IOSTANDARD = LVCMOS33;
+NET "led<2>"  LOC = P44	|	IOSTANDARD = LVCMOS33;
+NET "led<3>"  LOC = P45	|	IOSTANDARD = LVCMOS33;
+NET "led<4>"  LOC = P46	|	IOSTANDARD = LVCMOS33;
+NET "led<5>"  LOC = P47	|	IOSTANDARD = LVCMOS33;
+NET "led<6>"  LOC = P48	|	IOSTANDARD = LVCMOS33;
+NET "led<7>"  LOC = P50	|	IOSTANDARD = LVCMOS33;
+
+
+
+# This controls segments from 0:3 right to left 
+# The transistors are pulling the lines low.  Must not be gate.
+#========================================================
+# 4-digit time-multiplexed 7-segment LED display
+#========================================================
+# This is from 3-0 right to left
+# digit enable							
+#NET "an<0>"  LOC = 	P6	|	IOSTANDARD = LVCMOS33;	#p2_7	
+#NET "an<1>"  LOC = 	P10	|	IOSTANDARD = LVCMOS33;  #p2_1	
+#NET "an<2>"  LOC = 	P8	|	IOSTANDARD = LVCMOS33;  #p2_3	
+#NET "an<3>"  LOC = 	P7	|	IOSTANDARD = LVCMOS33;  #p2_4	
+#NET "an_l"   LOC =   P9	|	IOSTANDARD = LVCMOS33;	#p2_2	
+NET "an<3>"  LOC = 	P6	|	IOSTANDARD = LVCMOS33;	#p2_7	
+NET "an<2>"  LOC = 	P10	|	IOSTANDARD = LVCMOS33;  #p2_1	
+NET "an<1>"  LOC = 	P8	|	IOSTANDARD = LVCMOS33;  #p2_3	
+NET "an<0>"  LOC = 	P7	|	IOSTANDARD = LVCMOS33;  #p2_4	
+NET "an_l"   LOC =   P9	|	IOSTANDARD = LVCMOS33;	#p2_2	
+#! currently p channel fets installed!  Need to change to n channel
+
+# This is wired low bit = a , etc.  the book code is reversed order.
+# 7-segment led segments
+NET "sseg<0>"  LOC = P14	|	IOSTANDARD = LVCMOS33; 	# segment a		p3_8
+NET "sseg<1>"  LOC = P15	|	IOSTANDARD = LVCMOS33; 	# segment b		p3_7
+NET "sseg<2>"  LOC = P21	|	IOSTANDARD = LVCMOS33; 	# segment c		p3_2
+NET "sseg<3>"  LOC = P5		|	IOSTANDARD = LVCMOS33; 	# segment d		p2_8
+NET "sseg<4>"  LOC = P2		|	IOSTANDARD = LVCMOS33; 	# segment e		p2_9
+NET "sseg<5>"  LOC = P12	|	IOSTANDARD = LVCMOS33; 	# segment f 	p3_9
+NET "sseg<6>"  LOC = P22	|	IOSTANDARD = LVCMOS33; 	# segment g		p3_1
+NET "sseg<7>"  LOC = P1	|	IOSTANDARD = LVCMOS33; 	# decimal point p2_10	
+
+## This is wired low bit = a , etc.  the book code is reversed order.
+## 7-segment led segments
+#NET "sseg<7>"  LOC = P14	|	IOSTANDARD = LVCMOS33; 	# segment a		p3_8
+#NET "sseg<6>"  LOC = P15	|	IOSTANDARD = LVCMOS33; 	# segment b		p3_7
+#NET "sseg<5>"  LOC = P21	|	IOSTANDARD = LVCMOS33; 	# segment c		p3_2
+#NET "sseg<4>"  LOC = P5		|	IOSTANDARD = LVCMOS33; 	# segment d		p2_8
+#NET "sseg<3>"  LOC = P2		|	IOSTANDARD = LVCMOS33; 	# segment e		p2_9
+#NET "sseg<2>"  LOC = P12	|	IOSTANDARD = LVCMOS33; 	# segment f 	p3_9
+#NET "sseg<1>"  LOC = P22	|	IOSTANDARD = LVCMOS33; 	# segment g		p3_1
+#NET "sseg<0>"  LOC = P1	|	IOSTANDARD = LVCMOS33; 	# decimal point p2_10	
+
+
+#========================================================
+# UART to USB (FTDI)
+# TX = FGPA TX  = Host RX
+# RX = FPGA RX  = Host TX
+#========================================================
+NET "rx"  LOC = P35	|	IOSTANDARD = LVCMOS33;	
+NET "tx"  LOC = P34	|	IOSTANDARD = LVCMOS33;
+
+#//Mark1 RA1 Version****************************************************
+#
+#NET "clk" TNM_NET = clk;
+#TIMESPEC TS_clk = PERIOD "clk" 50 MHz HIGH 50%;
+#
+#
+###========================================================
+### clock and reset
+###========================================================
+#NET "clk"    LOC = P55;
+#NET "reset"  LOC = P57	|	IOSTANDARD = LVCMOS33;	 #btn<3>
+#
+#
+###========================================================
+### NES controller pins
+###========================================================
+#NET "nes_clk"  	LOC = P92	|	IOSTANDARD = LVCMOS33;	#PMOD4_2
+#NET "nes_lat"  	LOC = P88	|	IOSTANDARD = LVCMOS33;	#PMOD4_3
+#NET "nes1_dat"    LOC = P87	|	IOSTANDARD = LVCMOS33;	#PMOD4_4
+#NET "nes2_dat"  	LOC = P82	|	IOSTANDARD = LVCMOS33;	#PMOD4_10
+#
+#
+###========================================================
+### buttons & switches
+###========================================================
+### 4 pushbuttons
+##NET "btn<0>"   LOC = P57; 
+##NET "btn<1>"   LOC = P58;
+##NET "btn<2>"   LOC = P59;
+###NET "btn<3>"  LOC = P61;  #btn<3> also used as reset
+#
+## Reversed UCF defenitions to fix reversed order on RA.1 for now.
+#NET "btn<0>"   LOC = P61	|	IOSTANDARD = LVCMOS33;		
+#NET "btn<1>"   LOC = P59	|	IOSTANDARD = LVCMOS33;
+#NET "btn<2>"   LOC = P58	|	IOSTANDARD = LVCMOS33;
+##NET "btn<3>"  LOC = P57;  #btn<3> also used as reset
+#
+#
+##========================================================
+## 8 discrete LEDs
+##========================================================
+#
+#
+## Reversed UCF defenitions to fix reversed order on RA.1 for now.
+#NET "led<0>"  LOC = P44	|	IOSTANDARD = LVCMOS33;
+#NET "led<1>"  LOC = P45	|	IOSTANDARD = LVCMOS33;
+#NET "led<2>"  LOC = P46	|	IOSTANDARD = LVCMOS33;
+#NET "led<3>"  LOC = P47	|	IOSTANDARD = LVCMOS33;
+#NET "led<4>"  LOC = P48	|	IOSTANDARD = LVCMOS33;
+#NET "led<5>"  LOC = P50	|	IOSTANDARD = LVCMOS33;
+#NET "led<6>"  LOC = P51	|	IOSTANDARD = LVCMOS33;
+#NET "led<7>"  LOC = P56	|	IOSTANDARD = LVCMOS33;
+#
+##=========================================================
+### 8 slide switches
+##==========================================================
+## This is how the pins should be laid out.  Needs reversed on PCB					
+#
+## Reversed UCF defenitions to fix reversed order on RA.1 for now.
+#NET "sw<0>"  LOC = P12	|	IOSTANDARD = LVCMOS33;
+#NET "sw<1>"  LOC = P11	|	IOSTANDARD = LVCMOS33;
+#NET "sw<2>"  LOC = P10	|	IOSTANDARD = LVCMOS33;
+#NET "sw<3>"  LOC = P9	|	IOSTANDARD = LVCMOS33;
+#NET "sw<4>"  LOC = P8	|	IOSTANDARD = LVCMOS33;
+#NET "sw<5>"  LOC = P7	|	IOSTANDARD = LVCMOS33;
+#NET "sw<6>"  LOC = P6	|	IOSTANDARD = LVCMOS33;
+#NET "sw<7>"  LOC = P5	|	IOSTANDARD = LVCMOS33;
+#
+##========================================================
+## UART to USB (FTDI)
+## P43 - ftdi_tx	= async output	- rx of uart
+##	P41 - ftdi_rx = async input	- tx of the uart
+##========================================================
+#NET "rx"  LOC = P43	|	IOSTANDARD = LVCMOS33;	
+#NET "tx"  LOC = P41	|	IOSTANDARD = LVCMOS33;
+#
+##========================================================
+## DAC
+##========================================================
+#NET "dac_0" LOC = P2	|	IOSTANDARD = LVCMOS33;
+#NET "dac_1" LOC = P1	|	IOSTANDARD = LVCMOS33;
+#NET "dac_2" LOC = P40	|	IOSTANDARD = LVCMOS33;
+#
+##========================================================
+## Parallel port
+##========================================================
+#NET "pd<0>" LOC = P143	|	IOSTANDARD = LVCMOS33;
+#NET "pd<1>" LOC = P142	|	IOSTANDARD = LVCMOS33;
+#NET "pd<2>" LOC = P141	|	IOSTANDARD = LVCMOS33;
+#NET "pd<3>" LOC = P140	|	IOSTANDARD = LVCMOS33;
+#NET "pd<4>" LOC = P139	|	IOSTANDARD = LVCMOS33;
+#NET "pd<5>" LOC = P138	|	IOSTANDARD = LVCMOS33;
+#NET "pd<6>" LOC = P137	|	IOSTANDARD = LVCMOS33;
+#NET "pd<7>" LOC = P134	|	IOSTANDARD = LVCMOS33;
+#NET "pmrd" LOC = P133	|	IOSTANDARD = LVCMOS33;
+#NET "pmwr" LOC = P132	|	IOSTANDARD = LVCMOS33;
+#NET "addr_data" LOC = P131	|	IOSTANDARD = LVCMOS33;
+#
+#
+##========================================================
+## 4-digit time-multiplexed 7-segment LED display
+##========================================================
+## This is from 3-0 right to left
+## digit enable							
+#NET "an<0>"  LOC = 	P114	|	IOSTANDARD = LVCMOS33;	
+#NET "an<1>"  LOC = 	P115	|	IOSTANDARD = LVCMOS33;
+#NET "an<2>"  LOC = 	P117	|	IOSTANDARD = LVCMOS33;
+#NET "an<3>"  LOC = 	P112	|	IOSTANDARD = LVCMOS33;
+#NET "an_l"  LOC = P116	|	IOSTANDARD = LVCMOS33;		#p2_2
+#	
+### This is from 0-3 left to right
+### digit enable							#old location
+##NET "an<0>"  LOC = P112;	#p2_7		#p2_2			
+##NET "an<1>"  LOC = P117;	#p2_1		#p2_4
+##NET "an<2>"  LOC = P115;	#p2_3		#p2_3
+##NET "an<3>"  LOC = P114;	#p2_4		#p2_1
+##NET "an_l"  LOC = P116;		#p2_2
+#	
+## 7-segment led segments
+#NET "sseg<7>"  LOC = P104	|	IOSTANDARD = LVCMOS33; # decimal point
+#NET "sseg<6>"  LOC = P97	|	IOSTANDARD = LVCMOS33; 	# segment a
+#NET "sseg<5>"  LOC = P98	|	IOSTANDARD = LVCMOS33; 	# segment b
+#NET "sseg<4>"  LOC = P101	|	IOSTANDARD = LVCMOS33; # segment c
+#NET "sseg<3>"  LOC = P111	|	IOSTANDARD = LVCMOS33; # segment d
+#NET "sseg<2>"  LOC = P105	|	IOSTANDARD = LVCMOS33; # segment e
+#NET "sseg<1>"  LOC = P95	|	IOSTANDARD = LVCMOS33; 	# segment f
+#NET "sseg<0>"  LOC = P102	|	IOSTANDARD = LVCMOS33; # segment g
+#
+#
+#
+###========================================================
+### VGA outputs
+###========================================================
+#NET "rgb<0>"  LOC = P121 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//R0	- P1_7 #NET "p1_7" LOC = P121;
+#NET "rgb<1>"  LOC = P120 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//G0	- P1_8 #NET "p1_8" LOC = P120;
+#NET "rgb<2>"  LOC = P119 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//B0	- P1_9 #NET "p1_9" LOC = P119;
+#NET "vsync"   LOC = P118 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;		//P1_10	- #NET "p1_4" LOC = P123;
+#NET "hsync"   LOC = P123  	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//P1_4	- #NET "p1_4" LOC = P123;#NET "p1_4" LOC = P123;
+#
+#
+##========================================================
+## PS2 port 1
+##========================================================
+#NET "ps2c_1" LOC=P85	|	IOSTANDARD = LVCMOS33;	##PMOD4-7
+#NET "ps2d_1" LOC=P84 |	IOSTANDARD = LVCMOS33;	##PMOD4-8
+#
+##========================================================
+## PS2 port 2
+##========================================================
+#NET "ps2c_2" LOC=P100	|	IOSTANDARD = LVCMOS33;	##PMOD3-3
+#NET "ps2d_2" LOC=P94	|	IOSTANDARD = LVCMOS33;	##PMOD3-10
+#
+#
+##========================================================
+## Arduino Shield
+##========================================================
+#NET "s_d0" LOC = P35	|	IOSTANDARD = LVCMOS33;
+#NET "s_d1" LOC = P34	|	IOSTANDARD = LVCMOS33;
+#NET "s_d2" LOC = P33	|	IOSTANDARD = LVCMOS33;
+#NET "s_d3" LOC = P32	|	IOSTANDARD = LVCMOS33;
+#NET "s_d4" LOC = P30	|	IOSTANDARD = LVCMOS33;
+#NET "s_d5" LOC = P29	|	IOSTANDARD = LVCMOS33;
+#NET "s_d6" LOC = P27	|	IOSTANDARD = LVCMOS33;
+#NET "s_d7" LOC = P26	|	IOSTANDARD = LVCMOS33;
+#NET "s_d8" LOC = P24	|	IOSTANDARD = LVCMOS33;
+#NET "s_d9" LOC = P23	|	IOSTANDARD = LVCMOS33;
+#NET "s_d10" LOC = P22	|	IOSTANDARD = LVCMOS33;
+#NET "s_d11" LOC = P21	|	IOSTANDARD = LVCMOS33;
+#NET "s_d12" LOC = P17	|	IOSTANDARD = LVCMOS33;
+#NET "s_d13" LOC = P16	|	IOSTANDARD = LVCMOS33;
+#NET "s_scl" LOC = P15	|	IOSTANDARD = LVCMOS33;
+#NET "s_sda" LOC = P14	|	IOSTANDARD = LVCMOS33;
+#
+#
+### Uncomment the PMOD defenitions if using individual pmods
+###========================================================
+### PMOD1
+###========================================================
+##NET "p1_1" LOC = P127;
+##NET "p1_2" LOC = P126;
+##NET "p1_3" LOC = P124;
+##NET "p1_4" LOC = P123;
+##NET "p1_7" LOC = P121;
+##NET "p1_8" LOC = P120;
+##NET "p1_9" LOC = P119;
+##NET "p1_10" LOC = P118;
+##
+###========================================================
+### PMOD2
+###========================================================
+##NET "p2_1" LOC = P117;
+##NET "p2_2" LOC = P116;
+##NET "p2_3" LOC = P115;
+##NET "p2_4" LOC = P114;
+##NET "p2_7" LOC = P112;
+##NET "p2_8" LOC = P111;
+##NET "p2_9" LOC = P105;
+##NET "p2_10" LOC = P104;
+##
+###========================================================
+### PMOD3
+###========================================================
+##NET "p3_1" LOC = P102;
+##NET "p3_2" LOC = P101;
+##NET "p3_3" LOC = P100;
+##NET "p3_4" LOC = P99;
+##NET "p3_7" LOC = P98;
+##NET "p3_8" LOC = P97;
+##NET "p3_9" LOC = P95;
+##NET "p3_10" LOC = P94;
+##
+###========================================================
+### PMOD4
+###========================================================
+##NET "p4_1" LOC = P93;
+##NET "p4_2" LOC = P92;
+##NET "p4_3" LOC = P88;
+##NET "p4_4" LOC = P87;
+##NET "p4_7" LOC = P85;
+##NET "p4_8" LOC = P84;
+##NET "p4_9" LOC = P83;
+##NET "p4_10" LOC = P82;
+##
+###========================================================
+### PMOD5
+###========================================================
+##NET "p5_1" LOC = P81;
+##NET "p5_2" LOC = P80;
+##NET "p5_3" LOC = P79;
+##NET "p5_4" LOC = P78;
+##NET "p5_7" LOC = P75;
+##NET "p5_8" LOC = P67;
+##NET "p5_9" LOC = P66;
+##NET "p5_10" LOC = P62;
+##
+#
+#
+#
+#
+###========================================================
+### two SRAM chips
+###========================================================
+### shared 18-bit memory address
+##NET "ad<17>"  LOC="L3" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+##NET "ad<16>"  LOC="K5" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+##NET "ad<15>"  LOC="K3" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+##NET "ad<14>"  LOC="J3" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+##NET "ad<13>"  LOC="J4" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+##NET "ad<12>"  LOC="H4" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+##NET "ad<11>"  LOC="H3" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+##NET "ad<10>"  LOC="G5" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+##NET "ad<9>"   LOC="E4" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+##NET "ad<8>"   LOC="E3" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+##NET "ad<7>"   LOC="F4" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+##NET "ad<6>"   LOC="F3" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+##NET "ad<5>"   LOC="G4" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+##NET "ad<4>"   LOC="L4" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+##NET "ad<3>"   LOC="M3" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+##NET "ad<2>"   LOC="M4" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+##NET "ad<1>"   LOC="N3" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+##NET "ad<0>"   LOC="L5" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+##
+### shared oe, we
+##NET "oe_n"    LOC="K4" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+##NET "we_n"    LOC="G3" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+##
+### sram chip 1 data, ce, ub, lb
+##NET "dio_a<15>" LOC="R1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_a<14>" LOC="P1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_a<13>" LOC="L2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_a<12>" LOC="J2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_a<11>" LOC="H1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_a<10>" LOC="F2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_a<9>"  LOC="P8" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_a<8>"  LOC="D3" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_a<7>"  LOC="B1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_a<6>"  LOC="C1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_a<5>"  LOC="C2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_a<4>"  LOC="R5" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_a<3>"  LOC="T5" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_a<2>"  LOC="R6" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_a<1>"  LOC="T8" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_a<0>"  LOC="N7" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "ce_a_n"    LOC="P7" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "ub_a_n"    LOC="T4" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "lb_a_n"    LOC="P6" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##
+### sram chip 2 data, ce, ub, lb
+##NET "dio_b<15>" LOC="N1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_b<14>" LOC="M1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_b<13>" LOC="K2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_b<12>" LOC="C3" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_b<11>" LOC="F5" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_b<10>" LOC="G1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_b<9>"  LOC="E2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_b<8>"  LOC="D2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_b<7>"  LOC="D1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_b<6>"  LOC="E1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_b<5>"  LOC="G2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_b<4>"  LOC="J1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_b<3>"  LOC="K1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_b<2>"  LOC="M2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_b<1>"  LOC="N2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "dio_b<0>"  LOC="P2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "ce_b_n"    LOC="N5" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "ub_b_n"    LOC="R4" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+##NET "lb_b_n"    LOC="P5" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
