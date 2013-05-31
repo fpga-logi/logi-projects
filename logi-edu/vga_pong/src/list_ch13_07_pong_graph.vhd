@@ -5,9 +5,9 @@ use ieee.numeric_std.all;
 entity pong_graph is
    port(
       clk, reset: std_logic;
-      btn: std_logic_vector(1 downto 0);
-      pixel_x,pixel_y: in std_logic_vector(9 downto 0);
-      gra_still: in std_logic;
+      btn: std_logic_vector(1 downto 0);						--! nes changes to allow nes or button control up and down action  --
+      pixel_x,pixel_y: in std_logic_vector(9 downto 0);	-- will or the 2 buttons at the higher level to allow either button or
+      gra_still: in std_logic;									-- nes controller to move the paddel up or down
       graph_on, hit, miss: out std_logic;
       rgb: out std_logic_vector(2 downto 0)
    );

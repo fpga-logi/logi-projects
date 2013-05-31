@@ -1,4 +1,11 @@
 -- Listing 13.6
+-- char-addr: 7 bits, the ASCII code of the character
+-- row-addr: 4 bits, the row number in a particular font pattern
+-- rom-addr: 11 bits, the address of the font ROM; the concatenation of char-addr
+-- bit-addr: 3 bits, the column number in a particular font pattern
+-- font-word: 8 bits, a row of pixels of the font pattern specified by rom-addr
+-- font-bit : 1 bit, one pixel of font-word specified by bit-addr
+-- see page 298 for explanatnion of font scaling
 library ieee;
 use ieee.std_logic_1164.ALL;
 use ieee.numeric_std.ALL;
@@ -8,8 +15,9 @@ entity pong_text is
       pixel_x, pixel_y: in std_logic_vector(9 downto 0);
       dig0, dig1: in std_logic_vector(3 downto 0);
       ball: in std_logic_vector(1 downto 0);
-      text_on: out std_logic_vector(3 downto 0);
-      text_rgb: out std_logic_vector(2 downto 0)
+      --text_on: out std_logic_vector(4 downto 0);	--! changed to add logo element
+		text_on: out std_logic_vector(3 downto 0);	--! changed to add logo element
+       text_rgb: out std_logic_vector(2 downto 0)
    );
 end pong_text;
 
@@ -24,7 +32,8 @@ architecture arch of pong_text is
           bit_addr_o: std_logic_vector(2 downto 0);
    signal font_word: std_logic_vector(7 downto 0);
    signal font_bit: std_logic;
-   signal score_on, logo_on, rule_on, over_on: std_logic;
+	signal score_on, logo_on, rule_on, over_on: std_logic;	
+   --signal score_on, logo1_on, logo2_on, rule_on, over_on: std_logic;		--!ADD another logo flag for new line
    signal rule_rom_addr: unsigned(5 downto 0);
    type rule_rom_type is array (0 to 63) of
        std_logic_vector (6 downto 0);
@@ -138,24 +147,117 @@ begin
         "0111010" when "1110", -- :
         "01100" & ball when others;
 
-   ---------------------------------------------
-   -- logo region:
-   --   - display logo "PONG" on top center
-   --   - used as background
-   --   - scale to 64-by-128 font
-   ---------------------------------------------
+
+--ORIGINAL
+--   ---------------------------------------------
+--   -- logo region:
+--   --   - display logo "PONG" on top center
+--   --   - used as background
+--   --   - scale to 64-by-128 font
+--   ---------------------------------------------
+--   logo_on <=
+--      '1' when pix_y(9 downto 7)=2 and
+--         (3<= pix_x(9 downto 6) and pix_x(9 downto 6)<=6) else
+--      '0';
+--   row_addr_l <= std_logic_vector(pix_y(6 downto 3));
+--   bit_addr_l <= std_logic_vector(pix_x(5 downto 3));
+--   with pix_x(8 downto 6) select
+--     char_addr_l <=
+--        "1010000" when "011", -- P x50
+--        "1001111" when "100", -- O x4f
+--        "1001110" when "101", -- N x4e
+--        "1000111" when others; --G x47
+
+
+
+---- FPGA
+----   ---------------------------------------------
+----   -- logo region:
+----   --   - display logo "PONG" on top center
+----   --   - used as background
+----   --   - scale to 64-by-128 font
+----   ---------------------------------------------
+--   logo1_on <=
+--      '1' when pix_y(9 downto 7)=2 and
+--         (3<= pix_x(9 downto 6) and pix_x(9 downto 6)<=6) else
+--      '0';
+--   row_addr_l <= std_logic_vector(pix_y(6 downto 3));
+--   bit_addr_l <= std_logic_vector(pix_x(5 downto 3));
+--   with pix_x(8 downto 6) select
+--     char_addr_l <=
+--        "1000110" when "011", -- F x50
+--        "1010000" when "100", -- P x4f
+--        "1000111" when "101", -- G x4e
+--        "1000001" when others; --A x47
+		  
+-- LOGI
+--   ---------------------------------------------
+--   -- logo region:
+--   --   - display logo "PONG" on top center
+--   --   - used as background
+--   --   - scale to 64-by-128 font
+--   ---------------------------------------------
    logo_on <=
-      '1' when pix_y(9 downto 7)=2 and
+      '1' when pix_y(9 downto 7)=2 and		--! 4 ROWS, select which - 0 based.
          (3<= pix_x(9 downto 6) and pix_x(9 downto 6)<=6) else
       '0';
    row_addr_l <= std_logic_vector(pix_y(6 downto 3));
    bit_addr_l <= std_logic_vector(pix_x(5 downto 3));
    with pix_x(8 downto 6) select
      char_addr_l <=
-        "1010000" when "011", -- P x50
+        "1001100" when "011", -- L x50
         "1001111" when "100", -- O x4f
-        "1001110" when "101", -- N x4e
-        "1000111" when others; --G x47
+        "1000111" when "101", -- G x4e
+        "1101001" when others; --i x47
+
+
+--MOD
+--   logo_on <=	--this is mapping when to print the text
+--      '1' when pix_y(9 downto 7)=2 and		--pix_y rows
+--         (2<= pix_x(9 downto 6) and pix_x(9 downto 6)<=8) else	--pix_x = columns - places the given text in columns 2<=x<=8 locations
+--      '0';
+--   --row_addr_l <= std_logic_vector(pix_y(6 downto 3));
+--   --bit_addr_l <= std_logic_vector(pix_x(5 downto 3));
+--	row_addr_l <= std_logic_vector(pix_y(6 downto 3));
+--   bit_addr_l <= std_logic_vector(pix_x(5 downto 3));
+--   with pix_x(8 downto 6) select		--this is dividing the x screen by 3 bits = 8;
+--     char_addr_l <=
+----        "1010000" when "011", -- P x50
+----        "1001111" when "100", -- O x4f
+----        "1001110" when "101", -- N x4e
+----        "1000111" when others; --G x47
+--	
+--				--add custom text here
+--		  "1010011" when "001", -- S x50
+--        "1010000" when "010", -- P x4f
+--        --"1000001" when "011", -- A x4e
+--        "1010010"  when "011", --R x47
+--		  "1001011" when "100", -- K x4f
+--        "1000110" when "101", -- F x4e
+--		  "1010101" when "110", -- U x4e
+--        "1001110"  when others; --N x47
+--		
+----			--add custom text here
+----		  "1010011" when "001", -- S x50
+----        "1010000" when "010", -- P x4f
+----        "1000001" when "011", -- A x4e
+----        "1010010"  when "100", --R x47
+----		  "1001011" when "101", -- K x4f
+----        "1000110" when "110", -- F x4e
+----		  "1010101" when "111", -- U x4e
+----        "1001110"  when others; --N x47
+
+--
+----			--add custom text here
+----		  "1010011" when "000", -- S x50
+----        "1010000" when "001", -- P x4f
+----        "1000001" when "010", -- A x4e
+----        "1010010"  when "011", --R x47
+----		  "1001011" when "100", -- k x4f
+----        "1000110" when "101", -- f x4e
+----		  "1010101" when "110", -- u x4e
+----        "1001110"  when others; --n x47
+
    ---------------------------------------------
    -- rule region
    --   - display rule (4-by-16 tiles)on center
@@ -197,7 +299,7 @@ begin
    ---------------------------------------------
    -- mux for font ROM addresses and rgb
    ---------------------------------------------
-   process(score_on,logo_on,rule_on,pix_x,pix_y,font_bit,
+   process(score_on,logo_on,rule_on,pix_x,pix_y,font_bit,  --!
            char_addr_s,char_addr_l,char_addr_r,char_addr_o,
            row_addr_s,row_addr_l,row_addr_r,row_addr_o,
            bit_addr_s,bit_addr_l,bit_addr_r,bit_addr_o)
@@ -217,7 +319,14 @@ begin
          if font_bit='1' then
             text_rgb <= "001";
          end if;
-      elsif logo_on='1' then
+--      elsif logo1_on='1' then				--!
+--         char_addr <= char_addr_l;
+--         row_addr <= row_addr_l;
+--         bit_addr <= bit_addr_l;
+--         if font_bit='1' then
+--            text_rgb <= "011";
+--         end if;
+		elsif logo_on='1' then
          char_addr <= char_addr_l;
          row_addr <= row_addr_l;
          bit_addr <= bit_addr_l;
@@ -233,7 +342,8 @@ begin
          end if;
       end if;
    end process;
-   text_on <= score_on & logo_on & rule_on & over_on;
+   --text_on <= score_on & logo1_on & logo2_on & rule_on & over_on;	--!
+	text_on <= score_on & logo_on & rule_on & over_on;	--!
    ---------------------------------------------
    -- font rom interface
    ---------------------------------------------
