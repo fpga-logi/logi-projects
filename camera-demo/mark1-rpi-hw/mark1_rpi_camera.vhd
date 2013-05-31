@@ -20,6 +20,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -32,6 +33,8 @@ use work.interface_pack.all ;
 use work.conf_pack.all ;
 use work.image_pack.all ;
 use work.primitive_pack.all ;
+use work.feature_pack.all ;
+use work.filter_pack.all ;
 
 
 -- Uncomment the following library declaration if instantiating
@@ -113,12 +116,24 @@ architecture Behavioral of mark1_rpi_camera is
 	--Pixel pipeline signals
 	signal pixel_y_from_interface, pixel_u_from_interface, pixel_v_from_interface : std_logic_vector(7 downto 0);
 	signal pxclk_from_interface, href_from_interface, vsync_from_interface : std_logic ;
+	
+	signal pixel_from_harris : std_logic_vector(7 downto 0);
+	signal harris_resp : std_logic_vector(15 downto 0);
+	signal signed_harris_resp : signed(15 downto 0);
+	signal pxclk_from_harris, href_from_harris, vsync_from_harris : std_logic ;
+	signal pixel_from_gauss: std_logic_vector(7 downto 0);
+	signal pxclk_from_gauss, href_from_gauss, vsync_from_gauss : std_logic ;
+	signal pixel_from_sobel: std_logic_vector(7 downto 0);
+	signal pxclk_from_sobel, href_from_sobel, vsync_from_sobel : std_logic ;
+	signal pixel_from_switch: std_logic_vector(7 downto 0);
+	signal pxclk_from_switch, href_from_switch, vsync_from_switch : std_logic ;
+	
 	signal pixel_y_from_ds, pixel_u_from_ds, pixel_v_from_ds : std_logic_vector(7 downto 0);
 	signal pxclk_from_ds, href_from_ds, vsync_from_ds : std_logic ;
 	
 	-- i2c routing signals
 	
-	for all : yuv_register_rom use entity work.yuv_register_rom(ov7725_qvga);
+	for all : yuv_register_rom use entity work.yuv_register_rom(ov7725_qvga_patched);
 	constant IMAGE_WIDTH : integer := 320 ;
 	constant IMAGE_HEIGHT : integer := 240 ;
 begin
@@ -258,51 +273,114 @@ begin
 	LED(1) <= cam_vsync ;
 	LED(2) <= cs_preview_fifo ;
 
+	
+	gauss3x3_0	: gauss3x3 
+		generic map(WIDTH => IMAGE_WIDTH,
+				  HEIGHT => IMAGE_HEIGHT)
+		port map(
+					clk => clk_sys ,
+					resetn => sys_resetn ,
+					pixel_clock => pxclk_from_interface, 
+					hsync => href_from_interface, 
+					vsync =>  vsync_from_interface,
+					pixel_clock_out => pxclk_from_gauss, 
+					hsync_out => href_from_gauss, 
+					vsync_out => vsync_from_gauss, 
+					pixel_data_in => pixel_y_from_interface,  
+					pixel_data_out => pixel_from_gauss
+		);		
+		
+	
+	sobel0: sobel3x3
+		generic map(WIDTH => IMAGE_WIDTH,
+				  HEIGHT => IMAGE_HEIGHT)
+		port map(
+			clk => clk_sys ,
+			resetn => sys_resetn ,
+			pixel_clock => pxclk_from_gauss, hsync => href_from_gauss, vsync =>  vsync_from_gauss,
+			pixel_clock_out => pxclk_from_sobel, hsync_out => href_from_sobel, vsync_out => vsync_from_sobel, 
+			pixel_data_in => pixel_from_gauss,  
+			pixel_data_out => pixel_from_sobel
+		);	
+
+
+	harris_detector : HARRIS 
+	generic map(WIDTH => IMAGE_WIDTH, HEIGHT => IMAGE_HEIGHT, WINDOW_SIZE => 5, DS_FACTOR => 2)
+	port map(
+			clk => clk_sys,
+			resetn => sys_resetn, 
+			pixel_clock => pxclk_from_interface, 
+			hsync => href_from_interface,
+			vsync => vsync_from_interface, 
+			pixel_clock_out =>pxclk_from_harris,
+			hsync_out => href_from_harris, 
+			vsync_out => vsync_from_harris,
+			pixel_data_in =>  pixel_y_from_interface,
+			harris_out => harris_resp 
+	);
+	signed_harris_resp <= signed(harris_resp) ;
+
+	pixel_from_harris <=  (others => '0') when harris_resp(15) = '1' else
+								  harris_resp(7 downto 0) when signed_harris_resp < 256 else
+								  (others => '1');
+								  
+								  
+								  
+
+
+
+		video_switch_inst: video_switch
+		generic map(NB	=>  4)
+		port map(
+		pixel_clock(0) => pxclk_from_interface, 
+		pixel_clock(1) => pxclk_from_gauss, 
+		pixel_clock(2) => pxclk_from_sobel, 
+		pixel_clock(3) => pxclk_from_harris,
+		
+		hsync(0) => href_from_interface,
+		hsync(1) => href_from_gauss, 
+		hsync(2) => href_from_sobel,
+		hsync(3) => href_from_harris,
+		
+		
+		vsync(0) => vsync_from_interface,
+		vsync(1) => vsync_from_gauss,
+		vsync(2) => vsync_from_sobel,
+		vsync(3) => vsync_from_harris,
+		
+		pixel_data(0) => pixel_y_from_interface	,
+		pixel_data(1) => pixel_from_gauss	,
+		pixel_data(2) => pixel_from_sobel	,
+		pixel_data(3) => pixel_from_harris	,
+
+
+		  pixel_clock_out => pxclk_from_switch, 
+		  hsync_out => href_from_switch, 
+		  vsync_out => vsync_from_switch,
+		  pixel_data_out => pixel_from_switch,
+		  channel(1 downto 0) => DIP_SW(1 downto 0),
+		  channel(7 downto 2) => "000000"
+		);
+
+
 
 	ds_image : down_scaler
 		generic map(SCALING_FACTOR => 2, INPUT_WIDTH => IMAGE_WIDTH, INPUT_HEIGHT => IMAGE_HEIGHT )
 		port map(
 			clk => clk_sys,
 			resetn => sys_resetn,
-			pixel_clock => pxclk_from_interface, 
-			hsync => href_from_interface,
-			vsync => vsync_from_interface,
+--			pixel_clock => pxclk_from_interface, 
+--			hsync => href_from_interface,
+--			vsync => vsync_from_interface,
+			pixel_clock => pxclk_from_switch, 
+			hsync => href_from_switch,
+			vsync => vsync_from_switch,
 			pixel_clock_out => pxclk_from_ds, 
 			hsync_out => href_from_ds, 
 			vsync_out=> vsync_from_ds,
-			pixel_data_in => pixel_y_from_interface,
+			pixel_data_in => pixel_from_switch,
 			pixel_data_out=> pixel_y_from_ds
 		); 
-		
---		ds_v : down_scaler
---		generic map(SCALING_FACTOR => 2, INPUT_WIDTH => IMAGE_WIDTH, INPUT_HEIGHT => IMAGE_HEIGHT )
---		port map(
---			clk => clk_sys,
---			resetn => sys_resetn,
---			pixel_clock => pxclk_from_interface, 
---			hsync => href_from_interface,
---			vsync => vsync_from_interface,
---			pixel_clock_out => open, 
---			hsync_out => open, 
---			vsync_out=> open,
---			pixel_data_in => pixel_v_from_interface,
---			pixel_data_out=> pixel_v_from_ds
---		); 
---		
---		ds_u : down_scaler
---		generic map(SCALING_FACTOR => 2, INPUT_WIDTH => IMAGE_WIDTH, INPUT_HEIGHT => IMAGE_HEIGHT )
---		port map(
---			clk => clk_sys,
---			resetn => sys_resetn,
---			pixel_clock => pxclk_from_interface, 
---			hsync => href_from_interface,
---			vsync => vsync_from_interface,
---			pixel_clock_out => open, 
---			hsync_out => open, 
---			vsync_out=> open,
---			pixel_data_in => pixel_u_from_interface,
---			pixel_data_out=> pixel_u_from_ds
---		); 
 		
 		pixel_to_fifo : yuv_pixel2fifo
 		port map(
@@ -311,8 +389,8 @@ begin
 			hsync => href_from_ds, 
 			vsync => vsync_from_ds,
 			pixel_y => pixel_y_from_ds,
-			pixel_u => pixel_u_from_interface,
-			pixel_v => pixel_v_from_interface,
+			pixel_u => X"80",--pixel_u_from_interface,
+			pixel_v => X"80",--pixel_v_from_interface,
 			fifo_data => preview_fifo_input,
 			fifo_wr => preview_fifo_wr
 		);	
