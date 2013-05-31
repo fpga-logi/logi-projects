@@ -21,7 +21,8 @@ architecture arch of pong_top is
    signal video_on, pixel_tick: std_logic;
    signal pixel_x, pixel_y: std_logic_vector (9 downto 0);
    signal graph_on, gra_still, hit, miss: std_logic;
-   signal text_on: std_logic_vector(3 downto 0);
+   --signal text_on: std_logic_vector(4 downto 0);	--!	--MOD TO ADD MORE TEXT LOCATIONS
+	signal text_on: std_logic_vector(3 downto 0);	--!
    signal graph_rgb, text_rgb: std_logic_vector(2 downto 0);
    signal rgb_reg, rgb_next: std_logic_vector(2 downto 0);
    signal state_reg, state_next: state_type;
@@ -35,12 +36,16 @@ architecture arch of pong_top is
 	--nes signals
 	signal nes_a, nes_b, nes_sel, nes_start, nes_up, nes_down, nes_left, nes_right: std_logic;
 	signal nes_clk_buf, nes_lat_buf:std_logic;
+	signal paddle_up, paddle_down: std_logic;		-- will hold the or'd nes or button data to send to graph.
 	
 begin
 	reset <= not(n_reset);
 	btn <= not(n_btn);
 	nes_lat <= nes_lat_buf;
 	nes_clk <= nes_clk_buf;
+	
+	paddle_up <= nes_up or btn(0);
+	paddle_down <= nes_down or btn(1);
 	
 	--indicate status on leds
 	led(0) <= nes_clk_buf;
@@ -86,7 +91,8 @@ begin
                text_on=>text_on, text_rgb=>text_rgb);
    -- instantiate graph module
    graph_unit: entity work.pong_graph
-      port map(clk=>clk, reset=>reset, btn=>btn,
+      --port map(clk=>clk, reset=>reset, btn=>btn,		--!pass alternative control signals nes
+		port map(clk=>clk, reset=>reset, btn=>(paddle_down&paddle_up),		--!pass alternative control signals nes
               pixel_x=>pixel_x, pixel_y=>pixel_y,
               gra_still=>gra_still,hit=>hit, miss=>miss,
               graph_on=>graph_on,rgb=>graph_rgb);
@@ -120,8 +126,9 @@ begin
          end if;
       end if;
    end process;
+	
    -- fsmd next-state logic
-   process(btn,hit,miss,timer_up,state_reg,
+   process(nes_start,btn,hit,miss,timer_up,state_reg,			--!use nes rather buttons for the state machine
            ball_reg,ball_next)
    begin
       gra_still <= '1';
@@ -134,7 +141,8 @@ begin
          when newgame =>
             ball_next <= "11";    -- three balls
             d_clr <= '1';         -- clear score
-            if (btn /= "00") then -- button pressed
+            --if (btn /= "00") then -- button pressed	--change to nes start button
+				if (nes_start = '1' or btn /= "00") then -- nes start button pressed
                state_next <= play;
                ball_next <= ball_reg - 1;
             end if;
@@ -153,7 +161,8 @@ begin
             end if;
          when newball =>
             -- wait for 2 sec and until button pressed
-            if  timer_up='1' and (btn /= "00") then
+				--if  timer_up='1' and (btn /= "00") then
+            if  timer_up='1' and (nes_start = '1' or btn /= "00") then		--!nes change
               state_next <= play;
             end if;
          when over =>
