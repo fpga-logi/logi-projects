@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2013-05-28T16:53:44</DateModified>
+  <DateModified>2013-05-31T17:44:09</DateModified>
   <ModuleName>mark1_rpi_camera</ModuleName>
-  <SummaryTimeStamp>2013-05-28T15:05:05</SummaryTimeStamp>
+  <SummaryTimeStamp>2013-05-31T17:38:52</SummaryTimeStamp>
   <SavedFilePath>/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/iseconfig/mark1_rpi_camera.xreport</SavedFilePath>
   <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/</ImplementationReportsDirectory>
   <DateInitialized>2013-05-28T12:10:49</DateInitialized>

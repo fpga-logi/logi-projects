@@ -17,15 +17,18 @@
          <ClosedNode>/mark1_rpi_camera - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|camera-demo|mark1-rpi-hw|mark1-rpi-hw|mark1_rpi_camera.vhd/ds_u - down_scaler - RTL</ClosedNode>
          <ClosedNode>/mark1_rpi_camera - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|camera-demo|mark1-rpi-hw|mark1-rpi-hw|mark1_rpi_camera.vhd/ds_v - down_scaler - RTL</ClosedNode>
          <ClosedNode>/mark1_rpi_camera - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|camera-demo|mark1-rpi-hw|mark1-rpi-hw|mark1_rpi_camera.vhd/fifo_preview - fifo_peripheral - RTL</ClosedNode>
+         <ClosedNode>/mark1_rpi_camera - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|camera-demo|mark1-rpi-hw|mark1_rpi_camera.vhd/camera0 - yuv_camera_interface - systemc</ClosedNode>
+         <ClosedNode>/mark1_rpi_camera - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|camera-demo|mark1-rpi-hw|mark1_rpi_camera.vhd/camera_conf_block - i2c_conf - Behavioral</ClosedNode>
+         <ClosedNode>/mark1_rpi_camera - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|camera-demo|mark1-rpi-hw|mark1_rpi_camera.vhd/fifo_preview - fifo_peripheral - RTL</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>mark1_rpi_camera - Behavioral (/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1-rpi-hw/mark1_rpi_camera.vhd)</SelectedItem>
+         <SelectedItem>mark1_rpi_camera - Behavioral (/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000022e000000020000000000000000000000000200000064ffffffff0000008100000003000000020000022e0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000024f000000020000000000000000000000000200000064ffffffff0000008100000003000000020000024f0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>mark1_rpi_camera - Behavioral (/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1-rpi-hw/mark1_rpi_camera.vhd)</CurrentItem>
+      <CurrentItem>mark1_rpi_camera - Behavioral (/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -108,12 +111,12 @@
          <ClosedNode>CORE Generator</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000103000000010000000100000000000000000000000064ffffffff000000810000000000000001000001030000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
 </Project>
