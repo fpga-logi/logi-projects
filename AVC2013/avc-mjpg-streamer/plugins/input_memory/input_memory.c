@@ -46,21 +46,31 @@
 
 
 #define INPUT_PLUGIN_NAME "MEMORY input plugin"
+#define MAX_ARGUMENTS 32
 
+
+char * picture_format [] = {"640x480", "320x240", "160x120"};
+
+#define MAX_WIDTH 640
+#define MAX_HEIGHT 480
 
 #define WIDTH 160
 #define HEIGHT 120
 #define NB_CHAN 2
 #define COLOR_MODE
-#define FIFO_ID 1
+#define FIFO_ID 0
 
 /* private functions and variables to this plugin */
 static pthread_t   worker;
 static globals     *pglobal;
 static pthread_mutex_t controls_mutex;
 static int plugin_number;
-unsigned char grab_buffer[WIDTH*HEIGHT*3*2] ; 
-unsigned char rgb_buffer[WIDTH*HEIGHT*3] ;
+
+unsigned char grab_buffer[MAX_WIDTH*MAX_HEIGHT*3*2] ; 
+unsigned char rgb_buffer[MAX_WIDTH*MAX_HEIGHT*3] ;
+unsigned int fifo_id = 0 ;
+unsigned int image_width = MAX_WIDTH ;
+unsigned int image_height = MAX_HEIGHT ;
 
 void *worker_thread(void *);
 void worker_cleanup(void *);
@@ -75,6 +85,11 @@ int min(int a, int b){
 	return a ;
 }
 
+
+
+
+
+
 /*** plugin interface functions ***/
 
 /******************************************************************************
@@ -85,11 +100,89 @@ Return Value: 0 if everything is ok
 int input_init(input_parameter *param)
 {
     int i;
-
+    char *argv[MAX_ARGUMENTS]={NULL};
+    int argc=1 ;
     if(pthread_mutex_init(&controls_mutex, NULL) != 0) {
         IPRINT("could not initialize mutex variable\n");
         exit(EXIT_FAILURE);
     }
+
+  /* convert the single parameter-string to an array of strings */
+  argv[0] = INPUT_PLUGIN_NAME;
+  if ( param->parameter_string != NULL && strlen(param->parameter_string) != 0 ) {
+    char *arg=NULL, *saveptr=NULL, *token=NULL;
+
+    arg=(char *)strdup(param->parameter_string);
+
+    if ( strchr(arg, ' ') != NULL ) {
+      token=strtok_r(arg, " ", &saveptr);
+      if ( token != NULL ) {
+        argv[argc] = strdup(token);
+        argc++;
+        while ( (token=strtok_r(NULL, " ", &saveptr)) != NULL ) {
+          argv[argc] = strdup(token);
+          argc++;
+          if (argc >= MAX_ARGUMENTS) {
+            IPRINT("ERROR: too many arguments to input plugin\n");
+            return 1;
+          }
+        }
+      }
+    }
+  }
+
+  /* show all parameters for DBG purposes */
+  for (i=0; i<argc; i++) {
+    DBG("argv[%d]=%s\n", i, argv[i]);
+  }
+
+  reset_getopt();
+  while(1) {
+    int option_index = 0, c=0;
+    static struct option long_options[] = \
+    {
+      {"i", required_argument, 0, 0},
+      {"r", required_argument, 0, 0},
+      {0, 0, 0, 0}
+    };
+
+    c = getopt_long_only(argc, argv, "", long_options, &option_index);
+
+    /* no more options to parse */
+    if (c == -1) break;
+
+    /* unrecognized option */
+    if (c == '?'){
+      help();
+      return 1;
+    }
+
+    switch (option_index) {
+      /* fifo id */
+      case 0:
+	DBG("case 1\n");
+	fifo_id = atoi(optarg);
+      /* sourcfe resolution */
+      case 1:
+        DBG("case 1\n");
+	unsigned int div = 1 ;
+        for ( i=0; i < 3; i++ ) {
+          if ( strcmp(picture_format[i], optarg) == 0 ) {
+            image_width = image_width/div ;
+	    image_height = image_height/div ;
+            break;
+          }
+	  div = div * 2 ;
+        }
+        break;
+
+      default:
+        DBG("default case\n");
+        help();
+        return 1;
+    }
+  }
+
     
     pglobal = param->global;
 
@@ -121,7 +214,8 @@ int input_run(void)
         fprintf(stderr, "could not allocate memory\n");
         exit(EXIT_FAILURE);
     }
-    if( fifo_open(FIFO_ID) < 0){
+    fifo_open(fifo_id);
+    if( fifo_open(fifo_id) < 0){
     	fprintf(stderr, "could not open fifo !  (try sudo ...)\n");
 	exit(EXIT_FAILURE);
     }
@@ -141,13 +235,14 @@ Description.: print help message
 Input Value.: -
 Return Value: -
 ******************************************************************************/
-void help(void)
-{
+void help(void) {
     fprintf(stderr, " ---------------------------------------------------------------\n" \
-    " Help for input plugin..: "INPUT_PLUGIN_NAME"\n" \
-    " ---------------------------------------------------------------\n" \
-    " There is no parameters for this plugin:\n\n" \
-    " ---------------------------------------------------------------\n");
+                    " Help for input plugin..: "INPUT_PLUGIN_NAME"\n" \
+                    " ---------------------------------------------------------------\n" \
+                    " The following parameters can be passed to this plugin:\n\n" \
+                    " [-i ]........: fifo id\n" \
+                    " [-r ]....: can be 640x480, 320x240, 160x120\n"
+                    " ---------------------------------------------------------------\n");
 }
 
 /******************************************************************************
@@ -173,18 +268,18 @@ void *worker_thread(void *arg)
     while(!pglobal->stop) {
 	pthread_mutex_lock(&pglobal->db);
 	//TODO: need to iterate to get the vsync signal and then grab a full frame
-	fifo_reset(FIFO_ID);	
-	fifo_read(FIFO_ID, grab_buffer, WIDTH*HEIGHT*3*NB_CHAN);
+	fifo_reset(fifo_id);	
+	fifo_read(fifo_id, grab_buffer, image_width*image_height*3*NB_CHAN);
 	i = 0 ;
 	vsync = 0 ;
 	start_buffer = grab_buffer ;
-	end_ptr = &start_buffer[WIDTH*HEIGHT*NB_CHAN*3];
+	end_ptr = &start_buffer[image_width*image_height*NB_CHAN*3];
 	vsync1 = *((unsigned short *) start_buffer) ;
-	vsync2 = *((unsigned short *) &start_buffer[(WIDTH*HEIGHT*NB_CHAN)+2]) ;
+	vsync2 = *((unsigned short *) &start_buffer[(image_width*image_height*NB_CHAN)+2]) ;
 	while(vsync1 != 0x55AA && vsync2 != 0x55AA && start_buffer < end_ptr){
 			start_buffer+=2 ;
 			vsync1 = *((unsigned short *) start_buffer) ;
-			vsync2 = *((unsigned short *) &start_buffer[(WIDTH*HEIGHT*NB_CHAN)+2]) ;
+			vsync2 = *((unsigned short *) &start_buffer[(image_width*image_height*NB_CHAN)+2]) ;
 	}
 	if(vsync1 == 0x55AA && vsync2 == 0x55AA){
 			vsync = 1 ;
@@ -193,7 +288,7 @@ void *worker_thread(void *arg)
 	if(vsync){
 		DBG("Vsync found !\n");
 		#ifdef COLOR_MODE
-		for(i = 0 ; i < WIDTH*HEIGHT ; i ++){
+		for(i = 0 ; i < image_width*image_height ; i ++){
 			y = (float) fPointer[(i*2)] ;
 			if(i%2 == 1){
 				u = (float) fPointer[(i*2)+1];
@@ -210,12 +305,12 @@ void *worker_thread(void *arg)
 			rgb_buffer[(i*3)+2] = (unsigned char) abs(min(b, 255)) ;
 		} 
 		
-		if(!write_jpegmem_rgb(rgb_buffer, WIDTH, HEIGHT, &pglobal->buf, &outlen, 100)){
+		if(!write_jpegmem_rgb(rgb_buffer, image_width, image_height, &pglobal->buf, &outlen, 100)){
 			printf("compression error !\n");	
 			exit(EXIT_FAILURE);
 		}
 		#else
-		if(!write_jpegmem_gray(fPointer, WIDTH, HEIGHT, &pglobal->buf, &outlen, 100)){
+		if(!write_jpegmem_gray(fPointer, image_width, image_height, &pglobal->buf, &outlen, 100)){
 			printf("compression error !\n");	
 			exit(EXIT_FAILURE);
 		}
