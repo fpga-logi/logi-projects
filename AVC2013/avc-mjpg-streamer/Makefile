@@ -20,15 +20,15 @@ all: application plugins
 
 clean:
 #	make -C plugins/input_uvc $@
-	make -C plugins/input_testpicture $@
+#	make -C plugins/input_testpicture $@
 	make -C plugins/input_memory $@
-	make -C plugins/output_file $@
+#	make -C plugins/output_file $@
 	make -C plugins/output_http $@
-	make -C plugins/output_autofocus $@
+#	make -C plugins/output_autofocus $@
 #	make -C plugins/input_gspcav1 $@
 	rm -f *.a *.o $(APP_BINARY) core *~ *.so *.lo
 
-plugins: output_file.so output_http.so input_testpicture.so input_memory.so output_autofocus.so
+plugins: output_http.so input_memory.so
 
 application: $(APP_BINARY)
 
