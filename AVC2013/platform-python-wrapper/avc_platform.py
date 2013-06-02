@@ -140,12 +140,24 @@ if __name__ == "__main__":
 	robot.setLeds(0xAA)
 	print robot.getEncoderValue(0)
 	print robot.getEncoderValue(1)
+	robot.setServoAngle(1, 0.0)
+	robot.setServoAngle(0, 0.0)
+	print 'Watchdog status :', robot.getWatchdogStatus()
+	robot.resetWatchdog()
+	print 'Watchdog status :', robot.getWatchdogStatus()
 	robot.setColorLut('lut_file.lut')
-	print 'lut sent \n'
-	robot.printColorLut()
+	#print 'lut sent \n'
+	#robot.printColorLut()
 	i = 0
 	while True:
-		mark1Rpi.fifoReset(0)
-		blobs = robot.getBlobPos()
-		print "x:", blobs[0].cogx,", y:", blobs[0].cogy
-		time.sleep(0.5)
+		robot.resetWatchdog()
+		robot.setServoAngle(0, math.sin(i)*0.45)
+		robot.setServoAngle(1, math.sin(i)*0.45)
+	#	mark1Rpi.fifoReset(0)
+	#	blobs = robot.getBlobPos()
+	#	print "x:", blobs[0].cogx,", y:", blobs[0].cogy
+		time.sleep(0.01)
+		i =  i + 0.1
+		if i > math.pi :
+			i = 0
+
