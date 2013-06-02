@@ -96,8 +96,6 @@ architecture Behavioral of avc_platform is
 		  servo_out       : out std_logic);
 	end component;
 	
-	
-	
 	component quad_encoder_block is
 	generic(NBIT : positive := 32; POL : std_logic := '1');
 	port(
@@ -106,6 +104,15 @@ architecture Behavioral of avc_platform is
 	CHAN_A, CHAN_B : in std_logic ;
 	count : out std_logic_vector((NBIT-1) downto 0)
 	);
+	end component;
+	
+	component watchdog is
+	generic (NB_CHANNEL : positive := 7; DIVIDER : positive := 1000; TIMEOUT : positive := 16000);
+	port(clk, resetn : in std_logic;
+	  cs, wr : in std_logic ;
+	  enable_channels : out std_logic_vector(NB_CHANNEL-1 downto 0);
+	  status : out std_logic 
+	  );
 	end component;
 
 	-- Constant declaration
@@ -142,7 +149,7 @@ architecture Behavioral of avc_platform is
 	
 	
 	-- Peripheral chip select
-	signal cs_blob_fifo, cs_color_lut, cs_latches, cs_preview_fifo : std_logic ;
+	signal cs_blob_fifo, cs_color_lut, cs_latches, cs_preview_fifo, cs_watchdog : std_logic ;
 	
 	
 	-- Camera configuration and interface signals
@@ -179,6 +186,10 @@ architecture Behavioral of avc_platform is
 	-- Encoders related signal
 	signal ENC_A_OLD, ENC_A_RE  : std_logic_vector(1 downto 0); 
 	signal ENCODERS_CONTROL : std_logic_vector(15 downto 0);
+	
+	-- watchdog signals
+	signal enable_peripherals : std_logic_vector(1 downto 0);
+	signal watchdog_status : std_logic ;
 	
 	-- i2c routing signals
 	
@@ -253,6 +264,8 @@ begin
 				  
 	cs_latches <= '1' when bus_addr(15 downto 3) = "0010000000000" else
 				  '0' ; -- 4 * 16bit address space
+	cs_watchdog <= '1' when bus_addr(15 downto 3) = "0010000000001" else
+				      '0' ; -- 4 * 16bit address space
 
 	bus_data_in <= bus_blob_fifo_out when cs_blob_fifo = '1' else
 						bus_color_lut_data_out when cs_color_lut = '1' else
@@ -330,7 +343,8 @@ begin
 			latch_input(3) => enc_value_0(31 downto 16),
 			latch_input(4) => enc_value_1(15 downto 0),
 			latch_input(5) => enc_value_1(31 downto 16),
-			latch_input(6) => (others => '0'), -- for future use
+			latch_input(6)(0) => watchdog_status,
+			latch_input(6)(15 downto 1) => (others => '0'), -- for future use
 			latch_input(7) => (others => '0'), -- for future use
 			latch_output(0) => pwm_value_0,
 			latch_output(1) => pwm_value_1,
@@ -518,6 +532,18 @@ begin
 
 -- Control peripheral instantiation
 
+	watchdog0: watchdog 
+	generic map(NB_CHANNEL => 2,
+				DIVIDER => 95_999,
+				TIMEOUT => 500)
+	port map(clk => clk_sys, 
+		  resetn => sys_resetn,
+		  cs => cs_watchdog, 
+		  wr => bus_wr,
+	     enable_channels => enable_peripherals,
+		  status => watchdog_status
+	  );
+
 	servo_controller_0_Inst : servo_controller
 	  generic map(
 		 clock_period => 10,
@@ -525,7 +551,7 @@ begin
 		 maximum_high_pulse_width => 2000000
 		 )
 	  port map(clk => clk_sys,
-			  rst => (not sys_resetn),
+			  rst => (not enable_peripherals(0)),
 			  servo_position => pwm_value_0(7 downto 0),
 			  servo_out => PWM(0));
 		  
@@ -536,7 +562,7 @@ begin
 		 maximum_high_pulse_width => 2000000
 		 )
 	  port map(clk => clk_sys,
-			  rst => (not sys_resetn),
+			  rst => (not enable_peripherals(1)),
 			  servo_position => pwm_value_1(7 downto 0),
 			  servo_out => PWM(1));
 			  
