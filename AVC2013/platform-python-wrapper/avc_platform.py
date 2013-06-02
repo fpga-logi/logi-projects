@@ -26,6 +26,8 @@ class AvcPlatform(object):
 	enc_base_address = [0x2002, 0x2004]
 	encoder_control_address = 0x2003
 	leds_base_address = 0x2002
+	watchdog_address = 0x2008
+	watchdog_status_address = 0x2006
 	
 	def __init__(self):
 		mark1Rpi.fifoOpen(0)
@@ -66,6 +68,13 @@ class AvcPlatform(object):
 		control_val =  mark1Rpi.directRead(self.encoder_control_address, 2)
 		control_val[0] = control_val[0] & 0xF3 
 		mark1Rpi.directWrite(self.encoder_control_address, control_val) # low enable bits
+
+	def resetWatchdog(self):
+		mark1Rpi.directWrite(self.watchdog_address, (0x01, 0x00)) # going high
+
+	def getWatchdogStatus(self):
+		status = mark1Rpi.directRead(self.watchdog_status_address, 2)
+		return (status[0] & 0x01)
 
 	def setSpeed(self, speed):
 		byte_speed = int(speed)
