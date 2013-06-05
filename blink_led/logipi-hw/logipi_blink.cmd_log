@@ -1,0 +1,12 @@
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/blink_led/logipi-hw/logipi_blink.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/blink_led/logipi-hw/logipi_blink.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc logipi_blink.ucf -p xc6slx9-tqg144-2 logipi_blink.ngc logipi_blink.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o logipi_blink_map.ncd logipi_blink.ngd logipi_blink.pcf 
+par -w -intstyle ise -ol high -mt off logipi_blink_map.ncd logipi_blink.ncd logipi_blink.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml logipi_blink.twx logipi_blink.ncd -o logipi_blink.twr logipi_blink.pcf -ucf logipi_blink.ucf 
+bitgen -intstyle ise -f logipi_blink.ut logipi_blink.ncd 
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/blink_led/logipi-hw/logipi_blink.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/blink_led/logipi-hw/logipi_blink.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc logipi_blink.ucf -p xc6slx9-tqg144-2 logipi_blink.ngc logipi_blink.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o logipi_blink_map.ncd logipi_blink.ngd logipi_blink.pcf 
+par -w -intstyle ise -ol high -mt off logipi_blink_map.ncd logipi_blink.ncd logipi_blink.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml logipi_blink.twx logipi_blink.ncd -o logipi_blink.twr logipi_blink.pcf -ucf logipi_blink.ucf 
+bitgen -intstyle ise -f logipi_blink.ut logipi_blink.ncd 

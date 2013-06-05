@@ -1,0 +1,16 @@
+Release 14.1 - WebTalk (P.15xf)
+Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
+
+Project Information
+--------------------
+ProjectID=D24011F04257D6E3AA0784A8F5057E86
+ProjectIteration=2
+
+WebTalk Summary
+----------------
+INFO:WebTalk:1 - WebTalk is enabled because you are using a WebPACK license.
+
+INFO:WebTalk:8 - WebTalk Install setting is ON.
+INFO:WebTalk:6 - WebTalk User setting is ON.
+
+INFO:WebTalk:5 - /home/jpiat/development/FPGA/logi-family/logi-projects/blink_led/logipi-hw/usage_statistics_webtalk.html WebTalk report has not been sent to Xilinx.  Please check your network and proxy settings.  For additional details about this file, please refer to the WebTalk help file at /opt/Xilinx/14.1/ISE_DS/ISE/data/reports/webtalk_introduction.html
