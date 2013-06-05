@@ -1,0 +1,383 @@
+Release 14.1 - xst P.15xf (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.16 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.16 secs
+ 
+--> 
+Reading design: logipi_blink.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "logipi_blink.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "logipi_blink"
+Output Format                      : NGC
+Target Device                      : xc6slx9-2-tqg144
+
+---- Source Options
+Top Module Name                    : logipi_blink
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/blink_led/logipi-hw/logipi_blink.vhd" into library work
+Parsing entity <logipi_blink>.
+Parsing architecture <Behavioral> of entity <logipi_blink>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <logipi_blink> (architecture <Behavioral>) from library <work>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <logipi_blink>.
+    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-projects/blink_led/logipi-hw/logipi_blink.vhd".
+    Found 32-bit register for signal <counter_output>.
+    Found 32-bit adder for signal <counter_output[31]_GND_7_o_add_0_OUT> created at line 54.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  32 D-type flip-flop(s).
+Unit <logipi_blink> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 32-bit adder                                          : 1
+# Registers                                            : 1
+ 32-bit register                                       : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <logipi_blink>.
+The following registers are absorbed into counter <counter_output>: 1 register on signal <counter_output>.
+Unit <logipi_blink> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 1
+ 32-bit up counter                                     : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2677 - Node <counter_output_25> of sequential type is unconnected in block <logipi_blink>.
+WARNING:Xst:2677 - Node <counter_output_26> of sequential type is unconnected in block <logipi_blink>.
+WARNING:Xst:2677 - Node <counter_output_27> of sequential type is unconnected in block <logipi_blink>.
+WARNING:Xst:2677 - Node <counter_output_28> of sequential type is unconnected in block <logipi_blink>.
+WARNING:Xst:2677 - Node <counter_output_29> of sequential type is unconnected in block <logipi_blink>.
+WARNING:Xst:2677 - Node <counter_output_30> of sequential type is unconnected in block <logipi_blink>.
+WARNING:Xst:2677 - Node <counter_output_31> of sequential type is unconnected in block <logipi_blink>.
+
+Optimizing unit <logipi_blink> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block logipi_blink, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 25
+ Flip-Flops                                            : 25
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : logipi_blink.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 76
+#      GND                         : 1
+#      INV                         : 1
+#      LUT1                        : 24
+#      MUXCY                       : 24
+#      VCC                         : 1
+#      XORCY                       : 25
+# FlipFlops/Latches                : 25
+#      FD                          : 25
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 2
+#      OBUF                        : 2
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9tqg144-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              25  out of  11440     0%  
+ Number of Slice LUTs:                   25  out of   5720     0%  
+    Number used as Logic:                25  out of   5720     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     25
+   Number with an unused Flip Flop:       0  out of     25     0%  
+   Number with an unused LUT:             0  out of     25     0%  
+   Number of fully used LUT-FF pairs:    25  out of     25   100%  
+   Number of unique control sets:         1
+
+IO Utilization: 
+ Number of IOs:                           3
+ Number of bonded IOBs:                   3  out of    102     2%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+OSC_FPGA                           | BUFGP                  | 25    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 2.491ns (Maximum Frequency: 401.485MHz)
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: 4.162ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'OSC_FPGA'
+  Clock period: 2.491ns (frequency: 401.485MHz)
+  Total number of paths / destination ports: 325 / 25
+-------------------------------------------------------------------------
+Delay:               2.491ns (Levels of Logic = 26)
+  Source:            counter_output_0 (FF)
+  Destination:       counter_output_24 (FF)
+  Source Clock:      OSC_FPGA rising
+  Destination Clock: OSC_FPGA rising
+
+  Data Path: counter_output_0 to counter_output_24
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               1   0.525   0.681  counter_output_0 (counter_output_0)
+     INV:I->O              1   0.255   0.000  Mcount_counter_output_lut<0>_INV_0 (Mcount_counter_output_lut<0>)
+     MUXCY:S->O            1   0.215   0.000  Mcount_counter_output_cy<0> (Mcount_counter_output_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<1> (Mcount_counter_output_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<2> (Mcount_counter_output_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<3> (Mcount_counter_output_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<4> (Mcount_counter_output_cy<4>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<5> (Mcount_counter_output_cy<5>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<6> (Mcount_counter_output_cy<6>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<7> (Mcount_counter_output_cy<7>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<8> (Mcount_counter_output_cy<8>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<9> (Mcount_counter_output_cy<9>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<10> (Mcount_counter_output_cy<10>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<11> (Mcount_counter_output_cy<11>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<12> (Mcount_counter_output_cy<12>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<13> (Mcount_counter_output_cy<13>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<14> (Mcount_counter_output_cy<14>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<15> (Mcount_counter_output_cy<15>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<16> (Mcount_counter_output_cy<16>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<17> (Mcount_counter_output_cy<17>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<18> (Mcount_counter_output_cy<18>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<19> (Mcount_counter_output_cy<19>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<20> (Mcount_counter_output_cy<20>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<21> (Mcount_counter_output_cy<21>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_counter_output_cy<22> (Mcount_counter_output_cy<22>)
+     MUXCY:CI->O           0   0.023   0.000  Mcount_counter_output_cy<23> (Mcount_counter_output_cy<23>)
+     XORCY:CI->O           1   0.206   0.000  Mcount_counter_output_xor<24> (Result<24>)
+     FD:D                      0.074          counter_output_24
+    ----------------------------------------
+    Total                      2.491ns (1.810ns logic, 0.681ns route)
+                                       (72.7% logic, 27.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'OSC_FPGA'
+  Total number of paths / destination ports: 2 / 2
+-------------------------------------------------------------------------
+Offset:              4.162ns (Levels of Logic = 1)
+  Source:            counter_output_23 (FF)
+  Destination:       LED<1> (PAD)
+  Source Clock:      OSC_FPGA rising
+
+  Data Path: counter_output_23 to LED<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               2   0.525   0.725  counter_output_23 (counter_output_23)
+     OBUF:I->O                 2.912          LED_1_OBUF (LED<1>)
+    ----------------------------------------
+    Total                      4.162ns (3.437ns logic, 0.725ns route)
+                                       (82.6% logic, 17.4% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock OSC_FPGA
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+OSC_FPGA       |    2.491|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 18.00 secs
+Total CPU time to Xst completion: 17.06 secs
+ 
+--> 
+
+
+Total memory usage is 402832 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    7 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+
