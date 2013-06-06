@@ -4,7 +4,7 @@ use ieee.std_logic_1164.all;
 entity stop_watch_test is
    port(
       clk: in std_logic;
-      btn: in std_logic_vector(3 downto 0);
+      btn_n: in std_logic_vector(3 downto 0);
       an: out std_logic_vector(3 downto 0);
       sseg: out std_logic_vector(7 downto 0)
    );
@@ -12,7 +12,11 @@ end stop_watch_test;
 
 architecture arch of stop_watch_test is
    signal d2, d1, d0: std_logic_vector(3 downto 0);
+	signal btn: std_logic_vector(3 downto 0);
 begin
+	
+	btn <= not(btn_n);
+
    disp_unit: entity work.disp_hex_mux
       port map(
          clk=>clk, reset=>'0',

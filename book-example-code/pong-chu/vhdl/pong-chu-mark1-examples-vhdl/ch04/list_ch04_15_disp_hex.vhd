@@ -39,19 +39,23 @@ begin
    begin
       case sel is
          when "00" =>
-            an <= "1110";
+            --an <= "1110";
+				an <= "0001";
             hex <= hex0;
             dp <= dp_in(0);
          when "01" =>
-            an <= "1101";
+            --an <= "1101";
+				an <= "0010";
             hex <= hex1;
             dp <= dp_in(1);
          when "10" =>
-            an <= "1011";
+            --an <= "1011";
+				an <= "0100";
             hex <= hex2;
             dp <= dp_in(2);
          when others =>
-            an <= "0111";
+            --an <= "0111";
+				an <= "1000";
             hex <= hex3;
             dp <= dp_in(3);
       end case;
