@@ -4,10 +4,10 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 entity ps2_monitor is
    port (
-      clk, reset: in  std_logic;
+      clk, reset_n: in  std_logic;
       sw: in std_logic_vector(7 downto 0);
-      btn: in std_logic_vector(2 downto 0);
-      ps2d, ps2c: inout  std_logic;
+      btn_n: in std_logic_vector(2 downto 0);
+      ps2d_1, ps2c_1: inout  std_logic;
       tx: out  std_logic
    );
 end ps2_monitor;
@@ -22,7 +22,19 @@ architecture arch of ps2_monitor is
    signal wr_ps2, wr_uart: std_logic;
    signal ascii_code: std_logic_vector(7 downto 0);
    signal hex_in: std_logic_vector(3 downto 0);
+	signal reset: std_logic;
+	signal ps2d, ps2c: std_logic;
+	signal btn: std_logic_vector(2 downto 0);
+
 begin
+
+	reset <= not(reset_n);
+	btn <= not(btn_n);
+	--ps2d <= ps2d_1;		--would have to tristate for io ioperation
+	--ps2c <= ps2c_1;
+	
+
+
    --===========================================
    -- instantiation
    --===========================================
@@ -31,7 +43,7 @@ begin
                db_level=>open, db_tick=>wr_ps2);
    ps2_rxtx_unit: entity work.ps2_rxtx(arch)
       port map(clk=>clk, reset=>reset, wr_ps2=>wr_ps2,
-               din=>sw, dout=>rx_data, ps2d=>ps2d, ps2c=>ps2c,
+               din=>sw, dout=>rx_data, ps2d=>ps2d_1, ps2c=>ps2c_1,	--! update signal name
                rx_done_tick=>psrx_done_tick, tx_done_tick=>open);
    -- only use the UART transmitter
    uart_unit: entity work.uart(str_arch)
