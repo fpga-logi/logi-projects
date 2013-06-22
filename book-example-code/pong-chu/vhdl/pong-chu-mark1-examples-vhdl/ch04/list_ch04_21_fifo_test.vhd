@@ -3,8 +3,8 @@ library ieee;
 use ieee.std_logic_1164.all;
 entity fifo_test is
    port(
-      clk, reset: in std_logic;
-      btn: std_logic_vector(1 downto 0);
+      clk, reset_n: in std_logic;
+      btn_n: std_logic_vector(1 downto 0);
       sw: std_logic_vector(2 downto 0);
       led: out std_logic_vector(7 downto 0)
    );
@@ -12,7 +12,13 @@ end fifo_test;
 
 architecture arch of fifo_test is
    signal db_btn: std_logic_vector(1 downto 0);
+	signal btn: std_logic_vector(1 downto 0);
+	signal reset: std_logic;
 begin
+	
+	reset <= not(reset_n);
+	btn <= not(btn_n);
+
    -- debounce circuit for btn(0)
    btn_db_unit0: entity work.debounce(fsmd_arch)
       port map(clk=>clk, reset=>reset, sw=>btn(0),

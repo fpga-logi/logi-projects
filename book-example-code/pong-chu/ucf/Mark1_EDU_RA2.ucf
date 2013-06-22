@@ -35,11 +35,18 @@ NET "nes2_dat"  	LOC = P120	|	IOSTANDARD = LVCMOS33;	#PMOD4_10
 #NET "btn<3>"  	LOC = P51 	|	IOSTANDARD = LVCMOS33;  #btn<3> also used as reset
 
 # Reversed UCF defenitions to fix reversed order on RA.1 for now.
-NET "n_btn<0>"   LOC = P58;		
-NET "n_btn<1>"   LOC = P57;
-NET "n_btn<2>"   LOC = P56;
+#NET "n_btn<0>"   LOC = P58;		
+#NET "n_btn<1>"   LOC = P57;
+#NET "n_btn<2>"   LOC = P56;
+##NET "n_btn<3>"  	LOC = P51;  #btn<3> also used as reset
+#NET "n_reset"  	LOC = P51;  #btn<3> also used as reset
+# changing not _n to end of name
+NET "btn_n<0>"   LOC = P58;		
+NET "btn_n<1>"   LOC = P57;
+NET "btn_n<2>"   LOC = P56;
 #NET "n_btn<3>"  	LOC = P51;  #btn<3> also used as reset
-NET "n_reset"  	LOC = P51;  #btn<3> also used as reset
+NET "reset_n"  	LOC = P51;  #btn<3> also used as reset
+
 
 #=========================================================
 ## 4 slide switches
@@ -127,6 +134,21 @@ NET "sseg<7>"  LOC = P1	|	IOSTANDARD = LVCMOS33; 	# decimal point p2_10
 #========================================================
 NET "rx"  LOC = P35	|	IOSTANDARD = LVCMOS33;	
 NET "tx"  LOC = P34	|	IOSTANDARD = LVCMOS33;
+
+
+
+##========================================================
+## PS2 port 1
+##========================================================
+NET "ps2c_1" LOC=P126	|	IOSTANDARD = LVCMOS33;	##PMOD4-7
+NET "ps2d_1" LOC=P124	|	IOSTANDARD = LVCMOS33;	##PMOD4-8
+
+##========================================================
+## PS2 port 2
+##========================================================
+NET "ps2c_2" LOC=P17	|	IOSTANDARD = LVCMOS33;	##PMOD3-3
+NET "ps2d_2" LOC=P11	|	IOSTANDARD = LVCMOS33;	##PMOD3-10
+
 
 #//Mark1 RA1 Version****************************************************
 #

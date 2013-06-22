@@ -4,8 +4,8 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 entity uart_test is
    port(
-      clk, n_reset: in std_logic;
-      n_btn: std_logic_vector(2 downto 0);
+      clk, reset_n: in std_logic;
+      btn_n: std_logic_vector(2 downto 0);
       rx: in std_logic;
       tx: out std_logic;
       led: out std_logic_vector(7 downto 0);
@@ -23,8 +23,8 @@ architecture arch of uart_test is
 	
 begin
 
-	btn <= not(n_btn);
-	reset <= not(n_reset);
+	btn <= not(btn_n);
+	reset <= not(reset_n);
 
    -- instantiate uart
    uart_unit: entity work.uart(str_arch)
@@ -40,6 +40,7 @@ begin
    rec_data1 <= std_logic_vector(unsigned(rec_data)+1);
    --  led display
    led <= rec_data;
-   an <= "1110";
-   sseg <= '1' & (not tx_full) & "11" & (not rx_empty) & "111";
+   an <= "0001";
+   --sseg <= '1' & (not tx_full) & "11" & (not rx_empty) & "111";
+	sseg <= '0' & (not tx_full) & "00" & (not rx_empty) & "000";	--invert the an signals for nmos
 end arch;
