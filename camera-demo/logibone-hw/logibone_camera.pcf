@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.15xf on Mon Apr 22 10:39:17 2013
+// Written by: Map P.15xf on Fri Jun 21 17:54:21 2013
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -105,13 +105,17 @@ TIMEGRP sys_clocks_gen_clkout2 = BEL "divider/Qp_0" BEL "divider/Qp_1" BEL
         "mem_interface0/add_latch0/Qp_12" BEL
         "mem_interface0/add_latch0/Qp_11" BEL
         "mem_interface0/add_latch0/Qp_10" BEL "mem_interface0/add_latch0/Qp_9"
-        BEL "mem_interface0/add_latch0/Qp_1" BEL
-        "mem_interface0/add_latch0/Qp_0" BEL "reset0/counter0_9" BEL
-        "reset0/counter0_8" BEL "reset0/counter0_7" BEL "reset0/counter0_6"
-        BEL "reset0/counter0_5" BEL "reset0/counter0_4" BEL
-        "reset0/counter0_3" BEL "reset0/counter0_2" BEL "reset0/counter0_1"
-        BEL "reset0/counter0_0" BEL "reset0/resetn_0" BEL
-        "bi_fifo0/fifo_B/nb_available_t_13" BEL
+        BEL "mem_interface0/add_latch0/Qp_8" BEL
+        "mem_interface0/add_latch0/Qp_7" BEL "mem_interface0/add_latch0/Qp_6"
+        BEL "mem_interface0/add_latch0/Qp_5" BEL
+        "mem_interface0/add_latch0/Qp_4" BEL "mem_interface0/add_latch0/Qp_3"
+        BEL "mem_interface0/add_latch0/Qp_2" BEL
+        "mem_interface0/add_latch0/Qp_1" BEL "mem_interface0/add_latch0/Qp_0"
+        BEL "reset0/counter0_9" BEL "reset0/counter0_8" BEL
+        "reset0/counter0_7" BEL "reset0/counter0_6" BEL "reset0/counter0_5"
+        BEL "reset0/counter0_4" BEL "reset0/counter0_3" BEL
+        "reset0/counter0_2" BEL "reset0/counter0_1" BEL "reset0/counter0_0"
+        BEL "reset0/resetn_0" BEL "bi_fifo0/fifo_B/nb_available_t_13" BEL
         "bi_fifo0/fifo_B/nb_available_t_12" BEL
         "bi_fifo0/fifo_B/nb_available_t_11" BEL
         "bi_fifo0/fifo_B/nb_available_t_10" BEL
@@ -179,9 +183,9 @@ TIMEGRP sys_clocks_gen_clkout1 = BEL "camera_conf_block/reg_addr_temp_7" BEL
         "camera_conf_block/reg_addr_temp_2" BEL
         "camera_conf_block/reg_addr_temp_1" BEL
         "camera_conf_block/reg_addr_temp_0" BEL
+        "camera_conf_block/reg_state_FSM_FFd1" BEL
         "camera_conf_block/reg_state_FSM_FFd2" BEL
         "camera_conf_block/reg_state_FSM_FFd3" BEL
-        "camera_conf_block/reg_state_FSM_FFd1" BEL
         "camera_conf_block/i2c_data_7" BEL "camera_conf_block/i2c_data_6" BEL
         "camera_conf_block/i2c_data_5" BEL "camera_conf_block/i2c_data_4" BEL
         "camera_conf_block/i2c_data_3" BEL "camera_conf_block/i2c_data_2" BEL
@@ -223,6 +227,16 @@ TIMEGRP sys_clocks_gen_clkout1 = BEL "camera_conf_block/reg_addr_temp_7" BEL
         "camera_conf_block/i2c_master0/send_rvcb" BEL
         "camera_conf_block/i2c_master0/state[3]_clock_DFF_149" BEL
         "camera_conf_block/i2c_master0/state[3]_clock_DFF_150" BEL
+        "camera_conf_block/temp_counter/Qp_9" BEL
+        "camera_conf_block/temp_counter/Qp_8" BEL
+        "camera_conf_block/temp_counter/Qp_7" BEL
+        "camera_conf_block/temp_counter/Qp_6" BEL
+        "camera_conf_block/temp_counter/Qp_5" BEL
+        "camera_conf_block/temp_counter/Qp_4" BEL
+        "camera_conf_block/temp_counter/Qp_3" BEL
+        "camera_conf_block/temp_counter/Qp_2" BEL
+        "camera_conf_block/temp_counter/Qp_1" BEL
+        "camera_conf_block/temp_counter/Qp_0" BEL
         "camera_conf_block/i2c_master0/scl" BEL
         "camera_conf_block/i2c_master0/sda" BEL "PMOD1_4" BEL
         "sys_clocks_gen/clkout2_buf";

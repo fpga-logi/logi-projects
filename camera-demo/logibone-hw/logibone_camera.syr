@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> 
 Reading design: logibone_camera.prj
@@ -173,6 +173,7 @@ Parsing architecture <ov7670_qvga> of entity <yuv_register_rom>.
 Parsing architecture <ov7670_vga> of entity <yuv_register_rom>.
 Parsing architecture <ov7725_qvga> of entity <yuv_register_rom>.
 Parsing architecture <ov7725_vga> of entity <yuv_register_rom>.
+Parsing architecture <ov7725_qvga_patched> of entity <yuv_register_rom>.
 Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/conf/i2c_conf.vhd" into library work
 Parsing entity <i2c_conf>.
 Parsing architecture <Behavioral> of entity <i2c_conf>.
@@ -207,17 +208,17 @@ Elaborating entity <fifo_peripheral> (architecture <RTL>) with generics from lib
 Elaborating entity <dp_fifo> (architecture <Behavioral>) with generics from library <work>.
 
 Elaborating entity <dpram_NxN> (architecture <behavioral>) with generics from library <work>.
-WARNING:HDLCompiler:1127 - "/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/utils/dp_fifo.vhd" Line 88: Assignment to rd_rising_edge ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/utils/dp_fifo.vhd" Line 107: Assignment to wr_rising_edge ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/bus/peripheral/fifo_peripheral.vhd" Line 91: Assignment to latch_registers ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/bus/peripheral/fifo_peripheral.vhd" Line 95: Assignment to latch_registers ignored, since the identifier is never used
 
 Elaborating entity <yuv_register_rom> (architecture <ov7725_qvga>) from library <work>.
 
 Elaborating entity <i2c_conf> (architecture <Behavioral>) with generics from library <work>.
 
 Elaborating entity <i2c_master> (architecture <systemc>) from library <work>.
-INFO:HDLCompiler:679 - "/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/conf/i2c_conf.vhd" Line 132. Case statement is complete. others clause is never selected
-WARNING:HDLCompiler:634 - "/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/conf/i2c_conf.vhd" Line 57: Net <rcv> does not have a driver.
+
+Elaborating entity <simple_counter> (architecture <Behavioral>) with generics from library <work>.
+INFO:HDLCompiler:679 - "/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/conf/i2c_conf.vhd" Line 159. Case statement is complete. others clause is never selected
+WARNING:HDLCompiler:634 - "/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/conf/i2c_conf.vhd" Line 58: Net <rcv> does not have a driver.
 
 Elaborating entity <yuv_camera_interface> (architecture <systemc>) from library <work>.
 
@@ -313,38 +314,38 @@ Synthesizing Unit <muxed_addr_interface>.
     Found 1-bit register for signal <data_rdy>.
     Found 1-bit register for signal <wrt>.
     Found 16-bit register for signal <data_bus_out_t[15]_dff_1_OUT>.
-    Found 1-bit tristate buffer for signal <data_bus_out_t<15>> created at line 169
-    Found 1-bit tristate buffer for signal <data_bus_out_t<14>> created at line 169
-    Found 1-bit tristate buffer for signal <data_bus_out_t<13>> created at line 169
-    Found 1-bit tristate buffer for signal <data_bus_out_t<12>> created at line 169
-    Found 1-bit tristate buffer for signal <data_bus_out_t<11>> created at line 169
-    Found 1-bit tristate buffer for signal <data_bus_out_t<10>> created at line 169
-    Found 1-bit tristate buffer for signal <data_bus_out_t<9>> created at line 169
-    Found 1-bit tristate buffer for signal <data_bus_out_t<8>> created at line 169
-    Found 1-bit tristate buffer for signal <data_bus_out_t<7>> created at line 169
-    Found 1-bit tristate buffer for signal <data_bus_out_t<6>> created at line 169
-    Found 1-bit tristate buffer for signal <data_bus_out_t<5>> created at line 169
-    Found 1-bit tristate buffer for signal <data_bus_out_t<4>> created at line 169
-    Found 1-bit tristate buffer for signal <data_bus_out_t<3>> created at line 169
-    Found 1-bit tristate buffer for signal <data_bus_out_t<2>> created at line 169
-    Found 1-bit tristate buffer for signal <data_bus_out_t<1>> created at line 169
-    Found 1-bit tristate buffer for signal <data_bus_out_t<0>> created at line 169
-    Found 1-bit tristate buffer for signal <data<15>> created at line 187
-    Found 1-bit tristate buffer for signal <data<14>> created at line 187
-    Found 1-bit tristate buffer for signal <data<13>> created at line 187
-    Found 1-bit tristate buffer for signal <data<12>> created at line 187
-    Found 1-bit tristate buffer for signal <data<11>> created at line 187
-    Found 1-bit tristate buffer for signal <data<10>> created at line 187
-    Found 1-bit tristate buffer for signal <data<9>> created at line 187
-    Found 1-bit tristate buffer for signal <data<8>> created at line 187
-    Found 1-bit tristate buffer for signal <data<7>> created at line 187
-    Found 1-bit tristate buffer for signal <data<6>> created at line 187
-    Found 1-bit tristate buffer for signal <data<5>> created at line 187
-    Found 1-bit tristate buffer for signal <data<4>> created at line 187
-    Found 1-bit tristate buffer for signal <data<3>> created at line 187
-    Found 1-bit tristate buffer for signal <data<2>> created at line 187
-    Found 1-bit tristate buffer for signal <data<1>> created at line 187
-    Found 1-bit tristate buffer for signal <data<0>> created at line 187
+    Found 1-bit tristate buffer for signal <data_bus_out_t<15>> created at line 168
+    Found 1-bit tristate buffer for signal <data_bus_out_t<14>> created at line 168
+    Found 1-bit tristate buffer for signal <data_bus_out_t<13>> created at line 168
+    Found 1-bit tristate buffer for signal <data_bus_out_t<12>> created at line 168
+    Found 1-bit tristate buffer for signal <data_bus_out_t<11>> created at line 168
+    Found 1-bit tristate buffer for signal <data_bus_out_t<10>> created at line 168
+    Found 1-bit tristate buffer for signal <data_bus_out_t<9>> created at line 168
+    Found 1-bit tristate buffer for signal <data_bus_out_t<8>> created at line 168
+    Found 1-bit tristate buffer for signal <data_bus_out_t<7>> created at line 168
+    Found 1-bit tristate buffer for signal <data_bus_out_t<6>> created at line 168
+    Found 1-bit tristate buffer for signal <data_bus_out_t<5>> created at line 168
+    Found 1-bit tristate buffer for signal <data_bus_out_t<4>> created at line 168
+    Found 1-bit tristate buffer for signal <data_bus_out_t<3>> created at line 168
+    Found 1-bit tristate buffer for signal <data_bus_out_t<2>> created at line 168
+    Found 1-bit tristate buffer for signal <data_bus_out_t<1>> created at line 168
+    Found 1-bit tristate buffer for signal <data_bus_out_t<0>> created at line 168
+    Found 1-bit tristate buffer for signal <data<15>> created at line 186
+    Found 1-bit tristate buffer for signal <data<14>> created at line 186
+    Found 1-bit tristate buffer for signal <data<13>> created at line 186
+    Found 1-bit tristate buffer for signal <data<12>> created at line 186
+    Found 1-bit tristate buffer for signal <data<11>> created at line 186
+    Found 1-bit tristate buffer for signal <data<10>> created at line 186
+    Found 1-bit tristate buffer for signal <data<9>> created at line 186
+    Found 1-bit tristate buffer for signal <data<8>> created at line 186
+    Found 1-bit tristate buffer for signal <data<7>> created at line 186
+    Found 1-bit tristate buffer for signal <data<6>> created at line 186
+    Found 1-bit tristate buffer for signal <data<5>> created at line 186
+    Found 1-bit tristate buffer for signal <data<4>> created at line 186
+    Found 1-bit tristate buffer for signal <data<3>> created at line 186
+    Found 1-bit tristate buffer for signal <data<2>> created at line 186
+    Found 1-bit tristate buffer for signal <data<1>> created at line 186
+    Found 1-bit tristate buffer for signal <data<0>> created at line 186
     Summary:
 	inferred  53 D-type flip-flop(s).
 	inferred  16 Multiplexer(s).
@@ -367,23 +368,23 @@ Synthesizing Unit <fifo_peripheral>.
         BURST_SIZE = 512
         SYNC_LOGIC_INTERFACE = false
 WARNING:Xst:647 - Input <addr_bus<15:10>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 1-bit tristate buffer for signal <data_bus_out<15>> created at line 125
-    Found 1-bit tristate buffer for signal <data_bus_out<14>> created at line 125
-    Found 1-bit tristate buffer for signal <data_bus_out<13>> created at line 125
-    Found 1-bit tristate buffer for signal <data_bus_out<12>> created at line 125
-    Found 1-bit tristate buffer for signal <data_bus_out<11>> created at line 125
-    Found 1-bit tristate buffer for signal <data_bus_out<10>> created at line 125
-    Found 1-bit tristate buffer for signal <data_bus_out<9>> created at line 125
-    Found 1-bit tristate buffer for signal <data_bus_out<8>> created at line 125
-    Found 1-bit tristate buffer for signal <data_bus_out<7>> created at line 125
-    Found 1-bit tristate buffer for signal <data_bus_out<6>> created at line 125
-    Found 1-bit tristate buffer for signal <data_bus_out<5>> created at line 125
-    Found 1-bit tristate buffer for signal <data_bus_out<4>> created at line 125
-    Found 1-bit tristate buffer for signal <data_bus_out<3>> created at line 125
-    Found 1-bit tristate buffer for signal <data_bus_out<2>> created at line 125
-    Found 1-bit tristate buffer for signal <data_bus_out<1>> created at line 125
-    Found 1-bit tristate buffer for signal <data_bus_out<0>> created at line 125
-    Found 16-bit comparator greater for signal <burst_available_B> created at line 143
+    Found 1-bit tristate buffer for signal <data_bus_out<15>> created at line 129
+    Found 1-bit tristate buffer for signal <data_bus_out<14>> created at line 129
+    Found 1-bit tristate buffer for signal <data_bus_out<13>> created at line 129
+    Found 1-bit tristate buffer for signal <data_bus_out<12>> created at line 129
+    Found 1-bit tristate buffer for signal <data_bus_out<11>> created at line 129
+    Found 1-bit tristate buffer for signal <data_bus_out<10>> created at line 129
+    Found 1-bit tristate buffer for signal <data_bus_out<9>> created at line 129
+    Found 1-bit tristate buffer for signal <data_bus_out<8>> created at line 129
+    Found 1-bit tristate buffer for signal <data_bus_out<7>> created at line 129
+    Found 1-bit tristate buffer for signal <data_bus_out<6>> created at line 129
+    Found 1-bit tristate buffer for signal <data_bus_out<5>> created at line 129
+    Found 1-bit tristate buffer for signal <data_bus_out<4>> created at line 129
+    Found 1-bit tristate buffer for signal <data_bus_out<3>> created at line 129
+    Found 1-bit tristate buffer for signal <data_bus_out<2>> created at line 129
+    Found 1-bit tristate buffer for signal <data_bus_out<1>> created at line 129
+    Found 1-bit tristate buffer for signal <data_bus_out<0>> created at line 129
+    Found 16-bit comparator greater for signal <burst_available_B> created at line 147
     Summary:
 	inferred   1 Comparator(s).
 	inferred   5 Multiplexer(s).
@@ -396,16 +397,16 @@ Synthesizing Unit <dp_fifo>.
         W = 16
         SYNC_WR = false
         SYNC_RD = false
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/utils/dp_fifo.vhd" line 65: Output port <spo> of the instance <dp_ram0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/utils/dp_fifo.vhd" line 66: Output port <spo> of the instance <dp_ram0> is unconnected or connected to loadless signal.
     Found 13-bit register for signal <rd_addr>.
     Found 13-bit register for signal <wr_addr>.
     Found 14-bit register for signal <nb_available_t>.
     Found 1-bit register for signal <wr_old>.
     Found 1-bit register for signal <rd_old>.
-    Found 13-bit adder for signal <rd_addr[12]_GND_108_o_add_2_OUT> created at line 125.
-    Found 13-bit adder for signal <wr_addr[12]_GND_108_o_add_7_OUT> created at line 139.
-    Found 14-bit adder for signal <nb_available_t[13]_GND_108_o_add_12_OUT> created at line 1241.
-    Found 14-bit subtractor for signal <GND_108_o_GND_108_o_sub_15_OUT<13:0>> created at line 1308.
+    Found 13-bit adder for signal <rd_addr[12]_GND_108_o_add_3_OUT> created at line 127.
+    Found 13-bit adder for signal <wr_addr[12]_GND_108_o_add_8_OUT> created at line 141.
+    Found 14-bit adder for signal <nb_available_t[13]_GND_108_o_add_13_OUT> created at line 1241.
+    Found 14-bit subtractor for signal <GND_108_o_GND_108_o_sub_16_OUT<13:0>> created at line 1308.
     Summary:
 	inferred   3 Adder/Subtractor(s).
 	inferred  42 D-type flip-flop(s).
@@ -430,7 +431,7 @@ Synthesizing Unit <yuv_register_rom>.
 WARNING:Xst:647 - Input <addr<7:7>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2999 - Signal 'rom', unconnected in block 'yuv_register_rom', is tied to its initial value.
 WARNING:Xst:3035 - Index value(s) does not match array range for signal <rom>, simulation mismatch.
-    Found 74x16-bit single-port Read Only RAM <Mram_rom> for signal <rom>.
+    Found 75x16-bit single-port Read Only RAM <Mram_rom> for signal <rom>.
     Found 16-bit register for signal <data>.
     Summary:
 	inferred   1 RAM(s).
@@ -442,7 +443,7 @@ Synthesizing Unit <i2c_conf>.
         ADD_WIDTH = 8
         SLAVE_ADD = "0100001"
 WARNING:Xst:647 - Input <clock> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/conf/i2c_conf.vhd" line 62: Output port <data_out> of the instance <i2c_master0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/conf/i2c_conf.vhd" line 66: Output port <data_out> of the instance <i2c_master0> is unconnected or connected to loadless signal.
 WARNING:Xst:653 - Signal <rcv> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Found 8-bit register for signal <reg_addr_temp>.
     Found 3-bit register for signal <reg_state>.
@@ -450,10 +451,10 @@ WARNING:Xst:653 - Signal <rcv> is used but never assigned. This sourceless signa
     Found 8-bit register for signal <i2c_data>.
     Found finite state machine <FSM_0> for signal <reg_state>.
     -----------------------------------------------------------------------
-    | States             | 7                                              |
-    | Transitions        | 22                                             |
-    | Inputs             | 6                                              |
-    | Outputs            | 3                                              |
+    | States             | 8                                              |
+    | Transitions        | 24                                             |
+    | Inputs             | 7                                              |
+    | Outputs            | 5                                              |
     | Clock              | i2c_clk (rising_edge)                          |
     | Reset              | resetn (negative)                              |
     | Reset type         | asynchronous                                   |
@@ -462,9 +463,9 @@ WARNING:Xst:653 - Signal <rcv> is used but never assigned. This sourceless signa
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 8-bit adder for signal <reg_addr_temp[7]_GND_127_o_add_6_OUT> created at line 110.
-    Found 1-bit 7-to-1 multiplexer for signal <reg_state[2]_X_89_o_Mux_18_o> created at line 87.
-    Found 8-bit comparator greater for signal <reg_addr_temp[7]_PWR_45_o_LessThan_13_o> created at line 122
+    Found 8-bit adder for signal <reg_addr_temp[7]_GND_127_o_add_8_OUT> created at line 132.
+    Found 1-bit 8-to-1 multiplexer for signal <reg_state[2]_GND_127_o_Mux_22_o> created at line 109.
+    Found 8-bit comparator greater for signal <reg_addr_temp[7]_PWR_45_o_LessThan_17_o> created at line 149
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  17 D-type flip-flop(s).
@@ -522,6 +523,17 @@ Synthesizing Unit <i2c_master>.
 	inferred   1 Finite State Machine(s).
 Unit <i2c_master> synthesized.
 
+Synthesizing Unit <simple_counter_2>.
+    Related source file is "/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/utils/simple_counter.vhd".
+        NBIT = 10
+    Found 10-bit register for signal <Qp>.
+    Found 10-bit adder for signal <Qp[9]_GND_137_o_add_0_OUT> created at line 62.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  10 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <simple_counter_2> synthesized.
+
 Synthesizing Unit <yuv_camera_interface>.
     Related source file is "/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/interface/yuv_camera_interface.vhd".
     Found 1-bit register for signal <vsynct>.
@@ -560,7 +572,7 @@ Synthesizing Unit <generic_latch_3>.
 	inferred   1 Multiplexer(s).
 Unit <generic_latch_3> synthesized.
 
-Synthesizing Unit <simple_counter_2>.
+Synthesizing Unit <simple_counter_3>.
     Related source file is "/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/utils/simple_counter.vhd".
         NBIT = 2
     Found 2-bit register for signal <Qp>.
@@ -569,14 +581,14 @@ Synthesizing Unit <simple_counter_2>.
 	inferred   1 Adder/Subtractor(s).
 	inferred   2 D-type flip-flop(s).
 	inferred   1 Multiplexer(s).
-Unit <simple_counter_2> synthesized.
+Unit <simple_counter_3> synthesized.
 
 Synthesizing Unit <yuv_pixel2fifo>.
     Related source file is "/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/yuv_pixel2fifo.vhd".
     Found 2-bit register for signal <pixel_count>.
     Found 1-bit register for signal <pxclk_old>.
     Found 1-bit register for signal <vsync_old>.
-    Found 2-bit adder for signal <pixel_count[1]_GND_155_o_add_0_OUT> created at line 89.
+    Found 2-bit adder for signal <pixel_count[1]_GND_167_o_add_0_OUT> created at line 89.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred   4 D-type flip-flop(s).
@@ -589,17 +601,19 @@ HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 4
  4x3-bit single-port Read Only RAM                     : 1
- 74x16-bit single-port Read Only RAM                   : 1
+ 75x16-bit single-port Read Only RAM                   : 1
  8192x16-bit dual-port RAM                             : 2
-# Adders/Subtractors                                   : 13
+# Adders/Subtractors                                   : 14
+ 10-bit adder                                          : 1
  13-bit adder                                          : 4
  14-bit addsub                                         : 2
  2-bit adder                                           : 2
  31-bit subtractor                                     : 1
  32-bit adder                                          : 1
  8-bit adder                                           : 3
-# Registers                                            : 77
+# Registers                                            : 78
  1-bit register                                        : 41
+ 10-bit register                                       : 1
  13-bit register                                       : 4
  14-bit register                                       : 2
  16-bit register                                       : 8
@@ -610,9 +624,10 @@ Macro Statistics
 # Comparators                                          : 7
  16-bit comparator greater                             : 1
  8-bit comparator greater                              : 6
-# Multiplexers                                         : 130
+# Multiplexers                                         : 131
  1-bit 2-to-1 multiplexer                              : 62
- 1-bit 7-to-1 multiplexer                              : 1
+ 1-bit 8-to-1 multiplexer                              : 1
+ 10-bit 2-to-1 multiplexer                             : 1
  13-bit 2-to-1 multiplexer                             : 4
  14-bit 2-to-1 multiplexer                             : 2
  16-bit 2-to-1 multiplexer                             : 12
@@ -635,13 +650,6 @@ Macro Statistics
 WARNING:Xst:1290 - Hierarchical block <dp_ram0> is unconnected in block <fifo_A>.
    It will be removed from the design.
 WARNING:Xst:1710 - FF/Latch <rd_old> (without init value) has a constant value of 0 in block <fifo_A>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <Qp_2> of sequential type is unconnected in block <add_latch0>.
-WARNING:Xst:2677 - Node <Qp_3> of sequential type is unconnected in block <add_latch0>.
-WARNING:Xst:2677 - Node <Qp_4> of sequential type is unconnected in block <add_latch0>.
-WARNING:Xst:2677 - Node <Qp_5> of sequential type is unconnected in block <add_latch0>.
-WARNING:Xst:2677 - Node <Qp_6> of sequential type is unconnected in block <add_latch0>.
-WARNING:Xst:2677 - Node <Qp_7> of sequential type is unconnected in block <add_latch0>.
-WARNING:Xst:2677 - Node <Qp_8> of sequential type is unconnected in block <add_latch0>.
 
 Synthesizing (advanced) Unit <dp_fifo>.
 The following registers are absorbed into counter <rd_addr>: 1 register on signal <rd_addr>.
@@ -684,6 +692,10 @@ Synthesizing (advanced) Unit <simple_counter_1>.
 The following registers are absorbed into counter <Qp>: 1 register on signal <Qp>.
 Unit <simple_counter_1> synthesized (advanced).
 
+Synthesizing (advanced) Unit <simple_counter_2>.
+The following registers are absorbed into counter <Qp>: 1 register on signal <Qp>.
+Unit <simple_counter_2> synthesized (advanced).
+
 Synthesizing (advanced) Unit <yuv_camera_interface>.
 INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram__n0030> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
     -----------------------------------------------------------------------
@@ -708,7 +720,7 @@ INFO:Xst:3226 - The RAM <Mram_rom> will be implemented as a BLOCK RAM, absorbing
     | ram_type           | Block                               |          |
     -----------------------------------------------------------------------
     | Port A                                                              |
-    |     aspect ratio   | 74-word x 16-bit                    |          |
+    |     aspect ratio   | 75-word x 16-bit                    |          |
     |     mode           | write-first                         |          |
     |     clkA           | connected to signal <clk>           | rise     |
     |     weA            | connected to signal <GND>           | high     |
@@ -726,13 +738,14 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 4
  4x3-bit single-port distributed Read Only RAM         : 1
- 74x16-bit single-port block Read Only RAM             : 1
+ 75x16-bit single-port block Read Only RAM             : 1
  8192x16-bit dual-port block RAM                       : 2
 # Adders/Subtractors                                   : 4
  2-bit adder                                           : 1
  31-bit subtractor                                     : 1
  8-bit adder                                           : 2
-# Counters                                             : 9
+# Counters                                             : 10
+ 10-bit up counter                                     : 1
  13-bit up counter                                     : 4
  14-bit updown counter                                 : 2
  2-bit up counter                                      : 1
@@ -745,7 +758,7 @@ Macro Statistics
  8-bit comparator greater                              : 6
 # Multiplexers                                         : 147
  1-bit 2-to-1 multiplexer                              : 93
- 1-bit 7-to-1 multiplexer                              : 1
+ 1-bit 8-to-1 multiplexer                              : 1
  16-bit 2-to-1 multiplexer                             : 10
  31-bit 2-to-1 multiplexer                             : 1
  8-bit 2-to-1 multiplexer                              : 41
@@ -761,7 +774,7 @@ Macro Statistics
 =========================================================================
 INFO:Xst:2261 - The FF/Latch <PWR_24_o_clk_DFF_85> in Unit <muxed_addr_interface> is equivalent to the following 15 FFs/Latches, which will be removed : <PWR_22_o_clk_DFF_83> <PWR_23_o_clk_DFF_84> <PWR_25_o_clk_DFF_86> <PWR_26_o_clk_DFF_87> <PWR_29_o_clk_DFF_90> <PWR_27_o_clk_DFF_88> <PWR_28_o_clk_DFF_89> <PWR_30_o_clk_DFF_91> <PWR_31_o_clk_DFF_92> <PWR_32_o_clk_DFF_93> <PWR_33_o_clk_DFF_94> <PWR_34_o_clk_DFF_95> <PWR_35_o_clk_DFF_96> <PWR_36_o_clk_DFF_97> <PWR_37_o_clk_DFF_98> 
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <camera_conf_block/FSM_0> on signal <reg_state[1:3]> with sequential encoding.
+Optimizing FSM <camera_conf_block/FSM_0> on signal <reg_state[1:3]> with user encoding.
 -----------------------
  State     | Encoding
 -----------------------
@@ -769,9 +782,10 @@ Optimizing FSM <camera_conf_block/FSM_0> on signal <reg_state[1:3]> with sequent
  send_addr | 001
  wait_ack0 | 010
  send_data | 011
- wait_ack1 | 101
- next_reg  | 100
- stop      | 110
+ wait_ack1 | 100
+ wait_temp | 101
+ next_reg  | 110
+ stop      | 111
 -----------------------
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <camera_conf_block/i2c_master0/FSM_1> on signal <state[1:4]> with user encoding.
@@ -866,13 +880,6 @@ WARNING:Xst:2677 - Node <mem_interface0/data_bus_out_t_2> of sequential type is 
 WARNING:Xst:2677 - Node <mem_interface0/data_bus_out_t_1> of sequential type is unconnected in block <logibone_camera>.
 WARNING:Xst:2677 - Node <mem_interface0/data_bus_out_t_0> of sequential type is unconnected in block <logibone_camera>.
 WARNING:Xst:2677 - Node <mem_interface0/PWR_24_o_clk_DFF_85> of sequential type is unconnected in block <logibone_camera>.
-WARNING:Xst:2677 - Node <mem_interface0/add_latch0/Qp_8> of sequential type is unconnected in block <logibone_camera>.
-WARNING:Xst:2677 - Node <mem_interface0/add_latch0/Qp_7> of sequential type is unconnected in block <logibone_camera>.
-WARNING:Xst:2677 - Node <mem_interface0/add_latch0/Qp_6> of sequential type is unconnected in block <logibone_camera>.
-WARNING:Xst:2677 - Node <mem_interface0/add_latch0/Qp_5> of sequential type is unconnected in block <logibone_camera>.
-WARNING:Xst:2677 - Node <mem_interface0/add_latch0/Qp_4> of sequential type is unconnected in block <logibone_camera>.
-WARNING:Xst:2677 - Node <mem_interface0/add_latch0/Qp_3> of sequential type is unconnected in block <logibone_camera>.
-WARNING:Xst:2677 - Node <mem_interface0/add_latch0/Qp_2> of sequential type is unconnected in block <logibone_camera>.
 WARNING:Xst:2677 - Node <bi_fifo0/fifo_A/wr_addr_12> of sequential type is unconnected in block <logibone_camera>.
 WARNING:Xst:2677 - Node <bi_fifo0/fifo_A/wr_addr_11> of sequential type is unconnected in block <logibone_camera>.
 WARNING:Xst:2677 - Node <bi_fifo0/fifo_A/wr_addr_10> of sequential type is unconnected in block <logibone_camera>.
@@ -945,8 +952,8 @@ Unit <logibone_camera> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 233
- Flip-Flops                                            : 233
+# Registers                                            : 250
+ Flip-Flops                                            : 250
 # Shift Registers                                      : 1
  4-bit shift register                                  : 1
 
@@ -971,24 +978,24 @@ Top Level Output File Name         : logibone_camera.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 554
+# BELS                             : 591
 #      GND                         : 1
 #      INV                         : 18
 #      LUT1                        : 32
-#      LUT2                        : 46
+#      LUT2                        : 48
 #      LUT3                        : 36
-#      LUT4                        : 84
-#      LUT5                        : 38
-#      LUT6                        : 80
+#      LUT4                        : 83
+#      LUT5                        : 60
+#      LUT6                        : 77
 #      MULT_AND                    : 26
-#      MUXCY                       : 90
-#      MUXF7                       : 5
+#      MUXCY                       : 99
+#      MUXF7                       : 3
 #      VCC                         : 1
-#      XORCY                       : 97
-# FlipFlops/Latches                : 238
+#      XORCY                       : 107
+# FlipFlops/Latches                : 255
 #      FD                          : 3
-#      FDC                         : 66
-#      FDCE                        : 137
+#      FDC                         : 76
+#      FDCE                        : 144
 #      FDE                         : 26
 #      FDP                         : 6
 # RAMS                             : 9
@@ -1002,9 +1009,8 @@ Primitive and Black Box Usage:
 # IO Buffers                       : 40
 #      IBUF                        : 17
 #      IBUFG                       : 1
-#      IOBUF                       : 11
+#      IOBUF                       : 18
 #      OBUF                        : 4
-#      OBUFT                       : 7
 # Others                           : 1
 #      PLL_ADV                     : 1
 
@@ -1015,22 +1021,23 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             238  out of  11440     2%  
- Number of Slice LUTs:                  335  out of   5720     5%  
-    Number used as Logic:               334  out of   5720     5%  
+ Number of Slice Registers:             248  out of  11440     2%  
+ Number of Slice LUTs:                  355  out of   5720     6%  
+    Number used as Logic:               354  out of   5720     6%  
     Number used as Memory:                1  out of   1440     0%  
        Number used as SRL:                1
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    375
-   Number with an unused Flip Flop:     137  out of    375    36%  
-   Number with an unused LUT:            40  out of    375    10%  
-   Number of fully used LUT-FF pairs:   198  out of    375    52%  
+ Number of LUT Flip Flop pairs used:    395
+   Number with an unused Flip Flop:     147  out of    395    37%  
+   Number with an unused LUT:            40  out of    395    10%  
+   Number of fully used LUT-FF pairs:   208  out of    395    52%  
    Number of unique control sets:        23
 
 IO Utilization: 
  Number of IOs:                          46
  Number of bonded IOBs:                  41  out of    102    40%  
+    IOB Flip Flops/Latches:               7
 
 Specific Feature Utilization:
  Number of Block RAM/FIFO:                9  out of     32    28%  
@@ -1059,8 +1066,8 @@ Clock Information:
 ------------------------------------+------------------------+-------+
 Clock Signal                        | Clock buffer(FF name)  | Load  |
 ------------------------------------+------------------------+-------+
-sys_clocks_gen/pll_base_inst/CLKOUT2| BUFG                   | 122   |
-sys_clocks_gen/pll_base_inst/CLKOUT1| BUFG                   | 58    |
+sys_clocks_gen/pll_base_inst/CLKOUT2| BUFG                   | 129   |
+sys_clocks_gen/pll_base_inst/CLKOUT1| BUFG                   | 68    |
 PMOD1_10                            | BUFGP                  | 68    |
 ------------------------------------+------------------------+-------+
 
@@ -1073,8 +1080,8 @@ Timing Summary:
 Speed Grade: -2
 
    Minimum period: 6.979ns (Maximum Frequency: 143.287MHz)
-   Minimum input arrival time before clock: 6.529ns
-   Maximum output required time after clock: 7.245ns
+   Minimum input arrival time before clock: 6.589ns
+   Maximum output required time after clock: 7.674ns
    Maximum combinational path delay: 6.545ns
 
 Timing Details:
@@ -1084,7 +1091,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'sys_clocks_gen/pll_base_inst/CLKOUT2'
   Clock period: 6.979ns (frequency: 143.287MHz)
-  Total number of paths / destination ports: 17791 / 511
+  Total number of paths / destination ports: 17830 / 518
 -------------------------------------------------------------------------
 Delay:               6.979ns (Levels of Logic = 4)
   Source:            bi_fifo0/fifo_B/nb_available_t_2 (FF)
@@ -1097,10 +1104,10 @@ Delay:               6.979ns (Levels of Logic = 4)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDCE:C->Q             3   0.525   1.221  bi_fifo0/fifo_B/nb_available_t_2 (bi_fifo0/fifo_B/nb_available_t_2)
-     LUT6:I0->O            2   0.254   0.834  bi_fifo0/fifo_B/nb_available_t[13]_rd_falling_edge_AND_29_o11 (bi_fifo0/fifo_B/nb_available_t[13]_rd_falling_edge_AND_29_o11)
-     LUT2:I0->O            4   0.250   0.804  bi_fifo0/fifo_B/nb_available_t[13]_rd_falling_edge_AND_29_o13 (bi_fifo0/fifo_B/nb_available_t[13]_rd_falling_edge_AND_29_o1)
-     LUT6:I5->O           15   0.254   1.155  bi_fifo0/fifo_B/wr_falling_edge_nb_available_t[13]_AND_26_o1 (bi_fifo0/fifo_B/wr_falling_edge_nb_available_t[13]_AND_26_o)
-     LUT6:I5->O           14   0.254   1.126  bi_fifo0/fifo_B/_n0085_inv (bi_fifo0/fifo_B/_n0085_inv)
+     LUT6:I0->O            2   0.254   0.834  bi_fifo0/fifo_B/nb_available_t[13]_fifo_rd_AND_27_o11 (bi_fifo0/fifo_B/nb_available_t[13]_fifo_rd_AND_27_o11)
+     LUT2:I0->O            4   0.250   0.804  bi_fifo0/fifo_B/nb_available_t[13]_fifo_rd_AND_27_o13 (bi_fifo0/fifo_B/nb_available_t[13]_fifo_rd_AND_27_o1)
+     LUT6:I5->O           15   0.254   1.155  bi_fifo0/fifo_B/fifo_wr_nb_available_t[13]_AND_24_o1 (bi_fifo0/fifo_B/fifo_wr_nb_available_t[13]_AND_24_o)
+     LUT6:I5->O           14   0.254   1.126  bi_fifo0/fifo_B/_n0089_inv (bi_fifo0/fifo_B/_n0089_inv)
      FDCE:CE                   0.302          bi_fifo0/fifo_B/nb_available_t_0
     ----------------------------------------
     Total                      6.979ns (1.839ns logic, 5.140ns route)
@@ -1108,10 +1115,10 @@ Delay:               6.979ns (Levels of Logic = 4)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'sys_clocks_gen/pll_base_inst/CLKOUT1'
-  Clock period: 6.128ns (frequency: 163.185MHz)
-  Total number of paths / destination ports: 1973 / 93
+  Clock period: 6.129ns (frequency: 163.159MHz)
+  Total number of paths / destination ports: 2269 / 103
 -------------------------------------------------------------------------
-Delay:               6.128ns (Levels of Logic = 4)
+Delay:               6.129ns (Levels of Logic = 4)
   Source:            camera_conf_block/i2c_master0/tick_count_6 (FF)
   Destination:       camera_conf_block/i2c_master0/tick_count_6 (FF)
   Source Clock:      sys_clocks_gen/pll_base_inst/CLKOUT1 rising
@@ -1121,15 +1128,15 @@ Delay:               6.128ns (Levels of Logic = 4)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q             13   0.525   1.528  camera_conf_block/i2c_master0/tick_count_6 (camera_conf_block/i2c_master0/tick_count_6)
-     LUT5:I0->O            9   0.254   1.084  camera_conf_block/i2c_master0/tick_count[7]_GND_128_o_LessThan_36_o1 (camera_conf_block/i2c_master0/tick_count[7]_GND_128_o_LessThan_36_o)
-     LUT6:I4->O            1   0.250   0.790  camera_conf_block/i2c_master0/Mmux_state[3]_X_90_o_wide_mux_140_OUT1017_SW0 (N57)
-     LUT6:I4->O            7   0.250   1.138  camera_conf_block/i2c_master0/Mmux_state[3]_X_90_o_wide_mux_140_OUT1017 (camera_conf_block/i2c_master0/Mmux_state[3]_X_90_o_wide_mux_140_OUT101)
+     FDC:C->Q             14   0.525   1.403  camera_conf_block/i2c_master0/tick_count_6 (camera_conf_block/i2c_master0/tick_count_6)
+     LUT4:I0->O           21   0.254   1.310  camera_conf_block/i2c_master0/state_FSM_FFd3-In111 (camera_conf_block/i2c_master0/state_FSM_FFd3-In11)
+     LUT4:I3->O            1   0.254   0.682  camera_conf_block/i2c_master0/Mmux_state[3]_X_90_o_wide_mux_140_OUT1017_SW1 (N66)
+     LUT6:I5->O            7   0.254   1.138  camera_conf_block/i2c_master0/Mmux_state[3]_X_90_o_wide_mux_140_OUT1017 (camera_conf_block/i2c_master0/Mmux_state[3]_X_90_o_wide_mux_140_OUT101)
      LUT6:I3->O            1   0.235   0.000  camera_conf_block/i2c_master0/Mmux_state[3]_X_90_o_wide_mux_140_OUT12 (camera_conf_block/i2c_master0/state[3]_X_90_o_wide_mux_140_OUT<5>)
      FDC:D                     0.074          camera_conf_block/i2c_master0/tick_count_5
     ----------------------------------------
-    Total                      6.128ns (1.588ns logic, 4.540ns route)
-                                       (25.9% logic, 74.1% route)
+    Total                      6.129ns (1.596ns logic, 4.533ns route)
+                                       (26.0% logic, 74.0% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'PMOD1_10'
@@ -1155,9 +1162,9 @@ Delay:               3.370ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'sys_clocks_gen/pll_base_inst/CLKOUT2'
-  Total number of paths / destination ports: 73 / 36
+  Total number of paths / destination ports: 108 / 50
 -------------------------------------------------------------------------
-Offset:              3.872ns (Levels of Logic = 2)
+Offset:              4.078ns (Levels of Logic = 2)
   Source:            GPMC_CSN<1> (PAD)
   Destination:       mem_interface0/add_latch0/Qp_15 (FF)
   Destination Clock: sys_clocks_gen/pll_base_inst/CLKOUT2 rising
@@ -1167,34 +1174,34 @@ Offset:              3.872ns (Levels of Logic = 2)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             4   1.328   1.032  GPMC_CSN_1_IBUF (GPMC_CSN_1_IBUF)
-     LUT4:I1->O            9   0.235   0.975  mem_interface0/latch_addr1 (mem_interface0/latch_addr)
+     LUT4:I1->O           16   0.235   1.181  mem_interface0/latch_addr1 (mem_interface0/latch_addr)
      FDCE:CE                   0.302          mem_interface0/add_latch0/Qp_0
     ----------------------------------------
-    Total                      3.872ns (1.865ns logic, 2.007ns route)
-                                       (48.2% logic, 51.8% route)
+    Total                      4.078ns (1.865ns logic, 2.213ns route)
+                                       (45.7% logic, 54.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'sys_clocks_gen/pll_base_inst/CLKOUT1'
   Total number of paths / destination ports: 96 / 34
 -------------------------------------------------------------------------
-Offset:              6.529ns (Levels of Logic = 5)
-  Source:            PMOD1_3 (PAD)
+Offset:              6.589ns (Levels of Logic = 5)
+  Source:            PMOD1_9 (PAD)
   Destination:       camera_conf_block/i2c_master0/tick_count_6 (FF)
   Destination Clock: sys_clocks_gen/pll_base_inst/CLKOUT1 rising
 
-  Data Path: PMOD1_3 to camera_conf_block/i2c_master0/tick_count_6
+  Data Path: PMOD1_9 to camera_conf_block/i2c_master0/tick_count_6
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IOBUF:IO->O          12   1.328   1.524  PMOD1_3_IOBUF (N36)
-     LUT6:I0->O            1   0.254   0.682  camera_conf_block/i2c_master0/Mmux_state[3]_X_90_o_wide_mux_140_OUT1016 (camera_conf_block/i2c_master0/Mmux_state[3]_X_90_o_wide_mux_140_OUT1016)
-     LUT6:I5->O            1   0.254   0.790  camera_conf_block/i2c_master0/Mmux_state[3]_X_90_o_wide_mux_140_OUT1017_SW0 (N57)
-     LUT6:I4->O            7   0.250   1.138  camera_conf_block/i2c_master0/Mmux_state[3]_X_90_o_wide_mux_140_OUT1017 (camera_conf_block/i2c_master0/Mmux_state[3]_X_90_o_wide_mux_140_OUT101)
-     LUT6:I3->O            1   0.235   0.000  camera_conf_block/i2c_master0/Mmux_state[3]_X_90_o_wide_mux_140_OUT12 (camera_conf_block/i2c_master0/state[3]_X_90_o_wide_mux_140_OUT<5>)
-     FDC:D                     0.074          camera_conf_block/i2c_master0/tick_count_5
+     IOBUF:IO->O          15   1.328   1.585  PMOD1_9_IOBUF (N43)
+     LUT5:I0->O            1   0.254   0.790  camera_conf_block/i2c_master0/Mmux_state[3]_X_90_o_wide_mux_140_OUT1022 (camera_conf_block/i2c_master0/Mmux_state[3]_X_90_o_wide_mux_140_OUT1022)
+     LUT5:I3->O            1   0.250   0.790  camera_conf_block/i2c_master0/Mmux_state[3]_X_90_o_wide_mux_140_OUT1024 (camera_conf_block/i2c_master0/Mmux_state[3]_X_90_o_wide_mux_140_OUT1024)
+     LUT6:I4->O            7   0.250   1.018  camera_conf_block/i2c_master0/Mmux_state[3]_X_90_o_wide_mux_140_OUT1026 (camera_conf_block/i2c_master0/Mmux_state[3]_X_90_o_wide_mux_140_OUT102)
+     LUT6:I4->O            1   0.250   0.000  camera_conf_block/i2c_master0/Mmux_state[3]_X_90_o_wide_mux_140_OUT63 (camera_conf_block/i2c_master0/state[3]_X_90_o_wide_mux_140_OUT<2>)
+     FDC:D                     0.074          camera_conf_block/i2c_master0/tick_count_2
     ----------------------------------------
-    Total                      6.529ns (2.395ns logic, 4.134ns route)
-                                       (36.7% logic, 63.3% route)
+    Total                      6.589ns (2.406ns logic, 4.183ns route)
+                                       (36.5% logic, 63.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'PMOD1_10'
@@ -1210,7 +1217,7 @@ Offset:              2.564ns (Levels of Logic = 2)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             4   1.328   0.912  PMOD1_8_IBUF (LED_1_OBUF)
-     LUT4:I2->O            1   0.250   0.000  camera0/pixel_counter/Mmux_Qp[1]_GND_152_o_mux_3_OUT21 (camera0/pixel_counter/Qp[1]_GND_152_o_mux_3_OUT<1>)
+     LUT4:I2->O            1   0.250   0.000  camera0/pixel_counter/Mmux_Qp[1]_GND_164_o_mux_3_OUT21 (camera0/pixel_counter/Qp[1]_GND_164_o_mux_3_OUT<1>)
      FDC:D                     0.074          camera0/pixel_counter/Qp_1
     ----------------------------------------
     Total                      2.564ns (1.652ns logic, 0.912ns route)
@@ -1218,24 +1225,24 @@ Offset:              2.564ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'sys_clocks_gen/pll_base_inst/CLKOUT2'
-  Total number of paths / destination ports: 217 / 17
+  Total number of paths / destination ports: 241 / 17
 -------------------------------------------------------------------------
-Offset:              7.245ns (Levels of Logic = 3)
+Offset:              7.674ns (Levels of Logic = 3)
   Source:            mem_interface0/add_latch0/Qp_15 (FF)
-  Destination:       GPMC_AD<13> (PAD)
+  Destination:       GPMC_AD<15> (PAD)
   Source Clock:      sys_clocks_gen/pll_base_inst/CLKOUT2 rising
 
-  Data Path: mem_interface0/add_latch0/Qp_15 to GPMC_AD<13>
+  Data Path: mem_interface0/add_latch0/Qp_15 to GPMC_AD<15>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q             2   0.525   1.181  mem_interface0/add_latch0/Qp_15 (mem_interface0/add_latch0/Qp_15)
-     LUT6:I0->O           22   0.254   1.442  cs_fifo<15>1 (cs_fifo)
-     LUT6:I4->O            1   0.250   0.681  Mmux_bus_data_in162 (bus_data_in<9>)
-     IOBUF:I->IO               2.912          GPMC_AD_9_IOBUF (GPMC_AD<9>)
+     FDCE:C->Q             4   0.525   1.259  mem_interface0/add_latch0/Qp_15 (mem_interface0/add_latch0/Qp_15)
+     LUT6:I0->O           22   0.254   1.789  cs_fifo<15>1 (cs_fifo)
+     LUT6:I0->O            1   0.254   0.681  Mmux_bus_data_in61 (bus_data_in<14>)
+     IOBUF:I->IO               2.912          GPMC_AD_14_IOBUF (GPMC_AD<14>)
     ----------------------------------------
-    Total                      7.245ns (3.941ns logic, 3.304ns route)
-                                       (54.4% logic, 45.6% route)
+    Total                      7.674ns (3.945ns logic, 3.729ns route)
+                                       (51.4% logic, 48.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'sys_clocks_gen/pll_base_inst/CLKOUT1'
@@ -1271,7 +1278,7 @@ Delay:               6.545ns (Levels of Logic = 3)
     ----------------------------------------  ------------
      IBUF:I->O             3   1.328   0.874  GPMC_OEN_IBUF (GPMC_OEN_IBUF)
      LUT2:I0->O           16   0.250   1.181  mem_interface0/oen_csn_AND_11_o_inv1 (mem_interface0/oen_csn_AND_11_o_inv)
-     OBUFT:T->O                2.912          GPMC_AD_8_OBUFT (GPMC_AD<8>)
+     IOBUF:T->IO               2.912          GPMC_AD_15_IOBUF (GPMC_AD<15>)
     ----------------------------------------
     Total                      6.545ns (4.490ns logic, 2.055ns route)
                                        (68.6% logic, 31.4% route)
@@ -1287,7 +1294,7 @@ Clock to Setup on destination clock PMOD1_10
 Source Clock                        |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ------------------------------------+---------+---------+---------+---------+
 PMOD1_10                            |    3.370|         |         |         |
-sys_clocks_gen/pll_base_inst/CLKOUT2|    4.659|         |         |         |
+sys_clocks_gen/pll_base_inst/CLKOUT2|    4.727|         |         |         |
 ------------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock sys_clocks_gen/pll_base_inst/CLKOUT1
@@ -1295,8 +1302,8 @@ Clock to Setup on destination clock sys_clocks_gen/pll_base_inst/CLKOUT1
                                     | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                        |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ------------------------------------+---------+---------+---------+---------+
-sys_clocks_gen/pll_base_inst/CLKOUT1|    6.128|         |         |         |
-sys_clocks_gen/pll_base_inst/CLKOUT2|    8.494|         |         |         |
+sys_clocks_gen/pll_base_inst/CLKOUT1|    6.129|         |         |         |
+sys_clocks_gen/pll_base_inst/CLKOUT2|    8.776|         |         |         |
 ------------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock sys_clocks_gen/pll_base_inst/CLKOUT2
@@ -1312,15 +1319,15 @@ sys_clocks_gen/pll_base_inst/CLKOUT2|    6.979|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 9.04 secs
+Total REAL time to Xst completion: 26.00 secs
+Total CPU time to Xst completion: 26.11 secs
  
 --> 
 
 
-Total memory usage is 409624 kilobytes
+Total memory usage is 409964 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  152 (   0 filtered)
+Number of warnings :  136 (   0 filtered)
 Number of infos    :   16 (   0 filtered)
 

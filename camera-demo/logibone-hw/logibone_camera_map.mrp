@@ -11,23 +11,23 @@ Target Device  : xc6slx9
 Target Package : tqg144
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Mon Apr 22 10:39:08 2013
+Mapped Date    : Fri Jun 21 17:53:50 2013
 
 Design Summary
 --------------
 Number of errors:      0
 Number of warnings:    4
 Slice Logic Utilization:
-  Number of Slice Registers:                   238 out of  11,440    2%
-    Number used as Flip Flops:                 238
+  Number of Slice Registers:                   248 out of  11,440    2%
+    Number used as Flip Flops:                 248
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        307 out of   5,720    5%
-    Number used as logic:                      296 out of   5,720    5%
-      Number using O6 output only:             170
+  Number of Slice LUTs:                        326 out of   5,720    5%
+    Number used as logic:                      315 out of   5,720    5%
+      Number using O6 output only:             179
       Number using O5 output only:              30
-      Number using O5 and O6:                   96
+      Number using O5 and O6:                  106
       Number used as ROM:                        0
     Number used as Memory:                       1 out of   1,440    1%
       Number used as Dual Port RAM:              0
@@ -42,15 +42,15 @@ Slice Logic Utilization:
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   123 out of   1,430    8%
-  Nummber of MUXCYs used:                      112 out of   2,860    3%
-  Number of LUT Flip Flop pairs used:          360
-    Number with an unused Flip Flop:           141 out of     360   39%
-    Number with an unused LUT:                  53 out of     360   14%
-    Number of fully used LUT-FF pairs:         166 out of     360   46%
+  Number of occupied Slices:                   130 out of   1,430    9%
+  Nummber of MUXCYs used:                      124 out of   2,860    4%
+  Number of LUT Flip Flop pairs used:          373
+    Number with an unused Flip Flop:           145 out of     373   38%
+    Number with an unused LUT:                  47 out of     373   12%
+    Number of fully used LUT-FF pairs:         181 out of     373   48%
     Number of unique control sets:              23
     Number of slice register sites lost
-      to control set restrictions:              73 out of  11,440    1%
+      to control set restrictions:              71 out of  11,440    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -61,6 +61,7 @@ Slice Logic Distribution:
 IO Utilization:
   Number of bonded IOBs:                        46 out of     102   45%
     Number of LOCed IOBs:                       46 out of      46  100%
+    IOB Flip Flops:                              7
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         8 out of      32   25%
@@ -75,7 +76,9 @@ Specific Feature Utilization:
     Number used as BUFGs:                        4
     Number used as BUFGMUX:                      0
   Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
-  Number of ILOGIC2/ISERDES2s:                   0 out of     200    0%
+  Number of ILOGIC2/ISERDES2s:                   7 out of     200    3%
+    Number used as ILOGIC2s:                     7
+    Number used as ISERDES2s:                    0
   Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     200    0%
   Number of OLOGIC2/OSERDES2s:                   0 out of     200    0%
   Number of BSCANs:                              0 out of       4    0%
@@ -91,11 +94,11 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                3.80
+Average Fanout of Non-Clock Nets:                3.75
 
-Peak Memory Usage:  668 MB
-Total REAL time to MAP completion:  9 secs 
-Total CPU time to MAP completion:   9 secs 
+Peak Memory Usage:  669 MB
+Total REAL time to MAP completion:  31 secs 
+Total CPU time to MAP completion:   31 secs 
 
 Table of Contents
 -----------------
@@ -148,7 +151,7 @@ WARNING:Place:1137 - This design is not guaranteed to be routable! This design
 WARNING:Place:1109 - A clock IOB / BUFGMUX clock component pair have been found
    that are not placed at an optimal clock IOB / BUFGMUX site pair. The clock
    IOB component <PMOD1_10> is placed at site <P57>. The corresponding BUFG
-   component <PMOD1_10_BUFGP/BUFG> is placed at site <BUFGMUX_X3Y5>. There is
+   component <PMOD1_10_BUFGP/BUFG> is placed at site <BUFGMUX_X2Y2>. There is
    only a select set of IOBs that can use the fast path to the Clocker buffer,
    and they are not being used. You may want to analyze why this problem exists
    and correct it. This is normally an ERROR but the CLOCK_DEDICATED_ROUTE
@@ -223,13 +226,13 @@ Section 6 - IOB Properties
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
 | GPMC_AD<0>                         | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW |              |          |          |
 | GPMC_AD<1>                         | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW |              |          |          |
-| GPMC_AD<2>                         | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
-| GPMC_AD<3>                         | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
-| GPMC_AD<4>                         | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
-| GPMC_AD<5>                         | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
-| GPMC_AD<6>                         | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
-| GPMC_AD<7>                         | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
-| GPMC_AD<8>                         | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| GPMC_AD<2>                         | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | IFF          |          |          |
+| GPMC_AD<3>                         | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | IFF          |          |          |
+| GPMC_AD<4>                         | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | IFF          |          |          |
+| GPMC_AD<5>                         | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | IFF          |          |          |
+| GPMC_AD<6>                         | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | IFF          |          |          |
+| GPMC_AD<7>                         | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | IFF          |          |          |
+| GPMC_AD<8>                         | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | IFF          |          |          |
 | GPMC_AD<9>                         | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW |              |          |          |
 | GPMC_AD<10>                        | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW |              |          |          |
 | GPMC_AD<11>                        | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW |              |          |          |

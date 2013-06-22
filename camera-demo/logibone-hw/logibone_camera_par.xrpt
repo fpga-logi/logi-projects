@@ -5,14 +5,14 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="par" timeStamp="Mon Apr 22 10:39:22 2013">
+  <application stringID="par" timeStamp="Fri Jun 21 17:54:38 2013">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
         <column stringID="value"/>
         <row stringID="row" value="0">
           <item stringID="variable" value="PATH"/>
-          <item stringID="value" value="/opt/Xilinx/14.1/ISE_DS/ISE//bin/lin64:/opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64:/opt/Xilinx/14.1/ISE_DS/ISE/sysgen/util:/opt/Xilinx/14.1/ISE_DS/../../Vivado/2012.1/bin:/opt/Xilinx/14.1/ISE_DS/PlanAhead/bin:/opt/Xilinx/14.1/ISE_DS/EDK/bin/lin64:/opt/Xilinx/14.1/ISE_DS/EDK/gnu/microblaze/lin64/bin:/opt/Xilinx/14.1/ISE_DS/EDK/gnu/powerpc-eabi/lin64/bin:/opt/Xilinx/14.1/ISE_DS/EDK/gnu/arm/lin64/bin:/opt/Xilinx/14.1/ISE_DS/common/bin/lin64:/opt/Xilinx/13.1/ISE_DS/common/bin/lin64:/opt/Xilinx/13.1/ISE_DS/PlanAhead/bin:/opt/Xilinx/13.1/ISE_DS/ISE/bin/lin64:/opt/Xilinx/13.1/ISE_DS/ISE/sysgen/util:/opt/Xilinx/13.1/ISE_DS/EDK/bin/lin64:/opt/Xilinx/13.1/ISE_DS/EDK/gnu/microblaze/lin64/bin:/opt/Xilinx/13.1/ISE_DS/EDK/gnu/powerpc-eabi/lin64/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"/>
+          <item stringID="value" value="/opt/Xilinx/14.1/ISE_DS/ISE//bin/lin64:/opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64:/opt/Xilinx/14.1/ISE_DS/ISE/sysgen/util:/opt/Xilinx/14.1/ISE_DS/../../Vivado/2012.1/bin:/opt/Xilinx/14.1/ISE_DS/PlanAhead/bin:/opt/Xilinx/14.1/ISE_DS/EDK/bin/lin64:/opt/Xilinx/14.1/ISE_DS/EDK/gnu/microblaze/lin64/bin:/opt/Xilinx/14.1/ISE_DS/EDK/gnu/powerpc-eabi/lin64/bin:/opt/Xilinx/14.1/ISE_DS/EDK/gnu/arm/lin64/bin:/opt/Xilinx/14.1/ISE_DS/common/bin/lin64:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"/>
         </row>
         <row stringID="row" value="1">
           <item stringID="variable" value="XILINXD_LICENSE_FILE"/>
@@ -20,7 +20,7 @@
         </row>
         <row stringID="row" value="2">
           <item stringID="variable" value="LD_LIBRARY_PATH"/>
-          <item stringID="value" value="/opt/Xilinx/14.1/ISE_DS/ISE//lib/lin64:/opt/Xilinx/14.1/ISE_DS/ISE/lib/lin64:/opt/Xilinx/14.1/ISE_DS/ISE/smartmodel/lin64/installed_lin64/lib:/opt/Xilinx/14.1/ISE_DS/EDK/lib/lin64:/opt/Xilinx/14.1/ISE_DS/common/lib/lin64:/opt/Xilinx/13.1/ISE_DS/common/lib/lin64:/opt/Xilinx/13.1/ISE_DS/ISE/lib/lin64:/opt/Xilinx/13.1/ISE_DS/ISE/smartmodel/lin64/installed_lin64/lib:/opt/Xilinx/13.1/ISE_DS/EDK/lib/lin64"/>
+          <item stringID="value" value="/opt/Xilinx/14.1/ISE_DS/ISE//lib/lin64:/opt/Xilinx/14.1/ISE_DS/ISE/lib/lin64:/opt/Xilinx/14.1/ISE_DS/ISE/smartmodel/lin64/installed_lin64/lib:/opt/Xilinx/14.1/ISE_DS/EDK/lib/lin64:/opt/Xilinx/14.1/ISE_DS/common/lib/lin64"/>
         </row>
         <row stringID="row" value="3">
           <item stringID="variable" value="XILINX_EDK"/>
@@ -71,12 +71,12 @@
     </task>
     <task stringID="PAR_PAR">
       <section stringID="PAR_DESIGN_SUMMARY">
-        <item stringID="PAR_REAL_TIME_COMPLETION_ROUTER" value="6 secs "/>
-        <item stringID="PAR_CPU_TIME_COMPLETION_ROUTER" value="6 secs "/>
+        <item stringID="PAR_REAL_TIME_COMPLETION_ROUTER" value="19 secs "/>
+        <item stringID="PAR_CPU_TIME_COMPLETION_ROUTER" value="18 secs "/>
         <item dataType="int" stringID="PAR_UNROUTES" value="0"/>
         <item dataType="float" stringID="PAR_TIMING_SCORE" value="0.000000"/>
-        <item stringID="PAR_REAL_TIME_COMPLETION_PAR" value="6 secs "/>
-        <item stringID="PAR_CPU_TIME_COMPLETION_PAR" value="6 secs "/>
+        <item stringID="PAR_REAL_TIME_COMPLETION_PAR" value="20 secs "/>
+        <item stringID="PAR_CPU_TIME_COMPLETION_PAR" value="19 secs "/>
       </section>
     </task>
     <task stringID="PAR_par">
@@ -93,29 +93,29 @@
           <row stringID="row" value="1">
             <item label="Clock Net" stringID="CLOCK_NET" value="clk_sys"/>
             <item label="Routed" stringID="ROUTED" value="ROUTED"/>
-            <item label="Resource" stringID="RESOURCE" value="BUFGMUX_X3Y13"/>
+            <item label="Resource" stringID="RESOURCE" value="BUFGMUX_X2Y10"/>
             <item label="Locked" stringID="LOCKED" value="No"/>
-            <item dataType="float" label="Fanout" stringID="FANOUT" value="58.000000"/>
-            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.101000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.495000"/>
+            <item dataType="float" label="Fanout" stringID="FANOUT" value="63.000000"/>
+            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.655000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="2.046000"/>
           </row>
           <row stringID="row" value="2">
             <item label="Clock Net" stringID="CLOCK_NET" value="PMOD1_4_OBUF"/>
             <item label="Routed" stringID="ROUTED" value="ROUTED"/>
             <item label="Resource" stringID="RESOURCE" value="BUFGMUX_X2Y1"/>
             <item label="Locked" stringID="LOCKED" value="No"/>
-            <item dataType="float" label="Fanout" stringID="FANOUT" value="25.000000"/>
-            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.101000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.494000"/>
+            <item dataType="float" label="Fanout" stringID="FANOUT" value="28.000000"/>
+            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.091000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.493000"/>
           </row>
           <row stringID="row" value="3">
             <item label="Clock Net" stringID="CLOCK_NET" value="PMOD1_10_BUFGP"/>
             <item label="Routed" stringID="ROUTED" value="ROUTED"/>
-            <item label="Resource" stringID="RESOURCE" value="BUFGMUX_X3Y5"/>
+            <item label="Resource" stringID="RESOURCE" value="BUFGMUX_X2Y2"/>
             <item label="Locked" stringID="LOCKED" value="No"/>
             <item dataType="float" label="Fanout" stringID="FANOUT" value="17.000000"/>
-            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.064000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.464000"/>
+            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.015000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.409000"/>
           </row>
         </table>
       </section>
@@ -950,13 +950,14 @@
             <item label="Signal&#xA;Name" stringID="Signal_Name" value="GPMC_AD&lt;4>"/>
             <item label="Pin&#xA;Usage" stringID="Pin_Usage" value="IOB"/>
             <item label="Pin&#xA;Name" sort="smart" stringID="Pin_Name" value="IO_L33P_1"/>
-            <item stringID="Direction" value="TRISTATE"/>
+            <item stringID="Direction" value="BIDIR"/>
             <item label="IO&#xA;Standard" sort="smart" stringID="IO_Standard" value="LVTTL"/>
             <item label="IO Bank&#xA;Number" stringID="IO_Bank_Number" value="1"/>
             <item label="Drive&#xA;(mA)" stringID="Drive" value="12"/>
             <item label="Slew&#xA;Rate" stringID="Slew_Rate" value="SLOW"/>
+            <item label="IOB&#xA;Delay" stringID="IOB_Delay" value="NONE"/>
             <item label="Constraint" stringID="Constraint" value="LOCATED"/>
-            <item label="IO&#xA;Register" stringID="IO_Register" value="NO"/>
+            <item label="IO&#xA;Register" stringID="IO_Register" value="YES"/>
             <item label="Signal&#xA;Integrity" stringID="Signal_Integrity" value="NONE"/>
           </row>
           <row stringID="row" value="101">
@@ -964,13 +965,14 @@
             <item label="Signal&#xA;Name" stringID="Signal_Name" value="GPMC_AD&lt;5>"/>
             <item label="Pin&#xA;Usage" stringID="Pin_Usage" value="IOB"/>
             <item label="Pin&#xA;Name" sort="smart" stringID="Pin_Name" value="IO_L32N_1"/>
-            <item stringID="Direction" value="TRISTATE"/>
+            <item stringID="Direction" value="BIDIR"/>
             <item label="IO&#xA;Standard" sort="smart" stringID="IO_Standard" value="LVTTL"/>
             <item label="IO Bank&#xA;Number" stringID="IO_Bank_Number" value="1"/>
             <item label="Drive&#xA;(mA)" stringID="Drive" value="12"/>
             <item label="Slew&#xA;Rate" stringID="Slew_Rate" value="SLOW"/>
+            <item label="IOB&#xA;Delay" stringID="IOB_Delay" value="NONE"/>
             <item label="Constraint" stringID="Constraint" value="LOCATED"/>
-            <item label="IO&#xA;Register" stringID="IO_Register" value="NO"/>
+            <item label="IO&#xA;Register" stringID="IO_Register" value="YES"/>
             <item label="Signal&#xA;Integrity" stringID="Signal_Integrity" value="NONE"/>
           </row>
           <row stringID="row" value="102">
@@ -1010,13 +1012,14 @@
             <item label="Signal&#xA;Name" stringID="Signal_Name" value="GPMC_AD&lt;8>"/>
             <item label="Pin&#xA;Usage" stringID="Pin_Usage" value="IOB"/>
             <item label="Pin&#xA;Name" sort="smart" stringID="Pin_Name" value="IO_L1P_1"/>
-            <item stringID="Direction" value="TRISTATE"/>
+            <item stringID="Direction" value="BIDIR"/>
             <item label="IO&#xA;Standard" sort="smart" stringID="IO_Standard" value="LVTTL"/>
             <item label="IO Bank&#xA;Number" stringID="IO_Bank_Number" value="1"/>
             <item label="Drive&#xA;(mA)" stringID="Drive" value="12"/>
             <item label="Slew&#xA;Rate" stringID="Slew_Rate" value="SLOW"/>
+            <item label="IOB&#xA;Delay" stringID="IOB_Delay" value="NONE"/>
             <item label="Constraint" stringID="Constraint" value="LOCATED"/>
-            <item label="IO&#xA;Register" stringID="IO_Register" value="NO"/>
+            <item label="IO&#xA;Register" stringID="IO_Register" value="YES"/>
             <item label="Signal&#xA;Integrity" stringID="Signal_Integrity" value="NONE"/>
           </row>
           <row stringID="row" value="106">
@@ -1196,13 +1199,14 @@
             <item label="Signal&#xA;Name" stringID="Signal_Name" value="GPMC_AD&lt;3>"/>
             <item label="Pin&#xA;Usage" stringID="Pin_Usage" value="IOB"/>
             <item label="Pin&#xA;Name" sort="smart" stringID="Pin_Name" value="IO_L37N_GCLK12_0"/>
-            <item stringID="Direction" value="TRISTATE"/>
+            <item stringID="Direction" value="BIDIR"/>
             <item label="IO&#xA;Standard" sort="smart" stringID="IO_Standard" value="LVTTL"/>
             <item label="IO Bank&#xA;Number" stringID="IO_Bank_Number" value="0"/>
             <item label="Drive&#xA;(mA)" stringID="Drive" value="12"/>
             <item label="Slew&#xA;Rate" stringID="Slew_Rate" value="SLOW"/>
+            <item label="IOB&#xA;Delay" stringID="IOB_Delay" value="NONE"/>
             <item label="Constraint" stringID="Constraint" value="LOCATED"/>
-            <item label="IO&#xA;Register" stringID="IO_Register" value="NO"/>
+            <item label="IO&#xA;Register" stringID="IO_Register" value="YES"/>
             <item label="Signal&#xA;Integrity" stringID="Signal_Integrity" value="NONE"/>
           </row>
           <row stringID="row" value="124">
@@ -1210,13 +1214,14 @@
             <item label="Signal&#xA;Name" stringID="Signal_Name" value="GPMC_AD&lt;2>"/>
             <item label="Pin&#xA;Usage" stringID="Pin_Usage" value="IOB"/>
             <item label="Pin&#xA;Name" sort="smart" stringID="Pin_Name" value="IO_L37P_GCLK13_0"/>
-            <item stringID="Direction" value="TRISTATE"/>
+            <item stringID="Direction" value="BIDIR"/>
             <item label="IO&#xA;Standard" sort="smart" stringID="IO_Standard" value="LVTTL"/>
             <item label="IO Bank&#xA;Number" stringID="IO_Bank_Number" value="0"/>
             <item label="Drive&#xA;(mA)" stringID="Drive" value="12"/>
             <item label="Slew&#xA;Rate" stringID="Slew_Rate" value="SLOW"/>
+            <item label="IOB&#xA;Delay" stringID="IOB_Delay" value="NONE"/>
             <item label="Constraint" stringID="Constraint" value="LOCATED"/>
-            <item label="IO&#xA;Register" stringID="IO_Register" value="NO"/>
+            <item label="IO&#xA;Register" stringID="IO_Register" value="YES"/>
             <item label="Signal&#xA;Integrity" stringID="Signal_Integrity" value="NONE"/>
           </row>
           <row stringID="row" value="125">
@@ -1230,13 +1235,14 @@
             <item label="Signal&#xA;Name" stringID="Signal_Name" value="GPMC_AD&lt;7>"/>
             <item label="Pin&#xA;Usage" stringID="Pin_Usage" value="IOB"/>
             <item label="Pin&#xA;Name" sort="smart" stringID="Pin_Name" value="IO_L36N_GCLK14_0"/>
-            <item stringID="Direction" value="TRISTATE"/>
+            <item stringID="Direction" value="BIDIR"/>
             <item label="IO&#xA;Standard" sort="smart" stringID="IO_Standard" value="LVTTL"/>
             <item label="IO Bank&#xA;Number" stringID="IO_Bank_Number" value="0"/>
             <item label="Drive&#xA;(mA)" stringID="Drive" value="12"/>
             <item label="Slew&#xA;Rate" stringID="Slew_Rate" value="SLOW"/>
+            <item label="IOB&#xA;Delay" stringID="IOB_Delay" value="NONE"/>
             <item label="Constraint" stringID="Constraint" value="LOCATED"/>
-            <item label="IO&#xA;Register" stringID="IO_Register" value="NO"/>
+            <item label="IO&#xA;Register" stringID="IO_Register" value="YES"/>
             <item label="Signal&#xA;Integrity" stringID="Signal_Integrity" value="NONE"/>
           </row>
           <row stringID="row" value="127">
@@ -1244,13 +1250,14 @@
             <item label="Signal&#xA;Name" stringID="Signal_Name" value="GPMC_AD&lt;6>"/>
             <item label="Pin&#xA;Usage" stringID="Pin_Usage" value="IOB"/>
             <item label="Pin&#xA;Name" sort="smart" stringID="Pin_Name" value="IO_L36P_GCLK15_0"/>
-            <item stringID="Direction" value="TRISTATE"/>
+            <item stringID="Direction" value="BIDIR"/>
             <item label="IO&#xA;Standard" sort="smart" stringID="IO_Standard" value="LVTTL"/>
             <item label="IO Bank&#xA;Number" stringID="IO_Bank_Number" value="0"/>
             <item label="Drive&#xA;(mA)" stringID="Drive" value="12"/>
             <item label="Slew&#xA;Rate" stringID="Slew_Rate" value="SLOW"/>
+            <item label="IOB&#xA;Delay" stringID="IOB_Delay" value="NONE"/>
             <item label="Constraint" stringID="Constraint" value="LOCATED"/>
-            <item label="IO&#xA;Register" stringID="IO_Register" value="NO"/>
+            <item label="IO&#xA;Register" stringID="IO_Register" value="YES"/>
             <item label="Signal&#xA;Integrity" stringID="Signal_Integrity" value="NONE"/>
           </row>
           <row stringID="row" value="128">
@@ -1376,14 +1383,14 @@
     </task>
   </application>
 
-  <application stringID="Par" timeStamp="Mon Apr 22 10:39:23 2013">
+  <application stringID="Par" timeStamp="Fri Jun 21 17:54:39 2013">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
         <column stringID="value"/>
         <row stringID="row" value="0">
           <item stringID="variable" value="PATH"/>
-          <item stringID="value" value="/opt/Xilinx/14.1/ISE_DS/ISE//bin/lin64:/opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64:/opt/Xilinx/14.1/ISE_DS/ISE/sysgen/util:/opt/Xilinx/14.1/ISE_DS/../../Vivado/2012.1/bin:/opt/Xilinx/14.1/ISE_DS/PlanAhead/bin:/opt/Xilinx/14.1/ISE_DS/EDK/bin/lin64:/opt/Xilinx/14.1/ISE_DS/EDK/gnu/microblaze/lin64/bin:/opt/Xilinx/14.1/ISE_DS/EDK/gnu/powerpc-eabi/lin64/bin:/opt/Xilinx/14.1/ISE_DS/EDK/gnu/arm/lin64/bin:/opt/Xilinx/14.1/ISE_DS/common/bin/lin64:/opt/Xilinx/13.1/ISE_DS/common/bin/lin64:/opt/Xilinx/13.1/ISE_DS/PlanAhead/bin:/opt/Xilinx/13.1/ISE_DS/ISE/bin/lin64:/opt/Xilinx/13.1/ISE_DS/ISE/sysgen/util:/opt/Xilinx/13.1/ISE_DS/EDK/bin/lin64:/opt/Xilinx/13.1/ISE_DS/EDK/gnu/microblaze/lin64/bin:/opt/Xilinx/13.1/ISE_DS/EDK/gnu/powerpc-eabi/lin64/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"/>
+          <item stringID="value" value="/opt/Xilinx/14.1/ISE_DS/ISE//bin/lin64:/opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64:/opt/Xilinx/14.1/ISE_DS/ISE/sysgen/util:/opt/Xilinx/14.1/ISE_DS/../../Vivado/2012.1/bin:/opt/Xilinx/14.1/ISE_DS/PlanAhead/bin:/opt/Xilinx/14.1/ISE_DS/EDK/bin/lin64:/opt/Xilinx/14.1/ISE_DS/EDK/gnu/microblaze/lin64/bin:/opt/Xilinx/14.1/ISE_DS/EDK/gnu/powerpc-eabi/lin64/bin:/opt/Xilinx/14.1/ISE_DS/EDK/gnu/arm/lin64/bin:/opt/Xilinx/14.1/ISE_DS/common/bin/lin64:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"/>
         </row>
         <row stringID="row" value="1">
           <item stringID="variable" value="XILINXD_LICENSE_FILE"/>
@@ -1391,7 +1398,7 @@
         </row>
         <row stringID="row" value="2">
           <item stringID="variable" value="LD_LIBRARY_PATH"/>
-          <item stringID="value" value="/opt/Xilinx/14.1/ISE_DS/ISE//lib/lin64:/opt/Xilinx/14.1/ISE_DS/ISE/lib/lin64:/opt/Xilinx/14.1/ISE_DS/ISE/smartmodel/lin64/installed_lin64/lib:/opt/Xilinx/14.1/ISE_DS/EDK/lib/lin64:/opt/Xilinx/14.1/ISE_DS/common/lib/lin64:/opt/Xilinx/13.1/ISE_DS/common/lib/lin64:/opt/Xilinx/13.1/ISE_DS/ISE/lib/lin64:/opt/Xilinx/13.1/ISE_DS/ISE/smartmodel/lin64/installed_lin64/lib:/opt/Xilinx/13.1/ISE_DS/EDK/lib/lin64"/>
+          <item stringID="value" value="/opt/Xilinx/14.1/ISE_DS/ISE//lib/lin64:/opt/Xilinx/14.1/ISE_DS/ISE/lib/lin64:/opt/Xilinx/14.1/ISE_DS/ISE/smartmodel/lin64/installed_lin64/lib:/opt/Xilinx/14.1/ISE_DS/EDK/lib/lin64:/opt/Xilinx/14.1/ISE_DS/common/lib/lin64"/>
         </row>
         <row stringID="row" value="3">
           <item stringID="variable" value="XILINX_EDK"/>
@@ -1434,16 +1441,16 @@
     </section>
     <task label="Device Utilization Summary" stringID="PAR_DEVICE_UTLIZATION">
       <section stringID="PAR_SLICE_REPORTING">
-        <item AVAILABLE="11440" dataType="int" label="Number of Slice Registers" stringID="PAR_SLICE_REGISTERS" value="238">
-          <item dataType="int" stringID="PAR_NUM_SLICE_FF" value="238"/>
+        <item AVAILABLE="11440" dataType="int" label="Number of Slice Registers" stringID="PAR_SLICE_REGISTERS" value="248">
+          <item dataType="int" stringID="PAR_NUM_SLICE_FF" value="248"/>
           <item dataType="int" stringID="PAR_NUM_SLICE_LATCH" value="0"/>
           <item dataType="int" stringID="PAR_NUM_SLICE_LATCHTHRU" value="0"/>
           <item dataType="int" stringID="PAR_NUM_SLICE_LATCHLOGIC" value="0"/>
         </item>
-        <item AVAILABLE="5720" dataType="int" label="Number of Slice LUTS" stringID="PAR_SLICE_LUTS" value="307">
+        <item AVAILABLE="5720" dataType="int" label="Number of Slice LUTS" stringID="PAR_SLICE_LUTS" value="326">
           <item dataType="int" stringID="PAR_NUM_LOGIC_O5ONLY" value="30"/>
-          <item dataType="int" stringID="PAR_NUM_LOGIC_O6ONLY" value="170"/>
-          <item dataType="int" stringID="PAR_NUM_LOGIC_O5ANDO6" value="96"/>
+          <item dataType="int" stringID="PAR_NUM_LOGIC_O6ONLY" value="179"/>
+          <item dataType="int" stringID="PAR_NUM_LOGIC_O5ANDO6" value="106"/>
           <item dataType="int" stringID="PAR_NUM_ROM_O5ONLY" value="0"/>
           <item dataType="int" stringID="PAR_NUM_ROM_O6ONLY" value="0"/>
           <item dataType="int" stringID="PAR_NUM_ROM_O5ANDO6" value="0"/>
@@ -1463,21 +1470,21 @@
           <item dataType="int" stringID="PAR_NUM_LUT_RT_DRIVES_CARRY4" value="2"/>
           <item dataType="int" stringID="PAR_NUM_LUT_RT_DRIVES_OTHERS" value="0"/>
         </item>
-        <item AVAILABLE="1430" dataType="int" stringID="PAR_OCCUPIED_SLICES" value="123">
-          <item AVAILABLE="355" dataType="int" stringID="PAR_NUM_SLICEL" value="33"/>
+        <item AVAILABLE="1430" dataType="int" stringID="PAR_OCCUPIED_SLICES" value="130">
+          <item AVAILABLE="355" dataType="int" stringID="PAR_NUM_SLICEL" value="34"/>
           <item AVAILABLE="360" dataType="int" stringID="PAR_NUM_SLICEM" value="1"/>
-          <item AVAILABLE="715" dataType="int" stringID="PAR_NUM_SLICEX" value="89"/>
+          <item AVAILABLE="715" dataType="int" stringID="PAR_NUM_SLICEX" value="95"/>
         </item>
-        <item dataType="int" stringID="PAR_OCCUPIED_LUT_AND_FF" value="360">
-          <item dataType="int" stringID="PAR_OCCUPIED_LUT_ONLY" value="141"/>
-          <item dataType="int" stringID="PAR_OCCUPIED_FF_ONLY" value="53"/>
-          <item dataType="int" stringID="PAR_OCCUPIED_FF_AND_LUT" value="166"/>
+        <item dataType="int" stringID="PAR_OCCUPIED_LUT_AND_FF" value="373">
+          <item dataType="int" stringID="PAR_OCCUPIED_LUT_ONLY" value="145"/>
+          <item dataType="int" stringID="PAR_OCCUPIED_FF_ONLY" value="47"/>
+          <item dataType="int" stringID="PAR_OCCUPIED_FF_AND_LUT" value="181"/>
         </item>
       </section>
       <section stringID="PAR_IOB_REPORTING">
         <item AVAILABLE="102" dataType="int" stringID="PAR_AGG_BONDED_IO" value="46"/>
         <item AVAILABLE="98" dataType="int" stringID="PAR_AGG_UNBONDED_IO" value="0"/>
-        <item AVAILABLE="0" dataType="int" stringID="PAR_NUM_IOB_FF" value="0"/>
+        <item AVAILABLE="0" dataType="int" stringID="PAR_NUM_IOB_FF" value="7"/>
         <item AVAILABLE="0" dataType="int" stringID="PAR_NUM_IOB_LATCH" value="0"/>
         <item AVAILABLE="49" dataType="int" stringID="PAR_NUM_IOBM" value="0"/>
         <item AVAILABLE="51" dataType="int" stringID="PAR_NUM_BONDED_IOBM" value="0"/>
