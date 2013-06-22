@@ -13,18 +13,16 @@ from math import radians, cos, sin, asin, sqrt, atan2 , degrees
 
 STEERING_SERVO = 1 
 ESC_SERVO = 0
-ESC_ARM_ANGLE = 10.0
+ESC_ARM_ANGLE = 0.0
 
 
 
 def populateSensorMap(robot, gps_service):
 	pos = gps_service.getPosition()
 	valid, euler, gyro  = robot.getPlatformAttitude()
-	sensor_map = {}	
-	if valid == 0:
-		return sensor_map
+	#print euler
 	sensor_map = {}
-	#sensor_map[IController.imu] = (euler, gyro)
+	sensor_map[Controller.imu_key] = (euler, gyro)
 	sensor_map[Controller.gps_key] = gps_service.getPosition()
 	sensor_map[Controller.blobs_key] = robot.getBlobPos()
 	#TODO: add odometry and blobs
@@ -34,12 +32,17 @@ def populateSensorMap(robot, gps_service):
 if __name__ == "__main__":
 	blink = 0xAA
 	robot = AvcPlatform()
+	robot.setColorLut('lut_file.lut')
+	robot.initImu('accelcal.txt', 'magcal.txt')
 	wp = StaticWayPointProvider()
 	gps_service = GpsService()
 	controller = Controller()
 	gps_service.start()
+	for i in range(0, 50):
+		robot.getPlatformAttitude()
+		time.sleep(0.1)
 	robot.resetWatchdog()
-	robot.setServoAngle(STEERING_SERVO,45.0)
+	robot.setServoAngle(STEERING_SERVO,0.0)
 	robot.setServoAngle(ESC_SERVO,ESC_ARM_ANGLE)
 	while True:
 		robot.setLeds(blink)
@@ -51,10 +54,13 @@ if __name__ == "__main__":
 			time.sleep(0.1)
 			continue	
 		cmd = controller.getCommand(sensors)
+		if cmd == None:
+			break
 		if cmd.has_key(Controller.next_waypoint_key) and cmd[Controller.next_waypoint_key] != None and cmd[Controller.next_waypoint_key] == 1:
 			wp.getNextWaypoint()
 		else:	
 			robot.setServoAngle(STEERING_SERVO,cmd[Controller.steering_key])
+			#robot.setServoAngle(ESC_SERVO,cmd[Controller.speed_key])
 		blink = ~blink
 		time.sleep(0.1)
 	robot.setServoAngle(0,0.0)        

@@ -181,6 +181,7 @@ architecture Behavioral of avc_platform is
 	-- PWM related signals
 	signal pwm_value_1, pwm_value_0 : std_logic_vector(15 downto 0);
 	signal enc_value_1, enc_value_0 : std_logic_vector(31 downto 0);
+	signal servo_pos_1, servo_pos_0 : std_logic_vector(7 downto 0);
 	signal pwm_clk, pwm_rst : std_logic ;
 	
 	-- Encoders related signal
@@ -198,6 +199,9 @@ architecture Behavioral of avc_platform is
 	for all : yuv_register_rom use entity work.yuv_register_rom(ov7725_qvga);
 	constant IMAGE_WIDTH : integer := 320 ;
 	constant IMAGE_HEIGHT : integer := 240 ;
+	
+	--constant SERVO_FAILSAFE : std_logic_vector(7 downto 0) := X"9B" ;
+	constant SERVO_FAILSAFE : std_logic_vector(7 downto 0) := X"80" ;
 begin
 	
 	resetn <= PB(0) ;
@@ -544,26 +548,32 @@ begin
 		  status => watchdog_status
 	  );
 
+	servo_pos_0 <= pwm_value_0(7 downto 0) when enable_peripherals(0) = '1' else
+						SERVO_FAILSAFE ;
+
 	servo_controller_0_Inst : servo_controller
 	  generic map(
-		 clock_period => 10,
+		 clock_period => 8,
 		 minimum_high_pulse_width => 1000000,
 		 maximum_high_pulse_width => 2000000
 		 )
 	  port map(clk => clk_sys,
-			  rst => (not enable_peripherals(0)),
-			  servo_position => pwm_value_0(7 downto 0),
+			  rst => (not sys_resetn),
+			  servo_position => servo_pos_0,
 			  servo_out => PWM(0));
 		  
+	servo_pos_1 <= pwm_value_1(7 downto 0) when enable_peripherals(1) = '1' else
+						SERVO_FAILSAFE ;
+	
 	servo_controller_1_Inst : servo_controller
 	  generic map(
-		 clock_period => 10,
+		 clock_period => 8,
 		 minimum_high_pulse_width => 1000000,
 		 maximum_high_pulse_width => 2000000
 		 )
 	  port map(clk => clk_sys,
-			  rst => (not enable_peripherals(1)),
-			  servo_position => pwm_value_1(7 downto 0),
+			  rst => (not sys_resetn),
+			  servo_position => servo_pos_1,
 			  servo_out => PWM(1));
 			  
 -- Encoders counter instantiation	

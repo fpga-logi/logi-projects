@@ -77,6 +77,7 @@
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
     <transform xil_pn:end_ts="1370475726" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1370475726">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
     </transform>
     <transform xil_pn:end_ts="1370475726" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="6881681270546526836" xil_pn:start_ts="1370475726">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -136,6 +137,8 @@
     <transform xil_pn:end_ts="1370475983" xil_pn:in_ck="6286912503924150201" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="1448924893915930207" xil_pn:start_ts="1370475949">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
       <outfile xil_pn:name="logipi_blink.pcf"/>
       <outfile xil_pn:name="logipi_blink_map.map"/>
@@ -163,6 +166,7 @@
     <transform xil_pn:end_ts="1370476126" xil_pn:in_ck="-6706420214588735818" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="396117104113915555" xil_pn:start_ts="1370476058">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
       <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
       <outfile xil_pn:name="logipi_blink.bgn"/>
       <outfile xil_pn:name="logipi_blink.bit"/>

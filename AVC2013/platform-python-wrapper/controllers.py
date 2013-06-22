@@ -89,8 +89,14 @@ class BlobTrackingController(IController):
 	CAMERA_WIDTH = 320
 	CAMERA_HEIGHT = 240
 
-	X_GAIN = 0.3
+	X_GAIN = 0.5
 	Y_GAIN = 0.1
+
+
+
+	def __init__(self):
+		self.last_x_command = None
+		self.last_y_command = None
 
 	def getCommand(self, sensor_map):
 		
@@ -108,19 +114,33 @@ class BlobTrackingController(IController):
 			ctrl[IController.steering_key] = 0.0
 			ctrl[IController.speed_key] = 0.0
 		else:		
+			
 			x = max_blob.x - (self.__class__.CAMERA_WIDTH/2)
 			y = max_blob.y - (self.__class__.CAMERA_HEIGHT/2)
-			ctrl[IController.steering_key] = x * self.__class__.X_GAIN
-			ctrl[IController.speed_key] = y * self.__class__.Y_GAIN
-		
+			if self.last_x_command != None and self.last_y_command != None:
+				x_cmd = (x * self.__class__.X_GAIN)*0.8 + self.last_x_command*0.2 # low pass filter to avoid high jittering
+				y_cmd = (y * self.__class__.Y_GAIN)*0.8 + self.last_y_command*0.2
+			else:
+				x_cmd = (x * self.__class__.X_GAIN)
+				y_cmd = (y * self.__class__.Y_GAIN)
+			ctrl[IController.steering_key] = x_cmd
+			ctrl[IController.speed_key] = y_cmd
+			self.last_x_command = x_cmd
+			self.last_y_command = y_cmd
 		return ctrl
 		
 
-def DeadReckogningController(IController):
+class PathController(IController):
 	
 	def __init__(self):
 		self.last_time = datetime.now()
-
+		self.cumulated_time = 0.0
+		self.path_index = 0
+		self.path = []
+		self.path.append((30.0, 20000))
+		self.path.append((90.0, 2000))
+		self.path.append((0.0, 2000))
+		self.path.append((40.0, 2000))
 	
 	def getTimeInterval(self):
 		current_time = datetime.now()
@@ -132,9 +152,21 @@ def DeadReckogningController(IController):
 	def getCommand(self, sensor_map):
 		
 		ctrl = {}	
-	
+		interval = self.getTimeInterval()
 		robot_imu = sensor_map[self.imu_key]
-		robot_gps = sensor_map[self.gps_key]
+		self.cumulated_time = self.cumulated_time + interval
+		if self.cumulated_time > self.path[self.path_index][1]:
+			self.cumulated_time = 0
+			self.path_index	= self.path_index + 1
+			print "Next heading"
+		if self.path_index >= len(self.path):
+			return None
+		heading = robot_imu[0][2]
+		heading_error = self.path[self.path_index][0] - heading
+		print heading_error
+		ctrl[IController.steering_key] = heading_error 
+		ctrl[IController.speed_key] = 10.0
+		return ctrl
 
 
 	
