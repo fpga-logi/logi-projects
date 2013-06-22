@@ -150,7 +150,7 @@ cs_fifo <= '1' when bus_addr(15 downto 10) = "000000" else
 			  '0' ;	  
 
 bus_data_in <= bus_fifo_out when cs_fifo = '1' else
-					(others => '1');
+					bus_addr ; --(others => '0');
 
 bi_fifo0 : fifo_peripheral 
 		generic map(ADDR_WIDTH => 16,WIDTH => 16, SIZE => 8192, BURST_SIZE => 512)

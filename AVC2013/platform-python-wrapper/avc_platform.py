@@ -121,6 +121,7 @@ class AvcPlatform(object):
 			print hex(val)
 
 	def getBlobPos(self):
+		mark1Rpi.fifoReset(0)
 		blob_data = mark1Rpi.fifoRead(0, 32*3*2) # 32 blobs of 6 octet
 		blobs_tuple = []
 		for i in range(0, len(blob_data), 6):
