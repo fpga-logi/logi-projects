@@ -4,8 +4,8 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 entity mouse_led is
    port (
-      clk, reset: in  std_logic;
-      ps2d, ps2c: inout std_logic;
+      clk, reset_n: in  std_logic;
+      ps2d_1, ps2c_1: inout std_logic;
       led: out std_logic_vector(7 downto 0)
    );
 end mouse_led;
@@ -15,12 +15,16 @@ architecture arch of mouse_led is
    signal xm: std_logic_vector(8 downto 0);
    signal btnm: std_logic_vector(2 downto 0);
    signal m_done_tick: std_logic;
+	signal reset: std_logic;
 
 begin
+	
+	reset <= not(reset_n);
+
    -- instantiation
    mouse_unit: entity work.mouse(arch)
       port map(clk=>clk, reset=>reset,
-               ps2d=>ps2d, ps2c=>ps2c,
+               ps2d=>ps2d_1, ps2c=>ps2c_1,	--!
                xm=>xm, ym=>open, btnm=>btnm,
                m_done_tick=>m_done_tick);
    -- register
