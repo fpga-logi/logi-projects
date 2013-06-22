@@ -31,7 +31,7 @@ library work ;
 library UNISIM;
 use UNISIM.VComponents.all;
 
-entity logibone_ram_test is
+entity logipi_ram_test is
 port( OSC_FPGA : in std_logic;
 		PB : in std_logic_vector(1 downto 0);
 		LED : out std_logic_vector(1 downto 0);	
@@ -48,9 +48,9 @@ port( OSC_FPGA : in std_logic;
 		DRAM_RAS_N   : OUT   STD_LOGIC;
 		DRAM_WE_N    : OUT   STD_LOGIC
 );
-end logibone_ram_test;
+end logipi_ram_test;
 
-architecture Behavioral of logibone_ram_test is
+architecture Behavioral of logipi_ram_test is
 
 	component clock_gen
 	port
