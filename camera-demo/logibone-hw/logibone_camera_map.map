@@ -11,7 +11,7 @@ Target Device  : xc6slx9
 Target Package : tqg144
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Fri Jun 21 17:53:50 2013
+Mapped Date    : Tue Jun 25 15:26:24 2013
 
 Mapping design into LUTs...
 Running directed packing...
@@ -20,11 +20,11 @@ Updating timing models...
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
 Running timing-driven placement...
-Total REAL time at the beginning of Placer: 14 secs 
-Total CPU  time at the beginning of Placer: 13 secs 
+Total REAL time at the beginning of Placer: 5 secs 
+Total CPU  time at the beginning of Placer: 4 secs 
 
 Phase 1.1  Initial Placement Analysis
-Phase 1.1  Initial Placement Analysis (Checksum:b3435649) REAL time: 15 secs 
+Phase 1.1  Initial Placement Analysis (Checksum:b3435649) REAL time: 5 secs 
 
 Phase 2.7  Design Feasibility Check
 WARNING:Place:1206 - This design contains a global buffer instance,
@@ -54,10 +54,10 @@ WARNING:Place:1137 - This design is not guaranteed to be routable! This design
    CLOCK_DEDICATED_ROUTE constraint was applied on COMP.PIN
    <sys_clocks_gen/clkout2_buf.O> allowing your design to continue. This
    constraint disables all clock placer rules related to the specified COMP.PIN.
-Phase 2.7  Design Feasibility Check (Checksum:b3435649) REAL time: 15 secs 
+Phase 2.7  Design Feasibility Check (Checksum:b3435649) REAL time: 5 secs 
 
 Phase 3.31  Local Placement Optimization
-Phase 3.31  Local Placement Optimization (Checksum:b3435649) REAL time: 15 secs 
+Phase 3.31  Local Placement Optimization (Checksum:b3435649) REAL time: 5 secs 
 
 Phase 4.2  Initial Placement for Architecture Specific Features
 
@@ -75,41 +75,41 @@ WARNING:Place:1109 - A clock IOB / BUFGMUX clock component pair have been found
    lead to very poor timing results. It is recommended that this error condition
    be corrected in the design.
 Phase 4.2  Initial Placement for Architecture Specific Features
-(Checksum:e4c988eb) REAL time: 23 secs 
+(Checksum:e4c988eb) REAL time: 8 secs 
 
 Phase 5.36  Local Placement Optimization
-Phase 5.36  Local Placement Optimization (Checksum:e4c988eb) REAL time: 23 secs 
+Phase 5.36  Local Placement Optimization (Checksum:e4c988eb) REAL time: 8 secs 
 
 Phase 6.30  Global Clock Region Assignment
-Phase 6.30  Global Clock Region Assignment (Checksum:e4c988eb) REAL time: 23 secs 
+Phase 6.30  Global Clock Region Assignment (Checksum:e4c988eb) REAL time: 8 secs 
 
 Phase 7.3  Local Placement Optimization
-Phase 7.3  Local Placement Optimization (Checksum:e4c988eb) REAL time: 23 secs 
+Phase 7.3  Local Placement Optimization (Checksum:e4c988eb) REAL time: 8 secs 
 
 Phase 8.5  Local Placement Optimization
-Phase 8.5  Local Placement Optimization (Checksum:e4c988eb) REAL time: 23 secs 
+Phase 8.5  Local Placement Optimization (Checksum:e4c988eb) REAL time: 8 secs 
 
 Phase 9.8  Global Placement
 ................
 ..................................................................
 .................
 ............
-Phase 9.8  Global Placement (Checksum:42175cac) REAL time: 28 secs 
+Phase 9.8  Global Placement (Checksum:42175cac) REAL time: 9 secs 
 
 Phase 10.5  Local Placement Optimization
-Phase 10.5  Local Placement Optimization (Checksum:42175cac) REAL time: 28 secs 
+Phase 10.5  Local Placement Optimization (Checksum:42175cac) REAL time: 9 secs 
 
 Phase 11.18  Placement Optimization
-Phase 11.18  Placement Optimization (Checksum:fda47694) REAL time: 29 secs 
+Phase 11.18  Placement Optimization (Checksum:fda47694) REAL time: 10 secs 
 
 Phase 12.5  Local Placement Optimization
-Phase 12.5  Local Placement Optimization (Checksum:fda47694) REAL time: 29 secs 
+Phase 12.5  Local Placement Optimization (Checksum:fda47694) REAL time: 10 secs 
 
 Phase 13.34  Placement Validation
-Phase 13.34  Placement Validation (Checksum:f423a4aa) REAL time: 29 secs 
+Phase 13.34  Placement Validation (Checksum:f423a4aa) REAL time: 10 secs 
 
-Total REAL time to Placer completion: 29 secs 
-Total CPU  time to Placer completion: 29 secs 
+Total REAL time to Placer completion: 10 secs 
+Total CPU  time to Placer completion: 9 secs 
 Running post-placement packing...
 Writing output files...
 WARNING:PhysDesignRules:2410 - This design is using one or more 9K Block RAMs
@@ -203,8 +203,8 @@ Specific Feature Utilization:
 Average Fanout of Non-Clock Nets:                3.75
 
 Peak Memory Usage:  669 MB
-Total REAL time to MAP completion:  31 secs 
-Total CPU time to MAP completion:   31 secs 
+Total REAL time to MAP completion:  10 secs 
+Total CPU time to MAP completion:   10 secs 
 
 Mapping completed.
 See MAP report file "logibone_camera_map.mrp" for details.

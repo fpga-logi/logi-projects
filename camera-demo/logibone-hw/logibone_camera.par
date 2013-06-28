@@ -1,7 +1,7 @@
 Release 14.1 par P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-yaya::  Fri Jun 21 17:54:29 2013
+yaya::  Tue Jun 25 15:26:38 2013
 
 par -w -intstyle ise -ol high -mt off logibone_camera_map.ncd
 logibone_camera.ncd logibone_camera.pcf 
@@ -101,8 +101,8 @@ Specific Feature Utilization:
 Overall effort level (-ol):   High 
 Router effort level (-rl):    High 
 
-Starting initial Timing Analysis.  REAL time: 11 secs 
-Finished initial Timing Analysis.  REAL time: 11 secs 
+Starting initial Timing Analysis.  REAL time: 3 secs 
+Finished initial Timing Analysis.  REAL time: 3 secs 
 
 WARNING:Par:288 - The signal PB<1>_IBUF has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal GPMC_CSN<0>_IBUF has no load.  PAR will not attempt to route this signal.
@@ -112,29 +112,29 @@ WARNING:Par:288 - The signal PMOD1_7_IBUF has no load.  PAR will not attempt to 
 Starting Router
 
 
-Phase  1  : 2135 unrouted;      REAL time: 12 secs 
+Phase  1  : 2135 unrouted;      REAL time: 4 secs 
 
-Phase  2  : 1776 unrouted;      REAL time: 13 secs 
+Phase  2  : 1776 unrouted;      REAL time: 4 secs 
 
-Phase  3  : 565 unrouted;      REAL time: 15 secs 
+Phase  3  : 565 unrouted;      REAL time: 5 secs 
 
-Phase  4  : 565 unrouted; (Setup:0, Hold:1853, Component Switching Limit:0)     REAL time: 16 secs 
+Phase  4  : 565 unrouted; (Setup:0, Hold:1853, Component Switching Limit:0)     REAL time: 5 secs 
 
 Updating file: logibone_camera.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Setup:0, Hold:1530, Component Switching Limit:0)     REAL time: 19 secs 
+Phase  5  : 0 unrouted; (Setup:0, Hold:1530, Component Switching Limit:0)     REAL time: 6 secs 
 
-Phase  6  : 0 unrouted; (Setup:0, Hold:1530, Component Switching Limit:0)     REAL time: 19 secs 
+Phase  6  : 0 unrouted; (Setup:0, Hold:1530, Component Switching Limit:0)     REAL time: 6 secs 
 
-Phase  7  : 0 unrouted; (Setup:0, Hold:1530, Component Switching Limit:0)     REAL time: 19 secs 
+Phase  7  : 0 unrouted; (Setup:0, Hold:1530, Component Switching Limit:0)     REAL time: 6 secs 
 
-Phase  8  : 0 unrouted; (Setup:0, Hold:1530, Component Switching Limit:0)     REAL time: 19 secs 
+Phase  8  : 0 unrouted; (Setup:0, Hold:1530, Component Switching Limit:0)     REAL time: 6 secs 
 
-Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 19 secs 
+Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
 
-Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 19 secs 
-Total REAL time to Router completion: 19 secs 
-Total CPU time to Router completion: 18 secs 
+Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
+Total REAL time to Router completion: 6 secs 
+Total CPU time to Router completion: 6 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -218,8 +218,8 @@ All signals are completely routed.
 
 WARNING:Par:283 - There are 5 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
-Total REAL time to PAR completion: 20 secs 
-Total CPU time to PAR completion: 19 secs 
+Total REAL time to PAR completion: 6 secs 
+Total CPU time to PAR completion: 6 secs 
 
 Peak Memory Usage:  619 MB
 
