@@ -69,7 +69,7 @@ NGDBUILD Design Results Summary:
 Total memory usage is 404016 kilobytes
 
 Writing NGD file "logibone_camera.ngd" ...
-Total REAL time to NGDBUILD completion:  9 sec
-Total CPU time to NGDBUILD completion:   9 sec
+Total REAL time to NGDBUILD completion:  3 sec
+Total CPU time to NGDBUILD completion:   3 sec
 
 Writing NGDBUILD log file "logibone_camera.bld"...

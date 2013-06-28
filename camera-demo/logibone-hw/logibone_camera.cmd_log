@@ -141,3 +141,57 @@ map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -reg
 par -w -intstyle ise -ol high -mt off logibone_camera_map.ncd logibone_camera.ncd logibone_camera.pcf 
 trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml logibone_camera.twx logibone_camera.ncd -o logibone_camera.twr logibone_camera.pcf -ucf logibone_camera.ucf 
 bitgen -intstyle ise -f logibone_camera.ut logibone_camera.ncd 
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logibone-hw/logibone_camera.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logibone-hw/logibone_camera.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc logibone_camera.ucf -p xc6slx9-tqg144-2 logibone_camera.ngc logibone_camera.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o logibone_camera_map.ncd logibone_camera.ngd logibone_camera.pcf 
+par -w -intstyle ise -ol high -mt off logibone_camera_map.ncd logibone_camera.ncd logibone_camera.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml logibone_camera.twx logibone_camera.ncd -o logibone_camera.twr logibone_camera.pcf -ucf logibone_camera.ucf 
+bitgen -intstyle ise -f logibone_camera.ut logibone_camera.ncd 
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logibone-hw/logibone_camera.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logibone-hw/logibone_camera.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc logibone_camera.ucf -p xc6slx9-tqg144-2 logibone_camera.ngc logibone_camera.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o logibone_camera_map.ncd logibone_camera.ngd logibone_camera.pcf 
+par -w -intstyle ise -ol high -mt off logibone_camera_map.ncd logibone_camera.ncd logibone_camera.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml logibone_camera.twx logibone_camera.ncd -o logibone_camera.twr logibone_camera.pcf -ucf logibone_camera.ucf 
+bitgen -intstyle ise -f logibone_camera.ut logibone_camera.ncd 
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logibone-hw/logibone_camera.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logibone-hw/logibone_camera.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc logibone_camera.ucf -p xc6slx9-tqg144-2 logibone_camera.ngc logibone_camera.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o logibone_camera_map.ncd logibone_camera.ngd logibone_camera.pcf 
+par -w -intstyle ise -ol high -mt off logibone_camera_map.ncd logibone_camera.ncd logibone_camera.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml logibone_camera.twx logibone_camera.ncd -o logibone_camera.twr logibone_camera.pcf -ucf logibone_camera.ucf 
+bitgen -intstyle ise -f logibone_camera.ut logibone_camera.ncd 
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logibone-hw/logibone_camera.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logibone-hw/logibone_camera.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc logibone_camera.ucf -p xc6slx9-tqg144-2 logibone_camera.ngc logibone_camera.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o logibone_camera_map.ncd logibone_camera.ngd logibone_camera.pcf 
+par -w -intstyle ise -ol high -mt off logibone_camera_map.ncd logibone_camera.ncd logibone_camera.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml logibone_camera.twx logibone_camera.ncd -o logibone_camera.twr logibone_camera.pcf -ucf logibone_camera.ucf 
+bitgen -intstyle ise -f logibone_camera.ut logibone_camera.ncd 
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logibone-hw/logibone_camera.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logibone-hw/logibone_camera.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc logibone_camera.ucf -p xc6slx9-tqg144-2 logibone_camera.ngc logibone_camera.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o logibone_camera_map.ncd logibone_camera.ngd logibone_camera.pcf 
+par -w -intstyle ise -ol high -mt off logibone_camera_map.ncd logibone_camera.ncd logibone_camera.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml logibone_camera.twx logibone_camera.ncd -o logibone_camera.twr logibone_camera.pcf -ucf logibone_camera.ucf 
+bitgen -intstyle ise -f logibone_camera.ut logibone_camera.ncd 
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logibone-hw/logibone_camera.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logibone-hw/logibone_camera.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc logibone_camera.ucf -p xc6slx9-tqg144-2 logibone_camera.ngc logibone_camera.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o logibone_camera_map.ncd logibone_camera.ngd logibone_camera.pcf 
+par -w -intstyle ise -ol high -mt off logibone_camera_map.ncd logibone_camera.ncd logibone_camera.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml logibone_camera.twx logibone_camera.ncd -o logibone_camera.twr logibone_camera.pcf -ucf logibone_camera.ucf 
+bitgen -intstyle ise -f logibone_camera.ut logibone_camera.ncd 
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logibone-hw/logibone_camera.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logibone-hw/logibone_camera.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc logibone_camera.ucf -p xc6slx9-tqg144-2 logibone_camera.ngc logibone_camera.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o logibone_camera_map.ncd logibone_camera.ngd logibone_camera.pcf 
+par -w -intstyle ise -ol high -mt off logibone_camera_map.ncd logibone_camera.ncd logibone_camera.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml logibone_camera.twx logibone_camera.ncd -o logibone_camera.twr logibone_camera.pcf -ucf logibone_camera.ucf 
+bitgen -intstyle ise -f logibone_camera.ut logibone_camera.ncd 
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logibone-hw/logibone_camera.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logibone-hw/logibone_camera.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc logibone_camera.ucf -p xc6slx9-tqg144-2 logibone_camera.ngc logibone_camera.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o logibone_camera_map.ncd logibone_camera.ngd logibone_camera.pcf 
+par -w -intstyle ise -ol high -mt off logibone_camera_map.ncd logibone_camera.ncd logibone_camera.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml logibone_camera.twx logibone_camera.ncd -o logibone_camera.twr logibone_camera.pcf -ucf logibone_camera.ucf 
+bitgen -intstyle ise -f logibone_camera.ut logibone_camera.ncd 
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logibone-hw/logibone_camera.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logibone-hw/logibone_camera.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc logibone_camera.ucf -p xc6slx9-tqg144-2 logibone_camera.ngc logibone_camera.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o logibone_camera_map.ncd logibone_camera.ngd logibone_camera.pcf 
+par -w -intstyle ise -ol high -mt off logibone_camera_map.ncd logibone_camera.ncd logibone_camera.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml logibone_camera.twx logibone_camera.ncd -o logibone_camera.twr logibone_camera.pcf -ucf logibone_camera.ucf 
+bitgen -intstyle ise -f logibone_camera.ut logibone_camera.ncd 
