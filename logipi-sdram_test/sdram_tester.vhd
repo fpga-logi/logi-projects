@@ -52,8 +52,8 @@ end sdram_tester;
 architecture Behavioral of sdram_tester is
 type tester_state is (INIT, WRITE_SDRAM, READ_SDRAM, WAIT_VALID, DONE);
 
-constant addr_count_max : std_logic_vector(ADDR_WIDTH-1 downto 0) := (others => '1');
-constant cycle_count_max : std_logic_vector(1 downto 0) := (others => '1');
+constant addr_count_max : std_logic_vector(ADDR_WIDTH-1 downto 0) := X"0000FF";
+constant cycle_count_max : std_logic_vector(1 downto 0) := "11";
 
 
 signal state, next_state : tester_state ;
