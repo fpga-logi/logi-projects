@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="error" file="HDLCompiler" num="69" delta="unknown" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-face/logipi-hw/../hw/compute_adc_mean.vhd" Line 96: &lt;<arg fmt="%s" index="1">nbit</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="854" delta="unknown" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-face/logipi-hw/../hw/compute_adc_mean.vhd" Line 46: Unit &lt;<arg fmt="%s" index="1">behavioral</arg>&gt; ignored due to previous errors.
+</msg>
+
+</messages>
+
