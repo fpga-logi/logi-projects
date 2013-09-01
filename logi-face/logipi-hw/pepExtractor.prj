@@ -1,0 +1,2 @@
+work	"../../../hard-cv/hw/rtl/utils/utils_pack.vhd"
+work	"../../../logi-hard/controllers/mcp3002_interface.vhd"
