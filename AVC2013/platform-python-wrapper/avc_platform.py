@@ -31,15 +31,21 @@ class AvcPlatform(object):
 	
 	def __init__(self):
 		mark1Rpi.fifoOpen(0)
-	
+		self.servo_failsafe = [0x00, 0x00]
 	def initImu(self, acc_cal_file, mag_cal_file):
 		mpu9150.mpuInit(1, 10, 4)
 		mpu9150.setMagCal(mag_cal_file)
 		mpu9150.setAccCal(acc_cal_file)
 	
 	def setServoPulse(self, index, pos):	
-		mark1Rpi.directWrite(self.servo_base_address[index], (pos,0));
+		mark1Rpi.directWrite(self.servo_base_address[index], (pos,servo_failsafe[index]));
 	
+	def setServoFailSafe(self, index, val):
+		quanta = 255.0/(MAX_ANGLE-MIN_ANGLE)
+                pulse = 127.0 + (quanta * angle)
+                pulse = max(min(int(round(pulse)), 255), 0)
+		self.servo_failsafe[index] = pulse
+
 	def setLeds(self, val):
 		mark1Rpi.directWrite(self.leds_base_address, (val,0));
 	
