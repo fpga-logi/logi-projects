@@ -38,6 +38,8 @@ if __name__ == "__main__":
 	#gps_service = GpsService()
 	controller = Controller()
 	#gps_service.start()
+	robot.setServoFailSafe(ESC_SERVO, ESC_ARM_ANGLE)
+	robot.setServoFailSafe(STEERING_SERVO, 0.0)
 	robot.resetWatchdog()
 	robot.setServoAngle(STEERING_SERVO,0.0)
 	robot.setServoAngle(ESC_SERVO,ESC_ARM_ANGLE)
