@@ -4,10 +4,18 @@ from datetime import timedelta
 
 import gps_service
 import gps
+import socket
+import json
+import time
+from threading import Thread
+
+
 
 from math import radians, cos, sin, asin, sqrt, atan2 , degrees
 
 MAGN_VAR = 0.0
+
+ESC_ARM_ANGLE = -15.0
 
 
 def eulerToHeading(euler):
@@ -59,6 +67,9 @@ class IController:
 
 	def getCommand(self, sensor_map):
        		raise NotImplementedError( "Should have implemented this" )
+
+	def close(self):
+		print "controlled closed"
 
 class BearingController(IController):
 	
@@ -169,5 +180,92 @@ class PathController(IController):
 		return ctrl
 
 
+class EthernetController(IController, Thread):
 	
+	def __init__(self):
+		Thread.__init__(self)
+		self.last_time = datetime.now()
+		self.cumulated_time = 0.0
+		self.path_index = 0
+		self.cmd = []
+		self.serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+		#self.serversocket.close()
+		self.serversocket.bind((socket.gethostname(), 2045))
+		self.start()
+		
+	def stop(self):
+        	self._Thread__stop()
+
+	def run(self):
+		while True:		
+			self.serversocket.listen(5)
+			conn,addr = self.serversocket.accept() #accept the connection
+			print '...connected!'
+			init = 0
+			done = 1
+			c = conn.recv(1)
+			while c != '':
+				if c == '{' :
+					json_buffer = c
+					init = 1
+					done = 0
+				elif init == 1 and c == '}' :
+					json_buffer = json_buffer + c
+					init = 0
+					done = 1
+				elif init == 1 :
+					json_buffer = json_buffer + c
+				
+				if done == 1:
+					print json_buffer
+					json_obj = json.loads(json_buffer)
+					if not json_obj.has_key('time'):
+						json_obj['time'] = 0.0
+					if not json_obj.has_key('speed'):
+						json_obj['speed'] = 0.0
+					if not json_obj.has_key('steer'):
+						json_obj['steer'] = 0.0
+					self.cmd.append(json_obj)
+					print json_obj
+					done = 0
+				time.sleep(0.01)
+				c = conn.recv(1)
+			conn.close()	
+	
+	def getTimeInterval(self):
+		current_time = datetime.now()
+		dt = current_time - self.last_time
+		self.last_time = current_time 
+   		ms = (dt.seconds * 1000) + (dt.microseconds / 1000.0)
+		return ms
+
+	def getCommand(self, sensor_map):
+		ctrl = {}
+		interval = self.getTimeInterval()
+		if len(self.cmd) == 0 :
+			ctrl[IController.speed_key] = ESC_ARM_ANGLE
+			ctrl[IController.steering_key] = 0.0
+			self.cumulated_time = 0
+			return ctrl
+		print self.cumulated_time
+		self.cumulated_time = self.cumulated_time + interval
+		print self.cumulated_time
+		if self.cumulated_time > self.cmd[0]['time']:
+			self.cumulated_time = 0
+			ctrl[IController.speed_key] = self.cmd[0]['speed']+ESC_ARM_ANGLE
+			ctrl[IController.steering_key] = self.cmd[0]['steer']
+			self.cmd.pop(0)
+			print "Next Cmd"
+		else:
+			ctrl[IController.steering_key] = self.cmd[0]['steer']
+			ctrl[IController.speed_key] = self.cmd[0]['speed']+ESC_ARM_ANGLE
+		return ctrl
+
+	def close(self):
+		self.serversocket.close()
+		self._Thread__stop()
+	
+	
+
+
 	
