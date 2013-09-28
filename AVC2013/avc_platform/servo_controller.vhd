@@ -38,13 +38,14 @@ use work.utils_pack.all ;
 
 entity servo_controller is
   generic(
+	 pos_width	:	integer := 8 ;
     clock_period             : integer := 10;
     minimum_high_pulse_width : integer := 1000000;
     maximum_high_pulse_width : integer := 2000000
     );
   port (clk            : in  std_logic;
         rst            : in  std_logic;
-        servo_position : in  std_logic_vector (0 to 7);
+        servo_position : in  std_logic_vector (pos_width-1 downto 0);
         servo_out       : out std_logic);
 end servo_controller;
 

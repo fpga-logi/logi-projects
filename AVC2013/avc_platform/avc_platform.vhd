@@ -86,13 +86,14 @@ architecture Behavioral of avc_platform is
 	
 	component servo_controller is
 	generic(
+	 pos_width	:	integer := 8 ;
 	 clock_period             : integer := 32;
 	 minimum_high_pulse_width : integer := 1000000;
 	 maximum_high_pulse_width : integer := 2000000
 	 );
 	port (clk            : in  std_logic;
 		  rst            : in  std_logic;
-		  servo_position : in  std_logic_vector (0 to 7);
+		  servo_position : in  std_logic_vector ((pos_width-1) downto 0);
 		  servo_out       : out std_logic);
 	end component;
 	
@@ -122,7 +123,7 @@ architecture Behavioral of avc_platform is
 	constant servo_clock_period_ps : integer := 20000;
 	constant servo_clock_period_ns : integer := servo_clock_period_ps /1000;
 	-- Systemc clocking and reset
-	signal clk_sys, clk_100,  clk_96, clk_24, clk_locked : std_logic ;
+	signal clk_sys, clk_100,  clk_120,clk_96, clk_24, clk_locked : std_logic ;
 	signal resetn , sys_resetn : std_logic ;
 	
 	
@@ -201,7 +202,7 @@ architecture Behavioral of avc_platform is
 	constant IMAGE_HEIGHT : integer := 240 ;
 	
 	--constant SERVO_FAILSAFE : std_logic_vector(7 downto 0) := X"9B" ;
-	constant SERVO_FAILSAFE : std_logic_vector(7 downto 0) := X"80" ;
+	constant SERVO_FAILSAFE : std_logic_vector(7 downto 0) := X"54" ;
 begin
 	
 	resetn <= PB(0) ;
@@ -211,10 +212,10 @@ begin
 		CLK_IN1 => OSC_FPGA,
 		CLK_OUT1 => clk_100,
 		CLK_OUT2 => clk_24,
-		CLK_OUT3 => clk_96, --96Mhz system clock
+		CLK_OUT3 => clk_120, --96Mhz system clock
 		LOCKED => clk_locked
 	);
-	clk_sys <= clk_96 ;
+	clk_sys <= clk_120 ;
 
 	reset0: reset_generator 
 	generic map(HOLD_0 => 1000)
@@ -361,8 +362,21 @@ begin
 			latch_output(7) => open
 		);
 		
-	classifier_lut_inst : classifier_lut	
-		generic map(CLASS_WIDTH => 2, INDEX_WIDTH => 12)
+--	classifier_lut_inst : classifier_lut	
+--		generic map(CLASS_WIDTH => 2, INDEX_WIDTH => 12)
+--		port map(
+--			clk => clk_sys ,
+--			resetn => sys_resetn,
+--			we =>  cs_color_lut,
+--			cs =>cs_color_lut ,
+--			data_in => bus_data_out, 
+--			bus_addr	=> bus_addr,
+--			class_index => color_index(11 downto 0),
+--			data_out => bus_color_lut_data_out,
+--			class_value => color_lut_out(1 downto 0) 		
+--		); 
+
+	classifier_lut_inst : yuv_classifier
 		port map(
 			clk => clk_sys ,
 			resetn => sys_resetn,
@@ -370,9 +384,12 @@ begin
 			cs =>cs_color_lut ,
 			data_in => bus_data_out, 
 			bus_addr	=> bus_addr,
-			class_index => color_index(11 downto 0),
 			data_out => bus_color_lut_data_out,
-			class_value => color_lut_out(1 downto 0) 		
+			y_value => pixel_y_from_interface,
+			u_value => pixel_u_from_interface,
+			v_value => pixel_v_from_interface,
+			class_value(2) => open,
+			class_value(1 downto 0) => color_lut_out(1 downto 0)	
 		); 
  
 -- Camera Interface and configuration instantiation 
@@ -484,6 +501,13 @@ begin
 			pixel_clock => pxclk_from_ds, 
 			hsync => href_from_ds, 
 			vsync => vsync_from_ds,
+--			clk => clk_sys, resetn => sys_resetn,
+--			pixel_clock => pxclk_from_interface, 
+--			hsync => href_from_interface, 
+--			vsync => vsync_from_interface,
+--			pixel_y => pixel_y_from_interface,
+--			pixel_u => pixel_u_from_interface,
+--			pixel_v => pixel_v_from_interface,
 			pixel_y => pixel_from_ds,
 			pixel_u => pixel_u_to_fifo,
 			pixel_v => pixel_v_to_fifo,
@@ -538,7 +562,7 @@ begin
 
 	watchdog0: watchdog 
 	generic map(NB_CHANNEL => 2,
-				DIVIDER => 95_999,
+				DIVIDER => 119_999,
 				TIMEOUT => 500)
 	port map(clk => clk_sys, 
 		  resetn => sys_resetn,
@@ -549,7 +573,7 @@ begin
 	  );
 
 	servo_pos_0 <= pwm_value_0(7 downto 0) when enable_peripherals(0) = '1' else
-						SERVO_FAILSAFE ;
+						pwm_value_0(15 downto 8)  ;
 
 	servo_controller_0_Inst : servo_controller
 	  generic map(
@@ -563,7 +587,7 @@ begin
 			  servo_out => PWM(0));
 		  
 	servo_pos_1 <= pwm_value_1(7 downto 0) when enable_peripherals(1) = '1' else
-						SERVO_FAILSAFE ;
+						pwm_value_1(15 downto 8) ;
 	
 	servo_controller_1_Inst : servo_controller
 	  generic map(
