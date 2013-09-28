@@ -46,6 +46,7 @@ class AvcPlatform(object):
 	def setServoAngle(self, index, angle):
 		quanta = 255.0/(MAX_ANGLE-MIN_ANGLE)
 		pulse = 127.0 + (quanta * angle)
+		pulse = max(min(int(round(pulse)), 255), 0)
 		self.setServoPulse(index, int(round(pulse)))
 
 	def getEncoderValue(self, index):
