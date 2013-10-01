@@ -158,10 +158,10 @@ port map
 -- Intercon -----------------------------------------------------------
 -- will be generated automatically in the future
 
-pwm0_cs <= '1' when intercon_wrapper_wbm_address(15 downto 2) = "00000000000000" else
+reg_cs <= '1' when intercon_wrapper_wbm_address(15 downto 2) = "00000000000000" else
 				'0' ;
 				
-reg_cs <= '1' when intercon_wrapper_wbm_address(15 downto 2) = "00000000000000"  else
+pwm0_cs <= '1' when intercon_wrapper_wbm_address(15 downto 3) = "00000000000001"  else
 			 '0' ;
 
 intercon_pwm0_wbm_address <= intercon_wrapper_wbm_address ;
