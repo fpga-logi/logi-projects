@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--This is an ISE project configuration file.-->
+<!--It holds project specific layout data for the projectmgr plugin.-->
+<!--Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.-->
+<Project version="2" owner="projectmgr" name="logibone-wishbone" >
+   <!--This is an ISE project configuration file.-->
+   <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/block3X3 - RTL |home|jpiat|development|FPGA|logi-family|hard-cv|hw|rtl|image|block3X3.vhd</ClosedNode>
+         <ClosedNode>/fifo_peripheral - RTL |home|jpiat|development|FPGA|logi-family|logi-hard|wishbone|peripherals|wishbone_fifo.vhd</ClosedNode>
+         <ClosedNode>/gauss3x3 - Arithmetic |home|jpiat|development|FPGA|logi-family|hard-cv|hw|rtl|image|filter|gauss3x3.vhd</ClosedNode>
+         <ClosedNode>/gauss3x3 - RTL |home|jpiat|development|FPGA|logi-family|hard-cv|hw|rtl|image|filter|gauss3x3.vhd</ClosedNode>
+         <ClosedNode>/generic_delay - Behavioral |home|jpiat|development|FPGA|logi-family|hard-cv|hw|rtl|utils|generic_delay.vhd</ClosedNode>
+         <ClosedNode>/gpmc_wishbone_wrapper - RTL |home|jpiat|development|FPGA|logi-family|logi-hard|wishbone|gpmc_wishbone_wrapper.vhd</ClosedNode>
+         <ClosedNode>/logi_wishbone_pack |home|jpiat|development|FPGA|logi-family|logi-hard|wishbone|logi_wishbone_pack.vhd</ClosedNode>
+         <ClosedNode>/logibone_wishbone - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibone_wishbone.vhd/fifo0 - wishbone_fifo - RTL/fifo_A - dp_fifo - Behavioral</ClosedNode>
+         <ClosedNode>/logibone_wishbone - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibone_wishbone.vhd/fifo0 - wishbone_fifo - RTL/fifo_B - dp_fifo - Behavioral</ClosedNode>
+         <ClosedNode>/logibone_wishbone - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibone_wishbone.vhd/filter_pack</ClosedNode>
+         <ClosedNode>/logibone_wishbone - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibone_wishbone.vhd/gaussian_filter - gauss3x3 - Arithmetic/block0 - block3X3 - RTL</ClosedNode>
+         <ClosedNode>/logibone_wishbone - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibone_wishbone.vhd/gaussian_filter - gauss3x3 - Arithmetic/delay_sync - generic_delay - Behavioral</ClosedNode>
+         <ClosedNode>/logibone_wishbone - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibone_wishbone.vhd/gaussian_filter - gauss3x3 - RTL</ClosedNode>
+         <ClosedNode>/logibone_wishbone - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibone_wishbone.vhd/gaussian_filter - gauss3x3 - RTL/delay_sync - generic_delay - Behavioral</ClosedNode>
+         <ClosedNode>/logibone_wishbone - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibone_wishbone.vhd/hysteresis - hyst_threshold - RTL</ClosedNode>
+         <ClosedNode>/logibone_wishbone - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibone_wishbone.vhd/logi_wishbone_pack</ClosedNode>
+         <ClosedNode>/logibone_wishbone - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibone_wishbone.vhd/logi_wishbone_peripherals</ClosedNode>
+         <ClosedNode>/logibone_wishbone - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibone_wishbone.vhd/pixel_from_fifo - fifo2pixel - Behavioral</ClosedNode>
+         <ClosedNode>/logibone_wishbone - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibone_wishbone.vhd/sobel_filter - sobel3x3 - Arithmetic/block0 - block3X3 - RTL</ClosedNode>
+         <ClosedNode>/logibone_wishbone - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibone_wishbone.vhd/sobel_filter - sobel3x3 - Arithmetic/conv3x3_0 - conv3x3 - RTL</ClosedNode>
+         <ClosedNode>/logibone_wishbone - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibone_wishbone.vhd/sobel_filter - sobel3x3 - Arithmetic/conv3x3_1 - conv3x3 - RTL</ClosedNode>
+         <ClosedNode>/logibone_wishbone - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibone_wishbone.vhd/sobel_filter - sobel3x3 - Arithmetic/delay_sync - generic_delay - Behavioral</ClosedNode>
+         <ClosedNode>/logibone_wishbone - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibone_wishbone.vhd/sobel_filter - sobel3x3 - RTL</ClosedNode>
+         <ClosedNode>/sobel3x3 - Arithmetic |home|jpiat|development|FPGA|logi-family|hard-cv|hw|rtl|image|filter|sobel3x3.vhd</ClosedNode>
+         <ClosedNode>/sobel3x3 - RTL |home|jpiat|development|FPGA|logi-family|hard-cv|hw|rtl|image|filter|sobel3x3.vhd</ClosedNode>
+         <ClosedNode>/wishbone_fifo - RTL |home|jpiat|development|FPGA|logi-family|logi-hard|wishbone|peripherals|wishbone_fifo.vhd</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>gpmc2wishbone - gpmc_wishbone_wrapper - RTL (/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/gpmc_wishbone_wrapper.vhd)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000266000000020000000000000000000000000200000064ffffffff000000810000000300000002000002660000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>gpmc2wishbone - gpmc_wishbone_wrapper - RTL (/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/gpmc_wishbone_wrapper.vhd)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Design Utilities</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000135000000010000000100000000000000000000000064ffffffff000000810000000000000001000001350000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Design Utilities</CurrentItem>
+   </ItemView>
+   <ItemView guiview="File" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>wishbone_register.vhd</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >13</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000027b000000040101000100000000000000000000000064ffffffff000000810000000000000004000000dc0000000100000000000000290000000100000000000000840000000100000000000000f20000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>wishbone_register.vhd</CurrentItem>
+   </ItemView>
+   <ItemView guiview="Library" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>work</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000128000000010001000100000000000000000000000064ffffffff000000810000000000000001000001280000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>work</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Configure Target Device</ClosedNode>
+         <ClosedNode>Design Utilities</ClosedNode>
+         <ClosedNode>Implement Design</ClosedNode>
+         <ClosedNode>Synthesize - XST</ClosedNode>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000135000000010000000100000000000000000000000064ffffffff000000810000000000000001000001350000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_XCO" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000135000000010000000100000000000000000000000064ffffffff000000810000000000000001000001350000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_PACKAGE_BODY" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" />
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_UCF" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000135000000010000000100000000000000000000000064ffffffff000000810000000000000001000001350000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <SourceProcessView>000000ff00000000000000020000014c0000011d01000000060100000002</SourceProcessView>
+   <CurrentView>Implementation</CurrentView>
+</Project>

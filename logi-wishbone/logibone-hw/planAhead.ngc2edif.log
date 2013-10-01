@@ -1,0 +1,76 @@
+Release 14.1 - ngc2edif P.15xf (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+Reading design logibone_wishbone.ngc ...
+WARNING:NetListWriters:298 - No output is written to logibone_wishbone.xncf,
+   ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+WARNING:NetListWriters:306 - Signal bus intercon_wrapper_wbm_address[11 : 0] on
+   block logibone_wishbone is not reconstructed, because there are some missing
+   bus signals.
+WARNING:NetListWriters:306 - Signal bus pix2fifo/pixel_buffer[15 : 7] on block
+   logibone_wishbone is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus gaussian_filter/block3x3_sig[7 : 0] on
+   block logibone_wishbone is not reconstructed, because there are some missing
+   bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   sobel_filter/sum_y_step[0][15]_y_add_vec[1][15]_add_18_OUT[15 : 0] on block
+   logibone_wishbone is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus
+   sobel_filter/sum_x_step[1][15]_x_add_vec[2][15]_add_21_OUT[15 : 0] on block
+   logibone_wishbone is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus
+   sobel_filter/sum_y_step[1][15]_y_add_vec[2][15]_add_19_OUT[15 : 0] on block
+   logibone_wishbone is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus sobel_filter/raw_from_conv2_latched[15 :
+   0] on block logibone_wishbone is not reconstructed, because there are some
+   missing bus signals.
+WARNING:NetListWriters:306 - Signal bus sobel_filter/raw_from_conv1_latched[15 :
+   0] on block logibone_wishbone is not reconstructed, because there are some
+   missing bus signals.
+WARNING:NetListWriters:306 - Signal bus sobel_filter/sum_x_step_2[15 : 0] on
+   block logibone_wishbone is not reconstructed, because there are some missing
+   bus signals.
+WARNING:NetListWriters:306 - Signal bus sobel_filter/sum_y_step_2[15 : 0] on
+   block logibone_wishbone is not reconstructed, because there are some missing
+   bus signals.
+WARNING:NetListWriters:306 - Signal bus sobel_filter/sum_y_step_1[15 : 0] on
+   block logibone_wishbone is not reconstructed, because there are some missing
+   bus signals.
+WARNING:NetListWriters:306 - Signal bus sobel_filter/block3x3_sig[7 : 1] on
+   block logibone_wishbone is not reconstructed, because there are some missing
+   bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   pix2fifo/pixel_buffer[15]_GND_111_o_mux_1_OUT[15 : 7] on block
+   logibone_wishbone is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus fifo0/fifoB_out[15 : 4] on block
+   logibone_wishbone is not reconstructed, because there are some missing bus
+   signals.
+  finished :Prep
+Writing EDIF netlist file logibone_wishbone.edif ...
+ngc2edif: Total memory usage is 107888 kilobytes
+
+Release 14.1 - ngc2edif P.15xf (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+Reading design logibone_wishbone.ngc ...
+WARNING:NetListWriters:298 - No output is written to logibone_wishbone.xncf,
+   ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+WARNING:NetListWriters:306 - Signal bus intercon_wrapper_wbm_address<11 : 0> on
+   block logibone_wishbone is not reconstructed, because there are some missing
+   bus signals.
+WARNING:NetListWriters:306 - Signal bus fifo0/fifo_A/rd_addr<11 : 0> on block
+   logibone_wishbone is not reconstructed, because there are some missing bus
+   signals.
+  finished :Prep
+Writing EDIF netlist file logibone_wishbone.edif ...
+ngc2edif: Total memory usage is 104844 kilobytes
+
