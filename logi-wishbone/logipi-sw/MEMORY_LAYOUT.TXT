@@ -1,0 +1,11 @@
+address	   |	name	   |	note	|
+0x0000	     register_0        read :0xDEAD
+0x0002	     register_1	       read : 0xBEEF 
+0x0004	     register_3	       read/write register
+0x0006	     register_4	       write pmod2/read pmod1 and switches
+0x0010	     pwm_divider       system_clock divider for pwm
+0x0012	     pwm_period	       pwm signa period
+0x0014	     pwm0_high	       high time for pwm0 (unconnected)
+0x0016	     pwm1_high	       high time for pwm1 connected to LED0
+0x0018	     pwm2_hight	       high time for pwm2 connected to LED1
+	
