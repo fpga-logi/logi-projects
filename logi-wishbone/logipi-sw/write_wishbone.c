@@ -22,7 +22,7 @@ int main(int argc, char ** argv){
 	address = (int) strtol(argv[1], NULL, 0);
 	writeVal = (unsigned short) strtol(argv[2], NULL, 0);
 	printf("Writing 0x%x @ 0x%x \n", writeVal, address);
-	if(wishbone_read(&writeVal, 2, address) < 2){
+	if(wishbone_write(&writeVal, 2, address) < 2){
 		printf("Write error !");
 	}
 	close(fd);
