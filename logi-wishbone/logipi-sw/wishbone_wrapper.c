@@ -116,7 +116,6 @@ int logipi_write(unsigned int add, unsigned char * data, unsigned int size, unsi
 	com_buffer[1] = WR1(add, inc) ;
 	memcpy(&com_buffer[2], data, size);
 	return spi_transfer(com_buffer, com_buffer , (size + 2));
-	 
 }
 
 
@@ -139,13 +138,15 @@ unsigned int wishbone_write(unsigned char * buffer, unsigned int length, unsigne
 	if(fd == 0){
 		spi_init();
 	}
-	return logipi_write(address, buffer, length, 1);
+	if(logipi_write((address >> 1), buffer, length, 1) < 0) return 0;
+	return length ;
 }
 unsigned int wishbone_read(unsigned char * buffer, unsigned int length, unsigned int address){
 	if(fd == 0){
 		spi_init();
 	}
-	return logipi_read(address, buffer, length, 1);
+	if(logipi_read((address >> 1), buffer, length, 1) < 0) return 0 ;
+	return length ;
 }
 
 

@@ -22,6 +22,5 @@ int main(int argc, char ** argv){
 	address = (int) strtol(argv[1], NULL, 0);
 	wishbone_read(&readVal, 2, address);
 	printf("0x%x \n", readVal);
-	close(fd);
 	return 0 ;
 }
