@@ -40,6 +40,7 @@ port( OSC_FPGA : in std_logic;
 
 		--onboard
 		PB : in std_logic_vector(1 downto 0);
+		SW : in std_logic_vector(1 downto 0);
 		LED : out std_logic_vector(1 downto 0);	
 		
 		PMOD3 : inout std_logic_vector(7 downto 0); 
@@ -50,7 +51,7 @@ port( OSC_FPGA : in std_logic;
 		
 		PMOD1 : inout std_logic_vector(7 downto 0); 
 		--i2c
-		RP_SCL, RP_SDA : inout std_logic ;
+		SYS_SCL, SYS_SDA : inout std_logic ;
 		
 		--spi
 		SYS_SPI_SCK, RP_SPI_CE0N, SYS_SPI_MOSI : in std_logic ;
@@ -265,7 +266,7 @@ register0 : wishbone_register
 		);
 	
 	
-	signal_input <= PMOD3 & "000000"& PB;
+	signal_input <= PMOD3 & "000000"& SW;
 	
 	
 	PMOD2(7 downto 0) <= signal_output(15 downto 8); 
