@@ -135,18 +135,29 @@ void spi_close(void){
 
 
 unsigned int wishbone_write(unsigned char * buffer, unsigned int length, unsigned int address){
+	unsigned int tr_size = 0, count = 0 ;
 	if(fd == 0){
 		spi_init();
 	}
-	if(logipi_write((address >> 1), buffer, length, 1) < 0) return 0;
-	return length ;
+	while(count < length){
+                tr_size = (length-count) < 4094 ? (length-count) : 4094 ;
+		if(logipi_write(((address+count) >> 1), &buffer[count], tr_size, 1) < 0) return 0;
+		count = count + tr_size ;
+        }
+
+	return count ;
 }
 unsigned int wishbone_read(unsigned char * buffer, unsigned int length, unsigned int address){
+	unsigned int tr_size = 0, count = 0 ;
 	if(fd == 0){
 		spi_init();
 	}
-	if(logipi_read((address >> 1), buffer, length, 1) < 0) return 0 ;
-	return length ;
+	while(count < length){
+		tr_size = (length-count) < 4094 ? (length-count) : 4094 ;
+		if(logipi_read(((address+count) >> 1), &buffer[count], tr_size, 1) < 0) return 0 ;
+		count = count + tr_size ;
+	}
+	return count ;
 }
 
 
