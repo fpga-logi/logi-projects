@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logipi-hw/logipi_camera.ncd
+OUTFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logipi-hw/logipi_camera.bit
+FAMILY=Spartan6
+PART=xc6slx9-2tqg144
+WORKINGDIR=/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logipi-hw
+LICENSE=WebPack
+USER_INFO=__174162038_174162039_174422429
