@@ -113,11 +113,11 @@ NET "PMOD3<7>" LOC = "P94" ;
 #PMOD4#############################################################################
 NET "PMOD4_1" LOC = "P85" ;
 NET "PMOD4_2" LOC = "P84" ;
-NET "PMOD4_3" LOC = "P81" ;
+NET "PMOD4_3" LOC = "P81" | PULLUP;
 NET "PMOD4_4" LOC = "P80" ;
 NET "PMOD4_7" LOC = "P88" ;
 NET "PMOD4_8" LOC = "P87" ;
-NET "PMOD4_9" LOC = "P83" ;
+NET "PMOD4_9" LOC = "P83" | PULLUP;
 NET "PMOD4_10" LOC = "P82" ;
 
 #RASPBERRY-PI CONNECTOR###############################################################
