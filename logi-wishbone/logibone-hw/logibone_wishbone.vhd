@@ -28,8 +28,8 @@ use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+library UNISIM;
+use UNISIM.VComponents.all;
 
 library work ;
 use work.logi_wishbone_pack.all ;
@@ -70,6 +70,8 @@ architecture Behavioral of logibone_wishbone is
 		CLK_OUT1          : out    std_logic;
 		CLK_OUT2          : out    std_logic;
 		CLK_OUT3          : out    std_logic;
+		CLK_OUT4          : out    std_logic;
+		CLK_OUT5          : out    std_logic;
 		-- Status and control signals
 		LOCKED            : out    std_logic
 	);
@@ -77,7 +79,7 @@ architecture Behavioral of logibone_wishbone is
 
 	-- syscon
 	signal sys_reset, sys_resetn,sys_clk, clock_locked : std_logic ;
-	signal clk_100Mhz, clk_120Mhz, clk_24Mhz : std_logic ;
+	signal clk_100Mhz, clk_120Mhz, clk_24Mhz, clk_50Mhz, clk_50Mhz_ext : std_logic ;
 
 	-- wishbone intercon signals
 	signal intercon_wrapper_wbm_address :  std_logic_vector(15 downto 0);
@@ -104,11 +106,21 @@ architecture Behavioral of logibone_wishbone is
 	signal intercon_pwm0_wbm_ack :  std_logic;
 	signal intercon_pwm0_wbm_cycle :  std_logic;
 	
-	signal pwm0_cs, reg_cs : std_logic ;
+	signal intercon_mem0_wbm_address :  std_logic_vector(15 downto 0);
+	signal intercon_mem0_wbm_readdata :  std_logic_vector(15 downto 0);
+	signal intercon_mem0_wbm_writedata :  std_logic_vector(15 downto 0);
+	signal intercon_mem0_wbm_strobe :  std_logic;
+	signal intercon_mem0_wbm_write :  std_logic;
+	signal intercon_mem0_wbm_ack :  std_logic;
+	signal intercon_mem0_wbm_cycle :  std_logic;
+	
+	signal pwm0_cs, reg_cs, mem0_cs : std_logic ;
 	
 
 -- registers signals
 	signal loopback_sig, signal_input, signal_output : std_logic_vector(15 downto 0);
+	signal dummy_sig0, dummy_sig1 : std_logic_vector(15 downto 0);
+	signal dummy_pwm0 : std_logic ;
 begin
 
 --LED(1) <= (GPMC_BEN(0) XOR GPMC_BEN(1)) ;
@@ -124,14 +136,17 @@ pll0 : clock_gen
     CLK_OUT1 => clk_100Mhz,
     CLK_OUT2 => clk_120Mhz,
 	 CLK_OUT3 => clk_24Mhz,
+	 CLK_OUT4 => clk_50Mhz,
+	 CLK_OUT5 => clk_50Mhz_ext,
     -- Status and control signals
     LOCKED => clock_locked);
 
-sys_clk <= clk_120Mhz ;
---GPMC_CLK <= clk_50Mhz;
+sys_clk <= clk_100Mhz;--clk_120Mhz ;
+--GPMC_CLK <= clk_50Mhz_ext;
 
 
 gpmc2wishbone : gpmc_wishbone_wrapper 
+generic map(sync => false)
 port map
     (
       -- GPMC SIGNALS
@@ -140,6 +155,8 @@ port map
       gpmc_oen => GPMC_OEN,
 		gpmc_wen => GPMC_WEN,
 		gpmc_advn => GPMC_ADVN,
+		gpmc_clk => GPMC_CLK,
+		--gpmc_clk => clk_50Mhz,
 		
       -- Global Signals
       gls_reset => sys_reset,
@@ -163,6 +180,10 @@ reg_cs <= '1' when intercon_wrapper_wbm_address(15 downto 2) = "00000000000000" 
 				
 pwm0_cs <= '1' when intercon_wrapper_wbm_address(15 downto 3) = "00000000000001"  else
 			 '0' ;
+			 
+mem0_cs <= '1' when intercon_wrapper_wbm_address(15 downto 11) = "00001"  else
+			 '0' ;
+
 
 intercon_pwm0_wbm_address <= intercon_wrapper_wbm_address ;
 intercon_pwm0_wbm_writedata <= intercon_wrapper_wbm_writedata ;
@@ -174,15 +195,23 @@ intercon_register_wbm_address <= intercon_wrapper_wbm_address ;
 intercon_register_wbm_writedata <= intercon_wrapper_wbm_writedata ;
 intercon_register_wbm_write <= intercon_wrapper_wbm_write and reg_cs ;
 intercon_register_wbm_strobe <= intercon_wrapper_wbm_strobe and reg_cs ;
-intercon_register_wbm_cycle <= intercon_wrapper_wbm_cycle and reg_cs ;									
+intercon_register_wbm_cycle <= intercon_wrapper_wbm_cycle and reg_cs ;		
+
+intercon_mem0_wbm_address <= intercon_wrapper_wbm_address ;
+intercon_mem0_wbm_writedata <= intercon_wrapper_wbm_writedata ;
+intercon_mem0_wbm_write <= intercon_wrapper_wbm_write and mem0_cs ;
+intercon_mem0_wbm_strobe <= intercon_wrapper_wbm_strobe and mem0_cs ;
+intercon_mem0_wbm_cycle <= intercon_wrapper_wbm_cycle and mem0_cs ;								
 
 
 intercon_wrapper_wbm_readdata	<= intercon_register_wbm_readdata when reg_cs = '1' else
 											intercon_pwm0_wbm_readdata when pwm0_cs = '1' else
+											intercon_mem0_wbm_readdata when mem0_cs = '1' else
 											intercon_wrapper_wbm_address ;
 											
 intercon_wrapper_wbm_ack	<= intercon_register_wbm_ack when reg_cs = '1' else
 										intercon_pwm0_wbm_ack when pwm0_cs = '1' else
+										intercon_mem0_wbm_ack when mem0_cs = '1' else
 										'0' ;
 									      
 										  
@@ -205,8 +234,8 @@ register0 : wishbone_register
 		  wbs_ack       => intercon_register_wbm_ack,
 		 
 		  -- out signals
-		  reg_out(0) => open,
-		  reg_out(1) => open,
+		  reg_out(0) =>dummy_sig0,
+		  reg_out(1) => dummy_sig1,
 		  reg_out(2) => loopback_sig,
 		  reg_out(3) => signal_output,
 		 
@@ -216,6 +245,7 @@ register0 : wishbone_register
 		  reg_in(2) => loopback_sig,		  
 		  reg_in(3) => signal_input
 	 );
+	
 	
 	pwm0: wishbone_pwm
 		generic map( nb_chan => 3)
@@ -234,12 +264,36 @@ register0 : wishbone_register
 			  
 			  pwm_out(0) => LED(0),
 			  pwm_out(1) => LED(1),
-			  pwm_out(2) => open
+			  pwm_out(2) => dummy_pwm0
 		);
 	
 	
 	signal_input <= PMOD1 & "000000"& SW;
-	PMOD2 <= signal_output(15 downto 8); 
+	PMOD2(7 downto 4) <= signal_output(15 downto 12); 
+	PMOD2(0) <= GPMC_CSN ;
+	PMOD2(1) <= GPMC_OEN ;
+	PMOD2(2) <= GPMC_WEN ;
+	PMOD2(3) <= GPMC_ADVN ;
+	
+	
+mem_0 : wishbone_mem
+generic map( mem_size => 2048,
+			wb_size =>  16,  -- Data port size for wishbone
+			wb_addr_size =>  16  -- Data port size for wishbone
+		  )
+port map(
+		 -- Syscon signals
+			  gls_reset   => sys_reset ,
+			  gls_clk     => sys_clk ,
+			  -- Wishbone signals
+			  wbs_add      =>  intercon_mem0_wbm_address ,
+			  wbs_writedata => intercon_mem0_wbm_writedata,
+			  wbs_readdata  => intercon_mem0_wbm_readdata,
+			  wbs_strobe    => intercon_mem0_wbm_strobe,
+			  wbs_cycle     => intercon_mem0_wbm_cycle,
+			  wbs_write     => intercon_mem0_wbm_write,
+			  wbs_ack       => intercon_mem0_wbm_ack
+		  );
 	 
 
 end Behavioral;
