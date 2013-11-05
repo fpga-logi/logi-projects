@@ -18,8 +18,9 @@ NET "SDRAM_nCAS"     LOC = "P143" | IOSTANDARD = LVTTL;
 NET "SDRAM_nRAS"     LOC = "P142" | IOSTANDARD = LVTTL;
 NET "SDRAM_nWE"      LOC = "P144" | IOSTANDARD = LVTTL;
 #
-NET "SDRAM_CS"       LOC = "P141" | IOSTANDARD = LVTTL;
-NET "SDRAM_BA<0>"    LOC = "P140" | IOSTANDARD = LVTTL;
+####!NET "SDRAM_CS"       LOC = "P141" | IOSTANDARD = LVTTL;   - not coneected on RA2 , pulled low by default
+NET "SDRAM_CS"       LOC = "P40" | IOSTANDARD = LVTTL;   # routing teh SW1 pin, can monitor with scope
+NET "SDRAM_BA<0>"    LOC = "P141" | IOSTANDARD = LVTTL;
 NET "SDRAM_BA<1>"    LOC = "P1"   | IOSTANDARD = LVTTL;
 
 NET "SDRAM_DQM<0>"   LOC = "P139" | IOSTANDARD = LVTTL;
