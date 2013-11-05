@@ -57,6 +57,8 @@
 -- CLK_OUT1___100.000______0.000______50.0______233.202____213.839
 -- CLK_OUT2___120.000______0.000______50.0______224.199____213.839
 -- CLK_OUT3____24.000______0.000______50.0______313.712____213.839
+-- CLK_OUT4____50.000____-180.000______50.0______269.862____213.839
+-- CLK_OUT5____50.000____-270.000______50.0______269.862____213.839
 --
 ------------------------------------------------------------------------------
 -- "Input Clock   Freq (MHz)    Input Jitter (UI)"
@@ -74,6 +76,8 @@ port
   CLK_OUT1          : out    std_logic;
   CLK_OUT2          : out    std_logic;
   CLK_OUT3          : out    std_logic;
+  CLK_OUT4          : out    std_logic;
+  CLK_OUT5          : out    std_logic;
   -- Status and control signals
   LOCKED            : out    std_logic
  );
@@ -91,6 +95,8 @@ your_instance_name : clock_gen
     CLK_OUT1 => CLK_OUT1,
     CLK_OUT2 => CLK_OUT2,
     CLK_OUT3 => CLK_OUT3,
+    CLK_OUT4 => CLK_OUT4,
+    CLK_OUT5 => CLK_OUT5,
     -- Status and control signals
     LOCKED => LOCKED);
 -- INST_TAG_END ------ End INSTANTIATION Template ------------
