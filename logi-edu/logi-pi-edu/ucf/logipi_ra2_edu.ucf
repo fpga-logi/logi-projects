@@ -14,7 +14,6 @@
 NET "clk" TNM_NET = clk;
 TIMESPEC TS_clk = PERIOD "clk" 50 MHz HIGH 50%;
 
-
 ##========================================================
 ## clock and reset
 ##========================================================
@@ -27,25 +26,15 @@ NET "nes_clk"  	LOC = P84	|	IOSTANDARD = LVCMOS33;	#PMOD4_2
 NET "nes_lat"  	LOC = P81	|	IOSTANDARD = LVCMOS33;	#PMOD4_3
 NET "nes1_dat"    LOC = P80	|	IOSTANDARD = LVCMOS33;	#PMOD4_4
 NET "nes2_dat"  	LOC = P82	|	IOSTANDARD = LVCMOS33;	#PMOD4_10
-#
-## Reversed UCF defenitions to fix reversed order on RA.1 for now.
-#NET "btn<0>"   LOC = P58	|	IOSTANDARD = LVCMOS33;		
-#NET "btn<1>"   LOC = P57	|	IOSTANDARD = LVCMOS33;
-#NET "btn<2>"   LOC = P56	|	IOSTANDARD = LVCMOS33;
-#NET "btn<3>"  	LOC = P51 	|	IOSTANDARD = LVCMOS33;  #btn<3> also used as reset
 
 # Reversed UCF defenitions to fix reversed order on RA.1 for now.
 NET "n_btn<0>"   LOC = P67;
 NET "n_btn<1>"   LOC = P61;
 
-
-
 #=========================================================
-## 4 slide switches
+## 2 slide switches
 #==========================================================
 # This is how the pins should be laid out.  Needs reversed on PCB					
-
-# Reversed UCF defenitions to fix reversed order on RA.1 for now.
 #NET "sw<0>"  LOC = P40	|	IOSTANDARD = LVCMOS33;
 NET "n_reset"  	LOC = P40;
 NET "sw<1>"  LOC = P41	|	IOSTANDARD = LVCMOS33;
@@ -59,14 +48,12 @@ NET "rgb<2>"  LOC = P117 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//B0	-
 NET "vsync"   LOC = P115 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//P1_10	- #NET  LOC = P123;
 NET "hsync"   LOC = P116  	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//P1_4	- #NET "p1_4" LOC = P123;#NET "p1_4" LOC = P123;
 
-
 #========================================================
 # 2 discrete LEDs
 #========================================================
 # Reversed UCF defenitions to fix reversed order on RA.1 for now.
 NET "led<0>"  LOC = P58	|	IOSTANDARD = LVCMOS33;
 NET "led<1>"  LOC = P59	|	IOSTANDARD = LVCMOS33;
-
 
 # This controls segments from 0:3 right to left 
 # The transistors are pulling the lines low.  Must not be gate.
