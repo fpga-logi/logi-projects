@@ -24,6 +24,7 @@ entity top_level is
            SDRAM_BA    : out   STD_LOGIC_VECTOR( 1 downto 0);
            SDRAM_DQ    : inout STD_LOGIC_VECTOR (15 downto 0);
            
+			  PB2 				: in STD_LOGIC;
            pi_rx       : out std_logic);
 end top_level;
 
@@ -159,7 +160,12 @@ Inst_Memory_tester: Memory_tester GENERIC MAP(address_width => test_width) PORT 
       blink           => blink
    );
    
-   debug <= tester_debug;
+   --debug <= tester_debug; original
+	--forcing a trigger on cheapscope:
+	debug(14 downto 0) <= tester_debug(14 downto 0);
+	debug(15) <= '1';
+	--debug(15) <= NOT PB2;  --This will cause a trigger when pb2 is pushed.  (large delay between captures, not sure why?)
+	
 
 Inst_SDRAM_Controller: SDRAM_Controller GENERIC MAP (
       sdram_address_width => sdram_address_width,
