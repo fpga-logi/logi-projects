@@ -1,0 +1,89 @@
+##========================================================
+##    Pin assignment for Xilinx
+##    Mark1 - Pong Chu book compatible - (work in progress)
+##   	- Intended for use the the MARK1 and EDU expansion 
+##  	* Notes:
+## 	- reversed the order of pb,sw,led,sseg,an.  The order should be MSB to LSB - left to right
+##========================================================
+##========================================================
+## Board Version RA.2
+## - Will leave the UCF file name the same for subseguent board
+## This will allow for the project to simply be rebuilt without the need
+## to restructure.
+##========================================================
+NET "clk" TNM_NET = clk;
+TIMESPEC TS_clk = PERIOD "clk" 50 MHz HIGH 50%;
+
+##========================================================
+## clock and reset
+##========================================================
+NET "clk"    LOC = P124;
+
+##========================================================
+## NES controller pins
+##========================================================
+NET "nes_clk"  	LOC = P84	|	IOSTANDARD = LVCMOS33;	#PMOD4_2
+NET "nes_lat"  	LOC = P81	|	IOSTANDARD = LVCMOS33;	#PMOD4_3
+NET "nes1_dat"    LOC = P80	|	IOSTANDARD = LVCMOS33;	#PMOD4_4
+NET "nes2_dat"  	LOC = P82	|	IOSTANDARD = LVCMOS33;	#PMOD4_10
+
+# Reversed UCF defenitions to fix reversed order on RA.1 for now.
+NET "n_btn<0>"   LOC = P67;
+NET "n_btn<1>"   LOC = P61;
+
+#=========================================================
+## 2 slide switches
+#==========================================================
+# This is how the pins should be laid out.  Needs reversed on PCB					
+#NET "sw<0>"  LOC = P40	|	IOSTANDARD = LVCMOS33;
+NET "n_reset"  	LOC = P40;
+NET "sw<1>"  LOC = P41	|	IOSTANDARD = LVCMOS33;
+
+###========================================================
+### VGA outputs
+###========================================================
+NET "rgb<0>"  LOC = P120 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//R0	- P1_7 #NET "p1_7" LOC = P121;
+NET "rgb<1>"  LOC = P118 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//G0	- P1_8 #NET "p1_8" LOC = P120;
+NET "rgb<2>"  LOC = P117 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//B0	- P1_9 #NET "p1_9" LOC = P119;
+NET "vsync"   LOC = P115 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//P1_10	- #NET  LOC = P123;
+NET "hsync"   LOC = P116  	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//P1_4	- #NET "p1_4" LOC = P123;#NET "p1_4" LOC = P123;
+
+#========================================================
+# 2 discrete LEDs
+#========================================================
+# Reversed UCF defenitions to fix reversed order on RA.1 for now.
+NET "led<0>"  LOC = P58	|	IOSTANDARD = LVCMOS33;
+NET "led<1>"  LOC = P59	|	IOSTANDARD = LVCMOS33;
+
+# This controls segments from 0:3 right to left 
+# The transistors are pulling the lines low.  Must not be gate.
+#========================================================
+# 4-digit time-multiplexed 7-segment LED display
+#========================================================
+# This is from 3-0 right to left
+# digit enable							
+NET "an<3>"  LOC = 	P112	|	IOSTANDARD = LVCMOS33;	#p2_7	
+NET "an<2>"  LOC = 	P114	|	IOSTANDARD = LVCMOS33;  #p2_1	
+NET "an<1>"  LOC = 	P123	|	IOSTANDARD = LVCMOS33;  #p2_3	
+NET "an<0>"  LOC = 	P102	|	IOSTANDARD = LVCMOS33;  #p2_4	
+NET "an_l"   LOC =   P111	|	IOSTANDARD = LVCMOS33;	#p2_2	
+#! currently p channel fets installed!  Need to change to n channel
+
+# This is wired low bit = a , etc.  the book code is reversed order.
+# 7-segment led segments
+NET "sseg<0>"  LOC = P99	|	IOSTANDARD = LVCMOS33; 	# segment a		p3_8
+NET "sseg<1>"  LOC = P100	|	IOSTANDARD = LVCMOS33; 	# segment b		p3_7
+NET "sseg<2>"  LOC = P97	|	IOSTANDARD = LVCMOS33; 	# segment c		p3_2
+NET "sseg<3>"  LOC = P62		|	IOSTANDARD = LVCMOS33; 	# segment d		p2_8
+NET "sseg<4>"  LOC = P105		|	IOSTANDARD = LVCMOS33; 	# segment e		p2_9
+NET "sseg<5>"  LOC = P95	|	IOSTANDARD = LVCMOS33; 	# segment f 	p3_9
+NET "sseg<6>"  LOC = P98	|	IOSTANDARD = LVCMOS33; 	# segment g		p3_1
+NET "sseg<7>"  LOC = P104	|	IOSTANDARD = LVCMOS33; 	# decimal point p2_10	
+
+#========================================================
+# UART to USB (FTDI)
+# TX = FGPA TX  = Host RX
+# RX = FPGA RX  = Host TX
+#========================================================
+NET "rx"  LOC = P50	|	IOSTANDARD = LVCMOS33;	
+NET "tx"  LOC = P51	|	IOSTANDARD = LVCMOS33;
