@@ -1,0 +1,2434 @@
+//! **************************************************************************
+// Written by: Map P.15xf on Fri May 31 17:59:25 2013
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "OSC_FPGA" LOCATE = SITE "P55" LEVEL 1;
+COMP "PB<0>" LOCATE = SITE "P58" LEVEL 1;
+COMP "PB<1>" LOCATE = SITE "P57" LEVEL 1;
+COMP "PB<2>" LOCATE = SITE "P56" LEVEL 1;
+COMP "PB<3>" LOCATE = SITE "P51" LEVEL 1;
+COMP "SYS_I2C_SDA" LOCATE = SITE "P24" LEVEL 1;
+COMP "SYS_I2C_SCL" LOCATE = SITE "P23" LEVEL 1;
+COMP "SYS_SPI_SCK" LOCATE = SITE "P26" LEVEL 1;
+PIN SYS_SPI_SCK_pin<0> = BEL "SYS_SPI_SCK" PINNAME PAD;
+PIN "SYS_SPI_SCK_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+COMP "LED<0>" LOCATE = SITE "P41" LEVEL 1;
+COMP "LED<1>" LOCATE = SITE "P43" LEVEL 1;
+COMP "LED<2>" LOCATE = SITE "P44" LEVEL 1;
+COMP "LED<3>" LOCATE = SITE "P45" LEVEL 1;
+COMP "LED<4>" LOCATE = SITE "P46" LEVEL 1;
+COMP "LED<5>" LOCATE = SITE "P47" LEVEL 1;
+COMP "LED<6>" LOCATE = SITE "P48" LEVEL 1;
+COMP "LED<7>" LOCATE = SITE "P50" LEVEL 1;
+COMP "SYS_SPI_SS" LOCATE = SITE "P30" LEVEL 1;
+COMP "DIP_SW<0>" LOCATE = SITE "P59" LEVEL 1;
+COMP "DIP_SW<1>" LOCATE = SITE "P61" LEVEL 1;
+COMP "DIP_SW<2>" LOCATE = SITE "P62" LEVEL 1;
+COMP "DIP_SW<3>" LOCATE = SITE "P66" LEVEL 1;
+COMP "SYS_SPI_MISO" LOCATE = SITE "P27" LEVEL 1;
+COMP "SYS_SPI_MOSI" LOCATE = SITE "P29" LEVEL 1;
+COMP "PMOD3<0>" LOCATE = SITE "P22" LEVEL 1;
+COMP "PMOD3<1>" LOCATE = SITE "P21" LEVEL 1;
+COMP "PMOD3<2>" LOCATE = SITE "P17" LEVEL 1;
+COMP "PMOD3<3>" LOCATE = SITE "P16" LEVEL 1;
+COMP "PMOD3<4>" LOCATE = SITE "P15" LEVEL 1;
+COMP "PMOD3<5>" LOCATE = SITE "P14" LEVEL 1;
+COMP "PMOD3<6>" LOCATE = SITE "P12" LEVEL 1;
+COMP "PMOD3<7>" LOCATE = SITE "P11" LEVEL 1;
+COMP "PMOD4_10" LOCATE = SITE "P120" LEVEL 1;
+PIN PMOD4_10_pin<0> = BEL "PMOD4_10" PINNAME PAD;
+PIN "PMOD4_10_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+COMP "PMOD4_1" LOCATE = SITE "P133" LEVEL 1;
+COMP "PMOD4_2" LOCATE = SITE "P132" LEVEL 1;
+COMP "PMOD4_3" LOCATE = SITE "P131" LEVEL 1;
+COMP "PMOD4_4" LOCATE = SITE "P127" LEVEL 1;
+COMP "PMOD4_7" LOCATE = SITE "P126" LEVEL 1;
+COMP "PMOD4_8" LOCATE = SITE "P124" LEVEL 1;
+COMP "PMOD4_9" LOCATE = SITE "P121" LEVEL 1;
+PIN sys_clocks_gen/clkout2_buf_pin<1> = BEL "sys_clocks_gen/clkout2_buf"
+        PINNAME O;
+PIN "sys_clocks_gen/clkout2_buf_pin<1>" CLOCK_DEDICATED_ROUTE = FALSE;
+PIN sobel0/block0/lines0/Mram_RAM_pins<18> = BEL
+        "sobel0/block0/lines0/Mram_RAM" PINNAME CLKAWRCLK;
+PIN sobel0/block0/lines0/Mram_RAM_pins<19> = BEL
+        "sobel0/block0/lines0/Mram_RAM" PINNAME CLKBRDCLK;
+PIN harris_detector/sobel0/block0/lines0/Mram_RAM_pins<18> = BEL
+        "harris_detector/sobel0/block0/lines0/Mram_RAM" PINNAME CLKAWRCLK;
+PIN harris_detector/sobel0/block0/lines0/Mram_RAM_pins<19> = BEL
+        "harris_detector/sobel0/block0/lines0/Mram_RAM" PINNAME CLKBRDCLK;
+PIN gauss3x3_0/block0/lines0/Mram_RAM_pins<18> = BEL
+        "gauss3x3_0/block0/lines0/Mram_RAM" PINNAME CLKAWRCLK;
+PIN gauss3x3_0/block0/lines0/Mram_RAM_pins<19> = BEL
+        "gauss3x3_0/block0/lines0/Mram_RAM" PINNAME CLKBRDCLK;
+PIN harris_detector/gauss3x3_0/block0/lines0/Mram_RAM_pins<18> = BEL
+        "harris_detector/gauss3x3_0/block0/lines0/Mram_RAM" PINNAME CLKAWRCLK;
+PIN harris_detector/gauss3x3_0/block0/lines0/Mram_RAM_pins<19> = BEL
+        "harris_detector/gauss3x3_0/block0/lines0/Mram_RAM" PINNAME CLKBRDCLK;
+PIN harris_detector/gen_square_acc/ram_grady/Mram_RAM2_pins<18> = BEL
+        "harris_detector/gen_square_acc/ram_grady/Mram_RAM2" PINNAME CLKA;
+PIN harris_detector/gen_square_acc/ram_grady/Mram_RAM2_pins<19> = BEL
+        "harris_detector/gen_square_acc/ram_grady/Mram_RAM2" PINNAME CLKB;
+PIN harris_detector/gen_square_acc/ram_gradxy/Mram_RAM2_pins<18> = BEL
+        "harris_detector/gen_square_acc/ram_gradxy/Mram_RAM2" PINNAME CLKA;
+PIN harris_detector/gen_square_acc/ram_gradxy/Mram_RAM2_pins<19> = BEL
+        "harris_detector/gen_square_acc/ram_gradxy/Mram_RAM2" PINNAME CLKB;
+PIN harris_detector/gen_square_acc/ram_gradx/Mram_RAM2_pins<18> = BEL
+        "harris_detector/gen_square_acc/ram_gradx/Mram_RAM2" PINNAME CLKA;
+PIN harris_detector/gen_square_acc/ram_gradx/Mram_RAM2_pins<19> = BEL
+        "harris_detector/gen_square_acc/ram_gradx/Mram_RAM2" PINNAME CLKB;
+PIN harris_detector/gen_square_acc/ram_gradxy/Mram_RAM1_pins<18> = BEL
+        "harris_detector/gen_square_acc/ram_gradxy/Mram_RAM1" PINNAME CLKA;
+PIN harris_detector/gen_square_acc/ram_gradxy/Mram_RAM1_pins<19> = BEL
+        "harris_detector/gen_square_acc/ram_gradxy/Mram_RAM1" PINNAME CLKB;
+PIN harris_detector/gen_square_acc/ram_grady/Mram_RAM1_pins<18> = BEL
+        "harris_detector/gen_square_acc/ram_grady/Mram_RAM1" PINNAME CLKA;
+PIN harris_detector/gen_square_acc/ram_grady/Mram_RAM1_pins<19> = BEL
+        "harris_detector/gen_square_acc/ram_grady/Mram_RAM1" PINNAME CLKB;
+PIN harris_detector/gen_square_acc/ram_gradx/Mram_RAM1_pins<18> = BEL
+        "harris_detector/gen_square_acc/ram_gradx/Mram_RAM1" PINNAME CLKA;
+PIN harris_detector/gen_square_acc/ram_gradx/Mram_RAM1_pins<19> = BEL
+        "harris_detector/gen_square_acc/ram_gradx/Mram_RAM1" PINNAME CLKB;
+PIN fifo_preview/fifo_B/dp_ram0/Mram_RAM7_pins<26> = BEL
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM7" PINNAME CLKA;
+PIN fifo_preview/fifo_B/dp_ram0/Mram_RAM7_pins<27> = BEL
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM7" PINNAME CLKB;
+PIN fifo_preview/fifo_B/dp_ram0/Mram_RAM8_pins<26> = BEL
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM8" PINNAME CLKA;
+PIN fifo_preview/fifo_B/dp_ram0/Mram_RAM8_pins<27> = BEL
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM8" PINNAME CLKB;
+PIN fifo_preview/fifo_B/dp_ram0/Mram_RAM4_pins<26> = BEL
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM4" PINNAME CLKA;
+PIN fifo_preview/fifo_B/dp_ram0/Mram_RAM4_pins<27> = BEL
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM4" PINNAME CLKB;
+PIN fifo_preview/fifo_B/dp_ram0/Mram_RAM3_pins<26> = BEL
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM3" PINNAME CLKA;
+PIN fifo_preview/fifo_B/dp_ram0/Mram_RAM3_pins<27> = BEL
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM3" PINNAME CLKB;
+PIN fifo_preview/fifo_B/dp_ram0/Mram_RAM1_pins<26> = BEL
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM1" PINNAME CLKA;
+PIN fifo_preview/fifo_B/dp_ram0/Mram_RAM1_pins<27> = BEL
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM1" PINNAME CLKB;
+PIN fifo_preview/fifo_B/dp_ram0/Mram_RAM2_pins<26> = BEL
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM2" PINNAME CLKA;
+PIN fifo_preview/fifo_B/dp_ram0/Mram_RAM2_pins<27> = BEL
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM2" PINNAME CLKB;
+PIN ds_image/line_ram0/Mram_RAM_pins<18> = BEL "ds_image/line_ram0/Mram_RAM"
+        PINNAME CLKAWRCLK;
+PIN ds_image/line_ram0/Mram_RAM_pins<19> = BEL "ds_image/line_ram0/Mram_RAM"
+        PINNAME CLKBRDCLK;
+TIMEGRP sys_clocks_gen_clkout2 = BEL "gauss3x3_0/pixel_from_conv_latched_11"
+        BEL "gauss3x3_0/pixel_from_conv_latched_10" BEL
+        "gauss3x3_0/pixel_from_conv_latched_9" BEL
+        "gauss3x3_0/pixel_from_conv_latched_8" BEL
+        "gauss3x3_0/pixel_from_conv_latched_7" BEL
+        "gauss3x3_0/pixel_from_conv_latched_6" BEL
+        "gauss3x3_0/pixel_from_conv_latched_5" BEL
+        "gauss3x3_0/pixel_from_conv_latched_4" BEL "gauss3x3_0/sum_step_2_11"
+        BEL "gauss3x3_0/sum_step_2_10" BEL "gauss3x3_0/sum_step_2_9" BEL
+        "gauss3x3_0/sum_step_2_8" BEL "gauss3x3_0/sum_step_2_7" BEL
+        "gauss3x3_0/sum_step_2_6" BEL "gauss3x3_0/sum_step_2_5" BEL
+        "gauss3x3_0/sum_step_2_4" BEL "gauss3x3_0/sum_step_1_11" BEL
+        "gauss3x3_0/sum_step_1_10" BEL "gauss3x3_0/sum_step_1_9" BEL
+        "gauss3x3_0/sum_step_1_8" BEL "gauss3x3_0/sum_step_1_7" BEL
+        "gauss3x3_0/sum_step_1_6" BEL "gauss3x3_0/sum_step_1_5" BEL
+        "gauss3x3_0/sum_step_1_4" BEL "gauss3x3_0/sum_step_1_3" BEL
+        "gauss3x3_0/sum_step_1_2" BEL "gauss3x3_0/sum_step_1_1" BEL
+        "gauss3x3_0/sum_step_1_0" BEL "gauss3x3_0/sum_step_0_11" BEL
+        "gauss3x3_0/sum_step_0_10" BEL "gauss3x3_0/sum_step_0_9" BEL
+        "gauss3x3_0/sum_step_0_8" BEL "gauss3x3_0/sum_step_0_7" BEL
+        "gauss3x3_0/sum_step_0_6" BEL "gauss3x3_0/sum_step_0_5" BEL
+        "gauss3x3_0/sum_step_0_4" BEL "gauss3x3_0/sum_step_0_3" BEL
+        "gauss3x3_0/sum_step_0_2" BEL "gauss3x3_0/sum_step_0_1" BEL
+        "gauss3x3_0/sum_step_0_0" BEL "gauss3x3_0/block0/old_pixel_clock" BEL
+        "gauss3x3_0/block0/line_counter0/hsync_old" BEL
+        "sobel0/block0/line_counter0/hsync_old" BEL
+        "sobel0/raw_from_conv1_latched_15" BEL
+        "sobel0/raw_from_conv1_latched_10" BEL
+        "sobel0/raw_from_conv1_latched_9" BEL
+        "sobel0/raw_from_conv1_latched_8" BEL
+        "sobel0/raw_from_conv1_latched_7" BEL
+        "sobel0/raw_from_conv1_latched_6" BEL
+        "sobel0/raw_from_conv1_latched_5" BEL
+        "sobel0/raw_from_conv1_latched_4" BEL
+        "sobel0/raw_from_conv1_latched_3" BEL
+        "sobel0/raw_from_conv1_latched_2" BEL
+        "sobel0/raw_from_conv1_latched_1" BEL
+        "sobel0/raw_from_conv1_latched_0" BEL
+        "sobel0/raw_from_conv2_latched_15" BEL
+        "sobel0/raw_from_conv2_latched_10" BEL
+        "sobel0/raw_from_conv2_latched_9" BEL
+        "sobel0/raw_from_conv2_latched_8" BEL
+        "sobel0/raw_from_conv2_latched_7" BEL
+        "sobel0/raw_from_conv2_latched_6" BEL
+        "sobel0/raw_from_conv2_latched_5" BEL
+        "sobel0/raw_from_conv2_latched_4" BEL
+        "sobel0/raw_from_conv2_latched_3" BEL
+        "sobel0/raw_from_conv2_latched_2" BEL
+        "sobel0/raw_from_conv2_latched_1" BEL
+        "sobel0/raw_from_conv2_latched_0" BEL "sobel0/sum_x_step_2_15" BEL
+        "sobel0/sum_x_step_2_10" BEL "sobel0/sum_x_step_2_9" BEL
+        "sobel0/sum_x_step_2_8" BEL "sobel0/sum_x_step_2_7" BEL
+        "sobel0/sum_x_step_2_6" BEL "sobel0/sum_x_step_2_5" BEL
+        "sobel0/sum_x_step_2_4" BEL "sobel0/sum_x_step_2_3" BEL
+        "sobel0/sum_x_step_2_2" BEL "sobel0/sum_x_step_2_1" BEL
+        "sobel0/sum_x_step_2_0" BEL "sobel0/sum_y_step_2_15" BEL
+        "sobel0/sum_y_step_2_10" BEL "sobel0/sum_y_step_2_9" BEL
+        "sobel0/sum_y_step_2_8" BEL "sobel0/sum_y_step_2_7" BEL
+        "sobel0/sum_y_step_2_6" BEL "sobel0/sum_y_step_2_5" BEL
+        "sobel0/sum_y_step_2_4" BEL "sobel0/sum_y_step_2_3" BEL
+        "sobel0/sum_y_step_2_2" BEL "sobel0/sum_y_step_2_1" BEL
+        "sobel0/sum_y_step_2_0" BEL "sobel0/sum_x_step_1_13" BEL
+        "sobel0/sum_x_step_1_12" BEL "sobel0/sum_x_step_1_11" BEL
+        "sobel0/sum_x_step_1_10" BEL "sobel0/sum_x_step_1_9" BEL
+        "sobel0/sum_x_step_1_8" BEL "sobel0/sum_x_step_1_7" BEL
+        "sobel0/sum_x_step_1_6" BEL "sobel0/sum_x_step_1_5" BEL
+        "sobel0/sum_x_step_1_4" BEL "sobel0/sum_x_step_1_3" BEL
+        "sobel0/sum_x_step_1_2" BEL "sobel0/sum_x_step_1_1" BEL
+        "sobel0/sum_x_step_1_0" BEL "sobel0/sum_y_step_1_13" BEL
+        "sobel0/sum_y_step_1_12" BEL "sobel0/sum_y_step_1_11" BEL
+        "sobel0/sum_y_step_1_10" BEL "sobel0/sum_y_step_1_9" BEL
+        "sobel0/sum_y_step_1_8" BEL "sobel0/sum_y_step_1_7" BEL
+        "sobel0/sum_y_step_1_6" BEL "sobel0/sum_y_step_1_5" BEL
+        "sobel0/sum_y_step_1_4" BEL "sobel0/sum_y_step_1_3" BEL
+        "sobel0/sum_y_step_1_2" BEL "sobel0/sum_y_step_1_1" BEL
+        "sobel0/sum_y_step_1_0" BEL "sobel0/sum_y_step_0_8" BEL
+        "sobel0/sum_y_step_0_7" BEL "sobel0/sum_y_step_0_6" BEL
+        "sobel0/sum_y_step_0_5" BEL "sobel0/sum_y_step_0_4" BEL
+        "sobel0/sum_y_step_0_3" BEL "sobel0/sum_y_step_0_2" BEL
+        "sobel0/sum_y_step_0_1" BEL "sobel0/sum_y_step_0_0" BEL
+        "sobel0/sum_x_step_0_8" BEL "sobel0/sum_x_step_0_7" BEL
+        "sobel0/sum_x_step_0_6" BEL "sobel0/sum_x_step_0_5" BEL
+        "sobel0/sum_x_step_0_4" BEL "sobel0/sum_x_step_0_3" BEL
+        "sobel0/sum_x_step_0_2" BEL "sobel0/sum_x_step_0_1" BEL
+        "sobel0/sum_x_step_0_0" BEL "harris_detector/sobel0/sum_x_step_0_0"
+        BEL "harris_detector/sobel0/sum_x_step_0_1" BEL
+        "harris_detector/sobel0/sum_x_step_0_2" BEL
+        "harris_detector/sobel0/sum_x_step_0_3" BEL
+        "harris_detector/sobel0/sum_x_step_0_4" BEL
+        "harris_detector/sobel0/sum_x_step_0_5" BEL
+        "harris_detector/sobel0/sum_x_step_0_6" BEL
+        "harris_detector/sobel0/sum_x_step_0_7" BEL
+        "harris_detector/sobel0/sum_x_step_0_8" BEL
+        "harris_detector/sobel0/sum_y_step_0_0" BEL
+        "harris_detector/sobel0/sum_y_step_0_1" BEL
+        "harris_detector/sobel0/sum_y_step_0_2" BEL
+        "harris_detector/sobel0/sum_y_step_0_3" BEL
+        "harris_detector/sobel0/sum_y_step_0_4" BEL
+        "harris_detector/sobel0/sum_y_step_0_5" BEL
+        "harris_detector/sobel0/sum_y_step_0_6" BEL
+        "harris_detector/sobel0/sum_y_step_0_7" BEL
+        "harris_detector/sobel0/sum_y_step_0_8" BEL
+        "harris_detector/sobel0/sum_y_step_1_0" BEL
+        "harris_detector/sobel0/sum_y_step_1_1" BEL
+        "harris_detector/sobel0/sum_y_step_1_2" BEL
+        "harris_detector/sobel0/sum_y_step_1_3" BEL
+        "harris_detector/sobel0/sum_y_step_1_4" BEL
+        "harris_detector/sobel0/sum_y_step_1_5" BEL
+        "harris_detector/sobel0/sum_y_step_1_6" BEL
+        "harris_detector/sobel0/sum_y_step_1_7" BEL
+        "harris_detector/sobel0/sum_y_step_1_8" BEL
+        "harris_detector/sobel0/sum_y_step_1_9" BEL
+        "harris_detector/sobel0/sum_y_step_1_10" BEL
+        "harris_detector/sobel0/sum_x_step_1_0" BEL
+        "harris_detector/sobel0/sum_x_step_1_1" BEL
+        "harris_detector/sobel0/sum_x_step_1_2" BEL
+        "harris_detector/sobel0/sum_x_step_1_3" BEL
+        "harris_detector/sobel0/sum_x_step_1_4" BEL
+        "harris_detector/sobel0/sum_x_step_1_5" BEL
+        "harris_detector/sobel0/sum_x_step_1_6" BEL
+        "harris_detector/sobel0/sum_x_step_1_7" BEL
+        "harris_detector/sobel0/sum_x_step_1_8" BEL
+        "harris_detector/sobel0/sum_x_step_1_9" BEL
+        "harris_detector/sobel0/sum_x_step_1_10" BEL
+        "harris_detector/sobel0/sum_y_step_2_3" BEL
+        "harris_detector/sobel0/sum_y_step_2_4" BEL
+        "harris_detector/sobel0/sum_y_step_2_5" BEL
+        "harris_detector/sobel0/sum_y_step_2_6" BEL
+        "harris_detector/sobel0/sum_y_step_2_7" BEL
+        "harris_detector/sobel0/sum_y_step_2_8" BEL
+        "harris_detector/sobel0/sum_y_step_2_9" BEL
+        "harris_detector/sobel0/sum_y_step_2_10" BEL
+        "harris_detector/sobel0/sum_x_step_2_3" BEL
+        "harris_detector/sobel0/sum_x_step_2_4" BEL
+        "harris_detector/sobel0/sum_x_step_2_5" BEL
+        "harris_detector/sobel0/sum_x_step_2_6" BEL
+        "harris_detector/sobel0/sum_x_step_2_7" BEL
+        "harris_detector/sobel0/sum_x_step_2_8" BEL
+        "harris_detector/sobel0/sum_x_step_2_9" BEL
+        "harris_detector/sobel0/sum_x_step_2_10" BEL
+        "harris_detector/sobel0/raw_from_conv2_latched_3" BEL
+        "harris_detector/sobel0/raw_from_conv2_latched_4" BEL
+        "harris_detector/sobel0/raw_from_conv2_latched_5" BEL
+        "harris_detector/sobel0/raw_from_conv2_latched_6" BEL
+        "harris_detector/sobel0/raw_from_conv2_latched_7" BEL
+        "harris_detector/sobel0/raw_from_conv2_latched_8" BEL
+        "harris_detector/sobel0/raw_from_conv2_latched_9" BEL
+        "harris_detector/sobel0/raw_from_conv2_latched_10" BEL
+        "harris_detector/sobel0/raw_from_conv1_latched_3" BEL
+        "harris_detector/sobel0/raw_from_conv1_latched_4" BEL
+        "harris_detector/sobel0/raw_from_conv1_latched_5" BEL
+        "harris_detector/sobel0/raw_from_conv1_latched_6" BEL
+        "harris_detector/sobel0/raw_from_conv1_latched_7" BEL
+        "harris_detector/sobel0/raw_from_conv1_latched_8" BEL
+        "harris_detector/sobel0/raw_from_conv1_latched_9" BEL
+        "harris_detector/sobel0/raw_from_conv1_latched_10" BEL
+        "harris_detector/gauss3x3_0/sum_step_0_0" BEL
+        "harris_detector/gauss3x3_0/sum_step_0_1" BEL
+        "harris_detector/gauss3x3_0/sum_step_0_2" BEL
+        "harris_detector/gauss3x3_0/sum_step_0_3" BEL
+        "harris_detector/gauss3x3_0/sum_step_0_4" BEL
+        "harris_detector/gauss3x3_0/sum_step_0_5" BEL
+        "harris_detector/gauss3x3_0/sum_step_0_6" BEL
+        "harris_detector/gauss3x3_0/sum_step_0_7" BEL
+        "harris_detector/gauss3x3_0/sum_step_0_8" BEL
+        "harris_detector/gauss3x3_0/sum_step_0_9" BEL
+        "harris_detector/gauss3x3_0/sum_step_0_10" BEL
+        "harris_detector/gauss3x3_0/sum_step_0_11" BEL
+        "harris_detector/gauss3x3_0/sum_step_1_0" BEL
+        "harris_detector/gauss3x3_0/sum_step_1_1" BEL
+        "harris_detector/gauss3x3_0/sum_step_1_2" BEL
+        "harris_detector/gauss3x3_0/sum_step_1_3" BEL
+        "harris_detector/gauss3x3_0/sum_step_1_4" BEL
+        "harris_detector/gauss3x3_0/sum_step_1_5" BEL
+        "harris_detector/gauss3x3_0/sum_step_1_6" BEL
+        "harris_detector/gauss3x3_0/sum_step_1_7" BEL
+        "harris_detector/gauss3x3_0/sum_step_1_8" BEL
+        "harris_detector/gauss3x3_0/sum_step_1_9" BEL
+        "harris_detector/gauss3x3_0/sum_step_1_10" BEL
+        "harris_detector/gauss3x3_0/sum_step_1_11" BEL
+        "harris_detector/gauss3x3_0/sum_step_2_4" BEL
+        "harris_detector/gauss3x3_0/sum_step_2_5" BEL
+        "harris_detector/gauss3x3_0/sum_step_2_6" BEL
+        "harris_detector/gauss3x3_0/sum_step_2_7" BEL
+        "harris_detector/gauss3x3_0/sum_step_2_8" BEL
+        "harris_detector/gauss3x3_0/sum_step_2_9" BEL
+        "harris_detector/gauss3x3_0/sum_step_2_10" BEL
+        "harris_detector/gauss3x3_0/sum_step_2_11" BEL
+        "harris_detector/gauss3x3_0/pixel_from_conv_latched_4" BEL
+        "harris_detector/gauss3x3_0/pixel_from_conv_latched_5" BEL
+        "harris_detector/gauss3x3_0/pixel_from_conv_latched_6" BEL
+        "harris_detector/gauss3x3_0/pixel_from_conv_latched_7" BEL
+        "harris_detector/gauss3x3_0/pixel_from_conv_latched_8" BEL
+        "harris_detector/gauss3x3_0/pixel_from_conv_latched_9" BEL
+        "harris_detector/gauss3x3_0/pixel_from_conv_latched_10" BEL
+        "harris_detector/gauss3x3_0/pixel_from_conv_latched_11" BEL
+        "harris_detector/gradxy_sum_col_4_13" BEL
+        "harris_detector/gradxy_sum_col_4_12" BEL
+        "harris_detector/gradxy_sum_col_4_11" BEL
+        "harris_detector/gradxy_sum_col_4_10" BEL
+        "harris_detector/gradxy_sum_col_4_9" BEL
+        "harris_detector/gradxy_sum_col_4_8" BEL
+        "harris_detector/gradxy_sum_col_4_7" BEL
+        "harris_detector/gradxy_sum_col_4_6" BEL
+        "harris_detector/gradxy_sum_col_4_5" BEL
+        "harris_detector/gradxy_sum_col_4_4" BEL
+        "harris_detector/gradxy_sum_col_4_3" BEL
+        "harris_detector/gradxy_sum_col_4_2" BEL
+        "harris_detector/gradxy_sum_col_4_1" BEL
+        "harris_detector/gradxy_sum_col_4_0" BEL
+        "harris_detector/grady_square_sum_col_4_13" BEL
+        "harris_detector/grady_square_sum_col_4_12" BEL
+        "harris_detector/grady_square_sum_col_4_11" BEL
+        "harris_detector/grady_square_sum_col_4_10" BEL
+        "harris_detector/grady_square_sum_col_4_9" BEL
+        "harris_detector/grady_square_sum_col_4_8" BEL
+        "harris_detector/grady_square_sum_col_4_7" BEL
+        "harris_detector/grady_square_sum_col_4_6" BEL
+        "harris_detector/grady_square_sum_col_4_5" BEL
+        "harris_detector/grady_square_sum_col_4_4" BEL
+        "harris_detector/grady_square_sum_col_4_3" BEL
+        "harris_detector/grady_square_sum_col_4_2" BEL
+        "harris_detector/grady_square_sum_col_4_1" BEL
+        "harris_detector/grady_square_sum_col_4_0" BEL
+        "harris_detector/gradx_square_sum_col_4_13" BEL
+        "harris_detector/gradx_square_sum_col_4_12" BEL
+        "harris_detector/gradx_square_sum_col_4_11" BEL
+        "harris_detector/gradx_square_sum_col_4_10" BEL
+        "harris_detector/gradx_square_sum_col_4_9" BEL
+        "harris_detector/gradx_square_sum_col_4_8" BEL
+        "harris_detector/gradx_square_sum_col_4_7" BEL
+        "harris_detector/gradx_square_sum_col_4_6" BEL
+        "harris_detector/gradx_square_sum_col_4_5" BEL
+        "harris_detector/gradx_square_sum_col_4_4" BEL
+        "harris_detector/gradx_square_sum_col_4_3" BEL
+        "harris_detector/gradx_square_sum_col_4_2" BEL
+        "harris_detector/gradx_square_sum_col_4_1" BEL
+        "harris_detector/gradx_square_sum_col_4_0" BEL
+        "harris_detector/gradxy_sum_col_3_13" BEL
+        "harris_detector/gradxy_sum_col_3_12" BEL
+        "harris_detector/gradxy_sum_col_3_11" BEL
+        "harris_detector/gradxy_sum_col_3_10" BEL
+        "harris_detector/gradxy_sum_col_3_9" BEL
+        "harris_detector/gradxy_sum_col_3_8" BEL
+        "harris_detector/gradxy_sum_col_3_7" BEL
+        "harris_detector/gradxy_sum_col_3_6" BEL
+        "harris_detector/gradxy_sum_col_3_5" BEL
+        "harris_detector/gradxy_sum_col_3_4" BEL
+        "harris_detector/gradxy_sum_col_3_3" BEL
+        "harris_detector/gradxy_sum_col_3_2" BEL
+        "harris_detector/gradxy_sum_col_3_1" BEL
+        "harris_detector/gradxy_sum_col_3_0" BEL
+        "harris_detector/grady_square_sum_col_3_13" BEL
+        "harris_detector/grady_square_sum_col_3_12" BEL
+        "harris_detector/grady_square_sum_col_3_11" BEL
+        "harris_detector/grady_square_sum_col_3_10" BEL
+        "harris_detector/grady_square_sum_col_3_9" BEL
+        "harris_detector/grady_square_sum_col_3_8" BEL
+        "harris_detector/grady_square_sum_col_3_7" BEL
+        "harris_detector/grady_square_sum_col_3_6" BEL
+        "harris_detector/grady_square_sum_col_3_5" BEL
+        "harris_detector/grady_square_sum_col_3_4" BEL
+        "harris_detector/grady_square_sum_col_3_3" BEL
+        "harris_detector/grady_square_sum_col_3_2" BEL
+        "harris_detector/grady_square_sum_col_3_1" BEL
+        "harris_detector/grady_square_sum_col_3_0" BEL
+        "harris_detector/gradx_square_sum_col_3_13" BEL
+        "harris_detector/gradx_square_sum_col_3_12" BEL
+        "harris_detector/gradx_square_sum_col_3_11" BEL
+        "harris_detector/gradx_square_sum_col_3_10" BEL
+        "harris_detector/gradx_square_sum_col_3_9" BEL
+        "harris_detector/gradx_square_sum_col_3_8" BEL
+        "harris_detector/gradx_square_sum_col_3_7" BEL
+        "harris_detector/gradx_square_sum_col_3_6" BEL
+        "harris_detector/gradx_square_sum_col_3_5" BEL
+        "harris_detector/gradx_square_sum_col_3_4" BEL
+        "harris_detector/gradx_square_sum_col_3_3" BEL
+        "harris_detector/gradx_square_sum_col_3_2" BEL
+        "harris_detector/gradx_square_sum_col_3_1" BEL
+        "harris_detector/gradx_square_sum_col_3_0" BEL
+        "harris_detector/gradxy_sum_col_2_13" BEL
+        "harris_detector/gradxy_sum_col_2_12" BEL
+        "harris_detector/gradxy_sum_col_2_11" BEL
+        "harris_detector/gradxy_sum_col_2_10" BEL
+        "harris_detector/gradxy_sum_col_2_9" BEL
+        "harris_detector/gradxy_sum_col_2_8" BEL
+        "harris_detector/gradxy_sum_col_2_7" BEL
+        "harris_detector/gradxy_sum_col_2_6" BEL
+        "harris_detector/gradxy_sum_col_2_5" BEL
+        "harris_detector/gradxy_sum_col_2_4" BEL
+        "harris_detector/gradxy_sum_col_2_3" BEL
+        "harris_detector/gradxy_sum_col_2_2" BEL
+        "harris_detector/gradxy_sum_col_2_1" BEL
+        "harris_detector/gradxy_sum_col_2_0" BEL
+        "harris_detector/grady_square_sum_col_2_13" BEL
+        "harris_detector/grady_square_sum_col_2_12" BEL
+        "harris_detector/grady_square_sum_col_2_11" BEL
+        "harris_detector/grady_square_sum_col_2_10" BEL
+        "harris_detector/grady_square_sum_col_2_9" BEL
+        "harris_detector/grady_square_sum_col_2_8" BEL
+        "harris_detector/grady_square_sum_col_2_7" BEL
+        "harris_detector/grady_square_sum_col_2_6" BEL
+        "harris_detector/grady_square_sum_col_2_5" BEL
+        "harris_detector/grady_square_sum_col_2_4" BEL
+        "harris_detector/grady_square_sum_col_2_3" BEL
+        "harris_detector/grady_square_sum_col_2_2" BEL
+        "harris_detector/grady_square_sum_col_2_1" BEL
+        "harris_detector/grady_square_sum_col_2_0" BEL
+        "harris_detector/gradx_square_sum_col_2_13" BEL
+        "harris_detector/gradx_square_sum_col_2_12" BEL
+        "harris_detector/gradx_square_sum_col_2_11" BEL
+        "harris_detector/gradx_square_sum_col_2_10" BEL
+        "harris_detector/gradx_square_sum_col_2_9" BEL
+        "harris_detector/gradx_square_sum_col_2_8" BEL
+        "harris_detector/gradx_square_sum_col_2_7" BEL
+        "harris_detector/gradx_square_sum_col_2_6" BEL
+        "harris_detector/gradx_square_sum_col_2_5" BEL
+        "harris_detector/gradx_square_sum_col_2_4" BEL
+        "harris_detector/gradx_square_sum_col_2_3" BEL
+        "harris_detector/gradx_square_sum_col_2_2" BEL
+        "harris_detector/gradx_square_sum_col_2_1" BEL
+        "harris_detector/gradx_square_sum_col_2_0" BEL
+        "harris_detector/gradxy_sum_col_1_13" BEL
+        "harris_detector/gradxy_sum_col_1_12" BEL
+        "harris_detector/gradxy_sum_col_1_11" BEL
+        "harris_detector/gradxy_sum_col_1_10" BEL
+        "harris_detector/gradxy_sum_col_1_9" BEL
+        "harris_detector/gradxy_sum_col_1_8" BEL
+        "harris_detector/gradxy_sum_col_1_7" BEL
+        "harris_detector/gradxy_sum_col_1_6" BEL
+        "harris_detector/gradxy_sum_col_1_5" BEL
+        "harris_detector/gradxy_sum_col_1_4" BEL
+        "harris_detector/gradxy_sum_col_1_3" BEL
+        "harris_detector/gradxy_sum_col_1_2" BEL
+        "harris_detector/gradxy_sum_col_1_1" BEL
+        "harris_detector/gradxy_sum_col_1_0" BEL
+        "harris_detector/grady_square_sum_col_1_13" BEL
+        "harris_detector/grady_square_sum_col_1_12" BEL
+        "harris_detector/grady_square_sum_col_1_11" BEL
+        "harris_detector/grady_square_sum_col_1_10" BEL
+        "harris_detector/grady_square_sum_col_1_9" BEL
+        "harris_detector/grady_square_sum_col_1_8" BEL
+        "harris_detector/grady_square_sum_col_1_7" BEL
+        "harris_detector/grady_square_sum_col_1_6" BEL
+        "harris_detector/grady_square_sum_col_1_5" BEL
+        "harris_detector/grady_square_sum_col_1_4" BEL
+        "harris_detector/grady_square_sum_col_1_3" BEL
+        "harris_detector/grady_square_sum_col_1_2" BEL
+        "harris_detector/grady_square_sum_col_1_1" BEL
+        "harris_detector/grady_square_sum_col_1_0" BEL
+        "harris_detector/gradx_square_sum_col_1_13" BEL
+        "harris_detector/gradx_square_sum_col_1_12" BEL
+        "harris_detector/gradx_square_sum_col_1_11" BEL
+        "harris_detector/gradx_square_sum_col_1_10" BEL
+        "harris_detector/gradx_square_sum_col_1_9" BEL
+        "harris_detector/gradx_square_sum_col_1_8" BEL
+        "harris_detector/gradx_square_sum_col_1_7" BEL
+        "harris_detector/gradx_square_sum_col_1_6" BEL
+        "harris_detector/gradx_square_sum_col_1_5" BEL
+        "harris_detector/gradx_square_sum_col_1_4" BEL
+        "harris_detector/gradx_square_sum_col_1_3" BEL
+        "harris_detector/gradx_square_sum_col_1_2" BEL
+        "harris_detector/gradx_square_sum_col_1_1" BEL
+        "harris_detector/gradx_square_sum_col_1_0" BEL
+        "harris_detector/gradxy_sum_col_0_13" BEL
+        "harris_detector/gradxy_sum_col_0_12" BEL
+        "harris_detector/gradxy_sum_col_0_11" BEL
+        "harris_detector/gradxy_sum_col_0_10" BEL
+        "harris_detector/gradxy_sum_col_0_9" BEL
+        "harris_detector/gradxy_sum_col_0_8" BEL
+        "harris_detector/gradxy_sum_col_0_7" BEL
+        "harris_detector/gradxy_sum_col_0_6" BEL
+        "harris_detector/gradxy_sum_col_0_5" BEL
+        "harris_detector/gradxy_sum_col_0_4" BEL
+        "harris_detector/gradxy_sum_col_0_3" BEL
+        "harris_detector/gradxy_sum_col_0_2" BEL
+        "harris_detector/gradxy_sum_col_0_1" BEL
+        "harris_detector/gradxy_sum_col_0_0" BEL
+        "harris_detector/grady_square_sum_col_0_13" BEL
+        "harris_detector/grady_square_sum_col_0_12" BEL
+        "harris_detector/grady_square_sum_col_0_11" BEL
+        "harris_detector/grady_square_sum_col_0_10" BEL
+        "harris_detector/grady_square_sum_col_0_9" BEL
+        "harris_detector/grady_square_sum_col_0_8" BEL
+        "harris_detector/grady_square_sum_col_0_7" BEL
+        "harris_detector/grady_square_sum_col_0_6" BEL
+        "harris_detector/grady_square_sum_col_0_5" BEL
+        "harris_detector/grady_square_sum_col_0_4" BEL
+        "harris_detector/grady_square_sum_col_0_3" BEL
+        "harris_detector/grady_square_sum_col_0_2" BEL
+        "harris_detector/grady_square_sum_col_0_1" BEL
+        "harris_detector/grady_square_sum_col_0_0" BEL
+        "harris_detector/gradx_square_sum_col_0_13" BEL
+        "harris_detector/gradx_square_sum_col_0_12" BEL
+        "harris_detector/gradx_square_sum_col_0_11" BEL
+        "harris_detector/gradx_square_sum_col_0_10" BEL
+        "harris_detector/gradx_square_sum_col_0_9" BEL
+        "harris_detector/gradx_square_sum_col_0_8" BEL
+        "harris_detector/gradx_square_sum_col_0_7" BEL
+        "harris_detector/gradx_square_sum_col_0_6" BEL
+        "harris_detector/gradx_square_sum_col_0_5" BEL
+        "harris_detector/gradx_square_sum_col_0_4" BEL
+        "harris_detector/gradx_square_sum_col_0_3" BEL
+        "harris_detector/gradx_square_sum_col_0_2" BEL
+        "harris_detector/gradx_square_sum_col_0_1" BEL
+        "harris_detector/gradx_square_sum_col_0_0" BEL
+        "harris_detector/gradx_square_lines_0_15" BEL
+        "harris_detector/gradx_square_lines_0_14" BEL
+        "harris_detector/gradx_square_lines_0_13" BEL
+        "harris_detector/gradx_square_lines_0_12" BEL
+        "harris_detector/gradx_square_lines_0_11" BEL
+        "harris_detector/gradx_square_lines_0_10" BEL
+        "harris_detector/gradx_square_lines_0_9" BEL
+        "harris_detector/gradx_square_lines_0_8" BEL
+        "harris_detector/gradx_square_lines_0_7" BEL
+        "harris_detector/gradx_square_lines_0_6" BEL
+        "harris_detector/gradx_square_lines_0_5" BEL
+        "harris_detector/gradx_square_lines_0_4" BEL
+        "harris_detector/gradx_square_lines_0_3" BEL
+        "harris_detector/gradx_square_lines_0_2" BEL
+        "harris_detector/gradx_square_lines_0_1" BEL
+        "harris_detector/gradx_square_lines_0_0" BEL
+        "harris_detector/gradxy_lines_0_15" BEL
+        "harris_detector/gradxy_lines_0_14" BEL
+        "harris_detector/gradxy_lines_0_13" BEL
+        "harris_detector/gradxy_lines_0_12" BEL
+        "harris_detector/gradxy_lines_0_11" BEL
+        "harris_detector/gradxy_lines_0_10" BEL
+        "harris_detector/gradxy_lines_0_9" BEL
+        "harris_detector/gradxy_lines_0_8" BEL
+        "harris_detector/gradxy_lines_0_7" BEL
+        "harris_detector/gradxy_lines_0_6" BEL
+        "harris_detector/gradxy_lines_0_5" BEL
+        "harris_detector/gradxy_lines_0_4" BEL
+        "harris_detector/gradxy_lines_0_3" BEL
+        "harris_detector/gradxy_lines_0_2" BEL
+        "harris_detector/gradxy_lines_0_1" BEL
+        "harris_detector/gradxy_lines_0_0" BEL
+        "harris_detector/grady_square_lines_0_15" BEL
+        "harris_detector/grady_square_lines_0_14" BEL
+        "harris_detector/grady_square_lines_0_13" BEL
+        "harris_detector/grady_square_lines_0_12" BEL
+        "harris_detector/grady_square_lines_0_11" BEL
+        "harris_detector/grady_square_lines_0_10" BEL
+        "harris_detector/grady_square_lines_0_9" BEL
+        "harris_detector/grady_square_lines_0_8" BEL
+        "harris_detector/grady_square_lines_0_7" BEL
+        "harris_detector/grady_square_lines_0_6" BEL
+        "harris_detector/grady_square_lines_0_5" BEL
+        "harris_detector/grady_square_lines_0_4" BEL
+        "harris_detector/grady_square_lines_0_3" BEL
+        "harris_detector/grady_square_lines_0_2" BEL
+        "harris_detector/grady_square_lines_0_1" BEL
+        "harris_detector/grady_square_lines_0_0" BEL
+        "harris_detector/pxclk_from_sobel_old" BEL
+        "harris_detector/gen_square_acc/pixel_counter0/pixel_clock_old" BEL
+        "divider/Qp_0" BEL "divider/Qp_1" BEL "divider/Qp_2" BEL
+        "divider/Qp_3" BEL "divider/Qp_4" BEL "divider/Qp_5" BEL
+        "divider/Qp_6" BEL "divider/Qp_7" BEL "divider/Qp_8" BEL
+        "divider/Qp_9" BEL "divider/Qp_10" BEL "divider/Qp_11" BEL
+        "divider/Qp_12" BEL "divider/Qp_13" BEL "divider/Qp_14" BEL
+        "divider/Qp_15" BEL "divider/Qp_16" BEL "divider/Qp_17" BEL
+        "divider/Qp_18" BEL "divider/Qp_19" BEL "divider/Qp_20" BEL
+        "divider/Qp_21" BEL "divider/Qp_22" BEL "divider/Qp_23" BEL
+        "divider/Qp_24" BEL "divider/Qp_25" BEL
+        "sobel0/block0/line_counter0/line_count_temp_0" BEL
+        "sobel0/block0/line_counter0/line_count_temp_1" BEL
+        "sobel0/block0/line_counter0/line_count_temp_2" BEL
+        "sobel0/block0/line_counter0/line_count_temp_3" BEL
+        "sobel0/block0/line_counter0/line_count_temp_4" BEL
+        "sobel0/block0/line_counter0/line_count_temp_5" BEL
+        "sobel0/block0/line_counter0/line_count_temp_6" BEL
+        "sobel0/block0/line_counter0/line_count_temp_7" BEL
+        "sobel0/block0/pixel_counter0/pixel_count_temp_0" BEL
+        "sobel0/block0/pixel_counter0/pixel_count_temp_1" BEL
+        "sobel0/block0/pixel_counter0/pixel_count_temp_2" BEL
+        "sobel0/block0/pixel_counter0/pixel_count_temp_3" BEL
+        "sobel0/block0/pixel_counter0/pixel_count_temp_4" BEL
+        "sobel0/block0/pixel_counter0/pixel_count_temp_5" BEL
+        "sobel0/block0/pixel_counter0/pixel_count_temp_6" BEL
+        "sobel0/block0/pixel_counter0/pixel_count_temp_7" BEL
+        "sobel0/block0/pixel_counter0/pixel_count_temp_8" BEL
+        "gauss3x3_0/block0/pixel_counter0/pixel_count_temp_0" BEL
+        "gauss3x3_0/block0/pixel_counter0/pixel_count_temp_1" BEL
+        "gauss3x3_0/block0/pixel_counter0/pixel_count_temp_2" BEL
+        "gauss3x3_0/block0/pixel_counter0/pixel_count_temp_3" BEL
+        "gauss3x3_0/block0/pixel_counter0/pixel_count_temp_4" BEL
+        "gauss3x3_0/block0/pixel_counter0/pixel_count_temp_5" BEL
+        "gauss3x3_0/block0/pixel_counter0/pixel_count_temp_6" BEL
+        "gauss3x3_0/block0/pixel_counter0/pixel_count_temp_7" BEL
+        "gauss3x3_0/block0/pixel_counter0/pixel_count_temp_8" BEL
+        "harris_detector/gen_square_acc/pixel_counter0/pixel_count_temp_0" BEL
+        "harris_detector/gen_square_acc/pixel_counter0/pixel_count_temp_1" BEL
+        "harris_detector/gen_square_acc/pixel_counter0/pixel_count_temp_2" BEL
+        "harris_detector/gen_square_acc/pixel_counter0/pixel_count_temp_3" BEL
+        "harris_detector/gen_square_acc/pixel_counter0/pixel_count_temp_4" BEL
+        "harris_detector/gen_square_acc/pixel_counter0/pixel_count_temp_5" BEL
+        "harris_detector/gen_square_acc/pixel_counter0/pixel_count_temp_6" BEL
+        "harris_detector/gen_square_acc/pixel_counter0/pixel_count_temp_7" BEL
+        "harris_detector/gen_square_acc/pixel_counter0/pixel_count_temp_8" BEL
+        "gauss3x3_0/block0/line_counter0/line_count_temp_0" BEL
+        "gauss3x3_0/block0/line_counter0/line_count_temp_1" BEL
+        "gauss3x3_0/block0/line_counter0/line_count_temp_2" BEL
+        "gauss3x3_0/block0/line_counter0/line_count_temp_3" BEL
+        "gauss3x3_0/block0/line_counter0/line_count_temp_4" BEL
+        "gauss3x3_0/block0/line_counter0/line_count_temp_5" BEL
+        "gauss3x3_0/block0/line_counter0/line_count_temp_6" BEL
+        "gauss3x3_0/block0/line_counter0/line_count_temp_7" BEL
+        "sys_clocks_gen/clkout3_buf" BEL "camera0/pixel_clock_out_t" BEL
+        "camera0/vsynct" BEL "camera0/hsynct" BEL "mem_interface0/rd" BEL
+        "mem_interface0/wr" BEL "reset0/counter0_9" BEL "reset0/counter0_8"
+        BEL "reset0/counter0_7" BEL "reset0/counter0_6" BEL
+        "reset0/counter0_5" BEL "reset0/counter0_4" BEL "reset0/counter0_3"
+        BEL "reset0/counter0_2" BEL "reset0/counter0_1" BEL
+        "reset0/counter0_0" BEL "reset0/resetn_0" BEL
+        "fifo_preview/fifo_B/nb_available_t_13" BEL
+        "fifo_preview/fifo_B/nb_available_t_12" BEL
+        "fifo_preview/fifo_B/nb_available_t_11" BEL
+        "fifo_preview/fifo_B/nb_available_t_10" BEL
+        "fifo_preview/fifo_B/nb_available_t_9" BEL
+        "fifo_preview/fifo_B/nb_available_t_8" BEL
+        "fifo_preview/fifo_B/nb_available_t_7" BEL
+        "fifo_preview/fifo_B/nb_available_t_6" BEL
+        "fifo_preview/fifo_B/nb_available_t_5" BEL
+        "fifo_preview/fifo_B/nb_available_t_4" BEL
+        "fifo_preview/fifo_B/nb_available_t_3" BEL
+        "fifo_preview/fifo_B/nb_available_t_2" BEL
+        "fifo_preview/fifo_B/nb_available_t_1" BEL
+        "fifo_preview/fifo_B/nb_available_t_0" BEL
+        "fifo_preview/fifo_B/wr_addr_12" BEL "fifo_preview/fifo_B/wr_addr_11"
+        BEL "fifo_preview/fifo_B/wr_addr_10" BEL
+        "fifo_preview/fifo_B/wr_addr_9" BEL "fifo_preview/fifo_B/wr_addr_8"
+        BEL "fifo_preview/fifo_B/wr_addr_7" BEL
+        "fifo_preview/fifo_B/wr_addr_6" BEL "fifo_preview/fifo_B/wr_addr_5"
+        BEL "fifo_preview/fifo_B/wr_addr_4" BEL
+        "fifo_preview/fifo_B/wr_addr_3" BEL "fifo_preview/fifo_B/wr_addr_2"
+        BEL "fifo_preview/fifo_B/wr_addr_1" BEL
+        "fifo_preview/fifo_B/wr_addr_0" BEL "fifo_preview/fifo_B/rd_addr_12"
+        BEL "fifo_preview/fifo_B/rd_addr_11" BEL
+        "fifo_preview/fifo_B/rd_addr_10" BEL "fifo_preview/fifo_B/rd_addr_9"
+        BEL "fifo_preview/fifo_B/rd_addr_8" BEL
+        "fifo_preview/fifo_B/rd_addr_7" BEL "fifo_preview/fifo_B/rd_addr_6"
+        BEL "fifo_preview/fifo_B/rd_addr_5" BEL
+        "fifo_preview/fifo_B/rd_addr_4" BEL "fifo_preview/fifo_B/rd_addr_3"
+        BEL "fifo_preview/fifo_B/rd_addr_2" BEL
+        "fifo_preview/fifo_B/rd_addr_1" BEL "fifo_preview/fifo_B/rd_addr_0"
+        BEL "fifo_preview/fifo_B/rd_old" BEL "fifo_preview/fifo_B/wr_old" BEL
+        "fifo_preview/fifo_A/nb_available_t_13" BEL
+        "fifo_preview/fifo_A/nb_available_t_12" BEL
+        "fifo_preview/fifo_A/nb_available_t_11" BEL
+        "fifo_preview/fifo_A/nb_available_t_10" BEL
+        "fifo_preview/fifo_A/nb_available_t_9" BEL
+        "fifo_preview/fifo_A/nb_available_t_8" BEL
+        "fifo_preview/fifo_A/nb_available_t_7" BEL
+        "fifo_preview/fifo_A/nb_available_t_6" BEL
+        "fifo_preview/fifo_A/nb_available_t_5" BEL
+        "fifo_preview/fifo_A/nb_available_t_4" BEL
+        "fifo_preview/fifo_A/nb_available_t_3" BEL
+        "fifo_preview/fifo_A/nb_available_t_2" BEL
+        "fifo_preview/fifo_A/nb_available_t_1" BEL
+        "fifo_preview/fifo_A/nb_available_t_0" BEL
+        "fifo_preview/fifo_A/wr_old" BEL
+        "harris_detector/sobel0/block0/delay_counter/Qp_8" BEL
+        "harris_detector/sobel0/block0/delay_counter/Qp_7" BEL
+        "harris_detector/sobel0/block0/delay_counter/Qp_6" BEL
+        "harris_detector/sobel0/block0/delay_counter/Qp_5" BEL
+        "harris_detector/sobel0/block0/delay_counter/Qp_4" BEL
+        "harris_detector/sobel0/block0/delay_counter/Qp_3" BEL
+        "harris_detector/sobel0/block0/delay_counter/Qp_2" BEL
+        "harris_detector/sobel0/block0/delay_counter/Qp_1" BEL
+        "harris_detector/sobel0/block0/delay_counter/Qp_0" BEL
+        "harris_detector/sobel0/block0/delay_counter/old_value" BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_7"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_6"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_5"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_4"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_3"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_2"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_1"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_0"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_7"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_6"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_5"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_4"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_3"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_2"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_1"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_0"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_7"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_6"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_5"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_4"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_3"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_2"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_1"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_0"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_7"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_6"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_5"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_4"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_3"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_2"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_1"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_0"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_7"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_6"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_5"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_4"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_3"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_2"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_1"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_0"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_7"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_6"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_5"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_4"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_3"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_2"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_1"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_0"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_7"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_6"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_5"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_4"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_3"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_2"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_1"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_0"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_7"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_6"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_5"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_4"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_3"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_2"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_1"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_0"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_7"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_6"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_5"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_4"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_3"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_2"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_1"
+        BEL
+        "harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_0"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_7"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_6"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_5"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_4"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_3"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_2"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_1"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_0"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/old_value"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_7"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_6"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_5"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_4"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_3"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_2"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_1"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_0"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_7"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_6"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_5"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_4"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_3"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_2"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_1"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_0"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_7"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_6"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_5"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_4"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_3"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_2"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_1"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_0"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_7"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_6"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_5"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_4"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_3"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_2"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_1"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_0"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_7"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_6"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_5"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_4"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_3"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_2"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_1"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_0"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_7"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_6"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_5"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_4"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_3"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_2"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_1"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_0"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_7"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_6"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_5"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_4"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_3"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_2"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_1"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_0"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_7"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_6"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_5"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_4"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_3"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_2"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_1"
+        BEL
+        "harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_0"
+        BEL "harris_detector/gauss3x3_0/block0/delay_counter/Qp_8" BEL
+        "harris_detector/gauss3x3_0/block0/delay_counter/Qp_7" BEL
+        "harris_detector/gauss3x3_0/block0/delay_counter/Qp_6" BEL
+        "harris_detector/gauss3x3_0/block0/delay_counter/Qp_5" BEL
+        "harris_detector/gauss3x3_0/block0/delay_counter/Qp_4" BEL
+        "harris_detector/gauss3x3_0/block0/delay_counter/Qp_3" BEL
+        "harris_detector/gauss3x3_0/block0/delay_counter/Qp_2" BEL
+        "harris_detector/gauss3x3_0/block0/delay_counter/Qp_1" BEL
+        "harris_detector/gauss3x3_0/block0/delay_counter/Qp_0" BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_7"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_6"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_5"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_4"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_3"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_2"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_1"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_0"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_7"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_6"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_5"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_4"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_3"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_2"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_1"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_0"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_7"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_6"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_5"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_4"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_3"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_2"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_1"
+        BEL
+        "sobel0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_0"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_7"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_6"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_5"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_4"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_3"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_2"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_1"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_0"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_7"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_6"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_5"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_4"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_3"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_2"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_1"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_0"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_7"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_6"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_5"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_4"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_3"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_2"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_1"
+        BEL
+        "sobel0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_0"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_7"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_6"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_5"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_4"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_3"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_2"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_1"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_0"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_7"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_6"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_5"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_4"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_3"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_2"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_1"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_0"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_7"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_6"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_5"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_4"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_3"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_2"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_1"
+        BEL
+        "sobel0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_0"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_7"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_6"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_5"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_4"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_3"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_2"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_1"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_0"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_7"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_6"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_5"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_4"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_3"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_2"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_1"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_0"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_7"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_6"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_5"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_4"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_3"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_2"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_1"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_0"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_7"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_6"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_5"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_4"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_3"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_2"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_1"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_0"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_7"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_6"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_5"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_4"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_3"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_2"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_1"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_0"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_7"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_6"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_5"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_4"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_3"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_2"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_1"
+        BEL
+        "gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_0"
+        BEL "harris_detector/add_cols_gradxy/result_15" BEL
+        "harris_detector/add_cols_gradxy/result_14" BEL
+        "harris_detector/add_cols_gradxy/result_13" BEL
+        "harris_detector/add_cols_gradxy/result_12" BEL
+        "harris_detector/add_cols_gradxy/result_11" BEL
+        "harris_detector/add_cols_gradxy/result_10" BEL
+        "harris_detector/add_cols_gradxy/result_9" BEL
+        "harris_detector/add_cols_gradxy/result_8" BEL
+        "harris_detector/add_cols_gradxy/result_7" BEL
+        "harris_detector/add_cols_gradxy/result_6" BEL
+        "harris_detector/add_cols_gradxy/result_5" BEL
+        "harris_detector/add_cols_gradxy/result_4" BEL
+        "harris_detector/add_cols_gradxy/result_3" BEL
+        "harris_detector/add_cols_gradxy/result_2" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<2>_3_15" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<2>_3_14" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<2>_3_13" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<2>_3_12" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<2>_3_11" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<2>_3_10" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<2>_3_9" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<2>_3_8" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<2>_3_7" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<2>_3_6" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<2>_3_5" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<2>_3_4" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<2>_3_3" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<2>_3_2" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<2>_3_1" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<2>_3_0" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<1>_2_15" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<1>_2_14" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<1>_2_13" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<1>_2_12" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<1>_2_11" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<1>_2_10" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<1>_2_9" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<1>_2_8" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<1>_2_7" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<1>_2_6" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<1>_2_5" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<1>_2_4" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<1>_2_3" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<1>_2_2" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<1>_2_1" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<1>_2_0" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_1_15" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_1_13" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_1_12" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_1_11" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_1_10" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_1_9" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_1_8" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_1_7" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_1_6" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_1_5" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_1_4" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_1_3" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_1_2" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_1_1" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_1_0" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_2_15" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_2_12" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_2_11" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_2_10" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_2_9" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_2_8" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_2_7" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_2_6" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_2_5" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_2_4" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_2_3" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_2_2" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_2_1" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers<0>_2_0" BEL
+        "harris_detector/add_cols_grady/result_15" BEL
+        "harris_detector/add_cols_grady/result_14" BEL
+        "harris_detector/add_cols_grady/result_13" BEL
+        "harris_detector/add_cols_grady/result_12" BEL
+        "harris_detector/add_cols_grady/result_11" BEL
+        "harris_detector/add_cols_grady/result_10" BEL
+        "harris_detector/add_cols_grady/result_9" BEL
+        "harris_detector/add_cols_grady/result_8" BEL
+        "harris_detector/add_cols_grady/result_7" BEL
+        "harris_detector/add_cols_grady/result_6" BEL
+        "harris_detector/add_cols_grady/result_5" BEL
+        "harris_detector/add_cols_grady/result_4" BEL
+        "harris_detector/add_cols_grady/result_3" BEL
+        "harris_detector/add_cols_grady/result_2" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<2>_3_15" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<2>_3_14" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<2>_3_13" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<2>_3_12" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<2>_3_11" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<2>_3_10" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<2>_3_9" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<2>_3_8" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<2>_3_7" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<2>_3_6" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<2>_3_5" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<2>_3_4" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<2>_3_3" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<2>_3_2" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<2>_3_1" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<2>_3_0" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<1>_2_15" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<1>_2_14" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<1>_2_13" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<1>_2_12" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<1>_2_11" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<1>_2_10" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<1>_2_9" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<1>_2_8" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<1>_2_7" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<1>_2_6" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<1>_2_5" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<1>_2_4" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<1>_2_3" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<1>_2_2" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<1>_2_1" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<1>_2_0" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_1_15" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_1_13" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_1_12" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_1_11" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_1_10" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_1_9" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_1_8" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_1_7" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_1_6" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_1_5" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_1_4" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_1_3" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_1_2" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_1_1" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_1_0" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_2_15" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_2_12" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_2_11" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_2_10" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_2_9" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_2_8" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_2_7" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_2_6" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_2_5" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_2_4" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_2_3" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_2_2" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_2_1" BEL
+        "harris_detector/add_cols_grady/pipeline_registers<0>_2_0" BEL
+        "harris_detector/add_cols_gradx/result_15" BEL
+        "harris_detector/add_cols_gradx/result_14" BEL
+        "harris_detector/add_cols_gradx/result_13" BEL
+        "harris_detector/add_cols_gradx/result_12" BEL
+        "harris_detector/add_cols_gradx/result_11" BEL
+        "harris_detector/add_cols_gradx/result_10" BEL
+        "harris_detector/add_cols_gradx/result_9" BEL
+        "harris_detector/add_cols_gradx/result_8" BEL
+        "harris_detector/add_cols_gradx/result_7" BEL
+        "harris_detector/add_cols_gradx/result_6" BEL
+        "harris_detector/add_cols_gradx/result_5" BEL
+        "harris_detector/add_cols_gradx/result_4" BEL
+        "harris_detector/add_cols_gradx/result_3" BEL
+        "harris_detector/add_cols_gradx/result_2" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<2>_3_15" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<2>_3_14" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<2>_3_13" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<2>_3_12" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<2>_3_11" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<2>_3_10" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<2>_3_9" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<2>_3_8" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<2>_3_7" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<2>_3_6" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<2>_3_5" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<2>_3_4" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<2>_3_3" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<2>_3_2" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<2>_3_1" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<2>_3_0" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<1>_2_15" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<1>_2_14" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<1>_2_13" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<1>_2_12" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<1>_2_11" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<1>_2_10" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<1>_2_9" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<1>_2_8" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<1>_2_7" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<1>_2_6" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<1>_2_5" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<1>_2_4" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<1>_2_3" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<1>_2_2" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<1>_2_1" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<1>_2_0" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_1_15" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_1_13" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_1_12" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_1_11" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_1_10" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_1_9" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_1_8" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_1_7" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_1_6" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_1_5" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_1_4" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_1_3" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_1_2" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_1_1" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_1_0" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_2_15" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_2_12" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_2_11" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_2_10" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_2_9" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_2_8" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_2_7" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_2_6" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_2_5" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_2_4" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_2_3" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_2_2" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_2_1" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers<0>_2_0" BEL
+        "harris_detector/add_lines_gradxy/result_15" BEL
+        "harris_detector/add_lines_gradxy/result_14" BEL
+        "harris_detector/add_lines_gradxy/result_13" BEL
+        "harris_detector/add_lines_gradxy/result_12" BEL
+        "harris_detector/add_lines_gradxy/result_11" BEL
+        "harris_detector/add_lines_gradxy/result_10" BEL
+        "harris_detector/add_lines_gradxy/result_9" BEL
+        "harris_detector/add_lines_gradxy/result_8" BEL
+        "harris_detector/add_lines_gradxy/result_7" BEL
+        "harris_detector/add_lines_gradxy/result_6" BEL
+        "harris_detector/add_lines_gradxy/result_5" BEL
+        "harris_detector/add_lines_gradxy/result_4" BEL
+        "harris_detector/add_lines_gradxy/result_3" BEL
+        "harris_detector/add_lines_gradxy/result_2" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<2>_3_15" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<2>_3_14" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<2>_3_13" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<2>_3_12" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<2>_3_11" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<2>_3_10" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<2>_3_9" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<2>_3_8" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<2>_3_7" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<2>_3_6" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<2>_3_5" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<2>_3_4" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<2>_3_3" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<2>_3_2" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<2>_3_1" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<2>_3_0" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<1>_2_15" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<1>_2_14" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<1>_2_13" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<1>_2_12" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<1>_2_11" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<1>_2_10" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<1>_2_9" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<1>_2_8" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<1>_2_7" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<1>_2_6" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<1>_2_5" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<1>_2_4" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<1>_2_3" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<1>_2_2" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<1>_2_1" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<1>_2_0" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_1_15" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_1_14" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_1_13" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_1_12" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_1_11" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_1_10" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_1_9" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_1_8" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_1_7" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_1_6" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_1_5" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_1_4" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_1_3" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_1_2" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_1_1" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_1_0" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_2_15" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_2_14" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_2_13" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_2_12" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_2_11" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_2_10" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_2_9" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_2_8" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_2_7" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_2_6" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_2_5" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_2_4" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_2_3" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_2_2" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_2_1" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers<0>_2_0" BEL
+        "harris_detector/add_lines_grady/result_15" BEL
+        "harris_detector/add_lines_grady/result_14" BEL
+        "harris_detector/add_lines_grady/result_13" BEL
+        "harris_detector/add_lines_grady/result_12" BEL
+        "harris_detector/add_lines_grady/result_11" BEL
+        "harris_detector/add_lines_grady/result_10" BEL
+        "harris_detector/add_lines_grady/result_9" BEL
+        "harris_detector/add_lines_grady/result_8" BEL
+        "harris_detector/add_lines_grady/result_7" BEL
+        "harris_detector/add_lines_grady/result_6" BEL
+        "harris_detector/add_lines_grady/result_5" BEL
+        "harris_detector/add_lines_grady/result_4" BEL
+        "harris_detector/add_lines_grady/result_3" BEL
+        "harris_detector/add_lines_grady/result_2" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<2>_3_15" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<2>_3_14" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<2>_3_13" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<2>_3_12" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<2>_3_11" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<2>_3_10" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<2>_3_9" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<2>_3_8" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<2>_3_7" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<2>_3_6" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<2>_3_5" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<2>_3_4" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<2>_3_3" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<2>_3_2" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<2>_3_1" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<2>_3_0" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<1>_2_15" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<1>_2_14" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<1>_2_13" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<1>_2_12" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<1>_2_11" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<1>_2_10" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<1>_2_9" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<1>_2_8" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<1>_2_7" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<1>_2_6" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<1>_2_5" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<1>_2_4" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<1>_2_3" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<1>_2_2" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<1>_2_1" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<1>_2_0" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_1_15" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_1_14" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_1_13" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_1_12" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_1_11" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_1_10" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_1_9" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_1_8" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_1_7" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_1_6" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_1_5" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_1_4" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_1_3" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_1_2" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_1_1" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_1_0" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_2_15" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_2_14" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_2_13" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_2_12" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_2_11" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_2_10" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_2_9" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_2_8" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_2_7" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_2_6" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_2_5" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_2_4" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_2_3" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_2_2" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_2_1" BEL
+        "harris_detector/add_lines_grady/pipeline_registers<0>_2_0" BEL
+        "harris_detector/add_lines_gradx/result_15" BEL
+        "harris_detector/add_lines_gradx/result_14" BEL
+        "harris_detector/add_lines_gradx/result_13" BEL
+        "harris_detector/add_lines_gradx/result_12" BEL
+        "harris_detector/add_lines_gradx/result_11" BEL
+        "harris_detector/add_lines_gradx/result_10" BEL
+        "harris_detector/add_lines_gradx/result_9" BEL
+        "harris_detector/add_lines_gradx/result_8" BEL
+        "harris_detector/add_lines_gradx/result_7" BEL
+        "harris_detector/add_lines_gradx/result_6" BEL
+        "harris_detector/add_lines_gradx/result_5" BEL
+        "harris_detector/add_lines_gradx/result_4" BEL
+        "harris_detector/add_lines_gradx/result_3" BEL
+        "harris_detector/add_lines_gradx/result_2" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<2>_3_15" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<2>_3_14" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<2>_3_13" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<2>_3_12" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<2>_3_11" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<2>_3_10" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<2>_3_9" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<2>_3_8" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<2>_3_7" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<2>_3_6" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<2>_3_5" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<2>_3_4" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<2>_3_3" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<2>_3_2" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<2>_3_1" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<2>_3_0" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<1>_2_15" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<1>_2_14" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<1>_2_13" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<1>_2_12" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<1>_2_11" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<1>_2_10" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<1>_2_9" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<1>_2_8" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<1>_2_7" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<1>_2_6" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<1>_2_5" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<1>_2_4" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<1>_2_3" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<1>_2_2" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<1>_2_1" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<1>_2_0" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_1_15" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_1_14" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_1_13" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_1_12" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_1_11" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_1_10" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_1_9" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_1_8" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_1_7" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_1_6" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_1_5" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_1_4" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_1_3" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_1_2" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_1_1" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_1_0" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_2_15" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_2_14" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_2_13" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_2_12" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_2_11" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_2_10" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_2_9" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_2_8" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_2_7" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_2_6" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_2_5" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_2_4" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_2_3" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_2_2" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_2_1" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers<0>_2_0" BEL
+        "harris_detector/harris_rep0/harris_response_15" BEL
+        "harris_detector/harris_rep0/harris_response_14" BEL
+        "harris_detector/harris_rep0/harris_response_13" BEL
+        "harris_detector/harris_rep0/harris_response_12" BEL
+        "harris_detector/harris_rep0/harris_response_11" BEL
+        "harris_detector/harris_rep0/harris_response_10" BEL
+        "harris_detector/harris_rep0/harris_response_9" BEL
+        "harris_detector/harris_rep0/harris_response_8" BEL
+        "harris_detector/harris_rep0/harris_response_7" BEL
+        "harris_detector/harris_rep0/harris_response_6" BEL
+        "harris_detector/harris_rep0/harris_response_5" BEL
+        "harris_detector/harris_rep0/harris_response_4" BEL
+        "harris_detector/harris_rep0/harris_response_3" BEL
+        "harris_detector/harris_rep0/harris_response_2" BEL
+        "harris_detector/harris_rep0/harris_response_1" BEL
+        "harris_detector/harris_rep0/harris_response_0" BEL
+        "harris_detector/harris_rep0/trace_square_latched_29" BEL
+        "harris_detector/harris_rep0/trace_square_latched_28" BEL
+        "harris_detector/harris_rep0/trace_square_latched_27" BEL
+        "harris_detector/harris_rep0/trace_square_latched_26" BEL
+        "harris_detector/harris_rep0/trace_square_latched_25" BEL
+        "harris_detector/harris_rep0/trace_square_latched_24" BEL
+        "harris_detector/harris_rep0/trace_square_latched_23" BEL
+        "harris_detector/harris_rep0/trace_square_latched_22" BEL
+        "harris_detector/harris_rep0/trace_square_latched_21" BEL
+        "harris_detector/harris_rep0/trace_square_latched_20" BEL
+        "harris_detector/harris_rep0/trace_square_latched_19" BEL
+        "harris_detector/harris_rep0/trace_square_latched_18" BEL
+        "harris_detector/harris_rep0/trace_square_latched_17" BEL
+        "harris_detector/harris_rep0/trace_square_latched_16" BEL
+        "harris_detector/harris_rep0/trace_square_latched_15" BEL
+        "harris_detector/harris_rep0/trace_square_latched_14" BEL
+        "harris_detector/harris_rep0/trace_square_latched_13" BEL
+        "harris_detector/harris_rep0/trace_square_latched_12" BEL
+        "harris_detector/harris_rep0/trace_square_latched_11" BEL
+        "harris_detector/harris_rep0/trace_square_latched_10" BEL
+        "harris_detector/harris_rep0/trace_square_latched_9" BEL
+        "harris_detector/harris_rep0/trace_square_latched_8" BEL
+        "harris_detector/harris_rep0/trace_square_latched_7" BEL
+        "harris_detector/harris_rep0/trace_square_latched_6" BEL
+        "harris_detector/harris_rep0/trace_square_latched_5" BEL
+        "harris_detector/harris_rep0/trace_square_latched_4" BEL
+        "harris_detector/harris_rep0/det_latched_25" BEL
+        "harris_detector/harris_rep0/det_latched_24" BEL
+        "harris_detector/harris_rep0/det_latched_23" BEL
+        "harris_detector/harris_rep0/det_latched_22" BEL
+        "harris_detector/harris_rep0/det_latched_21" BEL
+        "harris_detector/harris_rep0/det_latched_20" BEL
+        "harris_detector/harris_rep0/det_latched_19" BEL
+        "harris_detector/harris_rep0/det_latched_18" BEL
+        "harris_detector/harris_rep0/det_latched_17" BEL
+        "harris_detector/harris_rep0/det_latched_16" BEL
+        "harris_detector/harris_rep0/det_latched_15" BEL
+        "harris_detector/harris_rep0/det_latched_14" BEL
+        "harris_detector/harris_rep0/det_latched_13" BEL
+        "harris_detector/harris_rep0/det_latched_12" BEL
+        "harris_detector/harris_rep0/det_latched_11" BEL
+        "harris_detector/harris_rep0/det_latched_10" BEL
+        "harris_detector/harris_rep0/det_latched_9" BEL
+        "harris_detector/harris_rep0/det_latched_8" BEL
+        "harris_detector/harris_rep0/det_latched_7" BEL
+        "harris_detector/harris_rep0/det_latched_6" BEL
+        "harris_detector/harris_rep0/det_latched_5" BEL
+        "harris_detector/harris_rep0/det_latched_4" BEL
+        "harris_detector/harris_rep0/det_latched_3" BEL
+        "harris_detector/harris_rep0/det_latched_2" BEL
+        "harris_detector/harris_rep0/det_latched_1" BEL
+        "harris_detector/harris_rep0/det_latched_0" BEL
+        "harris_detector/harris_rep0/stage3" BEL
+        "harris_detector/harris_rep0/det1_latched_25" BEL
+        "harris_detector/harris_rep0/det1_latched_24" BEL
+        "harris_detector/harris_rep0/det1_latched_23" BEL
+        "harris_detector/harris_rep0/det1_latched_22" BEL
+        "harris_detector/harris_rep0/det1_latched_21" BEL
+        "harris_detector/harris_rep0/det1_latched_20" BEL
+        "harris_detector/harris_rep0/det1_latched_19" BEL
+        "harris_detector/harris_rep0/det1_latched_18" BEL
+        "harris_detector/harris_rep0/det1_latched_17" BEL
+        "harris_detector/harris_rep0/det1_latched_16" BEL
+        "harris_detector/harris_rep0/det1_latched_15" BEL
+        "harris_detector/harris_rep0/det1_latched_14" BEL
+        "harris_detector/harris_rep0/det1_latched_13" BEL
+        "harris_detector/harris_rep0/det1_latched_12" BEL
+        "harris_detector/harris_rep0/det1_latched_11" BEL
+        "harris_detector/harris_rep0/det1_latched_10" BEL
+        "harris_detector/harris_rep0/det1_latched_9" BEL
+        "harris_detector/harris_rep0/det1_latched_8" BEL
+        "harris_detector/harris_rep0/det1_latched_7" BEL
+        "harris_detector/harris_rep0/det1_latched_6" BEL
+        "harris_detector/harris_rep0/det1_latched_5" BEL
+        "harris_detector/harris_rep0/det1_latched_4" BEL
+        "harris_detector/harris_rep0/det1_latched_3" BEL
+        "harris_detector/harris_rep0/det1_latched_2" BEL
+        "harris_detector/harris_rep0/det1_latched_1" BEL
+        "harris_detector/harris_rep0/det1_latched_0" BEL
+        "harris_detector/harris_rep0/det0_latched_25" BEL
+        "harris_detector/harris_rep0/det0_latched_24" BEL
+        "harris_detector/harris_rep0/det0_latched_23" BEL
+        "harris_detector/harris_rep0/det0_latched_22" BEL
+        "harris_detector/harris_rep0/det0_latched_21" BEL
+        "harris_detector/harris_rep0/det0_latched_20" BEL
+        "harris_detector/harris_rep0/det0_latched_19" BEL
+        "harris_detector/harris_rep0/det0_latched_18" BEL
+        "harris_detector/harris_rep0/det0_latched_17" BEL
+        "harris_detector/harris_rep0/det0_latched_16" BEL
+        "harris_detector/harris_rep0/det0_latched_15" BEL
+        "harris_detector/harris_rep0/det0_latched_14" BEL
+        "harris_detector/harris_rep0/det0_latched_13" BEL
+        "harris_detector/harris_rep0/det0_latched_12" BEL
+        "harris_detector/harris_rep0/det0_latched_11" BEL
+        "harris_detector/harris_rep0/det0_latched_10" BEL
+        "harris_detector/harris_rep0/det0_latched_9" BEL
+        "harris_detector/harris_rep0/det0_latched_8" BEL
+        "harris_detector/harris_rep0/det0_latched_7" BEL
+        "harris_detector/harris_rep0/det0_latched_6" BEL
+        "harris_detector/harris_rep0/det0_latched_5" BEL
+        "harris_detector/harris_rep0/det0_latched_4" BEL
+        "harris_detector/harris_rep0/det0_latched_3" BEL
+        "harris_detector/harris_rep0/det0_latched_2" BEL
+        "harris_detector/harris_rep0/det0_latched_1" BEL
+        "harris_detector/harris_rep0/det0_latched_0" BEL
+        "harris_detector/harris_rep0/trace_latched_14" BEL
+        "harris_detector/harris_rep0/trace_latched_13" BEL
+        "harris_detector/harris_rep0/trace_latched_12" BEL
+        "harris_detector/harris_rep0/trace_latched_11" BEL
+        "harris_detector/harris_rep0/trace_latched_10" BEL
+        "harris_detector/harris_rep0/trace_latched_9" BEL
+        "harris_detector/harris_rep0/trace_latched_8" BEL
+        "harris_detector/harris_rep0/trace_latched_7" BEL
+        "harris_detector/harris_rep0/trace_latched_6" BEL
+        "harris_detector/harris_rep0/trace_latched_5" BEL
+        "harris_detector/harris_rep0/trace_latched_4" BEL
+        "harris_detector/harris_rep0/trace_latched_3" BEL
+        "harris_detector/harris_rep0/trace_latched_2" BEL
+        "harris_detector/harris_rep0/trace_latched_1" BEL
+        "harris_detector/harris_rep0/trace_latched_0" BEL
+        "harris_detector/latched_response/Qp_15" BEL
+        "harris_detector/latched_response/Qp_14" BEL
+        "harris_detector/latched_response/Qp_13" BEL
+        "harris_detector/latched_response/Qp_12" BEL
+        "harris_detector/latched_response/Qp_11" BEL
+        "harris_detector/latched_response/Qp_10" BEL
+        "harris_detector/latched_response/Qp_9" BEL
+        "harris_detector/latched_response/Qp_8" BEL
+        "harris_detector/latched_response/Qp_7" BEL
+        "harris_detector/latched_response/Qp_6" BEL
+        "harris_detector/latched_response/Qp_5" BEL
+        "harris_detector/latched_response/Qp_4" BEL
+        "harris_detector/latched_response/Qp_3" BEL
+        "harris_detector/latched_response/Qp_2" BEL
+        "harris_detector/latched_response/Qp_1" BEL
+        "harris_detector/latched_response/Qp_0" BEL "ds_image/pixel_counter_8"
+        BEL "ds_image/pixel_counter_7" BEL "ds_image/pixel_counter_6" BEL
+        "ds_image/pixel_counter_5" BEL "ds_image/pixel_counter_4" BEL
+        "ds_image/pixel_counter_3" BEL "ds_image/pixel_counter_2" BEL
+        "ds_image/pixel_counter_1" BEL "ds_image/pixel_counter_0" BEL
+        "ds_image/pixel_data_out_7" BEL "ds_image/pixel_data_out_6" BEL
+        "ds_image/pixel_data_out_5" BEL "ds_image/pixel_data_out_4" BEL
+        "ds_image/pixel_data_out_3" BEL "ds_image/pixel_data_out_2" BEL
+        "ds_image/pixel_data_out_1" BEL "ds_image/pixel_data_out_0" BEL
+        "ds_image/vsync_out" BEL "ds_image/vsync_old" BEL "ds_image/pxclk_old"
+        BEL "ds_image/hsync_old" BEL "pixel_to_fifo/vsync_old" BEL
+        "pixel_to_fifo/pxclk_old" BEL "ds_image/line_counter_0" BEL
+        "ds_image/hsync_out" BEL "gauss3x3_0/block0/new_blockq" BEL
+        "sobel0/block0/new_blockq" BEL
+        "sobel0/delay_sync/gen_delay[0].gen_input.latch_0/Qp_2" BEL
+        "harris_detector/delay_pclk/gen_delay[3].gen_output.latch_delay/Qp_0"
+        BEL "harris_detector/delay_pclk/gen_delay[2].gen_delay.latch_i/Qp_0"
+        BEL "harris_detector/delay_pclk/gen_delay[1].gen_delay.latch_i/Qp_0"
+        BEL "gauss3x3_0/block0/line_counter0/line_count_temp_5_1" BEL
+        "gauss3x3_0/block0/line_counter0/line_count_temp_6_1" PIN
+        "sobel0/block0/lines0/Mram_RAM_pins<18>" PIN
+        "sobel0/block0/lines0/Mram_RAM_pins<19>" PIN
+        "harris_detector/sobel0/block0/lines0/Mram_RAM_pins<18>" PIN
+        "harris_detector/sobel0/block0/lines0/Mram_RAM_pins<19>" PIN
+        "gauss3x3_0/block0/lines0/Mram_RAM_pins<18>" PIN
+        "gauss3x3_0/block0/lines0/Mram_RAM_pins<19>" PIN
+        "harris_detector/gauss3x3_0/block0/lines0/Mram_RAM_pins<18>" PIN
+        "harris_detector/gauss3x3_0/block0/lines0/Mram_RAM_pins<19>" PIN
+        "harris_detector/gen_square_acc/ram_grady/Mram_RAM2_pins<18>" PIN
+        "harris_detector/gen_square_acc/ram_grady/Mram_RAM2_pins<19>" PIN
+        "harris_detector/gen_square_acc/ram_gradxy/Mram_RAM2_pins<18>" PIN
+        "harris_detector/gen_square_acc/ram_gradxy/Mram_RAM2_pins<19>" PIN
+        "harris_detector/gen_square_acc/ram_gradx/Mram_RAM2_pins<18>" PIN
+        "harris_detector/gen_square_acc/ram_gradx/Mram_RAM2_pins<19>" PIN
+        "harris_detector/gen_square_acc/ram_gradxy/Mram_RAM1_pins<18>" PIN
+        "harris_detector/gen_square_acc/ram_gradxy/Mram_RAM1_pins<19>" PIN
+        "harris_detector/gen_square_acc/ram_grady/Mram_RAM1_pins<18>" PIN
+        "harris_detector/gen_square_acc/ram_grady/Mram_RAM1_pins<19>" PIN
+        "harris_detector/gen_square_acc/ram_gradx/Mram_RAM1_pins<18>" PIN
+        "harris_detector/gen_square_acc/ram_gradx/Mram_RAM1_pins<19>" PIN
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM7_pins<26>" PIN
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM7_pins<27>" PIN
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM8_pins<26>" PIN
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM8_pins<27>" PIN
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM4_pins<26>" PIN
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM4_pins<27>" PIN
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM3_pins<26>" PIN
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM3_pins<27>" PIN
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM1_pins<26>" PIN
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM1_pins<27>" PIN
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM2_pins<26>" PIN
+        "fifo_preview/fifo_B/dp_ram0/Mram_RAM2_pins<27>" PIN
+        "ds_image/line_ram0/Mram_RAM_pins<18>" PIN
+        "ds_image/line_ram0/Mram_RAM_pins<19>" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_2" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_2" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_21" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_21" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_22" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_22" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_23" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_23" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_24" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_24" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_25" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_25" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_26" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_26" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_27" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_27" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_28" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_28" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_29" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_29" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_210" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_210" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_211" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_211" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_1" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_1" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_212" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_212" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_213" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_213" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_11" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_11" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_12" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_12" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_13" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_13" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_14" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_14" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_15" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_15" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_16" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_16" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_17" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_17" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_18" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_18" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_19" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_19" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_110" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_110" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_111" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_111" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_112" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_112" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_2" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_2" BEL
+        "harris_detector/add_cols_gradxy/Mshreg_pipeline_registers_113" BEL
+        "harris_detector/add_cols_gradxy/pipeline_registers_113" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_21" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_21" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_22" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_22" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_23" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_23" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_24" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_24" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_25" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_25" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_26" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_26" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_27" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_27" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_28" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_28" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_29" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_29" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_210" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_210" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_211" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_211" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_212" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_212" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_213" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_213" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_1" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_1" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_11" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_11" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_12" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_12" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_13" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_13" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_14" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_14" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_15" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_15" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_16" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_16" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_17" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_17" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_18" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_18" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_19" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_19" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_110" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_110" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_111" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_111" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_2" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_2" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_112" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_112" BEL
+        "harris_detector/add_cols_grady/Mshreg_pipeline_registers_113" BEL
+        "harris_detector/add_cols_grady/pipeline_registers_113" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_21" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_21" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_22" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_22" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_23" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_23" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_24" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_24" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_25" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_25" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_26" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_26" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_27" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_27" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_28" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_28" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_29" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_29" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_210" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_210" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_211" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_211" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_212" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_212" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_1" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_1" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_213" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_213" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_11" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_11" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_12" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_12" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_13" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_13" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_14" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_14" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_15" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_15" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_16" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_16" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_17" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_17" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_18" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_18" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_19" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_19" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_110" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_110" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_111" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_111" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_112" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_112" BEL
+        "harris_detector/add_cols_gradx/Mshreg_pipeline_registers_113" BEL
+        "harris_detector/add_cols_gradx/pipeline_registers_113" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_2" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_2" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_21" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_21" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_22" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_22" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_23" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_23" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_24" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_24" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_25" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_25" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_26" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_26" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_27" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_27" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_28" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_28" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_29" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_29" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_210" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_210" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_211" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_211" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_212" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_212" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_213" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_213" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_214" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_214" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_1" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_1" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_215" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_215" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_11" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_11" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_12" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_12" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_13" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_13" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_14" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_14" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_15" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_15" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_16" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_16" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_17" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_17" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_18" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_18" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_19" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_19" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_110" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_110" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_111" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_111" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_112" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_112" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_113" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_113" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_2" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_2" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_114" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_114" BEL
+        "harris_detector/add_lines_gradxy/Mshreg_pipeline_registers_115" BEL
+        "harris_detector/add_lines_gradxy/pipeline_registers_115" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_21" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_21" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_22" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_22" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_23" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_23" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_24" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_24" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_25" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_25" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_26" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_26" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_27" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_27" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_28" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_28" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_29" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_29" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_210" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_210" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_211" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_211" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_212" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_212" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_213" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_213" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_214" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_214" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_215" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_215" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_1" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_1" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_11" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_11" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_12" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_12" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_13" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_13" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_14" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_14" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_15" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_15" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_16" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_16" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_17" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_17" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_18" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_18" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_19" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_19" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_110" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_110" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_111" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_111" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_112" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_112" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_113" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_113" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_114" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_114" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_2" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_2" BEL
+        "harris_detector/add_lines_grady/Mshreg_pipeline_registers_115" BEL
+        "harris_detector/add_lines_grady/pipeline_registers_115" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_21" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_21" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_22" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_22" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_23" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_23" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_24" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_24" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_25" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_25" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_26" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_26" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_27" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_27" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_28" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_28" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_29" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_29" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_210" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_210" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_211" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_211" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_212" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_212" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_213" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_213" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_1" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_1" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_214" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_214" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_215" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_215" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_11" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_11" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_12" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_12" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_13" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_13" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_14" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_14" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_15" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_15" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_16" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_16" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_17" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_17" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_18" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_18" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_19" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_19" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_110" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_110" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_111" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_111" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_112" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_112" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_113" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_113" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_114" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_114" BEL
+        "harris_detector/add_lines_gradx/Mshreg_pipeline_registers_115" BEL
+        "harris_detector/add_lines_gradx/pipeline_registers_115" BEL
+        "gauss3x3_0/delay_sync/gen_delay[5].gen_output.latch_delay/Mshreg_Qp_1"
+        BEL "gauss3x3_0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_11"
+        BEL "harris_detector/harris_rep0/Mshreg_stage2" BEL
+        "harris_detector/harris_rep0/stage21" BEL
+        "gauss3x3_0/delay_sync/gen_delay[5].gen_output.latch_delay/Mshreg_Qp_2"
+        BEL "gauss3x3_0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_21"
+        BEL
+        "gauss3x3_0/delay_sync/gen_delay[5].gen_output.latch_delay/Mshreg_Qp_0"
+        BEL "gauss3x3_0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_01"
+        BEL
+        "sobel0/delay_sync/gen_delay[5].gen_output.latch_delay/Mshreg_Qp_2"
+        BEL "sobel0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_21" BEL
+        "harris_detector/delay_sync/gen_delay[13].gen_output.latch_delay/Mshreg_Qp_2"
+        BEL
+        "harris_detector/delay_sync/gen_delay[13].gen_output.latch_delay/Qp_21"
+        BEL
+        "sobel0/delay_sync/gen_delay[5].gen_output.latch_delay/Mshreg_Qp_1"
+        BEL "sobel0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_11" BEL
+        "sobel0/delay_sync/gen_delay[5].gen_output.latch_delay/Mshreg_Qp_0"
+        BEL "sobel0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_01" BEL
+        "harris_detector/delay_sync/gen_delay[13].gen_output.latch_delay/Mshreg_Qp_0"
+        BEL
+        "harris_detector/delay_sync/gen_delay[13].gen_output.latch_delay/Qp_01"
+        BEL
+        "harris_detector/delay_sync/gen_delay[13].gen_output.latch_delay/Mshreg_Qp_1"
+        BEL
+        "harris_detector/delay_sync/gen_delay[13].gen_output.latch_delay/Qp_11"
+        BEL
+        "camera0/delay_sync/gen_delay[0].gen_input.latch_0/resetn_inv_shift11"
+        BEL
+        "camera0/delay_sync/gen_delay[0].gen_input.latch_0/resetn_inv_shift21"
+        BEL
+        "camera0/delay_sync/gen_delay[0].gen_input.latch_0/resetn_inv_shift31"
+        BEL
+        "camera0/delay_sync/gen_delay[0].gen_input.latch_0/resetn_inv_shift4"
+        BEL
+        "camera0/delay_sync/gen_delay[0].gen_input.latch_0/resetn_inv_shift5"
+        BEL
+        "camera0/delay_sync/gen_delay[0].gen_input.latch_0/resetn_inv_shift6"
+        BEL
+        "camera0/delay_sync/gen_delay[0].gen_input.latch_0/resetn_inv_shift7"
+        BEL
+        "camera0/delay_sync/gen_delay[0].gen_input.latch_0/resetn_inv_shift8"
+        BEL
+        "camera0/delay_sync/gen_delay[0].gen_input.latch_0/resetn_inv_shift9"
+        BEL
+        "camera0/delay_sync/gen_delay[0].gen_input.latch_0/resetn_inv_shift10"
+        BEL
+        "camera0/delay_sync/gen_delay[0].gen_input.latch_0/resetn_inv_shift111"
+        BEL
+        "camera0/delay_sync/gen_delay[0].gen_input.latch_0/resetn_inv_shift12"
+        BEL
+        "camera0/delay_sync/gen_delay[0].gen_input.latch_0/resetn_inv_shift13"
+        BEL "gauss3x3_0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_2"
+        BEL "sobel0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_2" BEL
+        "gauss3x3_0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_0" BEL
+        "gauss3x3_0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_1" BEL
+        "harris_detector/harris_rep0/stage2" BEL
+        "sobel0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_0" BEL
+        "sobel0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_1" BEL
+        "harris_detector/delay_sync/gen_delay[13].gen_output.latch_delay/Qp_2"
+        BEL
+        "harris_detector/delay_sync/gen_delay[13].gen_output.latch_delay/Qp_0"
+        BEL
+        "harris_detector/delay_sync/gen_delay[13].gen_output.latch_delay/Qp_1";
+PIN conf_rom/Mram_rom_pins<9> = BEL "conf_rom/Mram_rom" PINNAME CLKAWRCLK;
+TIMEGRP sys_clocks_gen_clkout1 = BEL "camera_conf_block/reg_addr_temp_7" BEL
+        "camera_conf_block/reg_addr_temp_6" BEL
+        "camera_conf_block/reg_addr_temp_5" BEL
+        "camera_conf_block/reg_addr_temp_4" BEL
+        "camera_conf_block/reg_addr_temp_3" BEL
+        "camera_conf_block/reg_addr_temp_2" BEL
+        "camera_conf_block/reg_addr_temp_1" BEL
+        "camera_conf_block/reg_addr_temp_0" BEL
+        "camera_conf_block/reg_state_FSM_FFd1" BEL
+        "camera_conf_block/reg_state_FSM_FFd2" BEL
+        "camera_conf_block/reg_state_FSM_FFd3" BEL "camera_conf_block/send"
+        BEL "camera_conf_block/i2c_master0/state_FSM_FFd1" BEL
+        "camera_conf_block/i2c_master0/state_FSM_FFd2" BEL
+        "camera_conf_block/i2c_master0/state_FSM_FFd4" BEL
+        "camera_conf_block/i2c_master0/state_FSM_FFd3" BEL
+        "camera_conf_block/i2c_master0/data_i_7" BEL
+        "camera_conf_block/i2c_master0/data_i_6" BEL
+        "camera_conf_block/i2c_master0/data_i_5" BEL
+        "camera_conf_block/i2c_master0/data_i_4" BEL
+        "camera_conf_block/i2c_master0/data_i_3" BEL
+        "camera_conf_block/i2c_master0/data_i_2" BEL
+        "camera_conf_block/i2c_master0/data_i_1" BEL
+        "camera_conf_block/i2c_master0/data_i_0" BEL
+        "camera_conf_block/i2c_master0/slave_addr_i_7" BEL
+        "camera_conf_block/i2c_master0/slave_addr_i_6" BEL
+        "camera_conf_block/i2c_master0/slave_addr_i_5" BEL
+        "camera_conf_block/i2c_master0/slave_addr_i_4" BEL
+        "camera_conf_block/i2c_master0/slave_addr_i_3" BEL
+        "camera_conf_block/i2c_master0/slave_addr_i_2" BEL
+        "camera_conf_block/i2c_master0/slave_addr_i_1" BEL
+        "camera_conf_block/i2c_master0/ack_byte" BEL
+        "camera_conf_block/i2c_master0/tick_count_7" BEL
+        "camera_conf_block/i2c_master0/tick_count_6" BEL
+        "camera_conf_block/i2c_master0/tick_count_5" BEL
+        "camera_conf_block/i2c_master0/tick_count_4" BEL
+        "camera_conf_block/i2c_master0/tick_count_3" BEL
+        "camera_conf_block/i2c_master0/tick_count_2" BEL
+        "camera_conf_block/i2c_master0/tick_count_1" BEL
+        "camera_conf_block/i2c_master0/tick_count_0" BEL
+        "camera_conf_block/i2c_master0/bit_count_3" BEL
+        "camera_conf_block/i2c_master0/bit_count_2" BEL
+        "camera_conf_block/i2c_master0/bit_count_1" BEL
+        "camera_conf_block/i2c_master0/bit_count_0" BEL
+        "camera_conf_block/i2c_master0/state[3]_clock_DFF_136" BEL
+        "camera_conf_block/i2c_master0/state[3]_clock_DFF_137" BEL
+        "camera_conf_block/i2c_master0/nack_byte" BEL
+        "camera_conf_block/i2c_master0/dispo" BEL
+        "camera_conf_block/i2c_master0/send_rvcb" BEL
+        "camera_conf_block/i2c_data_7" BEL "camera_conf_block/i2c_data_6" BEL
+        "camera_conf_block/i2c_data_5" BEL "camera_conf_block/i2c_data_4" BEL
+        "camera_conf_block/i2c_data_3" BEL "camera_conf_block/i2c_data_2" BEL
+        "camera_conf_block/i2c_data_1" BEL "camera_conf_block/i2c_data_0" BEL
+        "camera_conf_block/temp_counter/Qp_9" BEL
+        "camera_conf_block/temp_counter/Qp_8" BEL
+        "camera_conf_block/temp_counter/Qp_7" BEL
+        "camera_conf_block/temp_counter/Qp_6" BEL
+        "camera_conf_block/temp_counter/Qp_5" BEL
+        "camera_conf_block/temp_counter/Qp_4" BEL
+        "camera_conf_block/temp_counter/Qp_3" BEL
+        "camera_conf_block/temp_counter/Qp_2" BEL
+        "camera_conf_block/temp_counter/Qp_1" BEL
+        "camera_conf_block/temp_counter/Qp_0" BEL
+        "camera_conf_block/i2c_master0/scl" BEL
+        "camera_conf_block/i2c_master0/sda" PIN "conf_rom/Mram_rom_pins<9>"
+        BEL "PMOD4_4" BEL "sys_clocks_gen/clkout2_buf";
+TIMEGRP clkspi_grp = BEL "mem_interface0/bit_count_3" BEL
+        "mem_interface0/bit_count_2" BEL "mem_interface0/bit_count_1" BEL
+        "mem_interface0/bit_count_0" BEL "mem_interface0/addr_bus_latched_15"
+        BEL "mem_interface0/addr_bus_latched_14" BEL
+        "mem_interface0/addr_bus_latched_13" BEL
+        "mem_interface0/addr_bus_latched_12" BEL
+        "mem_interface0/addr_bus_latched_11" BEL
+        "mem_interface0/addr_bus_latched_10" BEL
+        "mem_interface0/addr_bus_latched_9" BEL
+        "mem_interface0/addr_bus_latched_8" BEL
+        "mem_interface0/addr_bus_latched_7" BEL
+        "mem_interface0/addr_bus_latched_6" BEL
+        "mem_interface0/addr_bus_latched_5" BEL
+        "mem_interface0/addr_bus_latched_4" BEL
+        "mem_interface0/addr_bus_latched_3" BEL
+        "mem_interface0/addr_bus_latched_2" BEL
+        "mem_interface0/addr_bus_latched_1" BEL
+        "mem_interface0/addr_bus_latched_0" BEL "mem_interface0/auto_inc" BEL
+        "mem_interface0/data_out_sr_15" BEL "mem_interface0/data_out_sr_14"
+        BEL "mem_interface0/data_out_sr_13" BEL
+        "mem_interface0/data_out_sr_12" BEL "mem_interface0/data_out_sr_11"
+        BEL "mem_interface0/data_out_sr_10" BEL "mem_interface0/data_out_sr_9"
+        BEL "mem_interface0/data_out_sr_8" BEL "mem_interface0/data_out_sr_7"
+        BEL "mem_interface0/data_out_sr_6" BEL "mem_interface0/data_out_sr_5"
+        BEL "mem_interface0/data_out_sr_4" BEL "mem_interface0/data_out_sr_3"
+        BEL "mem_interface0/data_out_sr_2" BEL "mem_interface0/data_out_sr_1"
+        BEL "mem_interface0/data_confn" BEL "mem_interface0/rd_latched" BEL
+        "mem_interface0/wr_latched" BEL "mem_interface0/data_in_sr_14" BEL
+        "mem_interface0/data_in_sr_13" BEL "mem_interface0/data_in_sr_12" BEL
+        "mem_interface0/data_in_sr_11" BEL "mem_interface0/data_in_sr_10" BEL
+        "mem_interface0/data_in_sr_9" BEL "mem_interface0/data_in_sr_8" BEL
+        "mem_interface0/data_in_sr_7" BEL "mem_interface0/data_in_sr_6" BEL
+        "mem_interface0/data_in_sr_5" BEL "mem_interface0/data_in_sr_4" BEL
+        "mem_interface0/data_in_sr_3" BEL "mem_interface0/data_in_sr_2" BEL
+        "mem_interface0/data_in_sr_1" BEL "mem_interface0/data_in_sr_0" BEL
+        "mem_interface0/rd_wrn" BEL "mem_interface0/data_byte" BEL
+        "SYS_SPI_SCK_BUFGP/BUFG";
+PIN SP6_BUFIO2_INSERT_PLL1_ML_BUFIO2_0_pins<0> = BEL
+        "SP6_BUFIO2_INSERT_PLL1_ML_BUFIO2_0" PINNAME DIVCLK;
+PIN sys_clocks_gen/pll_base_inst/PLL_ADV_pins<2> = BEL
+        "sys_clocks_gen/pll_base_inst/PLL_ADV" PINNAME CLKIN1;
+TIMEGRP clk50_grp = PIN "SP6_BUFIO2_INSERT_PLL1_ML_BUFIO2_0_pins<0>" PIN
+        "sys_clocks_gen/pll_base_inst/PLL_ADV_pins<2>";
+TS_PER_CLK50 = PERIOD TIMEGRP "clk50_grp" 20 ns HIGH 50%;
+TS_PER_CLK100 = PERIOD TIMEGRP "clkspi_grp" 10 ns HIGH 50%;
+TS_sys_clocks_gen_clkout1 = PERIOD TIMEGRP "sys_clocks_gen_clkout1"
+        TS_PER_CLK50 / 0.48 HIGH 50%;
+TS_sys_clocks_gen_clkout2 = PERIOD TIMEGRP "sys_clocks_gen_clkout2"
+        TS_PER_CLK50 / 2 HIGH 50%;
+SCHEMATIC END;
+
