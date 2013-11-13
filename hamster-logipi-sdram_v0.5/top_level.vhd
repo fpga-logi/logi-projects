@@ -11,7 +11,7 @@ library UNISIM;
 use UNISIM.VComponents.all;
 
 entity top_level is
-    Port ( clk_50      : in    STD_LOGIC;
+    Port ( OSC_FPGA      : in    STD_LOGIC;
            led         : out   STD_LOGIC_VECTOR( 1 downto 0);
            SDRAM_CLK   : out   STD_LOGIC;
            SDRAM_CKE   : out   STD_LOGIC;
@@ -24,7 +24,7 @@ entity top_level is
            SDRAM_BA    : out   STD_LOGIC_VECTOR( 1 downto 0);
            SDRAM_DQ    : inout STD_LOGIC_VECTOR (15 downto 0);
            
-           pi_rx       : out std_logic);
+           SYS_TX       : out std_logic);
 end top_level;
 
 architecture Behavioral of top_level is
@@ -159,7 +159,8 @@ Inst_Memory_tester: Memory_tester GENERIC MAP(address_width => test_width) PORT 
       blink           => blink
    );
    
-   debug <= tester_debug;
+   debug(14 downto 0) <= tester_debug(14 downto 0);
+	debug(15) <= '1';
 
 Inst_SDRAM_Controller: SDRAM_Controller GENERIC MAP (
       sdram_address_width => sdram_address_width,
@@ -199,7 +200,7 @@ Inst_cheapscope: cheapscope GENERIC MAP (
       capture_clk => clk,
       probes      => debug,
       tx_clk      => clk,
-      serial_tx   => pi_rx
+      serial_tx   => SYS_TX
    );
 
    
@@ -239,7 +240,7 @@ PLL_BASE_inst : PLL_BASE generic map (
    );
 
    -- Buffering of clocks
-BUFG_1 : BUFG port map (O => clkb,    I => clk_50);
+BUFG_1 : BUFG port map (O => clkb,    I => OSC_FPGA);
 BUFG_3 : BUFG port map (O => clk,     I => clku);
 
 end Behavioral;
