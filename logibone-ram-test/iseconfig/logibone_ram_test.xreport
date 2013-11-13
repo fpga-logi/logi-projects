@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2013-05-07T12:55:47</DateModified>
+  <DateModified>2013-11-13T10:57:42</DateModified>
   <ModuleName>logibone_ram_test</ModuleName>
   <SummaryTimeStamp>2013-05-07T11:10:30</SummaryTimeStamp>
-  <SavedFilePath>D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-Projects/Logi-projects/logibone-ram-test/iseconfig/logibone_ram_test.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-Projects/Logi-projects/logibone-ram-test\</ImplementationReportsDirectory>
+  <SavedFilePath>/home/jpiat/development/FPGA/logi-family/logi-projects/logibone-ram-test/iseconfig/logibone_ram_test.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/logibone-ram-test/</ImplementationReportsDirectory>
   <DateInitialized>2013-05-07T10:36:20</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
