@@ -38,7 +38,7 @@ library work ;
 use work.logi_wishbone_pack.all ;
 use work.logi_wishbone_peripherals_pack.all ;
 
-entity logibone_hear_v2 is
+entity logibone_hear is
 port( OSC_FPGA : in std_logic;
 		PB : in std_logic_vector(1 downto 0);
 		LED : out std_logic_vector(1 downto 0);	
@@ -56,9 +56,9 @@ port( OSC_FPGA : in std_logic;
 		PMOD1 : inout std_logic_vector(7 downto 0);
 		PMOD2 : inout std_logic_vector(7 downto 0)	
 );
-end logibone_hear_v2;
+end logibone_hear;
 
-architecture Behavioral of logibone_hear_v2 is
+architecture Behavioral of logibone_hear is
 
 	component clock_gen
 	port
@@ -73,34 +73,55 @@ architecture Behavioral of logibone_hear_v2 is
 	);
 	end component;
 	
+	component aes_rx
+	port (
+	  clk:                    in  std_logic;     
+	  rst:                    in  std_logic;     
+	  din:                    in  std_logic;     
+	  mux_mode:               in  std_logic;     
+	  locked:                 out std_logic;     
+	  chan1_en:               out std_logic;     
+	  audio1:                 out std_logic_vector(23 downto 0);
+	  valid1:                 out std_logic; 
+	  user1:                  out std_logic; 
+	  cs1:                    out std_logic; 
+	  chan2_en:               out std_logic; 
+	  audio2:                 out std_logic_vector(23 downto 0);
+	  valid2:                 out std_logic;   
+	  user2:                  out std_logic;   
+	  cs2:                    out std_logic;   
+	  parity_err:             out std_logic;   
+	  frames:                 out std_logic_vector(7 downto 0);
+	  frame0:                 out std_logic);
+	end component;
 	
+	component aes_rx_rate_detect
+	 generic (
+		  CNTR_WIDTH:             integer := 14;      
+		  CMP_VAL_LSB:            integer := 6;       
+		  CLOCK_FREQUENCY:        integer := 133333333;
+		  JITTER_ALLOWANCE:       integer := 1);       
+	 port (
+		  clk:                    in  std_logic;       
+		  rst:                    in  std_logic;       
+		  strobe:                 in  std_logic;       
+		  detect:                 out std_logic;       
+		  rate:                   out std_logic_vector(3 downto 0));
+	end component;
 	
-	
-	
-	component hear_aes_receiver is
-		generic(nb_aes_channel : positive := 3; 
-				wb_data_width : positive := 16;
-				wb_add_width : positive := 16 ;
-				CLOCK_FREQUENCY   : positive := 120000000;
-				CMP_VAL_LSB       : positive := 4;
-				JITTER_ALLOWANCE  : positive := 2
-				);
+	component samples2fifo is
 		port(
-				-- Syscon signals
-			gls_reset    : in std_logic ;
-			gls_clk      : in std_logic ;
+			clk, rst : in std_logic ;
 			
-			audio_reset : in std_logic ;
-			audio_clk : in std_logic ;
-			aes_rx_input : in std_logic_vector(nb_aes_channel-1 downto 0) ;
+			frame_info : in std_logic_vector(15 downto 0);
+			frame0 : in std_logic ;
+			data : in std_logic_vector(23 downto 0);
+			data_valid : in std_logic ;
 			
-			fifo_wr : out std_logic_vector(nb_aes_channel-1 downto 0) ;
-			fifo_full : in std_logic_vector(nb_aes_channel-1 downto 0) ;
-			fifo_data : out slv16_array(nb_aes_channel-1 downto 0);
 			
-			flag_register : out slv16_array(nb_aes_channel-1 downto 0);
-			control_register : in slv16_array(nb_aes_channel-1 downto 0)
-			
+			fifo_write : out std_logic ;
+			fifo_data : out std_logic_vector(15 downto 0);
+			fifo_full : in std_logic 
 		);
 	end component;
 
@@ -133,22 +154,6 @@ architecture Behavioral of logibone_hear_v2 is
 	signal intercon_fifo0_wbm_ack :  std_logic;
 	signal intercon_fifo0_wbm_cycle :  std_logic;
 	
-	signal intercon_fifo1_wbm_address :  std_logic_vector(15 downto 0);
-	signal intercon_fifo1_wbm_readdata :  std_logic_vector(15 downto 0);
-	signal intercon_fifo1_wbm_writedata :  std_logic_vector(15 downto 0);
-	signal intercon_fifo1_wbm_strobe :  std_logic;
-	signal intercon_fifo1_wbm_write :  std_logic;
-	signal intercon_fifo1_wbm_ack :  std_logic;
-	signal intercon_fifo1_wbm_cycle :  std_logic;
-	
-	signal intercon_fifo2_wbm_address :  std_logic_vector(15 downto 0);
-	signal intercon_fifo2_wbm_readdata :  std_logic_vector(15 downto 0);
-	signal intercon_fifo2_wbm_writedata :  std_logic_vector(15 downto 0);
-	signal intercon_fifo2_wbm_strobe :  std_logic;
-	signal intercon_fifo2_wbm_write :  std_logic;
-	signal intercon_fifo2_wbm_ack :  std_logic;
-	signal intercon_fifo2_wbm_cycle :  std_logic;
-	
 	signal intercon_intr_wbm_address :  std_logic_vector(15 downto 0);
 	signal intercon_intr_wbm_readdata :  std_logic_vector(15 downto 0);
 	signal intercon_intr_wbm_writedata :  std_logic_vector(15 downto 0);
@@ -157,31 +162,68 @@ architecture Behavioral of logibone_hear_v2 is
 	signal intercon_intr_wbm_ack :  std_logic;
 	signal intercon_intr_wbm_cycle :  std_logic;
 	
-	signal fifo0_cs, fifo1_cs, fifo2_cs, reg_cs, intr_cs : std_logic ;
+	signal fifo0_cs, reg_cs, intr_cs : std_logic ;
 
 	-- fifo signals
-	signal fifo0_data, fifo1_data, fifo2_data: std_logic_vector(15 downto 0);
-	signal fifo0_wr, fifo1_wr, fifo2_wr, fifo0_full, fifo1_full, fifo2_full : std_logic ;
+	signal fifo_output : std_logic_vector(15 downto 0);
+	signal fifo_input : std_logic_vector(15 downto 0);
+	signal fifoB_wr, fifoA_rd, fifoA_rd_old, fifoA_empty, fifoA_full, fifoB_empty, fifoB_full : std_logic ;
 
 -- registers signals
 	signal loopback_sig : std_logic_vector(15 downto 0);
-	signal rec0_ctrl, rec1_ctrl, rec2_ctrl, rec0_flags, rec1_flags, rec2_flags : std_logic_vector(15 downto 0);
+	signal control_register : std_logic_vector(15 downto 0);
+	signal flag_register : std_logic_vector(15 downto 0);
 	
 -- intr manager signals
-	signal fifo0_burst, fifo1_burst, fifo2_burst : std_logic ;
+	signal fifo_burst : std_logic ;
+
+-- AES receiver signals
+
+subtype aes_audio_sample_type is std_logic_vector(23 downto 0);
+subtype aes_frame_counter_type is std_logic_vector(7 downto 0);
+subtype aes_rate_type is std_logic_vector(3 downto 0);
 
 -- AES Rx #1 signals
-signal aes0_rx, aes1_rx, aes2_rx :            std_logic;                      -- input bit stream
+signal aes1_rx :            std_logic;                      -- input bit stream
+signal parity_err1 :        std_logic;                      -- parity err signal
+signal err_capture1 :       std_logic;                      -- parity err capture FF
+signal err_cap_rst :        std_logic;                      -- error capture reset
+signal aes1_locked :        std_logic;                      -- Rx locked
+signal channel1 :           std_logic;                      -- ch 1 enable
+signal channel2 :           std_logic;                      -- ch 2 enable
+signal audio1_out :         aes_audio_sample_type;          -- ch 1 audio data
+signal audio2_out :         aes_audio_sample_type;          -- ch 2 audio data
+signal valid1_out :         std_logic;                      -- ch 1 valid bit
+signal valid2_out :         std_logic;                      -- ch 2 valid bit
+signal user1_out :          std_logic;                      -- ch 1 user bit
+signal user2_out :          std_logic;                      -- ch 2 user bit
+signal cs1_out :            std_logic;                      -- ch 1 ch status
+signal cs2_out :            std_logic;                      -- ch 2 ch status
+signal aes_frame_count1 :   aes_frame_counter_type;         -- frame counter
+signal aes_frame0 :         std_logic;                      -- 1 = first frame
+signal cs1_crc_out :        std_logic;                      -- ch 1 C CRC bit
+signal cs1_crc_out_en :     std_logic;                      -- ch 1 C CRC enable
+signal cs1_crc_err :        std_logic;                      -- ch 1 C CRC err capture
+signal cs1_crc_err_det :    std_logic;                      -- ch 1 C CRC err detect
+signal cs2_crc_out :        std_logic;                      -- ch 2 C CRC bit
+signal cs2_crc_out_en :     std_logic;                      -- ch 2 C CRC enable
+signal cs2_crc_err :        std_logic;                      -- ch 2 C CRC err capture
+signal cs2_crc_err_det :    std_logic;                      -- ch 2 C CRC err detect
+signal rate_detect :        std_logic;                      -- 1 if valid AES rate
+signal rate :               aes_rate_type;                  -- detected AES rate
+
+
 
 signal rst_audio_pipeline : std_logic ;
-
+signal sample_valid : std_logic ;
+signal frame_info : std_logic_vector(15 downto 0);
 begin
 
 ARD_SCL <= 'Z' ;
 ARD_SDA <= 'Z' ;
 
 LED(1) <= (GPMC_BEN(0) XOR GPMC_BEN(1)) ;
-LED(0) <= fifo0_wr ; -- should give an indication of SPDIF working
+LED(0) <= aes_frame0 and sample_valid;
 sys_reset <= NOT PB(0); 
 sys_resetn <= NOT sys_reset ; -- for preipherals with active low reset
 
@@ -231,18 +273,12 @@ port map
 
 fifo0_cs <= '1' when intercon_wrapper_wbm_address(15 downto 11) = "00000" else
 				'0' ;
-				
-fifo1_cs <= '1' when intercon_wrapper_wbm_address(15 downto 11) = "00001" else
-				'0' ;
-
-fifo2_cs <= '1' when intercon_wrapper_wbm_address(15 downto 11) = "00010" else
-				'0' ;
 
 				
-reg_cs <= '1' when intercon_wrapper_wbm_address(15 downto 2) = "0011000000000"   else
+reg_cs <= '1' when intercon_wrapper_wbm_address(15 downto 2) = "0000100000000"   else
 			 '0' ;
 			 
-intr_cs <= '1' when intercon_wrapper_wbm_address(15 downto 2) = "0010000000001"   else
+intr_cs <= '1' when intercon_wrapper_wbm_address(15 downto 2) = "0000100000001"   else
 			  '0' ;
 
 
@@ -251,18 +287,6 @@ intercon_fifo0_wbm_writedata <= intercon_wrapper_wbm_writedata ;
 intercon_fifo0_wbm_write <= intercon_wrapper_wbm_write and fifo0_cs ;
 intercon_fifo0_wbm_strobe <= intercon_wrapper_wbm_strobe and fifo0_cs ;
 intercon_fifo0_wbm_cycle <= intercon_wrapper_wbm_cycle and fifo0_cs ;
-
-intercon_fifo1_wbm_address <= intercon_wrapper_wbm_address ;
-intercon_fifo1_wbm_writedata <= intercon_wrapper_wbm_writedata ;
-intercon_fifo1_wbm_write <= intercon_wrapper_wbm_write and fifo1_cs ;
-intercon_fifo1_wbm_strobe <= intercon_wrapper_wbm_strobe and fifo1_cs ;
-intercon_fifo1_wbm_cycle <= intercon_wrapper_wbm_cycle and fifo1_cs ;
-
-intercon_fifo2_wbm_address <= intercon_wrapper_wbm_address ;
-intercon_fifo2_wbm_writedata <= intercon_wrapper_wbm_writedata ;
-intercon_fifo2_wbm_write <= intercon_wrapper_wbm_write and fifo2_cs ;
-intercon_fifo2_wbm_strobe <= intercon_wrapper_wbm_strobe and fifo2_cs ;
-intercon_fifo2_wbm_cycle <= intercon_wrapper_wbm_cycle and fifo2_cs ;
 
 intercon_register_wbm_address <= intercon_wrapper_wbm_address ;
 intercon_register_wbm_writedata <= intercon_wrapper_wbm_writedata ;
@@ -278,15 +302,11 @@ intercon_intr_wbm_cycle <= intercon_wrapper_wbm_cycle and intr_cs ;
 
 intercon_wrapper_wbm_readdata	<= intercon_register_wbm_readdata when reg_cs = '1' else
 											intercon_fifo0_wbm_readdata when fifo0_cs = '1' else
-											intercon_fifo1_wbm_readdata when fifo1_cs = '1' else
-											intercon_fifo2_wbm_readdata when fifo2_cs = '1' else
 											intercon_intr_wbm_readdata when intr_cs = '1' else
 											intercon_wrapper_wbm_address ;
 											
 intercon_wrapper_wbm_ack	<= intercon_register_wbm_ack when reg_cs = '1' else
 										intercon_fifo0_wbm_ack when fifo0_cs = '1' else
-										intercon_fifo1_wbm_ack when fifo1_cs = '1' else
-										intercon_fifo2_wbm_ack when fifo2_cs = '1' else
 										intercon_intr_wbm_ack when intr_cs = '1' else
 										'0' ;
 									      
@@ -294,7 +314,7 @@ intercon_wrapper_wbm_ack	<= intercon_register_wbm_ack when reg_cs = '1' else
 -----------------------------------------------------------------------
 
 	register0 : wishbone_register
-		 generic map(nb_regs => 4)
+		 generic map(nb_regs => 2)
 		 port map
 		 (
 			  -- Syscon signals
@@ -310,14 +330,10 @@ intercon_wrapper_wbm_ack	<= intercon_register_wbm_ack when reg_cs = '1' else
 			  wbs_ack       => intercon_register_wbm_ack,
 			  -- out signals
 			  reg_out(0) => loopback_sig,
-			  reg_out(1) => rec0_ctrl,
-			  reg_out(2) => rec1_ctrl,
-			  reg_out(3) => rec2_ctrl,
+			  reg_out(1) => control_register,
 			  --reg_out(2) => , to be used to connect reset of audio 
 			  reg_in(0) => loopback_sig,
-			  reg_in(1) => rec0_flags,
-			  reg_in(2) => rec1_flags,
-			  reg_in(3) => rec2_flags
+			  reg_in(1) => flag_register
 			  --reg_in(2) => , to be used to connect error flags
 		 );
 	--LED(0) <= loopback_sig(0);
@@ -343,83 +359,21 @@ intercon_wrapper_wbm_ack	<= intercon_register_wbm_ack when reg_cs = '1' else
 				  
 			-- logic signals  
 
-			wrB => fifo0_wr,
-			rdA => '0',
-			inputB => fifo0_data, 
-			outputA => open,
-			emptyA => open,
-			fullA => open,
-			emptyB => open,
-			fullB => fifo0_full,
-			burst_available_B => fifo0_burst
-	);
-	
-		fifo1: wishbone_fifo
-		generic map(
-				SIZE	=> 4096,
-				B_BURST_SIZE => 512,
-				SYNC_LOGIC_INTERFACE => true)
-		port map(
-			-- Syscon signals
-			gls_reset    => sys_reset,
-			gls_clk      => sys_clk,
-			-- Wishbone signals
-			wbs_add      =>  intercon_fifo1_wbm_address ,
-			wbs_writedata => intercon_fifo1_wbm_writedata,
-			wbs_readdata  => intercon_fifo1_wbm_readdata,
-			wbs_strobe    => intercon_fifo1_wbm_strobe,
-			wbs_cycle     => intercon_fifo1_wbm_cycle,
-			wbs_write     => intercon_fifo1_wbm_write,
-			wbs_ack       => intercon_fifo1_wbm_ack,
-				  
-			-- logic signals  
-
-			wrB => fifo1_wr,
-			rdA => '0',
-			inputB => fifo1_data, 
-			outputA => open,
-			emptyA => open,
-			fullA => open,
-			emptyB => open,
-			fullB => fifo1_full,
-			burst_available_B => fifo1_burst
-	);
-	
-		fifo2: wishbone_fifo
-		generic map(
-				SIZE	=> 4096,
-				B_BURST_SIZE => 512,
-				SYNC_LOGIC_INTERFACE => true)
-		port map(
-			-- Syscon signals
-			gls_reset    => sys_reset,
-			gls_clk      => sys_clk,
-			-- Wishbone signals
-			wbs_add      =>  intercon_fifo2_wbm_address ,
-			wbs_writedata => intercon_fifo2_wbm_writedata,
-			wbs_readdata  => intercon_fifo2_wbm_readdata,
-			wbs_strobe    => intercon_fifo2_wbm_strobe,
-			wbs_cycle     => intercon_fifo2_wbm_cycle,
-			wbs_write     => intercon_fifo2_wbm_write,
-			wbs_ack       => intercon_fifo2_wbm_ack,
-				  
-			-- logic signals  
-
-			wrB => fifo2_wr,
-			rdA => '0',
-			inputB => fifo2_data, 
-			outputA => open,
-			emptyA => open,
-			fullA => open,
-			emptyB => open,
-			fullB => fifo2_full,
-			burst_available_B => fifo2_burst
+			wrB => fifoB_wr,
+			rdA => fifoA_rd,
+			inputB => fifo_input, 
+			outputA => fifo_output,
+			emptyA => fifoA_empty,
+			fullA => fifoA_full,
+			emptyB => fifoB_empty,
+			fullB => fifoB_full,
+			burst_available_B => fifo_burst
 	);
 	
 	
 	intr_manager : wishbone_interrupt_manager
 		generic map(NB_INTERRUPT_LINES => 1, 
-		  NB_INTERRUPTS => 3,
+		  NB_INTERRUPTS => 1,
 		  ADDR_WIDTH => 16,
 		  DATA_WIDTH => 16)
 		port map(
@@ -436,82 +390,97 @@ intercon_wrapper_wbm_ack	<= intercon_register_wbm_ack when reg_cs = '1' else
 			wbs_ack       => intercon_intr_wbm_ack,
 
 			interrupt_lines => open,
-			interrupts_req(0) => fifo0_burst,
-			interrupts_req(1) => fifo1_burst,
-			interrupts_req(2) => fifo2_burst
+			interrupts_req(0) => fifo_burst
 
 		);
 
 
 -- audio pipeline
 
-	rst_audio_pipeline <= rec0_ctrl(0);
+	rst_audio_pipeline <= control_register(0);
 	
 	
 	----------------------------------------------------------------------------
  -- AES audio receivers
  --
  
- IBUFAESRX0 : IBUF
-    generic map (
-        IOSTANDARD          => "LVCMOS25")
-    port map (
-        I                   => PMOD2(7),
-        O                   => aes0_rx);
-		  
  IBUFAESRX1 : IBUF
     generic map (
         IOSTANDARD          => "LVCMOS25")
     port map (
-        I                   => PMOD2(6),
+        I                   => PMOD2(7),
         O                   => aes1_rx);
-		  
- IBUFAESRX2 : IBUF
-    generic map (
-        IOSTANDARD          => "LVCMOS25")
-    port map (
-        I                   => PMOD2(5),
-        O                   => aes2_rx);
  
  
+ AESRX1 : aes_rx
+ port map (
+	  clk                 => audio_clk,
+	  rst                 => sys_reset,
+	  din                 => aes1_rx,
+	  mux_mode            => '1', -- muxed mode
+	  locked              => aes1_locked,
+	  chan1_en            => channel1,
+	  audio1              => audio1_out,
+	  valid1              => valid1_out,
+	  user1               => user1_out,
+	  cs1                 => cs1_out,
+	  chan2_en            => channel2,
+	  audio2              => audio2_out,
+	  valid2              => valid2_out,
+	  user2               => user2_out,
+	  cs2                 => cs2_out,
+	  parity_err          => parity_err1,
+	  frames              => aes_frame_count1,
+	  frame0              => aes_frame0);
 
-aes_receivers : hear_aes_receiver
-		generic map(nb_aes_channel => 3,
-				wb_data_width => 16,
-				wb_add_width =>  16 ,
-				CLOCK_FREQUENCY => 120_000_000,
-				CMP_VAL_LSB     => 4,
-				JITTER_ALLOWANCE  => 2
-				)
-		port map(
-				-- Syscon signals
-			gls_reset => sys_reset,
-			gls_clk   => sys_clk,
-			
-			audio_reset => rst_audio_pipeline,
-			audio_clk => audio_clk,
-			aes_rx_input(0) => aes0_rx,
-			aes_rx_input(1) => aes1_rx,
-			aes_rx_input(2) => aes2_rx,
-			
-			fifo_wr(0) => fifo0_wr,
-			fifo_wr(1) => fifo1_wr,
-			fifo_wr(2) => fifo2_wr,
-			fifo_full(0) => fifo0_full ,
-			fifo_full(1) => fifo1_full ,
-			fifo_full(2) => fifo2_full ,
-			fifo_data(0) => fifo0_data,
-			fifo_data(1) => fifo1_data,
-			fifo_data(2) => fifo2_data,
-			
-			flag_register(0) => rec0_flags,
-			flag_register(1) => rec1_flags,
-			flag_register(2) => rec2_flags,
-			control_register(0) => rec0_ctrl,
-			control_register(1) => rec1_ctrl,
-			control_register(2) => rec2_ctrl
-			
-		);
+
+err_cap_rst <= control_register(0) ;
+flag_register(13 downto 0) <= parity_err1 & aes1_locked & rate & aes_frame_count1;
+
+ process(audio_clk, err_cap_rst)
+ begin
+	  if err_cap_rst = '1' then
+			err_capture1 <= '0';
+	  elsif rising_edge(audio_clk) then
+			if channel2 = '1' and parity_err1 = '1' then
+				 err_capture1 <= '1';
+			end if;
+	  end if;
+ end process;
+
+ RDET : aes_rx_rate_detect
+ generic map (
+	  CLOCK_FREQUENCY     => 120000000,
+	  CMP_VAL_LSB         => 4,
+	  JITTER_ALLOWANCE    => 2)
+ port map (
+	  clk                 => audio_clk,
+	  rst                 => sys_reset,
+	  strobe              => channel2,
+	  detect              => rate_detect,
+	  rate                => rate);
+
+
+ frame_info(3 downto 0) <= rate ;
+ sample_valid <= channel2 OR channel1 ;
+ 
+ 
+ samples_to_fifo_0 : samples2fifo
+	port map (
+	  clk                 => audio_clk,
+	  rst                 => rst_audio_pipeline, -- controled through register to guarantuee alignement of data on frame
+	  
+	  frame0 => aes_frame0 ,
+	  
+	  frame_info => frame_info ,
+	  data			     => audio2_out,
+	  data_valid				=> sample_valid,
+	  
+	  
+	  fifo_write => fifoB_wr,
+	  fifo_data => fifo_input,
+	  fifo_full => fifoB_full
+	  );
 
 
 

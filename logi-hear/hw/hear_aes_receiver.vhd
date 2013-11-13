@@ -117,7 +117,7 @@ component aes_rx
 		);
 	end component;
 
-constant counter_modulo : integer := CLOCK_FREQUENCY/1000_000 ; -- counting at 1Mhz
+constant counter_modulo : integer := CLOCK_FREQUENCY/1_000_000 ; -- counting at 1Mhz
 
 
 -- AES receiver signals
@@ -164,9 +164,9 @@ signal modulo_counter : std_logic_vector(7 downto 0); -- maybe a bit oversized .
 begin
 
 -- timestamp counter
-process(gls_clk, gls_reset)
+process(gls_clk, audio_reset)
 begin
-	if gls_reset = '1' then
+	if audio_reset = '1' then
 		modulo_counter <= (others => '0');
 		timestamp <= (others => '0');
 	elsif gls_clk'event and gls_clk = '1' then
