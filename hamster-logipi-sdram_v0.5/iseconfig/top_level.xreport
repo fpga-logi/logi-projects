@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2013-10-24T09:06:29</DateModified>
+  <DateModified>2013-11-07T20:20:07</DateModified>
   <ModuleName>top_level</ModuleName>
-  <SummaryTimeStamp>2013-10-24T09:05:01</SummaryTimeStamp>
-  <SavedFilePath>E:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/hamster-logipi-sdram_v0.5/iseconfig/top_level.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>E:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/hamster-logipi-sdram_v0.5/work\</ImplementationReportsDirectory>
+  <SummaryTimeStamp>2013-11-07T18:35:48</SummaryTimeStamp>
+  <SavedFilePath>/home/jpiat/development/FPGA/logi-family/logi-projects/hamster-logipi-sdram_v0.5/iseconfig/top_level.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/hamster-logipi-sdram_v0.5/work/</ImplementationReportsDirectory>
   <DateInitialized>2013-10-24T07:55:11</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
