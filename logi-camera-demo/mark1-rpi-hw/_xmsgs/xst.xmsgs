@@ -1,0 +1,1618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/bus/peripheral/fifo_peripheral.vhd" Line 95: Assignment to <arg fmt="%s" index="1">latch_registers</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/conf/i2c_conf.vhd" Line 58: Net &lt;<arg fmt="%s" index="1">rcv</arg>&gt; does not have a driver.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/interface/yuv_camera_interface.vhd" Line 114: Assignment to <arg fmt="%s" index="1">pxclkt</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/block3X3.vhd" Line 113: Assignment to <arg fmt="%s" index="1">enable_line0_latches</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/block3X3.vhd" Line 115: Assignment to <arg fmt="%s" index="1">enable_line1_latches</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/feature/HARRIS.vhd" Line 284: Assignment to <arg fmt="%s" index="1">href_from_sobel_re</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/yuv_pixel2fifo.vhd" Line 68: Assignment to <arg fmt="%s" index="1">hsync_rising_edge</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">PB&lt;3:1&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">DIP_SW&lt;3:2&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">PMOD4_7</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">143</arg>: Output port &lt;<arg fmt="%s" index="3">CLK_OUT1</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">sys_clocks_gen</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">143</arg>: Output port &lt;<arg fmt="%s" index="3">LOCKED</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">sys_clocks_gen</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">203</arg>: Output port &lt;<arg fmt="%s" index="3">outputA</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">fifo_preview</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">203</arg>: Output port &lt;<arg fmt="%s" index="3">emptyA</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">fifo_preview</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">203</arg>: Output port &lt;<arg fmt="%s" index="3">fullA</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">fifo_preview</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">203</arg>: Output port &lt;<arg fmt="%s" index="3">emptyB</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">fifo_preview</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">203</arg>: Output port &lt;<arg fmt="%s" index="3">fullB</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">fifo_preview</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">203</arg>: Output port &lt;<arg fmt="%s" index="3">burst_available_B</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">fifo_preview</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">251</arg>: Output port &lt;<arg fmt="%s" index="3">u_data</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">camera0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">251</arg>: Output port &lt;<arg fmt="%s" index="3">v_data</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">camera0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">294</arg>: Output port &lt;<arg fmt="%s" index="3">x_grad</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">sobel0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">294</arg>: Output port &lt;<arg fmt="%s" index="3">y_grad</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">sobel0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">addr_bus&lt;15:3&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/utils/dp_fifo.vhd</arg>&quot; line <arg fmt="%s" index="2">66</arg>: Output port &lt;<arg fmt="%s" index="3">spo</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">dp_ram0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">addr&lt;7:7&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="2999" delta="new" >Signal &apos;<arg fmt="%s" index="1">rom</arg>&apos;, unconnected in block &apos;<arg fmt="%s" index="2">yuv_register_rom</arg>&apos;, is tied to its initial value.
+</msg>
+
+<msg type="warning" file="Xst" num="3035" delta="new" >Index value(s) does not match array range for signal &lt;<arg fmt="%s" index="1">rom</arg>&gt;, simulation mismatch.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">clock</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/conf/i2c_conf.vhd</arg>&quot; line <arg fmt="%s" index="2">66</arg>: Output port &lt;<arg fmt="%s" index="3">data_out</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">i2c_master0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">rcv</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/filter/gauss3x3.vhd</arg>&quot; line <arg fmt="%s" index="2">134</arg>: Output port &lt;<arg fmt="%s" index="3">new_block</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">block0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/block3X3.vhd</arg>&quot; line <arg fmt="%s" index="2">84</arg>: Output port &lt;<arg fmt="%s" index="3">spo</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">lines0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="3035" delta="new" >Index value(s) does not match array range for signal &lt;<arg fmt="%s" index="1">RAM</arg>&gt;, simulation mismatch.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/filter/sobel3x3.vhd</arg>&quot; line <arg fmt="%s" index="2">176</arg>: Output port &lt;<arg fmt="%s" index="3">block_out&lt;1&gt;&lt;1&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">block0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/filter/sobel3x3.vhd</arg>&quot; line <arg fmt="%s" index="2">176</arg>: Output port &lt;<arg fmt="%s" index="3">new_block</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">block0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/feature/HARRIS.vhd</arg>&quot; line <arg fmt="%s" index="2">103</arg>: Output port &lt;<arg fmt="%s" index="3">pixel_data_out</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">sobel0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/feature/HARRIS_LINE_ACC.vhd</arg>&quot; line <arg fmt="%s" index="2">67</arg>: Output port &lt;<arg fmt="%s" index="3">dpo</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">ram_gradx</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/feature/HARRIS_LINE_ACC.vhd</arg>&quot; line <arg fmt="%s" index="2">79</arg>: Output port &lt;<arg fmt="%s" index="3">dpo</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">ram_grady</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/feature/HARRIS_LINE_ACC.vhd</arg>&quot; line <arg fmt="%s" index="2">92</arg>: Output port &lt;<arg fmt="%s" index="3">dpo</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">ram_gradxy</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="3035" delta="new" >Index value(s) does not match array range for signal &lt;<arg fmt="%s" index="1">RAM</arg>&gt;, simulation mismatch.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">resetn</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">channel&lt;7:2&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/down_scaler.vhd</arg>&quot; line <arg fmt="%s" index="2">161</arg>: Output port &lt;<arg fmt="%s" index="3">dpo</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">line_ram0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="3035" delta="new" >Index value(s) does not match array range for signal &lt;<arg fmt="%s" index="1">RAM</arg>&gt;, simulation mismatch.
+</msg>
+
+<msg type="warning" file="Xst" num="1290" delta="new" >Hierarchical block &lt;<arg fmt="%s" index="1">u_latch</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">camera0</arg>&gt;.
+It will be removed from the design.
+</msg>
+
+<msg type="warning" file="Xst" num="1290" delta="new" >Hierarchical block &lt;<arg fmt="%s" index="1">v_latch_a</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">camera0</arg>&gt;.
+It will be removed from the design.
+</msg>
+
+<msg type="warning" file="Xst" num="1290" delta="new" >Hierarchical block &lt;<arg fmt="%s" index="1">u_latch_b</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">camera0</arg>&gt;.
+It will be removed from the design.
+</msg>
+
+<msg type="warning" file="Xst" num="1290" delta="new" >Hierarchical block &lt;<arg fmt="%s" index="1">v_latch</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">camera0</arg>&gt;.
+It will be removed from the design.
+</msg>
+
+<msg type="warning" file="Xst" num="1290" delta="new" >Hierarchical block &lt;<arg fmt="%s" index="1">dp_ram0</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">fifo_A</arg>&gt;.
+It will be removed from the design.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gradx_square_sum_col_0_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">harris_detector</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gradx_square_sum_col_0_14&gt; &lt;gradx_square_sum_col_0_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gradxy_sum_col_0_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">harris_detector</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gradxy_sum_col_0_14&gt; &lt;gradxy_sum_col_0_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">grady_square_sum_col_0_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">harris_detector</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;grady_square_sum_col_0_14&gt; &lt;grady_square_sum_col_0_15&gt; </arg>
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">rd_old</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">fifo_A</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_y_step_2_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_y_step_2_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_y_step_2_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_y_step_2_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_y_step_2_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_y_step_2_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_y_step_2_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_y_step_2_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_x_step_2_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_x_step_2_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_x_step_2_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_x_step_2_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_x_step_2_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_x_step_2_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_x_step_2_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_x_step_2_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv1_latched_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv1_latched_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv1_latched_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv1_latched_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv1_latched_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv1_latched_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv1_latched_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv1_latched_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv2_latched_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv2_latched_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv2_latched_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv2_latched_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv2_latched_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv2_latched_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv2_latched_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv2_latched_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">result_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">add_lines_gradx</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">result_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">add_lines_gradx</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">result_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">add_lines_grady</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">result_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">add_lines_grady</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">result_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">add_lines_gradxy</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">result_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">add_lines_gradxy</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">result_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">add_cols_gradx</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">result_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">add_cols_gradx</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">result_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">add_cols_grady</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">result_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">add_cols_grady</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">result_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">add_cols_gradxy</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">result_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">add_cols_gradxy</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">trace_square_latched_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">harris_rep0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">trace_square_latched_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">harris_rep0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">trace_square_latched_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">harris_rep0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">trace_square_latched_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">harris_rep0</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="3226" delta="new" >The RAM &lt;<arg fmt="%s" index="1">Mram_RAM</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+<msg type="info" file="Xst" num="3226" delta="new" >The RAM &lt;<arg fmt="%s" index="1">Mram_RAM</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+<msg type="info" file="Xst" num="3226" delta="new" >The RAM &lt;<arg fmt="%s" index="1">Mram_RAM</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+<msg type="info" file="Xst" num="3226" delta="new" >The RAM &lt;<arg fmt="%s" index="1">Mram_RAM</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+<msg type="info" file="Xst" num="3218" delta="new" >HDL ADVISOR - The RAM &lt;<arg fmt="%s" index="1">Mram__n0030</arg>&gt; will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+</msg>
+
+<msg type="info" file="Xst" num="3226" delta="new" >The RAM &lt;<arg fmt="%s" index="1">Mram_rom</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_step_2_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gauss3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_y_step_2_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_y_step_2_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_y_step_2_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_y_step_2_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_x_step_2_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_x_step_2_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_x_step_2_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">sum_x_step_2_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv2_latched_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv2_latched_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv2_latched_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv2_latched_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv1_latched_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv1_latched_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv1_latched_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">raw_from_conv1_latched_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">sobel3x3</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">det_latched_26</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">det_latched_27</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">det_latched_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">det_latched_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">det_latched_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">det_latched_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">trace_square_latched_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">trace_square_latched_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">trace_square_latched_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">trace_square_latched_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">trace_square_latched_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">trace_square_latched_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gradx_square_sum_col_0_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">HARRIS</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gradx_square_sum_col_0_14&gt; &lt;gradx_square_sum_col_0_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gradxy_sum_col_0_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">HARRIS</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gradxy_sum_col_0_14&gt; &lt;gradxy_sum_col_0_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">grady_square_sum_col_0_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">HARRIS</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;grady_square_sum_col_0_14&gt; &lt;grady_square_sum_col_0_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gradxy_sum_col_1_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">HARRIS</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gradxy_sum_col_1_14&gt; &lt;gradxy_sum_col_1_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">grady_square_sum_col_1_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">HARRIS</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;grady_square_sum_col_1_14&gt; &lt;grady_square_sum_col_1_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gradx_square_sum_col_1_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">HARRIS</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gradx_square_sum_col_1_14&gt; &lt;gradx_square_sum_col_1_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gradxy_sum_col_2_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">HARRIS</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gradxy_sum_col_2_14&gt; &lt;gradxy_sum_col_2_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">grady_square_sum_col_2_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">HARRIS</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;grady_square_sum_col_2_14&gt; &lt;grady_square_sum_col_2_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gradx_square_sum_col_2_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">HARRIS</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gradx_square_sum_col_2_14&gt; &lt;gradx_square_sum_col_2_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">grady_square_sum_col_3_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">HARRIS</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;grady_square_sum_col_3_14&gt; &lt;grady_square_sum_col_3_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gradx_square_sum_col_3_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">HARRIS</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gradx_square_sum_col_3_14&gt; &lt;gradx_square_sum_col_3_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gradxy_sum_col_3_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">HARRIS</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gradxy_sum_col_3_14&gt; &lt;gradxy_sum_col_3_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">grady_square_sum_col_4_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">HARRIS</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;grady_square_sum_col_4_14&gt; &lt;grady_square_sum_col_4_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gradx_square_sum_col_4_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">HARRIS</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gradx_square_sum_col_4_14&gt; &lt;gradx_square_sum_col_4_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gradxy_sum_col_4_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">HARRIS</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gradxy_sum_col_4_14&gt; &lt;gradxy_sum_col_4_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/block0/old_pixel_clock</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/pixel_counter0/pixel_clock_old&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/block0/line_counter0/hsync_old</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/block0/line_counter0/hsync_old&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/block0/old_pixel_clock</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/pixel_counter0/pixel_clock_old&gt; &lt;harris_detector/gauss3x3_0/block0/pixel_counter0/pixel_clock_old&gt; &lt;harris_detector/gauss3x3_0/block0/old_pixel_clock&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/pixel_counter0/pixel_clock_old</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sobel0/block0/old_pixel_clock&gt; </arg>
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/sobel0/sum_y_step_2_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/sobel0/sum_y_step_2_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/sobel0/sum_y_step_2_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/sobel0/sum_y_step_2_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/sobel0/sum_x_step_2_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/sobel0/sum_x_step_2_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/sobel0/sum_x_step_2_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/sobel0/sum_x_step_2_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/sobel0/raw_from_conv2_latched_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/sobel0/raw_from_conv2_latched_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/sobel0/raw_from_conv2_latched_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/sobel0/raw_from_conv2_latched_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/sobel0/raw_from_conv1_latched_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/sobel0/raw_from_conv1_latched_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/sobel0/raw_from_conv1_latched_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/sobel0/raw_from_conv1_latched_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/block0/new_blockq</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/block0/new_blockq&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2146" delta="new" >In block &lt;<arg fmt="%s" index="1">mark1_rpi_camera</arg>&gt;, <arg fmt="%s" index="2">Counter</arg> &lt;<arg fmt="%s" index="3">gauss3x3_0/block0/pixel_counter0/pixel_count_temp</arg>&gt; </msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">data_out_sr_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">spi2ad_bus</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">slave_addr_i_0</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">i2c_master</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">det0_latched_26</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">det0_latched_27</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">det0_latched_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">det0_latched_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">det0_latched_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">det0_latched_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">det1_latched_26</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">det1_latched_27</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">det1_latched_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">det1_latched_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">det1_latched_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">det1_latched_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">pixel_count_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">yuv_pixel2fifo</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">divider/Qp_26</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">divider/Qp_27</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">divider/Qp_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">divider/Qp_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">divider/Qp_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">divider/Qp_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="new" >Instance <arg fmt="%s" index="1">sys_clocks_gen/pll_base_inst</arg> in unit <arg fmt="%s" index="2">sys_clocks_gen/pll_base_inst</arg> of type <arg fmt="%s" index="3">PLL_BASE</arg> has been replaced by <arg fmt="%s" index="4">PLL_ADV</arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/delay_sync/gen_delay[0].gen_input.latch_0/Qp_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/delay_sync/gen_delay[0].gen_input.latch_0/Qp_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/delay_sync/gen_delay[0].gen_input.latch_0/Qp_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/delay_sync/gen_delay[0].gen_input.latch_0/Qp_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/sum_y_step_0_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">6 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sobel0/sum_y_step_0_14&gt; &lt;sobel0/sum_y_step_0_13&gt; &lt;sobel0/sum_y_step_0_12&gt; &lt;sobel0/sum_y_step_0_11&gt; &lt;sobel0/sum_y_step_0_10&gt; &lt;sobel0/sum_y_step_0_9&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/delay_sync/gen_delay[0].gen_input.latch_0/Qp_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/delay_sync/gen_delay[0].gen_input.latch_0/Qp_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/sum_x_step_0_9</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">6 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/sum_x_step_0_10&gt; &lt;harris_detector/sobel0/sum_x_step_0_11&gt; &lt;harris_detector/sobel0/sum_x_step_0_12&gt; &lt;harris_detector/sobel0/sum_x_step_0_13&gt; &lt;harris_detector/sobel0/sum_x_step_0_14&gt; &lt;harris_detector/sobel0/sum_x_step_0_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/sum_x_step_0_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">6 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sobel0/sum_x_step_0_14&gt; &lt;sobel0/sum_x_step_0_13&gt; &lt;sobel0/sum_x_step_0_12&gt; &lt;sobel0/sum_x_step_0_11&gt; &lt;sobel0/sum_x_step_0_10&gt; &lt;sobel0/sum_x_step_0_9&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/sum_y_step_0_9</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">6 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/sum_y_step_0_10&gt; &lt;harris_detector/sobel0/sum_y_step_0_11&gt; &lt;harris_detector/sobel0/sum_y_step_0_12&gt; &lt;harris_detector/sobel0/sum_y_step_0_13&gt; &lt;harris_detector/sobel0/sum_y_step_0_14&gt; &lt;harris_detector/sobel0/sum_y_step_0_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/delay_sync/gen_delay[1].gen_delay.latch_i/Qp_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/delay_sync/gen_delay[1].gen_delay.latch_i/Qp_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/delay_sync/gen_delay[1].gen_delay.latch_i/Qp_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/delay_sync/gen_delay[1].gen_delay.latch_i/Qp_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/delay_sync/gen_delay[1].gen_delay.latch_i/Qp_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/delay_sync/gen_delay[1].gen_delay.latch_i/Qp_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">trace_latched_14</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">HARRIS_RESPONSE</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;trace_latched_15&gt; </arg>
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/data_out_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/data_out_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/data_out_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/data_out_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/data_out_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/data_out_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/data_out_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/data_out_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/delay_sync/gen_delay[2].gen_delay.latch_i/Qp_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/delay_sync/gen_delay[2].gen_delay.latch_i/Qp_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/delay_sync/gen_delay[2].gen_delay.latch_i/Qp_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/delay_sync/gen_delay[2].gen_delay.latch_i/Qp_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/delay_sync/gen_delay[2].gen_delay.latch_i/Qp_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/delay_sync/gen_delay[2].gen_delay.latch_i/Qp_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/delay_sync/gen_delay[3].gen_delay.latch_i/Qp_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/delay_sync/gen_delay[3].gen_delay.latch_i/Qp_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/delay_sync/gen_delay[3].gen_delay.latch_i/Qp_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/delay_sync/gen_delay[3].gen_delay.latch_i/Qp_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/delay_sync/gen_delay[3].gen_delay.latch_i/Qp_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/delay_sync/gen_delay[3].gen_delay.latch_i/Qp_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/delay_sync/gen_delay[4].gen_delay.latch_i/Qp_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/delay_sync/gen_delay[4].gen_delay.latch_i/Qp_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/delay_sync/gen_delay[4].gen_delay.latch_i/Qp_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/delay_sync/gen_delay[4].gen_delay.latch_i/Qp_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/delay_sync/gen_delay[4].gen_delay.latch_i/Qp_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/delay_sync/gen_delay[4].gen_delay.latch_i/Qp_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/line_counter0/hsync_old</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/line_counter0/hsync_old&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/delay_sync/gen_delay[0].gen_input.latch_0/Qp_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/delay_sync/gen_delay[0].gen_input.latch_0/Qp_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/pixel_counter0/pixel_clock_old</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/old_pixel_clock&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/delay_sync/gen_delay[0].gen_input.latch_0/Qp_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/delay_sync/gen_delay[0].gen_input.latch_0/Qp_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/delay_sync/gen_delay[1].gen_delay.latch_i/Qp_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/delay_sync/gen_delay[1].gen_delay.latch_i/Qp_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/delay_sync/gen_delay[1].gen_delay.latch_i/Qp_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/delay_sync/gen_delay[1].gen_delay.latch_i/Qp_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/delay_sync/gen_delay[0].gen_input.latch_0/Qp_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/delay_sync/gen_delay[0].gen_input.latch_0/Qp_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/delay_sync/gen_delay[1].gen_delay.latch_i/Qp_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/delay_sync/gen_delay[1].gen_delay.latch_i/Qp_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/delay_sync/gen_delay[2].gen_delay.latch_i/Qp_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/delay_sync/gen_delay[2].gen_delay.latch_i/Qp_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/delay_sync/gen_delay[2].gen_delay.latch_i/Qp_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/delay_sync/gen_delay[2].gen_delay.latch_i/Qp_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/delay_sync/gen_delay[3].gen_delay.latch_i/Qp_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/delay_sync/gen_delay[3].gen_delay.latch_i/Qp_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/delay_sync/gen_delay[3].gen_delay.latch_i/Qp_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/delay_sync/gen_delay[3].gen_delay.latch_i/Qp_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/delay_sync/gen_delay[2].gen_delay.latch_i/Qp_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/delay_sync/gen_delay[2].gen_delay.latch_i/Qp_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/delay_sync/gen_delay[3].gen_delay.latch_i/Qp_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/delay_sync/gen_delay[3].gen_delay.latch_i/Qp_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/delay_sync/gen_delay[4].gen_delay.latch_i/Qp_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/delay_sync/gen_delay[4].gen_delay.latch_i/Qp_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/delay_sync/gen_delay[4].gen_delay.latch_i/Qp_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/delay_sync/gen_delay[4].gen_delay.latch_i/Qp_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/delay_sync/gen_delay[4].gen_delay.latch_i/Qp_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/delay_sync/gen_delay[4].gen_delay.latch_i/Qp_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/delay_sync/gen_delay[5].gen_output.latch_delay/Qp_1&gt; </arg>
+</msg>
+
+<msg type="warning" file="Xst" num="2042" delta="new" >Unit <arg fmt="%s" index="1">fifo_peripheral</arg>: <arg fmt="%d" index="2">16</arg> internal tristates are replaced by logic (pull-up <arg fmt="%s" index="3">yes</arg>): </msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/new_blockq</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/new_blockq&gt; </arg>
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/bit_count_7</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/bit_count_7</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/bit_count_5</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/bit_count_4</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/bit_count_6</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">pixel_count_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">yuv_pixel2fifo</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/bit_count_6</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/bit_count_5</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/bit_count_4</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/rd_old</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/pixel_counter/Qp_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch/Qp_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch/Qp_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch/Qp_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch/Qp_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch/Qp_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch/Qp_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch/Qp_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch/Qp_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch_b/Qp_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch_b/Qp_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch_b/Qp_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch_b/Qp_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch_b/Qp_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch_b/Qp_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch_b/Qp_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch_b/Qp_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_a/Qp_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_a/Qp_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_a/Qp_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_a/Qp_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_a/Qp_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_a/Qp_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_a/Qp_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_a/Qp_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch/Qp_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch/Qp_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch/Qp_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch/Qp_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch/Qp_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch/Qp_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch/Qp_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch/Qp_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">mem_interface0/data_in_latched_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">mem_interface0/data_in_latched_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">mem_interface0/data_in_latched_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">mem_interface0/data_in_latched_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">mem_interface0/data_in_latched_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">mem_interface0/data_in_latched_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">mem_interface0/data_in_latched_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">mem_interface0/data_in_latched_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">mem_interface0/data_in_latched_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">mem_interface0/data_in_latched_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">mem_interface0/data_in_latched_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">mem_interface0/data_in_latched_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">mem_interface0/data_in_latched_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">mem_interface0/data_in_latched_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">mem_interface0/data_in_latched_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">mem_interface0/data_in_latched_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/wr_addr_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/wr_addr_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/wr_addr_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/wr_addr_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/wr_addr_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/wr_addr_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/wr_addr_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/wr_addr_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/wr_addr_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/wr_addr_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/wr_addr_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/wr_addr_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/wr_addr_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/rd_addr_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/rd_addr_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/rd_addr_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/rd_addr_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/rd_addr_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/rd_addr_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/rd_addr_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/rd_addr_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/rd_addr_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/rd_addr_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/rd_addr_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/rd_addr_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/rd_addr_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/dp_ram0/Mram_RAM7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/dp_ram0/Mram_RAM6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/dp_ram0/Mram_RAM8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/dp_ram0/Mram_RAM4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/dp_ram0/Mram_RAM3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/dp_ram0/Mram_RAM5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/dp_ram0/Mram_RAM1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">fifo_preview/fifo_A/dp_ram0/Mram_RAM2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/add_cols_gradxy/result_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/add_cols_gradxy/result_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/add_cols_grady/result_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/add_cols_grady/result_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/add_cols_gradx/result_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/add_cols_gradx/result_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/add_lines_gradxy/result_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/add_lines_gradxy/result_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/add_lines_grady/result_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/add_lines_grady/result_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/add_lines_gradx/result_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">harris_detector/add_lines_gradx/result_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">fifo_preview/fifo_B/dp_ram0/Mram_RAM7</arg>&gt;, &lt;<arg fmt="%s" index="2">fifo_preview/fifo_B/dp_ram0/Mram_RAM6</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">fifo_preview/fifo_B/dp_ram0/Mram_RAM7</arg>&gt;, &lt;<arg fmt="%s" index="2">fifo_preview/fifo_B/dp_ram0/Mram_RAM5</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">reset0/counter0_10</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">reset0/counter0_11</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">reset0/counter0_12</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">reset0/counter0_13</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">reset0/counter0_14</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">reset0/counter0_15</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">reset0/counter0_16</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">reset0/counter0_17</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">reset0/counter0_18</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">reset0/counter0_19</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">reset0/counter0_20</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">reset0/counter0_21</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">reset0/counter0_22</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">reset0/counter0_23</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">reset0/counter0_24</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">reset0/counter0_25</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">reset0/counter0_26</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">reset0/counter0_27</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">reset0/counter0_28</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">reset0/counter0_29</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">reset0/counter0_30</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mark1_rpi_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/add_cols_gradxy/pipeline_registers&lt;2&gt;_4_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/add_cols_gradxy/pipeline_registers&lt;2&gt;_4_14&gt; &lt;harris_detector/add_cols_gradxy/pipeline_registers&lt;2&gt;_4_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/sum_x_step_0_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/sum_x_step_0_9&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/add_cols_gradxy/pipeline_registers&lt;1&gt;_4_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/add_cols_gradxy/pipeline_registers&lt;1&gt;_4_14&gt; &lt;harris_detector/add_cols_gradxy/pipeline_registers&lt;1&gt;_4_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/add_cols_gradxy/pipeline_registers&lt;0&gt;_4_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/add_cols_gradxy/pipeline_registers&lt;0&gt;_4_14&gt; &lt;harris_detector/add_cols_gradxy/pipeline_registers&lt;0&gt;_4_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/add_cols_gradx/pipeline_registers&lt;1&gt;_3_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/add_cols_gradx/pipeline_registers&lt;1&gt;_3_14&gt; &lt;harris_detector/add_cols_gradx/pipeline_registers&lt;1&gt;_3_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/delay_sync/gen_delay[0].gen_input.latch_0/Qp_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sobel0/block0/pixel_counter0/pixel_clock_old&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/add_cols_gradx/pipeline_registers&lt;0&gt;_3_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/add_cols_gradx/pipeline_registers&lt;0&gt;_3_14&gt; &lt;harris_detector/add_cols_gradx/pipeline_registers&lt;0&gt;_3_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/pixel_counter0/pixel_count_temp_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/pixel_counter0/pixel_count_temp_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/add_cols_grady/pipeline_registers&lt;0&gt;_2_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/add_cols_grady/pipeline_registers&lt;0&gt;_2_14&gt; &lt;harris_detector/add_cols_grady/pipeline_registers&lt;0&gt;_2_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/add_cols_gradxy/pipeline_registers&lt;0&gt;_1_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/add_cols_gradxy/pipeline_registers&lt;0&gt;_1_14&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/pixel_counter0/pixel_count_temp_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/pixel_counter0/pixel_count_temp_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/pixel_counter0/pixel_count_temp_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/pixel_counter0/pixel_count_temp_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/pixel_counter0/pixel_count_temp_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/pixel_counter0/pixel_count_temp_3&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/pixel_counter0/pixel_count_temp_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/pixel_counter0/pixel_count_temp_4&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/pixel_counter0/pixel_count_temp_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/pixel_counter0/pixel_count_temp_5&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/pixel_counter0/pixel_count_temp_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/pixel_counter0/pixel_count_temp_6&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/pixel_counter0/pixel_count_temp_7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/pixel_counter0/pixel_count_temp_7&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/pixel_counter0/pixel_count_temp_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/pixel_counter0/pixel_count_temp_8&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gen_square_acc/pixel_counter0/pixel_clock_old</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/delay_pclk/gen_delay[0].gen_input.latch_0/Qp_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/add_cols_grady/pipeline_registers&lt;2&gt;_4_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/add_cols_grady/pipeline_registers&lt;2&gt;_4_14&gt; &lt;harris_detector/add_cols_grady/pipeline_registers&lt;2&gt;_4_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/add_cols_gradxy/pipeline_registers&lt;1&gt;_3_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/add_cols_gradxy/pipeline_registers&lt;1&gt;_3_14&gt; &lt;harris_detector/add_cols_gradxy/pipeline_registers&lt;1&gt;_3_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/add_cols_grady/pipeline_registers&lt;1&gt;_4_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/add_cols_grady/pipeline_registers&lt;1&gt;_4_14&gt; &lt;harris_detector/add_cols_grady/pipeline_registers&lt;1&gt;_4_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/sum_x_step_1_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sobel0/sum_x_step_1_15&gt; &lt;sobel0/sum_x_step_1_14&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/add_cols_gradxy/pipeline_registers&lt;0&gt;_3_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/add_cols_gradxy/pipeline_registers&lt;0&gt;_3_14&gt; &lt;harris_detector/add_cols_gradxy/pipeline_registers&lt;0&gt;_3_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/add_cols_grady/pipeline_registers&lt;0&gt;_4_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/add_cols_grady/pipeline_registers&lt;0&gt;_4_14&gt; &lt;harris_detector/add_cols_grady/pipeline_registers&lt;0&gt;_4_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/add_cols_gradx/pipeline_registers&lt;0&gt;_2_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/add_cols_gradx/pipeline_registers&lt;0&gt;_2_14&gt; &lt;harris_detector/add_cols_gradx/pipeline_registers&lt;0&gt;_2_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/add_cols_grady/pipeline_registers&lt;0&gt;_1_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/add_cols_grady/pipeline_registers&lt;0&gt;_1_14&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/sum_y_step_1_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sobel0/sum_y_step_1_15&gt; &lt;sobel0/sum_y_step_1_14&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/sum_step_0_10</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/sum_step_0_12&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/block0/line_counter0/line_count_temp_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/block0/line_counter0/line_count_temp_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/block0/line_counter0/line_count_temp_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/block0/line_counter0/line_count_temp_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/block0/line_counter0/line_count_temp_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/block0/line_counter0/line_count_temp_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/block0/line_counter0/line_count_temp_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/block0/line_counter0/line_count_temp_3&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/block0/line_counter0/line_count_temp_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/block0/line_counter0/line_count_temp_4&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/block0/line_counter0/line_count_temp_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/block0/line_counter0/line_count_temp_5&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/block0/line_counter0/line_count_temp_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/block0/line_counter0/line_count_temp_6&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/block0/line_counter0/line_count_temp_7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/block0/line_counter0/line_count_temp_7&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/add_cols_gradx/pipeline_registers&lt;2&gt;_4_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/add_cols_gradx/pipeline_registers&lt;2&gt;_4_14&gt; &lt;harris_detector/add_cols_gradx/pipeline_registers&lt;2&gt;_4_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gauss3x3_0/block0/old_pixel_clock</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/delay_sync/gen_delay[0].gen_input.latch_0/Qp_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/add_cols_gradx/pipeline_registers&lt;1&gt;_4_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/add_cols_gradx/pipeline_registers&lt;1&gt;_4_14&gt; &lt;harris_detector/add_cols_gradx/pipeline_registers&lt;1&gt;_4_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/add_cols_grady/pipeline_registers&lt;1&gt;_3_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/add_cols_grady/pipeline_registers&lt;1&gt;_3_14&gt; &lt;harris_detector/add_cols_grady/pipeline_registers&lt;1&gt;_3_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/sum_y_step_0_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sobel0/sum_y_step_0_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/add_cols_gradx/pipeline_registers&lt;0&gt;_4_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/add_cols_gradx/pipeline_registers&lt;0&gt;_4_14&gt; &lt;harris_detector/add_cols_gradx/pipeline_registers&lt;0&gt;_4_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/add_cols_gradxy/pipeline_registers&lt;0&gt;_2_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/add_cols_gradxy/pipeline_registers&lt;0&gt;_2_14&gt; &lt;harris_detector/add_cols_gradxy/pipeline_registers&lt;0&gt;_2_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/add_cols_grady/pipeline_registers&lt;0&gt;_3_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/add_cols_grady/pipeline_registers&lt;0&gt;_3_14&gt; &lt;harris_detector/add_cols_grady/pipeline_registers&lt;0&gt;_3_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/sum_y_step_0_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/sum_y_step_0_9&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/add_cols_gradx/pipeline_registers&lt;0&gt;_1_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/add_cols_gradx/pipeline_registers&lt;0&gt;_1_14&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/line_counter0/line_count_temp_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/line_counter0/line_count_temp_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/line_counter0/line_count_temp_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/line_counter0/line_count_temp_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/line_counter0/line_count_temp_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/line_counter0/line_count_temp_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/line_counter0/line_count_temp_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/line_counter0/line_count_temp_3&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/line_counter0/line_count_temp_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/line_counter0/line_count_temp_4&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/line_counter0/line_count_temp_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/line_counter0/line_count_temp_5&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/line_counter0/line_count_temp_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/line_counter0/line_count_temp_6&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/block0/line_counter0/line_count_temp_7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/line_counter0/line_count_temp_7&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sobel0/sum_x_step_0_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sobel0/sum_x_step_0_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/block0/delay_counter/old_value</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">19 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/old_value&gt; &lt;harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/old_value&gt; &lt;harris_detector/sobel0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/old_value&gt; &lt;harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/old_value&gt; &lt;harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/old_value&gt; &lt;harris_detector/sobel0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/old_value&gt; &lt;harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/old_value&gt; &lt;harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/old_value&gt; &lt;harris_detector/sobel0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/old_value&gt; &lt;sobel0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/old_value&gt; &lt;sobel0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/old_value&gt; &lt;sobel0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/old_value&gt; &lt;sobel0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/old_value&gt; &lt;sobel0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/old_value&gt; &lt;sobel0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/old_value&gt; &lt;sobel0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/old_value&gt; &lt;sobel0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/old_value&gt; &lt;sobel0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/old_value&gt; &lt;sobel0/block0/delay_counter/old_value&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/old_value</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">19 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/old_value&gt; &lt;harris_detector/gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/old_value&gt; &lt;harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/old_value&gt; &lt;harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/old_value&gt; &lt;harris_detector/gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/old_value&gt; &lt;harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/old_value&gt; &lt;harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/old_value&gt; &lt;harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/old_value&gt; &lt;harris_detector/gauss3x3_0/block0/delay_counter/old_value&gt; &lt;gauss3x3_0/block0/delay_counter/old_value&gt; &lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/old_value&gt; &lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/old_value&gt; &lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/old_value&gt; &lt;gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[2].right_col_1.latch_1_2/old_value&gt; &lt;gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[1].left_cols.latch_i_i/old_value&gt; &lt;gauss3x3_0/block0/gen_latches_row[1].gen_latches_col[0].left_cols.latch_i_i/old_value&gt; &lt;gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[2].right_col_0.latch_0_2/old_value&gt; &lt;gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[1].left_cols.latch_i_i/old_value&gt; &lt;gauss3x3_0/block0/gen_latches_row[0].gen_latches_col[0].left_cols.latch_i_i/old_value&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/delay_counter/Qp_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/delay_counter/Qp_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/delay_counter/Qp_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/delay_counter/Qp_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/delay_counter/Qp_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/delay_counter/Qp_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/delay_counter/Qp_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/delay_counter/Qp_3&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/delay_counter/Qp_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/delay_counter/Qp_4&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/delay_counter/Qp_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/delay_counter/Qp_5&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/delay_counter/Qp_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/delay_counter/Qp_6&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/delay_counter/Qp_7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/delay_counter/Qp_7&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/delay_counter/Qp_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/delay_counter/Qp_8&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_3&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_4&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_5&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_6&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[2].right_col_2.latch_i_i/Qp_7&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/block0/delay_counter/Qp_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sobel0/block0/delay_counter/Qp_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/block0/delay_counter/Qp_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sobel0/block0/delay_counter/Qp_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/block0/delay_counter/Qp_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sobel0/block0/delay_counter/Qp_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/block0/delay_counter/Qp_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sobel0/block0/delay_counter/Qp_3&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/block0/delay_counter/Qp_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sobel0/block0/delay_counter/Qp_4&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/block0/delay_counter/Qp_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sobel0/block0/delay_counter/Qp_5&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/block0/delay_counter/Qp_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sobel0/block0/delay_counter/Qp_6&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/block0/delay_counter/Qp_7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sobel0/block0/delay_counter/Qp_7&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/sobel0/block0/delay_counter/Qp_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sobel0/block0/delay_counter/Qp_8&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_3&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_4&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_5&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_6&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[1].left_cols.latch_i_i/Qp_7&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_3&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_4&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_5&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_6&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gauss3x3_0/block0/gen_latches_row[2].gen_latches_col[0].left_cols.latch_i_i/Qp_7&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">camera0/vsync_old</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;camera0/delay_sync/gen_delay[0].gen_input.latch_0/Qp_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">harris_detector/pxclk_from_sobel_old</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mark1_rpi_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;harris_detector/delay_sync/gen_delay[0].gen_input.latch_0/Qp_2&gt; </arg>
+</msg>
+
+</messages>
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="info" file="ConstraintSystem" num="178" delta="old" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">clk50_grp</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_PER_CLK50</arg>&apos;, was traced into <arg fmt="%s" index="4">PLL_ADV</arg> instance <arg fmt="%s" index="5">PLL_ADV</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">PLL_ADV</arg> output(s): 
+<arg fmt="%s" index="7">CLKOUT1</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_sys_clocks_gen_clkout1 = PERIOD &quot;sys_clocks_gen_clkout1&quot; TS_PER_CLK50 / 0.48 HIGH 50%&gt;</arg>
+</msg>
+
+<msg type="info" file="ConstraintSystem" num="178" delta="old" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">clk50_grp</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_PER_CLK50</arg>&apos;, was traced into <arg fmt="%s" index="4">PLL_ADV</arg> instance <arg fmt="%s" index="5">PLL_ADV</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">PLL_ADV</arg> output(s): 
+<arg fmt="%s" index="7">CLKOUT2</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_sys_clocks_gen_clkout2 = PERIOD &quot;sys_clocks_gen_clkout2&quot; TS_PER_CLK50 / 2 HIGH 50%&gt;</arg>
+</msg>
+
+<msg type="warning" file="NgdBuild" num="470" delta="old" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">SYS_SCL</arg>&apos; has no legal driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="470" delta="old" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">SYS_SDA</arg>&apos; has no legal driver
+</msg>
+
+</messages>
+

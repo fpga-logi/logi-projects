@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated   -->
+<!--     by the Xilinx ISE software.  Any direct editing or        -->
+<!--     changes made to this file may result in unpredictable     -->
+<!--     behavior or data corruption.  It is strongly advised that -->
+<!--     users do not edit the contents of this file.              -->
+<!--                                                               -->
+<!-- Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.    -->
+
+<messages>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/bus/peripheral/fifo_peripheral.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/bus/peripheral/peripheral_pack.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/conf/conf_pack.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/conf/i2c_conf.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/conf/yuv_register_rom.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/block3X3.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/down_scaler.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/feature/HARRIS.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/feature/HARRIS_16SADDER.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/feature/HARRIS_LINE_ACC.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/feature/HARRIS_RESPONSE.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/feature/feature_pack.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/filter/filter_pack.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/filter/gauss3x3.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/filter/sobel3x3.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/image_pack.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/line_counter.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/pixel_counter.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/video_switch.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/image/yuv_pixel2fifo.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/interface/i2c_master.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/interface/interface_pack.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/interface/spi2ad_bus.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/interface/yuv_camera_interface.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/primitive/dpram_NxN.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/primitive/primitive_pack.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/utils/dp_fifo.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/utils/edge_triggered_latch.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/utils/generic_delay.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/utils/generic_latch.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/utils/reset_generator.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/utils/simple_counter.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/utils/utils_pack.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.vhd&quot; into library work</arg>
+</msg>
+
+</messages>
+

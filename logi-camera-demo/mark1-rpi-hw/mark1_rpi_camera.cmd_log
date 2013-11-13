@@ -1,0 +1,19 @@
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.syr" 
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.syr" 
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc mark1_rpi_camera.ucf -p xc6slx9-tqg144-2 mark1_rpi_camera.ngc mark1_rpi_camera.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o mark1_rpi_camera_map.ncd mark1_rpi_camera.ngd mark1_rpi_camera.pcf 
+par -w -intstyle ise -ol high -mt off mark1_rpi_camera_map.ncd mark1_rpi_camera.ncd mark1_rpi_camera.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml mark1_rpi_camera.twx mark1_rpi_camera.ncd -o mark1_rpi_camera.twr mark1_rpi_camera.pcf -ucf mark1_rpi_camera.ucf 
+bitgen -intstyle ise -f mark1_rpi_camera.ut mark1_rpi_camera.ncd 
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.syr" 
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.syr" 
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.syr" 
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.syr" 
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.syr" 
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc mark1_rpi_camera.ucf -p xc6slx9-tqg144-2 mark1_rpi_camera.ngc mark1_rpi_camera.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o mark1_rpi_camera_map.ncd mark1_rpi_camera.ngd mark1_rpi_camera.pcf 
+par -w -intstyle ise -ol high -mt off mark1_rpi_camera_map.ncd mark1_rpi_camera.ncd mark1_rpi_camera.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml mark1_rpi_camera.twx mark1_rpi_camera.ncd -o mark1_rpi_camera.twr mark1_rpi_camera.pcf -ucf mark1_rpi_camera.ucf 
+bitgen -intstyle ise -f mark1_rpi_camera.ut mark1_rpi_camera.ncd 
