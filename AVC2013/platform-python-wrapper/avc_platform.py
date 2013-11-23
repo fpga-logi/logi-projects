@@ -38,9 +38,9 @@ class AvcPlatform(object):
 		mpu9150.setAccCal(acc_cal_file)
 	
 	def setServoPulse(self, index, pos):	
-		mark1Rpi.directWrite(self.servo_base_address[index], (pos,servo_failsafe[index]));
+		mark1Rpi.directWrite(self.servo_base_address[index], (pos,self.servo_failsafe[index]));
 	
-	def setServoFailSafe(self, index, val):
+	def setServoFailSafeAngle(self, index, angle):
 		quanta = 255.0/(MAX_ANGLE-MIN_ANGLE)
                 pulse = 127.0 + (quanta * angle)
                 pulse = max(min(int(round(pulse)), 255), 0)
