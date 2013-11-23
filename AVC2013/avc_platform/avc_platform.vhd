@@ -342,6 +342,17 @@ begin
 			cs_bus => cs_latches,
 			data_bus_in	=> bus_data_out,
 			data_bus_out => bus_latches_data_out,
+			
+			latch_default(0) => SERVO_FAILSAFE & X"00",
+			latch_default(1) => SERVO_FAILSAFE & X"00",
+			latch_default(2) => X"0000",
+			latch_default(3) => X"0000",
+			latch_default(4) => X"0000",
+			latch_default(5) => X"0000",
+			latch_default(6) => X"0000",
+			latch_default(7) => X"0000",
+			
+			
 			latch_input(0) => pwm_value_0,
 			latch_input(1) => pwm_value_1,
 			latch_input(2) => enc_value_0(15 downto 0),
