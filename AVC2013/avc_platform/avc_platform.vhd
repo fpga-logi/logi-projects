@@ -202,7 +202,7 @@ architecture Behavioral of avc_platform is
 	constant IMAGE_HEIGHT : integer := 240 ;
 	
 	--constant SERVO_FAILSAFE : std_logic_vector(7 downto 0) := X"9B" ;
-	constant SERVO_FAILSAFE : std_logic_vector(7 downto 0) := X"54" ;
+	constant SERVO_FAILSAFE : std_logic_vector(7 downto 0) := X"80" ;
 begin
 	
 	resetn <= PB(0) ;
