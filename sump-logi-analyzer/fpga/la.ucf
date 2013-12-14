@@ -1,0 +1,143 @@
+###################################################################################
+### la.ucf
+###
+### Author: Michael "Mr. Sump" Poppitz
+###
+### Details: http://sump.org/projects/analyzer/
+###
+### Contains assignment and iostandard information for
+### all used pins as well as timing and area constraints.
+###################################################################################
+#
+#NET "an<0>"  LOC = "d14" | IOSTANDARD = LVTTL ;
+#NET "an<1>"  LOC = "g14" | IOSTANDARD = LVTTL ;
+#NET "an<2>"  LOC = "f14" | IOSTANDARD = LVTTL ;
+#NET "an<3>"  LOC = "e13" | IOSTANDARD = LVTTL ;
+#NET "xtalClock"  LOC = "t9" | IOSTANDARD = LVTTL ;
+#NET "exClock"  LOC = "d9" | IOSTANDARD = LVTTL ;
+#NET "input<0>"  LOC = "c10" | IOSTANDARD = LVTTL  ;
+#NET "input<1>"  LOC = "t3" | IOSTANDARD = LVTTL  ;
+#NET "input<2>"  LOC = "e10" | IOSTANDARD = LVTTL  ;
+#NET "input<3>"  LOC = "n11" | IOSTANDARD = LVTTL  ;
+#NET "input<4>"  LOC = "c11" | IOSTANDARD = LVTTL  ;
+#NET "input<5>"  LOC = "p10" | IOSTANDARD = LVTTL  ;
+#NET "input<6>"  LOC = "d11" | IOSTANDARD = LVTTL  ;
+#NET "input<7>"  LOC = "r10" | IOSTANDARD = LVTTL  ;
+#NET "input<8>"  LOC = "c12" | IOSTANDARD = LVTTL  ;
+#NET "input<9>"  LOC = "t7" | IOSTANDARD = LVTTL  ;
+#NET "input<10>"  LOC = "d12" | IOSTANDARD = LVTTL  ;
+#NET "input<11>"  LOC = "r7" | IOSTANDARD = LVTTL  ;
+#NET "input<12>"  LOC = "e11" | IOSTANDARD = LVTTL  ;
+#NET "input<13>"  LOC = "n6" | IOSTANDARD = LVTTL  ;
+#NET "input<14>"  LOC = "b16" | IOSTANDARD = LVTTL  ;
+#NET "input<15>"  LOC = "m6" | IOSTANDARD = LVTTL  ;
+#NET "input<16>"  LOC = "r3" | IOSTANDARD = LVTTL  ;
+#NET "input<17>"  LOC = "c15" | IOSTANDARD = LVTTL  ;
+#NET "input<18>"  LOC = "c16" | IOSTANDARD = LVTTL  ;
+#NET "input<19>"  LOC = "d15" | IOSTANDARD = LVTTL  ;
+#NET "input<20>"  LOC = "d16" | IOSTANDARD = LVTTL  ;
+#NET "input<21>"  LOC = "e15" | IOSTANDARD = LVTTL  ;
+#NET "input<22>"  LOC = "e16" | IOSTANDARD = LVTTL  ;
+#NET "input<23>"  LOC = "f15" | IOSTANDARD = LVTTL  ;
+#NET "input<24>"  LOC = "g15" | IOSTANDARD = LVTTL  ;
+#NET "input<25>"  LOC = "g16" | IOSTANDARD = LVTTL  ;
+#NET "input<26>"  LOC = "h15" | IOSTANDARD = LVTTL  ;
+#NET "input<27>"  LOC = "h16" | IOSTANDARD = LVTTL  ;
+#NET "input<28>"  LOC = "j16" | IOSTANDARD = LVTTL  ;
+#NET "input<29>"  LOC = "k16" | IOSTANDARD = LVTTL  ;
+#NET "input<30>"  LOC = "k15" | IOSTANDARD = LVTTL  ;
+#NET "input<31>"  LOC = "l15" | IOSTANDARD = LVTTL  ;
+#NET "ready50" LOC = "m11" | IOSTANDARD = LVTTL ;
+#NET "led<0>"  LOC = "k12" | IOSTANDARD = LVTTL ;
+#NET "led<1>"  LOC = "p14" | IOSTANDARD = LVTTL ;
+#NET "led<2>"  LOC = "l12" | IOSTANDARD = LVTTL ;
+#NET "led<3>"  LOC = "n14" | IOSTANDARD = LVTTL ;
+#NET "led<4>"  LOC = "p13" | IOSTANDARD = LVTTL ;
+#NET "led<5>"  LOC = "n12" | IOSTANDARD = LVTTL ;
+#NET "led<6>"  LOC = "p12" | IOSTANDARD = LVTTL ;
+#NET "led<7>"  LOC = "p11" | IOSTANDARD = LVTTL ;
+#NET "ramA<0>"  LOC = "l5" | IOSTANDARD = LVTTL ;
+#NET "ramA<10>"  LOC = "g5" | IOSTANDARD = LVTTL ;
+#NET "ramA<11>"  LOC = "h3" | IOSTANDARD = LVTTL ;
+#NET "ramA<12>"  LOC = "h4" | IOSTANDARD = LVTTL ;
+#NET "ramA<13>"  LOC = "j4" | IOSTANDARD = LVTTL ;
+#NET "ramA<14>"  LOC = "j3" | IOSTANDARD = LVTTL ;
+#NET "ramA<15>"  LOC = "k3" | IOSTANDARD = LVTTL ;
+#NET "ramA<16>"  LOC = "k5" | IOSTANDARD = LVTTL ;
+#NET "ramA<17>"  LOC = "l3" | IOSTANDARD = LVTTL ;
+#NET "ramA<1>"  LOC = "n3" | IOSTANDARD = LVTTL ;
+#NET "ramA<2>"  LOC = "m4" | IOSTANDARD = LVTTL ;
+#NET "ramA<3>"  LOC = "m3" | IOSTANDARD = LVTTL ;
+#NET "ramA<4>"  LOC = "l4" | IOSTANDARD = LVTTL ;
+#NET "ramA<5>"  LOC = "g4" | IOSTANDARD = LVTTL ;
+#NET "ramA<6>"  LOC = "f3" | IOSTANDARD = LVTTL ;
+#NET "ramA<7>"  LOC = "f4" | IOSTANDARD = LVTTL ;
+#NET "ramA<8>"  LOC = "e3" | IOSTANDARD = LVTTL ;
+#NET "ramA<9>"  LOC = "e4" | IOSTANDARD = LVTTL ;
+#NET "ramCE1"  LOC = "p7" | IOSTANDARD = LVTTL ;
+#NET "ramCE2"  LOC = "n5" | IOSTANDARD = LVTTL ;
+#NET "ramIO1<0>"  LOC = "n7" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO1<10>"  LOC = "f2" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO1<11>"  LOC = "h1" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO1<12>"  LOC = "j2" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO1<13>"  LOC = "l2" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO1<14>"  LOC = "p1" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO1<15>"  LOC = "r1" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO1<1>"  LOC = "t8" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO1<2>"  LOC = "r6" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO1<3>"  LOC = "t5" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO1<4>"  LOC = "r5" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO1<5>"  LOC = "c2" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO1<6>"  LOC = "c1" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO1<7>"  LOC = "b1" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO1<8>"  LOC = "d3" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO1<9>"  LOC = "p8" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO2<0>"  LOC = "p2" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO2<10>"  LOC = "g1" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO2<11>"  LOC = "f5" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO2<12>"  LOC = "c3" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO2<13>"  LOC = "k2" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO2<14>"  LOC = "m1" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO2<15>"  LOC = "n1" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO2<1>"  LOC = "n2" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO2<2>"  LOC = "m2" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO2<3>"  LOC = "k1" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO2<4>"  LOC = "j1" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO2<5>"  LOC = "g2" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO2<6>"  LOC = "e1" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO2<7>"  LOC = "d1" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO2<8>"  LOC = "d2" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramIO2<9>"  LOC = "e2" | IOSTANDARD = LVTTL  | SLEW = FAST ;
+#NET "ramLB1"  LOC = "p6" | IOSTANDARD = LVTTL ;
+#NET "ramLB2"  LOC = "p5" | IOSTANDARD = LVTTL ;
+#NET "ramOE"  LOC = "k4" | IOSTANDARD = LVTTL ;
+#NET "ramUB1"  LOC = "t4" | IOSTANDARD = LVTTL ;
+#NET "ramUB2"  LOC = "r4" | IOSTANDARD = LVTTL ;
+#NET "ramWE"  LOC = "g3" | IOSTANDARD = LVTTL ;
+#NET "resetSwitch"  LOC = "l14" | IOSTANDARD = LVTTL ;
+#NET "rx"  LOC = "t13" | IOSTANDARD = LVTTL ;
+#NET "segment<0>"  LOC = "e14" | IOSTANDARD = LVTTL ;
+#NET "segment<1>"  LOC = "g13" | IOSTANDARD = LVTTL ;
+#NET "segment<2>"  LOC = "n15" | IOSTANDARD = LVTTL ;
+#NET "segment<3>"  LOC = "p15" | IOSTANDARD = LVTTL ;
+#NET "segment<4>"  LOC = "r16" | IOSTANDARD = LVTTL ;
+#NET "segment<5>"  LOC = "f13" | IOSTANDARD = LVTTL ;
+#NET "segment<6>"  LOC = "n16" | IOSTANDARD = LVTTL ;
+#NET "segment<7>"  LOC = "p16" | IOSTANDARD = LVTTL ;
+#NET "switch<0>"  LOC = "f12" | IOSTANDARD = LVTTL ;
+#NET "switch<1>"  LOC = "g12" | IOSTANDARD = LVTTL ;
+#NET "tx"  LOC = "r13" | IOSTANDARD = LVTTL ;
+#
+#
+#NET "xtalClock" TNM_NET = "xtalClock";
+#TIMESPEC "TS_xtalClock" = PERIOD "xtalClock" 20 ns HIGH 50 %;
+#
+## ignore paths resulting from flags as those will
+## not change during time critical operations
+#NET "Inst_core/Inst_flags/demux" TIG;
+#NET "Inst_core/Inst_flags/filter" TIG;
+#NET "Inst_core/Inst_flags/inverted" TIG;
+#NET "Inst_core/Inst_flags/external" TIG;
+#
+##INST "Inst_sync/*" AREA_GROUP = "in";
+##AREA_GROUP "in" COMPRESSION = 1;

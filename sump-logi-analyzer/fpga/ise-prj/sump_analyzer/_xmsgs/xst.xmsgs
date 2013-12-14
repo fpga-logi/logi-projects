@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="439" delta="new" >"D:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\sump-logi-analyzer\fpga\la.vhd" Line 86: Formal port <arg fmt="%s" index="1">an</arg> of mode <arg fmt="%s" index="2">inout</arg> cannot be associated with actual port <arg fmt="%s" index="3">an</arg> of mode <arg fmt="%s" index="4">out</arg>
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="92" delta="new" >"D:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\sump-logi-analyzer\fpga\flags.vhd" Line 52: <arg fmt="%s" index="1">write</arg> should be on the sensitivity list of the process
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="92" delta="new" >"D:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\sump-logi-analyzer\fpga\controller.vhd" Line 136: <arg fmt="%s" index="1">sendreg</arg> should be on the sensitivity list of the process
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">data&lt;5:2&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[0].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[0].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_25</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[0].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[0].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[0].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[0].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[0].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[1].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[1].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_25</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[1].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[1].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[1].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[1].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[1].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[2].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[2].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_25</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[2].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[2].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[2].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[2].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[2].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[3].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[3].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_25</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[3].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[3].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[3].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[3].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stages[3].Inst_stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_25</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">configRegister_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stage</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">txBuffer_9</arg>&gt; has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">transmitter</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="new" >Instance <arg fmt="%s" index="1">Inst_clockman/DCM_baseClock</arg> in unit <arg fmt="%s" index="2">la</arg> of type <arg fmt="%s" index="3">DCM</arg> has been replaced by <arg fmt="%s" index="4">DCM_SP</arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_core/Inst_decoder/wrFlags</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">la</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_eia232/wrFlags&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_core/Inst_decoder/exeReg</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">la</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_eia232/executePrev&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_core/Inst_sync/Inst_demux/output_20</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">la</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_core/Inst_sync/Inst_filter/input180Delay_4&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_core/Inst_sync/Inst_demux/output_21</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">la</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_core/Inst_sync/Inst_filter/input180Delay_5&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_core/Inst_sync/Inst_demux/output_16</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">la</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_core/Inst_sync/Inst_filter/input180Delay_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_core/Inst_sync/Inst_demux/output_22</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">la</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_core/Inst_sync/Inst_filter/input180Delay_6&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_core/Inst_sync/Inst_demux/output_17</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">la</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_core/Inst_sync/Inst_filter/input180Delay_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_core/Inst_sync/Inst_demux/output_23</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">la</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_core/Inst_sync/Inst_filter/input180Delay_7&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_core/Inst_sync/Inst_demux/output_18</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">la</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_core/Inst_sync/Inst_filter/input180Delay_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_core/Inst_sync/Inst_demux/output_24</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">la</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_core/Inst_sync/Inst_filter/input180Delay_8&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_core/Inst_sync/Inst_demux/output_19</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">la</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_core/Inst_sync/Inst_filter/input180Delay_3&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_core/Inst_sync/Inst_demux/output_30</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">la</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_core/Inst_sync/Inst_filter/input180Delay_14&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_core/Inst_sync/Inst_demux/output_25</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">la</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_core/Inst_sync/Inst_filter/input180Delay_9&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_core/Inst_sync/Inst_demux/output_31</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">la</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_core/Inst_sync/Inst_filter/input180Delay_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_core/Inst_sync/Inst_demux/output_26</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">la</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_core/Inst_sync/Inst_filter/input180Delay_10&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_core/Inst_sync/Inst_demux/output_27</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">la</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_core/Inst_sync/Inst_filter/input180Delay_11&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_core/Inst_sync/Inst_demux/output_28</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">la</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_core/Inst_sync/Inst_filter/input180Delay_12&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_core/Inst_sync/Inst_demux/output_29</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">la</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_core/Inst_sync/Inst_filter/input180Delay_13&gt; </arg>
+</msg>
+
+<msg type="warning" file="Xst" num="1336" delta="new" > (*) More than 100% of Device resources are used
+</msg>
+
+</messages>
+

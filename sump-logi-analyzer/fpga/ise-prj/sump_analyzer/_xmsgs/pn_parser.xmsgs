@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated   -->
+<!--     by the Xilinx ISE software.  Any direct editing or        -->
+<!--     changes made to this file may result in unpredictable     -->
+<!--     behavior or data corruption.  It is strongly advised that -->
+<!--     users do not edit the contents of this file.              -->
+<!--                                                               -->
+<!-- Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.    -->
+
+<messages>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/clockman.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/controller.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/core.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/decoder.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/demux.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/display.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/eia232.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/filter.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/flags.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/la.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/prescaler.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/receiver.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/sampler.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/sram.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/stage.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/sync.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/transmitter.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/trigger.vhd&quot; into library work</arg>
+</msg>
+
+</messages>
+
