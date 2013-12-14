@@ -1,0 +1,41 @@
+Release 14.4 ngdbuild P.49d (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: C:\Xilinx\14.4\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe
+-intstyle ise -dd _ngo -aul -nt timestamp -uc
+D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/
+fpga/la.ucf -p xc6slx9-tqg144-2 la.ngc la.ngd
+
+Reading NGO file
+"D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer
+/fpga/ise-prj/sump_analyzer/la.ngc" ...
+Gathering constraint information from source properties...
+Done.
+
+Annotating constraints to design from ucf file
+"D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer
+/fpga/la.ucf" ...
+Resolving constraint associations...
+Checking Constraint Associations...
+Done...
+
+Checking expanded design ...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   0
+
+Total memory usage is 163328 kilobytes
+
+Writing NGD file "la.ngd" ...
+Total REAL time to NGDBUILD completion:  3 sec
+Total CPU time to NGDBUILD completion:   3 sec
+
+Writing NGDBUILD log file "la.bld"...
