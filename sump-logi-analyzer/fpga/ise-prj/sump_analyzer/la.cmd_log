@@ -1,0 +1,7 @@
+xst -intstyle ise -ifn "D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/ise-prj/sump_analyzer/la.xst" -ofn "D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/ise-prj/sump_analyzer/la.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/la.ucf -p xc6slx9-tqg144-2 la.ngc la.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o la_map.ncd la.ngd la.pcf 
+ngdbuild -intstyle ise -dd _ngo -aul -nt timestamp -uc D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/la.ucf -p xc6slx9-tqg144-2 la.ngc la.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o la_map.ncd la.ngd la.pcf 
+ngdbuild -intstyle ise -dd _ngo -aul -nt timestamp -uc D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/sump-logi-analyzer/fpga/la.ucf -p xc6slx9-tqg144-2 la.ngc la.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o la_map.ncd la.ngd la.pcf 
