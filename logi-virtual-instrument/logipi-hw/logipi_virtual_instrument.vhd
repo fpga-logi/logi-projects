@@ -209,6 +209,8 @@ register0 : wishbone_register
 	 counter_enable  <= output_to_logic(0);
 	 counter_reset  <= output_to_logic(1);
 	 input_from_logic(7 downto 0) <= counter_output;
+	 input_from_logic(9 downto 8) <= SW;
+	 input_from_logic(10) <= PB(1);
 	 
 	 process(sys_clk, sys_reset)
 	 begin
@@ -222,7 +224,7 @@ register0 : wishbone_register
 			end if ;
 		end if ;
 	 end process ;
-	 
+	
 	LED <=  counter_output(1 downto 0);
 
 end Behavioral;
