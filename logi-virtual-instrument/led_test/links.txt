@@ -1,0 +1,5 @@
+http://pygame.org/docs/ref/index.html
+
+Has a reference for all of the properties in pygame and how use them properly
+
+Also, google is your friend :)
