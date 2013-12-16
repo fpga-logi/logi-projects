@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 
-'''
-Raspberry Pi shooter game written by Liam Fraser for RaspberryPiTutorials
-'''
-
-'''
-Import pygame for graphics, import sys for exit function, random for random numbers
-os is used for environment variables to set the position to centre
-'''
 import pygame, sys, random, os
 
 '''import constants used by pygame such as event type = QUIT'''
@@ -28,7 +20,6 @@ pygame.display.set_caption("Virtual Panel")
 
 '''Initialize a display with width 370 and height 542 with 32 bit colour'''
 screen = pygame.display.set_mode((800, 293), 0, 32)
-#screen = pygame.display.set_mode((500, 542), 0, 32)
 
 '''Create variables with image names we will use'''
 backgroundfile = "breadboard_800x293.png"
