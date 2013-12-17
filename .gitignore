@@ -1,0 +1,18 @@
+# Compiled Bitstreams
+*.bit
+
+# Xilinx generated files
+*.gise
+*.lso
+*.prj
+*.stx
+*.html
+*.ngc
+*.ngd
+*.exe
+*.xrpt
+*.csv
+*.ptwx
+*.ngr
+*.pad
+*.ut
