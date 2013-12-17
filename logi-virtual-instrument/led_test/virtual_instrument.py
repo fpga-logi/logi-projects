@@ -5,6 +5,7 @@ import pygame, sys, random, os
 '''import constants used by pygame such as event type = QUIT'''
 from pygame.locals import * 
 
+
 '''Initialize pygame components'''
 pygame.init()
 
@@ -24,22 +25,57 @@ screen = pygame.display.set_mode((800, 293), 0, 32)
 '''Create variables with image names we will use'''
 backgroundfile = "breadboard_800x293.png"
 crosshairsfile = "finger_point_100.png"
-pifile = "led_blue.png"
-led_file_0 = "led_clear.png"	#led image for logic 0
+led_file_0 = "led_clear_final.png"	#led image for logic 0
 led_file_1 = "led_blue.png"		#led image for logic 1
 dip_sw8_file = "dip_sw_8_300.png"
+push_button_file = "push_button_75.png"
+
+#load dip sw files
+sw_background_file = "./dip_sw8_all/sw8_background.png"
+sw1_h_file = "./dip_sw8_all/sw1_h.png"
+sw2_h_file = "./dip_sw8_all/sw2_h.png"
+sw3_h_file = "./dip_sw8_all/sw3_h.png"
+sw4_h_file = "./dip_sw8_all/sw4_h.png"
+sw5_h_file = "./dip_sw8_all/sw5_h.png"
+sw6_h_file = "./dip_sw8_all/sw6_h.png"
+sw7_h_file = "./dip_sw8_all/sw7_h.png"
+sw8_h_file = "./dip_sw8_all/sw8_h.png"
+sw1_l_file = "./dip_sw8_all/sw1_l.png"
+sw2_l_file = "./dip_sw8_all/sw2_l.png"
+sw3_l_file = "./dip_sw8_all/sw3_l.png"
+sw4_l_file = "./dip_sw8_all/sw4_l.png"
+sw5_l_file = "./dip_sw8_all/sw5_l.png"
+sw6_l_file = "./dip_sw8_all/sw6_l.png"
+sw7_l_file = "./dip_sw8_all/sw7_l.png"
+sw8_l_file = "./dip_sw8_all/sw8_l.png"
+
 
 '''Convert images to a format that pygame understands'''
 background = pygame.image.load(backgroundfile).convert()
-
 '''Convert alpha means we use the transparency in the pictures that support it'''
 mouse = pygame.image.load(crosshairsfile).convert_alpha()
-pi = pygame.image.load(pifile).convert_alpha()
 led_high= pygame.image.load(led_file_1).convert_alpha()
 led_low = pygame.image.load(led_file_0).convert_alpha()
-
 dip_sw8 = pygame.image.load(dip_sw8_file).convert_alpha()
-
+push_button = pygame.image.load(push_button_file).convert_alpha()
+#Convert the sw8 background and switche variables
+sw_background = pygame.image.load(sw_background_file).convert_alpha()
+sw1_l = pygame.image.load(sw1_l_file).convert_alpha()
+sw2_l = pygame.image.load(sw2_l_file).convert_alpha()
+sw3_l = pygame.image.load(sw3_l_file).convert_alpha()
+sw4_l = pygame.image.load(sw4_l_file).convert_alpha()
+sw5_l = pygame.image.load(sw5_l_file).convert_alpha()
+sw6_l = pygame.image.load(sw6_l_file).convert_alpha()
+sw7_l = pygame.image.load(sw7_l_file).convert_alpha()
+sw8_l = pygame.image.load(sw8_l_file).convert_alpha()
+sw1_h = pygame.image.load(sw1_h_file).convert_alpha()
+sw2_h = pygame.image.load(sw2_h_file).convert_alpha()
+sw3_h = pygame.image.load(sw3_h_file).convert_alpha()
+sw4_h = pygame.image.load(sw4_h_file).convert_alpha()
+sw5_h = pygame.image.load(sw5_h_file).convert_alpha()
+sw6_h = pygame.image.load(sw6_h_file).convert_alpha()
+sw7_h = pygame.image.load(sw7_h_file).convert_alpha()
+sw8_h = pygame.image.load(sw8_h_file).convert_alpha()
 
 '''Used to manage how fast the screen updates'''
 clock = pygame.time.Clock()
@@ -48,11 +84,8 @@ clock = pygame.time.Clock()
 #pygame.mouse.set_visible(False)
 pygame.mouse.set_visible(True)
 
-'''create variables to hold where the Pi logo is'''
-pix = -50
-piy = 60
-
-LED_Y = 25
+#location of the virtual peripherals
+LED_Y = 20
 LED1_X = 350
 LED2_X = 400
 LED3_X = 450
@@ -62,16 +95,33 @@ LED6_X = 600
 LED7_X = 650
 LED8_X = 700
 
+SW8_X = 10
+SW8_Y = 25
+#dip switch states 
+sw1 = 0
+sw2 = 0
+sw3 = 0
+sw4 = 0
+sw5 = 0
+sw6 = 0
+sw7 = 0
+sw8 = 0
 
-DIP_SW8_X = 10
-DIP_SW8_Y = 25
+
+PB1_X = 10
+PB2_X = 85
+PB3_X = 160
+PB4_X = 235
+PB_Y = 150
+
+#local variables
+count = 0
+switches = 0
 
 
 '''How many pixels to move the pi image across the screen'''
 #pispeed = 10
 pispeed = 1
-
-
 count = 0
 
 
@@ -86,37 +136,79 @@ while True:
 			
 	'''Draw the background image on the screen'''
 	screen.blit(background, (0,0))
-	screen.blit(dip_sw8, (DIP_SW8_X,DIP_SW8_Y))
+	screen.blit(sw_background, (SW8_X,SW8_Y))
+	#draw push buttons
+	screen.blit(push_button, (PB1_X,PB_Y))
+	#screen.blit(push_button, (PB2_X,PB_Y))
+	#screen.blit(push_button, (PB3_X,PB_Y))
+	#screen.blit(push_button, (PB4_X,PB_Y))
 	
-	if (count & 0x000080) :
+	
+	'''determine the value of each led and set high or low image'''
+	if (count & 0x80) :
+		screen.blit(sw1_h, (SW8_X,SW8_Y))
+	else :
+		screen.blit(sw1_l, (SW8_X,SW8_Y))
+	if (count & 0x40) :
+		screen.blit(sw2_h, (SW8_X,SW8_Y))
+	else :
+		screen.blit(sw2_l, (SW8_X,SW8_Y))
+	if (count & 0x20) :
+		screen.blit(sw3_h, (SW8_X,SW8_Y))
+	else :
+		screen.blit(sw3_l, (SW8_X,SW8_Y))
+	if (count & 0x10) :
+		screen.blit(sw4_h, (SW8_X,SW8_Y))
+	else :
+		screen.blit(sw4_l, (SW8_X,SW8_Y))
+	if (count & 0x08) :
+		screen.blit(sw5_h, (SW8_X,SW8_Y))
+	else :
+		screen.blit(sw5_l, (SW8_X,SW8_Y))
+	if (count & 0x04) :
+		screen.blit(sw6_h, (SW8_X,SW8_Y))
+	else :
+		screen.blit(sw6_l, (SW8_X,SW8_Y))
+	if (count & 0x02) :
+		screen.blit(sw7_h, (SW8_X,SW8_Y))
+	else :
+		screen.blit(sw7_l, (SW8_X,SW8_Y))
+	if (count & 0x01) :
+		screen.blit(sw8_h, (SW8_X,SW8_Y))
+	else :
+		screen.blit(sw8_l, (SW8_X,SW8_Y))
+	
+	
+	'''determine the value of each led and set high or low image'''
+	if (count & 0x80) :
 		screen.blit(led_high, (LED1_X ,LED_Y))
 	else :
 		screen.blit(led_low, (LED1_X ,LED_Y))	
-	if (count & 0x000040) :
+	if (count & 0x40) :
 		screen.blit(led_high, (LED2_X ,LED_Y))
 	else :
 		screen.blit(led_low, (LED2_X ,LED_Y))
-	if (count & 0x000020) :
+	if (count & 0x20) :
 		screen.blit(led_high, (LED3_X ,LED_Y))
 	else :
 		screen.blit(led_low, (LED3_X ,LED_Y))
-	if (count & 0x000010) :
+	if (count & 0x10) :
 		screen.blit(led_high, (LED4_X ,LED_Y))
 	else :
 		screen.blit(led_low, (LED4_X ,LED_Y))
-	if (count & 0x000008) :
+	if (count & 0x08) :
 		screen.blit(led_high, (LED5_X ,LED_Y))
 	else :
 		screen.blit(led_low, (LED5_X ,LED_Y))
-	if (count & 0x000004) :
+	if (count & 0x04) :
 		screen.blit(led_high, (LED6_X ,LED_Y))
 	else :
 		screen.blit(led_low, (LED6_X ,LED_Y))
-	if (count & 0x000002) :
+	if (count & 0x02) :
 		screen.blit(led_high, (LED7_X ,LED_Y))
 	else :
 		screen.blit(led_low, (LED7_X ,LED_Y))
-	if (count & 0x000001) :
+	if (count & 0x01) :
 		screen.blit(led_high, (LED8_X ,LED_Y))
 	else :
 		screen.blit(led_low, (LED8_X ,LED_Y))
