@@ -33,7 +33,7 @@ use UNISIM.VComponents.all;
 
 library work ;
 use work.logi_wishbone_pack.all ;
-use work.logi_wishbone_peripherals_pack.all ;
+use work.logi_virtual_components_pack.all ;
 
 entity logipi_virtual_instrument is
 port( OSC_FPGA : in std_logic;
@@ -80,15 +80,23 @@ architecture Behavioral of logipi_virtual_instrument is
 	signal intercon_wrapper_wbm_ack :  std_logic;
 	signal intercon_wrapper_wbm_cycle :  std_logic;
 
-	signal intercon_register_wbm_address :  std_logic_vector(15 downto 0);
-	signal intercon_register_wbm_readdata :  std_logic_vector(15 downto 0);
-	signal intercon_register_wbm_writedata :  std_logic_vector(15 downto 0);
-	signal intercon_register_wbm_strobe :  std_logic;
-	signal intercon_register_wbm_write :  std_logic;
-	signal intercon_register_wbm_ack :  std_logic;
-	signal intercon_register_wbm_cycle :  std_logic;
+	signal intercon_leds0_wbm_address :  std_logic_vector(15 downto 0);
+	signal intercon_leds0_wbm_readdata :  std_logic_vector(15 downto 0);
+	signal intercon_leds0_wbm_writedata :  std_logic_vector(15 downto 0);
+	signal intercon_leds0_wbm_strobe :  std_logic;
+	signal intercon_leds0_wbm_write :  std_logic;
+	signal intercon_leds0_wbm_ack :  std_logic;
+	signal intercon_leds0_wbm_cycle :  std_logic;
 	
-	signal reg_cs: std_logic ;
+	signal intercon_sw0_wbm_address :  std_logic_vector(15 downto 0);
+	signal intercon_sw0_wbm_readdata :  std_logic_vector(15 downto 0);
+	signal intercon_sw0_wbm_writedata :  std_logic_vector(15 downto 0);
+	signal intercon_sw0_wbm_strobe :  std_logic;
+	signal intercon_sw0_wbm_write :  std_logic;
+	signal intercon_sw0_wbm_ack :  std_logic;
+	signal intercon_sw0_wbm_cycle :  std_logic;
+	
+	signal led0_cs, sw0_cs: std_logic ;
 	
 
 -- counter signals
@@ -163,45 +171,70 @@ mem_interface0 : spi_wishbone_wrapper
 -- Intercon -----------------------------------------------------------
 -- will be generated automatically in the future
 
-reg_cs <= '1' when intercon_wrapper_wbm_address(15 downto 2) = "00000000000000" else
+led0_cs <= '1' when intercon_wrapper_wbm_address(15 downto 0) = "0000000000000000" else
 				'0' ;
-			
+sw0_cs <= '1' when intercon_wrapper_wbm_address(15 downto 0) = "0000000000000001" else
+				'0' ;
 
-intercon_register_wbm_address <= intercon_wrapper_wbm_address ;
-intercon_register_wbm_writedata <= intercon_wrapper_wbm_writedata ;
-intercon_register_wbm_write <= intercon_wrapper_wbm_write and reg_cs ;
-intercon_register_wbm_strobe <= intercon_wrapper_wbm_strobe and reg_cs ;
-intercon_register_wbm_cycle <= intercon_wrapper_wbm_cycle and reg_cs ;		
+
+intercon_leds0_wbm_address <= intercon_wrapper_wbm_address ;
+intercon_leds0_wbm_writedata <= intercon_wrapper_wbm_writedata ;
+intercon_leds0_wbm_write <= intercon_wrapper_wbm_write and led0_cs ;
+intercon_leds0_wbm_strobe <= intercon_wrapper_wbm_strobe and led0_cs ;
+intercon_leds0_wbm_cycle <= intercon_wrapper_wbm_cycle and led0_cs ;
+
+intercon_sw0_wbm_address <= intercon_wrapper_wbm_address ;
+intercon_sw0_wbm_writedata <= intercon_wrapper_wbm_writedata ;
+intercon_sw0_wbm_write <= intercon_wrapper_wbm_write and sw0_cs ;
+intercon_sw0_wbm_strobe <= intercon_wrapper_wbm_strobe and sw0_cs ;
+intercon_sw0_wbm_cycle <= intercon_wrapper_wbm_cycle and sw0_cs ;			
 							
 
 
-intercon_wrapper_wbm_readdata	<= intercon_register_wbm_readdata when reg_cs = '1' else
+intercon_wrapper_wbm_readdata	<= intercon_leds0_wbm_readdata when led0_cs = '1' else
+											intercon_sw0_wbm_readdata when sw0_cs = '1' else
 											intercon_wrapper_wbm_address ;
 											
-intercon_wrapper_wbm_ack	<= intercon_register_wbm_ack when reg_cs = '1' else
+intercon_wrapper_wbm_ack	<= intercon_leds0_wbm_ack when led0_cs = '1' else
+										intercon_sw0_wbm_ack when sw0_cs = '1' else
 										'0' ;
 									      
 -----------------------------------------------------------------------
 
-register0 : wishbone_register
-	generic map(nb_regs => 1)
+leds0 : logi_virtual_led
 	 port map
 	 (
 		  -- Syscon signals
 		  gls_reset   => sys_reset ,
 		  gls_clk     => sys_clk ,
 		  -- Wishbone signals
-		  wbs_add      =>  intercon_register_wbm_address ,
-		  wbs_writedata => intercon_register_wbm_writedata,
-		  wbs_readdata  => intercon_register_wbm_readdata,
-		  wbs_strobe    => intercon_register_wbm_strobe,
-		  wbs_cycle     => intercon_register_wbm_cycle,
-		  wbs_write     => intercon_register_wbm_write,
-		  wbs_ack       => intercon_register_wbm_ack,
+		  wbs_add      =>  intercon_leds0_wbm_address ,
+		  wbs_writedata => intercon_leds0_wbm_writedata,
+		  wbs_readdata  => intercon_leds0_wbm_readdata,
+		  wbs_strobe    => intercon_leds0_wbm_strobe,
+		  wbs_cycle     => intercon_leds0_wbm_cycle,
+		  wbs_write     => intercon_leds0_wbm_write,
+		  wbs_ack       => intercon_leds0_wbm_ack,
 		 
-		  -- out signals
-		  reg_out(0) =>output_to_logic,
-		  reg_in(0) => input_from_logic
+		  led => input_from_logic
+	 );
+	 
+	 sw0 : logi_virtual_sw
+	 port map
+	 (
+		  -- Syscon signals
+		  gls_reset   => sys_reset ,
+		  gls_clk     => sys_clk ,
+		  -- Wishbone signals
+		  wbs_add      =>  intercon_sw0_wbm_address ,
+		  wbs_writedata => intercon_sw0_wbm_writedata,
+		  wbs_readdata  => intercon_sw0_wbm_readdata,
+		  wbs_strobe    => intercon_sw0_wbm_strobe,
+		  wbs_cycle     => intercon_sw0_wbm_cycle,
+		  wbs_write     => intercon_sw0_wbm_write,
+		  wbs_ack       => intercon_sw0_wbm_ack,
+		 
+		  sw => output_to_logic
 	 );
 	 
 	 
