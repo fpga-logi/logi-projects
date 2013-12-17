@@ -159,8 +159,8 @@ mem_interface0 : spi_wishbone_wrapper
 			ss => RP_SPI_CE0N,
 			
 			  -- Wishbone interface signals
-			wbm_address    => intercon_wrapper_wbm_address,  -- Address bus
-			wbm_readdata   => intercon_wrapper_wbm_readdata,  -- Data bus for read access
+			wbm_address    => intercon_wrapper_wbm_address,  	-- Address bus
+			wbm_readdata   => intercon_wrapper_wbm_readdata,  	-- Data bus for read access
 			wbm_writedata 	=> intercon_wrapper_wbm_writedata,  -- Data bus for write access
 			wbm_strobe     => intercon_wrapper_wbm_strobe,                      -- Data Strobe
 			wbm_write      => intercon_wrapper_wbm_write,                      -- Write access
@@ -214,7 +214,6 @@ intercon_wrapper_wbm_ack	<= intercon_register_wbm_ack when reg_cs = '1' else
 									      
 										  
 -----------------------------------------------------------------------
-
 register0 : wishbone_register
 	generic map(nb_regs => 4)
 	 port map
