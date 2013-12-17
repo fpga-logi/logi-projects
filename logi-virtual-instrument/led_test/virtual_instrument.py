@@ -1,19 +1,18 @@
 #!/usr/bin/env python
 
-import pygame, sys, random, os
+import pygame, sys, random, os, time
 #import logipi
 '''import constants used by pygame such as event type = QUIT'''
 from pygame.locals import * 
 
+#DEFINES
+USE_FINGER_POINTER = 0
+OUTPUT_MOUSE_LOCATION_DATA = 0
 
 '''Initialize pygame components'''
 pygame.init()
 
-'''
-Centres the pygame window. Note that the environment variable is called 
-SDL_VIDEO_WINDOW_POS because pygame uses SDL (standard direct media layer)
-for it's graphics, and other functions
-'''
+'''Centres the pygame window. '''
 os.environ['SDL_VIDEO_WINDOW_POS'] = 'center'
 
 '''Set the window title'''
@@ -22,7 +21,7 @@ pygame.display.set_caption("Virtual Panel")
 '''Initialize a display with width 370 and height 542 with 32 bit colour'''
 screen = pygame.display.set_mode((800, 293), 0, 32)
 
-'''Create variables with image names we will use'''
+'''Create variables'''
 backgroundfile = "./img/brd/breadboard_800x293.png"
 crosshairsfile = "./img/finger/finger_point_100.png"
 led_file_0 = "./img/led/led_clear_final.png"	#led image for logic 0
@@ -78,10 +77,11 @@ sw8_h = pygame.image.load(sw8_h_file).convert_alpha()
 '''Used to manage how fast the screen updates'''
 clock = pygame.time.Clock()
 
-'''before we start the main section, hide the mouse cursor'''
+#MOUSE VISIBLE OR NOT?
 #pygame.mouse.set_visible(False)
 pygame.mouse.set_visible(True)
 
+#LED LOCATIONS
 #location of the virtual peripherals
 LED_Y = 20
 LED1_X = 350
@@ -93,19 +93,43 @@ LED6_X = 600
 LED7_X = 650
 LED8_X = 700
 
+#SWITCH BODY LOCATION LOCATION
 SW8_X = 10
 SW8_Y = 25
+#FIGURING OUT THE PIXEL DISTANCE FOR SW HOTSPOTS
+#EDGE TO FIRST NUB = 15
+#FIRST SW LEFT SIDE TO FAR RIGHT SW RIGHT SIDE = TOTAL ACTIVE X DISTANCE = 295 - 15 = 280 
+#280 / NUMBER OF LOCATIONS = 8 => 280/8 = 35 : NEED TO FUDGE = 36 WORKS WELL
+#START = SW8_X + EDGE TO FIRST NUB/2 = 10 + 7.5 = 
+SW_EDGE_TO_NUB = 15
+SW_HOTSPOT_DX = 36
+
+SW_HOTSPOT_X1 = SW8_X + SW_EDGE_TO_NUB/2
+SW_HOTSPOT_X2 = SW_HOTSPOT_X1 + SW_HOTSPOT_DX
+SW_HOTSPOT_X3 = SW_HOTSPOT_X2 + SW_HOTSPOT_DX
+SW_HOTSPOT_X4 = SW_HOTSPOT_X3 + SW_HOTSPOT_DX
+SW_HOTSPOT_X5 = SW_HOTSPOT_X4 + SW_HOTSPOT_DX
+SW_HOTSPOT_X6 = SW_HOTSPOT_X5 + SW_HOTSPOT_DX
+SW_HOTSPOT_X7 = SW_HOTSPOT_X6 + SW_HOTSPOT_DX
+SW_HOTSPOT_X8 = SW_HOTSPOT_X7 + SW_HOTSPOT_DX
+SW_HOTSPOT_X9 = SW_HOTSPOT_X8 + SW_HOTSPOT_DX
+
+SW_HOTSPOT_Y0 = 50
+SW_HOTSPOT_Y1 = 115
+
+
+
 #dip switch states 
-sw1 = 0
-sw2 = 0
-sw3 = 0
-sw4 = 0
-sw5 = 0
-sw6 = 0
-sw7 = 0
-sw8 = 0
+sw1_state = 0
+sw2_state = 0
+sw3_state = 0
+sw4_state = 0
+sw5_state = 0
+sw6_state = 0
+sw7_state = 0
+sw8_state = 0
 
-
+#PUSH BUTTONLOCATIONS
 PB1_X = 10
 PB2_X = 85
 PB3_X = 160
@@ -121,6 +145,17 @@ switches = 0
 #pispeed = 10
 pispeed = 1
 count = 0
+sw_val = 0
+
+#DEFAULT SWITCH VALUES
+screen.blit(sw1_l, (SW8_X,SW8_Y))
+screen.blit(sw2_l, (SW8_X,SW8_Y))
+screen.blit(sw3_l, (SW8_X,SW8_Y))
+screen.blit(sw4_l, (SW8_X,SW8_Y))
+screen.blit(sw5_l, (SW8_X,SW8_Y))
+screen.blit(sw6_l, (SW8_X,SW8_Y))
+screen.blit(sw7_l, (SW8_X,SW8_Y))
+screen.blit(sw8_l, (SW8_X,SW8_Y))
 
 
 while True:
@@ -140,44 +175,98 @@ while True:
 	#screen.blit(push_button, (PB2_X,PB_Y))
 	#screen.blit(push_button, (PB3_X,PB_Y))
 	#screen.blit(push_button, (PB4_X,PB_Y))
-	
-	
-	'''determine the value of each led and set high or low image'''
-	if (count & 0x80) :
-		screen.blit(sw1_h, (SW8_X,SW8_Y))
-	else :
+
+	#GET THE MOUSE LOCATION
+	'''Get the co ordinate for the edges of the screen'''
+	screenboundx, screenboundy = screen.get_size()
+	'''Get the X and Y mouse positions to variables called x and y'''
+	mousex,mousey = pygame.mouse.get_pos()
+		
+	if OUTPUT_MOUSE_LOCATION_DATA == 1:
+		print "mouse x" , mousex
+		print "mouse y" , mousey
+		
+	##TODO: NEED TO ADD A TIME SCHEDULE THE SWITCH CHECK IN ORDER TO NOT RE-ENTRY AND NOT CLOCK THE PROGRAM
+	#CAN REMOVE THE DELAY AFTER SETTING UP THE SCHEDULED CHECK
+	#CHECK FOR MOUSE CLICK AND IF IN BOUNDS OF SWITCH - THIS IS WHERE THE SWITCHED WILL CHANGE STATES
+	if event.type == MOUSEBUTTONDOWN:
+		#print "mouse click check"
+		#print SW_HOTSPOT_X1, " ", SW_HOTSPOT_X2
+		if (mousex >= SW_HOTSPOT_X1 and mousex <= SW_HOTSPOT_X2) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+			print "sw1 clicked"
+			sw1_state ^= 1
+			time.sleep(.001)	#NEED A DELAY TO KEEP FROM RE-ENTRY
+		if (mousex >= SW_HOTSPOT_X2 and mousex <= SW_HOTSPOT_X3) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+			print "sw2 clicked"
+			sw2_state ^= 1
+			time.sleep(.001)	#NEED A DELAY TO KEEP FROM RE-ENTRY
+		if (mousex >= SW_HOTSPOT_X3 and mousex <= SW_HOTSPOT_X4) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+			print "sw3 clicked"
+			sw3_state ^= 1
+			time.sleep(.001)	#NEED A DELAY TO KEEP FROM RE-ENTRY
+		if (mousex >= SW_HOTSPOT_X4 and mousex <= SW_HOTSPOT_X5) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+			print "sw4 clicked"
+			sw4_state ^= 1
+			time.sleep(.001)	#NEED A DELAY TO KEEP FROM RE-ENTRY
+		if (mousex >= SW_HOTSPOT_X5 and mousex <= SW_HOTSPOT_X6) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+			print "sw5 clicked"
+			sw5_state ^= 1
+			time.sleep(.001)	#NEED A DELAY TO KEEP FROM RE-ENTRY
+		if (mousex >= SW_HOTSPOT_X6 and mousex <= SW_HOTSPOT_X7) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+			print "sw6 clicked"
+			sw6_state ^= 1
+			time.sleep(.001)	#NEED A DELAY TO KEEP FROM RE-ENTRY
+		if (mousex >= SW_HOTSPOT_X7 and mousex <= SW_HOTSPOT_X8) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+			print "sw7 clicked"
+			sw7_state ^= 1
+			time.sleep(.001)	#NEED A DELAY TO KEEP FROM RE-ENTRY
+		if (mousex >= SW_HOTSPOT_X8 and mousex <= SW_HOTSPOT_X9) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+			print "sw8 clicked"
+			sw8_state ^= 1
+			time.sleep(.001)	#NEED A DELAY TO KEEP FROM RE-ENTRY
+
+			
+	#UPDATE THE CURRENT STATE OF THE SW HERE, OR IT WILL NOT BE DRAWN		
+	if sw1_state :
+		screen.blit(sw1_h, (SW8_X,SW8_Y))	
+	else:
 		screen.blit(sw1_l, (SW8_X,SW8_Y))
-	if (count & 0x40) :
-		screen.blit(sw2_h, (SW8_X,SW8_Y))
-	else :
+	if sw2_state :
+		screen.blit(sw2_h, (SW8_X,SW8_Y))	
+	else:
 		screen.blit(sw2_l, (SW8_X,SW8_Y))
-	if (count & 0x20) :
-		screen.blit(sw3_h, (SW8_X,SW8_Y))
-	else :
+	if sw3_state :
+		screen.blit(sw3_h, (SW8_X,SW8_Y))	
+	else:
 		screen.blit(sw3_l, (SW8_X,SW8_Y))
-	if (count & 0x10) :
-		screen.blit(sw4_h, (SW8_X,SW8_Y))
-	else :
+	if sw4_state :
+		screen.blit(sw4_h, (SW8_X,SW8_Y))	
+	else:
 		screen.blit(sw4_l, (SW8_X,SW8_Y))
-	if (count & 0x08) :
-		screen.blit(sw5_h, (SW8_X,SW8_Y))
-	else :
+	if sw5_state :
+		screen.blit(sw5_h, (SW8_X,SW8_Y))	
+	else:
 		screen.blit(sw5_l, (SW8_X,SW8_Y))
-	if (count & 0x04) :
-		screen.blit(sw6_h, (SW8_X,SW8_Y))
-	else :
+	if sw6_state :
+		screen.blit(sw6_h, (SW8_X,SW8_Y))	
+	else:
 		screen.blit(sw6_l, (SW8_X,SW8_Y))
-	if (count & 0x02) :
-		screen.blit(sw7_h, (SW8_X,SW8_Y))
-	else :
+	if sw7_state :
+		screen.blit(sw7_h, (SW8_X,SW8_Y))	
+	else:
 		screen.blit(sw7_l, (SW8_X,SW8_Y))
-	if (count & 0x01) :
-		screen.blit(sw8_h, (SW8_X,SW8_Y))
-	else :
+	if sw8_state :
+		screen.blit(sw8_h, (SW8_X,SW8_Y))	
+	else:
 		screen.blit(sw8_l, (SW8_X,SW8_Y))
+		
+	#calcualte the new switch value:
+	sw_val = (sw1_state<<7) | (sw2_state<<6) | sw3_state<<5 | sw4_state<<4 | sw5_state<<3 | sw6_state<<2 | sw7_state<<1 | sw8_state
+	print "switch value: ", sw_val
 	
+
 	
-	'''determine the value of each led and set high or low image'''
+	#UPDATE THE LED DATA
 	if (count & 0x80) :
 		screen.blit(led_high, (LED1_X ,LED_Y))
 	else :
@@ -211,16 +300,7 @@ while True:
 	else :
 		screen.blit(led_low, (LED8_X ,LED_Y))
 
-						
-	'''Now we have initialized everything, lets start with the main part'''
-	
-	'''Get the co ordinate for the edges of the screen'''
-	screenboundx, screenboundy = screen.get_size()
-	'''Get the X and Y mouse positions to variables called x and y'''
-	mousex,mousey = pygame.mouse.get_pos()
-	
-	print "mouse x" , mousex
-	print "mouse y" , mousey
+											
 	
 	'''
 	x -= mousewidth  x = x - mousewidth
@@ -232,7 +312,23 @@ while True:
 
 	
 	'''Draw the crosshairs to the screen at the co ordinates we just worked out'''
-	screen.blit(mouse, (mousex,mousey))
+	if USE_FINGER_POINTER :
+		screen.blit(mouse, (mousex,mousey))
+	
+	
+	# if event.type == MOUSEBUTTONDOWN:
+		# '''The mouse has been clicked so see if the sprites rectangles collide
+		# The pygame.sprite.collide_rect returns either True or False.
+		# Note that in our case the collision detection isn't very accurate
+		# because there will be a collision even if the edge of the crosshairs
+		# is over the edge of the pi. This can be improved by testing collision 
+		# on specific pixels which I will do next week'''
+		
+		# #hit = pi.rect.collidepoint(crosshairs.rect.centerx, crosshairs.rect.centery)
+		
+		# #if hit == True:
+			# #'''The crosshairs was over the pi sprite when mouse was clicked'''
+			# #score.value += 1
 	
 	'''Limit screen updates to 20 frames per second so we dont use 100% cpu time'''
 	#clock.tick(20)
