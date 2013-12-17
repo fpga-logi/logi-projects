@@ -46,7 +46,7 @@ port( OSC_FPGA : in std_logic;
 
 		--onboard
 		PB, DIP_SW : in std_logic_vector(3 downto 0);
-		LED : out std_logic_vector(7 downto 0);	
+		LED : out std_logic_vector(1 downto 0);	
 		
 			--PMOD
 		PMOD4_9, PMOD4_3  : inout std_logic ; -- used as SCL, SDA
@@ -183,7 +183,7 @@ architecture Behavioral of avc_platform is
 	signal pwm_value_1, pwm_value_0 : std_logic_vector(15 downto 0);
 	signal enc_value_1, enc_value_0 : std_logic_vector(31 downto 0);
 	signal servo_pos_1, servo_pos_0 : std_logic_vector(7 downto 0);
-	signal pwm_clk, pwm_rst : std_logic ;
+	signal pwm_enable, pwm_rst : std_logic ;
 	
 	-- Encoders related signal
 	signal ENC_A_OLD, ENC_A_RE  : std_logic_vector(1 downto 0); 
@@ -364,10 +364,10 @@ begin
 			latch_input(7) => (others => '0'), -- for future use
 			latch_output(0) => pwm_value_0,
 			latch_output(1) => pwm_value_1,
-			latch_output(2)(7 downto 3) => LED(7 downto 3),
-			latch_output(2)(2 downto 0) =>  open,
-			latch_output(3) => ENCODERS_CONTROL,
-			latch_output(4) => open,
+			latch_output(2)(0) => pwm_enable,
+			latch_output(3)(7 downto 3) => LED(7 downto 3),
+			latch_output(3)(2 downto 1) =>  open,
+			latch_output(4) => ENCODERS_CONTROL,
 			latch_output(5) => open,
 			latch_output(6) => open,
 			latch_output(7) => open
@@ -587,6 +587,9 @@ begin
 	servo_pos_0 <= pwm_value_0(7 downto 0) when enable_peripherals(0) = '1' else
 						pwm_value_0(15 downto 8)  ;
 
+	
+	pwm_rst <= (not sys_resetn) or (not pwm_enable) ;
+
 	servo_controller_0_Inst : servo_controller
 	  generic map(
 		 clock_period => 8,
@@ -594,7 +597,7 @@ begin
 		 maximum_high_pulse_width => 2000000
 		 )
 	  port map(clk => clk_sys,
-			  rst => (not sys_resetn),
+			  rst => pwm_rst,
 			  servo_position => servo_pos_0,
 			  servo_out => PWM(0));
 		  
@@ -608,7 +611,7 @@ begin
 		 maximum_high_pulse_width => 2000000
 		 )
 	  port map(clk => clk_sys,
-			  rst => (not sys_resetn),
+			  rst => pwm_rst,
 			  servo_position => servo_pos_1,
 			  servo_out => PWM(1));
 			  
