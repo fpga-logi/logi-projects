@@ -7,7 +7,8 @@ from pygame.locals import *
 
 #DEFINES
 USE_FINGER_POINTER = 0
-OUTPUT_MOUSE_LOCATION_DATA = 0
+OUTPUT_MOUSE_LOCATION_DATA = 1
+DEBUG = 0
 
 '''Initialize pygame components'''
 pygame.init()
@@ -26,7 +27,8 @@ backgroundfile = "./img/brd/breadboard_800x293.png"
 crosshairsfile = "./img/finger/finger_point_100.png"
 led_file_0 = "./img/led/led_clear_final.png"	#led image for logic 0
 led_file_1 = "./img/led/led_blue_final.png"		#led image for logic 1
-push_button_file = "./img/pb/push_button_75.png"
+pb_h_file = "./img/pb/pb_pushed_75.png"
+pb_l_file = "./img/pb/pb_npushed_75.png"
 
 #load dip sw files
 sw_background_file = "./img/sw/sw8_background.png"
@@ -54,7 +56,9 @@ background = pygame.image.load(backgroundfile).convert()
 mouse = pygame.image.load(crosshairsfile).convert_alpha()
 led_high= pygame.image.load(led_file_1).convert_alpha()
 led_low = pygame.image.load(led_file_0).convert_alpha()
-push_button = pygame.image.load(push_button_file).convert_alpha()
+#PUSH BUTTON IMAGES
+pb_h = pygame.image.load(pb_h_file).convert_alpha()
+pb_l = pygame.image.load(pb_l_file).convert_alpha()
 #Convert the sw8 background and switche variables
 sw_background = pygame.image.load(sw_background_file).convert_alpha()
 sw1_l = pygame.image.load(sw1_l_file).convert_alpha()
@@ -117,8 +121,6 @@ SW_HOTSPOT_X9 = SW_HOTSPOT_X8 + SW_HOTSPOT_DX
 SW_HOTSPOT_Y0 = 50
 SW_HOTSPOT_Y1 = 115
 
-
-
 #dip switch states 
 sw1_state = 0
 sw2_state = 0
@@ -136,14 +138,18 @@ PB3_X = 160
 PB4_X = 235
 PB_Y = 150
 
+pb1_state = 0
+pb2_state = 0
+pb3_state = 0
+pb4_state = 0
+
+PB_HOTSPOT_X1 = 10
+PB_HOTSPOT_X2 = 85
+PB_HOTSPOT_Y1 = 150
+PB_HOTSPOT_Y2 = 220
+
 #local variables
-count = 0
 switches = 0
-
-
-'''How many pixels to move the pi image across the screen'''
-#pispeed = 10
-pispeed = 1
 count = 0
 sw_val = 0
 
@@ -157,6 +163,7 @@ screen.blit(sw6_l, (SW8_X,SW8_Y))
 screen.blit(sw7_l, (SW8_X,SW8_Y))
 screen.blit(sw8_l, (SW8_X,SW8_Y))
 
+mouse_click_processed = 0
 
 while True:
 	
@@ -167,11 +174,11 @@ while True:
 			sys.exit()
 			
 			
-	'''Draw the background image on the screen'''
+	'''DEFAULT BACKGROUND IMAGES'''
 	screen.blit(background, (0,0))
 	screen.blit(sw_background, (SW8_X,SW8_Y))
 	#draw push buttons
-	screen.blit(push_button, (PB1_X,PB_Y))
+	screen.blit(pb_l, (PB1_X,PB_Y))	#being updated based on state below
 	#screen.blit(push_button, (PB2_X,PB_Y))
 	#screen.blit(push_button, (PB3_X,PB_Y))
 	#screen.blit(push_button, (PB4_X,PB_Y))
@@ -182,50 +189,81 @@ while True:
 	'''Get the X and Y mouse positions to variables called x and y'''
 	mousex,mousey = pygame.mouse.get_pos()
 		
-	if OUTPUT_MOUSE_LOCATION_DATA == 1:
+	if OUTPUT_MOUSE_LOCATION_DATA == 1 or DEBUG == 1:
 		print "mouse x" , mousex
 		print "mouse y" , mousey
+		
+	'''Draw the crosshairs to the screen at the co ordinates we just worked out'''
+	if USE_FINGER_POINTER :
+		screen.blit(mouse, (mousex,mousey))
+		mousex -= mouse.get_width()/2
+		mousey -= 10
 		
 	##TODO: NEED TO ADD A TIME SCHEDULE THE SWITCH CHECK IN ORDER TO NOT RE-ENTRY AND NOT CLOCK THE PROGRAM
 	#CAN REMOVE THE DELAY AFTER SETTING UP THE SCHEDULED CHECK
 	#CHECK FOR MOUSE CLICK AND IF IN BOUNDS OF SWITCH - THIS IS WHERE THE SWITCHED WILL CHANGE STATES
 	if event.type == MOUSEBUTTONDOWN:
-		#print "mouse click check"
-		#print SW_HOTSPOT_X1, " ", SW_HOTSPOT_X2
-		if (mousex >= SW_HOTSPOT_X1 and mousex <= SW_HOTSPOT_X2) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
-			print "sw1 clicked"
-			sw1_state ^= 1
-			time.sleep(.001)	#NEED A DELAY TO KEEP FROM RE-ENTRY
-		if (mousex >= SW_HOTSPOT_X2 and mousex <= SW_HOTSPOT_X3) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
-			print "sw2 clicked"
-			sw2_state ^= 1
-			time.sleep(.001)	#NEED A DELAY TO KEEP FROM RE-ENTRY
-		if (mousex >= SW_HOTSPOT_X3 and mousex <= SW_HOTSPOT_X4) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
-			print "sw3 clicked"
-			sw3_state ^= 1
-			time.sleep(.001)	#NEED A DELAY TO KEEP FROM RE-ENTRY
-		if (mousex >= SW_HOTSPOT_X4 and mousex <= SW_HOTSPOT_X5) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
-			print "sw4 clicked"
-			sw4_state ^= 1
-			time.sleep(.001)	#NEED A DELAY TO KEEP FROM RE-ENTRY
-		if (mousex >= SW_HOTSPOT_X5 and mousex <= SW_HOTSPOT_X6) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
-			print "sw5 clicked"
-			sw5_state ^= 1
-			time.sleep(.001)	#NEED A DELAY TO KEEP FROM RE-ENTRY
-		if (mousex >= SW_HOTSPOT_X6 and mousex <= SW_HOTSPOT_X7) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
-			print "sw6 clicked"
-			sw6_state ^= 1
-			time.sleep(.001)	#NEED A DELAY TO KEEP FROM RE-ENTRY
-		if (mousex >= SW_HOTSPOT_X7 and mousex <= SW_HOTSPOT_X8) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
-			print "sw7 clicked"
-			sw7_state ^= 1
-			time.sleep(.001)	#NEED A DELAY TO KEEP FROM RE-ENTRY
-		if (mousex >= SW_HOTSPOT_X8 and mousex <= SW_HOTSPOT_X9) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
-			print "sw8 clicked"
-			sw8_state ^= 1
-			time.sleep(.001)	#NEED A DELAY TO KEEP FROM RE-ENTRY
+		#CHECK FOR ALL HOTPOST COMPONENT LOCATIONS PUSHED
+		if mouse_click_processed == 0  :
+			if (mousex >= SW_HOTSPOT_X1 and mousex <= SW_HOTSPOT_X2) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+				if DEBUG ==1 :
+					print "sw1 clicked"
+				sw1_state ^= 1
+				mouse_click_processed = 1  #set flag that the button down was processed
+			if (mousex >= SW_HOTSPOT_X2 and mousex <= SW_HOTSPOT_X3) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+				if DEBUG ==1 :
+					print "sw2 clicked"
+				sw2_state ^= 1
+				mouse_click_processed = 1  #set flag that the button down was processed
+			if (mousex >= SW_HOTSPOT_X3 and mousex <= SW_HOTSPOT_X4) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+				if DEBUG ==1 :
+					print "sw3 clicked"
+				sw3_state ^= 1
+				mouse_click_processed = 1  #set flag that the button down was processed
+			if (mousex >= SW_HOTSPOT_X4 and mousex <= SW_HOTSPOT_X5) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+				if DEBUG ==1 :
+					print "sw4 clicked"
+				sw4_state ^= 1
+				mouse_click_processed = 1  #set flag that the button down was processed
+			if (mousex >= SW_HOTSPOT_X5 and mousex <= SW_HOTSPOT_X6) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+				if DEBUG ==1 :
+					print "sw5 clicked"
+				sw5_state ^= 1
+				mouse_click_processed = 1  #set flag that the button down was processed
+			if (mousex >= SW_HOTSPOT_X6 and mousex <= SW_HOTSPOT_X7) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+				if DEBUG ==1 :
+					print "sw6 clicked"
+				sw6_state ^= 1
+				mouse_click_processed = 1  #set flag that the button down was processed
+			if (mousex >= SW_HOTSPOT_X7 and mousex <= SW_HOTSPOT_X8) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+				if DEBUG ==1 :
+					print "sw7 clicked"
+				sw7_state ^= 1
+				mouse_click_processed = 1  #set flag that the button down was processed
+			if (mousex >= SW_HOTSPOT_X8 and mousex <= SW_HOTSPOT_X9) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+				if DEBUG ==1 :
+					print "sw8 clicked"
+				sw8_state ^= 1
+				mouse_click_processed = 1  #set flag that the button down was processed
+	
+			#CHECK FOR PUSHBOTTON PUSHED
+			if (mousex >= PB_HOTSPOT_X1 and mousex <= SW_HOTSPOT_X2) and (mousey >= PB_HOTSPOT_Y1 and mousey <= PB_HOTSPOT_Y2):
+				if DEBUG ==1 :
+					print "pb1 pushed"
+				pb1_state = 1	#state need to release in button up event
+				if pb1_state :
+					screen.blit(pb_h, (PB1_X,PB_Y))	
 
-			
+				#mouse_click_processed = 1  #set flag that the button down was processed
+	
+	
+	if event.type == MOUSEBUTTONUP:
+		mouse_click_processed = 0	#wait for mouse button to go up before re-running the button down process
+		#release pushbuttons here if they were pushed
+		if pb1_state == 1 :	#if the pb state was previously pushed
+			pb1_state = 0
+		#screen.blit(pb_l, (PB1_X,PB_Y))	
+		
 	#UPDATE THE CURRENT STATE OF THE SW HERE, OR IT WILL NOT BE DRAWN		
 	if sw1_state :
 		screen.blit(sw1_h, (SW8_X,SW8_Y))	
@@ -260,11 +298,18 @@ while True:
 	else:
 		screen.blit(sw8_l, (SW8_X,SW8_Y))
 		
+		
+	#UPDATE STATE OF THE PB	
+	# if pb1_state :
+		# screen.blit(pb_h, (PB1_X,PB_Y))	
+	# else:
+		# screen.blit(pb_l, (PB1_X,PB_Y))
+		
 	#calcualte the new switch value:
 	sw_val = (sw1_state<<7) | (sw2_state<<6) | sw3_state<<5 | sw4_state<<4 | sw5_state<<3 | sw6_state<<2 | sw7_state<<1 | sw8_state
-	print "switch value: ", sw_val
+	if DEBUG ==1 :
+		print "switch value: ", sw_val
 	
-
 	
 	#UPDATE THE LED DATA
 	if (count & 0x80) :
@@ -300,40 +345,13 @@ while True:
 	else :
 		screen.blit(led_low, (LED8_X ,LED_Y))
 
-											
 	
-	'''
-	x -= mousewidth  x = x - mousewidth
-	Take half of the width of the limage from the mouse co-ordinate
-	So the mouse is in the middle of the image
-	'''
-	mousex -= mouse.get_width()/2
-	mousey -= 10
-
-	
-	'''Draw the crosshairs to the screen at the co ordinates we just worked out'''
-	if USE_FINGER_POINTER :
-		screen.blit(mouse, (mousex,mousey))
-	
-	
-	# if event.type == MOUSEBUTTONDOWN:
-		# '''The mouse has been clicked so see if the sprites rectangles collide
-		# The pygame.sprite.collide_rect returns either True or False.
-		# Note that in our case the collision detection isn't very accurate
-		# because there will be a collision even if the edge of the crosshairs
-		# is over the edge of the pi. This can be improved by testing collision 
-		# on specific pixels which I will do next week'''
-		
-		# #hit = pi.rect.collidepoint(crosshairs.rect.centerx, crosshairs.rect.centery)
-		
-		# #if hit == True:
-			# #'''The crosshairs was over the pi sprite when mouse was clicked'''
-			# #score.value += 1
-	
-	'''Limit screen updates to 20 frames per second so we dont use 100% cpu time'''
-	#clock.tick(20)
-	clock.tick(10)
-	count += 1
-	#count = logipi.directRead(0x00, 2)[0]
-	'''Finish off by update the full display surface to the screen'''
+	#UPDATE THE DISPLAY
 	pygame.display.update()
+	
+	count += 1
+	time.sleep(.001)
+
+	#count = logipi.directRead(0x00, 2)[0]
+
+
