@@ -465,6 +465,7 @@ while True:
 		screen.blit(segp, (SSEG4_X ,SSEG_Y))
 	
 	
+	
 	#UPDATE THE DISPLAY
 	pygame.display.update()
 	
