@@ -25,12 +25,44 @@ screen = pygame.display.set_mode((800, 293), 0, 32)
 '''Create variables'''
 backgroundfile = "./img/brd/breadboard_800x293.png"
 crosshairsfile = "./img/finger/finger_point_100.png"
+
+
+#LED VARIALBES
 led_file_0 = "./img/led/led_clear_final.png"	#led image for logic 0
 led_file_1 = "./img/led/led_blue_final.png"		#led image for logic 1
+#LED LOCATIONS
+#location of the virtual peripherals
+LED_Y = 20
+LED1_X = 350
+LED2_X = 400
+LED3_X = 450
+LED4_X = 500
+LED5_X = 550
+LED6_X = 600
+LED7_X = 650
+LED8_X = 700
+
+#PUSH BUTTON VARIALBLES
 pb_h_file = "./img/pb/pb_pushed_75.png"
 pb_l_file = "./img/pb/pb_npushed_75.png"
 
-#load dip sw files
+PB1_X = 10
+PB2_X = 85
+PB3_X = 160
+PB4_X = 235
+PB_Y = 150
+
+pb1_state = 0
+pb2_state = 0
+pb3_state = 0
+pb4_state = 0
+
+PB_HOTSPOT_X1 = 10
+PB_HOTSPOT_X2 = 85
+PB_HOTSPOT_Y1 = 150
+PB_HOTSPOT_Y2 = 220
+
+#DIP SWITCH VARIABLES *****************************
 sw_background_file = "./img/sw/sw8_background.png"
 sw1_h_file = "./img/sw/sw1_h.png"
 sw2_h_file = "./img/sw/sw2_h.png"
@@ -48,54 +80,6 @@ sw5_l_file = "./img/sw/sw5_l.png"
 sw6_l_file = "./img/sw/sw6_l.png"
 sw7_l_file = "./img/sw/sw7_l.png"
 sw8_l_file = "./img/sw/sw8_l.png"
-
-
-'''Convert images to a format that pygame understands'''
-background = pygame.image.load(backgroundfile).convert()
-'''Convert alpha means we use the transparency in the pictures that support it'''
-mouse = pygame.image.load(crosshairsfile).convert_alpha()
-led_high= pygame.image.load(led_file_1).convert_alpha()
-led_low = pygame.image.load(led_file_0).convert_alpha()
-#PUSH BUTTON IMAGES
-pb_h = pygame.image.load(pb_h_file).convert_alpha()
-pb_l = pygame.image.load(pb_l_file).convert_alpha()
-#Convert the sw8 background and switche variables
-sw_background = pygame.image.load(sw_background_file).convert_alpha()
-sw1_l = pygame.image.load(sw1_l_file).convert_alpha()
-sw2_l = pygame.image.load(sw2_l_file).convert_alpha()
-sw3_l = pygame.image.load(sw3_l_file).convert_alpha()
-sw4_l = pygame.image.load(sw4_l_file).convert_alpha()
-sw5_l = pygame.image.load(sw5_l_file).convert_alpha()
-sw6_l = pygame.image.load(sw6_l_file).convert_alpha()
-sw7_l = pygame.image.load(sw7_l_file).convert_alpha()
-sw8_l = pygame.image.load(sw8_l_file).convert_alpha()
-sw1_h = pygame.image.load(sw1_h_file).convert_alpha()
-sw2_h = pygame.image.load(sw2_h_file).convert_alpha()
-sw3_h = pygame.image.load(sw3_h_file).convert_alpha()
-sw4_h = pygame.image.load(sw4_h_file).convert_alpha()
-sw5_h = pygame.image.load(sw5_h_file).convert_alpha()
-sw6_h = pygame.image.load(sw6_h_file).convert_alpha()
-sw7_h = pygame.image.load(sw7_h_file).convert_alpha()
-sw8_h = pygame.image.load(sw8_h_file).convert_alpha()
-
-'''Used to manage how fast the screen updates'''
-clock = pygame.time.Clock()
-
-#MOUSE VISIBLE OR NOT?
-#pygame.mouse.set_visible(False)
-pygame.mouse.set_visible(True)
-
-#LED LOCATIONS
-#location of the virtual peripherals
-LED_Y = 20
-LED1_X = 350
-LED2_X = 400
-LED3_X = 450
-LED4_X = 500
-LED5_X = 550
-LED6_X = 600
-LED7_X = 650
-LED8_X = 700
 
 #SWITCH BODY LOCATION LOCATION
 SW8_X = 10
@@ -131,22 +115,79 @@ sw6_state = 0
 sw7_state = 0
 sw8_state = 0
 
-#PUSH BUTTONLOCATIONS
-PB1_X = 10
-PB2_X = 85
-PB3_X = 160
-PB4_X = 235
-PB_Y = 150
+#SSEG VARIABLES ********************************************
+sseg_back_file = "./img/sseg/sseg_back_100.png"
+sega_file = "./img/sseg/sega_100.png"
+segb_file = "./img/sseg/segb_100.png"
+segc_file = "./img/sseg/segc_100.png"
+segd_file = "./img/sseg/segd_100.png"
+sege_file = "./img/sseg/sege_100.png"
+segf_file = "./img/sseg/segf_100.png"
+segg_file = "./img/sseg/segg_100.png"
+segp_file = "./img/sseg/segp_100.png"
 
-pb1_state = 0
-pb2_state = 0
-pb3_state = 0
-pb4_state = 0
+SSEG_WIDTH = 70
+SSEG_SPACE = 2
 
-PB_HOTSPOT_X1 = 10
-PB_HOTSPOT_X2 = 85
-PB_HOTSPOT_Y1 = 150
-PB_HOTSPOT_Y2 = 220
+SSEG1_X = 350	#aligned with LED
+SSEG2_X = SSEG1_X + SSEG_WIDTH + SSEG_SPACE	
+SSEG3_X = SSEG2_X + SSEG_WIDTH + SSEG_SPACE	
+SSEG4_X = SSEG3_X + SSEG_WIDTH + SSEG_SPACE	
+SSEG_Y = 150
+
+#default sseg values = beef
+sseg1_val = 0x7c 	# 0b01111100 = b
+sseg2_val = 0x79 	# 0b01111001 = e		
+sseg3_val = 0x79 	# 0b01111001 = e
+sseg4_val = 0x71 	# 0b01110001 = f
+
+#CONVERT IMAGES *********************************************
+'''Convert images to a format that pygame understands'''
+background = pygame.image.load(backgroundfile).convert()
+'''Convert alpha means we use the transparency in the pictures that support it'''
+mouse = pygame.image.load(crosshairsfile).convert_alpha()
+led_high= pygame.image.load(led_file_1).convert_alpha()
+led_low = pygame.image.load(led_file_0).convert_alpha()
+#PUSH BUTTON IMAGES
+pb_h = pygame.image.load(pb_h_file).convert_alpha()
+pb_l = pygame.image.load(pb_l_file).convert_alpha()
+#Convert the sw8 background and switche variables
+sw_background = pygame.image.load(sw_background_file).convert_alpha()
+sw1_l = pygame.image.load(sw1_l_file).convert_alpha()
+sw2_l = pygame.image.load(sw2_l_file).convert_alpha()
+sw3_l = pygame.image.load(sw3_l_file).convert_alpha()
+sw4_l = pygame.image.load(sw4_l_file).convert_alpha()
+sw5_l = pygame.image.load(sw5_l_file).convert_alpha()
+sw6_l = pygame.image.load(sw6_l_file).convert_alpha()
+sw7_l = pygame.image.load(sw7_l_file).convert_alpha()
+sw8_l = pygame.image.load(sw8_l_file).convert_alpha()
+sw1_h = pygame.image.load(sw1_h_file).convert_alpha()
+sw2_h = pygame.image.load(sw2_h_file).convert_alpha()
+sw3_h = pygame.image.load(sw3_h_file).convert_alpha()
+sw4_h = pygame.image.load(sw4_h_file).convert_alpha()
+sw5_h = pygame.image.load(sw5_h_file).convert_alpha()
+sw6_h = pygame.image.load(sw6_h_file).convert_alpha()
+sw7_h = pygame.image.load(sw7_h_file).convert_alpha()
+sw8_h = pygame.image.load(sw8_h_file).convert_alpha()
+#CONVERT SSEG IMAGES
+sseg_back = pygame.image.load(sseg_back_file).convert_alpha()
+sega = pygame.image.load(sega_file).convert_alpha()
+segb = pygame.image.load(segb_file).convert_alpha()
+segc = pygame.image.load(segc_file).convert_alpha()
+segd = pygame.image.load(segd_file).convert_alpha()
+sege = pygame.image.load(sege_file).convert_alpha()
+segf = pygame.image.load(segf_file).convert_alpha()
+segg = pygame.image.load(segg_file).convert_alpha()
+segp = pygame.image.load(segp_file).convert_alpha()
+
+#DO STUFF *******************************************************
+'''Used to manage how fast the screen updates'''
+clock = pygame.time.Clock()
+
+#MOUSE VISIBLE OR NOT?
+#pygame.mouse.set_visible(False)
+pygame.mouse.set_visible(True)
+
 
 #local variables
 switches = 0
@@ -163,7 +204,7 @@ screen.blit(sw6_l, (SW8_X,SW8_Y))
 screen.blit(sw7_l, (SW8_X,SW8_Y))
 screen.blit(sw8_l, (SW8_X,SW8_Y))
 
-mouse_click_processed = 0
+mouse_click_processed = 0  #default value
 
 while True:
 	
@@ -182,6 +223,10 @@ while True:
 	#screen.blit(push_button, (PB2_X,PB_Y))
 	#screen.blit(push_button, (PB3_X,PB_Y))
 	#screen.blit(push_button, (PB4_X,PB_Y))
+	screen.blit(sseg_back, (SSEG1_X,SSEG_Y))	#SSEG1 DRAW
+	screen.blit(sseg_back, (SSEG2_X,SSEG_Y))	#SSEG1 DRAW
+	screen.blit(sseg_back, (SSEG3_X,SSEG_Y))	#SSEG1 DRAW
+	screen.blit(sseg_back, (SSEG4_X,SSEG_Y))	#SSEG1 DRAW
 
 	#GET THE MOUSE LOCATION
 	'''Get the co ordinate for the edges of the screen'''
@@ -345,6 +390,80 @@ while True:
 	else :
 		screen.blit(led_low, (LED8_X ,LED_Y))
 
+	
+	#LOAD THE SSEG DATA
+	#SSEG1
+	if(sseg1_val>>0 & 0x01) :#low bit high
+		screen.blit(sega, (SSEG1_X ,SSEG_Y))
+	if(sseg1_val>>1 & 0x01) :
+		screen.blit(segb, (SSEG1_X ,SSEG_Y))
+	if(sseg1_val>>2 & 0x01) :
+		screen.blit(segc, (SSEG1_X ,SSEG_Y))
+	if(sseg1_val>>3 & 0x01) :
+		screen.blit(segd, (SSEG1_X ,SSEG_Y))
+	if(sseg1_val>>4 & 0x01) :
+		screen.blit(sege, (SSEG1_X ,SSEG_Y))
+	if(sseg1_val>>5 & 0x01) :
+		screen.blit(segf, (SSEG1_X ,SSEG_Y))
+	if(sseg1_val>>6 & 0x01) :
+		screen.blit(segg, (SSEG1_X ,SSEG_Y))
+	if(sseg1_val>>7 & 0x01) :
+		screen.blit(segp, (SSEG1_X ,SSEG_Y))
+	
+	#SSEG2
+	if(sseg2_val>>0 & 0x01) :#low bit high
+		screen.blit(sega, (SSEG2_X ,SSEG_Y))
+	if(sseg2_val>>1 & 0x01) :
+		screen.blit(segb, (SSEG2_X ,SSEG_Y))
+	if(sseg2_val>>2 & 0x01) :
+		screen.blit(segc, (SSEG2_X ,SSEG_Y))
+	if(sseg2_val>>3 & 0x01) :
+		screen.blit(segd, (SSEG2_X ,SSEG_Y))
+	if(sseg2_val>>4 & 0x01) :
+		screen.blit(sege, (SSEG2_X ,SSEG_Y))
+	if(sseg2_val>>5 & 0x01) :
+		screen.blit(segf, (SSEG2_X ,SSEG_Y))
+	if(sseg2_val>>6 & 0x01) :
+		screen.blit(segg, (SSEG2_X ,SSEG_Y))
+	if(sseg2_val>>7 & 0x01) :
+		screen.blit(segp, (SSEG2_X ,SSEG_Y))
+	
+	#SSEG3
+	if(sseg3_val>>0 & 0x01) :#low bit high
+		screen.blit(sega, (SSEG3_X ,SSEG_Y))
+	if(sseg3_val>>1 & 0x01) :
+		screen.blit(segb, (SSEG3_X ,SSEG_Y))
+	if(sseg3_val>>2 & 0x01) :
+		screen.blit(segc, (SSEG3_X ,SSEG_Y))
+	if(sseg3_val>>3 & 0x01) :
+		screen.blit(segd, (SSEG3_X ,SSEG_Y))
+	if(sseg3_val>>4 & 0x01) :
+		screen.blit(sege, (SSEG3_X ,SSEG_Y))
+	if(sseg3_val>>5 & 0x01) :
+		screen.blit(segf, (SSEG3_X ,SSEG_Y))
+	if(sseg3_val>>6 & 0x01) :
+		screen.blit(segg, (SSEG3_X ,SSEG_Y))
+	if(sseg3_val>>7 & 0x01) :
+		screen.blit(segp, (SSEG3_X ,SSEG_Y))
+	
+	#SSEG4
+	if(sseg4_val>>0 & 0x01) :#low bit high
+		screen.blit(sega, (SSEG4_X ,SSEG_Y))
+	if(sseg4_val>>1 & 0x01) :
+		screen.blit(segb, (SSEG4_X ,SSEG_Y))
+	if(sseg4_val>>2 & 0x01) :
+		screen.blit(segc, (SSEG4_X ,SSEG_Y))
+	if(sseg4_val>>3 & 0x01) :
+		screen.blit(segd, (SSEG4_X ,SSEG_Y))
+	if(sseg4_val>>4 & 0x01) :
+		screen.blit(sege, (SSEG4_X ,SSEG_Y))
+	if(sseg4_val>>5 & 0x01) :
+		screen.blit(segf, (SSEG4_X ,SSEG_Y))
+	if(sseg4_val>>6 & 0x01) :
+		screen.blit(segg, (SSEG4_X ,SSEG_Y))
+	if(sseg4_val>>7 & 0x01) :
+		screen.blit(segp, (SSEG4_X ,SSEG_Y))
+	
 	
 	#UPDATE THE DISPLAY
 	pygame.display.update()
