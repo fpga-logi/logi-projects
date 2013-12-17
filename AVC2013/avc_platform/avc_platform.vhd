@@ -509,7 +509,7 @@ begin
 		pixel_to_fifo : yuv_pixel2fifo
 		port map(
 			clk => clk_sys, resetn => sys_resetn,
-			sreset => '0',
+			--sreset => '0',
 			pixel_clock => pxclk_from_ds, 
 			hsync => href_from_ds, 
 			vsync => vsync_from_ds,
