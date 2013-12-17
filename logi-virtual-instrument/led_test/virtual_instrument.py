@@ -23,31 +23,30 @@ pygame.display.set_caption("Virtual Panel")
 screen = pygame.display.set_mode((800, 293), 0, 32)
 
 '''Create variables with image names we will use'''
-backgroundfile = "breadboard_800x293.png"
-crosshairsfile = "finger_point_100.png"
-led_file_0 = "led_clear_final.png"	#led image for logic 0
-led_file_1 = "led_blue.png"		#led image for logic 1
-dip_sw8_file = "dip_sw_8_300.png"
-push_button_file = "push_button_75.png"
+backgroundfile = "./img/brd/breadboard_800x293.png"
+crosshairsfile = "./img/finger/finger_point_100.png"
+led_file_0 = "./img/led/led_clear_final.png"	#led image for logic 0
+led_file_1 = "./img/led/led_blue_final.png"		#led image for logic 1
+push_button_file = "./img/pb/push_button_75.png"
 
 #load dip sw files
-sw_background_file = "./dip_sw8_all/sw8_background.png"
-sw1_h_file = "./dip_sw8_all/sw1_h.png"
-sw2_h_file = "./dip_sw8_all/sw2_h.png"
-sw3_h_file = "./dip_sw8_all/sw3_h.png"
-sw4_h_file = "./dip_sw8_all/sw4_h.png"
-sw5_h_file = "./dip_sw8_all/sw5_h.png"
-sw6_h_file = "./dip_sw8_all/sw6_h.png"
-sw7_h_file = "./dip_sw8_all/sw7_h.png"
-sw8_h_file = "./dip_sw8_all/sw8_h.png"
-sw1_l_file = "./dip_sw8_all/sw1_l.png"
-sw2_l_file = "./dip_sw8_all/sw2_l.png"
-sw3_l_file = "./dip_sw8_all/sw3_l.png"
-sw4_l_file = "./dip_sw8_all/sw4_l.png"
-sw5_l_file = "./dip_sw8_all/sw5_l.png"
-sw6_l_file = "./dip_sw8_all/sw6_l.png"
-sw7_l_file = "./dip_sw8_all/sw7_l.png"
-sw8_l_file = "./dip_sw8_all/sw8_l.png"
+sw_background_file = "./img/sw/sw8_background.png"
+sw1_h_file = "./img/sw/sw1_h.png"
+sw2_h_file = "./img/sw/sw2_h.png"
+sw3_h_file = "./img/sw/sw3_h.png"
+sw4_h_file = "./img/sw/sw4_h.png"
+sw5_h_file = "./img/sw/sw5_h.png"
+sw6_h_file = "./img/sw/sw6_h.png"
+sw7_h_file = "./img/sw/sw7_h.png"
+sw8_h_file = "./img/sw/sw8_h.png"
+sw1_l_file = "./img/sw/sw1_l.png"
+sw2_l_file = "./img/sw/sw2_l.png"
+sw3_l_file = "./img/sw/sw3_l.png"
+sw4_l_file = "./img/sw/sw4_l.png"
+sw5_l_file = "./img/sw/sw5_l.png"
+sw6_l_file = "./img/sw/sw6_l.png"
+sw7_l_file = "./img/sw/sw7_l.png"
+sw8_l_file = "./img/sw/sw8_l.png"
 
 
 '''Convert images to a format that pygame understands'''
@@ -56,7 +55,6 @@ background = pygame.image.load(backgroundfile).convert()
 mouse = pygame.image.load(crosshairsfile).convert_alpha()
 led_high= pygame.image.load(led_file_1).convert_alpha()
 led_low = pygame.image.load(led_file_0).convert_alpha()
-dip_sw8 = pygame.image.load(dip_sw8_file).convert_alpha()
 push_button = pygame.image.load(push_button_file).convert_alpha()
 #Convert the sw8 background and switche variables
 sw_background = pygame.image.load(sw_background_file).convert_alpha()
