@@ -90,7 +90,7 @@ PB1_X = 10
 PB2_X = PB1_X + PB_X_SPACING
 PB3_X = PB2_X + PB_X_SPACING
 PB4_X = PB3_X + PB_X_SPACING
-PB_Y = 150
+PB_Y = 175
 PB_Y_SPACING = 70
 
 pb1_state = 0
@@ -268,6 +268,8 @@ while True:
 			pygame.quit()
 			sys.exit()
 			
+
+			
 	'''DEFAULT BACKGROUND IMAGES'''
 	screen.blit(background, (0,0))
 	screen.blit(sw_background, (SW8_X,SW8_Y))
@@ -281,6 +283,15 @@ while True:
 	screen.blit(sseg_back, (SSEG2_X,SSEG_Y))	#SSEG1 DRAW
 	screen.blit(sseg_back, (SSEG3_X,SSEG_Y))	#SSEG1 DRAW
 	screen.blit(sseg_back, (SSEG4_X,SSEG_Y))	#SSEG1 DRAW
+	
+	
+		# pick a font you have and set its size
+	myfont = pygame.font.SysFont("Arial", 24)
+	myfont.set_bold(1)
+	# apply it to text on a label
+	label = myfont.render("SW VAL %u" % sw_val, 1, (0,0,0))
+	screen.blit(label, (100, -2))
+
 
 	#GET THE MOUSE LOCATION
 	'''Get the co ordinate for the edges of the screen'''
