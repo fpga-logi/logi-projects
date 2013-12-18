@@ -6,6 +6,7 @@ import pygame, sys, random, os, time
 from pygame.locals import * 
 
 #DEFINES
+USE_WINDOWS = 1
 USE_FINGER_POINTER = 0
 OUTPUT_MOUSE_LOCATION_DATA = 0
 DEBUG = 0
@@ -482,6 +483,9 @@ while True:
 	pygame.display.update()
 	
 	sseg1_val += 1
+	sseg1_va2 += 1
+	sseg1_va3 += 1
+	sseg1_va4 += 1
 	count += 1
 	time.sleep(.001)
 
