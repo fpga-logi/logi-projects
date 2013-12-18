@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-import pygame, sys, random, os, time
-#import logipi
+import pygame, sys, random, os , time
+import logipi
 '''import constants used by pygame such as event type = QUIT'''
 from pygame.locals import * 
 
@@ -9,23 +9,56 @@ from pygame.locals import *
 USE_FINGER_POINTER = 0
 OUTPUT_MOUSE_LOCATION_DATA = 0
 DEBUG = 0
+USE_FRAMEBUFFER = 0
 
-'''Initialize pygame components'''
-pygame.init()
 
-'''Centres the pygame window. '''
-os.environ['SDL_VIDEO_WINDOW_POS'] = 'center'
+if USE_FRAMEBUFFER :
+	"Ininitializes a new pygame screen using the framebuffer"
+	# Based on "Python GUI in Linux frame buffer"
+	# http://www.karoltomala.com/blog/?p=679
+	disp_no = os.getenv("DISPLAY")
+	if disp_no:
+		print "I'm running under X display = {0}".format(disp_no)
+	# Check which frame buffer drivers are available
+	# Start with fbcon since directfb hangs with composite output
+	drivers = ['fbcon', 'directfb', 'svgalib']
+	found = False
+	for driver in drivers:
+	# Make sure that SDL_VIDEODRIVER is set
+		if not os.getenv('SDL_VIDEODRIVER'):
+			os.putenv('SDL_VIDEODRIVER', driver)
+		try:
+			pygame.display.init()
+		except pygame.error:
+			print 'Driver: {0} failed.'.format(driver)
+			continue
+		found = True
+		break
+	if not found:
+		raise Exception('No suitable video driver found!')
+	size = (pygame.display.Info().current_w, pygame.display.Info().current_h)
+	print "Framebuffer size: %d x %d" % (size[0], size[1])
+	screen = pygame.display.set_mode(size, pygame.FULLSCREEN)
+	# Clear the screen to start
+	screen.fill((0, 0, 0))
+	# Initialise font support
+	#pygame.font.init()
+	# Render the screen
+else:
+	'''Initialize pygame components'''
+	pygame.init()
+	'''Centres the pygame window. '''
+	os.environ['SDL_VIDEO_WINDOW_POS'] = 'center'
+	'''Set the window title'''
+	pygame.display.set_caption("Virtual Panel")
+	'''Initialize a display with width 370 and height 542 with 32 bit colour'''
+	screen = pygame.display.set_mode((800, 293), 0, 32)
+	pygame.display.update()
 
-'''Set the window title'''
-pygame.display.set_caption("Virtual Panel")
-
-'''Initialize a display with width 370 and height 542 with 32 bit colour'''
-screen = pygame.display.set_mode((800, 293), 0, 32)
 
 '''Create variables'''
 backgroundfile = "./img/brd/breadboard_800x293.png"
 crosshairsfile = "./img/finger/finger_point_100.png"
-
 
 #LED VARIALBES
 led_file_0 = "./img/led/led_clear_final.png"	#led image for logic 0
@@ -215,18 +248,6 @@ while True:
 			pygame.quit()
 			sys.exit()
 			
-			
-	# '''set a font, default font size 36'''
-	# font = pygame.font.Font(None, 36)
-	# #text = font.render("0d%s" % sw_val, True, (0, 0, 0))
-	# text = font.render("HELLO WORLD",True, (0,0,0))
-	# textRect = text.get_rect()
-	# screenrect = screen.get_rect()
-	# textRect.centerx = screenrect.width - textRect.width
-	# screen.blit(text, textRect)
-	# #print text
-	
-			
 	'''DEFAULT BACKGROUND IMAGES'''
 	screen.blit(background, (0,0))
 	screen.blit(sw_background, (SW8_X,SW8_Y))
@@ -254,7 +275,7 @@ while True:
 	if USE_FINGER_POINTER :
 		screen.blit(mouse, (mousex,mousey))
 		mousex -= mouse.get_width()/2
-		mousey -= 10
+		# mousey -= 10
 		
 	##TODO: NEED TO ADD A TIME SCHEDULE THE SWITCH CHECK IN ORDER TO NOT RE-ENTRY AND NOT CLOCK THE PROGRAM
 	#CAN REMOVE THE DELAY AFTER SETTING UP THE SCHEDULED CHECK
@@ -475,16 +496,12 @@ while True:
 		screen.blit(segg, (SSEG4_X ,SSEG_Y))
 	if(sseg4_val>>7 & 0x01) :
 		screen.blit(segp, (SSEG4_X ,SSEG_Y))
-	
-	
-	
+
 	#UPDATE THE DISPLAY
 	pygame.display.update()
 	
 	sseg1_val += 1
-	count += 1
-	time.sleep(.001)
-
-	#count = logipi.directRead(0x00, 2)[0]
-
-
+	count += 1  #AUTO INCREMENT
+	#count = logipi.directRead(0x00, 2)[0]	#READ VALUES FROM LOGIPI
+	
+	time.sleep(.001)	#SLOW DOWN THE LOOP
