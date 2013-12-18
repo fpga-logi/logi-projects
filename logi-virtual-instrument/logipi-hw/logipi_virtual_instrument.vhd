@@ -104,7 +104,15 @@ architecture Behavioral of logipi_virtual_instrument is
 	signal intercon_seg0_wbm_ack :  std_logic;
 	signal intercon_seg0_wbm_cycle :  std_logic;
 	
-	signal led0_cs, sw0_cs, seg0_cs: std_logic ;
+	signal intercon_pb0_wbm_address :  std_logic_vector(15 downto 0);
+	signal intercon_pb0_wbm_readdata :  std_logic_vector(15 downto 0);
+	signal intercon_pb0_wbm_writedata :  std_logic_vector(15 downto 0);
+	signal intercon_pb0_wbm_strobe :  std_logic;
+	signal intercon_pb0_wbm_write :  std_logic;
+	signal intercon_pb0_wbm_ack :  std_logic;
+	signal intercon_pb0_wbm_cycle :  std_logic;
+	
+	signal led0_cs, sw0_cs, seg0_cs, pb0_cs: std_logic ;
 	
 
 -- counter signals
@@ -116,7 +124,7 @@ architecture Behavioral of logipi_virtual_instrument is
 	constant DIVIDER100HZ : std_logic_vector(31 downto 0) := std_logic_vector(to_unsigned(1_000_000, 32));
 	signal update_count_output: std_logic;
 -- registers signals
-	signal output_to_logic, input_from_logic : std_logic_vector(15 downto 0) ;
+	signal virtual_led, virtual_sw, virtual_pb : std_logic_vector(15 downto 0) ;
 
 -- counter signals
 	signal counter_output : std_logic_vector(7 downto 0);
@@ -241,6 +249,9 @@ sw0_cs <= '1' when intercon_wrapper_wbm_address(15 downto 0) = "0000000000000001
 				'0' ;
 seg0_cs <= '1' when intercon_wrapper_wbm_address(15 downto 3) = "0000000000001" else
 				'0' ;
+				
+pb0_cs <= '1' when intercon_wrapper_wbm_address(15 downto 3) = "0000000000010" else
+				'0' ;
 
 
 intercon_leds0_wbm_address <= intercon_wrapper_wbm_address ;
@@ -259,18 +270,26 @@ intercon_seg0_wbm_address <= intercon_wrapper_wbm_address ;
 intercon_seg0_wbm_writedata <= intercon_wrapper_wbm_writedata ;
 intercon_seg0_wbm_write <= intercon_wrapper_wbm_write and seg0_cs ;
 intercon_seg0_wbm_strobe <= intercon_wrapper_wbm_strobe and seg0_cs ;
-intercon_seg0_wbm_cycle <= intercon_wrapper_wbm_cycle and seg0_cs ;			
+intercon_seg0_wbm_cycle <= intercon_wrapper_wbm_cycle and seg0_cs ;	
+
+intercon_pb0_wbm_address <= intercon_wrapper_wbm_address ;
+intercon_pb0_wbm_writedata <= intercon_wrapper_wbm_writedata ;
+intercon_pb0_wbm_write <= intercon_wrapper_wbm_write and pb0_cs ;
+intercon_pb0_wbm_strobe <= intercon_wrapper_wbm_strobe and pb0_cs ;
+intercon_pb0_wbm_cycle <= intercon_wrapper_wbm_cycle and pb0_cs ;			
 							
 
 
 intercon_wrapper_wbm_readdata	<= intercon_leds0_wbm_readdata when led0_cs = '1' else
 											intercon_sw0_wbm_readdata when sw0_cs = '1' else
 											intercon_seg0_wbm_readdata when seg0_cs = '1' else
+											intercon_pb0_wbm_readdata when pb0_cs = '1' else
 											intercon_wrapper_wbm_address ;
 											
 intercon_wrapper_wbm_ack	<= intercon_leds0_wbm_ack when led0_cs = '1' else
 										intercon_sw0_wbm_ack when sw0_cs = '1' else
 										intercon_seg0_wbm_ack when sw0_cs = '1' else
+										intercon_pb0_wbm_ack when pb0_cs = '1' else
 										'0' ;
 									      
 -----------------------------------------------------------------------
@@ -310,7 +329,7 @@ leds0 : logi_virtual_led
 		  wbs_write     => intercon_leds0_wbm_write,
 		  wbs_ack       => intercon_leds0_wbm_ack,
 		 
-		  led => input_from_logic
+		  led => virtual_led
 	 );
 	 
 	 sw0 : logi_virtual_sw
@@ -328,18 +347,36 @@ leds0 : logi_virtual_led
 		  wbs_write     => intercon_sw0_wbm_write,
 		  wbs_ack       => intercon_sw0_wbm_ack,
 		 
-		  sw => output_to_logic
+		  sw => virtual_sw
+	 );
+	 
+	 pb0 : logi_virtual_pb
+	 port  map
+	 (
+				  -- Syscon signals
+		  gls_reset   => sys_reset ,
+		  gls_clk     => sys_clk ,
+		  -- Wishbone signals
+		  wbs_add      =>  intercon_pb0_wbm_address ,
+		  wbs_writedata => intercon_pb0_wbm_writedata,
+		  wbs_readdata  => intercon_pb0_wbm_readdata,
+		  wbs_strobe    => intercon_pb0_wbm_strobe,
+		  wbs_cycle     => intercon_pb0_wbm_cycle,
+		  wbs_write     => intercon_pb0_wbm_write,
+		  wbs_ack       => intercon_pb0_wbm_ack,
+		 
+		  pb=> virtual_pb
 	 );
 	 
 	 
 	 -- Device under test
-	 counter_enable  <= output_to_logic(0);
-	 counter_reset  <= output_to_logic(1);
-	 input_from_logic(7 downto 0) <= counter_output;
-	 input_from_logic(9 downto 8) <= SW;
-	 input_from_logic(10) <= PB(1);
+	 counter_enable  <= virtual_sw(0);
+	 counter_reset  <= virtual_pb(1);
+	 virtual_led(7 downto 0) <= counter_output;
+	 virtual_led(9 downto 8) <= SW;
+	 virtual_led(10) <= PB(1);
 	 
-	 vc_sw_val <= output_to_logic(7 downto 0);	--get the vc switch vals 7 and 6 bits
+	 vc_sw_val <= virtual_sw(7 downto 0);	--get the vc switch vals 7 and 6 bits
 
 	--mux the count out enable input different frequncy values
 	with vc_sw_val(7 downto 6) select
