@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-import pygame, sys, random, os, time
-#import logipi
+import pygame, sys, random, os , time
+
 '''import constants used by pygame such as event type = QUIT'''
 from pygame.locals import * 
 
@@ -10,23 +10,59 @@ USE_WINDOWS = 1
 USE_FINGER_POINTER = 0
 OUTPUT_MOUSE_LOCATION_DATA = 0
 DEBUG = 0
+USE_FRAMEBUFFER = 0
+SLEEP_TIME = .001
 
-'''Initialize pygame components'''
-pygame.init()
+if USE_WINDOWS==0 :
+	import logipi
 
-'''Centres the pygame window. '''
-os.environ['SDL_VIDEO_WINDOW_POS'] = 'center'
+if USE_FRAMEBUFFER :
+	"Ininitializes a new pygame screen using the framebuffer"
+	# Based on "Python GUI in Linux frame buffer"
+	# http://www.karoltomala.com/blog/?p=679
+	disp_no = os.getenv("DISPLAY")
+	if disp_no:
+		print "I'm running under X display = {0}".format(disp_no)
+	# Check which frame buffer drivers are available
+	# Start with fbcon since directfb hangs with composite output
+	drivers = ['fbcon', 'directfb', 'svgalib']
+	found = False
+	for driver in drivers:
+	# Make sure that SDL_VIDEODRIVER is set
+		if not os.getenv('SDL_VIDEODRIVER'):
+			os.putenv('SDL_VIDEODRIVER', driver)
+		try:
+			pygame.display.init()
+		except pygame.error:
+			print 'Driver: {0} failed.'.format(driver)
+			continue
+		found = True
+		break
+	if not found:
+		raise Exception('No suitable video driver found!')
+	size = (pygame.display.Info().current_w, pygame.display.Info().current_h)
+	print "Framebuffer size: %d x %d" % (size[0], size[1])
+	screen = pygame.display.set_mode(size, pygame.FULLSCREEN)
+	# Clear the screen to start
+	screen.fill((0, 0, 0))
+	# Initialise font support
+	#pygame.font.init()
+	# Render the screen
+else:
+	'''Initialize pygame components'''
+	pygame.init()
+	'''Centres the pygame window. '''
+	os.environ['SDL_VIDEO_WINDOW_POS'] = 'center'
+	'''Set the window title'''
+	pygame.display.set_caption("Virtual Panel")
+	'''Initialize a display with width 370 and height 542 with 32 bit colour'''
+	screen = pygame.display.set_mode((800, 293), 0, 32)
+	pygame.display.update()
 
-'''Set the window title'''
-pygame.display.set_caption("Virtual Panel")
-
-'''Initialize a display with width 370 and height 542 with 32 bit colour'''
-screen = pygame.display.set_mode((800, 293), 0, 32)
 
 '''Create variables'''
 backgroundfile = "./img/brd/breadboard_800x293.png"
 crosshairsfile = "./img/finger/finger_point_100.png"
-
 
 #LED VARIALBES
 led_file_0 = "./img/led/led_clear_final.png"	#led image for logic 0
@@ -34,34 +70,46 @@ led_file_1 = "./img/led/led_blue_final.png"		#led image for logic 1
 #LED LOCATIONS
 #location of the virtual peripherals
 LED_Y = 20
-LED1_X = 350
-LED2_X = 400
-LED3_X = 450
-LED4_X = 500
-LED5_X = 550
-LED6_X = 600
-LED7_X = 650
-LED8_X = 700
+LEDX_SPACING = 50
+LED1_X = 375
+LED2_X = LED1_X + LEDX_SPACING
+LED3_X = LED2_X + LEDX_SPACING
+LED4_X = LED3_X + LEDX_SPACING
+LED5_X = LED4_X + LEDX_SPACING
+LED6_X = LED5_X + LEDX_SPACING
+LED7_X = LED6_X + LEDX_SPACING
+LED8_X = LED7_X + LEDX_SPACING
 
 #PUSH BUTTON VARIALBLES
 pb_h_file = "./img/pb/pb_pushed_75.png"
 pb_l_file = "./img/pb/pb_npushed_75.png"
 
+
+PB_X_SPACING = 75
 PB1_X = 10
-PB2_X = 85
-PB3_X = 160
-PB4_X = 235
-PB_Y = 150
+PB2_X = PB1_X + PB_X_SPACING
+PB3_X = PB2_X + PB_X_SPACING
+PB4_X = PB3_X + PB_X_SPACING
+PB_Y = 175
+PB_Y_SPACING = 70
 
 pb1_state = 0
 pb2_state = 0
 pb3_state = 0
 pb4_state = 0
 
-PB_HOTSPOT_X1 = 10
+#!!!! THESE VALUES ARE GETTING MESSED UP SOMEWHERE.  HARD CODED FOR NOW
+PB_HOTSPOT_X1 = PB1_X
 PB_HOTSPOT_X2 = 85
-PB_HOTSPOT_Y1 = 150
-PB_HOTSPOT_Y2 = 220
+PB_HOTSPOT_X3 = 160
+PB_HOTSPOT_X4 = 235
+PB_HOTSPOT_X5 = 310	
+#PB_HOTSPOT_X2 = PB_HOTSPOT_X1 + PB_X_SPACING #290
+#PB_HOTSPOT_X3 = PB_HOTSPOT_X2 + PB_X_SPACING
+#PB_HOTSPOT_X4 = PB_HOTSPOT_X3 + PB_X_SPACING
+
+PB_HOTSPOT_Y1 = PB_Y
+PB_HOTSPOT_Y2 = PB_Y + PB_Y_SPACING
 
 #DIP SWITCH VARIABLES *****************************
 sw_background_file = "./img/sw/sw8_background.png"
@@ -130,7 +178,7 @@ segp_file = "./img/sseg/segp_100.png"
 SSEG_WIDTH = 70
 SSEG_SPACE = 2
 
-SSEG1_X = 350	#aligned with LED
+SSEG1_X = 500	#aligned with LED
 SSEG2_X = SSEG1_X + SSEG_WIDTH + SSEG_SPACE	
 SSEG3_X = SSEG2_X + SSEG_WIDTH + SSEG_SPACE	
 SSEG4_X = SSEG3_X + SSEG_WIDTH + SSEG_SPACE	
@@ -193,8 +241,12 @@ sseg1_val = 0x7c 	# 0b01111100 = b
 sseg2_val = 0x79 	# 0b01111001 = e		
 sseg3_val = 0x79 	# 0b01111001 = e
 sseg4_val = 0x71 	# 0b01110001 = f
+
 #SWITCH VALUES
 sw1_state = 0
+sw2_state = 0
+sw3_state = 0
+sw4_state = 0
 
 #DEFAULT SWITCH VALUES VIEW
 screen.blit(sw1_l, (SW8_X,SW8_Y))
@@ -216,30 +268,30 @@ while True:
 			pygame.quit()
 			sys.exit()
 			
-			
-	# '''set a font, default font size 36'''
-	# font = pygame.font.Font(None, 36)
-	# #text = font.render("0d%s" % sw_val, True, (0, 0, 0))
-	# text = font.render("HELLO WORLD",True, (0,0,0))
-	# textRect = text.get_rect()
-	# screenrect = screen.get_rect()
-	# textRect.centerx = screenrect.width - textRect.width
-	# screen.blit(text, textRect)
-	# #print text
-	
+
 			
 	'''DEFAULT BACKGROUND IMAGES'''
 	screen.blit(background, (0,0))
 	screen.blit(sw_background, (SW8_X,SW8_Y))
-	#draw push buttons
+	#draw push buttons BACKGROUND
 	screen.blit(pb_l, (PB1_X,PB_Y))	#being updated based on state below
-	#screen.blit(push_button, (PB2_X,PB_Y))
-	#screen.blit(push_button, (PB3_X,PB_Y))
-	#screen.blit(push_button, (PB4_X,PB_Y))
+	screen.blit(pb_l, (PB2_X,PB_Y))
+	screen.blit(pb_l, (PB3_X,PB_Y))
+	screen.blit(pb_l, (PB4_X,PB_Y))
+	#DRAW SSEGS BACKGROUND
 	screen.blit(sseg_back, (SSEG1_X,SSEG_Y))	#SSEG1 DRAW
 	screen.blit(sseg_back, (SSEG2_X,SSEG_Y))	#SSEG1 DRAW
 	screen.blit(sseg_back, (SSEG3_X,SSEG_Y))	#SSEG1 DRAW
 	screen.blit(sseg_back, (SSEG4_X,SSEG_Y))	#SSEG1 DRAW
+	
+	
+		# pick a font you have and set its size
+	myfont = pygame.font.SysFont("Arial", 24)
+	myfont.set_bold(1)
+	# apply it to text on a label
+	label = myfont.render("SW VAL %u" % sw_val, 1, (0,0,0))
+	screen.blit(label, (100, -2))
+
 
 	#GET THE MOUSE LOCATION
 	'''Get the co ordinate for the edges of the screen'''
@@ -255,7 +307,7 @@ while True:
 	if USE_FINGER_POINTER :
 		screen.blit(mouse, (mousex,mousey))
 		mousex -= mouse.get_width()/2
-		mousey -= 10
+		# mousey -= 10
 		
 	##TODO: NEED TO ADD A TIME SCHEDULE THE SWITCH CHECK IN ORDER TO NOT RE-ENTRY AND NOT CLOCK THE PROGRAM
 	#CAN REMOVE THE DELAY AFTER SETTING UP THE SCHEDULED CHECK
@@ -268,58 +320,82 @@ while True:
 					print "sw1 clicked"
 				sw1_state ^= 1
 				mouse_click_processed = 1  #set flag that the button down was processed
-			if (mousex >= SW_HOTSPOT_X2 and mousex <= SW_HOTSPOT_X3) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+			elif (mousex >= SW_HOTSPOT_X2 and mousex <= SW_HOTSPOT_X3) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
 				if DEBUG ==1 :
 					print "sw2 clicked"
 				sw2_state ^= 1
 				mouse_click_processed = 1  #set flag that the button down was processed
-			if (mousex >= SW_HOTSPOT_X3 and mousex <= SW_HOTSPOT_X4) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+			elif (mousex >= SW_HOTSPOT_X3 and mousex <= SW_HOTSPOT_X4) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
 				if DEBUG ==1 :
 					print "sw3 clicked"
 				sw3_state ^= 1
 				mouse_click_processed = 1  #set flag that the button down was processed
-			if (mousex >= SW_HOTSPOT_X4 and mousex <= SW_HOTSPOT_X5) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+			elif (mousex >= SW_HOTSPOT_X4 and mousex <= SW_HOTSPOT_X5) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
 				if DEBUG ==1 :
 					print "sw4 clicked"
 				sw4_state ^= 1
 				mouse_click_processed = 1  #set flag that the button down was processed
-			if (mousex >= SW_HOTSPOT_X5 and mousex <= SW_HOTSPOT_X6) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+			elif (mousex >= SW_HOTSPOT_X5 and mousex <= SW_HOTSPOT_X6) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
 				if DEBUG ==1 :
 					print "sw5 clicked"
 				sw5_state ^= 1
 				mouse_click_processed = 1  #set flag that the button down was processed
-			if (mousex >= SW_HOTSPOT_X6 and mousex <= SW_HOTSPOT_X7) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+			elif (mousex >= SW_HOTSPOT_X6 and mousex <= SW_HOTSPOT_X7) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
 				if DEBUG ==1 :
 					print "sw6 clicked"
 				sw6_state ^= 1
 				mouse_click_processed = 1  #set flag that the button down was processed
-			if (mousex >= SW_HOTSPOT_X7 and mousex <= SW_HOTSPOT_X8) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+			elif (mousex >= SW_HOTSPOT_X7 and mousex <= SW_HOTSPOT_X8) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
 				if DEBUG ==1 :
 					print "sw7 clicked"
 				sw7_state ^= 1
 				mouse_click_processed = 1  #set flag that the button down was processed
-			if (mousex >= SW_HOTSPOT_X8 and mousex <= SW_HOTSPOT_X9) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
+			elif (mousex >= SW_HOTSPOT_X8 and mousex <= SW_HOTSPOT_X9) and (mousey >= SW_HOTSPOT_Y0 and mousey <= SW_HOTSPOT_Y1):
 				if DEBUG ==1 :
 					print "sw8 clicked"
 				sw8_state ^= 1
 				mouse_click_processed = 1  #set flag that the button down was processed
 	
 			#CHECK FOR PUSHBOTTON PUSHED
-			if (mousex >= PB_HOTSPOT_X1 and mousex <= SW_HOTSPOT_X2) and (mousey >= PB_HOTSPOT_Y1 and mousey <= PB_HOTSPOT_Y2):
+			if (mousex >= 10 and mousex <= 85) and (mousey >= PB_HOTSPOT_Y1 and mousey <= PB_HOTSPOT_Y2):
 				if DEBUG ==1 :
 					print "pb1 pushed"
 				pb1_state = 1	#state need to release in button up event
 				if pb1_state :
 					screen.blit(pb_h, (PB1_X,PB_Y))	
+			#elif (mousex >= PB_HOTSPOT_X2 and mousex <= SW_HOTSPOT_X3) and (mousey >= PB_HOTSPOT_Y1 and mousey <= PB_HOTSPOT_Y2):
+			elif (mousex >= 85 and mousex <= 160) and (mousey >= PB_HOTSPOT_Y1 and mousey <= PB_HOTSPOT_Y2):
+				if DEBUG ==1 :
+					print "pb2 pushed"
+				pb2_state = 1	#state need to release in button up event
+				if pb2_state :
+					screen.blit(pb_h, (PB2_X,PB_Y))
+			elif (mousex >= 160 and mousex <= 235) and (mousey >= PB_HOTSPOT_Y1 and mousey <= PB_HOTSPOT_Y2):
+				if DEBUG ==1 :
+					print "pb3 pushed"
+				pb3_state = 1	#state need to release in button up event
+				if pb3_state :
+					screen.blit(pb_h, (PB3_X,PB_Y))	
+			elif (mousex >= 235 and mousex <= 310) and (mousey >= PB_HOTSPOT_Y1 and mousey <= PB_HOTSPOT_Y2):
+				if DEBUG ==1 :
+					print "pb4 pushed"
+				pb4_state = 1	#state need to release in button up event
+				if pb4_state :
+					screen.blit(pb_h, (PB4_X,PB_Y))	
+			
 
-				#mouse_click_processed = 1  #set flag that the button down was processed
-	
 	
 	if event.type == MOUSEBUTTONUP:
 		mouse_click_processed = 0	#wait for mouse button to go up before re-running the button down process
 		#release pushbuttons here if they were pushed
 		if pb1_state == 1 :	#if the pb state was previously pushed
 			pb1_state = 0
+		if pb2_state == 1 :	#if the pb state was previously pushed
+			pb2_state = 0
+		if pb3_state == 1 :	#if the pb state was previously pushed
+			pb3_state = 0
+		if pb4_state == 1 :	#if the pb state was previously pushed
+			pb4_state = 0
 		#screen.blit(pb_l, (PB1_X,PB_Y))	
 		
 	#UPDATE THE CURRENT STATE OF THE SW HERE, OR IT WILL NOT BE DRAWN		
@@ -476,19 +552,15 @@ while True:
 		screen.blit(segg, (SSEG4_X ,SSEG_Y))
 	if(sseg4_val>>7 & 0x01) :
 		screen.blit(segp, (SSEG4_X ,SSEG_Y))
-	
-	
-	
+
 	#UPDATE THE DISPLAY
 	pygame.display.update()
 	
 	sseg1_val += 1
-	sseg1_va2 += 1
-	sseg1_va3 += 1
-	sseg1_va4 += 1
-	count += 1
-	time.sleep(.001)
-
-	#count = logipi.directRead(0x00, 2)[0]
-
-
+	sseg2_val += 1
+	sseg3_val += 1
+	sseg4_val += 1
+	count += 1  #AUTO INCREMENT
+	#count = logipi.directRead(0x00, 2)[0]	#READ VALUES FROM LOGIPI
+	
+	time.sleep(SLEEP_TIME)	#SLOW DOWN THE LOOP
