@@ -560,7 +560,11 @@ while True:
 	sseg2_val += 1
 	sseg3_val += 1
 	sseg4_val += 1
-	count += 1  #AUTO INCREMENT
+	if USE_WINDOWS==0 :
+		count = logipi.directRead(0x00, 2)[0]
+		logipi.directWrite(0x01, (sw_val, 0x00))
+	else:
+		count += 1  #AUTO INCREMENT
 	#count = logipi.directRead(0x00, 2)[0]	#READ VALUES FROM LOGIPI
 	
 	time.sleep(SLEEP_TIME)	#SLOW DOWN THE LOOP
