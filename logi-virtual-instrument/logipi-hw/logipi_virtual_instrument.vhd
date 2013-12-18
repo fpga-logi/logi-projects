@@ -96,7 +96,15 @@ architecture Behavioral of logipi_virtual_instrument is
 	signal intercon_sw0_wbm_ack :  std_logic;
 	signal intercon_sw0_wbm_cycle :  std_logic;
 	
-	signal led0_cs, sw0_cs: std_logic ;
+	signal intercon_seg0_wbm_address :  std_logic_vector(15 downto 0);
+	signal intercon_seg0_wbm_readdata :  std_logic_vector(15 downto 0);
+	signal intercon_seg0_wbm_writedata :  std_logic_vector(15 downto 0);
+	signal intercon_seg0_wbm_strobe :  std_logic;
+	signal intercon_seg0_wbm_write :  std_logic;
+	signal intercon_seg0_wbm_ack :  std_logic;
+	signal intercon_seg0_wbm_cycle :  std_logic;
+	
+	signal led0_cs, sw0_cs, seg0_cs: std_logic ;
 	
 
 -- counter signals
@@ -109,6 +117,7 @@ architecture Behavioral of logipi_virtual_instrument is
 -- counter signals
 	signal counter_output : std_logic_vector(7 downto 0);
 	signal counter_enable, counter_reset : std_logic ;
+	signal deco_seg_out : std_logic_vector(7 downto 0);
 	
 begin
 
@@ -175,6 +184,8 @@ led0_cs <= '1' when intercon_wrapper_wbm_address(15 downto 0) = "000000000000000
 				'0' ;
 sw0_cs <= '1' when intercon_wrapper_wbm_address(15 downto 0) = "0000000000000001" else
 				'0' ;
+seg0_cs <= '1' when intercon_wrapper_wbm_address(15 downto 3) = "0000000000001" else
+				'0' ;
 
 
 intercon_leds0_wbm_address <= intercon_wrapper_wbm_address ;
@@ -187,19 +198,47 @@ intercon_sw0_wbm_address <= intercon_wrapper_wbm_address ;
 intercon_sw0_wbm_writedata <= intercon_wrapper_wbm_writedata ;
 intercon_sw0_wbm_write <= intercon_wrapper_wbm_write and sw0_cs ;
 intercon_sw0_wbm_strobe <= intercon_wrapper_wbm_strobe and sw0_cs ;
-intercon_sw0_wbm_cycle <= intercon_wrapper_wbm_cycle and sw0_cs ;			
+intercon_sw0_wbm_cycle <= intercon_wrapper_wbm_cycle and sw0_cs ;	
+
+intercon_seg0_wbm_address <= intercon_wrapper_wbm_address ;
+intercon_seg0_wbm_writedata <= intercon_wrapper_wbm_writedata ;
+intercon_seg0_wbm_write <= intercon_wrapper_wbm_write and seg0_cs ;
+intercon_seg0_wbm_strobe <= intercon_wrapper_wbm_strobe and seg0_cs ;
+intercon_seg0_wbm_cycle <= intercon_wrapper_wbm_cycle and seg0_cs ;			
 							
 
 
 intercon_wrapper_wbm_readdata	<= intercon_leds0_wbm_readdata when led0_cs = '1' else
 											intercon_sw0_wbm_readdata when sw0_cs = '1' else
+											intercon_seg0_wbm_readdata when seg0_cs = '1' else
 											intercon_wrapper_wbm_address ;
 											
 intercon_wrapper_wbm_ack	<= intercon_leds0_wbm_ack when led0_cs = '1' else
 										intercon_sw0_wbm_ack when sw0_cs = '1' else
+										intercon_seg0_wbm_ack when sw0_cs = '1' else
 										'0' ;
 									      
 -----------------------------------------------------------------------
+seg0 : logi_virtual_7seg
+
+	 port map
+	 (
+		  -- Syscon signals
+		  gls_reset   => sys_reset ,
+		  gls_clk     => sys_clk ,
+		  -- Wishbone signals
+		  wbs_add      =>  intercon_seg0_wbm_address ,
+		  wbs_writedata => intercon_seg0_wbm_writedata,
+		  wbs_readdata  => intercon_seg0_wbm_readdata,
+		  wbs_strobe    => intercon_seg0_wbm_strobe,
+		  wbs_cycle     => intercon_seg0_wbm_cycle,
+		  wbs_write     => intercon_seg0_wbm_write,
+		  wbs_ack       => intercon_seg0_wbm_ack,
+		  -- out signals
+		  cathodes => (others => '0'),
+		  anodes => deco_seg_out
+	 );
+
 
 leds0 : logi_virtual_led
 	 port map
@@ -259,6 +298,27 @@ leds0 : logi_virtual_led
 	 end process ;
 	
 	LED <=  counter_output(1 downto 0);
+
+	deco_seg_out(7) <= '0' ;
+	with counter_output(3 downto 0) select
+		deco_seg_out(6 downto 0)<= "0000001" when "0000" ,
+					"1001111" when "0001",
+					"0010010" when "0010" ,
+					"0000110" when "0011", 
+					"1001100" when "0100", 
+					"0100100" when "0101", 
+					"0100000" when "0110", 
+					"0001111" when "0111", 
+					"0000000" when "1000", 
+					"0000100" when "1001", 
+					"0001000" when "1010", 
+					"1100000" when "1011", 
+					"0110001" when "1100", 
+					"1000010" when "1101", 
+					"0110000" when "1110", 
+					"0111000" when "1111", 
+					"1111111" when others;
+	
 
 end Behavioral;
 
