@@ -6,7 +6,7 @@ import pygame, sys, random, os , time
 from pygame.locals import * 
 
 #DEFINES
-USE_WINDOWS = 1
+USE_WINDOWS = 0
 USE_FINGER_POINTER = 0
 OUTPUT_MOUSE_LOCATION_DATA = 0
 DEBUG = 0
@@ -14,7 +14,7 @@ USE_FRAMEBUFFER = 0
 SLEEP_TIME = .001
 
 if USE_WINDOWS==0 :
-	import logipi
+	import logipi 
 
 if USE_FRAMEBUFFER :
 	"Ininitializes a new pygame screen using the framebuffer"
@@ -556,15 +556,21 @@ while True:
 	#UPDATE THE DISPLAY
 	pygame.display.update()
 	
-	sseg1_val += 1
-	sseg2_val += 1
-	sseg3_val += 1
-	sseg4_val += 1
+	
 	if USE_WINDOWS==0 :
 		count = logipi.directRead(0x00, 2)[0]
 		logipi.directWrite(0x01, (sw_val, 0x00))
+		#update sseg
+		sseg1_val = logipi.directRead(0x08, 2)[0] # SSEG 0
+		sseg2_val = logipi.directRead(0x08, 2)[1] #SSEG 1
+		sseg3_val = logipi.directRead(0x09, 2)[0] # SSEG 2
+		sseg4_val = logipi.directRead(0x09, 2)[1] # SSEG 3
 	else:
 		count += 1  #AUTO INCREMENT
+		sseg1_val += 1
+		sseg2_val += 1
+		sseg3_val += 1
+		sseg4_val += 1
 	#count = logipi.directRead(0x00, 2)[0]	#READ VALUES FROM LOGIPI
 	
 	time.sleep(SLEEP_TIME)	#SLOW DOWN THE LOOP
