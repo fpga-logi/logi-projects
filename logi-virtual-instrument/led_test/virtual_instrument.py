@@ -483,11 +483,11 @@ while True:
 	pygame.display.update()
 	
 	sseg1_val += 1
-	sseg1_va2 += 1
-	sseg1_va3 += 1
-	sseg1_va4 += 1
+	sseg2_val += 1
+	sseg3_val += 1
+	sseg4_val += 1
 	count += 1
-	time.sleep(.001)
+	time.sleep(.10)
 
 	#count = logipi.directRead(0x00, 2)[0]
 
