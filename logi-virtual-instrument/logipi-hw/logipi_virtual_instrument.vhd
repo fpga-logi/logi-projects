@@ -108,9 +108,13 @@ architecture Behavioral of logipi_virtual_instrument is
 	
 
 -- counter signals
-	signal divider_output : std_logic_vector(31 downto 0);
-	signal onehz_signal : std_logic ;
-	constant DIVIDER : std_logic_vector(31 downto 0) := std_logic_vector(to_unsigned(100_000_000, 32));
+	signal divider_output1hz,divider_output5hz ,divider_output10hz ,divider_output100hz  : std_logic_vector(31 downto 0);
+	signal onehz_signal, fivehz_signal, tenhz_signal, onehundredhz_signal : std_logic ;
+	constant DIVIDER1HZ : std_logic_vector(31 downto 0) := std_logic_vector(to_unsigned(100_000_000, 32));
+	constant DIVIDER5HZ : std_logic_vector(31 downto 0) := std_logic_vector(to_unsigned(20_000_000, 32));
+	constant DIVIDER10HZ : std_logic_vector(31 downto 0) := std_logic_vector(to_unsigned(10_000_000, 32));
+	constant DIVIDER100HZ : std_logic_vector(31 downto 0) := std_logic_vector(to_unsigned(1_000_000, 32));
+	signal update_count_output: std_logic;
 -- registers signals
 	signal output_to_logic, input_from_logic : std_logic_vector(15 downto 0) ;
 
@@ -118,6 +122,10 @@ architecture Behavioral of logipi_virtual_instrument is
 	signal counter_output : std_logic_vector(7 downto 0);
 	signal counter_enable, counter_reset : std_logic ;
 	signal deco_seg_out : std_logic_vector(7 downto 0);
+	
+--switch signals
+	signal vc_sw_val : std_logic_vector(7 downto 0);
+	signal sel: std_logic_vector(1 downto 0);
 	
 begin
 
@@ -137,20 +145,67 @@ pll0 : clock_gen
 
 sys_clk <= clk_100Mhz;
 
+----one hz countdown
+--process(sys_clk, sys_reset)
+--begin
+--	if sys_reset='1' then
+--		divider_output1hz <= DIVIDER1HZ ;
+--	elsif sys_clk'event and sys_clk = '1' then
+--		if divider_output1hz = 0 then
+--			divider_output1hz <= DIVIDER1HZ ;
+--		else
+--			divider_output1hz <= divider_output1hz - 1 ;
+--		end if ;
+--	end if ;
+--end process ;
+--onehz_signal <= '1' when divider_output1hz = 0 else
+--					'0' ;
+
+--one hz countdown
 process(sys_clk, sys_reset)
 begin
 	if sys_reset='1' then
-		divider_output <= DIVIDER ;
+		divider_output1hz <= DIVIDER1HZ ;
+		divider_output5hz <= DIVIDER5HZ ;
+		divider_output10hz <= DIVIDER10HZ;
+		divider_output100hz <= DIVIDER100HZ;
 	elsif sys_clk'event and sys_clk = '1' then
-		if divider_output = 0 then
-			divider_output <= DIVIDER ;
+		if divider_output1hz = 0 then
+			divider_output1hz <= DIVIDER1HZ ;
 		else
-			divider_output <= divider_output - 1 ;
+			divider_output1hz <= divider_output1hz - 1 ;
 		end if ;
+		
+		if divider_output5hz = 0 then
+			divider_output5hz <= DIVIDER5HZ ;
+		else
+			divider_output5hz <= divider_output5hz - 1 ;
+		end if ;
+		
+		if divider_output10hz = 0 then
+			divider_output10hz <= DIVIDER10HZ ;
+		else
+			divider_output10hz <= divider_output10hz - 1 ;
+		end if ;
+		
+		if divider_output100hz = 0 then
+			divider_output100hz <= DIVIDER100HZ ;
+		else
+			divider_output100hz <= divider_output100hz - 1 ;
+		end if ;
+		
 	end if ;
 end process ;
-onehz_signal <= '1' when divider_output = 0 else
+onehz_signal <= '1' when divider_output1hz = 0 else
 					'0' ;
+fivehz_signal <= '1' when divider_output5hz = 0 else
+					'0' ;
+tenhz_signal <= '1' when divider_output10hz = 0 else
+					'0' ;
+onehundredhz_signal <= '1' when divider_output100hz = 0 else
+					'0' ;
+
+		
 
 
 mem_interface0 : spi_wishbone_wrapper
@@ -284,6 +339,16 @@ leds0 : logi_virtual_led
 	 input_from_logic(9 downto 8) <= SW;
 	 input_from_logic(10) <= PB(1);
 	 
+	 vc_sw_val <= output_to_logic(7 downto 0);	--get the vc switch vals 7 and 6 bits
+
+	--mux the count out enable input different frequncy values
+	with vc_sw_val(7 downto 6) select
+				update_count_output <= 	onehz_signal when 	"00",
+												fivehz_signal  when "01",
+												tenhz_signal  when "10",
+												onehundredhz_signal  when "11";
+				
+	
 	 process(sys_clk, sys_reset)
 	 begin
 		if sys_reset = '1' then
@@ -291,7 +356,7 @@ leds0 : logi_virtual_led
 		elsif sys_clk'event and sys_clk = '1' then
 			if counter_reset = '1' then
 				counter_output <= (others => '0');
-			elsif counter_enable = '1' and onehz_signal = '1' then
+			elsif counter_enable = '1' and update_count_output = '1' then --100 hz updateupdate_count_output
 				counter_output <= counter_output + 1;
 			end if ;
 		end if ;
@@ -299,26 +364,26 @@ leds0 : logi_virtual_led
 	
 	LED <=  counter_output(1 downto 0);
 
-	deco_seg_out(7) <= '0' ;
-	with counter_output(3 downto 0) select
-		deco_seg_out(6 downto 0)<= "0000001" when "0000" ,
-					"1001111" when "0001",
-					"0010010" when "0010" ,
-					"0000110" when "0011", 
-					"1001100" when "0100", 
-					"0100100" when "0101", 
-					"0100000" when "0110", 
-					"0001111" when "0111", 
-					"0000000" when "1000", 
-					"0000100" when "1001", 
-					"0001000" when "1010", 
-					"1100000" when "1011", 
-					"0110001" when "1100", 
-					"1000010" when "1101", 
-					"0110000" when "1110", 
-					"0111000" when "1111", 
-					"1111111" when others;
-	
+	deco_seg_out(7) <= '0' ;  -- dot point
+		with counter_output(3 downto 0) select
+					--"gfedcba" segments
+		deco_seg_out(6 downto 0)<=		 "0111111"		 when "0000",--0
+					 "0000110"    	 when "0001",--1
+					 "1011011"   	 when "0010",--2
+					 "1001111"   	 when "0011",--3
+					 "1100110"   	 when "0100",--4
+					 "1101101"   	 when "0101",--5
+					 "1111101"   	 when "0110",--6
+					 "0000111"   	 when "0111",--7
+					 "1111111"   	 when "1000",--8
+					 "1101111"   	 when "1001",--9
+					 "1110111"      when "1010", --a
+					 "1111100"   	 when "1011", --b
+					 "0111001"   	 when "1100", --c
+					 "1011110"   	 when "1101", --d
+					 "1111001"   	 when "1110", --e
+					 "1110001" 	 	when others; --f  
+							
 
 end Behavioral;
 
