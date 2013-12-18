@@ -371,7 +371,7 @@ leds0 : logi_virtual_led
 	 
 	 -- Device under test
 	 counter_enable  <= virtual_sw(0);
-	 counter_reset  <= virtual_pb(1);
+	 counter_reset  <= virtual_pb(0);
 	 virtual_led(7 downto 0) <= counter_output;
 	 virtual_led(9 downto 8) <= SW;
 	 virtual_led(10) <= PB(1);
