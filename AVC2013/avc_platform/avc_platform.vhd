@@ -46,7 +46,7 @@ port( OSC_FPGA : in std_logic;
 
 		--onboard
 		PB, DIP_SW : in std_logic_vector(3 downto 0);
-		LED : out std_logic_vector(1 downto 0);	
+		LED : out std_logic_vector(7 downto 0);	
 		
 			--PMOD
 		PMOD4_9, PMOD4_3  : inout std_logic ; -- used as SCL, SDA
@@ -509,7 +509,7 @@ begin
 		pixel_to_fifo : yuv_pixel2fifo
 		port map(
 			clk => clk_sys, resetn => sys_resetn,
-			--sreset => '0',
+			sreset => '0',
 			pixel_clock => pxclk_from_ds, 
 			hsync => href_from_ds, 
 			vsync => vsync_from_ds,
