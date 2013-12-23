@@ -18,7 +18,6 @@
 ----============================
 
 
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
@@ -31,10 +30,10 @@ use UNISIM.VComponents.all;
 
 entity cheapscope_count_demo is
     Port (  OSC_FPGA    : in    STD_LOGIC;
-	 			PB 			: in STD_LOGIC;
+	 			PB 			: in	 STD_LOGIC_VECTOR( 1 downto 0);
 				LED        	: out   STD_LOGIC_VECTOR( 1 downto 0);
-				SYS_TX      : out std_logic;
-				SYS_RX        : in std_logic
+				--SYS_TX      : out std_logic;
+				SYS_RX        : out std_logic
 			);
 end cheapscope_count_demo;
 
@@ -47,31 +46,34 @@ architecture Behavioral of cheapscope_count_demo is
              probes      : IN  std_logic_vector(15 downto 0);          
              serial_tx   : OUT std_logic);
    END COMPONENT;
-	
-	
-signal debug: std_logic_vector(15 downto 0);
-signal clk: std_logic;
+
 signal count: std_logic_vector(31 downto 0);
-signal reset: std_logic;
+signal reset,trigger: std_logic;
+
  
 begin
  
 --CHEAPSCOPE ISTANTIATION-----------------------------------
 Inst_cheapscope: cheapscope GENERIC MAP (
-   tx_freq => 100000000
+   --tx_freq => 100000000 --100Mhz clock
+	tx_freq => 50000000 --50Mhz clock
    ) PORT MAP(
       capture_clk => count(0),				--
-      probes      => count(15 downto 0),	--pass the count low 16 bits
-      tx_clk      => count(0),
-      serial_tx   => SYS_TX
+      --probes      => count(25 downto 10),	--pass the count low 16 bits
+		probes      => (trigger & count(14 downto 0)),	--pass the count low 16 bits
+      tx_clk      => OSC_FPGA ,
+      serial_tx   => SYS_RX
    );
+	
 
-	reset <= not PB;
+
+	reset <= not PB(0);
+	trigger <= not PB(1);
 
 	--count update
-	process (OSC_FPGA)
+	process (OSC_FPGA )
 	begin
-		if(OSC_FPGA'event and OSC_FPGA = '1') then
+		if(OSC_FPGA 'event and OSC_FPGA  = '1') then
 			if(reset = '1') then
 				count <= (others => '0');
 			else 

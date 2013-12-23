@@ -31,7 +31,8 @@ NET "LED<1>"        LOC = "P59";		#SHARED WITH ARD_D7
 NET "SYS_TX" LOC= "P51" ;			#Shared with Arduino TX
 NET "SYS_RX" LOC= "P50" ;
 
-NET "PB"        LOC = "P67";
+NET "PB<0>"        LOC = "P67";
+NET "PB<1>"        LOC = "P61";
 
 ##Peripherals#############################################################
 #NET "LED<0>"        LOC = "P58";		#SHARED WITH ARD_D6
