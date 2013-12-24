@@ -55,11 +55,7 @@
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="10"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="1"/>
     </file>
-<<<<<<< HEAD:hamster-logipi-sdram_v0.5/logipi-sdram_v0.5.xise
-    <file xil_pn:name="logipi_ra2.ucf" xil_pn:type="FILE_UCF">
-=======
-    <file xil_pn:name="LogiPi-RA2.ucf" xil_pn:type="FILE_UCF">
->>>>>>> 419bd5a0bb5897f75f278e01dfd687cf4db91b67:hamster-logipi-sdram_v0.5/hw/logipi-sdram_v0.5.xise
+    <file xil_pn:name="../logipi_ra2.ucf" xil_pn:type="FILE_UCF">
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
   </files>
@@ -71,8 +67,8 @@
     <property xil_pn:name="Allow Logic Optimization Across Hierarchy" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Allow SelectMAP Pins to Persist" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Allow Unexpanded Blocks" xil_pn:value="false" xil_pn:valueState="default"/>
-    <property xil_pn:name="Allow Unmatched LOC Constraints" xil_pn:value="false" xil_pn:valueState="default"/>
-    <property xil_pn:name="Allow Unmatched Timing Group Constraints" xil_pn:value="false" xil_pn:valueState="default"/>
+    <property xil_pn:name="Allow Unmatched LOC Constraints" xil_pn:value="true" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Allow Unmatched Timing Group Constraints" xil_pn:value="true" xil_pn:valueState="non-default"/>
     <property xil_pn:name="Analysis Effort Level" xil_pn:value="Standard" xil_pn:valueState="default"/>
     <property xil_pn:name="Asynchronous To Synchronous" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Auto Implementation Compile Order" xil_pn:value="true" xil_pn:valueState="default"/>

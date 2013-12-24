@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\cheapscope-hamster\ise\top_level.ncd
+OUTFILE=E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\cheapscope-hamster\ise\top_level.bit
+FAMILY=Spartan6
+PART=xc6slx9-2tqg144
+WORKINGDIR=E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\cheapscope-hamster\ise
+LICENSE=WebPack
+USER_INFO=202672454_0_0_674
