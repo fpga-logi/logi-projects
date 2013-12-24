@@ -382,8 +382,10 @@ while True:
 				pb4_state = 1	#state need to release in button up event
 				if pb4_state :
 					screen.blit(pb_h, (PB4_X,PB_Y))	
-			
-
+	#update pb_val with all buttons
+	pb_val	= pb1_state<<3 | pb2_state<<2 | pb3_state<<1 | pb4_state
+	if DEBUG:
+		print "pb_value: " , pb_val
 	
 	if event.type == MOUSEBUTTONUP:
 		mouse_click_processed = 0	#wait for mouse button to go up before re-running the button down process
@@ -556,10 +558,23 @@ while True:
 	#UPDATE THE DISPLAY
 	pygame.display.update()
 	
+		#WISHBONE MEMORY MAP
+		# 0x0000 LEDs
+		# 0x0001 SW
+		# 0x0008 SSEG0
+		# 0x0009 SSEG1
+		# 0x000A SSEG2
+		# 0x000B SSEG3
+		# 0x000C SSEG4
+		# 0x000D SSEG5
+		# 0x000E SSEG6
+		# 0x000F SSEG7
+		# 0x0010 PB -- PB(0) is wired to reset
 	
 	if USE_WINDOWS==0 :
 		count = logipi.directRead(0x00, 2)[0]
 		logipi.directWrite(0x01, (sw_val, 0x00))
+		logipi.directWrite(0x10, (pb_val, 0x00))
 		#update sseg
 		sseg1_val = logipi.directRead(0x08, 2)[0] # SSEG 0
 		sseg2_val = logipi.directRead(0x08, 2)[1] #SSEG 1

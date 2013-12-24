@@ -14,6 +14,7 @@
          <ClosedNode>/generic_delay - Behavioral |home|jpiat|development|FPGA|logi-family|hard-cv|hw|rtl|utils|generic_delay.vhd</ClosedNode>
          <ClosedNode>/gpmc_wishbone_wrapper - RTL |home|jpiat|development|FPGA|logi-family|logi-hard|wishbone|gpmc_wishbone_wrapper.vhd</ClosedNode>
          <ClosedNode>/logi_wishbone_pack |home|jpiat|development|FPGA|logi-family|logi-hard|wishbone|logi_wishbone_pack.vhd</ClosedNode>
+         <ClosedNode>/logibone_wishbone - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibone_wishbone.vhd</ClosedNode>
          <ClosedNode>/logibone_wishbone - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibone_wishbone.vhd/fifo0 - wishbone_fifo - RTL/fifo_A - dp_fifo - Behavioral</ClosedNode>
          <ClosedNode>/logibone_wishbone - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibone_wishbone.vhd/fifo0 - wishbone_fifo - RTL/fifo_B - dp_fifo - Behavioral</ClosedNode>
          <ClosedNode>/logibone_wishbone - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibone_wishbone.vhd/filter_pack</ClosedNode>
@@ -35,13 +36,13 @@
          <ClosedNode>/wishbone_fifo - RTL |home|jpiat|development|FPGA|logi-family|logi-hard|wishbone|peripherals|wishbone_fifo.vhd</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>logibone_wishbone - Behavioral (D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/logi-wishbone/logibone-hw/logibone_wishbone.vhd)</SelectedItem>
+         <SelectedItem>logibone_wishbone - Behavioral (/home/jpiat/development/FPGA/logi-family/logi-projects/logi-wishbone/logibone-hw/logibone_wishbone.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000209000000020000000000000000000000000200000064ffffffff000000810000000300000002000002090000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001cb000000020000000000000000000000000200000064ffffffff000000810000000300000002000001cb0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>logibone_wishbone - Behavioral (D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/logi-wishbone/logibone-hw/logibone_wishbone.vhd)</CurrentItem>
+      <CurrentItem>logibone_wishbone - Behavioral (/home/jpiat/development/FPGA/logi-family/logi-projects/logi-wishbone/logibone-hw/logibone_wishbone.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -78,7 +79,7 @@
       <SelectedItems/>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000109000000010001000100000000000000000000000064ffffffff000000810000000000000001000001090000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000128000000010001000100000000000000000000000064ffffffff000000810000000000000001000001280000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>work</CurrentItem>
    </ItemView>
@@ -96,7 +97,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001bd000000010000000100000000000000000000000064ffffffff000000810000000000000001000001bd0000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000118000000010000000100000000000000000000000064ffffffff000000810000000000000001000001180000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem></CurrentItem>
    </ItemView>
@@ -139,20 +140,19 @@
       <CurrentItem/>
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000014c0000011d01000000060100000002</SourceProcessView>
-   <CurrentView>Implementation</CurrentView>
+   <CurrentView>Behavioral Simulation</CurrentView>
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/logibone_wishbone - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibone_wishbone.vhd</ClosedNode>
          <ClosedNode>/logibonone_wishbone_tb - behavior |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibonone_wishbone_tb.vhd/uut - logibone_wishbone - Behavioral/mem_0 - wishbone_mem - Behavioral</ClosedNode>
          <ClosedNode>/logibonone_wishbone_tb - behavior |home|jpiat|development|FPGA|logi-family|logi-projects|logi-wishbone|logibone-hw|logibonone_wishbone_tb.vhd/uut - logibone_wishbone - Behavioral/pwm0 - wishbone_pwm - Behavioral</ClosedNode>
       </ClosedNodes>
-      <SelectedItems>
-         <SelectedItem>xc6slx9-2tqg144</SelectedItem>
-      </SelectedItems>
+      <SelectedItems/>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000027a000000020000000000000000000000000200000064ffffffff0000008100000003000000020000027a0000000100000003000000000000000100000003</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001bb000000020000000000000000000000000200000064ffffffff000000810000000300000002000001bb0000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
       <CurrentItem>xc6slx9-2tqg144</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
@@ -161,13 +161,13 @@
          <ClosedNode>Design Utilities</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000fb000000010000000100000000000000000000000064ffffffff000000810000000000000001000000fb0000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000118000000010000000100000000000000000000000064ffffffff000000810000000000000001000001180000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
       <ClosedNodes>
