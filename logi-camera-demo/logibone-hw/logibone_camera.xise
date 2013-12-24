@@ -20,75 +20,75 @@
     </file>
     <file xil_pn:name="logibone_camera.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="22"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/utils/utils_pack.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="1"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="1"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="2"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/utils/simple_counter.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="3"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="6"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/utils/reset_generator.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="13"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/utils/generic_latch.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="2"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/utils/dp_fifo.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="8"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/interface/muxed_addr_interface.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="15"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/interface/interface_pack.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="9"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/bus/peripheral/fifo_peripheral.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="21"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/bus/peripheral/peripheral_pack.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="20"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/primitive/dpram_NxN.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="5"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="4"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="4"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="1"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/primitive/primitive_pack.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="4"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="3"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/interface/yuv_camera_interface.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="14"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/image/image_pack.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="6"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="5"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/conf/conf_pack.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="11"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/conf/yuv_register_rom.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="18"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/conf/i2c_conf.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="19"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/interface/i2c_master.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="10"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/bus/bus_pack.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
@@ -96,29 +96,67 @@
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/image/filter/filter_pack.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="17"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/testbench/blob_detection_tb.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="13"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
       <association xil_pn:name="PostMapSimulation" xil_pn:seqID="94"/>
       <association xil_pn:name="PostRouteSimulation" xil_pn:seqID="94"/>
       <association xil_pn:name="PostTranslateSimulation" xil_pn:seqID="94"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/image/blob/blob_pack.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="10"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/image/yuv_pixel2fifo.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="115"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="16"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="ipcore_dir/clock_gen.xco" xil_pn:type="FILE_COREGEN">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="139"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="12"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../../hard-cv/hw/rtl/utils/generic_delay.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="84"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="7"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+    </file>
+    <file xil_pn:name="../../../hard-cv/hw/rtl/image/cumulative_histogram.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="8"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+    </file>
+    <file xil_pn:name="../../../hard-cv/hw/rtl/image/line_counter.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="5"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+    </file>
+    <file xil_pn:name="../../../hard-cv/hw/rtl/image/classifier/adaptive_pixel_class.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="9"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="2"/>
+    </file>
+    <file xil_pn:name="../../../hard-cv/hw/testbench/histogram_tb.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="10"/>
+      <association xil_pn:name="PostMapSimulation" xil_pn:seqID="97"/>
+      <association xil_pn:name="PostRouteSimulation" xil_pn:seqID="97"/>
+      <association xil_pn:name="PostTranslateSimulation" xil_pn:seqID="97"/>
+    </file>
+    <file xil_pn:name="../../../hard-cv/hw/simulation/camera/camera_pack.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="111"/>
+    </file>
+    <file xil_pn:name="../../../hard-cv/hw/simulation/camera/virtual_camera.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="6"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="112"/>
+    </file>
+    <file xil_pn:name="../../../hard-cv/hw/simulation/camera/libv.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="1"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="113"/>
+    </file>
+    <file xil_pn:name="../../../hard-cv/hw/simulation/camera/pgm.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="3"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="114"/>
+    </file>
+    <file xil_pn:name="../../../hard-cv/hw/simulation/camera/pgm_writer.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="7"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="115"/>
     </file>
     <file xil_pn:name="ipcore_dir/clock_gen.xise" xil_pn:type="FILE_COREGENISE">
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
@@ -366,8 +404,8 @@
     <property xil_pn:name="Run for Specified Time Translate" xil_pn:value="true" xil_pn:valueState="default"/>
     <property xil_pn:name="Safe Implementation" xil_pn:value="No" xil_pn:valueState="default"/>
     <property xil_pn:name="Security" xil_pn:value="Enable Readback and Reconfiguration" xil_pn:valueState="default"/>
-    <property xil_pn:name="Selected Module Instance Name" xil_pn:value="/logibone_camera" xil_pn:valueState="non-default"/>
-    <property xil_pn:name="Selected Simulation Root Source Node Behavioral" xil_pn:value="work.logibone_camera" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Selected Module Instance Name" xil_pn:value="/histogram_tb" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Selected Simulation Root Source Node Behavioral" xil_pn:value="work.histogram_tb" xil_pn:valueState="non-default"/>
     <property xil_pn:name="Selected Simulation Root Source Node Post-Map" xil_pn:value="" xil_pn:valueState="default"/>
     <property xil_pn:name="Selected Simulation Root Source Node Post-Route" xil_pn:value="" xil_pn:valueState="default"/>
     <property xil_pn:name="Selected Simulation Root Source Node Post-Translate" xil_pn:value="" xil_pn:valueState="default"/>
@@ -385,7 +423,7 @@
     <property xil_pn:name="Simulator" xil_pn:value="ISim (VHDL/Verilog)" xil_pn:valueState="default"/>
     <property xil_pn:name="Slice Utilization Ratio" xil_pn:value="100" xil_pn:valueState="default"/>
     <property xil_pn:name="Specify 'define Macro Name and Value" xil_pn:value="" xil_pn:valueState="default"/>
-    <property xil_pn:name="Specify Top Level Instance Names Behavioral" xil_pn:value="work.logibone_camera" xil_pn:valueState="default"/>
+    <property xil_pn:name="Specify Top Level Instance Names Behavioral" xil_pn:value="work.histogram_tb" xil_pn:valueState="default"/>
     <property xil_pn:name="Specify Top Level Instance Names Post-Map" xil_pn:value="Default" xil_pn:valueState="default"/>
     <property xil_pn:name="Specify Top Level Instance Names Post-Route" xil_pn:value="Default" xil_pn:valueState="default"/>
     <property xil_pn:name="Specify Top Level Instance Names Post-Translate" xil_pn:value="Default" xil_pn:valueState="default"/>
@@ -435,7 +473,7 @@
     <!--                                                                                  -->
     <!-- The following properties are for internal use only. These should not be modified.-->
     <!--                                                                                  -->
-    <property xil_pn:name="PROP_BehavioralSimTop" xil_pn:value="Architecture|blob_detection_tb|behavior" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="PROP_BehavioralSimTop" xil_pn:value="Architecture|histogram_tb|behavior" xil_pn:valueState="non-default"/>
     <property xil_pn:name="PROP_DesignName" xil_pn:value="logibone_camera" xil_pn:valueState="non-default"/>
     <property xil_pn:name="PROP_DevFamilyPMName" xil_pn:value="spartan6" xil_pn:valueState="default"/>
     <property xil_pn:name="PROP_FPGAConfiguration" xil_pn:value="FPGAConfiguration" xil_pn:valueState="default"/>
