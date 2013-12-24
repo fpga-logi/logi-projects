@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2013-06-24T21:00:47</DateModified>
+  <DateModified>2013-12-19T17:14:01</DateModified>
   <ModuleName>logibone_camera</ModuleName>
   <SummaryTimeStamp>2013-06-24T16:04:03</SummaryTimeStamp>
-  <SavedFilePath>/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logibone-hw/iseconfig/logibone_camera.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logibone-hw/</ImplementationReportsDirectory>
+  <SavedFilePath>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-camera-demo/logibone-hw/iseconfig/logibone_camera.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-camera-demo/logibone-hw/</ImplementationReportsDirectory>
   <DateInitialized>2013-04-20T19:58:33</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

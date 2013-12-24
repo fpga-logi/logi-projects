@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2013-12-14T17:48:23</DateModified>
+  <DateModified>2013-12-19T17:13:30</DateModified>
   <ModuleName>logibone_wishbone</ModuleName>
   <SummaryTimeStamp>2013-11-04T17:32:16</SummaryTimeStamp>
-  <ImplementationReportsDirectory>D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/logi-wishbone/logibone-hw\</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-wishbone/logibone-hw/</ImplementationReportsDirectory>
   <DateInitialized>2013-10-17T12:08:47</DateInitialized>
-  <SavedFilePath>D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/logi-wishbone/logibone-hw/iseconfig/logibone_wishbone.xreport</SavedFilePath>
+  <SavedFilePath>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-wishbone/logibone-hw/iseconfig/logibone_wishbone.xreport</SavedFilePath>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>
