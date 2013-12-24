@@ -6,7 +6,8 @@ import pygame, sys, random, os , time
 from pygame.locals import * 
 
 #DEFINES
-USE_WINDOWS = 0
+USE_WINDOWS = 1
+WINDOWS_UPDATE_COUNT = 0
 USE_FINGER_POINTER = 0
 OUTPUT_MOUSE_LOCATION_DATA = 0
 DEBUG = 0
@@ -581,11 +582,16 @@ while True:
 		sseg3_val = logipi.directRead(0x09, 2)[0] # SSEG 2
 		sseg4_val = logipi.directRead(0x09, 2)[1] # SSEG 3
 	else:
-		count += 1  #AUTO INCREMENT
-		sseg1_val += 1
-		sseg2_val += 1
-		sseg3_val += 1
-		sseg4_val += 1
+		if WINDOWS_UPDATE_COUNT:
+			count += 1  #AUTO INCREMENT
+			sseg1_val += 1
+			sseg2_val += 1
+			sseg3_val += 1
+			sseg4_val += 1
+		else:
+			count = 0xAA
+			
+		
 	#count = logipi.directRead(0x00, 2)[0]	#READ VALUES FROM LOGIPI
 	
 	time.sleep(SLEEP_TIME)	#SLOW DOWN THE LOOP
