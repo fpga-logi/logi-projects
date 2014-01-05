@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2014-01-02T18:19:03</DateModified>
+  <DateModified>2014-01-05T16:33:54</DateModified>
   <ModuleName>logipi_test</ModuleName>
   <SummaryTimeStamp>2014-01-02T18:07:59</SummaryTimeStamp>
   <SavedFilePath>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logipi-hw/iseconfig/logipi_test.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logipi-hw</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logipi-hw/</ImplementationReportsDirectory>
   <DateInitialized>2014-01-02T18:03:28</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
