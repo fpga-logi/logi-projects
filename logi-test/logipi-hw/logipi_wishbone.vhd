@@ -67,7 +67,11 @@ port( OSC_FPGA : in std_logic;
 	  SDRAM_DQM   : out   STD_LOGIC_VECTOR( 1 downto 0);
 	  SDRAM_ADDR  : out   STD_LOGIC_VECTOR (12 downto 0);
 	  SDRAM_BA    : out   STD_LOGIC_VECTOR( 1 downto 0);
-	  SDRAM_DQ    : inout STD_LOGIC_VECTOR (15 downto 0)
+	  SDRAM_DQ    : inout STD_LOGIC_VECTOR (15 downto 0);
+	  
+	  -- SATA port
+	  SATA_D1_N, SATA_D1_P : out std_logic;
+	  SATA_D2_N, SATA_D2_P  : in std_logic
 );
 end logipi_test;
 
@@ -219,6 +223,9 @@ COMPONENT SDRAM_Controller
    signal is_idle         : std_logic;
    signal iob_data        : std_logic_vector(15 downto 0);
    signal error_blink     : std_logic;
+	
+	-- SATA signals
+	signal SATA_IN, SATA_OUT : std_logic ;
 begin
 
 
@@ -273,7 +280,7 @@ generic map(memory_map =>
 "000000000000010X", -- gpio1
 "000000000000011X", -- gpio2
 "00000000000010XX", -- reg0
-"000000000000101X") -- mem0
+"0001XXXXXXXXXXXX") -- mem0
 )
 port map(
 		gls_reset => gls_reset,
@@ -409,11 +416,13 @@ reg0 : wishbone_register
 			
 			reg_in(0) => X"DEAD",
 			reg_in(1) => X"BEEF",
-			reg_in(2)(15 downto 5) => "00000000000",
+			reg_in(2)(15 downto 6) => "0000000000",
+			reg_in(2)(5) => SATA_OUT,
 			reg_in(2)(4) => error_testing,
 			reg_in(2)(3 downto 2) => SW,
 			reg_in(2)(1 downto 0) => PB,
-			reg_out(0)(15 downto 2) => open,
+			reg_out(0)(15 downto 3) => open,
+			reg_out(0)(2) => SATA_IN,
 			reg_out(0)(1 downto 0) => LED,
 			reg_out(1) => open,
 			reg_out(2) => open
@@ -491,6 +500,25 @@ Inst_SDRAM_Controller: SDRAM_Controller GENERIC MAP (
       SDRAM_DATA      => SDRAM_DQ
    );
 
+input_buffer : IBUFDS generic map (
+      DIFF_TERM => TRUE,
+      IBUF_DELAY_VALUE => "0", 
+      IFD_DELAY_VALUE => "AUTO",
+      IOSTANDARD => "LVDS_33")
+   port map (
+      O  => SATA_IN,  
+      I  => SATA_D2_P, 
+      IB => SATA_D2_N  
+   );
+
+output_buffer : OBUFDS
+   generic map (
+      IOSTANDARD => "LVDS_33")
+   port map (
+      O =>SATA_D1_P,     
+      OB => SATA_D1_N,
+      I => SATA_OUT 
+   );
 
 end Behavioral;
 
