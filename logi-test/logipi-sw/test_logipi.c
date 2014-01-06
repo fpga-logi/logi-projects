@@ -94,6 +94,15 @@ int testSW(){
 }
 
 int testLED(){
+	unsigned int i = 0 ;
+	unsigned short int ledVal = 0xFFFF ;
+	wishbone_write(&ledVal, 2, REG1);
+	for(i = 0 ; i < 8 ; i ++){
+		ledVal = ~ledVal ;
+		wishbone_write(&ledVal, 2, REG1);
+		sleep(1);
+	}
+	
 }
 
 int testCom(){
@@ -125,8 +134,67 @@ int testCom(){
 
 
 int main(int argc, char ** argv){
-	testPMOD12();
-	testPMOD34();
-	testCom();
+	char c ;		
+	printf("----------------Loading FPGA--------------\n");	
+	// load fpga
+	//
+	print("-----------------Starting Test-------------\n");
+	print("-------------------GPIO Test---------------\n");
+	if(testPMOD12() < 0){
+		printf("PMOD1-2 test failed \n");	
+		return -1 ;	
+	}
+	if(testPMOD34() < 0){
+		printf("PMOD3-4 test failed \n");	
+		return -1 ;
+	}
+	print("-----------------Memory Test---------------\n");
+	if(testCom() < 0) {
+		printf("Communication test failed \n");	
+		return -1 ;
+	}
+	printf("----------------Testing LEDs--------------\n");
+	testLED();
+	printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
+	while(fgets(&c, 1, stdin)== NULL) printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
+	if(c == 'n'){
+		printf("Led test failed \n");	
+		return -1 ;	
+	}
+	while(c != 'y'){
+		testLED();
+		printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
+		while(fgets(&c, 1, stdin)== NULL) printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
+		if(c == 'n'){
+			printf("Led test failed \n");	
+			return -1 ;	
+		}
+		printf("\n");
+	}
+	printf("\n");
+	printf("----------------Testing PB--------------\n");
+	printf("Click the Push buttons \n");
+	if(testPB() < 0){
+		printf("PB test failed \n");	
+		return -1 ;
+	}
+	printf("----------------Testing SW--------------\n");
+	printf("Switch the switches \n");
+	if(testSW() < 0){
+		printf("SW test failed \n");	
+		return -1 ;
+	}
+	printf("----------------Testing SDRAM--------------\n");	
+	if(testSdram() < 0){
+		printf("SDRAM test failed \n");	
+		return -1 ;
+	}
+
+	printf("----------------Testing LVDS--------------\n");	
+	if(testLVDS() < 0){
+		printf("SDRAM test failed \n");	
+		return -1 ;
+	}
+
 	return 0 ;
 }
