@@ -21,34 +21,47 @@
 #define REG2  0x000A
 #define MEM0  0x1000
 
+#define LED_MASK 0x0003
+#define PB_MASK 0x0003
+#define SW_MASK 0x000C
+#define SDRAM_ERROR_MASK 0x0010
+
+#define GPIO_TEST1_DIR 0x5555	
+#define GPIO_TEST1_1 0x1111
+#define GPIO_TEST1_2 0x4444
+
+#define GPIO_TEST2_DIR 0xAAAA	
+#define GPIO_TEST2_1 0x2222
+#define GPIO_TEST2_2 0x8888
+
 int testPMOD12(){
 	unsigned short int dirBuf ;
 	unsigned short int valBuf ;
-	dirBuf = 0x0F0F ;
-	valBuf = 0x0505 ; 
+	dirBuf = GPIO_TEST1_DIR ;
+	valBuf = GPIO_TEST1_1 ; 
 	wishbone_write((unsigned char *) &dirBuf, 2, GPIO0DIR);
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
-	valBuf = valBuf & dirBuf ;
-	if(valBuf != 0x5050) return -1 ;
-	valBuf = 0x0A0A ;
+	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
+	if(valBuf != (GPIO_TEST1_1 << 1)) return -1 ;
+	valBuf = GPIO_TEST1_2 ;
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
-	valBuf = valBuf & dirBuf ;
-	if(valBuf != 0xA0A0) return -1 ;
+	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
+	if(valBuf != (GPIO_TEST1_2 << 1) ) return -1 ;
 
-	dirBuf = 0xF0F0 ;
-	valBuf = 0x5050 ;
-	wishbone_write((unsigned char *)&dirBuf, 2, GPIO0DIR);
+	dirBuf = GPIO_TEST2_DIR ;
+	valBuf = GPIO_TEST2_1 ; 
+	wishbone_write((unsigned char *) &dirBuf, 2, GPIO0DIR);
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
-	valBuf = valBuf & (~dirBuf) ;
-	if(valBuf != 0x0505) return -1 ;
-	valBuf = 0xA0A0 ;
+	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
+	if(valBuf != (GPIO_TEST2_1 << 1)) return -1 ;
+	valBuf = GPIO_TEST2_2 ;
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
-	valBuf = valBuf & (~dirBuf) ;
-	if(valBuf != 0x0A0A) return -1 ;
+	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
+	if(valBuf != (GPIO_TEST2_2 << 1) ) return -1 ;
 
 	return 0 ;
 }
@@ -56,31 +69,31 @@ int testPMOD12(){
 int testPMOD34(){
 	unsigned short int dirBuf ;
 	unsigned short int valBuf ;
-	dirBuf = 0x0F0F ;
-	valBuf = 0x0505 ; 
-	wishbone_write((unsigned char *)&dirBuf, 2, GPIO1DIR);
+	dirBuf = GPIO_TEST1_DIR ;
+	valBuf = GPIO_TEST1_1 ; 
+	wishbone_write((unsigned char *) &dirBuf, 2, GPIO1DIR);
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO1);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
-	valBuf = valBuf & dirBuf ;
-	if(valBuf != 0x5050) return -1 ;
-	valBuf = 0x0A0A ;
+	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
+	if(valBuf != (GPIO_TEST1_1 << 1)) return -1 ;
+	valBuf = GPIO_TEST1_2 ;
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO1);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
-	valBuf = valBuf & dirBuf ;
-	if(valBuf != 0xA0A0) return -1 ;
+	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
+	if(valBuf != (GPIO_TEST1_2 << 1) ) return -1 ;
 
-	dirBuf = 0xF0F0 ;
-	valBuf = 0x5050 ;
-	wishbone_write((unsigned char *)&dirBuf, 2, GPIO1DIR);
+	dirBuf = GPIO_TEST2_DIR ;
+	valBuf = GPIO_TEST2_1 ; 
+	wishbone_write((unsigned char *) &dirBuf, 2, GPIO1DIR);
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO1);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
-	valBuf = valBuf & (~dirBuf) ;
-	if(valBuf != 0x0505) return -1 ;
-	valBuf = 0xA0A0 ;
+	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
+	if(valBuf != (GPIO_TEST2_1 << 1)) return -1 ;
+	valBuf = GPIO_TEST2_2 ;
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO1);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
-	valBuf = valBuf & (~dirBuf) ;
-	if(valBuf != 0x0A0A) return -1 ;
+	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
+	if(valBuf != (GPIO_TEST2_2 << 1) ) return -1 ;
 
 	return 0 ;
 }
@@ -88,24 +101,39 @@ int testPMOD34(){
 
 int testPB(){
 	unsigned int i = 0 ;
-	unsigned short int pbVal, pbValOld = PB_MASK;
+	unsigned short int pbVal = PB_MASK, pbValOld = PB_MASK, valMask = 0x00;
 	do{
-		wishbone_read((unsigned char *) &pbVal, 2, REG1);
-		pbval &= PB_MASK ;
-	}while(pbValOld == pbval);
+		pbValOld = pbVal ;		
+		wishbone_read((unsigned char *) &pbVal, 2, REG2);
+		pbVal &= PB_MASK ;
+		if((pbVal & 0x01) != (pbValOld & 0x01)) valMask |= 0x01 ;
+		if((pbVal & 0x02) != (pbValOld & 0x02)) valMask |= 0x02 ;
+	}while(valMask != 0x03);
 	return 0 ;
 }
 
 int testSW(){
+	unsigned int i = 0 ;
+	unsigned short int swVal = SW_MASK, swValOld = SW_MASK, valMask = 0x00;
+	wishbone_read((unsigned char *) &swVal, 2, REG2);
+	swVal = ((swVal & SW_MASK) >> 2) ;
+	do{
+		swValOld = swVal ;		
+		wishbone_read((unsigned char *) &swVal, 2, REG2);
+		swVal = ((swVal & SW_MASK) >> 2) ;
+		if((swVal & 0x01) != (swValOld & 0x01)) valMask |= 0x01 ;
+		if((swVal & 0x02) != (swValOld & 0x02)) valMask |= 0x02 ;
+	}while(valMask != 0x03);
+	return 0 ;
 }
 
 int testLED(){
 	unsigned int i = 0 ;
-	unsigned short int ledVal = 0xFFFF ;
-	wishbone_write((unsigned char *) &ledVal, 2, REG1);
-	for(i = 0 ; i < 8 ; i ++){
-		ledVal = ~ledVal ;
-		wishbone_write((unsigned char *) &ledVal, 2, REG1);
+	unsigned short int ledVal = 0x01 ;
+	wishbone_write((unsigned char *) &ledVal, 2, REG0);
+	for(i = 0 ; i < 2 ; i ++){
+		ledVal = (~ledVal) & LED_MASK ;
+		wishbone_write((unsigned char *) &ledVal, 2, REG0);
 		sleep(1);
 	}
 	
@@ -124,18 +152,26 @@ int testCom(){
 		printf("Write error !, returned %d \n", i);
 		return -1 ;
 	}
-	if((i = wishbone_write((unsigned char *) readVals, 2048, MEM0)) < 2048){
+	if((i = wishbone_read((unsigned char *) readVals, 2048, MEM0)) < 2048){
 		printf("Read error !, returned %d \n", i);
 		return -1 ;
 	}
-	for(i = 0; i < 2048; i ++){
-		if(readVals[i] != writeVals[i]) return -1 ;	
+	for(i = 0; i < 512; i ++){
+		if(readVals[i] != writeVals[i]){
+			printf("Corrupted Value @%i\n", i);		 	
+			return -1 ;	
+		}
 	}
 	
 	return 0 ;
 }
 
 int testSdram(){
+	unsigned short int c ;
+	wishbone_read((unsigned char *) &c, 2, REG2);
+	if(c & SDRAM_ERROR_MASK){
+		return -1 ;	
+	}
 	return 0 ;
 }
 
@@ -153,14 +189,14 @@ int main(int argc, char ** argv){
 	//
 	printf("-----------------Starting Test-------------\n");
 	printf("-------------------GPIO Test---------------\n");
-	if(testPMOD12() < 0){
+	/*if(testPMOD12() < 0){
 		printf("PMOD1-2 test failed \n");	
 		return -1 ;	
 	}
 	if(testPMOD34() < 0){
 		printf("PMOD3-4 test failed \n");	
 		return -1 ;
-	}
+	}*/
 	printf("-----------------Memory Test---------------\n");
 	if(testCom() < 0) {
 		printf("Communication test failed \n");	
@@ -169,7 +205,8 @@ int main(int argc, char ** argv){
 	printf("----------------Testing LEDs--------------\n");
 	testLED();
 	printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
-	while(fgets(&c, 1, stdin)== NULL) printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
+	while(fgets(&c, 2, stdin)== NULL) printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
+	printf("%c \n", c);
 	if(c == 'n'){
 		printf("Led test failed \n");	
 		return -1 ;	
@@ -186,17 +223,17 @@ int main(int argc, char ** argv){
 	}
 	printf("\n");
 	printf("----------------Testing PB--------------\n");
-	printf("Click the Push buttons \n");
+	printf("Click the Push buttons, press enter if nothing happens \n");
 	if(testPB() < 0){
 		printf("PB test failed \n");	
 		return -1 ;
 	}
 	printf("----------------Testing SW--------------\n");
-	printf("Switch the switches \n");
-	if(testSW() < 0){
+	printf("Switch the switches, press enter if nothing happens \n");
+	/*if(testSW() < 0){
 		printf("SW test failed \n");	
 		return -1 ;
-	}
+	}*/
 	printf("----------------Testing SDRAM--------------\n");	
 	if(testSdram() < 0){
 		printf("SDRAM test failed \n");	
