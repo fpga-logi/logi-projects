@@ -141,7 +141,7 @@ unsigned int wishbone_write(unsigned char * buffer, unsigned int length, unsigne
 	}
 	while(count < length){
                 tr_size = (length-count) < 4094 ? (length-count) : 4094 ;
-		if(logipi_write(((address+count) >> 1), &buffer[count], tr_size, 1) < 0) return 0;
+		if(logipi_write(((address+count)), &buffer[count], tr_size, 1) < 0) return 0;
 		count = count + tr_size ;
         }
 
@@ -154,7 +154,7 @@ unsigned int wishbone_read(unsigned char * buffer, unsigned int length, unsigned
 	}
 	while(count < length){
 		tr_size = (length-count) < 4094 ? (length-count) : 4094 ;
-		if(logipi_read(((address+count) >> 1), &buffer[count], tr_size, 1) < 0) return 0 ;
+		if(logipi_read(((address+count)), &buffer[count], tr_size, 1) < 0) return 0 ;
 		count = count + tr_size ;
 	}
 	return count ;
