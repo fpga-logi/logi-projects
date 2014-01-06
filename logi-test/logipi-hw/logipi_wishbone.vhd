@@ -67,11 +67,11 @@ port( OSC_FPGA : in std_logic;
 	  SDRAM_DQM   : out   STD_LOGIC_VECTOR( 1 downto 0);
 	  SDRAM_ADDR  : out   STD_LOGIC_VECTOR (12 downto 0);
 	  SDRAM_BA    : out   STD_LOGIC_VECTOR( 1 downto 0);
-	  SDRAM_DQ    : inout STD_LOGIC_VECTOR (15 downto 0);
+	  SDRAM_DQ    : inout STD_LOGIC_VECTOR (15 downto 0)
 	  
 	  -- SATA port
-	  SATA_D1_N, SATA_D1_P : out std_logic;
-	  SATA_D2_N, SATA_D2_P  : in std_logic
+--	  SATA_D1_N, SATA_D1_P : out std_logic;
+--	  SATA_D2_N, SATA_D2_P  : in std_logic
 );
 end logipi_test;
 
@@ -500,25 +500,25 @@ Inst_SDRAM_Controller: SDRAM_Controller GENERIC MAP (
       SDRAM_DATA      => SDRAM_DQ
    );
 
-input_buffer : IBUFDS generic map (
-      DIFF_TERM => TRUE,
-      IBUF_DELAY_VALUE => "0", 
-      IFD_DELAY_VALUE => "AUTO",
-      IOSTANDARD => "LVDS_33")
-   port map (
-      O  => SATA_IN,  
-      I  => SATA_D2_P, 
-      IB => SATA_D2_N  
-   );
-
-output_buffer : OBUFDS
-   generic map (
-      IOSTANDARD => "LVDS_33")
-   port map (
-      O =>SATA_D1_P,     
-      OB => SATA_D1_N,
-      I => SATA_OUT 
-   );
+--input_buffer : IBUFDS generic map (
+--      DIFF_TERM => TRUE,
+--      IBUF_DELAY_VALUE => "0", 
+--      IFD_DELAY_VALUE => "AUTO",
+--      IOSTANDARD => "LVDS_33")
+--   port map (
+--      O  => SATA_IN,  
+--      I  => SATA_D2_P, 
+--      IB => SATA_D2_N  
+--   );
+--
+--output_buffer : OBUFDS
+--   generic map (
+--      IOSTANDARD => "LVDS_33")
+--   port map (
+--      O =>SATA_D1_P,     
+--      OB => SATA_D1_N,
+--      I => SATA_OUT 
+--   );
 
 end Behavioral;
 
