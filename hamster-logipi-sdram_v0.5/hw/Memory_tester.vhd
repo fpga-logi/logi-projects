@@ -30,7 +30,7 @@ end Memory_tester;
 
 architecture Behavioral of Memory_tester is
 	constant address_max : unsigned(address_width downto 0) := (others => '1') ;
-	constant pattern_max : unsigned(3 downto 0) := "0001" ;
+	constant pattern_max : unsigned(3 downto 0) := "1010" ;
    constant terminal_count   : unsigned(address_width+5 downto 0) := '0' & pattern_max & address_max; 
    signal has_errored        : STD_LOGIC := '0';
    signal b                  : STD_LOGIC := '0';
@@ -95,15 +95,18 @@ tp: process(test_pattern_index, test_addr)
                      else 
                         test_pattern <= x"AAAAAAAA"; 
                      end if;
-      when "0100" => test_pattern <= x"AAAA5555"; -- odd checkerboard (16 bit data bus)
-      when "0101" => test_pattern <= x"5555AAAA"; -- even checkerboard (16 bit data bus)
-      when "0110" => test_pattern <= x"AA55AA55"; -- odd checkerboard (8 bit data bus)
-      when "0111" => test_pattern <= x"55AA55AA"; -- even checkerboard (8 bit data bus)
-      when "1000" => test_pattern <= x"11111111"; 
-      when "1001" => test_pattern <= x"22222222";
-      when "1010" => test_pattern <= x"44444444";
-      when "1011" => test_pattern <= x"88888888";
-      when "1100" => test_pattern <= x"EEEEEEEE";
+       
+		when "0100" => test_pattern <= x"11111111"; 
+      when "0101" => test_pattern <= x"22222222";
+      when "0110" => test_pattern <= x"44444444";
+      when "0111" => test_pattern <= x"88888888";
+		
+		when "1000" => test_pattern <= x"AA55AA55"; -- odd checkerboard (16 bit data bus)
+      when "1001" => test_pattern <= x"55AA55AA"; -- even checkerboard (16 bit data bus)
+      when "1010" => test_pattern <= x"AAAA5555"; -- odd checkerboard (8 bit data bus)
+      when "1011" => test_pattern <= x"5555AAAA"; -- even checkerboard (8 bit data bus)
+      
+		when "1100" => test_pattern <= x"EEEEEEEE";
       when "1101" => test_pattern <= x"DDDDDDDD";
       when "1110" => test_pattern <= x"BBBBBBBB";
       when others => test_pattern <= test_addr(read_addr'high downto test_addr'high-15) & test_addr(15 downto 0);
@@ -125,15 +128,18 @@ rtp: process(read_pattern_index, read_addr)
                      else 
                         read_pattern <= x"AAAAAAAA"; 
                      end if;
-      when "0100" => read_pattern <= x"AAAA5555"; -- odd checkerboard (16 bit data bus)
-      when "0101" => read_pattern <= x"5555AAAA"; -- even checkerboard (16 bit data bus)
-      when "0110" => read_pattern <= x"AA55AA55"; -- odd checkerboard (8 bit data bus)
-      when "0111" => read_pattern <= x"55AA55AA"; -- even checkerboard (8 bit data bus)
-      when "1000" => read_pattern <= x"11111111"; 
-      when "1001" => read_pattern <= x"22222222";
-      when "1010" => read_pattern <= x"44444444";
-      when "1011" => read_pattern <= x"88888888";
-      when "1100" => read_pattern <= x"EEEEEEEE";
+      
+      when "0100" => read_pattern <= x"11111111"; 
+      when "0101" => read_pattern <= x"22222222";
+      when "0110" => read_pattern <= x"44444444";
+      when "0111" => read_pattern <= x"88888888";
+      
+		when "1000" => read_pattern <= x"AA55AA55"; -- odd checkerboard (16 bit data bus)
+      when "1001" => read_pattern <= x"55AA55AA"; -- even checkerboard (16 bit data bus)
+      when "1010" => read_pattern <= x"AAAA5555"; -- odd checkerboard (8 bit data bus)
+      when "1011" => read_pattern <= x"5555AAAA"; -- even checkerboard (8 bit data bus)
+		
+		when "1100" => read_pattern <= x"EEEEEEEE";
       when "1101" => read_pattern <= x"DDDDDDDD";
       when "1110" => read_pattern <= x"BBBBBBBB";
       when others => read_pattern <= read_addr(read_addr'high downto read_addr'high-15) & read_addr(15 downto 0);
@@ -168,10 +174,14 @@ process(clk)
             if cmd_ready = '1' then  -- the transaction will be acceptedthis cycle
                 -- Blink the LED every time the counter roles over (for later use)
                if test_counter = terminal_count then
-                  b <= not b;
+						-- test is a success, stop testing
+						b <= '1';
+					else
+						-- Move on to the next transaction
+						test_counter <= test_counter+1; 
                end if;          
-               -- Move on to the next transaction
-               test_counter <= test_counter+1;                  
+               
+                                
             end if;
          end if;
 
