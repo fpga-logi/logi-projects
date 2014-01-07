@@ -29,6 +29,9 @@ entity top_level is
 end top_level;
 
 architecture Behavioral of top_level is
+
+	constant test_frequency	:	natural := 50 ;
+	constant freq_devider	:	natural := ((50) * 16)/test_frequency;
    constant sdram_address_width : natural := 22;
    constant sdram_column_bits   : natural := 8;
    constant sdram_startup_cycles: natural := 10100; -- 100us, plus a little more
