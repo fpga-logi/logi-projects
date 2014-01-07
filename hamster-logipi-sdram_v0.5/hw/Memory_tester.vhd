@@ -29,7 +29,9 @@ entity Memory_tester is
 end Memory_tester;
 
 architecture Behavioral of Memory_tester is
-   constant terminal_count   : unsigned(address_width+5 downto 0) := (others => '1'); 
+	constant address_max : unsigned(address_width downto 0) := (others => '1') ;
+	constant pattern_max : unsigned(3 downto 0) := "0001" ;
+   constant terminal_count   : unsigned(address_width+5 downto 0) := '0' & pattern_max & address_max; 
    signal has_errored        : STD_LOGIC := '0';
    signal b                  : STD_LOGIC := '0';
    signal e                  : STD_LOGIC := '1';
