@@ -29,8 +29,8 @@ entity top_level is
 end top_level;
 
 architecture Behavioral of top_level is
-   constant sdram_address_width : natural := 24;
-   constant sdram_column_bits   : natural := 10;
+   constant sdram_address_width : natural := 22;
+   constant sdram_column_bits   : natural := 8;
    constant sdram_startup_cycles: natural := 10100; -- 100us, plus a little more
    constant test_width          : natural := sdram_address_width-1; -- each 32-bit word is two 16-bit SDRAM addresses
    constant cycles_per_refresh  : natural := (64000*100)/4096-1;
