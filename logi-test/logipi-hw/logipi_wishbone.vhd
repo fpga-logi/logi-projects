@@ -76,8 +76,8 @@ port( OSC_FPGA : in std_logic;
 end logipi_test;
 
 architecture Behavioral of logipi_test is
-	constant sdram_address_width : natural := 24;
-   constant sdram_column_bits   : natural := 9;
+	constant sdram_address_width : natural := 22;
+   constant sdram_column_bits   : natural := 8;
    constant sdram_startup_cycles: natural := 10100; -- 100us, plus a little more
    constant test_width          : natural := sdram_address_width-1; -- each 32-bit word is two 16-bit SDRAM addresses
    constant cycles_per_refresh  : natural := (64000*100)/8192-1;
@@ -226,6 +226,10 @@ COMPONENT SDRAM_Controller
 	
 	-- SATA signals
 	signal SATA_IN, SATA_OUT : std_logic ;
+	
+	-- Memory debug signals
+	signal debug_long_register : std_logic_vector(127 downto 0);
+	signal debug_sent_counter : std_logic_vector(2 downto 0);
 begin
 
 
@@ -279,7 +283,7 @@ generic map(memory_map =>
 "000000000000001X", -- gpio0
 "000000000000010X", -- gpio1
 "000000000000011X", -- gpio2
-"00000000000010XX", -- reg0
+"000000000001XXXX", -- reg0
 "0001XXXXXXXXXXXX") -- mem0
 )
 port map(
@@ -398,7 +402,7 @@ gpio2 : wishbone_gpio
 	
 reg0 : wishbone_register
 	generic map(
-		  nb_regs => 3
+		  nb_regs => 12
 	 )
 	 port map
 	 (
@@ -421,11 +425,28 @@ reg0 : wishbone_register
 			reg_in(2)(4) => error_testing,
 			reg_in(2)(3 downto 2) => SW,
 			reg_in(2)(1 downto 0) => PB,
+			reg_in(3) => debug_long_register(127 downto 112),
+			reg_in(4) => debug_long_register(111 downto 96),
+			reg_in(5) => debug_long_register(95 downto 80),
+			reg_in(6) => debug_long_register(79 downto 64),
+			reg_in(7) => debug_long_register(63 downto 48),
+			reg_in(8) => debug_long_register(47 downto 32),
+			reg_in(9) => debug_long_register(31 downto 16),
+			reg_in(10) => debug_long_register(15 downto 0),
+			
 			reg_out(0)(15 downto 3) => open,
 			reg_out(0)(2) => SATA_IN,
 			reg_out(0)(1 downto 0) => LED,
 			reg_out(1) => open,
-			reg_out(2) => open
+			reg_out(2) => open,
+			reg_out(3) => open,
+			reg_out(4) => open,
+			reg_out(5) => open,
+			reg_out(6) => open,
+			reg_out(7) => open,
+			reg_out(8) => open,
+			reg_out(9) => open,
+			reg_out(10) => open
 	 );		
 	
 mem_0 : wishbone_mem
@@ -519,6 +540,27 @@ Inst_SDRAM_Controller: SDRAM_Controller GENERIC MAP (
 --      OB => SATA_D1_N,
 --      I => SATA_OUT 
 --   );
+
+-- glue logic for the memory tester output
+
+process(gls_clk, gls_reset)
+begin
+	if gls_reset = '1' then
+		debug_sent_counter <= (others => '0');
+	elsif gls_clk'event and gls_clk = '1' then
+		if tester_debug(15) = '1' and debug_sent_counter = 0 then
+			debug_sent_counter <= "111" ;
+			debug_long_register(15 downto 0) <= tester_debug ;
+			debug_long_register(127 downto 16) <= (others => '0');
+		elsif debug_sent_counter > 0 then
+			debug_long_register(15 downto 0) <= tester_debug ;
+			debug_long_register(127 downto 16) <= debug_long_register(111 downto 0);
+			debug_sent_counter <= debug_sent_counter - 1 ;
+		end if ;
+	end if ;
+end process ;
+
+
 
 end Behavioral;
 
