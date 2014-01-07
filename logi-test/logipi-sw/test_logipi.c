@@ -16,9 +16,10 @@
 #define GPIO1DIR 0x0005
 #define GPIO2 0x0006
 #define GPIO2DIR 0x0007
-#define REG0  0x0008
-#define REG1  0x0009
-#define REG2  0x000A
+#define REG0  0x0010
+#define REG1  0x0011
+#define REG2  0x0012
+#define REG_DEBUG_RAM 0x0013
 #define MEM0  0x1000
 
 #define LED_MASK 0x0003
@@ -175,6 +176,15 @@ int testSdram(){
 	return 0 ;
 }
 
+int getSdramDump(){
+	unsigned short int buffer[8];
+	unsigned char i ;
+	wishbone_read(buffer, 16, REG_DEBUG_RAM);
+	for( i = 0 ; i < 8 ; i ++){
+		printf("%04x \n", buffer[i]);
+	}
+}
+
 int testLVDS(){
 	return 0 ;
 }
@@ -224,10 +234,10 @@ int main(int argc, char ** argv){
 	printf("\n");
 	printf("----------------Testing PB--------------\n");
 	printf("Click the Push buttons, press enter if nothing happens \n");
-	if(testPB() < 0){
+	/*if(testPB() < 0){
 		printf("PB test failed \n");	
 		return -1 ;
-	}
+	}*/
 	printf("----------------Testing SW--------------\n");
 	printf("Switch the switches, press enter if nothing happens \n");
 	/*if(testSW() < 0){
@@ -236,7 +246,8 @@ int main(int argc, char ** argv){
 	}*/
 	printf("----------------Testing SDRAM--------------\n");	
 	if(testSdram() < 0){
-		printf("SDRAM test failed \n");	
+		printf("SDRAM test failed \n");
+		getSdramDump();	
 		return -1 ;
 	}
 
