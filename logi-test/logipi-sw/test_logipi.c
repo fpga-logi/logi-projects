@@ -204,11 +204,7 @@ int main(int argc, char ** argv){
 	while(fgets(&c, 1, stdin)== NULL);
 	printf("----------------Loading FPGA--------------\n");	
 	// load fpga
-	argv2[0] = "loagi_loader";
-	argv2[1] = bitFilePath ;
-	argv2[2] = NULL ;
-	//execv("/usr/bin/logi_loader", argv2);
-	system("/usr/bin/logi_loader ../logipi_test.bit");
+	system("/usr/bin/logi_loader logipi_test.bit");
 	//
 	printf("-----------------Starting Test-------------\n");
 	printf("-------------------GPIO Test---------------\n");
