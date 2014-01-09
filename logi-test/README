@@ -1,0 +1,7 @@
+To run the test, take the bitfile corresponding to your platform from test_bit_files 
+and rename it to logipi_test.bit.
+Copy the logipi-sw directory to the platform, and then copy the renamed logipi_test.bit file
+and copy it in the logipi-sw directory on the platform. In the end you should have the folder
+logipi-sw on the platform, with the bitfile inside. Log on the platform and go to the logipi-sw
+folder. Type "make" then enter. To run the test do a "sudo ./test_logipi" and follow the
+instructions on screen. Test will indicate which part fail or indicate a success.
