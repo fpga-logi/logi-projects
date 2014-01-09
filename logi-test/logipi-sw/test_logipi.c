@@ -163,7 +163,8 @@ int testCom(){
 	}
 	for(i = 0; i < 512; i ++){
 		if(readVals[i] != writeVals[i]){
-			printf("Corrupted Value @%i\n", i);		 	
+			printf("Corrupted Value @%i\n", i);	
+			printf("Expecting  0x%04, got 0x%04 \n", writeVals[i], readVals[i]);	 	
 			return -1 ;	
 		}
 	}
