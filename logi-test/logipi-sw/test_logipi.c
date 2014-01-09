@@ -26,6 +26,7 @@
 #define PB_MASK 0x0003
 #define SW_MASK 0x000C
 #define SDRAM_ERROR_MASK 0x0010
+#define SDRAM_SUCCESS_MASK 0x0020
 
 #define GPIO_TEST1_DIR 0x5555	
 #define GPIO_TEST1_1 0x1111
@@ -57,12 +58,12 @@ int testPMOD12(){
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
-	if(valBuf != (GPIO_TEST2_1 << 1)) return -1 ;
+	if(valBuf != (GPIO_TEST2_1 >> 1)) return -1 ;
 	valBuf = GPIO_TEST2_2 ;
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
-	if(valBuf != (GPIO_TEST2_2 << 1) ) return -1 ;
+	if(valBuf != (GPIO_TEST2_2 >> 1) ) return -1 ;
 
 	return 0 ;
 }
@@ -89,12 +90,12 @@ int testPMOD34(){
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO1);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
-	if(valBuf != (GPIO_TEST2_1 << 1)) return -1 ;
+	if(valBuf != (GPIO_TEST2_1 >> 1)) return -1 ;
 	valBuf = GPIO_TEST2_2 ;
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO1);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
-	if(valBuf != (GPIO_TEST2_2 << 1) ) return -1 ;
+	if(valBuf != (GPIO_TEST2_2 >> 1) ) return -1 ;
 
 	return 0 ;
 }
@@ -170,10 +171,13 @@ int testCom(){
 int testSdram(){
 	unsigned short int c ;
 	wishbone_read((unsigned char *) &c, 2, REG2);
+	if(c & SDRAM_SUCCESS_MASK){
+		return -1 ;	
+	}	
 	if(c & SDRAM_ERROR_MASK){
 		return -1 ;	
 	}
-	return 0 ;
+	return 1 ;
 }
 
 int getSdramDump(){
@@ -199,15 +203,15 @@ int main(int argc, char ** argv){
 	//
 	printf("-----------------Starting Test-------------\n");
 	printf("-------------------GPIO Test---------------\n");
-	/*if(testPMOD12() < 0){
+	if(testPMOD12() < 0){
 		printf("PMOD1-2 test failed \n");	
 		return -1 ;	
 	}
 	if(testPMOD34() < 0){
 		printf("PMOD3-4 test failed \n");	
 		return -1 ;
-	}*/
-	printf("-----------------Memory Test---------------\n");
+	}
+	printf("-----------------Communication Test---------------\n");
 	if(testCom() < 0) {
 		printf("Communication test failed \n");	
 		return -1 ;
@@ -234,16 +238,16 @@ int main(int argc, char ** argv){
 	printf("\n");
 	printf("----------------Testing PB--------------\n");
 	printf("Click the Push buttons, press enter if nothing happens \n");
-	/*if(testPB() < 0){
+	if(testPB() < 0){
 		printf("PB test failed \n");	
 		return -1 ;
-	}*/
+	}
 	printf("----------------Testing SW--------------\n");
 	printf("Switch the switches, press enter if nothing happens \n");
-	/*if(testSW() < 0){
+	if(testSW() < 0){
 		printf("SW test failed \n");	
 		return -1 ;
-	}*/
+	}
 	printf("----------------Testing SDRAM--------------\n");	
 	if(testSdram() < 0){
 		printf("SDRAM test failed \n");
