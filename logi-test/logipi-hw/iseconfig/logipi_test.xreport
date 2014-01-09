@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2014-01-08T20:09:57</DateModified>
+  <DateModified>2014-01-09T17:02:42</DateModified>
   <ModuleName>logipi_test</ModuleName>
   <SummaryTimeStamp>2014-01-08T15:02:09</SummaryTimeStamp>
   <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logipi-hw/</ImplementationReportsDirectory>
