@@ -36,6 +36,9 @@
 #define GPIO_TEST2_1 0x2222
 #define GPIO_TEST2_2 0x8888
 
+char * bitFilePath = "../logipi_test.bit" ;
+
+
 int testPMOD12(){
 	unsigned short int dirBuf ;
 	unsigned short int valBuf ;
@@ -172,7 +175,7 @@ int testSdram(){
 	unsigned short int c ;
 	wishbone_read((unsigned char *) &c, 2, REG2);
 	if(c & SDRAM_SUCCESS_MASK){
-		return -1 ;	
+		return 0 ;	
 	}	
 	if(c & SDRAM_ERROR_MASK){
 		return -1 ;	
@@ -195,22 +198,28 @@ int testLVDS(){
 
 
 int main(int argc, char ** argv){
-	char c ;		
-	printf("Press Enter to begin testing");
+	char c ;	
+	char * argv2 [3];	
+	printf("Press Enter to begin testing \n");
 	while(fgets(&c, 1, stdin)== NULL);
 	printf("----------------Loading FPGA--------------\n");	
 	// load fpga
+	argv2[0] = "loagi_loader";
+	argv2[1] = bitFilePath ;
+	argv2[2] = NULL ;
+	//execv("/usr/bin/logi_loader", argv2);
+	system("/usr/bin/logi_loader ../logipi_test.bit");
 	//
 	printf("-----------------Starting Test-------------\n");
 	printf("-------------------GPIO Test---------------\n");
-	if(testPMOD12() < 0){
+	/*if(testPMOD12() < 0){
 		printf("PMOD1-2 test failed \n");	
 		return -1 ;	
 	}
 	if(testPMOD34() < 0){
 		printf("PMOD3-4 test failed \n");	
 		return -1 ;
-	}
+	}*/
 	printf("-----------------Communication Test---------------\n");
 	if(testCom() < 0) {
 		printf("Communication test failed \n");	
@@ -249,6 +258,7 @@ int main(int argc, char ** argv){
 		return -1 ;
 	}
 	printf("----------------Testing SDRAM--------------\n");	
+	while(testSdram() > 0) sleep(1);
 	if(testSdram() < 0){
 		printf("SDRAM test failed \n");
 		getSdramDump();	
