@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2014-01-07T20:34:47</DateModified>
+  <DateModified>2014-01-08T20:09:57</DateModified>
   <ModuleName>logipi_test</ModuleName>
-  <SummaryTimeStamp>2014-01-06T20:05:18</SummaryTimeStamp>
+  <SummaryTimeStamp>2014-01-08T15:02:09</SummaryTimeStamp>
   <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logipi-hw/</ImplementationReportsDirectory>
-  <DateInitialized>2014-01-05T17:53:45</DateInitialized>
+  <DateInitialized>2014-01-08T12:00:35</DateInitialized>
   <SavedFilePath>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logipi-hw/iseconfig/logipi_test.xreport</SavedFilePath>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
@@ -23,7 +23,7 @@
    <view inputState="Translated" program="map" contextTags="FPGA_ONLY" hidden="true" type="Control_Sets" file="logipi_test_map.xrpt" label="Control Set Information" />
    <view inputState="Translated" program="map" locator="MAP_MODULE_HIERARCHY" contextTags="FPGA_ONLY" type="Module_Utilization" file="logipi_test_map.xrpt" label="Module Level Utilization" />
    <view inputState="Mapped" program="par" locator="CONSTRAINT_TABLE" contextTags="FPGA_ONLY" type="ConstraintsData" file="logipi_test.ptwx" label="Timing Constraints" translator="ptwxToTableXML.xslt" />
-   <view inputState="Mapped" program="par" locator="PAR_PINOUT_BY_PIN_NUMBER" contextTags="FPGA_ONLY" type="PinoutData" file="logipi_test_par.xrpt" label="Pinout Report" />
+   <view inputState="Mapped" program="par" locator="PAR_PINOUT_BY_PIN_NUMBER" contextTags="FPGA_ONLY" type="PinoutData" file="logipi_test_par.xrpt" showConstraints="0" label="Pinout Report" />
    <view inputState="Mapped" program="par" locator="PAR_CLOCK_TABLE" contextTags="FPGA_ONLY" type="ClocksData" file="logipi_test_par.xrpt" label="Clock Report" />
    <view inputState="Mapped" program="par" contextTags="FPGA_ONLY,EDK_OFF" type="Timing_Analyzer" file="logipi_test.twx" label="Static Timing" />
    <view inputState="Translated" program="cpldfit" contextTags="CPLD_ONLY,EDK_OFF" hidden="true" type="EXTERNAL_HTML" file="logipi_test_html/fit/report.htm" label="CPLD Fitter Report" />
