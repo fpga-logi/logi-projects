@@ -164,7 +164,7 @@ int testCom(){
 	for(i = 0; i < 512; i ++){
 		if(readVals[i] != writeVals[i]){
 			printf("Corrupted Value @%i\n", i);	
-			printf("Expecting  0x%04, got 0x%04 \n", writeVals[i], readVals[i]);	 	
+			printf("Expecting  0x%04x , got 0x%04x \n", writeVals[i], readVals[i]);	 	
 			return -1 ;	
 		}
 	}
@@ -187,10 +187,12 @@ int testSdram(){
 int getSdramDump(){
 	unsigned short int buffer[8];
 	unsigned char i ;
-	wishbone_read(buffer, 16, REG_DEBUG_RAM);
-	for( i = 0 ; i < 8 ; i ++){
-		printf("%04x \n", buffer[i]);
-	}
+	wishbone_read((unsigned char *) buffer, 16, REG_DEBUG_RAM);
+	printf("test failed : %d \n", (unsigned int) (buffer[0] & 0x8000 == 0x8000));
+	printf("at address : %08x \n", ((buffer[0] & 0x7FFF) | (buffer[1] << 15)));
+	printf("with pattern : %04x%04x \n", buffer[5], buffer[6]);
+	printf("obtained : %04x%04x \n", buffer[2], buffer[3]);
+	return 0 ;
 }
 
 int testLVDS(){
