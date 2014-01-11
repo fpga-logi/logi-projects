@@ -1,0 +1,710 @@
+//! **************************************************************************
+// Written by: Map P.15xf on Sat Jan 11 14:17:54 2014
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "OSC_FPGA" LOCATE = SITE "P92" LEVEL 1;
+COMP "GPMC_AD<10>" LOCATE = SITE "P111" LEVEL 1;
+COMP "GPMC_AD<11>" LOCATE = SITE "P97" LEVEL 1;
+COMP "GPMC_AD<12>" LOCATE = SITE "P114" LEVEL 1;
+COMP "GPMC_AD<13>" LOCATE = SITE "P115" LEVEL 1;
+COMP "GPMC_AD<14>" LOCATE = SITE "P95" LEVEL 1;
+COMP "GPMC_AD<15>" LOCATE = SITE "P94" LEVEL 1;
+COMP "GPMC_BEN<0>" LOCATE = SITE "P117" LEVEL 1;
+COMP "GPMC_BEN<1>" LOCATE = SITE "P45" LEVEL 1;
+COMP "PB<0>" LOCATE = SITE "P47" LEVEL 1;
+COMP "PB<1>" LOCATE = SITE "P46" LEVEL 1;
+COMP "SW<0>" LOCATE = SITE "P75" LEVEL 1;
+COMP "SW<1>" LOCATE = SITE "P48" LEVEL 1;
+COMP "SDRAM_ADDR<10>" LOCATE = SITE "P2" LEVEL 1;
+COMP "SDRAM_ADDR<11>" LOCATE = SITE "P27" LEVEL 1;
+COMP "SDRAM_ADDR<12>" LOCATE = SITE "P26" LEVEL 1;
+COMP "LED<0>" LOCATE = SITE "P62" LEVEL 1;
+COMP "LED<1>" LOCATE = SITE "P74" LEVEL 1;
+COMP "GPMC_AD<0>" LOCATE = SITE "P98" LEVEL 1;
+COMP "GPMC_AD<1>" LOCATE = SITE "P99" LEVEL 1;
+COMP "GPMC_AD<2>" LOCATE = SITE "P121" LEVEL 1;
+COMP "GPMC_AD<3>" LOCATE = SITE "P120" LEVEL 1;
+COMP "GPMC_AD<4>" LOCATE = SITE "P100" LEVEL 1;
+COMP "GPMC_AD<5>" LOCATE = SITE "P101" LEVEL 1;
+COMP "GPMC_AD<6>" LOCATE = SITE "P124" LEVEL 1;
+COMP "GPMC_AD<7>" LOCATE = SITE "P123" LEVEL 1;
+COMP "GPMC_AD<8>" LOCATE = SITE "P104" LEVEL 1;
+COMP "GPMC_AD<9>" LOCATE = SITE "P112" LEVEL 1;
+COMP "SDRAM_ADDR<0>" LOCATE = SITE "P5" LEVEL 1;
+COMP "SDRAM_ADDR<1>" LOCATE = SITE "P6" LEVEL 1;
+COMP "SDRAM_ADDR<2>" LOCATE = SITE "P7" LEVEL 1;
+COMP "SDRAM_ADDR<3>" LOCATE = SITE "P8" LEVEL 1;
+COMP "SDRAM_ADDR<4>" LOCATE = SITE "P35" LEVEL 1;
+COMP "SDRAM_ADDR<5>" LOCATE = SITE "P34" LEVEL 1;
+COMP "SDRAM_ADDR<6>" LOCATE = SITE "P33" LEVEL 1;
+COMP "SDRAM_ADDR<7>" LOCATE = SITE "P32" LEVEL 1;
+COMP "SDRAM_ADDR<8>" LOCATE = SITE "P30" LEVEL 1;
+COMP "SDRAM_ADDR<9>" LOCATE = SITE "P29" LEVEL 1;
+COMP "GPMC_ADVN" LOCATE = SITE "P119" LEVEL 1;
+COMP "SDRAM_DQ<10>" LOCATE = SITE "P15" LEVEL 1;
+COMP "SDRAM_DQ<11>" LOCATE = SITE "P14" LEVEL 1;
+COMP "SDRAM_DQ<12>" LOCATE = SITE "P12" LEVEL 1;
+COMP "SDRAM_DQ<13>" LOCATE = SITE "P11" LEVEL 1;
+COMP "SDRAM_DQ<14>" LOCATE = SITE "P10" LEVEL 1;
+COMP "SDRAM_DQ<15>" LOCATE = SITE "P9" LEVEL 1;
+COMP "SDRAM_DQM<0>" LOCATE = SITE "P139" LEVEL 1;
+COMP "SDRAM_DQM<1>" LOCATE = SITE "P22" LEVEL 1;
+COMP "SDRAM_BA<0>" LOCATE = SITE "P141" LEVEL 1;
+COMP "SDRAM_BA<1>" LOCATE = SITE "P1" LEVEL 1;
+COMP "GPMC_CLK" LOCATE = SITE "P105" LEVEL 1;
+PIN GPMC_CLK_pin<0> = BEL "GPMC_CLK" PINNAME PAD;
+PIN "GPMC_CLK_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+COMP "GPMC_CSN" LOCATE = SITE "P102" LEVEL 1;
+COMP "GPMC_OEN" LOCATE = SITE "P118" LEVEL 1;
+COMP "GPMC_WEN" LOCATE = SITE "P116" LEVEL 1;
+COMP "SDRAM_DQ<0>" LOCATE = SITE "P126" LEVEL 1;
+COMP "SDRAM_DQ<1>" LOCATE = SITE "P127" LEVEL 1;
+COMP "SDRAM_DQ<2>" LOCATE = SITE "P131" LEVEL 1;
+COMP "SDRAM_DQ<3>" LOCATE = SITE "P132" LEVEL 1;
+COMP "SDRAM_DQ<4>" LOCATE = SITE "P133" LEVEL 1;
+COMP "SDRAM_DQ<5>" LOCATE = SITE "P134" LEVEL 1;
+COMP "SDRAM_DQ<6>" LOCATE = SITE "P137" LEVEL 1;
+COMP "SDRAM_DQ<7>" LOCATE = SITE "P138" LEVEL 1;
+COMP "SDRAM_DQ<8>" LOCATE = SITE "P17" LEVEL 1;
+COMP "SDRAM_DQ<9>" LOCATE = SITE "P16" LEVEL 1;
+COMP "ARD_SDA" LOCATE = SITE "P88" LEVEL 1;
+COMP "ARD_SCL" LOCATE = SITE "P87" LEVEL 1;
+COMP "SATA_D1_N" LOCATE = SITE "P43" LEVEL 1;
+COMP "SATA_D1_P" LOCATE = SITE "P44" LEVEL 1;
+COMP "PMOD1<0>" LOCATE = SITE "P79" LEVEL 1;
+COMP "PMOD1<1>" LOCATE = SITE "P78" LEVEL 1;
+COMP "PMOD1<2>" LOCATE = SITE "P85" LEVEL 1;
+COMP "PMOD1<3>" LOCATE = SITE "P84" LEVEL 1;
+COMP "PMOD1<4>" LOCATE = SITE "P83" LEVEL 1;
+COMP "PMOD2<0>" LOCATE = SITE "P56" LEVEL 1;
+COMP "PMOD1<5>" LOCATE = SITE "P82" LEVEL 1;
+COMP "PMOD2<1>" LOCATE = SITE "P55" LEVEL 1;
+COMP "PMOD1<6>" LOCATE = SITE "P81" LEVEL 1;
+COMP "PMOD2<2>" LOCATE = SITE "P51" LEVEL 1;
+COMP "PMOD1<7>" LOCATE = SITE "P80" LEVEL 1;
+COMP "PMOD2<3>" LOCATE = SITE "P50" LEVEL 1;
+COMP "PMOD2<4>" LOCATE = SITE "P67" LEVEL 1;
+COMP "PMOD2<5>" LOCATE = SITE "P66" LEVEL 1;
+COMP "PMOD2<6>" LOCATE = SITE "P58" LEVEL 1;
+COMP "PMOD2<7>" LOCATE = SITE "P57" LEVEL 1;
+COMP "SDRAM_CKE" LOCATE = SITE "P24" LEVEL 1;
+COMP "SDRAM_CLK" LOCATE = SITE "P23" LEVEL 1;
+COMP "SDRAM_nCAS" LOCATE = SITE "P143" LEVEL 1;
+COMP "SDRAM_nRAS" LOCATE = SITE "P142" LEVEL 1;
+COMP "SDRAM_nWE" LOCATE = SITE "P144" LEVEL 1;
+PIN mem_0/ram0/Mram_RAM1_pins<22> = BEL "mem_0/ram0/Mram_RAM1" PINNAME CLKA;
+PIN mem_0/ram0/Mram_RAM1_pins<23> = BEL "mem_0/ram0/Mram_RAM1" PINNAME CLKB;
+PIN mem_0/ram0/Mram_RAM2_pins<22> = BEL "mem_0/ram0/Mram_RAM2" PINNAME CLKA;
+PIN mem_0/ram0/Mram_RAM2_pins<23> = BEL "mem_0/ram0/Mram_RAM2" PINNAME CLKB;
+PIN Inst_SDRAM_Controller/sdram_clk_forward_pins<1> = BEL
+        "Inst_SDRAM_Controller/sdram_clk_forward" PINNAME CK0;
+PIN Inst_SDRAM_Controller/sdram_clk_forward_pins<2> = BEL
+        "Inst_SDRAM_Controller/sdram_clk_forward" PINNAME CK1;
+PIN SP6_INS_BUFIO2FB_DCM_ML_BUFIO2FB_1_pins<1> = BEL
+        "SP6_INS_BUFIO2FB_DCM_ML_BUFIO2FB_1" PINNAME O;
+PIN pll0/dcm_sp_inst_pins<1> = BEL "pll0/dcm_sp_inst" PINNAME CLKFB;
+TIMEGRP pll0_clk2x = BEL "debug_long_register_0" BEL "debug_long_register_1"
+        BEL "debug_long_register_2" BEL "debug_long_register_3" BEL
+        "debug_long_register_4" BEL "debug_long_register_5" BEL
+        "debug_long_register_6" BEL "debug_long_register_7" BEL
+        "debug_long_register_8" BEL "debug_long_register_9" BEL
+        "debug_long_register_10" BEL "debug_long_register_11" BEL
+        "debug_long_register_12" BEL "debug_long_register_13" BEL
+        "debug_long_register_14" BEL "debug_long_register_15" BEL
+        "debug_long_register_16" BEL "debug_long_register_17" BEL
+        "debug_long_register_18" BEL "debug_long_register_19" BEL
+        "debug_long_register_20" BEL "debug_long_register_21" BEL
+        "debug_long_register_22" BEL "debug_long_register_23" BEL
+        "debug_long_register_24" BEL "debug_long_register_25" BEL
+        "debug_long_register_26" BEL "debug_long_register_27" BEL
+        "debug_long_register_28" BEL "debug_long_register_29" BEL
+        "debug_long_register_30" BEL "debug_long_register_31" BEL
+        "debug_long_register_32" BEL "debug_long_register_33" BEL
+        "debug_long_register_34" BEL "debug_long_register_35" BEL
+        "debug_long_register_36" BEL "debug_long_register_37" BEL
+        "debug_long_register_38" BEL "debug_long_register_39" BEL
+        "debug_long_register_40" BEL "debug_long_register_41" BEL
+        "debug_long_register_42" BEL "debug_long_register_43" BEL
+        "debug_long_register_44" BEL "debug_long_register_45" BEL
+        "debug_long_register_46" BEL "debug_long_register_47" BEL
+        "debug_long_register_48" BEL "debug_long_register_49" BEL
+        "debug_long_register_50" BEL "debug_long_register_51" BEL
+        "debug_long_register_52" BEL "debug_long_register_53" BEL
+        "debug_long_register_54" BEL "debug_long_register_55" BEL
+        "debug_long_register_56" BEL "debug_long_register_57" BEL
+        "debug_long_register_58" BEL "debug_long_register_59" BEL
+        "debug_long_register_60" BEL "debug_long_register_61" BEL
+        "debug_long_register_62" BEL "debug_long_register_63" BEL
+        "debug_long_register_64" BEL "debug_long_register_65" BEL
+        "debug_long_register_66" BEL "debug_long_register_67" BEL
+        "debug_long_register_68" BEL "debug_long_register_69" BEL
+        "debug_long_register_70" BEL "debug_long_register_71" BEL
+        "debug_long_register_72" BEL "debug_long_register_73" BEL
+        "debug_long_register_74" BEL "debug_long_register_75" BEL
+        "debug_long_register_76" BEL "debug_long_register_77" BEL
+        "debug_long_register_78" BEL "debug_long_register_79" BEL
+        "debug_long_register_80" BEL "debug_long_register_81" BEL
+        "debug_long_register_82" BEL "debug_long_register_83" BEL
+        "debug_long_register_84" BEL "debug_long_register_85" BEL
+        "debug_long_register_86" BEL "debug_long_register_87" BEL
+        "debug_long_register_88" BEL "debug_long_register_89" BEL
+        "debug_long_register_90" BEL "debug_long_register_91" BEL
+        "debug_long_register_92" BEL "debug_long_register_93" BEL
+        "debug_long_register_94" BEL "debug_long_register_95" BEL
+        "debug_long_register_96" BEL "debug_long_register_97" BEL
+        "debug_long_register_98" BEL "debug_long_register_99" BEL
+        "debug_long_register_100" BEL "debug_long_register_101" BEL
+        "debug_long_register_102" BEL "debug_long_register_103" BEL
+        "debug_long_register_104" BEL "debug_long_register_105" BEL
+        "debug_long_register_106" BEL "debug_long_register_107" BEL
+        "debug_long_register_108" BEL "debug_long_register_109" BEL
+        "debug_long_register_110" BEL "debug_long_register_111" BEL
+        "debug_long_register_112" BEL "debug_long_register_113" BEL
+        "debug_long_register_114" BEL "debug_long_register_115" BEL
+        "debug_long_register_116" BEL "debug_long_register_117" BEL
+        "debug_long_register_118" BEL "debug_long_register_119" BEL
+        "debug_long_register_120" BEL "debug_long_register_121" BEL
+        "debug_long_register_122" BEL "debug_long_register_123" BEL
+        "debug_long_register_124" BEL "debug_long_register_125" BEL
+        "debug_long_register_126" BEL "debug_long_register_127" BEL
+        "mem_0/write_ack" BEL "mem_0/read_ack" BEL "debug_sent_counter_0" BEL
+        "debug_sent_counter_1" BEL "debug_sent_counter_2" BEL
+        "gpmc2wishbone/address_15" BEL "gpmc2wishbone/address_14" BEL
+        "gpmc2wishbone/address_13" BEL "gpmc2wishbone/address_12" BEL
+        "gpmc2wishbone/address_11" BEL "gpmc2wishbone/address_10" BEL
+        "gpmc2wishbone/address_9" BEL "gpmc2wishbone/address_8" BEL
+        "gpmc2wishbone/address_7" BEL "gpmc2wishbone/address_6" BEL
+        "gpmc2wishbone/address_5" BEL "gpmc2wishbone/address_4" BEL
+        "gpmc2wishbone/address_3" BEL "gpmc2wishbone/address_2" BEL
+        "gpmc2wishbone/address_1" BEL "gpmc2wishbone/address_0" BEL
+        "gpmc2wishbone/writedata_15" BEL "gpmc2wishbone/writedata_14" BEL
+        "gpmc2wishbone/writedata_13" BEL "gpmc2wishbone/writedata_12" BEL
+        "gpmc2wishbone/writedata_11" BEL "gpmc2wishbone/writedata_10" BEL
+        "gpmc2wishbone/writedata_9" BEL "gpmc2wishbone/writedata_8" BEL
+        "gpmc2wishbone/writedata_7" BEL "gpmc2wishbone/writedata_6" BEL
+        "gpmc2wishbone/writedata_5" BEL "gpmc2wishbone/writedata_4" BEL
+        "gpmc2wishbone/writedata_3" BEL "gpmc2wishbone/writedata_2" BEL
+        "gpmc2wishbone/writedata_1" BEL "gpmc2wishbone/writedata_0" BEL
+        "gpmc2wishbone/readn" BEL "gpmc2wishbone/writen" BEL
+        "gpmc2wishbone/csn" BEL "gpmc2wishbone/readdata_bridge_15" BEL
+        "gpmc2wishbone/readdata_bridge_14" BEL
+        "gpmc2wishbone/readdata_bridge_13" BEL
+        "gpmc2wishbone/readdata_bridge_12" BEL
+        "gpmc2wishbone/readdata_bridge_11" BEL
+        "gpmc2wishbone/readdata_bridge_10" BEL
+        "gpmc2wishbone/readdata_bridge_9" BEL
+        "gpmc2wishbone/readdata_bridge_8" BEL
+        "gpmc2wishbone/readdata_bridge_7" BEL
+        "gpmc2wishbone/readdata_bridge_6" BEL
+        "gpmc2wishbone/readdata_bridge_5" BEL
+        "gpmc2wishbone/readdata_bridge_4" BEL
+        "gpmc2wishbone/readdata_bridge_3" BEL
+        "gpmc2wishbone/readdata_bridge_2" BEL
+        "gpmc2wishbone/readdata_bridge_1" BEL
+        "gpmc2wishbone/readdata_bridge_0" BEL "gpio2/wbs_readdata_15" BEL
+        "gpio2/wbs_readdata_14" BEL "gpio2/wbs_readdata_13" BEL
+        "gpio2/wbs_readdata_12" BEL "gpio2/wbs_readdata_11" BEL
+        "gpio2/wbs_readdata_10" BEL "gpio2/wbs_readdata_9" BEL
+        "gpio2/wbs_readdata_8" BEL "gpio2/wbs_readdata_7" BEL
+        "gpio2/wbs_readdata_6" BEL "gpio2/wbs_readdata_5" BEL
+        "gpio2/wbs_readdata_4" BEL "gpio2/wbs_readdata_3" BEL
+        "gpio2/wbs_readdata_2" BEL "gpio2/wbs_readdata_1" BEL
+        "gpio2/wbs_readdata_0" BEL "gpio2/input_15" BEL "gpio2/input_14" BEL
+        "gpio2/input_13" BEL "gpio2/input_12" BEL "gpio2/input_11" BEL
+        "gpio2/input_10" BEL "gpio2/input_9" BEL "gpio2/input_8" BEL
+        "gpio2/input_7" BEL "gpio2/input_6" BEL "gpio2/input_5" BEL
+        "gpio2/input_4" BEL "gpio2/input_3" BEL "gpio2/input_2" BEL
+        "gpio2/input_1" BEL "gpio2/input_0" BEL "gpio2/read_ack" BEL
+        "gpio2/dir_15" BEL "gpio2/dir_14" BEL "gpio2/dir_13" BEL
+        "gpio2/dir_12" BEL "gpio2/dir_11" BEL "gpio2/dir_10" BEL "gpio2/dir_9"
+        BEL "gpio2/dir_8" BEL "gpio2/dir_7" BEL "gpio2/dir_6" BEL
+        "gpio2/dir_5" BEL "gpio2/dir_4" BEL "gpio2/dir_3" BEL "gpio2/dir_2"
+        BEL "gpio2/dir_1" BEL "gpio2/dir_0" BEL "gpio2/output_15" BEL
+        "gpio2/output_14" BEL "gpio2/output_13" BEL "gpio2/output_12" BEL
+        "gpio2/output_11" BEL "gpio2/output_10" BEL "gpio2/output_9" BEL
+        "gpio2/output_8" BEL "gpio2/output_7" BEL "gpio2/output_6" BEL
+        "gpio2/output_5" BEL "gpio2/output_4" BEL "gpio2/output_3" BEL
+        "gpio2/output_2" BEL "gpio2/output_1" BEL "gpio2/output_0" BEL
+        "gpio2/write_ack" BEL "gpio1/wbs_readdata_15" BEL
+        "gpio1/wbs_readdata_14" BEL "gpio1/wbs_readdata_13" BEL
+        "gpio1/wbs_readdata_12" BEL "gpio1/wbs_readdata_11" BEL
+        "gpio1/wbs_readdata_10" BEL "gpio1/wbs_readdata_9" BEL
+        "gpio1/wbs_readdata_8" BEL "gpio1/wbs_readdata_7" BEL
+        "gpio1/wbs_readdata_6" BEL "gpio1/wbs_readdata_5" BEL
+        "gpio1/wbs_readdata_4" BEL "gpio1/wbs_readdata_3" BEL
+        "gpio1/wbs_readdata_2" BEL "gpio1/wbs_readdata_1" BEL
+        "gpio1/wbs_readdata_0" BEL "gpio1/input_15" BEL "gpio1/input_14" BEL
+        "gpio1/input_13" BEL "gpio1/input_12" BEL "gpio1/input_11" BEL
+        "gpio1/input_10" BEL "gpio1/input_9" BEL "gpio1/input_8" BEL
+        "gpio1/input_7" BEL "gpio1/input_6" BEL "gpio1/input_5" BEL
+        "gpio1/input_4" BEL "gpio1/input_3" BEL "gpio1/input_2" BEL
+        "gpio1/input_1" BEL "gpio1/input_0" BEL "gpio1/read_ack" BEL
+        "gpio1/dir_15" BEL "gpio1/dir_14" BEL "gpio1/dir_13" BEL
+        "gpio1/dir_12" BEL "gpio1/dir_11" BEL "gpio1/dir_10" BEL "gpio1/dir_9"
+        BEL "gpio1/dir_8" BEL "gpio1/dir_7" BEL "gpio1/dir_6" BEL
+        "gpio1/dir_5" BEL "gpio1/dir_4" BEL "gpio1/dir_3" BEL "gpio1/dir_2"
+        BEL "gpio1/dir_1" BEL "gpio1/dir_0" BEL "gpio1/output_15" BEL
+        "gpio1/output_14" BEL "gpio1/output_13" BEL "gpio1/output_12" BEL
+        "gpio1/output_11" BEL "gpio1/output_10" BEL "gpio1/output_9" BEL
+        "gpio1/output_8" BEL "gpio1/output_7" BEL "gpio1/output_6" BEL
+        "gpio1/output_5" BEL "gpio1/output_4" BEL "gpio1/output_3" BEL
+        "gpio1/output_2" BEL "gpio1/output_1" BEL "gpio1/output_0" BEL
+        "gpio1/write_ack" BEL "gpio0/read_ack" BEL "gpio0/dir_15" BEL
+        "gpio0/dir_14" BEL "gpio0/dir_13" BEL "gpio0/dir_12" BEL
+        "gpio0/dir_11" BEL "gpio0/dir_10" BEL "gpio0/dir_9" BEL "gpio0/dir_8"
+        BEL "gpio0/dir_7" BEL "gpio0/dir_6" BEL "gpio0/dir_5" BEL
+        "gpio0/dir_4" BEL "gpio0/dir_3" BEL "gpio0/dir_2" BEL "gpio0/dir_1"
+        BEL "gpio0/dir_0" BEL "gpio0/write_ack" BEL "reg0/wbs_readdata_15" BEL
+        "reg0/wbs_readdata_14" BEL "reg0/wbs_readdata_13" BEL
+        "reg0/wbs_readdata_12" BEL "reg0/wbs_readdata_11" BEL
+        "reg0/wbs_readdata_10" BEL "reg0/wbs_readdata_9" BEL
+        "reg0/wbs_readdata_8" BEL "reg0/wbs_readdata_7" BEL
+        "reg0/wbs_readdata_6" BEL "reg0/wbs_readdata_5" BEL
+        "reg0/wbs_readdata_4" BEL "reg0/wbs_readdata_3" BEL
+        "reg0/wbs_readdata_2" BEL "reg0/wbs_readdata_1" BEL
+        "reg0/wbs_readdata_0" BEL "reg0/read_ack" BEL "reg0/write_ack" BEL
+        "reg0/reg_in_d_9_15" BEL "reg0/reg_in_d_9_14" BEL "reg0/reg_in_d_9_13"
+        BEL "reg0/reg_in_d_9_12" BEL "reg0/reg_in_d_9_11" BEL
+        "reg0/reg_in_d_9_10" BEL "reg0/reg_in_d_9_9" BEL "reg0/reg_in_d_9_8"
+        BEL "reg0/reg_in_d_9_7" BEL "reg0/reg_in_d_9_6" BEL
+        "reg0/reg_in_d_9_5" BEL "reg0/reg_in_d_9_4" BEL "reg0/reg_in_d_9_3"
+        BEL "reg0/reg_in_d_9_2" BEL "reg0/reg_in_d_9_1" BEL
+        "reg0/reg_in_d_9_0" BEL "reg0/reg_in_d_8_15" BEL "reg0/reg_in_d_8_14"
+        BEL "reg0/reg_in_d_8_13" BEL "reg0/reg_in_d_8_12" BEL
+        "reg0/reg_in_d_8_11" BEL "reg0/reg_in_d_8_10" BEL "reg0/reg_in_d_8_9"
+        BEL "reg0/reg_in_d_8_8" BEL "reg0/reg_in_d_8_7" BEL
+        "reg0/reg_in_d_8_6" BEL "reg0/reg_in_d_8_5" BEL "reg0/reg_in_d_8_4"
+        BEL "reg0/reg_in_d_8_3" BEL "reg0/reg_in_d_8_2" BEL
+        "reg0/reg_in_d_8_1" BEL "reg0/reg_in_d_8_0" BEL "reg0/reg_in_d_10_15"
+        BEL "reg0/reg_in_d_10_14" BEL "reg0/reg_in_d_10_13" BEL
+        "reg0/reg_in_d_10_12" BEL "reg0/reg_in_d_10_11" BEL
+        "reg0/reg_in_d_10_10" BEL "reg0/reg_in_d_10_9" BEL
+        "reg0/reg_in_d_10_8" BEL "reg0/reg_in_d_10_7" BEL "reg0/reg_in_d_10_6"
+        BEL "reg0/reg_in_d_10_5" BEL "reg0/reg_in_d_10_4" BEL
+        "reg0/reg_in_d_10_3" BEL "reg0/reg_in_d_10_2" BEL "reg0/reg_in_d_10_1"
+        BEL "reg0/reg_in_d_10_0" BEL "reg0/reg_in_d_7_15" BEL
+        "reg0/reg_in_d_7_14" BEL "reg0/reg_in_d_7_13" BEL "reg0/reg_in_d_7_12"
+        BEL "reg0/reg_in_d_7_11" BEL "reg0/reg_in_d_7_10" BEL
+        "reg0/reg_in_d_7_9" BEL "reg0/reg_in_d_7_8" BEL "reg0/reg_in_d_7_7"
+        BEL "reg0/reg_in_d_7_6" BEL "reg0/reg_in_d_7_5" BEL
+        "reg0/reg_in_d_7_4" BEL "reg0/reg_in_d_7_3" BEL "reg0/reg_in_d_7_2"
+        BEL "reg0/reg_in_d_7_1" BEL "reg0/reg_in_d_7_0" BEL
+        "reg0/reg_in_d_6_15" BEL "reg0/reg_in_d_6_14" BEL "reg0/reg_in_d_6_13"
+        BEL "reg0/reg_in_d_6_12" BEL "reg0/reg_in_d_6_11" BEL
+        "reg0/reg_in_d_6_10" BEL "reg0/reg_in_d_6_9" BEL "reg0/reg_in_d_6_8"
+        BEL "reg0/reg_in_d_6_7" BEL "reg0/reg_in_d_6_6" BEL
+        "reg0/reg_in_d_6_5" BEL "reg0/reg_in_d_6_4" BEL "reg0/reg_in_d_6_3"
+        BEL "reg0/reg_in_d_6_2" BEL "reg0/reg_in_d_6_1" BEL
+        "reg0/reg_in_d_6_0" BEL "reg0/reg_in_d_5_15" BEL "reg0/reg_in_d_5_14"
+        BEL "reg0/reg_in_d_5_13" BEL "reg0/reg_in_d_5_12" BEL
+        "reg0/reg_in_d_5_11" BEL "reg0/reg_in_d_5_10" BEL "reg0/reg_in_d_5_9"
+        BEL "reg0/reg_in_d_5_8" BEL "reg0/reg_in_d_5_7" BEL
+        "reg0/reg_in_d_5_6" BEL "reg0/reg_in_d_5_5" BEL "reg0/reg_in_d_5_4"
+        BEL "reg0/reg_in_d_5_3" BEL "reg0/reg_in_d_5_2" BEL
+        "reg0/reg_in_d_5_1" BEL "reg0/reg_in_d_5_0" BEL "reg0/reg_in_d_4_15"
+        BEL "reg0/reg_in_d_4_14" BEL "reg0/reg_in_d_4_13" BEL
+        "reg0/reg_in_d_4_12" BEL "reg0/reg_in_d_4_11" BEL "reg0/reg_in_d_4_10"
+        BEL "reg0/reg_in_d_4_9" BEL "reg0/reg_in_d_4_8" BEL
+        "reg0/reg_in_d_4_7" BEL "reg0/reg_in_d_4_6" BEL "reg0/reg_in_d_4_5"
+        BEL "reg0/reg_in_d_4_4" BEL "reg0/reg_in_d_4_3" BEL
+        "reg0/reg_in_d_4_2" BEL "reg0/reg_in_d_4_1" BEL "reg0/reg_in_d_4_0"
+        BEL "reg0/reg_in_d_2_5" BEL "reg0/reg_in_d_2_4" BEL
+        "reg0/reg_in_d_2_3" BEL "reg0/reg_in_d_2_2" BEL "reg0/reg_in_d_2_1"
+        BEL "reg0/reg_in_d_2_0" BEL "reg0/reg_out_d_0_1" BEL
+        "reg0/reg_out_d_0_0" BEL "reg0/reg_in_d_3_15" BEL "reg0/reg_in_d_3_14"
+        BEL "reg0/reg_in_d_3_13" BEL "reg0/reg_in_d_3_12" BEL
+        "reg0/reg_in_d_3_11" BEL "reg0/reg_in_d_3_10" BEL "reg0/reg_in_d_3_9"
+        BEL "reg0/reg_in_d_3_8" BEL "reg0/reg_in_d_3_7" BEL
+        "reg0/reg_in_d_3_6" BEL "reg0/reg_in_d_3_5" BEL "reg0/reg_in_d_3_4"
+        BEL "reg0/reg_in_d_3_3" BEL "reg0/reg_in_d_3_2" BEL
+        "reg0/reg_in_d_3_1" BEL "reg0/reg_in_d_3_0" BEL
+        "Inst_Memory_tester/test_counter_28" BEL
+        "Inst_Memory_tester/test_counter_27" BEL
+        "Inst_Memory_tester/test_counter_26" BEL
+        "Inst_Memory_tester/test_counter_25" BEL
+        "Inst_Memory_tester/test_counter_24" BEL
+        "Inst_Memory_tester/test_counter_23" BEL
+        "Inst_Memory_tester/test_counter_22" BEL
+        "Inst_Memory_tester/test_counter_21" BEL
+        "Inst_Memory_tester/test_counter_20" BEL
+        "Inst_Memory_tester/test_counter_19" BEL
+        "Inst_Memory_tester/test_counter_18" BEL
+        "Inst_Memory_tester/test_counter_17" BEL
+        "Inst_Memory_tester/test_counter_16" BEL
+        "Inst_Memory_tester/test_counter_15" BEL
+        "Inst_Memory_tester/test_counter_14" BEL
+        "Inst_Memory_tester/test_counter_13" BEL
+        "Inst_Memory_tester/test_counter_12" BEL
+        "Inst_Memory_tester/test_counter_11" BEL
+        "Inst_Memory_tester/test_counter_10" BEL
+        "Inst_Memory_tester/test_counter_9" BEL
+        "Inst_Memory_tester/test_counter_8" BEL
+        "Inst_Memory_tester/test_counter_7" BEL
+        "Inst_Memory_tester/test_counter_6" BEL
+        "Inst_Memory_tester/test_counter_5" BEL
+        "Inst_Memory_tester/test_counter_4" BEL
+        "Inst_Memory_tester/test_counter_3" BEL
+        "Inst_Memory_tester/test_counter_2" BEL
+        "Inst_Memory_tester/test_counter_1" BEL
+        "Inst_Memory_tester/test_counter_0" BEL "Inst_Memory_tester/debug_15"
+        BEL "Inst_Memory_tester/debug_14" BEL "Inst_Memory_tester/debug_13"
+        BEL "Inst_Memory_tester/debug_12" BEL "Inst_Memory_tester/debug_11"
+        BEL "Inst_Memory_tester/debug_10" BEL "Inst_Memory_tester/debug_9" BEL
+        "Inst_Memory_tester/debug_8" BEL "Inst_Memory_tester/debug_7" BEL
+        "Inst_Memory_tester/debug_6" BEL "Inst_Memory_tester/debug_5" BEL
+        "Inst_Memory_tester/debug_4" BEL "Inst_Memory_tester/debug_3" BEL
+        "Inst_Memory_tester/debug_2" BEL "Inst_Memory_tester/debug_1" BEL
+        "Inst_Memory_tester/debug_0" BEL "Inst_Memory_tester/debug_dump_7" BEL
+        "Inst_Memory_tester/debug_dump_6" BEL
+        "Inst_Memory_tester/debug_dump_5" BEL
+        "Inst_Memory_tester/debug_dump_4" BEL
+        "Inst_Memory_tester/debug_dump_3" BEL
+        "Inst_Memory_tester/debug_dump_2" BEL
+        "Inst_Memory_tester/debug_dump_1" BEL
+        "Inst_Memory_tester/debug_dump_0" BEL "Inst_Memory_tester/wanted_27"
+        BEL "Inst_Memory_tester/wanted_26" BEL "Inst_Memory_tester/wanted_25"
+        BEL "Inst_Memory_tester/wanted_24" BEL "Inst_Memory_tester/wanted_23"
+        BEL "Inst_Memory_tester/wanted_22" BEL "Inst_Memory_tester/wanted_21"
+        BEL "Inst_Memory_tester/wanted_20" BEL "Inst_Memory_tester/wanted_19"
+        BEL "Inst_Memory_tester/wanted_18" BEL "Inst_Memory_tester/wanted_17"
+        BEL "Inst_Memory_tester/wanted_16" BEL "Inst_Memory_tester/wanted_15"
+        BEL "Inst_Memory_tester/wanted_14" BEL "Inst_Memory_tester/wanted_13"
+        BEL "Inst_Memory_tester/wanted_12" BEL "Inst_Memory_tester/wanted_11"
+        BEL "Inst_Memory_tester/wanted_10" BEL "Inst_Memory_tester/wanted_9"
+        BEL "Inst_Memory_tester/wanted_8" BEL "Inst_Memory_tester/wanted_7"
+        BEL "Inst_Memory_tester/wanted_6" BEL "Inst_Memory_tester/wanted_5"
+        BEL "Inst_Memory_tester/wanted_4" BEL "Inst_Memory_tester/wanted_3"
+        BEL "Inst_Memory_tester/wanted_2" BEL "Inst_Memory_tester/wanted_1"
+        BEL "Inst_Memory_tester/wanted_0" BEL "Inst_Memory_tester/received_31"
+        BEL "Inst_Memory_tester/received_30" BEL
+        "Inst_Memory_tester/received_29" BEL "Inst_Memory_tester/received_28"
+        BEL "Inst_Memory_tester/received_27" BEL
+        "Inst_Memory_tester/received_26" BEL "Inst_Memory_tester/received_25"
+        BEL "Inst_Memory_tester/received_24" BEL
+        "Inst_Memory_tester/received_23" BEL "Inst_Memory_tester/received_22"
+        BEL "Inst_Memory_tester/received_21" BEL
+        "Inst_Memory_tester/received_20" BEL "Inst_Memory_tester/received_19"
+        BEL "Inst_Memory_tester/received_18" BEL
+        "Inst_Memory_tester/received_17" BEL "Inst_Memory_tester/received_16"
+        BEL "Inst_Memory_tester/received_15" BEL
+        "Inst_Memory_tester/received_14" BEL "Inst_Memory_tester/received_13"
+        BEL "Inst_Memory_tester/received_12" BEL
+        "Inst_Memory_tester/received_11" BEL "Inst_Memory_tester/received_10"
+        BEL "Inst_Memory_tester/received_9" BEL
+        "Inst_Memory_tester/received_8" BEL "Inst_Memory_tester/received_7"
+        BEL "Inst_Memory_tester/received_6" BEL
+        "Inst_Memory_tester/received_5" BEL "Inst_Memory_tester/received_4"
+        BEL "Inst_Memory_tester/received_3" BEL
+        "Inst_Memory_tester/received_2" BEL "Inst_Memory_tester/received_1"
+        BEL "Inst_Memory_tester/received_0" BEL
+        "Inst_SDRAM_Controller/state_FSM_FFd12" BEL
+        "Inst_SDRAM_Controller/state_FSM_FFd15" BEL
+        "Inst_SDRAM_Controller/state_FSM_FFd3" BEL
+        "Inst_SDRAM_Controller/state_FSM_FFd6" BEL
+        "Inst_SDRAM_Controller/state_FSM_FFd9" BEL
+        "Inst_SDRAM_Controller/state_FSM_FFd13" BEL
+        "Inst_SDRAM_Controller/state_FSM_FFd16" BEL
+        "Inst_SDRAM_Controller/state_FSM_FFd1" BEL
+        "Inst_SDRAM_Controller/state_FSM_FFd2" BEL
+        "Inst_SDRAM_Controller/state_FSM_FFd4" BEL
+        "Inst_SDRAM_Controller/state_FSM_FFd5" BEL
+        "Inst_SDRAM_Controller/state_FSM_FFd7" BEL
+        "Inst_SDRAM_Controller/state_FSM_FFd8" BEL
+        "Inst_SDRAM_Controller/state_FSM_FFd10" BEL
+        "Inst_SDRAM_Controller/state_FSM_FFd11" BEL
+        "Inst_SDRAM_Controller/state_FSM_FFd14" BEL
+        "Inst_SDRAM_Controller/state_FSM_FFd17" BEL
+        "Inst_SDRAM_Controller/state_FSM_FFd18" BEL
+        "Inst_SDRAM_Controller/data_out_31" BEL
+        "Inst_SDRAM_Controller/data_out_30" BEL
+        "Inst_SDRAM_Controller/data_out_29" BEL
+        "Inst_SDRAM_Controller/data_out_28" BEL
+        "Inst_SDRAM_Controller/data_out_27" BEL
+        "Inst_SDRAM_Controller/data_out_26" BEL
+        "Inst_SDRAM_Controller/data_out_25" BEL
+        "Inst_SDRAM_Controller/data_out_24" BEL
+        "Inst_SDRAM_Controller/data_out_23" BEL
+        "Inst_SDRAM_Controller/data_out_22" BEL
+        "Inst_SDRAM_Controller/data_out_21" BEL
+        "Inst_SDRAM_Controller/data_out_20" BEL
+        "Inst_SDRAM_Controller/data_out_19" BEL
+        "Inst_SDRAM_Controller/data_out_18" BEL
+        "Inst_SDRAM_Controller/data_out_17" BEL
+        "Inst_SDRAM_Controller/data_out_16" BEL
+        "Inst_SDRAM_Controller/data_out_15" BEL
+        "Inst_SDRAM_Controller/data_out_14" BEL
+        "Inst_SDRAM_Controller/data_out_13" BEL
+        "Inst_SDRAM_Controller/data_out_12" BEL
+        "Inst_SDRAM_Controller/data_out_11" BEL
+        "Inst_SDRAM_Controller/data_out_10" BEL
+        "Inst_SDRAM_Controller/data_out_9" BEL
+        "Inst_SDRAM_Controller/data_out_8" BEL
+        "Inst_SDRAM_Controller/data_out_7" BEL
+        "Inst_SDRAM_Controller/data_out_6" BEL
+        "Inst_SDRAM_Controller/data_out_5" BEL
+        "Inst_SDRAM_Controller/data_out_4" BEL
+        "Inst_SDRAM_Controller/data_out_3" BEL
+        "Inst_SDRAM_Controller/data_out_2" BEL
+        "Inst_SDRAM_Controller/data_out_1" BEL
+        "Inst_SDRAM_Controller/data_out_0" BEL
+        "Inst_SDRAM_Controller/captured_data_last_15" BEL
+        "Inst_SDRAM_Controller/captured_data_last_14" BEL
+        "Inst_SDRAM_Controller/captured_data_last_13" BEL
+        "Inst_SDRAM_Controller/captured_data_last_12" BEL
+        "Inst_SDRAM_Controller/captured_data_last_11" BEL
+        "Inst_SDRAM_Controller/captured_data_last_10" BEL
+        "Inst_SDRAM_Controller/captured_data_last_9" BEL
+        "Inst_SDRAM_Controller/captured_data_last_8" BEL
+        "Inst_SDRAM_Controller/captured_data_last_7" BEL
+        "Inst_SDRAM_Controller/captured_data_last_6" BEL
+        "Inst_SDRAM_Controller/captured_data_last_5" BEL
+        "Inst_SDRAM_Controller/captured_data_last_4" BEL
+        "Inst_SDRAM_Controller/captured_data_last_3" BEL
+        "Inst_SDRAM_Controller/captured_data_last_2" BEL
+        "Inst_SDRAM_Controller/captured_data_last_1" BEL
+        "Inst_SDRAM_Controller/captured_data_last_0" BEL
+        "Inst_SDRAM_Controller/captured_data_15" BEL
+        "Inst_SDRAM_Controller/captured_data_14" BEL
+        "Inst_SDRAM_Controller/captured_data_13" BEL
+        "Inst_SDRAM_Controller/captured_data_12" BEL
+        "Inst_SDRAM_Controller/captured_data_11" BEL
+        "Inst_SDRAM_Controller/captured_data_10" BEL
+        "Inst_SDRAM_Controller/captured_data_9" BEL
+        "Inst_SDRAM_Controller/captured_data_8" BEL
+        "Inst_SDRAM_Controller/captured_data_7" BEL
+        "Inst_SDRAM_Controller/captured_data_6" BEL
+        "Inst_SDRAM_Controller/captured_data_5" BEL
+        "Inst_SDRAM_Controller/captured_data_4" BEL
+        "Inst_SDRAM_Controller/captured_data_3" BEL
+        "Inst_SDRAM_Controller/captured_data_2" BEL
+        "Inst_SDRAM_Controller/captured_data_1" BEL
+        "Inst_SDRAM_Controller/captured_data_0" BEL
+        "Inst_SDRAM_Controller/iob_address_12" BEL
+        "Inst_SDRAM_Controller/iob_address_11" BEL
+        "Inst_SDRAM_Controller/iob_address_10" BEL
+        "Inst_SDRAM_Controller/iob_address_9" BEL
+        "Inst_SDRAM_Controller/iob_address_8" BEL
+        "Inst_SDRAM_Controller/iob_address_7" BEL
+        "Inst_SDRAM_Controller/iob_address_6" BEL
+        "Inst_SDRAM_Controller/iob_address_5" BEL
+        "Inst_SDRAM_Controller/iob_address_4" BEL
+        "Inst_SDRAM_Controller/iob_address_3" BEL
+        "Inst_SDRAM_Controller/iob_address_2" BEL
+        "Inst_SDRAM_Controller/iob_address_1" BEL
+        "Inst_SDRAM_Controller/iob_address_0" BEL
+        "Inst_SDRAM_Controller/iob_bank_1" BEL
+        "Inst_SDRAM_Controller/iob_bank_0" BEL
+        "Inst_SDRAM_Controller/iob_data_15" BEL
+        "Inst_SDRAM_Controller/iob_data_14" BEL
+        "Inst_SDRAM_Controller/iob_data_13" BEL
+        "Inst_SDRAM_Controller/iob_data_12" BEL
+        "Inst_SDRAM_Controller/iob_data_11" BEL
+        "Inst_SDRAM_Controller/iob_data_10" BEL
+        "Inst_SDRAM_Controller/iob_data_9" BEL
+        "Inst_SDRAM_Controller/iob_data_8" BEL
+        "Inst_SDRAM_Controller/iob_data_7" BEL
+        "Inst_SDRAM_Controller/iob_data_6" BEL
+        "Inst_SDRAM_Controller/iob_data_5" BEL
+        "Inst_SDRAM_Controller/iob_data_4" BEL
+        "Inst_SDRAM_Controller/iob_data_3" BEL
+        "Inst_SDRAM_Controller/iob_data_2" BEL
+        "Inst_SDRAM_Controller/iob_data_1" BEL
+        "Inst_SDRAM_Controller/iob_data_0" BEL
+        "Inst_SDRAM_Controller/data_out_ready" BEL
+        "Inst_SDRAM_Controller/iob_command_2" BEL
+        "Inst_SDRAM_Controller/iob_command_1" BEL
+        "Inst_SDRAM_Controller/iob_command_0" BEL
+        "Inst_SDRAM_Controller/got_transaction" BEL
+        "Inst_SDRAM_Controller/ready_for_new" BEL
+        "Inst_SDRAM_Controller/iob_dqm_1" BEL
+        "Inst_SDRAM_Controller/iob_dqm_0" BEL
+        "Inst_SDRAM_Controller/startup_refresh_count_13" BEL
+        "Inst_SDRAM_Controller/startup_refresh_count_12" BEL
+        "Inst_SDRAM_Controller/startup_refresh_count_11" BEL
+        "Inst_SDRAM_Controller/startup_refresh_count_10" BEL
+        "Inst_SDRAM_Controller/startup_refresh_count_9" BEL
+        "Inst_SDRAM_Controller/startup_refresh_count_8" BEL
+        "Inst_SDRAM_Controller/startup_refresh_count_7" BEL
+        "Inst_SDRAM_Controller/startup_refresh_count_6" BEL
+        "Inst_SDRAM_Controller/startup_refresh_count_5" BEL
+        "Inst_SDRAM_Controller/startup_refresh_count_4" BEL
+        "Inst_SDRAM_Controller/startup_refresh_count_3" BEL
+        "Inst_SDRAM_Controller/startup_refresh_count_2" BEL
+        "Inst_SDRAM_Controller/startup_refresh_count_1" BEL
+        "Inst_SDRAM_Controller/startup_refresh_count_0" BEL
+        "Inst_SDRAM_Controller/dqm_sr_1" BEL
+        "Inst_SDRAM_Controller/iob_data_next_15" BEL
+        "Inst_SDRAM_Controller/iob_data_next_14" BEL
+        "Inst_SDRAM_Controller/iob_data_next_13" BEL
+        "Inst_SDRAM_Controller/iob_data_next_12" BEL
+        "Inst_SDRAM_Controller/iob_data_next_7" BEL
+        "Inst_SDRAM_Controller/iob_data_next_6" BEL
+        "Inst_SDRAM_Controller/iob_data_next_5" BEL
+        "Inst_SDRAM_Controller/iob_data_next_4" BEL
+        "Inst_SDRAM_Controller/iob_data_next_3" BEL
+        "Inst_SDRAM_Controller/iob_data_next_2" BEL
+        "Inst_SDRAM_Controller/iob_data_next_1" BEL
+        "Inst_SDRAM_Controller/iob_data_next_0" BEL
+        "Inst_SDRAM_Controller/save_col_8" BEL
+        "Inst_SDRAM_Controller/save_col_7" BEL
+        "Inst_SDRAM_Controller/save_col_6" BEL
+        "Inst_SDRAM_Controller/save_col_5" BEL
+        "Inst_SDRAM_Controller/save_col_4" BEL
+        "Inst_SDRAM_Controller/save_col_3" BEL
+        "Inst_SDRAM_Controller/save_col_2" BEL
+        "Inst_SDRAM_Controller/save_col_1" BEL "Inst_SDRAM_Controller/save_wr"
+        BEL "Inst_SDRAM_Controller/save_row_12" BEL
+        "Inst_SDRAM_Controller/save_row_11" BEL
+        "Inst_SDRAM_Controller/save_row_10" BEL
+        "Inst_SDRAM_Controller/save_row_9" BEL
+        "Inst_SDRAM_Controller/save_row_8" BEL
+        "Inst_SDRAM_Controller/save_row_7" BEL
+        "Inst_SDRAM_Controller/save_row_6" BEL
+        "Inst_SDRAM_Controller/save_row_5" BEL
+        "Inst_SDRAM_Controller/save_row_4" BEL
+        "Inst_SDRAM_Controller/save_row_3" BEL
+        "Inst_SDRAM_Controller/save_row_2" BEL
+        "Inst_SDRAM_Controller/save_row_1" BEL
+        "Inst_SDRAM_Controller/save_row_0" BEL
+        "Inst_SDRAM_Controller/can_back_to_back" BEL
+        "Inst_SDRAM_Controller/save_bank_1" BEL
+        "Inst_SDRAM_Controller/save_bank_0" BEL
+        "Inst_SDRAM_Controller/save_data_in_31" BEL
+        "Inst_SDRAM_Controller/save_data_in_30" BEL
+        "Inst_SDRAM_Controller/save_data_in_29" BEL
+        "Inst_SDRAM_Controller/save_data_in_28" BEL
+        "Inst_SDRAM_Controller/save_data_in_23" BEL
+        "Inst_SDRAM_Controller/save_data_in_22" BEL
+        "Inst_SDRAM_Controller/save_data_in_21" BEL
+        "Inst_SDRAM_Controller/save_data_in_20" BEL
+        "Inst_SDRAM_Controller/save_data_in_19" BEL
+        "Inst_SDRAM_Controller/save_data_in_18" BEL
+        "Inst_SDRAM_Controller/save_data_in_17" BEL
+        "Inst_SDRAM_Controller/save_data_in_16" BEL
+        "Inst_SDRAM_Controller/save_data_in_15" BEL
+        "Inst_SDRAM_Controller/save_data_in_14" BEL
+        "Inst_SDRAM_Controller/save_data_in_13" BEL
+        "Inst_SDRAM_Controller/save_data_in_12" BEL
+        "Inst_SDRAM_Controller/save_data_in_11" BEL
+        "Inst_SDRAM_Controller/save_data_in_10" BEL
+        "Inst_SDRAM_Controller/save_data_in_9" BEL
+        "Inst_SDRAM_Controller/save_data_in_8" BEL
+        "Inst_SDRAM_Controller/save_data_in_7" BEL
+        "Inst_SDRAM_Controller/save_data_in_6" BEL
+        "Inst_SDRAM_Controller/save_data_in_5" BEL
+        "Inst_SDRAM_Controller/save_data_in_4" BEL
+        "Inst_SDRAM_Controller/save_data_in_3" BEL
+        "Inst_SDRAM_Controller/save_data_in_2" BEL
+        "Inst_SDRAM_Controller/save_data_in_1" BEL
+        "Inst_SDRAM_Controller/save_data_in_0" BEL "Inst_Memory_tester/b" BEL
+        "Inst_SDRAM_Controller/iob_dq_hiz" BEL "Inst_SDRAM_Controller/iob_cke"
+        BEL "Inst_Memory_tester/read_counter_26" BEL
+        "Inst_Memory_tester/read_counter_25" BEL
+        "Inst_Memory_tester/read_counter_24" BEL
+        "Inst_Memory_tester/read_counter_23" BEL
+        "Inst_Memory_tester/read_counter_22" BEL
+        "Inst_Memory_tester/read_counter_21" BEL
+        "Inst_Memory_tester/read_counter_20" BEL
+        "Inst_Memory_tester/read_counter_19" BEL
+        "Inst_Memory_tester/read_counter_18" BEL
+        "Inst_Memory_tester/read_counter_17" BEL
+        "Inst_Memory_tester/read_counter_16" BEL
+        "Inst_Memory_tester/read_counter_15" BEL
+        "Inst_Memory_tester/read_counter_14" BEL
+        "Inst_Memory_tester/read_counter_13" BEL
+        "Inst_Memory_tester/read_counter_12" BEL
+        "Inst_Memory_tester/read_counter_11" BEL
+        "Inst_Memory_tester/read_counter_10" BEL
+        "Inst_Memory_tester/read_counter_9" BEL
+        "Inst_Memory_tester/read_counter_8" BEL
+        "Inst_Memory_tester/read_counter_7" BEL
+        "Inst_Memory_tester/read_counter_6" BEL
+        "Inst_Memory_tester/read_counter_5" BEL
+        "Inst_Memory_tester/read_counter_4" BEL
+        "Inst_Memory_tester/read_counter_3" BEL
+        "Inst_Memory_tester/read_counter_2" BEL
+        "Inst_Memory_tester/read_counter_1" BEL
+        "Inst_Memory_tester/read_counter_0" BEL
+        "Inst_Memory_tester/has_errored" BEL "gpmc2wishbone/address_12_1" BEL
+        "Inst_SDRAM_Controller/iob_cke_1" BEL "gpio0/output_15" BEL
+        "gpio0/output_14" BEL "gpio0/output_13" BEL "gpio0/output_12" BEL
+        "gpio0/output_11" BEL "gpio0/output_10" BEL "gpio0/output_9" BEL
+        "gpio0/output_8" BEL "gpio0/output_7" BEL "gpio0/output_6" BEL
+        "gpio0/output_5" BEL "gpio0/output_4" BEL "gpio0/output_3" BEL
+        "gpio0/output_2" BEL "gpio0/output_1" BEL "gpio0/output_0" PIN
+        "mem_0/ram0/Mram_RAM1_pins<22>" PIN "mem_0/ram0/Mram_RAM1_pins<23>"
+        PIN "mem_0/ram0/Mram_RAM2_pins<22>" PIN
+        "mem_0/ram0/Mram_RAM2_pins<23>" BEL "gpio0/Mshreg_wbs_readdata_13" BEL
+        "gpio0/wbs_readdata_13" BEL "gpio0/Mshreg_wbs_readdata_15" BEL
+        "gpio0/wbs_readdata_15" BEL "gpio0/Mshreg_wbs_readdata_14" BEL
+        "gpio0/wbs_readdata_14" BEL "gpio0/Mshreg_wbs_readdata_12" BEL
+        "gpio0/wbs_readdata_12" BEL "gpio0/Mshreg_wbs_readdata_11" BEL
+        "gpio0/wbs_readdata_11" BEL "gpio0/Mshreg_wbs_readdata_10" BEL
+        "gpio0/wbs_readdata_10" BEL "gpio0/Mshreg_wbs_readdata_9" BEL
+        "gpio0/wbs_readdata_9" BEL "gpio0/Mshreg_wbs_readdata_8" BEL
+        "gpio0/wbs_readdata_8" BEL "gpio0/Mshreg_wbs_readdata_7" BEL
+        "gpio0/wbs_readdata_7" BEL "gpio0/Mshreg_wbs_readdata_6" BEL
+        "gpio0/wbs_readdata_6" BEL "gpio0/Mshreg_wbs_readdata_5" BEL
+        "gpio0/wbs_readdata_5" BEL "gpio0/Mshreg_wbs_readdata_4" BEL
+        "gpio0/wbs_readdata_4" BEL "gpio0/Mshreg_wbs_readdata_3" BEL
+        "gpio0/wbs_readdata_3" BEL "gpio0/Mshreg_wbs_readdata_2" BEL
+        "gpio0/wbs_readdata_2" BEL "gpio0/Mshreg_wbs_readdata_1" BEL
+        "gpio0/wbs_readdata_1" BEL "gpio0/Mshreg_wbs_readdata_0" BEL
+        "gpio0/wbs_readdata_0" BEL
+        "Inst_SDRAM_Controller/Mshreg_data_ready_delay_0" BEL
+        "Inst_SDRAM_Controller/data_ready_delay_0" PIN
+        "Inst_SDRAM_Controller/sdram_clk_forward_pins<1>" PIN
+        "Inst_SDRAM_Controller/sdram_clk_forward_pins<2>" PIN
+        "Inst_SDRAM_Controller/sdram_clk_forward_pins<1>" PIN
+        "Inst_SDRAM_Controller/sdram_clk_forward_pins<2>" BEL
+        "pll0/clkout1_buf" PIN "SP6_INS_BUFIO2FB_DCM_ML_BUFIO2FB_1_pins<1>"
+        PIN "pll0/dcm_sp_inst_pins<1>";
+TIMEGRP clk100_grp = BEL "gpmc2wishbone/writedata_bridge_15" BEL
+        "gpmc2wishbone/writedata_bridge_14" BEL
+        "gpmc2wishbone/writedata_bridge_13" BEL
+        "gpmc2wishbone/writedata_bridge_12" BEL
+        "gpmc2wishbone/writedata_bridge_11" BEL
+        "gpmc2wishbone/writedata_bridge_10" BEL
+        "gpmc2wishbone/writedata_bridge_9" BEL
+        "gpmc2wishbone/writedata_bridge_8" BEL
+        "gpmc2wishbone/writedata_bridge_7" BEL
+        "gpmc2wishbone/writedata_bridge_6" BEL
+        "gpmc2wishbone/writedata_bridge_5" BEL
+        "gpmc2wishbone/writedata_bridge_4" BEL
+        "gpmc2wishbone/writedata_bridge_3" BEL
+        "gpmc2wishbone/writedata_bridge_2" BEL
+        "gpmc2wishbone/writedata_bridge_1" BEL
+        "gpmc2wishbone/writedata_bridge_0" BEL
+        "gpmc2wishbone/address_bridge_15" BEL
+        "gpmc2wishbone/address_bridge_14" BEL
+        "gpmc2wishbone/address_bridge_13" BEL
+        "gpmc2wishbone/address_bridge_12" BEL
+        "gpmc2wishbone/address_bridge_11" BEL
+        "gpmc2wishbone/address_bridge_10" BEL "gpmc2wishbone/address_bridge_9"
+        BEL "gpmc2wishbone/address_bridge_8" BEL
+        "gpmc2wishbone/address_bridge_7" BEL "gpmc2wishbone/address_bridge_6"
+        BEL "gpmc2wishbone/address_bridge_5" BEL
+        "gpmc2wishbone/address_bridge_4" BEL "gpmc2wishbone/address_bridge_3"
+        BEL "gpmc2wishbone/address_bridge_2" BEL
+        "gpmc2wishbone/address_bridge_1" BEL "gpmc2wishbone/address_bridge_0"
+        BEL "gpmc2wishbone/wen_bridge" BEL "gpmc2wishbone/oen_bridge" BEL
+        "gpmc2wishbone/csn_bridge" BEL "GPMC_CLK_BUFGP/BUFG" BEL
+        "gpmc2wishbone/readdata_15" BEL "gpmc2wishbone/readdata_14" BEL
+        "gpmc2wishbone/readdata_13" BEL "gpmc2wishbone/readdata_12" BEL
+        "gpmc2wishbone/readdata_11" BEL "gpmc2wishbone/readdata_10" BEL
+        "gpmc2wishbone/readdata_9" BEL "gpmc2wishbone/readdata_8" BEL
+        "gpmc2wishbone/readdata_7" BEL "gpmc2wishbone/readdata_6" BEL
+        "gpmc2wishbone/readdata_5" BEL "gpmc2wishbone/readdata_4" BEL
+        "gpmc2wishbone/readdata_3" BEL "gpmc2wishbone/readdata_2" BEL
+        "gpmc2wishbone/readdata_1" BEL "gpmc2wishbone/readdata_0";
+PIN SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0> = BEL "SP6_BUFIO_INSERT_ML_BUFIO2_0"
+        PINNAME DIVCLK;
+PIN pll0/dcm_sp_inst_pins<2> = BEL "pll0/dcm_sp_inst" PINNAME CLKIN;
+TIMEGRP clk50_grp = PIN "SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0>" PIN
+        "pll0/dcm_sp_inst_pins<2>";
+TS_PER_CLK50 = PERIOD TIMEGRP "clk50_grp" 20 ns HIGH 50%;
+TS_PER_CLK100 = PERIOD TIMEGRP "clk100_grp" 10 ns HIGH 50%;
+TS_pll0_clk2x = PERIOD TIMEGRP "pll0_clk2x" TS_PER_CLK50 / 2 HIGH 50%;
+SCHEMATIC END;
+
