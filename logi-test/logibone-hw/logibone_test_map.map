@@ -1,0 +1,195 @@
+Release 14.1 Map P.15xf (lin64)
+Xilinx Map Application Log File for Design 'logibone_test'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol
+high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off
+-pr off -lc off -power off -o logibone_test_map.ncd logibone_test.ngd
+logibone_test.pcf 
+Target Device  : xc6slx9
+Target Package : tqg144
+Target Speed   : -2
+Mapper Version : spartan6 -- $Revision: 1.55 $
+Mapped Date    : Sat Jan 11 14:17:31 2014
+
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+INFO:Security:67 - XILINXD_LICENSE_FILE is set to
+'/opt/Xilinx/13.1/ISE_DS/EDK/data/core_licenses' in /home/jpiat/.flexlmrc.
+INFO:Security:54 - 'xc6slx9' is a WebPack part.
+WARNING:Security:42 - Your license support version '2014.01' for WebPack expires
+in 20 days after which you will not qualify for Xilinx software updates or new
+releases.
+----------------------------------------------------------------------
+Mapping design into LUTs...
+WARNING:MapLib:701 - Signal SATA_D2_P connected to top level port SATA_D2_P has
+   been removed.
+WARNING:MapLib:701 - Signal SATA_D2_N connected to top level port SATA_D2_N has
+   been removed.
+Running directed packing...
+Running delay-based LUT packing...
+Updating timing models...
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+Running timing-driven placement...
+Total REAL time at the beginning of Placer: 16 secs 
+Total CPU  time at the beginning of Placer: 5 secs 
+
+Phase 1.1  Initial Placement Analysis
+Phase 1.1  Initial Placement Analysis (Checksum:f05b2ae2) REAL time: 16 secs 
+
+Phase 2.7  Design Feasibility Check
+Phase 2.7  Design Feasibility Check (Checksum:f05b2ae2) REAL time: 16 secs 
+
+Phase 3.31  Local Placement Optimization
+Phase 3.31  Local Placement Optimization (Checksum:f05b2ae2) REAL time: 16 secs 
+
+Phase 4.2  Initial Placement for Architecture Specific Features
+
+.......
+WARNING:Place:1109 - A clock IOB / BUFGMUX clock component pair have been found
+   that are not placed at an optimal clock IOB / BUFGMUX site pair. The clock
+   IOB component <GPMC_CLK> is placed at site <P105>. The corresponding BUFG
+   component <GPMC_CLK_BUFGP/BUFG> is placed at site <BUFGMUX_X3Y16>. There is
+   only a select set of IOBs that can use the fast path to the Clocker buffer,
+   and they are not being used. You may want to analyze why this problem exists
+   and correct it. This is normally an ERROR but the CLOCK_DEDICATED_ROUTE
+   constraint was applied on COMP.PIN <GPMC_CLK.PAD> allowing your design to
+   continue. This constraint disables all clock placer rules related to the
+   specified COMP.PIN. The use of this override is highly discouraged as it may
+   lead to very poor timing results. It is recommended that this error condition
+   be corrected in the design.
+Phase 4.2  Initial Placement for Architecture Specific Features
+(Checksum:1e363276) REAL time: 19 secs 
+
+Phase 5.36  Local Placement Optimization
+Phase 5.36  Local Placement Optimization (Checksum:1e363276) REAL time: 19 secs 
+
+Phase 6.30  Global Clock Region Assignment
+Phase 6.30  Global Clock Region Assignment (Checksum:1e363276) REAL time: 19 secs 
+
+Phase 7.3  Local Placement Optimization
+Phase 7.3  Local Placement Optimization (Checksum:1e363276) REAL time: 19 secs 
+
+Phase 8.5  Local Placement Optimization
+Phase 8.5  Local Placement Optimization (Checksum:1e363276) REAL time: 19 secs 
+
+Phase 9.8  Global Placement
+.......................
+................................................
+Phase 9.8  Global Placement (Checksum:4c9c1d3) REAL time: 20 secs 
+
+Phase 10.5  Local Placement Optimization
+Phase 10.5  Local Placement Optimization (Checksum:4c9c1d3) REAL time: 20 secs 
+
+Phase 11.18  Placement Optimization
+Phase 11.18  Placement Optimization (Checksum:15f5275b) REAL time: 21 secs 
+
+Phase 12.5  Local Placement Optimization
+Phase 12.5  Local Placement Optimization (Checksum:15f5275b) REAL time: 21 secs 
+
+Phase 13.34  Placement Validation
+Phase 13.34  Placement Validation (Checksum:daae58d6) REAL time: 21 secs 
+
+Total REAL time to Placer completion: 22 secs 
+Total CPU  time to Placer completion: 11 secs 
+Running post-placement packing...
+Writing output files...
+
+Design Summary
+--------------
+
+Design Summary:
+Number of errors:      0
+Number of warnings:    3
+Slice Logic Utilization:
+  Number of Slice Registers:                   849 out of  11,440    7%
+    Number used as Flip Flops:                 849
+    Number used as Latches:                      0
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                        743 out of   5,720   12%
+    Number used as logic:                      715 out of   5,720   12%
+      Number using O6 output only:             580
+      Number using O5 output only:              70
+      Number using O5 and O6:                   65
+      Number used as ROM:                        0
+    Number used as Memory:                       9 out of   1,440    1%
+      Number used as Dual Port RAM:              0
+      Number used as Single Port RAM:            0
+      Number used as Shift Register:             9
+        Number using O6 output only:             1
+        Number using O5 output only:             0
+        Number using O5 and O6:                  8
+    Number used exclusively as route-thrus:     19
+      Number with same-slice register load:     16
+      Number with same-slice carry load:         3
+      Number with other load:                    0
+
+Slice Logic Distribution:
+  Number of occupied Slices:                   304 out of   1,430   21%
+  Nummber of MUXCYs used:                      116 out of   2,860    4%
+  Number of LUT Flip Flop pairs used:        1,021
+    Number with an unused Flip Flop:           208 out of   1,021   20%
+    Number with an unused LUT:                 278 out of   1,021   27%
+    Number of fully used LUT-FF pairs:         535 out of   1,021   52%
+    Number of unique control sets:              23
+    Number of slice register sites lost
+      to control set restrictions:              54 out of  11,440    1%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                        88 out of     102   86%
+    Number of LOCed IOBs:                       88 out of      88  100%
+    IOB Flip Flops:                             71
+    IOB Master Pads:                             1
+    IOB Slave Pads:                              1
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                         2 out of      32    6%
+  Number of RAMB8BWERs:                          0 out of      64    0%
+  Number of BUFIO2/BUFIO2_2CLKs:                 1 out of      32    3%
+    Number used as BUFIO2s:                      1
+    Number used as BUFIO2_2CLKs:                 0
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             1 out of      32    3%
+    Number used as BUFIO2FBs:                    1
+    Number used as BUFIO2FB_2CLKs:               0
+  Number of BUFG/BUFGMUXs:                       2 out of      16   12%
+    Number used as BUFGs:                        2
+    Number used as BUFGMUX:                      0
+  Number of DCM/DCM_CLKGENs:                     1 out of       4   25%
+    Number used as DCMs:                         1
+    Number used as DCM_CLKGENs:                  0
+  Number of ILOGIC2/ISERDES2s:                  17 out of     200    8%
+    Number used as ILOGIC2s:                    17
+    Number used as ISERDES2s:                    0
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     200    0%
+  Number of OLOGIC2/OSERDES2s:                  54 out of     200   27%
+    Number used as OLOGIC2s:                    54
+    Number used as OSERDES2s:                    0
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     128    0%
+  Number of BUFPLLs:                             0 out of       8    0%
+  Number of BUFPLL_MCBs:                         0 out of       4    0%
+  Number of DSP48A1s:                            0 out of      16    0%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                0 out of       2    0%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            0 out of       2    0%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+Average Fanout of Non-Clock Nets:                3.36
+
+Peak Memory Usage:  681 MB
+Total REAL time to MAP completion:  23 secs 
+Total CPU time to MAP completion:   12 secs 
+
+Mapping completed.
+See MAP report file "logibone_test_map.mrp" for details.

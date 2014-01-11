@@ -1,0 +1,367 @@
+Release 14.1 Map P.15xf (lin64)
+Xilinx Mapping Report File for Design 'logibone_test'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol
+high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off
+-pr off -lc off -power off -o logibone_test_map.ncd logibone_test.ngd
+logibone_test.pcf 
+Target Device  : xc6slx9
+Target Package : tqg144
+Target Speed   : -2
+Mapper Version : spartan6 -- $Revision: 1.55 $
+Mapped Date    : Sat Jan 11 14:17:31 2014
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:    3
+Slice Logic Utilization:
+  Number of Slice Registers:                   849 out of  11,440    7%
+    Number used as Flip Flops:                 849
+    Number used as Latches:                      0
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                        743 out of   5,720   12%
+    Number used as logic:                      715 out of   5,720   12%
+      Number using O6 output only:             580
+      Number using O5 output only:              70
+      Number using O5 and O6:                   65
+      Number used as ROM:                        0
+    Number used as Memory:                       9 out of   1,440    1%
+      Number used as Dual Port RAM:              0
+      Number used as Single Port RAM:            0
+      Number used as Shift Register:             9
+        Number using O6 output only:             1
+        Number using O5 output only:             0
+        Number using O5 and O6:                  8
+    Number used exclusively as route-thrus:     19
+      Number with same-slice register load:     16
+      Number with same-slice carry load:         3
+      Number with other load:                    0
+
+Slice Logic Distribution:
+  Number of occupied Slices:                   304 out of   1,430   21%
+  Nummber of MUXCYs used:                      116 out of   2,860    4%
+  Number of LUT Flip Flop pairs used:        1,021
+    Number with an unused Flip Flop:           208 out of   1,021   20%
+    Number with an unused LUT:                 278 out of   1,021   27%
+    Number of fully used LUT-FF pairs:         535 out of   1,021   52%
+    Number of unique control sets:              23
+    Number of slice register sites lost
+      to control set restrictions:              54 out of  11,440    1%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                        88 out of     102   86%
+    Number of LOCed IOBs:                       88 out of      88  100%
+    IOB Flip Flops:                             71
+    IOB Master Pads:                             1
+    IOB Slave Pads:                              1
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                         2 out of      32    6%
+  Number of RAMB8BWERs:                          0 out of      64    0%
+  Number of BUFIO2/BUFIO2_2CLKs:                 1 out of      32    3%
+    Number used as BUFIO2s:                      1
+    Number used as BUFIO2_2CLKs:                 0
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             1 out of      32    3%
+    Number used as BUFIO2FBs:                    1
+    Number used as BUFIO2FB_2CLKs:               0
+  Number of BUFG/BUFGMUXs:                       2 out of      16   12%
+    Number used as BUFGs:                        2
+    Number used as BUFGMUX:                      0
+  Number of DCM/DCM_CLKGENs:                     1 out of       4   25%
+    Number used as DCMs:                         1
+    Number used as DCM_CLKGENs:                  0
+  Number of ILOGIC2/ISERDES2s:                  17 out of     200    8%
+    Number used as ILOGIC2s:                    17
+    Number used as ISERDES2s:                    0
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     200    0%
+  Number of OLOGIC2/OSERDES2s:                  54 out of     200   27%
+    Number used as OLOGIC2s:                    54
+    Number used as OSERDES2s:                    0
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     128    0%
+  Number of BUFPLLs:                             0 out of       8    0%
+  Number of BUFPLL_MCBs:                         0 out of       4    0%
+  Number of DSP48A1s:                            0 out of      16    0%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                0 out of       2    0%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            0 out of       2    0%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+Average Fanout of Non-Clock Nets:                3.36
+
+Peak Memory Usage:  681 MB
+Total REAL time to MAP completion:  23 secs 
+Total CPU time to MAP completion:   12 secs 
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:Security:42 - Your license support version '2014.01' for WebPack expires
+in 20 days after which you will not qualify for Xilinx software updates or new
+releases.
+WARNING:MapLib:701 - Signal SATA_D2_P connected to top level port SATA_D2_P has
+   been removed.
+WARNING:MapLib:701 - Signal SATA_D2_N connected to top level port SATA_D2_N has
+   been removed.
+WARNING:Place:1109 - A clock IOB / BUFGMUX clock component pair have been found
+   that are not placed at an optimal clock IOB / BUFGMUX site pair. The clock
+   IOB component <GPMC_CLK> is placed at site <P105>. The corresponding BUFG
+   component <GPMC_CLK_BUFGP/BUFG> is placed at site <BUFGMUX_X3Y16>. There is
+   only a select set of IOBs that can use the fast path to the Clocker buffer,
+   and they are not being used. You may want to analyze why this problem exists
+   and correct it. This is normally an ERROR but the CLOCK_DEDICATED_ROUTE
+   constraint was applied on COMP.PIN <GPMC_CLK.PAD> allowing your design to
+   continue. This constraint disables all clock placer rules related to the
+   specified COMP.PIN. The use of this override is highly discouraged as it may
+   lead to very poor timing results. It is recommended that this error condition
+   be corrected in the design.
+
+Section 3 - Informational
+-------------------------
+INFO:Security:67 - XILINXD_LICENSE_FILE is set to
+'/opt/Xilinx/13.1/ISE_DS/EDK/data/core_licenses' in /home/jpiat/.flexlmrc.
+INFO:Security:54 - 'xc6slx9' is a WebPack part.
+INFO:LIT:243 - Logical network Inst_SDRAM_Controller/iob_command<3> has no load.
+INFO:LIT:395 - The above info message is repeated 4 more times for the following
+   (max. 5 shown):
+   GPMC_BEN<1>_IBUF,
+   GPMC_BEN<0>_IBUF,
+   ARD_SCL_IBUF,
+   ARD_SDA_IBUF
+   To see the details of these info messages, please use the -detail switch.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:Pack:1716 - Initializing temperature to 85.000 Celsius. (default - Range:
+   0.000 to 85.000 Celsius)
+INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
+   1.260 Volts)
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+INFO:Pack:1650 - Map created a placed design.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+   4 block(s) removed
+   2 block(s) optimized away
+   3 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal "Inst_SDRAM_Controller/iob_command<3>" is loadless and has been
+removed.
+ Loadless block "Inst_SDRAM_Controller/iob_command_3" (FF) removed.
+Loadless block "input_buffer" (IBUFDS) removed.
+ The signal "SATA_D2_P" is loadless and has been removed.
+  Loadless block "SATA_D2_P" (PAD) removed.
+ The signal "SATA_D2_N" is loadless and has been removed.
+  Loadless block "SATA_D2_N" (PAD) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		XST_GND
+VCC 		XST_VCC
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ARD_SCL                            | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| ARD_SDA                            | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| GPMC_AD<0>                         | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| GPMC_AD<1>                         | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| GPMC_AD<2>                         | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| GPMC_AD<3>                         | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| GPMC_AD<4>                         | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| GPMC_AD<5>                         | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| GPMC_AD<6>                         | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| GPMC_AD<7>                         | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| GPMC_AD<8>                         | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| GPMC_AD<9>                         | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| GPMC_AD<10>                        | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| GPMC_AD<11>                        | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| GPMC_AD<12>                        | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| GPMC_AD<13>                        | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| GPMC_AD<14>                        | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| GPMC_AD<15>                        | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| GPMC_ADVN                          | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| GPMC_BEN<0>                        | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| GPMC_BEN<1>                        | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| GPMC_CLK                           | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| GPMC_CSN                           | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| GPMC_OEN                           | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| GPMC_WEN                           | IOB              | INPUT     | LVTTL                |       |          |      | IFF          |          |          |
+| LED<0>                             | IOB              | OUTPUT    | LVTTL                |       | 2        | SLOW |              |          |          |
+| LED<1>                             | IOB              | OUTPUT    | LVTTL                |       | 2        | SLOW |              |          |          |
+| OSC_FPGA                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PB<0>                              | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| PB<1>                              | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| PMOD1<0>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
+| PMOD1<1>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
+| PMOD1<2>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
+| PMOD1<3>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
+| PMOD1<4>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
+| PMOD1<5>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
+| PMOD1<6>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
+| PMOD1<7>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
+| PMOD2<0>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
+| PMOD2<1>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
+| PMOD2<2>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
+| PMOD2<3>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
+| PMOD2<4>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
+| PMOD2<5>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
+| PMOD2<6>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
+| PMOD2<7>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
+| SATA_D1_N                          | IOBS             | OUTPUT    | LVDS_33              |       |          |      |              |          |          |
+| SATA_D1_P                          | IOBM             | OUTPUT    | LVDS_33              |       |          |      |              |          |          |
+| SDRAM_ADDR<0>                      | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
+| SDRAM_ADDR<1>                      | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
+| SDRAM_ADDR<2>                      | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
+| SDRAM_ADDR<3>                      | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
+| SDRAM_ADDR<4>                      | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
+| SDRAM_ADDR<5>                      | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
+| SDRAM_ADDR<6>                      | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
+| SDRAM_ADDR<7>                      | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
+| SDRAM_ADDR<8>                      | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
+| SDRAM_ADDR<9>                      | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
+| SDRAM_ADDR<10>                     | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
+| SDRAM_ADDR<11>                     | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
+| SDRAM_ADDR<12>                     | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
+| SDRAM_BA<0>                        | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
+| SDRAM_BA<1>                        | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
+| SDRAM_CKE                          | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
+| SDRAM_CLK                          | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | ODDR         |          |          |
+| SDRAM_DQ<0>                        | IOB              | BIDIR     | LVTTL                |       | 12       | FAST | IFF          |          |          |
+|                                    |                  |           |                      |       |          |      | OFF          |          |          |
+| SDRAM_DQ<1>                        | IOB              | BIDIR     | LVTTL                |       | 12       | FAST | IFF          |          |          |
+|                                    |                  |           |                      |       |          |      | OFF          |          |          |
+| SDRAM_DQ<2>                        | IOB              | BIDIR     | LVTTL                |       | 12       | FAST | IFF          |          |          |
+|                                    |                  |           |                      |       |          |      | OFF          |          |          |
+| SDRAM_DQ<3>                        | IOB              | BIDIR     | LVTTL                |       | 12       | FAST | IFF          |          |          |
+|                                    |                  |           |                      |       |          |      | OFF          |          |          |
+| SDRAM_DQ<4>                        | IOB              | BIDIR     | LVTTL                |       | 12       | FAST | IFF          |          |          |
+|                                    |                  |           |                      |       |          |      | OFF          |          |          |
+| SDRAM_DQ<5>                        | IOB              | BIDIR     | LVTTL                |       | 12       | FAST | IFF          |          |          |
+|                                    |                  |           |                      |       |          |      | OFF          |          |          |
+| SDRAM_DQ<6>                        | IOB              | BIDIR     | LVTTL                |       | 12       | FAST | IFF          |          |          |
+|                                    |                  |           |                      |       |          |      | OFF          |          |          |
+| SDRAM_DQ<7>                        | IOB              | BIDIR     | LVTTL                |       | 12       | FAST | IFF          |          |          |
+|                                    |                  |           |                      |       |          |      | OFF          |          |          |
+| SDRAM_DQ<8>                        | IOB              | BIDIR     | LVTTL                |       | 12       | FAST | IFF          |          |          |
+|                                    |                  |           |                      |       |          |      | OFF          |          |          |
+| SDRAM_DQ<9>                        | IOB              | BIDIR     | LVTTL                |       | 12       | FAST | IFF          |          |          |
+|                                    |                  |           |                      |       |          |      | OFF          |          |          |
+| SDRAM_DQ<10>                       | IOB              | BIDIR     | LVTTL                |       | 12       | FAST | IFF          |          |          |
+|                                    |                  |           |                      |       |          |      | OFF          |          |          |
+| SDRAM_DQ<11>                       | IOB              | BIDIR     | LVTTL                |       | 12       | FAST | IFF          |          |          |
+|                                    |                  |           |                      |       |          |      | OFF          |          |          |
+| SDRAM_DQ<12>                       | IOB              | BIDIR     | LVTTL                |       | 12       | FAST | IFF          |          |          |
+|                                    |                  |           |                      |       |          |      | OFF          |          |          |
+| SDRAM_DQ<13>                       | IOB              | BIDIR     | LVTTL                |       | 12       | FAST | IFF          |          |          |
+|                                    |                  |           |                      |       |          |      | OFF          |          |          |
+| SDRAM_DQ<14>                       | IOB              | BIDIR     | LVTTL                |       | 12       | FAST | IFF          |          |          |
+|                                    |                  |           |                      |       |          |      | OFF          |          |          |
+| SDRAM_DQ<15>                       | IOB              | BIDIR     | LVTTL                |       | 12       | FAST | IFF          |          |          |
+|                                    |                  |           |                      |       |          |      | OFF          |          |          |
+| SDRAM_DQM<0>                       | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
+| SDRAM_DQM<1>                       | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
+| SDRAM_nCAS                         | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
+| SDRAM_nRAS                         | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
+| SDRAM_nWE                          | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
+| SW<0>                              | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| SW<1>                              | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+A logic-level (pre-route) timing report can be generated by using Xilinx static
+timing analysis tools, Timing Analyzer (GUI) or TRCE (command line), with the
+mapped NCD and PCF files. Please note that this timing report will be generated
+using estimated delay information. For accurate numbers, please generate a
+timing report with the post Place and Route NCD file.
+
+For more information about the Timing Analyzer, consult the Xilinx Timing
+Analyzer Reference Manual; for more information about TRCE, consult the Xilinx
+Command Line Tools User Guide "TRACE" chapter.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+Use the "-detail" map option to print out Control Set Information.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.
