@@ -31,7 +31,7 @@ unsigned int wishbone_read(unsigned char * buffer, unsigned int length, unsigned
 	if(fd == 0){
 		logibone_init();
 	}
-	count = pwrite(fd, buffer, length, address);
+	count = pread(fd, buffer, length, address);
 	return count ;
 }
 
