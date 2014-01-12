@@ -8,13 +8,10 @@
 <msg type="warning" file="HDLCompiler" num="946" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/hamster-logipi-sdram_v0.5/hw/SDRAM_Controller.vhd" Line 196: Actual for formal port <arg fmt="%s" index="1">c1</arg> is neither a static name nor a globally static expression
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 380: Partially associated formal <arg fmt="%s" index="1">gpio</arg> cannot have actual OPEN
-</msg>
-
 <msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 381: Partially associated formal <arg fmt="%s" index="1">gpio</arg> cannot have actual OPEN
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 398: Partially associated formal <arg fmt="%s" index="1">gpio</arg> cannot have actual OPEN
+<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 382: Partially associated formal <arg fmt="%s" index="1">gpio</arg> cannot have actual OPEN
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 399: Partially associated formal <arg fmt="%s" index="1">gpio</arg> cannot have actual OPEN
@@ -29,10 +26,10 @@
 <msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 402: Partially associated formal <arg fmt="%s" index="1">gpio</arg> cannot have actual OPEN
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 440: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
+<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 403: Partially associated formal <arg fmt="%s" index="1">gpio</arg> cannot have actual OPEN
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 443: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
+<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 441: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 444: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
@@ -62,10 +59,16 @@
 <msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 452: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
 </msg>
 
+<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 453: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 236: Assignment to <arg fmt="%s" index="1">gls_resetn</arg> ignored, since the identifier is never used
+</msg>
+
 <msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/gpmc_wishbone_wrapper.vhd" Line 140: Assignment to <arg fmt="%s" index="1">advn_bridge</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 441: Assignment to <arg fmt="%s" index="1">sata_in</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 442: Assignment to <arg fmt="%s" index="1">sata_in</arg> ignored, since the identifier is never used
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="634" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/hamster-logipi-sdram_v0.5/hw/SDRAM_Controller.vhd" Line 141: Net &lt;<arg fmt="%s" index="1">addr_col[12]</arg>&gt; does not have a driver.
@@ -125,40 +128,40 @@
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">GPMC_BEN</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">405</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;1&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">406</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;1&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">405</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;2&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">406</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;2&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">405</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;3&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">406</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;3&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">405</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;4&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">406</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;4&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">405</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;5&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">406</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;5&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">405</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;6&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">406</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;6&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">405</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;7&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">406</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;7&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">405</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;8&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">406</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;8&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">405</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;9&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">406</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;9&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">405</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;10&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">406</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;10&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">405</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;11&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">406</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;11&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">496</arg>: Output port &lt;<arg fmt="%s" index="3">SDRAM_CS</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Inst_SDRAM_Controller</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">497</arg>: Output port &lt;<arg fmt="%s" index="3">SDRAM_CS</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Inst_SDRAM_Controller</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
 <msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">SATA_OUT</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.

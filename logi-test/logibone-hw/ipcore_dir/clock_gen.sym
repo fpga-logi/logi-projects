@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="clock_gen">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2014-1-11T12:51:36</timestamp>
+    <timestamp>2014-1-12T0:4:29</timestamp>
     <pin polarity="Input" x="0" y="80" name="clk_in1" />
     <pin polarity="Output" x="608" y="80" name="clk_out1" />
     <pin polarity="Output" x="608" y="976" name="locked" />

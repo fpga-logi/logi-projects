@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.15xf on Sat Jan 11 14:17:54 2014
+// Written by: Map P.15xf on Sun Jan 12 01:49:51 2014
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -70,8 +70,6 @@ COMP "SDRAM_DQ<8>" LOCATE = SITE "P17" LEVEL 1;
 COMP "SDRAM_DQ<9>" LOCATE = SITE "P16" LEVEL 1;
 COMP "ARD_SDA" LOCATE = SITE "P88" LEVEL 1;
 COMP "ARD_SCL" LOCATE = SITE "P87" LEVEL 1;
-COMP "SATA_D1_N" LOCATE = SITE "P43" LEVEL 1;
-COMP "SATA_D1_P" LOCATE = SITE "P44" LEVEL 1;
 COMP "PMOD1<0>" LOCATE = SITE "P79" LEVEL 1;
 COMP "PMOD1<1>" LOCATE = SITE "P78" LEVEL 1;
 COMP "PMOD1<2>" LOCATE = SITE "P85" LEVEL 1;
@@ -660,7 +658,19 @@ TIMEGRP pll0_clk2x = BEL "debug_long_register_0" BEL "debug_long_register_1"
         "Inst_SDRAM_Controller/sdram_clk_forward_pins<2>" BEL
         "pll0/clkout1_buf" PIN "SP6_INS_BUFIO2FB_DCM_ML_BUFIO2FB_1_pins<1>"
         PIN "pll0/dcm_sp_inst_pins<1>";
-TIMEGRP clk100_grp = BEL "gpmc2wishbone/writedata_bridge_15" BEL
+TIMEGRP clk100_grp = BEL "gpmc2wishbone/address_bridge_15" BEL
+        "gpmc2wishbone/address_bridge_14" BEL
+        "gpmc2wishbone/address_bridge_13" BEL
+        "gpmc2wishbone/address_bridge_12" BEL
+        "gpmc2wishbone/address_bridge_11" BEL
+        "gpmc2wishbone/address_bridge_10" BEL "gpmc2wishbone/address_bridge_9"
+        BEL "gpmc2wishbone/address_bridge_8" BEL
+        "gpmc2wishbone/address_bridge_7" BEL "gpmc2wishbone/address_bridge_6"
+        BEL "gpmc2wishbone/address_bridge_5" BEL
+        "gpmc2wishbone/address_bridge_4" BEL "gpmc2wishbone/address_bridge_3"
+        BEL "gpmc2wishbone/address_bridge_2" BEL
+        "gpmc2wishbone/address_bridge_1" BEL "gpmc2wishbone/address_bridge_0"
+        BEL "gpmc2wishbone/writedata_bridge_15" BEL
         "gpmc2wishbone/writedata_bridge_14" BEL
         "gpmc2wishbone/writedata_bridge_13" BEL
         "gpmc2wishbone/writedata_bridge_12" BEL
@@ -675,36 +685,24 @@ TIMEGRP clk100_grp = BEL "gpmc2wishbone/writedata_bridge_15" BEL
         "gpmc2wishbone/writedata_bridge_3" BEL
         "gpmc2wishbone/writedata_bridge_2" BEL
         "gpmc2wishbone/writedata_bridge_1" BEL
-        "gpmc2wishbone/writedata_bridge_0" BEL
-        "gpmc2wishbone/address_bridge_15" BEL
-        "gpmc2wishbone/address_bridge_14" BEL
-        "gpmc2wishbone/address_bridge_13" BEL
-        "gpmc2wishbone/address_bridge_12" BEL
-        "gpmc2wishbone/address_bridge_11" BEL
-        "gpmc2wishbone/address_bridge_10" BEL "gpmc2wishbone/address_bridge_9"
-        BEL "gpmc2wishbone/address_bridge_8" BEL
-        "gpmc2wishbone/address_bridge_7" BEL "gpmc2wishbone/address_bridge_6"
-        BEL "gpmc2wishbone/address_bridge_5" BEL
-        "gpmc2wishbone/address_bridge_4" BEL "gpmc2wishbone/address_bridge_3"
-        BEL "gpmc2wishbone/address_bridge_2" BEL
-        "gpmc2wishbone/address_bridge_1" BEL "gpmc2wishbone/address_bridge_0"
-        BEL "gpmc2wishbone/wen_bridge" BEL "gpmc2wishbone/oen_bridge" BEL
-        "gpmc2wishbone/csn_bridge" BEL "GPMC_CLK_BUFGP/BUFG" BEL
-        "gpmc2wishbone/readdata_15" BEL "gpmc2wishbone/readdata_14" BEL
-        "gpmc2wishbone/readdata_13" BEL "gpmc2wishbone/readdata_12" BEL
-        "gpmc2wishbone/readdata_11" BEL "gpmc2wishbone/readdata_10" BEL
-        "gpmc2wishbone/readdata_9" BEL "gpmc2wishbone/readdata_8" BEL
-        "gpmc2wishbone/readdata_7" BEL "gpmc2wishbone/readdata_6" BEL
-        "gpmc2wishbone/readdata_5" BEL "gpmc2wishbone/readdata_4" BEL
-        "gpmc2wishbone/readdata_3" BEL "gpmc2wishbone/readdata_2" BEL
-        "gpmc2wishbone/readdata_1" BEL "gpmc2wishbone/readdata_0";
+        "gpmc2wishbone/writedata_bridge_0" BEL "gpmc2wishbone/wen_bridge" BEL
+        "gpmc2wishbone/oen_bridge" BEL "gpmc2wishbone/csn_bridge" BEL
+        "GPMC_CLK_BUFGP/BUFG" BEL "gpmc2wishbone/readdata_15" BEL
+        "gpmc2wishbone/readdata_14" BEL "gpmc2wishbone/readdata_13" BEL
+        "gpmc2wishbone/readdata_12" BEL "gpmc2wishbone/readdata_11" BEL
+        "gpmc2wishbone/readdata_10" BEL "gpmc2wishbone/readdata_9" BEL
+        "gpmc2wishbone/readdata_8" BEL "gpmc2wishbone/readdata_7" BEL
+        "gpmc2wishbone/readdata_6" BEL "gpmc2wishbone/readdata_5" BEL
+        "gpmc2wishbone/readdata_4" BEL "gpmc2wishbone/readdata_3" BEL
+        "gpmc2wishbone/readdata_2" BEL "gpmc2wishbone/readdata_1" BEL
+        "gpmc2wishbone/readdata_0";
 PIN SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0> = BEL "SP6_BUFIO_INSERT_ML_BUFIO2_0"
         PINNAME DIVCLK;
 PIN pll0/dcm_sp_inst_pins<2> = BEL "pll0/dcm_sp_inst" PINNAME CLKIN;
 TIMEGRP clk50_grp = PIN "SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0>" PIN
         "pll0/dcm_sp_inst_pins<2>";
 TS_PER_CLK50 = PERIOD TIMEGRP "clk50_grp" 20 ns HIGH 50%;
-TS_PER_CLK100 = PERIOD TIMEGRP "clk100_grp" 10 ns HIGH 50%;
+TS_PER_CLK100 = PERIOD TIMEGRP "clk100_grp" 20 ns HIGH 50%;
 TS_pll0_clk2x = PERIOD TIMEGRP "pll0_clk2x" TS_PER_CLK50 / 2 HIGH 50%;
 SCHEMATIC END;
 
