@@ -246,10 +246,12 @@ pll0 : clock_gen
 
 gls_clk <= clk_100Mhz;
 
+ARD_SCL <= 'Z' ;
+ARD_SDA <= 'Z' ;
 
 
 gpmc2wishbone : gpmc_wishbone_wrapper 
-generic map(sync => true)
+generic map(sync => true, burst => true)
 port map
     (
       -- GPMC SIGNALS
@@ -259,10 +261,9 @@ port map
 		gpmc_wen => GPMC_WEN,
 		gpmc_advn => GPMC_ADVN,
 		gpmc_clk => GPMC_CLK,
-		--gpmc_clk => clk_50Mhz,
 		
       -- Global Signals
-      gls_reset => gls_resetn,
+      gls_reset => gls_reset,
       gls_clk   => gls_clk,
       -- Wishbone interface signals
       wbm_address    => intercon_wrapper_wbm_address,  -- Address bus

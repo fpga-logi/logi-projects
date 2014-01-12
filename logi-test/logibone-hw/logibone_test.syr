@@ -151,15 +151,14 @@ Parsing architecture <RTL> of entity <gpmc_wishbone_wrapper>.
 Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" into library work
 Parsing entity <logibone_test>.
 Parsing architecture <Behavioral> of entity <logibone_test>.
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 380: Partially associated formal gpio cannot have actual OPEN
 WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 381: Partially associated formal gpio cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 398: Partially associated formal gpio cannot have actual OPEN
+WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 382: Partially associated formal gpio cannot have actual OPEN
 WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 399: Partially associated formal gpio cannot have actual OPEN
 WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 400: Partially associated formal gpio cannot have actual OPEN
 WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 401: Partially associated formal gpio cannot have actual OPEN
 WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 402: Partially associated formal gpio cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 440: Partially associated formal reg_out cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 443: Partially associated formal reg_out cannot have actual OPEN
+WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 403: Partially associated formal gpio cannot have actual OPEN
+WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 441: Partially associated formal reg_out cannot have actual OPEN
 WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 444: Partially associated formal reg_out cannot have actual OPEN
 WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 445: Partially associated formal reg_out cannot have actual OPEN
 WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 446: Partially associated formal reg_out cannot have actual OPEN
@@ -169,12 +168,14 @@ WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-project
 WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 450: Partially associated formal reg_out cannot have actual OPEN
 WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 451: Partially associated formal reg_out cannot have actual OPEN
 WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 452: Partially associated formal reg_out cannot have actual OPEN
+WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 453: Partially associated formal reg_out cannot have actual OPEN
 
 =========================================================================
 *                            HDL Elaboration                            *
 =========================================================================
 
 Elaborating entity <logibone_test> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:1127 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 236: Assignment to gls_resetn ignored, since the identifier is never used
 
 Elaborating entity <clock_gen> (architecture <xilinx>) from library <work>.
 
@@ -184,7 +185,7 @@ WARNING:HDLCompiler:1127 - "/home/jpiat/development/FPGA/logi-family/logi-hard/w
 Elaborating entity <wishbone_intercon> (architecture <Behavioral>) with generics from library <work>.
 
 Elaborating entity <wishbone_gpio> (architecture <Behavioral>) with generics from library <work>.
-WARNING:HDLCompiler:1127 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 441: Assignment to sata_in ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 442: Assignment to sata_in ignored, since the identifier is never used
 
 Elaborating entity <wishbone_register> (architecture <Behavioral>) with generics from library <work>.
 
@@ -222,18 +223,20 @@ WARNING:HDLCompiler:634 - "Unknown" Line 0: Net <reg0_reg_in[11][0]> does not ha
 Synthesizing Unit <logibone_test>.
     Related source file is "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd".
 WARNING:Xst:647 - Input <GPMC_BEN> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 405: Output port <reg_out<1>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 405: Output port <reg_out<2>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 405: Output port <reg_out<3>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 405: Output port <reg_out<4>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 405: Output port <reg_out<5>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 405: Output port <reg_out<6>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 405: Output port <reg_out<7>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 405: Output port <reg_out<8>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 405: Output port <reg_out<9>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 405: Output port <reg_out<10>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 405: Output port <reg_out<11>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 496: Output port <SDRAM_CS> of the instance <Inst_SDRAM_Controller> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<1>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<2>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<3>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<4>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<5>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<6>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<7>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<8>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<9>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<10>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<11>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 497: Output port <SDRAM_CS> of the instance <Inst_SDRAM_Controller> is unconnected or connected to loadless signal.
+Always blocking tristate driving signal <ARD_SCL> is removed.
+Always blocking tristate driving signal <ARD_SDA> is removed.
 WARNING:Xst:653 - Signal <SATA_OUT> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <reg0_reg_in<11><15>> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <reg0_reg_in<11><14>> is used but never assigned. This sourceless signal will be automatically connected to value GND.
@@ -253,7 +256,7 @@ WARNING:Xst:653 - Signal <reg0_reg_in<11><1>> is used but never assigned. This s
 WARNING:Xst:653 - Signal <reg0_reg_in<11><0>> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Found 3-bit register for signal <debug_sent_counter>.
     Found 128-bit register for signal <debug_long_register>.
-    Found 3-bit subtractor for signal <GND_9_o_GND_9_o_sub_3_OUT<2:0>> created at line 561.
+    Found 3-bit subtractor for signal <GND_9_o_GND_9_o_sub_3_OUT<2:0>> created at line 562.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred 131 D-type flip-flop(s).
@@ -269,7 +272,7 @@ Unit <clock_gen> synthesized.
 Synthesizing Unit <gpmc_wishbone_wrapper>.
     Related source file is "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/gpmc_wishbone_wrapper.vhd".
         sync = true
-        burst = false
+        burst = true
     Found 1-bit register for signal <wen_bridge>.
     Found 1-bit register for signal <oen_bridge>.
     Found 1-bit register for signal <csn>.
@@ -282,6 +285,7 @@ Synthesizing Unit <gpmc_wishbone_wrapper>.
     Found 16-bit register for signal <address>.
     Found 16-bit register for signal <address_bridge>.
     Found 16-bit register for signal <readdata_bridge>.
+    Found 16-bit adder for signal <address_bridge[15]_GND_18_o_add_0_OUT> created at line 121.
     Found 1-bit tristate buffer for signal <gpmc_ad<15>> created at line 181
     Found 1-bit tristate buffer for signal <gpmc_ad<14>> created at line 181
     Found 1-bit tristate buffer for signal <gpmc_ad<13>> created at line 181
@@ -299,7 +303,9 @@ Synthesizing Unit <gpmc_wishbone_wrapper>.
     Found 1-bit tristate buffer for signal <gpmc_ad<1>> created at line 181
     Found 1-bit tristate buffer for signal <gpmc_ad<0>> created at line 181
     Summary:
+	inferred   1 Adder/Subtractor(s).
 	inferred 102 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
 	inferred  16 Tristate(s).
 Unit <gpmc_wishbone_wrapper> synthesized.
 
@@ -308,102 +314,102 @@ Synthesizing Unit <wishbone_intercon>.
         memory_map = ("000000000000001X","000000000000010X","000000000000011X","000000000001XXXX","0001XXXXXXXXXXXX")
 WARNING:Xst:647 - Input <gls_reset> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <gls_clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 1-bit tristate buffer for signal <wbs_readdata<15>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<14>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<13>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<12>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<11>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<10>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<9>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<8>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<7>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<6>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<5>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<4>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<3>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<2>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<1>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<0>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<15>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<14>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<13>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<12>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<11>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<10>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<9>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<8>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<7>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<6>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<5>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<4>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<3>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<2>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<1>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<0>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<15>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<14>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<13>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<12>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<11>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<10>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<9>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<8>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<7>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<6>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<5>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<4>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<3>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<2>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<1>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<0>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<15>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<14>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<13>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<12>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<11>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<10>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<9>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<8>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<7>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<6>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<5>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<4>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<3>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<2>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<1>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<0>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<15>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<14>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<13>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<12>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<11>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<10>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<9>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<8>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<7>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<6>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<5>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<4>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<3>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<2>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<1>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<0>> created at line 83
-    Found 1-bit tristate buffer for signal <wbs_readdata<15>> created at line 90
-    Found 1-bit tristate buffer for signal <wbs_readdata<14>> created at line 90
-    Found 1-bit tristate buffer for signal <wbs_readdata<13>> created at line 90
-    Found 1-bit tristate buffer for signal <wbs_readdata<12>> created at line 90
-    Found 1-bit tristate buffer for signal <wbs_readdata<11>> created at line 90
-    Found 1-bit tristate buffer for signal <wbs_readdata<10>> created at line 90
-    Found 1-bit tristate buffer for signal <wbs_readdata<9>> created at line 90
-    Found 1-bit tristate buffer for signal <wbs_readdata<8>> created at line 90
-    Found 1-bit tristate buffer for signal <wbs_readdata<7>> created at line 90
-    Found 1-bit tristate buffer for signal <wbs_readdata<6>> created at line 90
-    Found 1-bit tristate buffer for signal <wbs_readdata<5>> created at line 90
-    Found 1-bit tristate buffer for signal <wbs_readdata<4>> created at line 90
-    Found 1-bit tristate buffer for signal <wbs_readdata<3>> created at line 90
-    Found 1-bit tristate buffer for signal <wbs_readdata<2>> created at line 90
-    Found 1-bit tristate buffer for signal <wbs_readdata<1>> created at line 90
-    Found 1-bit tristate buffer for signal <wbs_readdata<0>> created at line 90
+    Found 1-bit tristate buffer for signal <wbs_readdata<15>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<14>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<13>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<12>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<11>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<10>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<9>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<8>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<7>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<6>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<5>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<4>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<3>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<2>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<1>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<0>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<15>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<14>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<13>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<12>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<11>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<10>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<9>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<8>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<7>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<6>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<5>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<4>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<3>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<2>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<1>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<0>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<15>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<14>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<13>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<12>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<11>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<10>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<9>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<8>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<7>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<6>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<5>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<4>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<3>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<2>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<1>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<0>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<15>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<14>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<13>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<12>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<11>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<10>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<9>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<8>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<7>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<6>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<5>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<4>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<3>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<2>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<1>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<0>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<15>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<14>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<13>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<12>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<11>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<10>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<9>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<8>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<7>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<6>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<5>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<4>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<3>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<2>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<1>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<0>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<15>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<14>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<13>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<12>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<11>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<10>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<9>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<8>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<7>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<6>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<5>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<4>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<3>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<2>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<1>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<0>> created at line 91
     Summary:
 	inferred  96 Tristate(s).
 Unit <wishbone_intercon> synthesized.
@@ -473,7 +479,7 @@ WARNING:Xst:647 - Input <wbs_address<15:4>> is never used. This port will be pre
     Found 16-bit register for signal <wbs_readdata>.
     Found 1-bit register for signal <read_ack>.
 INFO:Xst:3019 - HDL ADVISOR - 256 flip-flops were inferred for signal <reg_in_d>. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
-    Found 16-bit 12-to-1 multiplexer for signal <wbs_address[3]_X_142_o_wide_mux_49_OUT> created at line 113.
+    Found 16-bit 12-to-1 multiplexer for signal <wbs_address[3]_X_144_o_wide_mux_49_OUT> created at line 113.
     Summary:
 	inferred 402 D-type flip-flop(s).
 	inferred   1 Multiplexer(s).
@@ -518,8 +524,8 @@ Synthesizing Unit <Memory_tester>.
     Found 1-bit register for signal <e>.
     Found 27-bit register for signal <read_counter>.
     Found 16-bit register for signal <debug>.
-    Found 29-bit adder for signal <test_counter[28]_GND_167_o_add_28_OUT> created at line 1241.
-    Found 27-bit adder for signal <read_counter[26]_GND_167_o_add_31_OUT> created at line 1241.
+    Found 29-bit adder for signal <test_counter[28]_GND_169_o_add_28_OUT> created at line 1241.
+    Found 27-bit adder for signal <read_counter[26]_GND_169_o_add_31_OUT> created at line 1241.
     Found 32-bit comparator not equal for signal <n0043> created at line 185
     Summary:
 	inferred   2 Adder/Subtractor(s).
@@ -579,8 +585,8 @@ WARNING:Xst:2935 - Signal 'addr_col<12:9>', unconnected in block 'SDRAM_Controll
     | Encoding           | ONE-HOT                                        |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 14-bit adder for signal <startup_refresh_count[13]_GND_168_o_add_7_OUT> created at line 1241.
-    Found 14-bit subtractor for signal <GND_168_o_GND_168_o_add_32_OUT> created at line 1241.
+    Found 14-bit adder for signal <startup_refresh_count[13]_GND_170_o_add_7_OUT> created at line 1241.
+    Found 14-bit subtractor for signal <GND_170_o_GND_170_o_add_32_OUT> created at line 1241.
     Found 2-bit comparator equal for signal <addr_bank[1]_save_bank[1]_equal_9_o> created at line 253
     Found 13-bit comparator equal for signal <addr_row[12]_save_row[12]_equal_10_o> created at line 253
 INFO:Xst:2774 - HDL ADVISOR - IOB property attached to signal captured_data may hinder XST clustering optimizations.
@@ -598,9 +604,10 @@ HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 1
  2048x16-bit dual-port RAM                             : 1
-# Adders/Subtractors                                   : 5
+# Adders/Subtractors                                   : 6
  14-bit adder                                          : 1
  14-bit subtractor                                     : 1
+ 16-bit adder                                          : 1
  27-bit adder                                          : 1
  29-bit adder                                          : 1
  3-bit subtractor                                      : 1
@@ -622,13 +629,13 @@ Macro Statistics
  13-bit comparator equal                               : 1
  2-bit comparator equal                                : 1
  32-bit comparator not equal                           : 1
-# Multiplexers                                         : 63
+# Multiplexers                                         : 64
  1-bit 2-to-1 multiplexer                              : 26
  128-bit 2-to-1 multiplexer                            : 1
  13-bit 2-to-1 multiplexer                             : 9
  14-bit 2-to-1 multiplexer                             : 4
  16-bit 12-to-1 multiplexer                            : 1
- 16-bit 2-to-1 multiplexer                             : 3
+ 16-bit 2-to-1 multiplexer                             : 4
  2-bit 2-to-1 multiplexer                              : 6
  23-bit 2-to-1 multiplexer                             : 1
  3-bit 2-to-1 multiplexer                              : 1
@@ -758,6 +765,10 @@ INFO:Xst:3226 - The RAM <Mram_RAM> will be implemented as a BLOCK RAM, absorbing
     -----------------------------------------------------------------------
 Unit <dpram_NxN> synthesized (advanced).
 
+Synthesizing (advanced) Unit <gpmc_wishbone_wrapper>.
+The following registers are absorbed into counter <address_bridge>: 1 register on signal <address_bridge>.
+Unit <gpmc_wishbone_wrapper> synthesized (advanced).
+
 Synthesizing (advanced) Unit <logibone_test>.
 The following registers are absorbed into counter <debug_sent_counter>: 1 register on signal <debug_sent_counter>.
 Unit <logibone_test> synthesized (advanced).
@@ -771,12 +782,13 @@ Macro Statistics
 # Adders/Subtractors                                   : 2
  14-bit adder                                          : 1
  14-bit subtractor                                     : 1
-# Counters                                             : 3
+# Counters                                             : 4
+ 16-bit up counter                                     : 1
  27-bit up counter                                     : 1
  29-bit up counter                                     : 1
  3-bit down counter                                    : 1
-# Registers                                            : 1130
- Flip-Flops                                            : 1130
+# Registers                                            : 1114
+ Flip-Flops                                            : 1114
 # Comparators                                          : 3
  13-bit comparator equal                               : 1
  2-bit comparator equal                                : 1
@@ -1172,25 +1184,24 @@ Top Level Output File Name         : logibone_test.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 963
+# BELS                             : 1011
 #      GND                         : 1
 #      INV                         : 35
 #      LUT1                        : 73
-#      LUT2                        : 48
-#      LUT3                        : 49
+#      LUT2                        : 49
+#      LUT3                        : 65
 #      LUT4                        : 143
 #      LUT5                        : 239
 #      LUT6                        : 183
-#      MUXCY                       : 100
+#      MUXCY                       : 115
 #      MUXF7                       : 7
 #      VCC                         : 1
-#      XORCY                       : 84
+#      XORCY                       : 100
 # FlipFlops/Latches                : 921
 #      FD                          : 137
 #      FDC                         : 38
 #      FDC_1                       : 32
-#      FDCE                        : 101
-#      FDCE_1                      : 16
+#      FDCE                        : 117
 #      FDE                         : 582
 #      FDP                         : 3
 #      FDP_1                       : 3
@@ -1221,17 +1232,17 @@ Selected Device : 6slx9tqg144-2
 
 Slice Logic Utilization: 
  Number of Slice Registers:             850  out of  11440     7%  
- Number of Slice LUTs:                  787  out of   5720    13%  
-    Number used as Logic:               770  out of   5720    13%  
+ Number of Slice LUTs:                  804  out of   5720    14%  
+    Number used as Logic:               787  out of   5720    13%  
     Number used as Memory:               17  out of   1440     1%  
        Number used as SRL:               17
 
 Slice Logic Distribution: 
  Number of LUT Flip Flop pairs used:   1151
    Number with an unused Flip Flop:     301  out of   1151    26%  
-   Number with an unused LUT:           364  out of   1151    31%  
-   Number of fully used LUT-FF pairs:   486  out of   1151    42%  
-   Number of unique control sets:        24
+   Number with an unused LUT:           347  out of   1151    30%  
+   Number of fully used LUT-FF pairs:   503  out of   1151    43%  
+   Number of unique control sets:        23
 
 IO Utilization: 
  Number of IOs:                          90
@@ -1277,7 +1288,7 @@ Timing Summary:
 Speed Grade: -2
 
    Minimum period: 15.176ns (Maximum Frequency: 65.894MHz)
-   Minimum input arrival time before clock: 3.747ns
+   Minimum input arrival time before clock: 4.300ns
    Maximum output required time after clock: 5.098ns
    Maximum combinational path delay: 6.505ns
 
@@ -1303,7 +1314,7 @@ Delay:               7.588ns (Levels of Logic = 4)
      FDC:C->Q              4   0.525   1.032  gpmc2wishbone/address_15 (gpmc2wishbone/address_15)
      LUT3:I0->O           21   0.235   1.310  intercon0/cs_vector<0><15>111 (intercon0/cs_vector<0><15>11)
      LUT6:I5->O            6   0.254   0.876  intercon0/cs_vector<0><15>1_1 (intercon0/cs_vector<0><15>12)
-     LUT6:I5->O           19   0.254   1.369  intercon0/wbm_write<0>1 (n0055<0>)
+     LUT6:I5->O           19   0.254   1.369  intercon0/wbm_write<0>1 (n0058<0>)
      LUT3:I1->O           16   0.250   1.181  gpio0/_n0059_inv211 (gpio0/_n0059_inv)
      FDCE:CE                   0.302          gpio0/output_15
     ----------------------------------------
@@ -1311,10 +1322,48 @@ Delay:               7.588ns (Levels of Logic = 4)
                                        (24.0% logic, 76.0% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'GPMC_CLK'
-  Total number of paths / destination ports: 51 / 51
+Timing constraint: Default period analysis for Clock 'GPMC_CLK'
+  Clock period: 2.326ns (frequency: 430.015MHz)
+  Total number of paths / destination ports: 136 / 16
 -------------------------------------------------------------------------
-Offset:              3.747ns (Levels of Logic = 2)
+Delay:               2.326ns (Levels of Logic = 17)
+  Source:            gpmc2wishbone/address_bridge_0 (FF)
+  Destination:       gpmc2wishbone/address_bridge_15 (FF)
+  Source Clock:      GPMC_CLK falling
+  Destination Clock: GPMC_CLK falling
+
+  Data Path: gpmc2wishbone/address_bridge_0 to gpmc2wishbone/address_bridge_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             2   0.525   0.726  gpmc2wishbone/address_bridge_0 (gpmc2wishbone/address_bridge_0)
+     LUT3:I2->O            1   0.254   0.000  gpmc2wishbone/Mcount_address_bridge_lut<0> (gpmc2wishbone/Mcount_address_bridge_lut<0>)
+     MUXCY:S->O            1   0.215   0.000  gpmc2wishbone/Mcount_address_bridge_cy<0> (gpmc2wishbone/Mcount_address_bridge_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  gpmc2wishbone/Mcount_address_bridge_cy<1> (gpmc2wishbone/Mcount_address_bridge_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  gpmc2wishbone/Mcount_address_bridge_cy<2> (gpmc2wishbone/Mcount_address_bridge_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  gpmc2wishbone/Mcount_address_bridge_cy<3> (gpmc2wishbone/Mcount_address_bridge_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  gpmc2wishbone/Mcount_address_bridge_cy<4> (gpmc2wishbone/Mcount_address_bridge_cy<4>)
+     MUXCY:CI->O           1   0.023   0.000  gpmc2wishbone/Mcount_address_bridge_cy<5> (gpmc2wishbone/Mcount_address_bridge_cy<5>)
+     MUXCY:CI->O           1   0.023   0.000  gpmc2wishbone/Mcount_address_bridge_cy<6> (gpmc2wishbone/Mcount_address_bridge_cy<6>)
+     MUXCY:CI->O           1   0.023   0.000  gpmc2wishbone/Mcount_address_bridge_cy<7> (gpmc2wishbone/Mcount_address_bridge_cy<7>)
+     MUXCY:CI->O           1   0.023   0.000  gpmc2wishbone/Mcount_address_bridge_cy<8> (gpmc2wishbone/Mcount_address_bridge_cy<8>)
+     MUXCY:CI->O           1   0.023   0.000  gpmc2wishbone/Mcount_address_bridge_cy<9> (gpmc2wishbone/Mcount_address_bridge_cy<9>)
+     MUXCY:CI->O           1   0.023   0.000  gpmc2wishbone/Mcount_address_bridge_cy<10> (gpmc2wishbone/Mcount_address_bridge_cy<10>)
+     MUXCY:CI->O           1   0.023   0.000  gpmc2wishbone/Mcount_address_bridge_cy<11> (gpmc2wishbone/Mcount_address_bridge_cy<11>)
+     MUXCY:CI->O           1   0.023   0.000  gpmc2wishbone/Mcount_address_bridge_cy<12> (gpmc2wishbone/Mcount_address_bridge_cy<12>)
+     MUXCY:CI->O           1   0.023   0.000  gpmc2wishbone/Mcount_address_bridge_cy<13> (gpmc2wishbone/Mcount_address_bridge_cy<13>)
+     MUXCY:CI->O           0   0.023   0.000  gpmc2wishbone/Mcount_address_bridge_cy<14> (gpmc2wishbone/Mcount_address_bridge_cy<14>)
+     XORCY:CI->O           1   0.206   0.000  gpmc2wishbone/Mcount_address_bridge_xor<15> (gpmc2wishbone/Mcount_address_bridge15)
+     FDCE:D                    0.074          gpmc2wishbone/address_bridge_15
+    ----------------------------------------
+    Total                      2.326ns (1.599ns logic, 0.726ns route)
+                                       (68.8% logic, 31.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'GPMC_CLK'
+  Total number of paths / destination ports: 323 / 51
+-------------------------------------------------------------------------
+Offset:              4.300ns (Levels of Logic = 2)
   Source:            GPMC_ADVN (PAD)
   Destination:       gpmc2wishbone/address_bridge_15 (FF)
   Destination Clock: GPMC_CLK falling
@@ -1323,12 +1372,12 @@ Offset:              3.747ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             1   1.328   0.681  GPMC_ADVN_IBUF (GPMC_ADVN_IBUF)
-     INV:I->O             16   0.255   1.181  gpmc2wishbone/gpmc_advn_inv1_INV_0 (gpmc2wishbone/gpmc_advn_inv)
-     FDCE_1:CE                 0.302          gpmc2wishbone/address_bridge_0
+     IBUF:I->O            18   1.328   1.235  GPMC_ADVN_IBUF (GPMC_ADVN_IBUF)
+     LUT2:I1->O           16   0.254   1.181  gpmc2wishbone/_n0069_inv1 (gpmc2wishbone/_n0069_inv)
+     FDCE:CE                   0.302          gpmc2wishbone/address_bridge_0
     ----------------------------------------
-    Total                      3.747ns (1.885ns logic, 1.862ns route)
-                                       (50.3% logic, 49.7% route)
+    Total                      4.300ns (1.884ns logic, 2.416ns route)
+                                       (43.8% logic, 56.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'OSC_FPGA'
@@ -1417,7 +1466,8 @@ Clock to Setup on destination clock GPMC_CLK
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-OSC_FPGA       |         |         |    1.280|         |
+GPMC_CLK       |         |         |    2.326|         |
+OSC_FPGA       |         |         |    3.276|         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock OSC_FPGA
@@ -1425,22 +1475,22 @@ Clock to Setup on destination clock OSC_FPGA
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-GPMC_CLK       |         |    1.324|         |         |
+GPMC_CLK       |         |    1.364|         |         |
 OSC_FPGA       |    7.588|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 17.00 secs
-Total CPU time to Xst completion: 11.83 secs
+Total REAL time to Xst completion: 14.00 secs
+Total CPU time to Xst completion: 11.73 secs
  
 --> 
 
 
-Total memory usage is 412916 kilobytes
+Total memory usage is 413120 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  405 (   0 filtered)
+Number of warnings :  406 (   0 filtered)
 Number of infos    :   33 (   0 filtered)
 
