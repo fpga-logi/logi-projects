@@ -10,17 +10,17 @@
 #include <sys/ioctl.h>
 #include "wishbone_wrapper.h"
 
-#define GPIO0 0x0002
-#define GPIO0DIR 0x0003
-#define GPIO1 0x0004
-#define GPIO1DIR 0x0005
-#define GPIO2 0x0006
-#define GPIO2DIR 0x0007
-#define REG0  0x0010
-#define REG1  0x0011
-#define REG2  0x0012
-#define REG_DEBUG_RAM 0x0013
-#define MEM0  0x1000
+#define GPIO0 0x0004
+#define GPIO0DIR 0x0006
+#define GPIO1 0x0008
+#define GPIO1DIR 0x000A
+#define GPIO2 0x000C
+#define GPIO2DIR 0x000E
+#define REG0  0x0020
+#define REG1  0x0022
+#define REG2  0x0024
+#define REG_DEBUG_RAM 0x0026
+#define MEM0  0x2000
 
 #define LED_MASK 0x0003
 #define PB_MASK 0x0003
@@ -152,7 +152,8 @@ int testCom(){
 	for(i = 0; i < 2048; i ++){
 		writeVals[i] = rand()%0xFFFF;	
 	}	
-
+	wishbone_read(&i, 2, 0x0020);
+	printf("%04x \n", i);
 	if((i = wishbone_write((unsigned char *) writeVals, 2048, MEM0)) < 2048){
 		printf("Write error !, returned %d \n", i);
 		return -1 ;
@@ -207,7 +208,7 @@ int main(int argc, char ** argv){
 	while(fgets(&c, 1, stdin)== NULL);
 	printf("----------------Loading FPGA--------------\n");	
 	// load fpga
-	system("/usr/bin/logi_loader logipi_test.bit");
+	system("/usr/bin/logi_loader logibone_test.bit");
 	//
 	printf("-----------------Starting Test-------------\n");
 	printf("-------------------GPIO Test---------------\n");
