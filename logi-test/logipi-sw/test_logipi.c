@@ -38,6 +38,15 @@
 
 char * bitFilePath = "../logipi_test.bit" ;
 
+int kbhit()
+{
+    struct timeval tv = { 0L, 0L };
+    fd_set fds;
+    FD_ZERO(&fds);
+    FD_SET(0, &fds);
+    return select(1, &fds, NULL, NULL, &tv);
+}
+
 
 int testPMOD12(){
 	unsigned short int dirBuf ;
@@ -113,6 +122,13 @@ int testPB(){
 		pbVal &= PB_MASK ;
 		if((pbVal & 0x01) != (pbValOld & 0x01)) valMask |= 0x01 ;
 		if((pbVal & 0x02) != (pbValOld & 0x02)) valMask |= 0x02 ;
+		if(kbhit()){
+			char c ;
+			c = getc(0);
+			if(c == '\n'){
+				return -1 ;			
+			}		
+		}
 	}while(valMask != 0x03);
 	return 0 ;
 }
@@ -128,6 +144,13 @@ int testSW(){
 		swVal = ((swVal & SW_MASK) >> 2) ;
 		if((swVal & 0x01) != (swValOld & 0x01)) valMask |= 0x01 ;
 		if((swVal & 0x02) != (swValOld & 0x02)) valMask |= 0x02 ;
+		if(kbhit()){
+			char c ;
+			c = getc(0);
+			if(c == '\n'){
+				return -1 ;			
+			}		
+		}
 	}while(valMask != 0x03);
 	return 0 ;
 }
