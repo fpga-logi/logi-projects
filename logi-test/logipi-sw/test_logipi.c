@@ -10,6 +10,19 @@
 #include <sys/ioctl.h>
 #include "wishbone_wrapper.h"
 
+
+//DEFINE WHICH TESTS TO RUN
+#define TEST_SDRAM 	
+
+#define TEST_LED	
+#define TEST_PMOD	
+#define TEST_SW		
+#define TEST_COMM	
+#define TEST_LVDS 	
+
+
+
+
 #define GPIO0 0x0002
 #define GPIO0DIR 0x0003
 #define GPIO1 0x0004
@@ -233,6 +246,9 @@ int main(int argc, char ** argv){
 	system("/usr/bin/logi_loader logipi_test.bit");
 	//
 	printf("-----------------Starting Test-------------\n");
+	
+	
+	#ifdef TEST_GPIO
 	printf("-------------------GPIO Test---------------\n");
 	/*if(testPMOD12() < 0){
 		printf("PMOD1-2 test failed \n");	
@@ -242,11 +258,17 @@ int main(int argc, char ** argv){
 		printf("PMOD3-4 test failed \n");	
 		return -1 ;
 	}*/
+	#endif
+	
+	#ifdef TEST_COMM
 	printf("-----------------Communication Test---------------\n");
 	if(testCom() < 0) {
 		printf("Communication test failed \n");	
 		return -1 ;
 	}
+	#endif
+	
+	#ifdef TEST_LED
 	printf("----------------Testing LEDs--------------\n");
 	testLED();
 	printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
@@ -266,6 +288,9 @@ int main(int argc, char ** argv){
 		}
 		printf("\n");
 	}
+	#endif
+	
+	#ifdef TEST_PB
 	printf("\n");
 	printf("----------------Testing PB--------------\n");
 	printf("Click the Push buttons, press enter if nothing happens \n");
@@ -273,12 +298,18 @@ int main(int argc, char ** argv){
 		printf("PB test failed \n");	
 		return -1 ;
 	}
+	#endif
+	
+	#ifdef TEST_SW
 	printf("----------------Testing SW--------------\n");
 	printf("Switch the switches, press enter if nothing happens \n");
 	if(testSW() < 0){
 		printf("SW test failed \n");	
 		return -1 ;
 	}
+	#endif
+	
+	#ifdef TEST_SDRAM
 	printf("----------------Testing SDRAM--------------\n");	
 	while(testSdram() > 0) sleep(1);
 	if(testSdram() < 0){
@@ -286,12 +317,17 @@ int main(int argc, char ** argv){
 		getSdramDump();	
 		return -1 ;
 	}
+	#endif
 
+	#ifdef TEST_LVDS
 	printf("----------------Testing LVDS--------------\n");	
 	if(testLVDS() < 0){
 		printf("LVDS test failed \n");	
 		return -1 ;
 	}
 	printf("---------------Test Passed ----------------\n");
+	#endif
+	
 	return 0 ;
+	
 }
