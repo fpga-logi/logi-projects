@@ -10,6 +10,16 @@
 #include <sys/ioctl.h>
 #include "wishbone_wrapper.h"
 
+
+// define which test to run, commment to disable test
+#define TEST_SDRAM 	
+#define TEST_LED	
+#define TEST_PMOD	
+#define TEST_SW		
+#define TEST_COMM	
+#define TEST_LVDS 
+
+
 #define GPIO0 0x0004
 #define GPIO0DIR 0x0006
 #define GPIO1 0x0008
@@ -220,7 +230,22 @@ int getSdramDump(){
 }
 
 int testLVDS(){
-	return 0 ;
+        unsigned short int write_val, read_val ;
+        write_val = 1 << SATA_WRITE_SHIFT ;
+        wishbone_write((unsigned char *) &write_val, 2, REG0);
+        wishbone_read((unsigned char *) & read_val, 2, REG2);
+        read_val = (read_val >> SATA_READ_SHIFT) & 0x01 ;
+        if(!read_val){
+                return -1 ;
+        }
+        write_val = 0;
+        wishbone_write((unsigned char *) &write_val, 2, REG0);
+        wishbone_read((unsigned char *) &read_val, 2, REG2);
+        read_val = (read_val >> SATA_READ_SHIFT) & 0x01 ;
+        if(read_val){
+                 return -1 ;
+        }
+        return 0 ;
 }
 
 
@@ -231,23 +256,32 @@ int main(int argc, char ** argv){
 	while(fgets(&c, 1, stdin)== NULL);
 	printf("----------------Loading FPGA--------------\n");	
 	// load fpga
-	system("/usr/bin/logi_loader logibone_test.bit");
+	system("/usr/bin/logi_loader logipi_test.bit");
 	//
 	printf("-----------------Starting Test-------------\n");
+	
+	
+	#ifdef TEST_GPIO
 	printf("-------------------GPIO Test---------------\n");
-	/*if(testPMOD12() < 0){
+	if(testPMOD12() < 0){
 		printf("PMOD1-2 test failed \n");	
 		return -1 ;	
 	}
 	if(testPMOD34() < 0){
 		printf("PMOD3-4 test failed \n");	
 		return -1 ;
-	}*/
+	}
+	#endif
+	
+	#ifdef TEST_COMM
 	printf("-----------------Communication Test---------------\n");
 	if(testCom() < 0) {
 		printf("Communication test failed \n");	
 		return -1 ;
 	}
+	#endif
+	
+	#ifdef TEST_LED
 	printf("----------------Testing LEDs--------------\n");
 	testLED();
 	printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
@@ -267,6 +301,9 @@ int main(int argc, char ** argv){
 		}
 		printf("\n");
 	}
+	#endif
+	
+	#ifdef TEST_PB
 	printf("\n");
 	printf("----------------Testing PB--------------\n");
 	printf("Click the Push buttons, press enter if nothing happens \n");
@@ -274,12 +311,18 @@ int main(int argc, char ** argv){
 		printf("PB test failed \n");	
 		return -1 ;
 	}
+	#endif
+	
+	#ifdef TEST_SW
 	printf("----------------Testing SW--------------\n");
 	printf("Switch the switches, press enter if nothing happens \n");
 	if(testSW() < 0){
 		printf("SW test failed \n");	
 		return -1 ;
 	}
+	#endif
+	
+	#ifdef TEST_SDRAM
 	printf("----------------Testing SDRAM--------------\n");	
 	while(testSdram() > 0) sleep(1);
 	if(testSdram() < 0){
@@ -287,12 +330,16 @@ int main(int argc, char ** argv){
 		getSdramDump();	
 		return -1 ;
 	}
+	#endif
 
+	#ifdef TEST_LVDS
 	printf("----------------Testing LVDS--------------\n");	
 	if(testLVDS() < 0){
 		printf("LVDS test failed \n");	
 		return -1 ;
 	}
 	printf("---------------Test Passed ----------------\n");
+	#endif
+	
 	return 0 ;
 }
