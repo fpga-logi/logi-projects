@@ -16,7 +16,8 @@
 
 #define TEST_LED	
 #define TEST_PMOD	
-#define TEST_SW		
+#define TEST_SW
+#define TEST_PB		
 #define TEST_COMM	
 #define TEST_LVDS 	
 
@@ -140,7 +141,7 @@ int testPB(){
 		if((pbVal & 0x02) != (pbValOld & 0x02)) valMask |= 0x02 ;
 		if(kbhit()){
 			char c ;
-			c = getc(stdin);
+			c = fgetc(stdin);
 			if(c == '\n'){
 				return -1 ;			
 			}		
@@ -162,7 +163,7 @@ int testSW(){
 		if((swVal & 0x02) != (swValOld & 0x02)) valMask |= 0x02 ;
 		if(kbhit()){
 			char c ;
-			c = getc(stdin);
+			c = fgetc(stdin);
 			if(c == '\n'){
 				return -1 ;			
 			}		
