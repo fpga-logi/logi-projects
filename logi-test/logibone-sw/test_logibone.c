@@ -15,7 +15,7 @@
 #define TEST_SDRAM 	
 #define TEST_LED	
 #define TEST_PMOD	
-#define TEST_SW		
+//#define TEST_SW		
 #define TEST_COMM	
 #define TEST_LVDS 
 
@@ -262,7 +262,7 @@ int main(int argc, char ** argv){
 	printf("-----------------Starting Test-------------\n");
 	
 	
-	#ifdef TEST_GPIO
+	#ifdef TEST_PMOD
 	printf("-------------------GPIO Test---------------\n");
 	if(testPMOD12() < 0){
 		printf("PMOD1-2 test failed \n");	
@@ -295,7 +295,7 @@ int main(int argc, char ** argv){
 	while(c != 'y'){
 		testLED();
 		printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
-		while(fgets(&c, 1, stdin)== NULL) printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
+		while(fgets(&c, 2, stdin)== NULL) printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
 		if(c == 'n'){
 			printf("Led test failed \n");	
 			return -1 ;	
