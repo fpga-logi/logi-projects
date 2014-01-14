@@ -38,6 +38,9 @@
 #define SDRAM_ERROR_MASK 0x0010
 #define SDRAM_SUCCESS_MASK 0x0020
 
+#define SATA_WRITE_SHIFT 2
+#define SATA_READ_SHIFT 6
+
 #define GPIO_TEST1_DIR 0x5555	
 #define GPIO_TEST1_1 0x1111
 #define GPIO_TEST1_2 0x4444
@@ -45,8 +48,6 @@
 #define GPIO_TEST2_DIR 0xAAAA	
 #define GPIO_TEST2_1 0x2222
 #define GPIO_TEST2_2 0x8888
-
-char * bitFilePath = "../logibone_test.bit" ;
 
 int kbhit()
 {
@@ -256,7 +257,7 @@ int main(int argc, char ** argv){
 	while(fgets(&c, 1, stdin)== NULL);
 	printf("----------------Loading FPGA--------------\n");	
 	// load fpga
-	system("/usr/bin/logi_loader logipi_test.bit");
+	system("/usr/bin/logi_loader logibone_test.bit");
 	//
 	printf("-----------------Starting Test-------------\n");
 	
