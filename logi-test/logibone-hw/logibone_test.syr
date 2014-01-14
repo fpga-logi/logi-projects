@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.20 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.21 secs
  
 --> 
 Reading design: logibone_test.prj
@@ -185,7 +185,6 @@ WARNING:HDLCompiler:1127 - "/home/jpiat/development/FPGA/logi-family/logi-hard/w
 Elaborating entity <wishbone_intercon> (architecture <Behavioral>) with generics from library <work>.
 
 Elaborating entity <wishbone_gpio> (architecture <Behavioral>) with generics from library <work>.
-WARNING:HDLCompiler:1127 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 442: Assignment to sata_in ignored, since the identifier is never used
 
 Elaborating entity <wishbone_register> (architecture <Behavioral>) with generics from library <work>.
 
@@ -198,7 +197,6 @@ Elaborating entity <Memory_tester> (architecture <Behavioral>) with generics fro
 Elaborating entity <SDRAM_Controller> (architecture <Behavioral>) with generics from library <work>.
 INFO:HDLCompiler:679 - "/home/jpiat/development/FPGA/logi-family/logi-projects/hamster-logipi-sdram_v0.5/hw/SDRAM_Controller.vhd" Line 490. Case statement is complete. others clause is never selected
 WARNING:HDLCompiler:634 - "/home/jpiat/development/FPGA/logi-family/logi-projects/hamster-logipi-sdram_v0.5/hw/SDRAM_Controller.vhd" Line 141: Net <addr_col[12]> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 227: Net <SATA_OUT> does not have a driver.
 WARNING:HDLCompiler:634 - "Unknown" Line 0: Net <reg0_reg_in[11][15]> does not have a driver.
 WARNING:HDLCompiler:634 - "Unknown" Line 0: Net <reg0_reg_in[11][14]> does not have a driver.
 WARNING:HDLCompiler:634 - "Unknown" Line 0: Net <reg0_reg_in[11][13]> does not have a driver.
@@ -237,7 +235,6 @@ INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-tes
 INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 497: Output port <SDRAM_CS> of the instance <Inst_SDRAM_Controller> is unconnected or connected to loadless signal.
 Always blocking tristate driving signal <ARD_SCL> is removed.
 Always blocking tristate driving signal <ARD_SDA> is removed.
-WARNING:Xst:653 - Signal <SATA_OUT> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <reg0_reg_in<11><15>> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <reg0_reg_in<11><14>> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <reg0_reg_in<11><13>> is used but never assigned. This sourceless signal will be automatically connected to value GND.
@@ -684,7 +681,6 @@ WARNING:Xst:1710 - FF/Latch <save_byte_enable_1> (without init value) has a cons
 WARNING:Xst:1710 - FF/Latch <save_byte_enable_2> (without init value) has a constant value of 1 in block <Inst_SDRAM_Controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <save_byte_enable_3> (without init value) has a constant value of 1 in block <Inst_SDRAM_Controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <save_col_0> (without init value) has a constant value of 0 in block <Inst_SDRAM_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <reg_in_d_2_6> (without init value) has a constant value of 0 in block <reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <reg_in_d_2_7> (without init value) has a constant value of 1 in block <reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <reg_in_d_2_8> (without init value) has a constant value of 0 in block <reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <reg_in_d_2_9> (without init value) has a constant value of 0 in block <reg0>. This FF/Latch will be trimmed during the optimization process.
@@ -716,7 +712,6 @@ WARNING:Xst:1710 - FF/Latch <reg_in_d_0_2> (without init value) has a constant v
 WARNING:Xst:1710 - FF/Latch <reg_in_d_0_3> (without init value) has a constant value of 1 in block <reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <reg_in_d_0_4> (without init value) has a constant value of 0 in block <reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <reg_in_d_0_5> (without init value) has a constant value of 1 in block <reg0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <reg_out_d_0_2> of sequential type is unconnected in block <reg0>.
 WARNING:Xst:2677 - Node <reg_out_d_0_3> of sequential type is unconnected in block <reg0>.
 WARNING:Xst:2677 - Node <reg_out_d_0_4> of sequential type is unconnected in block <reg0>.
 WARNING:Xst:2677 - Node <reg_out_d_0_5> of sequential type is unconnected in block <reg0>.
@@ -861,9 +856,9 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <reg_in_d_0_5> (with
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <reg_in_d_0_6> (without init value) has a constant value of 0 in block <wishbone_register>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <reg_in_d_0_7> (without init value) has a constant value of 1 in block <wishbone_register>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <save_col_0> (without init value) has a constant value of 0 in block <SDRAM_Controller>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2261 - The FF/Latch <reg_in_d_2_6> in Unit <wishbone_register> is equivalent to the following 8 FFs/Latches, which will be removed : <reg_in_d_2_8> <reg_in_d_2_9> <reg_in_d_2_10> <reg_in_d_2_11> <reg_in_d_2_12> <reg_in_d_2_13> <reg_in_d_2_14> <reg_in_d_2_15> 
-WARNING:Xst:1710 - FF/Latch <reg_in_d_2_6> (without init value) has a constant value of 0 in block <wishbone_register>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <reg_in_d_2_7> (without init value) has a constant value of 1 in block <wishbone_register>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <reg_in_d_2_8> in Unit <wishbone_register> is equivalent to the following 7 FFs/Latches, which will be removed : <reg_in_d_2_9> <reg_in_d_2_10> <reg_in_d_2_11> <reg_in_d_2_12> <reg_in_d_2_13> <reg_in_d_2_14> <reg_in_d_2_15> 
+WARNING:Xst:1710 - FF/Latch <reg_in_d_2_7> (without init value) has a constant value of 1 in block <wishbone_register>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <reg_in_d_2_8> (without init value) has a constant value of 0 in block <wishbone_register>. This FF/Latch will be trimmed during the optimization process.
 Optimizing FSM <Inst_SDRAM_Controller/FSM_0> on signal <state[1:18]> with ONE-HOT encoding.
 -----------------------------------
  State       | Encoding
@@ -923,7 +918,6 @@ WARNING:Xst:2677 - Node <reg0/reg_out_d_0_6> of sequential type is unconnected i
 WARNING:Xst:2677 - Node <reg0/reg_out_d_0_5> of sequential type is unconnected in block <logibone_test>.
 WARNING:Xst:2677 - Node <reg0/reg_out_d_0_4> of sequential type is unconnected in block <logibone_test>.
 WARNING:Xst:2677 - Node <reg0/reg_out_d_0_3> of sequential type is unconnected in block <logibone_test>.
-WARNING:Xst:2677 - Node <reg0/reg_out_d_0_2> of sequential type is unconnected in block <logibone_test>.
 WARNING:Xst:2677 - Node <reg0/reg_out_d_11_15> of sequential type is unconnected in block <logibone_test>.
 WARNING:Xst:2677 - Node <reg0/reg_out_d_11_14> of sequential type is unconnected in block <logibone_test>.
 WARNING:Xst:2677 - Node <reg0/reg_out_d_11_13> of sequential type is unconnected in block <logibone_test>.
@@ -1155,8 +1149,8 @@ Unit <logibone_test> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 903
- Flip-Flops                                            : 903
+# Registers                                            : 905
+ Flip-Flops                                            : 905
 # Shift Registers                                      : 17
  2-bit shift register                                  : 16
  4-bit shift register                                  : 1
@@ -1184,25 +1178,25 @@ Top Level Output File Name         : logibone_test.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1011
+# BELS                             : 1012
 #      GND                         : 1
 #      INV                         : 35
 #      LUT1                        : 73
 #      LUT2                        : 49
-#      LUT3                        : 65
+#      LUT3                        : 66
 #      LUT4                        : 143
-#      LUT5                        : 239
-#      LUT6                        : 183
+#      LUT5                        : 237
+#      LUT6                        : 184
 #      MUXCY                       : 115
-#      MUXF7                       : 7
+#      MUXF7                       : 8
 #      VCC                         : 1
 #      XORCY                       : 100
-# FlipFlops/Latches                : 921
+# FlipFlops/Latches                : 923
 #      FD                          : 137
 #      FDC                         : 38
 #      FDC_1                       : 32
-#      FDCE                        : 117
-#      FDE                         : 582
+#      FDCE                        : 118
+#      FDE                         : 583
 #      FDP                         : 3
 #      FDP_1                       : 3
 #      FDS                         : 8
@@ -1231,17 +1225,17 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             850  out of  11440     7%  
+ Number of Slice Registers:             852  out of  11440     7%  
  Number of Slice LUTs:                  804  out of   5720    14%  
     Number used as Logic:               787  out of   5720    13%  
     Number used as Memory:               17  out of   1440     1%  
        Number used as SRL:               17
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1151
-   Number with an unused Flip Flop:     301  out of   1151    26%  
-   Number with an unused LUT:           347  out of   1151    30%  
-   Number of fully used LUT-FF pairs:   503  out of   1151    43%  
+ Number of LUT Flip Flop pairs used:   1152
+   Number with an unused Flip Flop:     300  out of   1152    26%  
+   Number with an unused LUT:           348  out of   1152    30%  
+   Number of fully used LUT-FF pairs:   504  out of   1152    43%  
    Number of unique control sets:        23
 
 IO Utilization: 
@@ -1275,7 +1269,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-OSC_FPGA                           | DCM_SP:CLK2X           | 890   |
+OSC_FPGA                           | DCM_SP:CLK2X           | 892   |
 GPMC_CLK                           | BUFGP                  | 51    |
 -----------------------------------+------------------------+-------+
 
@@ -1299,7 +1293,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'OSC_FPGA'
   Clock period: 15.176ns (frequency: 65.894MHz)
-  Total number of paths / destination ports: 16464 / 1313
+  Total number of paths / destination ports: 16485 / 1315
 -------------------------------------------------------------------------
 Delay:               7.588ns (Levels of Logic = 4)
   Source:            gpmc2wishbone/address_15 (FF)
@@ -1381,26 +1375,26 @@ Offset:              4.300ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'OSC_FPGA'
-  Total number of paths / destination ports: 36 / 36
+  Total number of paths / destination ports: 38 / 37
 -------------------------------------------------------------------------
 Offset:              2.083ns (Levels of Logic = 1)
-  Source:            SW<1> (PAD)
-  Destination:       reg0/reg_in_d_2_3 (FF)
+  Source:            SATA_D2_P (PAD)
+  Destination:       reg0/reg_in_d_2_6 (FF)
   Destination Clock: OSC_FPGA rising 2.0X
 
-  Data Path: SW<1> to reg0/reg_in_d_2_3
+  Data Path: SATA_D2_P to reg0/reg_in_d_2_6
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             1   1.328   0.681  SW_1_IBUF (SW_1_IBUF)
-     FDE:D                     0.074          reg0/reg_in_d_2_3
+     IBUFDS:I->O           1   1.328   0.681  input_buffer (SATA_IN)
+     FDE:D                     0.074          reg0/reg_in_d_2_6
     ----------------------------------------
     Total                      2.083ns (1.402ns logic, 0.681ns route)
                                        (67.3% logic, 32.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'OSC_FPGA'
-  Total number of paths / destination ports: 87 / 55
+  Total number of paths / destination ports: 89 / 57
 -------------------------------------------------------------------------
 Offset:              5.098ns (Levels of Logic = 2)
   Source:            gpio0/dir_15 (FF)
@@ -1482,15 +1476,15 @@ OSC_FPGA       |    7.588|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 14.00 secs
-Total CPU time to Xst completion: 11.73 secs
+Total REAL time to Xst completion: 45.00 secs
+Total CPU time to Xst completion: 43.90 secs
  
 --> 
 
 
-Total memory usage is 413120 kilobytes
+Total memory usage is 412924 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  406 (   0 filtered)
+Number of warnings :  400 (   0 filtered)
 Number of infos    :   33 (   0 filtered)
 

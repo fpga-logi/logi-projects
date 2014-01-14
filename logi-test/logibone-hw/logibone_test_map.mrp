@@ -11,15 +11,15 @@ Target Device  : xc6slx9
 Target Package : tqg144
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Sun Jan 12 01:49:28 2014
+Mapped Date    : Tue Jan 14 22:35:14 2014
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    3
+Number of warnings:    1
 Slice Logic Utilization:
-  Number of Slice Registers:                   849 out of  11,440    7%
-    Number used as Flip Flops:                 849
+  Number of Slice Registers:                   851 out of  11,440    7%
+    Number used as Flip Flops:                 851
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
@@ -42,15 +42,15 @@ Slice Logic Utilization:
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   319 out of   1,430   22%
+  Number of occupied Slices:                   332 out of   1,430   23%
   Nummber of MUXCYs used:                      132 out of   2,860    4%
-  Number of LUT Flip Flop pairs used:        1,054
-    Number with an unused Flip Flop:           218 out of   1,054   20%
-    Number with an unused LUT:                 309 out of   1,054   29%
-    Number of fully used LUT-FF pairs:         527 out of   1,054   50%
+  Number of LUT Flip Flop pairs used:        1,070
+    Number with an unused Flip Flop:           236 out of   1,070   22%
+    Number with an unused LUT:                 325 out of   1,070   30%
+    Number of fully used LUT-FF pairs:         509 out of   1,070   47%
     Number of unique control sets:              22
     Number of slice register sites lost
-      to control set restrictions:              54 out of  11,440    1%
+      to control set restrictions:              52 out of  11,440    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -59,8 +59,8 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        88 out of     102   86%
-    Number of LOCed IOBs:                       86 out of      88   97%
+  Number of bonded IOBs:                        90 out of     102   88%
+    Number of LOCed IOBs:                       90 out of      90  100%
     IOB Flip Flops:                             71
     IOB Master Pads:                             1
     IOB Slave Pads:                              1
@@ -103,8 +103,8 @@ Specific Feature Utilization:
 Average Fanout of Non-Clock Nets:                3.38
 
 Peak Memory Usage:  682 MB
-Total REAL time to MAP completion:  24 secs 
-Total CPU time to MAP completion:   13 secs 
+Total REAL time to MAP completion:  1 mins 4 secs 
+Total CPU time to MAP completion:   54 secs 
 
 Table of Contents
 -----------------
@@ -128,12 +128,8 @@ Section 1 - Errors
 Section 2 - Warnings
 --------------------
 WARNING:Security:42 - Your license support version '2014.01' for WebPack expires
-in 19 days after which you will not qualify for Xilinx software updates or new
+in 17 days after which you will not qualify for Xilinx software updates or new
 releases.
-WARNING:MapLib:701 - Signal SATA_D2_P connected to top level port SATA_D2_P has
-   been removed.
-WARNING:MapLib:701 - Signal SATA_D2_N connected to top level port SATA_D2_N has
-   been removed.
 WARNING:Place:1109 - A clock IOB / BUFGMUX clock component pair have been found
    that are not placed at an optimal clock IOB / BUFGMUX site pair. The clock
    IOB component <GPMC_CLK> is placed at site <P105>. The corresponding BUFG
@@ -167,16 +163,13 @@ INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
    1.260 Volts)
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
-INFO:Place:834 - Only a subset of IOs are locked. Out of 88 IOs, 86 are locked
-   and 2 are not locked. If you would like to print the names of these IOs,
-   please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1. 
 INFO:Pack:1650 - Map created a placed design.
 
 Section 4 - Removed Logic Summary
 ---------------------------------
-   4 block(s) removed
+   1 block(s) removed
    2 block(s) optimized away
-   3 signal(s) removed
+   1 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
@@ -194,11 +187,6 @@ the lines that are least indented (begin at the leftmost edge).
 The signal "Inst_SDRAM_Controller/iob_command<3>" is loadless and has been
 removed.
  Loadless block "Inst_SDRAM_Controller/iob_command_3" (FF) removed.
-Loadless block "input_buffer" (IBUFDS) removed.
- The signal "SATA_D2_P" is loadless and has been removed.
-  Loadless block "SATA_D2_P" (PAD) removed.
- The signal "SATA_D2_N" is loadless and has been removed.
-  Loadless block "SATA_D2_N" (PAD) removed.
 
 Optimized Block(s):
 TYPE 		BLOCK
@@ -263,6 +251,8 @@ Section 6 - IOB Properties
 | PMOD2<7>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
 | SATA_D1_N                          | IOBS             | OUTPUT    | LVDS_33              |       |          |      |              |          |          |
 | SATA_D1_P                          | IOBM             | OUTPUT    | LVDS_33              |       |          |      |              |          |          |
+| SATA_D2_N                          | IOB              | INPUT     | LVDS_33              | TRUE  |          |      |              |          |          |
+| SATA_D2_P                          | IOB              | INPUT     | LVDS_33              | TRUE  |          |      |              |          |          |
 | SDRAM_ADDR<0>                      | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
 | SDRAM_ADDR<1>                      | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |
 | SDRAM_ADDR<2>                      | IOB              | OUTPUT    | LVTTL                |       | 12       | FAST | OFF          |          |          |

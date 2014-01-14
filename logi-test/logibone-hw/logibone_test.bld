@@ -41,7 +41,7 @@ NGDBUILD Design Results Summary:
 Total memory usage is 408220 kilobytes
 
 Writing NGD file "logibone_test.ngd" ...
-Total REAL time to NGDBUILD completion:  4 sec
-Total CPU time to NGDBUILD completion:   4 sec
+Total REAL time to NGDBUILD completion:  13 sec
+Total CPU time to NGDBUILD completion:   13 sec
 
 Writing NGDBUILD log file "logibone_test.bld"...

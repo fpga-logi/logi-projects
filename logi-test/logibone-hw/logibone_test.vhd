@@ -424,7 +424,7 @@ reg0 : wishbone_register
 			reg_in(0) => X"DEAD",
 			reg_in(1) => X"BEEF",
 			reg_in(2)(15 downto 7) => "000000001",
-			reg_in(2)(6) => SATA_OUT,
+			reg_in(2)(6) => SATA_IN,
 			reg_in(2)(5) => blink,
 			reg_in(2)(4) => error_testing,
 			reg_in(2)(3 downto 2) => SW,
@@ -439,7 +439,7 @@ reg0 : wishbone_register
 			reg_in(10) => debug_long_register(15 downto 0),
 			
 			reg_out(0)(15 downto 3) => open,
-			reg_out(0)(2) => SATA_IN,
+			reg_out(0)(2) => SATA_OUT,
 			reg_out(0)(1 downto 0) => LED,
 			reg_out(1) => open,
 			reg_out(2) => open,

@@ -1,7 +1,7 @@
 Release 14.1 - par P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-Sun Jan 12 01:50:45 2014
+Tue Jan 14 22:37:51 2014
 
 
 INFO: The IO information is provided in three file formats as part of the Place and Route (PAR) process.  These formats are:
@@ -59,11 +59,11 @@ Pinout by Pin Number:
 |P37       |              |         |PROGRAM_B_2               |         |           |              |          |         |           |         |       |          |           |                |
 |P38       |              |IOBS     |IO_L65N_CSO_B_2           |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
 |P39       |              |IOBM     |IO_L65P_INIT_B_2          |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
-|P40       |              |IOBS     |IO_L64N_D9_2              |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
-|P41       |              |IOBM     |IO_L64P_D8_2              |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
+|P40       |SATA_D2_N     |IOB      |IO_L64N_D9_2              |         |LVDS_33    |2             |          |         |           |         |       |LOCATED   |NO         |DIFF_TERM       |
+|P41       |SATA_D2_P     |IOB      |IO_L64P_D8_2              |INPUT    |LVDS_33    |2             |          |         |           |NONE     |       |LOCATED   |NO         |DIFF_TERM       |
 |P42       |              |         |VCCO_2                    |         |           |2             |          |         |           |         |3.30   |          |           |                |
-|P43       |              |IOBS     |IO_L62N_D6_2              |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
-|P44       |              |IOBM     |IO_L62P_D5_2              |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
+|P43       |SATA_D1_N     |IOBS     |IO_L62N_D6_2              |         |LVDS_33    |2             |          |         |           |         |       |LOCATED   |NO         |                |
+|P44       |SATA_D1_P     |IOBM     |IO_L62P_D5_2              |OUTPUT   |LVDS_33    |2             |          |         |           |         |       |LOCATED   |NO         |NONE            |
 |P45       |GPMC_BEN<1>   |IOB      |IO_L49N_D4_2              |INPUT    |LVTTL      |2             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P46       |PB<1>         |IOB      |IO_L49P_D3_2              |INPUT    |LVTTL      |2             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P47       |PB<0>         |IOB      |IO_L48N_RDWR_B_VREF_2     |INPUT    |LVTTL      |2             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
@@ -88,8 +88,8 @@ Pinout by Pin Number:
 |P66       |PMOD2<5>      |IOB      |IO_L2N_CMPMOSI_2          |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P67       |PMOD2<4>      |IOB      |IO_L2P_CMPCLK_2           |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P68       |              |         |GND                       |         |           |              |          |         |           |         |       |          |           |                |
-|P69       |SATA_D1_N     |IOBS     |IO_L1N_M0_CMPMISO_2       |         |LVDS_33    |2             |          |         |           |         |       |          |NO         |                |
-|P70       |SATA_D1_P     |IOBM     |IO_L1P_CCLK_2             |OUTPUT   |LVDS_33    |2             |          |         |           |         |       |UNLOCATED |NO         |NONE            |
+|P69       |              |IOBS     |IO_L1N_M0_CMPMISO_2       |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
+|P70       |              |IOBM     |IO_L1P_CCLK_2             |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
 |P71       |              |         |DONE_2                    |         |           |              |          |         |           |         |       |          |           |                |
 |P72       |              |         |CMPCS_B_2                 |         |           |              |          |         |           |         |       |          |           |                |
 |P73       |              |         |SUSPEND                   |         |           |              |          |         |           |         |       |          |           |                |
