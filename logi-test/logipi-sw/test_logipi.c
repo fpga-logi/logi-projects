@@ -140,7 +140,7 @@ int testPB(){
 		if((pbVal & 0x02) != (pbValOld & 0x02)) valMask |= 0x02 ;
 		if(kbhit()){
 			char c ;
-			c = getc(0);
+			c = getc(stdin);
 			if(c == '\n'){
 				return -1 ;			
 			}		
@@ -162,7 +162,7 @@ int testSW(){
 		if((swVal & 0x02) != (swValOld & 0x02)) valMask |= 0x02 ;
 		if(kbhit()){
 			char c ;
-			c = getc(0);
+			c = getc(stdin);
 			if(c == '\n'){
 				return -1 ;			
 			}		
