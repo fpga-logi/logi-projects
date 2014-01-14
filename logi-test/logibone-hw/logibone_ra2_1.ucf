@@ -72,10 +72,10 @@ NET "PMOD2<5>"	LOC = "P66"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW ;
 NET "PMOD2<6>"	LOC = "P58"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW ;
 NET "PMOD2<7>"	LOC = "P57"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW ;
 #SATA##########################################################################################
-#NET "SATA_D1_P"	LOC = "P44";
-#NET "SATA_D1_N"	LOC = "P43";
-#NET "SATA_D2_P"	LOC = "P41";
-#NET "SATA_D2_N"	LOC = "P40";
+NET "SATA_D1_P"	LOC = "P44";
+NET "SATA_D1_N"	LOC = "P43";
+NET "SATA_D2_P"	LOC = "P41";
+NET "SATA_D2_N"	LOC = "P40";
 #GPMC PORT##############################################################################
 #GPMC CLK
 NET "GPMC_CLK"           LOC = "P105"| IOSTANDARD = LVTTL | SLEW = FAST |  IOB=FORCE ;   # 

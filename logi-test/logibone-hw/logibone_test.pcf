@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.15xf on Sun Jan 12 01:49:51 2014
+// Written by: Map P.15xf on Tue Jan 14 22:36:16 2014
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -70,6 +70,10 @@ COMP "SDRAM_DQ<8>" LOCATE = SITE "P17" LEVEL 1;
 COMP "SDRAM_DQ<9>" LOCATE = SITE "P16" LEVEL 1;
 COMP "ARD_SDA" LOCATE = SITE "P88" LEVEL 1;
 COMP "ARD_SCL" LOCATE = SITE "P87" LEVEL 1;
+COMP "SATA_D1_N" LOCATE = SITE "P43" LEVEL 1;
+COMP "SATA_D1_P" LOCATE = SITE "P44" LEVEL 1;
+COMP "SATA_D2_N" LOCATE = SITE "P40" LEVEL 1;
+COMP "SATA_D2_P" LOCATE = SITE "P41" LEVEL 1;
 COMP "PMOD1<0>" LOCATE = SITE "P79" LEVEL 1;
 COMP "PMOD1<1>" LOCATE = SITE "P78" LEVEL 1;
 COMP "PMOD1<2>" LOCATE = SITE "P85" LEVEL 1;
@@ -307,17 +311,17 @@ TIMEGRP pll0_clk2x = BEL "debug_long_register_0" BEL "debug_long_register_1"
         "reg0/reg_in_d_4_7" BEL "reg0/reg_in_d_4_6" BEL "reg0/reg_in_d_4_5"
         BEL "reg0/reg_in_d_4_4" BEL "reg0/reg_in_d_4_3" BEL
         "reg0/reg_in_d_4_2" BEL "reg0/reg_in_d_4_1" BEL "reg0/reg_in_d_4_0"
-        BEL "reg0/reg_in_d_2_5" BEL "reg0/reg_in_d_2_4" BEL
-        "reg0/reg_in_d_2_3" BEL "reg0/reg_in_d_2_2" BEL "reg0/reg_in_d_2_1"
-        BEL "reg0/reg_in_d_2_0" BEL "reg0/reg_out_d_0_1" BEL
-        "reg0/reg_out_d_0_0" BEL "reg0/reg_in_d_3_15" BEL "reg0/reg_in_d_3_14"
-        BEL "reg0/reg_in_d_3_13" BEL "reg0/reg_in_d_3_12" BEL
-        "reg0/reg_in_d_3_11" BEL "reg0/reg_in_d_3_10" BEL "reg0/reg_in_d_3_9"
-        BEL "reg0/reg_in_d_3_8" BEL "reg0/reg_in_d_3_7" BEL
-        "reg0/reg_in_d_3_6" BEL "reg0/reg_in_d_3_5" BEL "reg0/reg_in_d_3_4"
-        BEL "reg0/reg_in_d_3_3" BEL "reg0/reg_in_d_3_2" BEL
-        "reg0/reg_in_d_3_1" BEL "reg0/reg_in_d_3_0" BEL
-        "Inst_Memory_tester/test_counter_28" BEL
+        BEL "reg0/reg_in_d_2_6" BEL "reg0/reg_in_d_2_5" BEL
+        "reg0/reg_in_d_2_4" BEL "reg0/reg_in_d_2_3" BEL "reg0/reg_in_d_2_2"
+        BEL "reg0/reg_in_d_2_1" BEL "reg0/reg_in_d_2_0" BEL
+        "reg0/reg_out_d_0_2" BEL "reg0/reg_out_d_0_1" BEL "reg0/reg_out_d_0_0"
+        BEL "reg0/reg_in_d_3_15" BEL "reg0/reg_in_d_3_14" BEL
+        "reg0/reg_in_d_3_13" BEL "reg0/reg_in_d_3_12" BEL "reg0/reg_in_d_3_11"
+        BEL "reg0/reg_in_d_3_10" BEL "reg0/reg_in_d_3_9" BEL
+        "reg0/reg_in_d_3_8" BEL "reg0/reg_in_d_3_7" BEL "reg0/reg_in_d_3_6"
+        BEL "reg0/reg_in_d_3_5" BEL "reg0/reg_in_d_3_4" BEL
+        "reg0/reg_in_d_3_3" BEL "reg0/reg_in_d_3_2" BEL "reg0/reg_in_d_3_1"
+        BEL "reg0/reg_in_d_3_0" BEL "Inst_Memory_tester/test_counter_28" BEL
         "Inst_Memory_tester/test_counter_27" BEL
         "Inst_Memory_tester/test_counter_26" BEL
         "Inst_Memory_tester/test_counter_25" BEL
