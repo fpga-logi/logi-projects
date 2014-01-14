@@ -41,6 +41,9 @@
 #define SDRAM_ERROR_MASK 0x0010
 #define SDRAM_SUCCESS_MASK 0x0020
 
+#define SATA_WRITE_SHIFT 2
+#define SATA_READ_SHIFT 6
+
 #define GPIO_TEST1_DIR 0x5555	
 #define GPIO_TEST1_1 0x1111
 #define GPIO_TEST1_2 0x4444
@@ -232,7 +235,22 @@ int getSdramDump(){
 }
 
 int testLVDS(){
-	return 0 ;
+        unsigned short int write_val, read_val ;
+        write_val = 1 << SATA_WRITE_SHIFT ;
+        wishbone_write((unsigned char *) &write_val, 2, REG0);
+        wishbone_read((unsigned char *) & read_val, 2, REG2);
+        read_val = (read_val >> SATA_READ_SHIFT) & 0x01 ;
+        if(!read_val){
+                return -1 ;
+        }
+        write_val = 0;
+        wishbone_write((unsigned char *) &write_val, 2, REG0);
+        wishbone_read((unsigned char *) &read_val, 2, REG2);
+        read_val = (read_val >> SATA_READ_SHIFT) & 0x01 ;
+        if(read_val){
+                 return -1 ;
+        }
+        return 0 ;
 }
 
 
@@ -250,14 +268,14 @@ int main(int argc, char ** argv){
 	
 	#ifdef TEST_GPIO
 	printf("-------------------GPIO Test---------------\n");
-	/*if(testPMOD12() < 0){
+	if(testPMOD12() < 0){
 		printf("PMOD1-2 test failed \n");	
 		return -1 ;	
 	}
 	if(testPMOD34() < 0){
 		printf("PMOD3-4 test failed \n");	
 		return -1 ;
-	}*/
+	}
 	#endif
 	
 	#ifdef TEST_COMM
