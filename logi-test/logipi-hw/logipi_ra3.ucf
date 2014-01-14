@@ -35,10 +35,10 @@ NET "SW<1>"        LOC = "P100" | IOSTANDARD = LVTTL;
 
 
 #SATA###########################################################################
-NET "SATA_D1_P"	LOC = "P127" | IOSTANDARD = LVDS_33;
-NET "SATA_D1_N"	LOC = "P126" | IOSTANDARD = LVDS_33;
-NET "SATA_D2_P"	LOC = "P121" | IOSTANDARD = LVDS_33 | DIFF_TERM = TRUE;
-NET "SATA_D2_N"	LOC = "P120" | IOSTANDARD = LVDS_33 | DIFF_TERM = TRUE;
+NET "SATA_D1_P"	LOC = "P127" ;
+NET "SATA_D1_N"	LOC = "P126" ;
+NET "SATA_D2_P"	LOC = "P121" ;
+NET "SATA_D2_N"	LOC = "P120" ;
 
 #SDRAM#########################################################################
 NET "SDRAM_CKE"	LOC = "P48"		| IOSTANDARD = LVTTL ;
