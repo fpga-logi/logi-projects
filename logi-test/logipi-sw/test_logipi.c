@@ -15,7 +15,8 @@
 #define TEST_SDRAM 	
 
 #define TEST_LED	
-#define TEST_PMOD	
+#define TEST_PMOD_1_2
+#define TEST_PMOD_3_4
 #define TEST_SW
 #define TEST_PB		
 #define TEST_COMM	
@@ -74,12 +75,28 @@ int testPMOD12(){
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
 	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
-	if(valBuf != (GPIO_TEST1_1 << 1)) return -1 ;
+	if(valBuf != (GPIO_TEST1_1 << 1)){
+		if((valBuf & 0x00FF) != ((GPIO_TEST1_1 << 1) & 0x00FF)){
+			printf("Failure on PMOD1\n");		
+		}
+		if((valBuf & 0xFF00) != ((GPIO_TEST1_1 << 1) & 0xFF00)){
+			printf("Failure on PMOD2\n");		
+		}	
+		return -1 ;
+	}
 	valBuf = GPIO_TEST1_2 ;
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
 	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
-	if(valBuf != (GPIO_TEST1_2 << 1) ) return -1 ;
+	if(valBuf != (GPIO_TEST1_2 << 1) ){
+		if((valBuf & 0x00FF) != ((GPIO_TEST1_2 << 1) & 0x00FF)){
+			printf("Failure on PMOD1\n");		
+		}
+		if((valBuf & 0xFF00) != ((GPIO_TEST1_2 << 1) & 0xFF00)){
+			printf("Failure on PMOD2\n");		
+		}	 
+		return -1 ;
+	}
 
 	dirBuf = GPIO_TEST2_DIR ;
 	valBuf = GPIO_TEST2_1 ; 
@@ -87,13 +104,28 @@ int testPMOD12(){
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
-	if(valBuf != (GPIO_TEST2_1 >> 1)) return -1 ;
+	if(valBuf != (GPIO_TEST2_1 >> 1)){
+		if((valBuf & 0x00FF) != ((GPIO_TEST2_1 >> 1) & 0x00FF)){
+			printf("Failure on PMOD1\n");		
+		}
+		if((valBuf & 0xFF00) != ((GPIO_TEST2_1 >> 1) & 0xFF00)){
+			printf("Failure on PMOD2\n");		
+		}		 
+		return -1 ;
+	}
 	valBuf = GPIO_TEST2_2 ;
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
-	if(valBuf != (GPIO_TEST2_2 >> 1) ) return -1 ;
-
+	if(valBuf != (GPIO_TEST2_2 >> 1) ){
+		if((valBuf & 0x00FF) != ((GPIO_TEST2_2 >> 1) & 0x00FF)){
+			printf("Failure on PMOD1\n");		
+		}
+		if((valBuf & 0xFF00) != ((GPIO_TEST2_2 >> 1) & 0xFF00)){
+			printf("Failure on PMOD2\n");		
+		}
+		return -1 ;
+	}
 	return 0 ;
 }
 
@@ -106,25 +138,56 @@ int testPMOD34(){
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO1);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
 	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
-	if(valBuf != (GPIO_TEST1_1 << 1)) return -1 ;
+	if(valBuf != (GPIO_TEST1_1 << 1)){
+		if((valBuf & 0x00FF) != ((GPIO_TEST1_1 << 1) & 0x00FF)){
+			printf("Failure on PMOD3\n");		
+		}
+		if((valBuf & 0xFF00) != ((GPIO_TEST1_1 << 1) & 0xFF00)){
+			printf("Failure on PMOD4\n");		
+		}		
+		return -1 ;
+	}
 	valBuf = GPIO_TEST1_2 ;
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO1);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
 	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
-	if(valBuf != (GPIO_TEST1_2 << 1) ) return -1 ;
-
+	if(valBuf != (GPIO_TEST1_2 << 1) ){
+		if((valBuf & 0x00FF) != ((GPIO_TEST1_2 << 1) & 0x00FF)){
+			printf("Failure on PMOD3\n");		
+		}
+		if((valBuf & 0xFF00) != ((GPIO_TEST1_2 << 1) & 0xFF00)){
+			printf("Failure on PMOD4\n");		
+		}
+		return -1 ;
+	}
 	dirBuf = GPIO_TEST2_DIR ;
 	valBuf = GPIO_TEST2_1 ; 
 	wishbone_write((unsigned char *) &dirBuf, 2, GPIO1DIR);
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO1);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
-	if(valBuf != (GPIO_TEST2_1 >> 1)) return -1 ;
+	if(valBuf != (GPIO_TEST2_1 >> 1)){
+		if((valBuf & 0x00FF) != ((GPIO_TEST2_1 >> 1) & 0x00FF)){
+			printf("Failure on PMOD3\n");		
+		}
+		if((valBuf & 0xFF00) != ((GPIO_TEST2_1 >> 1) & 0xFF00)){
+			printf("Failure on PMOD4\n");		
+		}		
+		return -1 ;
+	}
 	valBuf = GPIO_TEST2_2 ;
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO1);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
-	if(valBuf != (GPIO_TEST2_2 >> 1) ) return -1 ;
+	if(valBuf != (GPIO_TEST2_2 >> 1) ){
+		if((valBuf & 0x00FF) != ((GPIO_TEST2_2 >> 1) & 0x00FF)){
+			printf("Failure on PMOD3\n");		
+		}
+		if((valBuf & 0xFF00) != ((GPIO_TEST2_2 >> 1) & 0xFF00)){
+			printf("Failure on PMOD4\n");		
+		}		
+		return -1 ;
+	}
 
 	return 0 ;
 }
@@ -268,12 +331,14 @@ int main(int argc, char ** argv){
 	printf("-----------------Starting Test-------------\n");
 	
 	
-	#ifdef TEST_PMOD
+	#ifdef TEST_PMOD_1_2
 	printf("-------------------GPIO Test---------------\n");
 	if(testPMOD12() < 0){
 		printf("PMOD1-2 test failed \n");	
 		return -1 ;	
 	}
+	#endif
+	#ifdef TEST_PMOD_3_4
 	if(testPMOD34() < 0){
 		printf("PMOD3-4 test failed \n");	
 		return -1 ;
