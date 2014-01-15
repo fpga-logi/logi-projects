@@ -264,6 +264,7 @@ int main(int argc, char ** argv){
 	// load fpga
 	system("/usr/bin/logi_loader logipi_test.bit");
 	//
+	sleep(1);
 	printf("-----------------Starting Test-------------\n");
 	
 	
