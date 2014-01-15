@@ -15,8 +15,8 @@
 #define TEST_SDRAM 	
 #define TEST_LED	
 #define TEST_PMOD	
-//#define TEST_SW
-//#define TEST_PB		
+#define TEST_SW
+#define TEST_PB		
 #define TEST_COMM	
 #define TEST_LVDS 
 
