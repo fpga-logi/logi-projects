@@ -1,6 +1,5 @@
 //DEFINE WHICH TESTS TO RUN
 #define TEST_SDRAM 	
-
 #define TEST_LED	
 #define TEST_PMOD_1_2
 #ifdef LOGIPI
@@ -14,6 +13,8 @@
 
 
 #ifdef LOGIPI
+
+#define LOAD_CMD "/usr/bin/logi_loader logipi_test.bit"
 #define GPIO0 0x0002
 #define GPIO0DIR 0x0003
 #define GPIO1 0x0004
@@ -47,6 +48,7 @@
 
 #ifdef LOGIBONE
 
+#define LOAD_CMD "/usr/bin/logi_loader logibone_test.bit"
 #define GPIO0 0x0004
 #define GPIO0DIR 0x0006
 #define GPIO1 0x0008
