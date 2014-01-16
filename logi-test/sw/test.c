@@ -14,18 +14,6 @@
 #include "config.h"
 
 
-//DEFINE WHICH TESTS TO RUN
-#define TEST_SDRAM 	
-
-#define TEST_LED	
-#define TEST_PMOD_1_2
-#define TEST_PMOD_3_4
-#define TEST_SW
-#define TEST_PB		
-#define TEST_COMM	
-#define TEST_LVDS 	
-
-
 FILE * log_file;
 char text_buffer [512] ;
 
@@ -49,7 +37,7 @@ void init_test_log(){
 	char buffer [256] ;	
 	unsigned long int ts = time(NULL); 
 	sprintf(buffer, "%ld_test.log", ts);
-	log_file = fopen(buffer, "W+");
+	log_file = fopen(buffer, "w+");
 	if(log_file == NULL){
 		printf("Cannot create log file \n");	
 	}
@@ -352,38 +340,45 @@ int testLVDS(){
 int main(int argc, char ** argv){
 	char c ;	
 	char * argv2 [3];	
-	test_log(ERROR,"Press Enter to begin testing \n");
+	test_log(INFO,"Press Enter to begin testing \n");
 	while(fgets(&c, 1, stdin)== NULL);
 	init_test_log();
 	test_log(INFO,"----------------Loading FPGA--------------\n");	
 	// load fpga
-	system("/usr/bin/logi_loader logipi_test.bit");
+	system(LOAD_CMD);
 	//
 	sleep(1);
 	test_log(INFO,"-----------------Starting Test-------------\n");
-	
-	
-	#ifdef TEST_PMOD_1_2
-	test_log(INFO,"-------------------GPIO Test---------------\n");
-	if(testPMOD12() < 0){
-		test_log(ERROR,"PMOD1-2 test failed \n");	
-		return -1 ;	
-	}
-	#endif
-	#ifdef TEST_PMOD_3_4
-	if(testPMOD34() < 0){
-		test_log(ERROR,"PMOD3-4 test failed \n");	
-		return -1 ;
-	}
-	#endif
 	
 	#ifdef TEST_COMM
 	test_log(INFO,"-----------------Communication Test---------------\n");
 	if(testCom() < 0) {
 		test_log(ERROR,"Communication test failed \n");	
+		close_test_log();
 		return -1 ;
+	}else{
+		test_log(INFO,"Communication test passed \n");	
 	}
 	#endif
+	
+	#ifdef TEST_PMOD_1_2
+	test_log(INFO,"-------------------GPIO Test---------------\n");
+	if(testPMOD12() < 0){
+		test_log(ERROR,"PMOD1-2 test failed \n");		
+	}else{
+		test_log(INFO,"PMOD1-2 test passed \n");
+	}
+	#endif
+
+	#ifdef TEST_PMOD_3_4
+	if(testPMOD34() < 0){
+		test_log(ERROR,"PMOD3-4 test failed \n");	
+	}else{
+		test_log(INFO,"PMOD3-4 test passed \n");
+	}
+	#endif
+	
+	
 	
 	#ifdef TEST_LED
 	test_log(INFO,"----------------Testing LEDs--------------\n");
@@ -393,17 +388,20 @@ int main(int argc, char ** argv){
 	printf("%c \n", c);
 	if(c == 'n'){
 		test_log(INFO,"Led test failed \n");	
-		return -1 ;	
-	}
-	while(c != 'y'){
-		testLED();
-		printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
-		while(fgets(&c, 2, stdin)== NULL) printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
-		if(c == 'n'){
-			test_log(ERROR,"Led test failed \n");	
-			return -1 ;	
+	}else{
+		while(c != 'y'){
+			testLED();
+			printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
+			while(fgets(&c, 2, stdin)== NULL) printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
+			if(c == 'n'){
+				test_log(ERROR,"Led test failed \n");	
+				break ;	
+			}
+			printf("\n");
 		}
-		printf("\n");
+		if(c == 'y'){
+			test_log(INFO,"Led test passed \n");
+		}
 	}
 	#endif
 	
@@ -413,7 +411,8 @@ int main(int argc, char ** argv){
 	printf("Click the Push buttons, press enter if nothing happens \n");
 	if(testPB() < 0){
 		test_log(ERROR,"PB test failed \n");	
-		return -1 ;
+	}else{
+		test_log(INFO,"PB test passed \n");
 	}
 	#endif
 	
@@ -422,7 +421,8 @@ int main(int argc, char ** argv){
 	printf("Switch the switches, press enter if nothing happens \n");
 	if(testSW() < 0){
 		test_log(ERROR,"SW test failed \n");	
-		return -1 ;
+	}else{
+		test_log(INFO,"SW test passed \n");
 	}
 	#endif
 	
@@ -432,7 +432,8 @@ int main(int argc, char ** argv){
 	if(testSdram() < 0){
 		test_log(ERROR,"SDRAM test failed \n");
 		getSdramDump();	
-		return -1 ;
+	}else{
+		test_log(INFO,"SDRAM test passed \n");	
 	}
 	#endif
 
@@ -440,9 +441,10 @@ int main(int argc, char ** argv){
 	test_log(INFO,"----------------Testing LVDS--------------\n");	
 	if(testLVDS() < 0){
 		test_log(ERROR,"LVDS test failed \n");	
-		return -1 ;
+	}else{
+		test_log(INFO,"LVDS test passed \n");	
 	}
-	test_log(INFO,"---------------Test Passed ----------------\n");
+	test_log(INFO,"--------------- End of test ----------------\n");
 	#endif
 	close_test_log();
 	return 0 ;
