@@ -73,7 +73,13 @@ int kbhit()
     return select(1, &fds, NULL, NULL, &tv);
 }
 
-void debug(enum dbg_level lvl, char * fmt, ...){
+void init_test_log(){
+}
+
+void close_test_log(){
+}
+
+void test_log(enum dbg_level lvl, char * fmt, ...){
 	va_list args;
     	va_start(args,fmt);
 	switch(lvl){
@@ -111,7 +117,7 @@ int testPMOD12(){
 			printf("Failure on PMOD1\n");		
 		}
 		if((valBuf & 0xFF00) != ((GPIO_TEST1_1 << 1) & 0xFF00)){
-			debug(ERROR,"Failure on PMOD2\n");		
+			test_log(ERROR,"Failure on PMOD2\n");		
 		}	
 		return -1 ;
 	}
@@ -121,10 +127,10 @@ int testPMOD12(){
 	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
 	if(valBuf != (GPIO_TEST1_2 << 1) ){
 		if((valBuf & 0x00FF) != ((GPIO_TEST1_2 << 1) & 0x00FF)){
-			debug(ERROR,"Failure on PMOD1\n");		
+			test_log(ERROR,"Failure on PMOD1\n");		
 		}
 		if((valBuf & 0xFF00) != ((GPIO_TEST1_2 << 1) & 0xFF00)){
-			debug(ERROR,"Failure on PMOD2\n");		
+			test_log(ERROR,"Failure on PMOD2\n");		
 		}	 
 		return -1 ;
 	}
@@ -137,10 +143,10 @@ int testPMOD12(){
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
 	if(valBuf != (GPIO_TEST2_1 >> 1)){
 		if((valBuf & 0x00FF) != ((GPIO_TEST2_1 >> 1) & 0x00FF)){
-			debug(ERROR,"Failure on PMOD1\n");		
+			test_log(ERROR,"Failure on PMOD1\n");		
 		}
 		if((valBuf & 0xFF00) != ((GPIO_TEST2_1 >> 1) & 0xFF00)){
-			debug(ERROR,"Failure on PMOD2\n");		
+			test_log(ERROR,"Failure on PMOD2\n");		
 		}		 
 		return -1 ;
 	}
@@ -150,10 +156,10 @@ int testPMOD12(){
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
 	if(valBuf != (GPIO_TEST2_2 >> 1) ){
 		if((valBuf & 0x00FF) != ((GPIO_TEST2_2 >> 1) & 0x00FF)){
-			debug(ERROR,"Failure on PMOD1\n");		
+			test_log(ERROR,"Failure on PMOD1\n");		
 		}
 		if((valBuf & 0xFF00) != ((GPIO_TEST2_2 >> 1) & 0xFF00)){
-			debug(ERROR,"Failure on PMOD2\n");		
+			test_log(ERROR,"Failure on PMOD2\n");		
 		}
 		return -1 ;
 	}
@@ -171,10 +177,10 @@ int testPMOD34(){
 	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
 	if(valBuf != (GPIO_TEST1_1 << 1)){
 		if((valBuf & 0x00FF) != ((GPIO_TEST1_1 << 1) & 0x00FF)){
-			debug(ERROR,"Failure on PMOD3\n");		
+			test_log(ERROR,"Failure on PMOD3\n");		
 		}
 		if((valBuf & 0xFF00) != ((GPIO_TEST1_1 << 1) & 0xFF00)){
-			debug(ERROR,"Failure on PMOD4\n");		
+			test_log(ERROR,"Failure on PMOD4\n");		
 		}		
 		return -1 ;
 	}
@@ -184,10 +190,10 @@ int testPMOD34(){
 	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
 	if(valBuf != (GPIO_TEST1_2 << 1) ){
 		if((valBuf & 0x00FF) != ((GPIO_TEST1_2 << 1) & 0x00FF)){
-			debug(ERROR,"Failure on PMOD3\n");		
+			test_log(ERROR,"Failure on PMOD3\n");		
 		}
 		if((valBuf & 0xFF00) != ((GPIO_TEST1_2 << 1) & 0xFF00)){
-			debug(ERROR,"Failure on PMOD4\n");		
+			test_log(ERROR,"Failure on PMOD4\n");		
 		}
 		return -1 ;
 	}
@@ -199,10 +205,10 @@ int testPMOD34(){
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
 	if(valBuf != (GPIO_TEST2_1 >> 1)){
 		if((valBuf & 0x00FF) != ((GPIO_TEST2_1 >> 1) & 0x00FF)){
-			debug(ERROR,"Failure on PMOD3\n");		
+			test_log(ERROR,"Failure on PMOD3\n");		
 		}
 		if((valBuf & 0xFF00) != ((GPIO_TEST2_1 >> 1) & 0xFF00)){
-			debug(ERROR,"Failure on PMOD4\n");		
+			test_log(ERROR,"Failure on PMOD4\n");		
 		}		
 		return -1 ;
 	}
@@ -212,10 +218,10 @@ int testPMOD34(){
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
 	if(valBuf != (GPIO_TEST2_2 >> 1) ){
 		if((valBuf & 0x00FF) != ((GPIO_TEST2_2 >> 1) & 0x00FF)){
-			debug(ERROR,"Failure on PMOD3\n");		
+			test_log(ERROR,"Failure on PMOD3\n");		
 		}
 		if((valBuf & 0xFF00) != ((GPIO_TEST2_2 >> 1) & 0xFF00)){
-			debug(ERROR,"Failure on PMOD4\n");		
+			test_log(ERROR,"Failure on PMOD4\n");		
 		}		
 		return -1 ;
 	}
@@ -288,17 +294,17 @@ int testCom(){
 	}	
 
 	if((i = wishbone_write((unsigned char *) writeVals, 2048, MEM0)) < 2048){
-		debug(ERROR,"Write error !, returned %d \n", i);
+		test_log(ERROR,"Write error !, returned %d \n", i);
 		return -1 ;
 	}
 	if((i = wishbone_read((unsigned char *) readVals, 2048, MEM0)) < 2048){
-		debug(ERROR,"Read error !, returned %d \n", i);
+		test_log(ERROR,"Read error !, returned %d \n", i);
 		return -1 ;
 	}
 	for(i = 0; i < 512; i ++){
 		if(readVals[i] != writeVals[i]){
-			debug(ERROR,"Corrupted Value @%i\n", i);	
-			debug(ERROR,"Expecting  0x%04x , got 0x%04x \n", writeVals[i], readVals[i]);	 	
+			test_log(ERROR,"Corrupted Value @%i\n", i);	
+			test_log(ERROR,"Expecting  0x%04x , got 0x%04x \n", writeVals[i], readVals[i]);	 	
 			return -1 ;	
 		}
 	}
@@ -322,10 +328,10 @@ int getSdramDump(){
 	unsigned short int buffer[8];
 	unsigned char i ;
 	wishbone_read((unsigned char *) buffer, 16, REG_DEBUG_RAM);
-	debug(ERROR,"test failed : %d \n", (unsigned int) (buffer[0] & 0x8000 == 0x8000));
-	debug(ERROR,"at address : %08x \n", ((buffer[0] & 0x7FFF) | (buffer[1] << 15)));
-	debug(ERROR,"with pattern : %04x%04x \n", buffer[5], buffer[6]);
-	debug(ERROR,"obtained : %04x%04x \n", buffer[2], buffer[3]);
+	test_log(ERROR,"test failed : %d \n", (unsigned int) (buffer[0] & 0x8000 == 0x8000));
+	test_log(ERROR,"at address : %08x \n", ((buffer[0] & 0x7FFF) | (buffer[1] << 15)));
+	test_log(ERROR,"with pattern : %04x%04x \n", buffer[5], buffer[6]);
+	test_log(ERROR,"obtained : %04x%04x \n", buffer[2], buffer[3]);
 	return 0 ;
 }
 
@@ -352,46 +358,47 @@ int testLVDS(){
 int main(int argc, char ** argv){
 	char c ;	
 	char * argv2 [3];	
-	debug(ERROR,"Press Enter to begin testing \n");
+	test_log(ERROR,"Press Enter to begin testing \n");
 	while(fgets(&c, 1, stdin)== NULL);
-	debug(INFO,"----------------Loading FPGA--------------\n");	
+	init_test_log();
+	test_log(INFO,"----------------Loading FPGA--------------\n");	
 	// load fpga
 	system("/usr/bin/logi_loader logipi_test.bit");
 	//
 	sleep(1);
-	debug(INFO,"-----------------Starting Test-------------\n");
+	test_log(INFO,"-----------------Starting Test-------------\n");
 	
 	
 	#ifdef TEST_PMOD_1_2
-	debug(INFO,"-------------------GPIO Test---------------\n");
+	test_log(INFO,"-------------------GPIO Test---------------\n");
 	if(testPMOD12() < 0){
-		debug(ERROR,"PMOD1-2 test failed \n");	
+		test_log(ERROR,"PMOD1-2 test failed \n");	
 		return -1 ;	
 	}
 	#endif
 	#ifdef TEST_PMOD_3_4
 	if(testPMOD34() < 0){
-		debug(ERROR,"PMOD3-4 test failed \n");	
+		test_log(ERROR,"PMOD3-4 test failed \n");	
 		return -1 ;
 	}
 	#endif
 	
 	#ifdef TEST_COMM
-	debug(INFO,"-----------------Communication Test---------------\n");
+	test_log(INFO,"-----------------Communication Test---------------\n");
 	if(testCom() < 0) {
-		debug(ERROR,"Communication test failed \n");	
+		test_log(ERROR,"Communication test failed \n");	
 		return -1 ;
 	}
 	#endif
 	
 	#ifdef TEST_LED
-	debug(INFO,"----------------Testing LEDs--------------\n");
+	test_log(INFO,"----------------Testing LEDs--------------\n");
 	testLED();
 	printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
 	while(fgets(&c, 2, stdin)== NULL) printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
 	printf("%c \n", c);
 	if(c == 'n'){
-		debug(INFO,"Led test failed \n");	
+		test_log(INFO,"Led test failed \n");	
 		return -1 ;	
 	}
 	while(c != 'y'){
@@ -399,7 +406,7 @@ int main(int argc, char ** argv){
 		printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
 		while(fgets(&c, 2, stdin)== NULL) printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
 		if(c == 'n'){
-			debug(ERROR,"Led test failed \n");	
+			test_log(ERROR,"Led test failed \n");	
 			return -1 ;	
 		}
 		printf("\n");
@@ -408,42 +415,42 @@ int main(int argc, char ** argv){
 	
 	#ifdef TEST_PB
 	printf("\n");
-	debug(INFO,"----------------Testing PB--------------\n");
+	test_log(INFO,"----------------Testing PB--------------\n");
 	printf("Click the Push buttons, press enter if nothing happens \n");
 	if(testPB() < 0){
-		debug(ERROR,"PB test failed \n");	
+		test_log(ERROR,"PB test failed \n");	
 		return -1 ;
 	}
 	#endif
 	
 	#ifdef TEST_SW
-	debug(INFO,"----------------Testing SW--------------\n");
+	test_log(INFO,"----------------Testing SW--------------\n");
 	printf("Switch the switches, press enter if nothing happens \n");
 	if(testSW() < 0){
-		debug(ERROR,"SW test failed \n");	
+		test_log(ERROR,"SW test failed \n");	
 		return -1 ;
 	}
 	#endif
 	
 	#ifdef TEST_SDRAM
-	debug(INFO,"----------------Testing SDRAM--------------\n");	
+	test_log(INFO,"----------------Testing SDRAM--------------\n");	
 	while(testSdram() > 0) sleep(1);
 	if(testSdram() < 0){
-		debug(ERROR,"SDRAM test failed \n");
+		test_log(ERROR,"SDRAM test failed \n");
 		getSdramDump();	
 		return -1 ;
 	}
 	#endif
 
 	#ifdef TEST_LVDS
-	debug(INFO,"----------------Testing LVDS--------------\n");	
+	test_log(INFO,"----------------Testing LVDS--------------\n");	
 	if(testLVDS() < 0){
-		debug(ERROR,"LVDS test failed \n");	
+		test_log(ERROR,"LVDS test failed \n");	
 		return -1 ;
 	}
-	debug(INFO,"---------------Test Passed ----------------\n");
+	test_log(INFO,"---------------Test Passed ----------------\n");
 	#endif
-	
+	close_test_log();
 	return 0 ;
 	
 }
