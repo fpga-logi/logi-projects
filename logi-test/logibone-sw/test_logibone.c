@@ -11,14 +11,15 @@
 #include "wishbone_wrapper.h"
 
 
-// define which test to run, commment to disable test
-#define TEST_SDRAM 	
-#define TEST_LED	
-#define TEST_PMOD_1_2
-#define TEST_PMOD_3_4
-#define TEST_SW
-#define TEST_PB		
-#define TEST_COMM	
+// define which test to run, comment to disable test
+//#define LOAD_BIT_FILE
+//#define TEST_SDRAM 	
+//#define TEST_LED	
+//#define TEST_PMOD_1_2
+//#define TEST_PMOD_3_4
+//#define TEST_SW
+//#define TEST_PB		
+//#define TEST_COMM	
 #define TEST_LVDS 
 
 
@@ -320,8 +321,10 @@ int main(int argc, char ** argv){
 	while(fgets(&c, 1, stdin)== NULL);
 	printf("----------------Loading FPGA--------------\n");	
 	// load fpga
-	system("/usr/bin/logi_loader logibone_test.bit");
+	#ifdef LOAD_BIT_FILE
+	system("/usr/bin/logi_loader ../logibone_test.bit");
 	//
+	#endif
 	printf("-----------------Starting Test-------------\n");
 	
 	
@@ -355,7 +358,7 @@ int main(int argc, char ** argv){
 	printf("%c \n", c);
 	if(c == 'n'){
 		printf("Led test failed \n");	
-		return -1 ;	
+		//return -1 ;	
 	}
 	while(c != 'y'){
 		testLED();
@@ -363,7 +366,7 @@ int main(int argc, char ** argv){
 		while(fgets(&c, 2, stdin)== NULL) printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
 		if(c == 'n'){
 			printf("Led test failed \n");	
-			return -1 ;	
+			//return -1 ;	
 		}
 		printf("\n");
 	}
@@ -375,7 +378,7 @@ int main(int argc, char ** argv){
 	printf("Click the Push buttons, press enter if nothing happens \n");
 	if(testPB() < 0){
 		printf("PB test failed \n");	
-		return -1 ;
+		//return -1 ;
 	}
 	#endif
 	
@@ -384,7 +387,7 @@ int main(int argc, char ** argv){
 	printf("Switch the switches, press enter if nothing happens \n");
 	if(testSW() < 0){
 		printf("SW test failed \n");	
-		return -1 ;
+		//return -1 ;
 	}
 	#endif
 	
@@ -394,7 +397,7 @@ int main(int argc, char ** argv){
 	if(testSdram() < 0){
 		printf("SDRAM test failed \n");
 		getSdramDump();	
-		return -1 ;
+		//return -1 ;
 	}
 	#endif
 
@@ -402,7 +405,7 @@ int main(int argc, char ** argv){
 	printf("----------------Testing LVDS--------------\n");	
 	if(testLVDS() < 0){
 		printf("LVDS test failed \n");	
-		return -1 ;
+		//return -1 ;
 	}
 	printf("---------------Test Passed ----------------\n");
 	#endif
