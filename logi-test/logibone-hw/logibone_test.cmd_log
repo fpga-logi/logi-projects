@@ -1,6 +1,6 @@
 xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.syr" 
-ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc logibone_ra2_1.ucf -p xc6slx9-tqg144-2 logibone_test.ngc logibone_test.ngd  
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc logibone_ra3.ucf -p xc6slx9-tqg144-2 logibone_test.ngc logibone_test.ngd  
 map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o logibone_test_map.ncd logibone_test.ngd logibone_test.pcf 
 par -w -intstyle ise -ol high -mt off logibone_test_map.ncd logibone_test.ncd logibone_test.pcf 
-trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml logibone_test.twx logibone_test.ncd -o logibone_test.twr logibone_test.pcf -ucf logibone_ra2_1.ucf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml logibone_test.twx logibone_test.ncd -o logibone_test.twr logibone_test.pcf -ucf logibone_ra3.ucf 
 bitgen -intstyle ise -f logibone_test.ut logibone_test.ncd 

@@ -11,19 +11,19 @@ Target Device  : xc6slx9
 Target Package : tqg144
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Tue Jan 14 22:35:14 2014
+Mapped Date    : Tue Jan 14 22:58:28 2014
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    1
+Number of warnings:    0
 Slice Logic Utilization:
   Number of Slice Registers:                   851 out of  11,440    7%
     Number used as Flip Flops:                 851
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        745 out of   5,720   13%
+  Number of Slice LUTs:                        757 out of   5,720   13%
     Number used as logic:                      733 out of   5,720   12%
       Number using O6 output only:             584
       Number using O5 output only:              70
@@ -36,18 +36,18 @@ Slice Logic Utilization:
         Number using O6 output only:             1
         Number using O5 output only:             0
         Number using O5 and O6:                  8
-    Number used exclusively as route-thrus:      3
-      Number with same-slice register load:      0
+    Number used exclusively as route-thrus:     15
+      Number with same-slice register load:     12
       Number with same-slice carry load:         3
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   332 out of   1,430   23%
+  Number of occupied Slices:                   317 out of   1,430   22%
   Nummber of MUXCYs used:                      132 out of   2,860    4%
-  Number of LUT Flip Flop pairs used:        1,070
-    Number with an unused Flip Flop:           236 out of   1,070   22%
-    Number with an unused LUT:                 325 out of   1,070   30%
-    Number of fully used LUT-FF pairs:         509 out of   1,070   47%
+  Number of LUT Flip Flop pairs used:        1,051
+    Number with an unused Flip Flop:           234 out of   1,051   22%
+    Number with an unused LUT:                 294 out of   1,051   27%
+    Number of fully used LUT-FF pairs:         523 out of   1,051   49%
     Number of unique control sets:              22
     Number of slice register sites lost
       to control set restrictions:              52 out of  11,440    1%
@@ -102,9 +102,9 @@ Specific Feature Utilization:
 
 Average Fanout of Non-Clock Nets:                3.38
 
-Peak Memory Usage:  682 MB
-Total REAL time to MAP completion:  1 mins 4 secs 
-Total CPU time to MAP completion:   54 secs 
+Peak Memory Usage:  681 MB
+Total REAL time to MAP completion:  1 mins 1 secs 
+Total CPU time to MAP completion:   50 secs 
 
 Table of Contents
 -----------------
@@ -130,18 +130,6 @@ Section 2 - Warnings
 WARNING:Security:42 - Your license support version '2014.01' for WebPack expires
 in 17 days after which you will not qualify for Xilinx software updates or new
 releases.
-WARNING:Place:1109 - A clock IOB / BUFGMUX clock component pair have been found
-   that are not placed at an optimal clock IOB / BUFGMUX site pair. The clock
-   IOB component <GPMC_CLK> is placed at site <P105>. The corresponding BUFG
-   component <GPMC_CLK_BUFGP/BUFG> is placed at site <BUFGMUX_X3Y16>. There is
-   only a select set of IOBs that can use the fast path to the Clocker buffer,
-   and they are not being used. You may want to analyze why this problem exists
-   and correct it. This is normally an ERROR but the CLOCK_DEDICATED_ROUTE
-   constraint was applied on COMP.PIN <GPMC_CLK.PAD> allowing your design to
-   continue. This constraint disables all clock placer rules related to the
-   specified COMP.PIN. The use of this override is highly discouraged as it may
-   lead to very poor timing results. It is recommended that this error condition
-   be corrected in the design.
 
 Section 3 - Informational
 -------------------------
@@ -235,11 +223,11 @@ Section 6 - IOB Properties
 | PB<1>                              | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
 | PMOD1<0>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
 | PMOD1<1>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
-| PMOD1<2>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              | PULLUP   |          |
+| PMOD1<2>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
 | PMOD1<3>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
 | PMOD1<4>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
 | PMOD1<5>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
-| PMOD1<6>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              | PULLUP   |          |
+| PMOD1<6>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
 | PMOD1<7>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
 | PMOD2<0>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
 | PMOD2<1>                           | IOB              | BIDIR     | LVTTL                |       | 2        | SLOW |              |          |          |
