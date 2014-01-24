@@ -28,9 +28,6 @@ To see the details of these <arg fmt="%s" index="4">info</arg> messages, please 
 <msg type="info" file="Map" num="215" delta="new" >The Interim Design Summary has been generated in the MAP Report (.mrp).
 </msg>
 
-<msg type="warning" file="Place" num="1109" delta="new" >A clock IOB / BUFGMUX clock component pair have been found that are not placed at an optimal clock IOB / BUFGMUX site pair. The clock IOB component &lt;<arg fmt="%s" index="1">GPMC_CLK</arg>&gt; is placed at site &lt;<arg fmt="%s" index="2">P105</arg>&gt;. The corresponding BUFG component &lt;<arg fmt="%s" index="3">GPMC_CLK_BUFGP/BUFG</arg>&gt; is placed at site &lt;<arg fmt="%s" index="4">BUFGMUX_X3Y16</arg>&gt;. There is only a select set of IOBs that can use the fast path to the Clocker buffer, and they are not being used. You may want to analyze why this problem exists and correct it. This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint was applied on COMP.PIN &lt;<arg fmt="%s" index="5">GPMC_CLK.PAD</arg>&gt; allowing your design to continue. This constraint disables all clock placer rules related to the specified COMP.PIN. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
-</msg>
-
 <msg type="info" file="Pack" num="1650" delta="new" >Map created a placed design.
 </msg>
 

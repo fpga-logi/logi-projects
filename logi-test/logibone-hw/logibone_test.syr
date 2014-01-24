@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.20 secs
+Total CPU time to Xst completion: 0.19 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.21 secs
+Total CPU time to Xst completion: 0.19 secs
  
 --> 
 Reading design: logibone_test.prj
@@ -1477,12 +1477,12 @@ OSC_FPGA       |    7.588|         |         |         |
 
 
 Total REAL time to Xst completion: 45.00 secs
-Total CPU time to Xst completion: 43.90 secs
+Total CPU time to Xst completion: 44.22 secs
  
 --> 
 
 
-Total memory usage is 412924 kilobytes
+Total memory usage is 412920 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  400 (   0 filtered)

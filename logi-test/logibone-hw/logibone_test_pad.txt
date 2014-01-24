@@ -1,7 +1,7 @@
 Release 14.1 - par P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-Tue Jan 14 22:37:51 2014
+Tue Jan 14 23:00:56 2014
 
 
 INFO: The IO information is provided in three file formats as part of the Place and Route (PAR) process.  These formats are:
@@ -59,34 +59,34 @@ Pinout by Pin Number:
 |P37       |              |         |PROGRAM_B_2               |         |           |              |          |         |           |         |       |          |           |                |
 |P38       |              |IOBS     |IO_L65N_CSO_B_2           |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
 |P39       |              |IOBM     |IO_L65P_INIT_B_2          |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
-|P40       |SATA_D2_N     |IOB      |IO_L64N_D9_2              |         |LVDS_33    |2             |          |         |           |         |       |LOCATED   |NO         |DIFF_TERM       |
-|P41       |SATA_D2_P     |IOB      |IO_L64P_D8_2              |INPUT    |LVDS_33    |2             |          |         |           |NONE     |       |LOCATED   |NO         |DIFF_TERM       |
+|P40       |SATA_D1_N     |IOBS     |IO_L64N_D9_2              |         |LVDS_33    |2             |          |         |           |         |       |LOCATED   |NO         |                |
+|P41       |SATA_D1_P     |IOBM     |IO_L64P_D8_2              |OUTPUT   |LVDS_33    |2             |          |         |           |         |       |LOCATED   |NO         |NONE            |
 |P42       |              |         |VCCO_2                    |         |           |2             |          |         |           |         |3.30   |          |           |                |
-|P43       |SATA_D1_N     |IOBS     |IO_L62N_D6_2              |         |LVDS_33    |2             |          |         |           |         |       |LOCATED   |NO         |                |
-|P44       |SATA_D1_P     |IOBM     |IO_L62P_D5_2              |OUTPUT   |LVDS_33    |2             |          |         |           |         |       |LOCATED   |NO         |NONE            |
-|P45       |GPMC_BEN<1>   |IOB      |IO_L49N_D4_2              |INPUT    |LVTTL      |2             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
-|P46       |PB<1>         |IOB      |IO_L49P_D3_2              |INPUT    |LVTTL      |2             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
-|P47       |PB<0>         |IOB      |IO_L48N_RDWR_B_VREF_2     |INPUT    |LVTTL      |2             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
-|P48       |SW<1>         |IOB      |IO_L48P_D7_2              |INPUT    |LVTTL      |2             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P43       |PMOD2<7>      |IOB      |IO_L62N_D6_2              |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P44       |PMOD2<6>      |IOB      |IO_L62P_D5_2              |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P45       |PMOD2<3>      |IOB      |IO_L49N_D4_2              |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P46       |PMOD2<2>      |IOB      |IO_L49P_D3_2              |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P47       |PMOD2<5>      |IOB      |IO_L48N_RDWR_B_VREF_2     |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P48       |PMOD2<4>      |IOB      |IO_L48P_D7_2              |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P49       |              |         |GND                       |         |           |              |          |         |           |         |       |          |           |                |
-|P50       |PMOD2<3>      |IOB      |IO_L31N_GCLK30_D15_2      |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
-|P51       |PMOD2<2>      |IOB      |IO_L31P_GCLK31_D14_2      |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P50       |SATA_D2_N     |IOB      |IO_L31N_GCLK30_D15_2      |         |LVDS_33    |2             |          |         |           |         |       |LOCATED   |NO         |DIFF_TERM       |
+|P51       |SATA_D2_P     |IOB      |IO_L31P_GCLK31_D14_2      |INPUT    |LVDS_33    |2             |          |         |           |NONE     |       |LOCATED   |NO         |DIFF_TERM       |
 |P52       |              |         |VCCINT                    |         |           |              |          |         |           |         |1.2    |          |           |                |
 |P53       |              |         |VCCAUX                    |         |           |              |          |         |           |         |2.5    |          |           |                |
 |P54       |              |         |GND                       |         |           |              |          |         |           |         |       |          |           |                |
 |P55       |PMOD2<1>      |IOB      |IO_L30N_GCLK0_USERCCLK_2  |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P56       |PMOD2<0>      |IOB      |IO_L30P_GCLK1_D13_2       |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
-|P57       |PMOD2<7>      |IOB      |IO_L14N_D12_2             |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
-|P58       |PMOD2<6>      |IOB      |IO_L14P_D11_2             |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
-|P59       |              |IOBS     |IO_L13N_D10_2             |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
+|P57       |PMOD1<7>      |IOB      |IO_L14N_D12_2             |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P58       |PMOD1<6>      |IOB      |IO_L14P_D11_2             |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P59       |PB<1>         |IOB      |IO_L13N_D10_2             |INPUT    |LVTTL      |2             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P60       |              |IOBM     |IO_L13P_M1_2              |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
-|P61       |              |IOBS     |IO_L12N_D2_MISO3_2        |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
-|P62       |LED<0>        |IOB      |IO_L12P_D1_MISO2_2        |OUTPUT   |LVTTL      |2             |2         |SLOW     |           |         |       |LOCATED   |NO         |NONE            |
+|P61       |PMOD1<5>      |IOB      |IO_L12N_D2_MISO3_2        |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P62       |PMOD1<4>      |IOB      |IO_L12P_D1_MISO2_2        |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P63       |              |         |VCCO_2                    |         |           |2             |          |         |           |         |3.30   |          |           |                |
 |P64       |              |IOBS     |IO_L3N_MOSI_CSI_B_MISO0_2 |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
 |P65       |              |IOBM     |IO_L3P_D0_DIN_MISO_MISO1_2|UNUSED   |           |2             |          |         |           |         |       |          |           |                |
-|P66       |PMOD2<5>      |IOB      |IO_L2N_CMPMOSI_2          |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
-|P67       |PMOD2<4>      |IOB      |IO_L2P_CMPCLK_2           |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P66       |PMOD1<3>      |IOB      |IO_L2N_CMPMOSI_2          |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P67       |PMOD1<2>      |IOB      |IO_L2P_CMPCLK_2           |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P68       |              |         |GND                       |         |           |              |          |         |           |         |       |          |           |                |
 |P69       |              |IOBS     |IO_L1N_M0_CMPMISO_2       |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
 |P70       |              |IOBM     |IO_L1P_CCLK_2             |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
@@ -97,41 +97,41 @@ Pinout by Pin Number:
 |P75       |SW<0>         |IOB      |IO_L74P_AWAKE_1           |INPUT    |LVTTL      |1             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P76       |              |         |VCCO_1                    |         |           |1             |          |         |           |         |3.30   |          |           |                |
 |P77       |              |         |GND                       |         |           |              |          |         |           |         |       |          |           |                |
-|P78       |PMOD1<1>      |IOB      |IO_L47N_1                 |BIDIR    |LVTTL      |1             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
-|P79       |PMOD1<0>      |IOB      |IO_L47P_1                 |BIDIR    |LVTTL      |1             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
-|P80       |PMOD1<7>      |IOB      |IO_L46N_1                 |BIDIR    |LVTTL      |1             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
-|P81       |PMOD1<6>      |IOB      |IO_L46P_1                 |BIDIR    |LVTTL      |1             |2         |SLOW     |PULLUP     |NONE     |       |LOCATED   |NO         |NONE            |
-|P82       |PMOD1<5>      |IOB      |IO_L45N_1                 |BIDIR    |LVTTL      |1             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
-|P83       |PMOD1<4>      |IOB      |IO_L45P_1                 |BIDIR    |LVTTL      |1             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
-|P84       |PMOD1<3>      |IOB      |IO_L43N_GCLK4_1           |BIDIR    |LVTTL      |1             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
-|P85       |PMOD1<2>      |IOB      |IO_L43P_GCLK5_1           |BIDIR    |LVTTL      |1             |2         |SLOW     |PULLUP     |NONE     |       |LOCATED   |NO         |NONE            |
+|P78       |SW<1>         |IOB      |IO_L47N_1                 |INPUT    |LVTTL      |1             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P79       |ARD_SDA       |IOB      |IO_L47P_1                 |INPUT    |LVTTL      |1             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P80       |ARD_SCL       |IOB      |IO_L46N_1                 |INPUT    |LVTTL      |1             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P81       |              |IOBM     |IO_L46P_1                 |UNUSED   |           |1             |          |         |           |         |       |          |           |                |
+|P82       |              |IOBS     |IO_L45N_1                 |UNUSED   |           |1             |          |         |           |         |       |          |           |                |
+|P83       |PB<0>         |IOB      |IO_L45P_1                 |INPUT    |LVTTL      |1             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P84       |              |IOBS     |IO_L43N_GCLK4_1           |UNUSED   |           |1             |          |         |           |         |       |          |           |                |
+|P85       |OSC_FPGA      |IOB      |IO_L43P_GCLK5_1           |INPUT    |LVCMOS25*  |1             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P86       |              |         |VCCO_1                    |         |           |1             |          |         |           |         |3.30   |          |           |                |
-|P87       |ARD_SCL       |IOB      |IO_L42N_GCLK6_TRDY1_1     |INPUT    |LVTTL      |1             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
-|P88       |ARD_SDA       |IOB      |IO_L42P_GCLK7_1           |INPUT    |LVTTL      |1             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P87       |              |IOBS     |IO_L42N_GCLK6_TRDY1_1     |UNUSED   |           |1             |          |         |           |         |       |          |           |                |
+|P88       |GPMC_BEN<1>   |IOB      |IO_L42P_GCLK7_1           |INPUT    |LVTTL      |1             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P89       |              |         |VCCINT                    |         |           |              |          |         |           |         |1.2    |          |           |                |
 |P90       |              |         |VCCAUX                    |         |           |              |          |         |           |         |2.5    |          |           |                |
 |P91       |              |         |GND                       |         |           |              |          |         |           |         |       |          |           |                |
-|P92       |OSC_FPGA      |IOB      |IO_L41N_GCLK8_1           |INPUT    |LVCMOS25*  |1             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
-|P93       |              |IOBM     |IO_L41P_GCLK9_IRDY1_1     |UNUSED   |           |1             |          |         |           |         |       |          |           |                |
-|P94       |GPMC_AD<15>   |IOB      |IO_L40N_GCLK10_1          |BIDIR    |LVTTL      |1             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
-|P95       |GPMC_AD<14>   |IOB      |IO_L40P_GCLK11_1          |BIDIR    |LVTTL      |1             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
+|P92       |GPMC_AD<15>   |IOB      |IO_L41N_GCLK8_1           |BIDIR    |LVTTL      |1             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
+|P93       |GPMC_AD<14>   |IOB      |IO_L41P_GCLK9_IRDY1_1     |BIDIR    |LVTTL      |1             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
+|P94       |GPMC_AD<11>   |IOB      |IO_L40N_GCLK10_1          |BIDIR    |LVTTL      |1             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
+|P95       |GPMC_CLK      |IOB      |IO_L40P_GCLK11_1          |INPUT    |LVTTL      |1             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P96       |              |         |GND                       |         |           |              |          |         |           |         |       |          |           |                |
-|P97       |GPMC_AD<11>   |IOB      |IO_L34N_1                 |BIDIR    |LVTTL      |1             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
-|P98       |GPMC_AD<0>    |IOB      |IO_L34P_1                 |BIDIR    |LVTTL      |1             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
-|P99       |GPMC_AD<1>    |IOB      |IO_L33N_1                 |BIDIR    |LVTTL      |1             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
-|P100      |GPMC_AD<4>    |IOB      |IO_L33P_1                 |BIDIR    |LVTTL      |1             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
-|P101      |GPMC_AD<5>    |IOB      |IO_L32N_1                 |BIDIR    |LVTTL      |1             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
-|P102      |GPMC_CSN      |IOB      |IO_L32P_1                 |INPUT    |LVTTL      |1             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P97       |GPMC_AD<0>    |IOB      |IO_L34N_1                 |BIDIR    |LVTTL      |1             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
+|P98       |GPMC_AD<1>    |IOB      |IO_L34P_1                 |BIDIR    |LVTTL      |1             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
+|P99       |GPMC_AD<4>    |IOB      |IO_L33N_1                 |BIDIR    |LVTTL      |1             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
+|P100      |GPMC_AD<5>    |IOB      |IO_L33P_1                 |BIDIR    |LVTTL      |1             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
+|P101      |GPMC_CSN      |IOB      |IO_L32N_1                 |INPUT    |LVTTL      |1             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P102      |GPMC_AD<8>    |IOB      |IO_L32P_1                 |BIDIR    |LVTTL      |1             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
 |P103      |              |         |VCCO_1                    |         |           |1             |          |         |           |         |3.30   |          |           |                |
-|P104      |GPMC_AD<8>    |IOB      |IO_L1N_VREF_1             |BIDIR    |LVTTL      |1             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
-|P105      |GPMC_CLK      |IOB      |IO_L1P_1                  |INPUT    |LVTTL      |1             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P104      |GPMC_AD<10>   |IOB      |IO_L1N_VREF_1             |BIDIR    |LVTTL      |1             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
+|P105      |GPMC_AD<9>    |IOB      |IO_L1P_1                  |BIDIR    |LVTTL      |1             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
 |P106      |              |         |TDO                       |         |           |              |          |         |           |         |       |          |           |                |
 |P107      |              |         |TMS                       |         |           |              |          |         |           |         |       |          |           |                |
 |P108      |              |         |GND                       |         |           |              |          |         |           |         |       |          |           |                |
 |P109      |              |         |TCK                       |         |           |              |          |         |           |         |       |          |           |                |
 |P110      |              |         |TDI                       |         |           |              |          |         |           |         |       |          |           |                |
-|P111      |GPMC_AD<10>   |IOB      |IO_L66N_SCP0_0            |BIDIR    |LVTTL      |0             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
-|P112      |GPMC_AD<9>    |IOB      |IO_L66P_SCP1_0            |BIDIR    |LVTTL      |0             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
+|P111      |PMOD1<1>      |IOB      |IO_L66N_SCP0_0            |BIDIR    |LVTTL      |0             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P112      |PMOD1<0>      |IOB      |IO_L66P_SCP1_0            |BIDIR    |LVTTL      |0             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P113      |              |         |GND                       |         |           |              |          |         |           |         |       |          |           |                |
 |P114      |GPMC_AD<12>   |IOB      |IO_L65N_SCP2_0            |BIDIR    |LVTTL      |0             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
 |P115      |GPMC_AD<13>   |IOB      |IO_L65P_SCP3_0            |BIDIR    |LVTTL      |0             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
@@ -159,7 +159,7 @@ Pinout by Pin Number:
 |P137      |SDRAM_DQ<6>   |IOB      |IO_L4N_0                  |BIDIR    |LVTTL      |0             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
 |P138      |SDRAM_DQ<7>   |IOB      |IO_L4P_0                  |BIDIR    |LVTTL      |0             |12        |FAST     |           |NONE     |       |LOCATED   |YES        |NONE            |
 |P139      |SDRAM_DQM<0>  |IOB      |IO_L3N_0                  |OUTPUT   |LVTTL      |0             |12        |FAST     |           |         |       |LOCATED   |YES        |NONE            |
-|P140      |              |IOBM     |IO_L3P_0                  |UNUSED   |           |0             |          |         |           |         |       |          |           |                |
+|P140      |LED<0>        |IOB      |IO_L3P_0                  |OUTPUT   |LVTTL      |0             |2         |SLOW     |           |         |       |LOCATED   |NO         |NONE            |
 |P141      |SDRAM_BA<0>   |IOB      |IO_L2N_0                  |OUTPUT   |LVTTL      |0             |12        |FAST     |           |         |       |LOCATED   |YES        |NONE            |
 |P142      |SDRAM_nRAS    |IOB      |IO_L2P_0                  |OUTPUT   |LVTTL      |0             |12        |FAST     |           |         |       |LOCATED   |YES        |NONE            |
 |P143      |SDRAM_nCAS    |IOB      |IO_L1N_VREF_0             |OUTPUT   |LVTTL      |0             |12        |FAST     |           |         |       |LOCATED   |YES        |NONE            |
