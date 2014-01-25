@@ -323,21 +323,24 @@ int getSdramDump(){
 
 int testLVDS(){
         unsigned short int write_val, read_val ;
+	unsigned int result = 0 ;
         write_val = 1 << SATA_WRITE_SHIFT ;
         wishbone_write((unsigned char *) &write_val, 2, REG0);
         wishbone_read((unsigned char *) & read_val, 2, REG2);
         read_val = (read_val >> SATA_READ_SHIFT) & 0x01 ;
         if(!read_val){
-                return -1 ;
+		test_log(ERROR," writing 1 reading %x :  \n", read_val );
+		result -- ;   
         }
         write_val = 0;
         wishbone_write((unsigned char *) &write_val, 2, REG0);
         wishbone_read((unsigned char *) &read_val, 2, REG2);
         read_val = (read_val >> SATA_READ_SHIFT) & 0x01 ;
         if(read_val){
-                 return -1 ;
+		test_log(ERROR," writing 0 reading %x :  \n", read_val );
+		result -- ;   
         }
-        return 0 ;
+        return result ;
 }
 
 
