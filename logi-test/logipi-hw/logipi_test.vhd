@@ -77,7 +77,7 @@ port( OSC_FPGA : in std_logic;
 	  ARD_D : inout std_logic_vector(13 downto 8);
 	  
 	  -- pi GPIO
-	  RP_GPIO_GEN : inout std_logic_vector(3 downto 2);
+	  RP_GPIO_GEN : inout std_logic_vector(3 downto 2)
 );
 end logipi_test;
 
