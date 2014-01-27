@@ -130,18 +130,18 @@ NET "SYS_SCL" LOC = "P97" | IOSTANDARD = LVTTL;			#Shared with Arduino SCL
 #NET "SYS_TX" LOC= "P51" ;			#Shared with Arduino TX
 #NET "SYS_RX" LOC= "P50" ;			#Shared with Arduino RX
 #NET "RP_GPIO_GCLK" LOC = "P95";
-NET "RP_GPIO_GEN2" LOC = "P81";
-NET "RP_GPIO_GEN3" LOC = "P80";
+NET "RP_GPIO_GEN<2>" LOC = "P81" | IOSTANDARD = LVTTL ;
+NET "RP_GPIO_GEN<3>" LOC = "P80" | IOSTANDARD = LVTTL ;
 
 #ARDUINO HEADERS########################################################################
 #SYS_SCL	#Shared wtih RPI i2c		
 #SYS_SDA	#Shared wtih RPI i2c													
-NET "ARD_D<13>" LOC= "P84";				#D13
-NET "ARD_D<12>" LOC= "P87";				#D12
-NET "ARD_D<11>" LOC= "P51";			#D11
-NET "ARD_D<10>" LOC= "P74";				#D10
-NET "ARD_D<9>" LOC= "P64";		#D9
-NET "ARD_D<8>" LOC= "P38";		#D8
+NET "ARD_D<13>" LOC= "P84" | IOSTANDARD = LVTTL ;				#D13
+NET "ARD_D<12>" LOC= "P87" | IOSTANDARD = LVTTL ;				#D12
+NET "ARD_D<11>" LOC= "P51" | IOSTANDARD = LVTTL ;			#D11
+NET "ARD_D<10>" LOC= "P74" | IOSTANDARD = LVTTL ;				#D10
+NET "ARD_D<9>" LOC= "P64" | IOSTANDARD = LVTTL ;		#D9
+NET "ARD_D<8>" LOC= "P38" | IOSTANDARD = LVTTL ;		#D8
 
 
 
