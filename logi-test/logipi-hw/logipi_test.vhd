@@ -54,7 +54,7 @@ port( OSC_FPGA : in std_logic;
 		SYS_SCL, SYS_SDA : inout std_logic ;
 		
 		--spi
-		SYS_SPI_SCK, RP_SPI_CE0N, SYS_SPI_MOSI : in std_logic ;
+		SYS_SPI_SCK, RP_SPI_CE0N, RP_SPI_CE1N, SYS_SPI_MOSI : in std_logic ;
 		SYS_SPI_MISO : out std_logic;
 		
 		-- sdram
@@ -71,7 +71,13 @@ port( OSC_FPGA : in std_logic;
 	  
 	  -- SATA port	  
 	  SATA_D1_N, SATA_D1_P : out std_logic;
-	  SATA_D2_N, SATA_D2_P  : in std_logic
+	  SATA_D2_N, SATA_D2_P  : in std_logic;
+	  
+	  -- arduino connector
+	  ARD_D : inout std_logic_vector(13 downto 8);
+	  
+	  -- pi GPIO
+	  RP_GPIO_GEN : inout std_logic_vector(3 downto 2);
 );
 end logipi_test;
 
@@ -393,11 +399,11 @@ gpio2 : wishbone_gpio
 			wbs_write      => intercon_gpio2_wbm_write,    
 			wbs_ack        => intercon_gpio2_wbm_ack,    
 			wbs_cycle      => intercon_gpio2_wbm_cycle, 
-			gpio(15 downto 12) => open,  -- connect to sata port and arduino pins 
+			gpio(15 downto 12) => open,  -- connect to arduino pins and pi expansion port
 			gpio(11 downto 10) => open,
 			gpio(9 downto 8) => open, 
-			gpio(7 downto 2) => open,  -- connect to sata port and arduino pins 
-			gpio(1 downto 0) => open
+			gpio(7 downto 6) => RP_GPIO_GEN(3 downto 2),  
+			gpio(5 downto 0) => ARD_D(13 downto 8)
 	 );	
 	
 reg0 : wishbone_register

@@ -124,24 +124,24 @@ NET "SYS_SPI_MOSI" LOC = "P65" | IOSTANDARD = LVTTL;	#Shared - Used to clk bitst
 NET "SYS_SPI_MISO" LOC = "P75" | IOSTANDARD = LVTTL;
 NET "SYS_SPI_SCK" LOC = "P70" | IOSTANDARD = LVTTL;	#Shared - Used to clk bitstream data to fpga / ARduino SCK
 NET "RP_SPI_CE0N" LOC = "P79" | IOSTANDARD = LVTTL;
-#NET "RP_SPI_CE1N" LOC = "P78";
+NET "RP_SPI_CE1N" LOC = "P78";
 NET "SYS_SDA" LOC = "P98" | IOSTANDARD = LVTTL;			#Shared with Arduino SDA
 NET "SYS_SCL" LOC = "P97" | IOSTANDARD = LVTTL;			#Shared with Arduino SCL
 #NET "SYS_TX" LOC= "P51" ;			#Shared with Arduino TX
 #NET "SYS_RX" LOC= "P50" ;			#Shared with Arduino RX
 #NET "RP_GPIO_GCLK" LOC = "P95";
-#NET "RP_GPIO_GEN2" LOC = "P81";
-#NET "RP_GPIO_GEN3" LOC = "P80";
+NET "RP_GPIO_GEN2" LOC = "P81";
+NET "RP_GPIO_GEN3" LOC = "P80";
 
 #ARDUINO HEADERS########################################################################
 #SYS_SCL	#Shared wtih RPI i2c		
 #SYS_SDA	#Shared wtih RPI i2c													
-#NET "ARD_SCK" LOC= "P84";				#D13
-#NET "ARD_MISO" LOC= "P87";				#D12
-#NET "ARD_MOSI" LOC= "P51";			#D11
-#NET "ARD_SS" LOC= "P74";				#D10
-#NET "ARD_D9_FLSH_DI" LOC= "P64";		#D9
-#NET "ARD_D8_FLSH_CS" LOC= "P38";		#D8
+NET "ARD_D<13>" LOC= "P84";				#D13
+NET "ARD_D<12>" LOC= "P87";				#D12
+NET "ARD_D<11>" LOC= "P51";			#D11
+NET "ARD_D<10>" LOC= "P74";				#D10
+NET "ARD_D<9>" LOC= "P64";		#D9
+NET "ARD_D<8>" LOC= "P38";		#D8
 
 
 
