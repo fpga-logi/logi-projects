@@ -70,7 +70,10 @@ port( OSC_FPGA : in std_logic;
 	  
 	  -- SATA port	  
 	  SATA_D1_N, SATA_D1_P : out std_logic;
-	  SATA_D2_N, SATA_D2_P  : in std_logic
+	  SATA_D2_N, SATA_D2_P  : in std_logic;
+	  
+	  -- arduino port
+	  ARD_D : inout std_logic_vector(5 downto 0)
 );
 end logibone_test;
 
@@ -399,8 +402,8 @@ gpio2 : wishbone_gpio
 			gpio(15 downto 12) => open,  -- connect to sata port and arduino pins 
 			gpio(11 downto 10) => open,
 			gpio(9 downto 8) => open, 
-			gpio(7 downto 2) => open,  -- connect to sata port and arduino pins 
-			gpio(1 downto 0) => open
+			gpio(7 downto 6) => open,  -- connect to sata port and arduino pins 
+			gpio(5 downto 0) => ARD_D
 	 );	
 	
 reg0 : wishbone_register

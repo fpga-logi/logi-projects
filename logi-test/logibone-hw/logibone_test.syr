@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.19 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.19 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Reading design: logibone_test.prj
@@ -151,17 +151,13 @@ Parsing architecture <RTL> of entity <gpmc_wishbone_wrapper>.
 Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" into library work
 Parsing entity <logibone_test>.
 Parsing architecture <Behavioral> of entity <logibone_test>.
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 381: Partially associated formal gpio cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 382: Partially associated formal gpio cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 399: Partially associated formal gpio cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 400: Partially associated formal gpio cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 401: Partially associated formal gpio cannot have actual OPEN
+WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 384: Partially associated formal gpio cannot have actual OPEN
+WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 385: Partially associated formal gpio cannot have actual OPEN
 WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 402: Partially associated formal gpio cannot have actual OPEN
 WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 403: Partially associated formal gpio cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 441: Partially associated formal reg_out cannot have actual OPEN
+WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 404: Partially associated formal gpio cannot have actual OPEN
+WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 405: Partially associated formal gpio cannot have actual OPEN
 WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 444: Partially associated formal reg_out cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 445: Partially associated formal reg_out cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 446: Partially associated formal reg_out cannot have actual OPEN
 WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 447: Partially associated formal reg_out cannot have actual OPEN
 WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 448: Partially associated formal reg_out cannot have actual OPEN
 WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 449: Partially associated formal reg_out cannot have actual OPEN
@@ -169,13 +165,16 @@ WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-project
 WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 451: Partially associated formal reg_out cannot have actual OPEN
 WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 452: Partially associated formal reg_out cannot have actual OPEN
 WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 453: Partially associated formal reg_out cannot have actual OPEN
+WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 454: Partially associated formal reg_out cannot have actual OPEN
+WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 455: Partially associated formal reg_out cannot have actual OPEN
+WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 456: Partially associated formal reg_out cannot have actual OPEN
 
 =========================================================================
 *                            HDL Elaboration                            *
 =========================================================================
 
 Elaborating entity <logibone_test> (architecture <Behavioral>) from library <work>.
-WARNING:HDLCompiler:1127 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 236: Assignment to gls_resetn ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 239: Assignment to gls_resetn ignored, since the identifier is never used
 
 Elaborating entity <clock_gen> (architecture <xilinx>) from library <work>.
 
@@ -221,18 +220,18 @@ WARNING:HDLCompiler:634 - "Unknown" Line 0: Net <reg0_reg_in[11][0]> does not ha
 Synthesizing Unit <logibone_test>.
     Related source file is "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd".
 WARNING:Xst:647 - Input <GPMC_BEN> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<1>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<2>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<3>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<4>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<5>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<6>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<7>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<8>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<9>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<10>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 406: Output port <reg_out<11>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 497: Output port <SDRAM_CS> of the instance <Inst_SDRAM_Controller> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<1>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<2>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<3>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<4>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<5>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<6>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<7>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<8>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<9>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<10>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<11>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 500: Output port <SDRAM_CS> of the instance <Inst_SDRAM_Controller> is unconnected or connected to loadless signal.
 Always blocking tristate driving signal <ARD_SCL> is removed.
 Always blocking tristate driving signal <ARD_SDA> is removed.
 WARNING:Xst:653 - Signal <reg0_reg_in<11><15>> is used but never assigned. This sourceless signal will be automatically connected to value GND.
@@ -253,7 +252,7 @@ WARNING:Xst:653 - Signal <reg0_reg_in<11><1>> is used but never assigned. This s
 WARNING:Xst:653 - Signal <reg0_reg_in<11><0>> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Found 3-bit register for signal <debug_sent_counter>.
     Found 128-bit register for signal <debug_long_register>.
-    Found 3-bit subtractor for signal <GND_9_o_GND_9_o_sub_3_OUT<2:0>> created at line 562.
+    Found 3-bit subtractor for signal <GND_9_o_GND_9_o_sub_3_OUT<2:0>> created at line 565.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred 131 D-type flip-flop(s).
@@ -889,7 +888,7 @@ INFO:Xst:2261 - The FF/Latch <wanted_25> in Unit <Memory_tester> is equivalent t
 INFO:Xst:2261 - The FF/Latch <wanted_26> in Unit <Memory_tester> is equivalent to the following FF/Latch, which will be removed : <wanted_30> 
 INFO:Xst:2261 - The FF/Latch <wanted_27> in Unit <Memory_tester> is equivalent to the following FF/Latch, which will be removed : <wanted_31> 
 INFO:Xst:2261 - The FF/Latch <state_FSM_FFd3> in Unit <SDRAM_Controller> is equivalent to the following FF/Latch, which will be removed : <data_ready_delay_4> 
-WARNING:Xst:2042 - Unit logibone_test: 32 internal tristates are replaced by logic (pull-up yes): gpio1/gpio<0>, gpio1/gpio<10>, gpio1/gpio<11>, gpio1/gpio<12>, gpio1/gpio<13>, gpio1/gpio<14>, gpio1/gpio<15>, gpio1/gpio<1>, gpio1/gpio<2>, gpio1/gpio<3>, gpio1/gpio<4>, gpio1/gpio<5>, gpio1/gpio<6>, gpio1/gpio<7>, gpio1/gpio<8>, gpio1/gpio<9>, gpio2/gpio<0>, gpio2/gpio<10>, gpio2/gpio<11>, gpio2/gpio<12>, gpio2/gpio<13>, gpio2/gpio<14>, gpio2/gpio<15>, gpio2/gpio<1>, gpio2/gpio<2>, gpio2/gpio<3>, gpio2/gpio<4>, gpio2/gpio<5>, gpio2/gpio<6>, gpio2/gpio<7>, gpio2/gpio<8>, gpio2/gpio<9>.
+WARNING:Xst:2042 - Unit logibone_test: 26 internal tristates are replaced by logic (pull-up yes): gpio1/gpio<0>, gpio1/gpio<10>, gpio1/gpio<11>, gpio1/gpio<12>, gpio1/gpio<13>, gpio1/gpio<14>, gpio1/gpio<15>, gpio1/gpio<1>, gpio1/gpio<2>, gpio1/gpio<3>, gpio1/gpio<4>, gpio1/gpio<5>, gpio1/gpio<6>, gpio1/gpio<7>, gpio1/gpio<8>, gpio1/gpio<9>, gpio2/gpio<10>, gpio2/gpio<11>, gpio2/gpio<12>, gpio2/gpio<13>, gpio2/gpio<14>, gpio2/gpio<15>, gpio2/gpio<6>, gpio2/gpio<7>, gpio2/gpio<8>, gpio2/gpio<9>.
 WARNING:Xst:2040 - Unit wishbone_intercon: 16 multi-source signals are replaced by logic (pull-up yes): wbs_readdata<0>, wbs_readdata<10>, wbs_readdata<11>, wbs_readdata<12>, wbs_readdata<13>, wbs_readdata<14>, wbs_readdata<15>, wbs_readdata<1>, wbs_readdata<2>, wbs_readdata<3>, wbs_readdata<4>, wbs_readdata<5>, wbs_readdata<6>, wbs_readdata<7>, wbs_readdata<8>, wbs_readdata<9>.
 
 Optimizing unit <logibone_test> ...
@@ -1126,6 +1125,12 @@ WARNING:Xst:1293 - FF/Latch <Inst_SDRAM_Controller/iob_command_3> has a constant
 Final Macro Processing ...
 
 Processing Unit <logibone_test> :
+	Found 2-bit shift register for signal <gpio2/wbs_readdata_5>.
+	Found 2-bit shift register for signal <gpio2/wbs_readdata_4>.
+	Found 2-bit shift register for signal <gpio2/wbs_readdata_3>.
+	Found 2-bit shift register for signal <gpio2/wbs_readdata_2>.
+	Found 2-bit shift register for signal <gpio2/wbs_readdata_1>.
+	Found 2-bit shift register for signal <gpio2/wbs_readdata_0>.
 	Found 2-bit shift register for signal <gpio0/wbs_readdata_15>.
 	Found 2-bit shift register for signal <gpio0/wbs_readdata_14>.
 	Found 2-bit shift register for signal <gpio0/wbs_readdata_13>.
@@ -1149,10 +1154,10 @@ Unit <logibone_test> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 905
- Flip-Flops                                            : 905
-# Shift Registers                                      : 17
- 2-bit shift register                                  : 16
+# Registers                                            : 893
+ Flip-Flops                                            : 893
+# Shift Registers                                      : 23
+ 2-bit shift register                                  : 22
  4-bit shift register                                  : 1
 
 =========================================================================
@@ -1178,41 +1183,41 @@ Top Level Output File Name         : logibone_test.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1012
+# BELS                             : 1007
 #      GND                         : 1
-#      INV                         : 35
+#      INV                         : 41
 #      LUT1                        : 73
-#      LUT2                        : 49
-#      LUT3                        : 66
-#      LUT4                        : 143
+#      LUT2                        : 43
+#      LUT3                        : 67
+#      LUT4                        : 137
 #      LUT5                        : 237
 #      LUT6                        : 184
 #      MUXCY                       : 115
 #      MUXF7                       : 8
 #      VCC                         : 1
 #      XORCY                       : 100
-# FlipFlops/Latches                : 923
+# FlipFlops/Latches                : 917
 #      FD                          : 137
 #      FDC                         : 38
 #      FDC_1                       : 32
 #      FDCE                        : 118
-#      FDE                         : 583
+#      FDE                         : 577
 #      FDP                         : 3
 #      FDP_1                       : 3
 #      FDS                         : 8
 #      ODDR2                       : 1
 # RAMS                             : 2
 #      RAMB16BWER                  : 2
-# Shift Registers                  : 17
-#      SRLC16E                     : 17
+# Shift Registers                  : 23
+#      SRLC16E                     : 23
 # Clock Buffers                    : 2
 #      BUFG                        : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 83
+# IO Buffers                       : 89
 #      IBUF                        : 8
 #      IBUFDS                      : 1
 #      IBUFG                       : 1
-#      IOBUF                       : 48
+#      IOBUF                       : 54
 #      OBUF                        : 24
 #      OBUFDS                      : 1
 # DCMs                             : 1
@@ -1225,22 +1230,22 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             852  out of  11440     7%  
- Number of Slice LUTs:                  804  out of   5720    14%  
-    Number used as Logic:               787  out of   5720    13%  
-    Number used as Memory:               17  out of   1440     1%  
-       Number used as SRL:               17
+ Number of Slice Registers:             846  out of  11440     7%  
+ Number of Slice LUTs:                  805  out of   5720    14%  
+    Number used as Logic:               782  out of   5720    13%  
+    Number used as Memory:               23  out of   1440     1%  
+       Number used as SRL:               23
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1152
-   Number with an unused Flip Flop:     300  out of   1152    26%  
-   Number with an unused LUT:           348  out of   1152    30%  
-   Number of fully used LUT-FF pairs:   504  out of   1152    43%  
-   Number of unique control sets:        23
+ Number of LUT Flip Flop pairs used:   1150
+   Number with an unused Flip Flop:     304  out of   1150    26%  
+   Number with an unused LUT:           345  out of   1150    30%  
+   Number of fully used LUT-FF pairs:   501  out of   1150    43%  
+   Number of unique control sets:        24
 
 IO Utilization: 
- Number of IOs:                          90
- Number of bonded IOBs:                  86  out of    102    84%  
+ Number of IOs:                          96
+ Number of bonded IOBs:                  92  out of    102    90%  
     IOB Flip Flops/Latches:              71
 
 Specific Feature Utilization:
@@ -1293,7 +1298,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'OSC_FPGA'
   Clock period: 15.176ns (frequency: 65.894MHz)
-  Total number of paths / destination ports: 16485 / 1315
+  Total number of paths / destination ports: 16467 / 1309
 -------------------------------------------------------------------------
 Delay:               7.588ns (Levels of Logic = 4)
   Source:            gpmc2wishbone/address_15 (FF)
@@ -1308,7 +1313,7 @@ Delay:               7.588ns (Levels of Logic = 4)
      FDC:C->Q              4   0.525   1.032  gpmc2wishbone/address_15 (gpmc2wishbone/address_15)
      LUT3:I0->O           21   0.235   1.310  intercon0/cs_vector<0><15>111 (intercon0/cs_vector<0><15>11)
      LUT6:I5->O            6   0.254   0.876  intercon0/cs_vector<0><15>1_1 (intercon0/cs_vector<0><15>12)
-     LUT6:I5->O           19   0.254   1.369  intercon0/wbm_write<0>1 (n0058<0>)
+     LUT6:I5->O           19   0.254   1.369  intercon0/wbm_write<0>1 (n0059<0>)
      LUT3:I1->O           16   0.250   1.181  gpio0/_n0059_inv211 (gpio0/_n0059_inv)
      FDCE:CE                   0.302          gpio0/output_15
     ----------------------------------------
@@ -1375,7 +1380,7 @@ Offset:              4.300ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'OSC_FPGA'
-  Total number of paths / destination ports: 38 / 37
+  Total number of paths / destination ports: 44 / 43
 -------------------------------------------------------------------------
 Offset:              2.083ns (Levels of Logic = 1)
   Source:            SATA_D2_P (PAD)
@@ -1394,7 +1399,7 @@ Offset:              2.083ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'OSC_FPGA'
-  Total number of paths / destination ports: 89 / 57
+  Total number of paths / destination ports: 101 / 63
 -------------------------------------------------------------------------
 Offset:              5.098ns (Levels of Logic = 2)
   Source:            gpio0/dir_15 (FF)
@@ -1476,15 +1481,15 @@ OSC_FPGA       |    7.588|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 45.00 secs
-Total CPU time to Xst completion: 44.22 secs
+Total REAL time to Xst completion: 27.00 secs
+Total CPU time to Xst completion: 26.60 secs
  
 --> 
 
 
-Total memory usage is 412920 kilobytes
+Total memory usage is 413140 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  400 (   0 filtered)
+Number of warnings :  399 (   0 filtered)
 Number of infos    :   33 (   0 filtered)
 

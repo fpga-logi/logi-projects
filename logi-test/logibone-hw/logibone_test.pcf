@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.15xf on Tue Jan 14 22:59:27 2014
+// Written by: Map P.15xf on Wed Jan 29 00:03:46 2014
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -42,6 +42,12 @@ COMP "SDRAM_ADDR<7>" LOCATE = SITE "P32" LEVEL 1;
 COMP "SDRAM_ADDR<8>" LOCATE = SITE "P30" LEVEL 1;
 COMP "SDRAM_ADDR<9>" LOCATE = SITE "P29" LEVEL 1;
 COMP "GPMC_ADVN" LOCATE = SITE "P119" LEVEL 1;
+COMP "ARD_D<0>" LOCATE = SITE "P84" LEVEL 1;
+COMP "ARD_D<1>" LOCATE = SITE "P87" LEVEL 1;
+COMP "ARD_D<2>" LOCATE = SITE "P21" LEVEL 1;
+COMP "ARD_D<3>" LOCATE = SITE "P38" LEVEL 1;
+COMP "ARD_D<4>" LOCATE = SITE "P64" LEVEL 1;
+COMP "ARD_D<5>" LOCATE = SITE "P39" LEVEL 1;
 COMP "SDRAM_DQ<10>" LOCATE = SITE "P15" LEVEL 1;
 COMP "SDRAM_DQ<11>" LOCATE = SITE "P14" LEVEL 1;
 COMP "SDRAM_DQ<12>" LOCATE = SITE "P12" LEVEL 1;
@@ -207,15 +213,10 @@ TIMEGRP pll0_clk2x = BEL "debug_long_register_0" BEL "debug_long_register_1"
         "gpio2/wbs_readdata_12" BEL "gpio2/wbs_readdata_11" BEL
         "gpio2/wbs_readdata_10" BEL "gpio2/wbs_readdata_9" BEL
         "gpio2/wbs_readdata_8" BEL "gpio2/wbs_readdata_7" BEL
-        "gpio2/wbs_readdata_6" BEL "gpio2/wbs_readdata_5" BEL
-        "gpio2/wbs_readdata_4" BEL "gpio2/wbs_readdata_3" BEL
-        "gpio2/wbs_readdata_2" BEL "gpio2/wbs_readdata_1" BEL
-        "gpio2/wbs_readdata_0" BEL "gpio2/input_15" BEL "gpio2/input_14" BEL
+        "gpio2/wbs_readdata_6" BEL "gpio2/input_15" BEL "gpio2/input_14" BEL
         "gpio2/input_13" BEL "gpio2/input_12" BEL "gpio2/input_11" BEL
         "gpio2/input_10" BEL "gpio2/input_9" BEL "gpio2/input_8" BEL
-        "gpio2/input_7" BEL "gpio2/input_6" BEL "gpio2/input_5" BEL
-        "gpio2/input_4" BEL "gpio2/input_3" BEL "gpio2/input_2" BEL
-        "gpio2/input_1" BEL "gpio2/input_0" BEL "gpio2/read_ack" BEL
+        "gpio2/input_7" BEL "gpio2/input_6" BEL "gpio2/read_ack" BEL
         "gpio2/dir_15" BEL "gpio2/dir_14" BEL "gpio2/dir_13" BEL
         "gpio2/dir_12" BEL "gpio2/dir_11" BEL "gpio2/dir_10" BEL "gpio2/dir_9"
         BEL "gpio2/dir_8" BEL "gpio2/dir_7" BEL "gpio2/dir_6" BEL
@@ -224,8 +225,6 @@ TIMEGRP pll0_clk2x = BEL "debug_long_register_0" BEL "debug_long_register_1"
         "gpio2/output_14" BEL "gpio2/output_13" BEL "gpio2/output_12" BEL
         "gpio2/output_11" BEL "gpio2/output_10" BEL "gpio2/output_9" BEL
         "gpio2/output_8" BEL "gpio2/output_7" BEL "gpio2/output_6" BEL
-        "gpio2/output_5" BEL "gpio2/output_4" BEL "gpio2/output_3" BEL
-        "gpio2/output_2" BEL "gpio2/output_1" BEL "gpio2/output_0" BEL
         "gpio2/write_ack" BEL "gpio1/wbs_readdata_15" BEL
         "gpio1/wbs_readdata_14" BEL "gpio1/wbs_readdata_13" BEL
         "gpio1/wbs_readdata_12" BEL "gpio1/wbs_readdata_11" BEL
@@ -632,25 +631,33 @@ TIMEGRP pll0_clk2x = BEL "debug_long_register_0" BEL "debug_long_register_1"
         "gpio0/output_11" BEL "gpio0/output_10" BEL "gpio0/output_9" BEL
         "gpio0/output_8" BEL "gpio0/output_7" BEL "gpio0/output_6" BEL
         "gpio0/output_5" BEL "gpio0/output_4" BEL "gpio0/output_3" BEL
-        "gpio0/output_2" BEL "gpio0/output_1" BEL "gpio0/output_0" PIN
+        "gpio0/output_2" BEL "gpio0/output_1" BEL "gpio0/output_0" BEL
+        "gpio2/output_5" BEL "gpio2/output_4" BEL "gpio2/output_3" BEL
+        "gpio2/output_2" BEL "gpio2/output_1" BEL "gpio2/output_0" PIN
         "mem_0/ram0/Mram_RAM1_pins<22>" PIN "mem_0/ram0/Mram_RAM1_pins<23>"
         PIN "mem_0/ram0/Mram_RAM2_pins<22>" PIN
-        "mem_0/ram0/Mram_RAM2_pins<23>" BEL "gpio0/Mshreg_wbs_readdata_13" BEL
+        "mem_0/ram0/Mram_RAM2_pins<23>" BEL "gpio2/Mshreg_wbs_readdata_3" BEL
+        "gpio2/wbs_readdata_3" BEL "gpio2/Mshreg_wbs_readdata_5" BEL
+        "gpio2/wbs_readdata_5" BEL "gpio2/Mshreg_wbs_readdata_4" BEL
+        "gpio2/wbs_readdata_4" BEL "gpio2/Mshreg_wbs_readdata_0" BEL
+        "gpio2/wbs_readdata_0" BEL "gpio2/Mshreg_wbs_readdata_2" BEL
+        "gpio2/wbs_readdata_2" BEL "gpio2/Mshreg_wbs_readdata_1" BEL
+        "gpio2/wbs_readdata_1" BEL "gpio0/Mshreg_wbs_readdata_13" BEL
         "gpio0/wbs_readdata_13" BEL "gpio0/Mshreg_wbs_readdata_15" BEL
         "gpio0/wbs_readdata_15" BEL "gpio0/Mshreg_wbs_readdata_14" BEL
-        "gpio0/wbs_readdata_14" BEL "gpio0/Mshreg_wbs_readdata_12" BEL
+        "gpio0/wbs_readdata_14" BEL "gpio0/Mshreg_wbs_readdata_10" BEL
+        "gpio0/wbs_readdata_10" BEL "gpio0/Mshreg_wbs_readdata_12" BEL
         "gpio0/wbs_readdata_12" BEL "gpio0/Mshreg_wbs_readdata_11" BEL
-        "gpio0/wbs_readdata_11" BEL "gpio0/Mshreg_wbs_readdata_10" BEL
-        "gpio0/wbs_readdata_10" BEL "gpio0/Mshreg_wbs_readdata_9" BEL
+        "gpio0/wbs_readdata_11" BEL "gpio0/Mshreg_wbs_readdata_7" BEL
+        "gpio0/wbs_readdata_7" BEL "gpio0/Mshreg_wbs_readdata_9" BEL
         "gpio0/wbs_readdata_9" BEL "gpio0/Mshreg_wbs_readdata_8" BEL
-        "gpio0/wbs_readdata_8" BEL "gpio0/Mshreg_wbs_readdata_7" BEL
-        "gpio0/wbs_readdata_7" BEL "gpio0/Mshreg_wbs_readdata_6" BEL
+        "gpio0/wbs_readdata_8" BEL "gpio0/Mshreg_wbs_readdata_4" BEL
+        "gpio0/wbs_readdata_4" BEL "gpio0/Mshreg_wbs_readdata_6" BEL
         "gpio0/wbs_readdata_6" BEL "gpio0/Mshreg_wbs_readdata_5" BEL
-        "gpio0/wbs_readdata_5" BEL "gpio0/Mshreg_wbs_readdata_4" BEL
-        "gpio0/wbs_readdata_4" BEL "gpio0/Mshreg_wbs_readdata_3" BEL
+        "gpio0/wbs_readdata_5" BEL "gpio0/Mshreg_wbs_readdata_1" BEL
+        "gpio0/wbs_readdata_1" BEL "gpio0/Mshreg_wbs_readdata_3" BEL
         "gpio0/wbs_readdata_3" BEL "gpio0/Mshreg_wbs_readdata_2" BEL
-        "gpio0/wbs_readdata_2" BEL "gpio0/Mshreg_wbs_readdata_1" BEL
-        "gpio0/wbs_readdata_1" BEL "gpio0/Mshreg_wbs_readdata_0" BEL
+        "gpio0/wbs_readdata_2" BEL "gpio0/Mshreg_wbs_readdata_0" BEL
         "gpio0/wbs_readdata_0" BEL
         "Inst_SDRAM_Controller/Mshreg_data_ready_delay_0" BEL
         "Inst_SDRAM_Controller/data_ready_delay_0" PIN
