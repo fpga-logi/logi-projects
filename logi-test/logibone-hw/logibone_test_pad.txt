@@ -1,7 +1,7 @@
 Release 14.1 - par P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-Tue Jan 14 23:00:56 2014
+Wed Jan 29 00:05:12 2014
 
 
 INFO: The IO information is provided in three file formats as part of the Place and Route (PAR) process.  These formats are:
@@ -40,7 +40,7 @@ Pinout by Pin Number:
 |P18       |              |         |VCCO_3                    |         |           |3             |          |         |           |         |3.30   |          |           |                |
 |P19       |              |         |VCCINT                    |         |           |              |          |         |           |         |1.2    |          |           |                |
 |P20       |              |         |VCCAUX                    |         |           |              |          |         |           |         |2.5    |          |           |                |
-|P21       |              |IOBS     |IO_L42N_GCLK24_3          |UNUSED   |           |3             |          |         |           |         |       |          |           |                |
+|P21       |ARD_D<2>      |IOB      |IO_L42N_GCLK24_3          |BIDIR    |LVTTL      |3             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P22       |SDRAM_DQM<1>  |IOB      |IO_L42P_GCLK25_TRDY2_3    |OUTPUT   |LVTTL      |3             |12        |FAST     |           |         |       |LOCATED   |YES        |NONE            |
 |P23       |SDRAM_CLK     |IOB      |IO_L41N_GCLK26_3          |OUTPUT   |LVTTL      |3             |12        |FAST     |           |         |       |LOCATED   |YES        |NONE            |
 |P24       |SDRAM_CKE     |IOB      |IO_L41P_GCLK27_3          |OUTPUT   |LVTTL      |3             |12        |FAST     |           |         |       |LOCATED   |YES        |NONE            |
@@ -57,8 +57,8 @@ Pinout by Pin Number:
 |P35       |SDRAM_ADDR<4> |IOB      |IO_L1P_3                  |OUTPUT   |LVTTL      |3             |12        |FAST     |           |         |       |LOCATED   |YES        |NONE            |
 |P36       |              |         |VCCAUX                    |         |           |              |          |         |           |         |2.5    |          |           |                |
 |P37       |              |         |PROGRAM_B_2               |         |           |              |          |         |           |         |       |          |           |                |
-|P38       |              |IOBS     |IO_L65N_CSO_B_2           |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
-|P39       |              |IOBM     |IO_L65P_INIT_B_2          |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
+|P38       |ARD_D<3>      |IOB      |IO_L65N_CSO_B_2           |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
+|P39       |ARD_D<5>      |IOB      |IO_L65P_INIT_B_2          |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P40       |SATA_D1_N     |IOBS     |IO_L64N_D9_2              |         |LVDS_33    |2             |          |         |           |         |       |LOCATED   |NO         |                |
 |P41       |SATA_D1_P     |IOBM     |IO_L64P_D8_2              |OUTPUT   |LVDS_33    |2             |          |         |           |         |       |LOCATED   |NO         |NONE            |
 |P42       |              |         |VCCO_2                    |         |           |2             |          |         |           |         |3.30   |          |           |                |
@@ -83,7 +83,7 @@ Pinout by Pin Number:
 |P61       |PMOD1<5>      |IOB      |IO_L12N_D2_MISO3_2        |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P62       |PMOD1<4>      |IOB      |IO_L12P_D1_MISO2_2        |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P63       |              |         |VCCO_2                    |         |           |2             |          |         |           |         |3.30   |          |           |                |
-|P64       |              |IOBS     |IO_L3N_MOSI_CSI_B_MISO0_2 |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
+|P64       |ARD_D<4>      |IOB      |IO_L3N_MOSI_CSI_B_MISO0_2 |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P65       |              |IOBM     |IO_L3P_D0_DIN_MISO_MISO1_2|UNUSED   |           |2             |          |         |           |         |       |          |           |                |
 |P66       |PMOD1<3>      |IOB      |IO_L2N_CMPMOSI_2          |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P67       |PMOD1<2>      |IOB      |IO_L2P_CMPCLK_2           |BIDIR    |LVTTL      |2             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
@@ -103,10 +103,10 @@ Pinout by Pin Number:
 |P81       |              |IOBM     |IO_L46P_1                 |UNUSED   |           |1             |          |         |           |         |       |          |           |                |
 |P82       |              |IOBS     |IO_L45N_1                 |UNUSED   |           |1             |          |         |           |         |       |          |           |                |
 |P83       |PB<0>         |IOB      |IO_L45P_1                 |INPUT    |LVTTL      |1             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
-|P84       |              |IOBS     |IO_L43N_GCLK4_1           |UNUSED   |           |1             |          |         |           |         |       |          |           |                |
+|P84       |ARD_D<0>      |IOB      |IO_L43N_GCLK4_1           |BIDIR    |LVTTL      |1             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P85       |OSC_FPGA      |IOB      |IO_L43P_GCLK5_1           |INPUT    |LVCMOS25*  |1             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P86       |              |         |VCCO_1                    |         |           |1             |          |         |           |         |3.30   |          |           |                |
-|P87       |              |IOBS     |IO_L42N_GCLK6_TRDY1_1     |UNUSED   |           |1             |          |         |           |         |       |          |           |                |
+|P87       |ARD_D<1>      |IOB      |IO_L42N_GCLK6_TRDY1_1     |BIDIR    |LVTTL      |1             |2         |SLOW     |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P88       |GPMC_BEN<1>   |IOB      |IO_L42P_GCLK7_1           |INPUT    |LVTTL      |1             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
 |P89       |              |         |VCCINT                    |         |           |              |          |         |           |         |1.2    |          |           |                |
 |P90       |              |         |VCCAUX                    |         |           |              |          |         |           |         |2.5    |          |           |                |
