@@ -94,12 +94,12 @@ int testPMOD12(){
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
 	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
-	if(valBuf != (GPIO_TEST1_1 << 1)){
-		test_log(ERROR, "Pass 1 : Expected %04x got %04x \n", (GPIO_TEST1_1 << 1), valBuf);
-		if((valBuf & 0x00FF) != ((GPIO_TEST1_1 << 1) & 0x00FF)){
+	if(valBuf != GPIO_TEST1_1_EXPECTED){
+		test_log(ERROR, "Pass 1 : Expected %04x got %04x \n", (GPIO_TEST1_1_EXPECTED), valBuf);
+		if((valBuf & 0x00FF) != ((GPIO_TEST1_1_EXPECTED) & 0x00FF)){
 			test_log(ERROR, "Failure on PMOD1\n");		
 		}
-		if((valBuf & 0xFF00) != ((GPIO_TEST1_1 << 1) & 0xFF00)){
+		if((valBuf & 0xFF00) != ((GPIO_TEST1_1_EXPECTED) & 0xFF00)){
 			test_log(ERROR,"Failure on PMOD2\n");		
 		}	
 		return -1 ;
@@ -108,12 +108,12 @@ int testPMOD12(){
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
 	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
-	if(valBuf != (GPIO_TEST1_2 << 1) ){
-		test_log(ERROR, "Pass 2 : Expected %04x got %04x \n", (GPIO_TEST1_2 << 1), valBuf);
-		if((valBuf & 0x00FF) != ((GPIO_TEST1_2 << 1) & 0x00FF)){
+	if(valBuf != (GPIO_TEST1_2_EXPECTED) ){
+		test_log(ERROR, "Pass 2 : Expected %04x got %04x \n", (GPIO_TEST1_2_EXPECTED), valBuf);
+		if((valBuf & 0x00FF) != ((GPIO_TEST1_2_EXPECTED) & 0x00FF)){
 			test_log(ERROR,"Failure on PMOD1\n");		
 		}
-		if((valBuf & 0xFF00) != ((GPIO_TEST1_2 << 1) & 0xFF00)){
+		if((valBuf & 0xFF00) != ((GPIO_TEST1_2_EXPECTED) & 0xFF00)){
 			test_log(ERROR,"Failure on PMOD2\n");		
 		}	 
 		return -1 ;
@@ -125,12 +125,12 @@ int testPMOD12(){
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
-	if(valBuf != (GPIO_TEST2_1 >> 1)){
-		test_log(ERROR, "Pass 3 : Expected %04x got %04x \n", (GPIO_TEST2_1 >> 1), valBuf);
-		if((valBuf & 0x00FF) != ((GPIO_TEST2_1 >> 1) & 0x00FF)){
+	if(valBuf != (GPIO_TEST2_1_EXPECTED)){
+		test_log(ERROR, "Pass 3 : Expected %04x got %04x \n", (GPIO_TEST2_1_EXPECTED), valBuf);
+		if((valBuf & 0x00FF) != ((GPIO_TEST2_1_EXPECTED) & 0x00FF)){
 			test_log(ERROR,"Failure on PMOD1\n");		
 		}
-		if((valBuf & 0xFF00) != ((GPIO_TEST2_1 >> 1) & 0xFF00)){
+		if((valBuf & 0xFF00) != ((GPIO_TEST2_1_EXPECTED) & 0xFF00)){
 			test_log(ERROR,"Failure on PMOD2\n");		
 		}		 
 		return -1 ;
@@ -139,12 +139,12 @@ int testPMOD12(){
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
-	if(valBuf != (GPIO_TEST2_2 >> 1) ){
-		test_log(ERROR, "Pass 4 : Expected %04x got %04x \n", (GPIO_TEST2_2 >> 1), valBuf);
-		if((valBuf & 0x00FF) != ((GPIO_TEST2_2 >> 1) & 0x00FF)){
+	if(valBuf != (GPIO_TEST2_2_EXPECTED) ){
+		test_log(ERROR, "Pass 4 : Expected %04x got %04x \n", (GPIO_TEST2_2_EXPECTED), valBuf);
+		if((valBuf & 0x00FF) != ((GPIO_TEST2_2_EXPECTED) & 0x00FF)){
 			test_log(ERROR,"Failure on PMOD1\n");		
 		}
-		if((valBuf & 0xFF00) != ((GPIO_TEST2_2 >> 1) & 0xFF00)){
+		if((valBuf & 0xFF00) != ((GPIO_TEST2_2_EXPECTED) & 0xFF00)){
 			test_log(ERROR,"Failure on PMOD2\n");		
 		}
 		return -1 ;
@@ -161,11 +161,11 @@ int testPMOD34(){
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO1);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
 	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
-	if(valBuf != (GPIO_TEST1_1 << 1)){
-		if((valBuf & 0x00FF) != ((GPIO_TEST1_1 << 1) & 0x00FF)){
+	if(valBuf != (GPIO_TEST1_1_EXPECTED)){
+		if((valBuf & 0x00FF) != ((GPIO_TEST1_1_EXPECTED) & 0x00FF)){
 			test_log(ERROR,"Failure on PMOD3\n");		
 		}
-		if((valBuf & 0xFF00) != ((GPIO_TEST1_1 << 1) & 0xFF00)){
+		if((valBuf & 0xFF00) != ((GPIO_TEST1_1_EXPECTED) & 0xFF00)){
 			test_log(ERROR,"Failure on PMOD4\n");		
 		}		
 		return -1 ;
@@ -174,11 +174,11 @@ int testPMOD34(){
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO1);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
 	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
-	if(valBuf != (GPIO_TEST1_2 << 1) ){
-		if((valBuf & 0x00FF) != ((GPIO_TEST1_2 << 1) & 0x00FF)){
+	if(valBuf != (GPIO_TEST1_2_EXPECTED) ){
+		if((valBuf & 0x00FF) != ((GPIO_TEST1_2_EXPECTED) & 0x00FF)){
 			test_log(ERROR,"Failure on PMOD3\n");		
 		}
-		if((valBuf & 0xFF00) != ((GPIO_TEST1_2 << 1) & 0xFF00)){
+		if((valBuf & 0xFF00) != ((GPIO_TEST1_2_EXPECTED) & 0xFF00)){
 			test_log(ERROR,"Failure on PMOD4\n");		
 		}
 		return -1 ;
@@ -189,11 +189,11 @@ int testPMOD34(){
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO1);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
-	if(valBuf != (GPIO_TEST2_1 >> 1)){
-		if((valBuf & 0x00FF) != ((GPIO_TEST2_1 >> 1) & 0x00FF)){
+	if(valBuf != (GPIO_TEST2_1_EXPECTED)){
+		if((valBuf & 0x00FF) != ((GPIO_TEST2_1_EXPECTED) & 0x00FF)){
 			test_log(ERROR,"Failure on PMOD3\n");		
 		}
-		if((valBuf & 0xFF00) != ((GPIO_TEST2_1 >> 1) & 0xFF00)){
+		if((valBuf & 0xFF00) != ((GPIO_TEST2_1_EXPECTED) & 0xFF00)){
 			test_log(ERROR,"Failure on PMOD4\n");		
 		}		
 		return -1 ;
@@ -202,11 +202,11 @@ int testPMOD34(){
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO1);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
-	if(valBuf != (GPIO_TEST2_2 >> 1) ){
-		if((valBuf & 0x00FF) != ((GPIO_TEST2_2 >> 1) & 0x00FF)){
+	if(valBuf != (GPIO_TEST2_2_EXPECTED) ){
+		if((valBuf & 0x00FF) != ((GPIO_TEST2_2_EXPECTED) & 0x00FF)){
 			test_log(ERROR,"Failure on PMOD3\n");		
 		}
-		if((valBuf & 0xFF00) != ((GPIO_TEST2_2 >> 1) & 0xFF00)){
+		if((valBuf & 0xFF00) != ((GPIO_TEST2_2_EXPECTED) & 0xFF00)){
 			test_log(ERROR,"Failure on PMOD4\n");		
 		}		
 		return -1 ;
@@ -344,6 +344,50 @@ int testLVDS(){
 }
 
 
+int test_arduino_port(){
+	unsigned short int dirBuf ;
+	unsigned short int valBuf ;
+	dirBuf = ARD_TEST1_DIR ;
+	valBuf = ARD_TEST1_1 ; 
+	wishbone_write((unsigned char *) &dirBuf, 2, GPIO2DIR);
+	wishbone_write((unsigned char *)&valBuf, 2, GPIO2);
+	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
+	valBuf = valBuf & (~ARD_TEST1_DIR)  ;
+	if(valBuf != ARD_TEST1_1_EXPECTED){
+		test_log(ERROR, "Pass 1 : Expected %04x got %04x \n", (ARD_TEST1_1_EXPECTED), valBuf);
+		return -1 ;
+	}
+	valBuf = ARD_TEST1_2 ;
+	wishbone_write((unsigned char *)&valBuf, 2, GPIO2);
+	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
+	valBuf = valBuf & (~ARD_TEST1_DIR)  ;
+	if(valBuf != (ARD_TEST1_2_EXPECTED) ){
+		test_log(ERROR, "Pass 2 : Expected %04x got %04x \n", (ARD_TEST1_2_EXPECTED), valBuf); 
+		return -1 ;
+	}
+
+	dirBuf = ARD_TEST2_DIR ;
+	valBuf = ARD_TEST2_1 ; 
+	wishbone_write((unsigned char *) &dirBuf, 2, GPIO2DIR);
+	wishbone_write((unsigned char *)&valBuf, 2, GPIO2);
+	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
+	valBuf = valBuf & (~ARD_TEST2_DIR)  ;
+	if(valBuf != (ARD_TEST2_1_EXPECTED)){
+		test_log(ERROR, "Pass 3 : Expected %04x got %04x \n", (ARD_TEST2_1_EXPECTED), valBuf); 
+		return -1 ;
+	}
+	valBuf = ARD_TEST2_2 ;
+	wishbone_write((unsigned char *)&valBuf, 2, GPIO2);
+	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
+	valBuf = valBuf & (~ARD_TEST2_DIR)  ;
+	if(valBuf != (ARD_TEST2_2_EXPECTED) ){
+		test_log(ERROR, "Pass 4 : Expected %04x got %04x \n", (ARD_TEST2_2_EXPECTED), valBuf);
+		return -1 ;
+	}
+	return 0 ;
+
+}
+
 int main(int argc, char ** argv){
 	char c ;	
 	char * argv2 [3];	
@@ -382,6 +426,14 @@ int main(int argc, char ** argv){
 		test_log(ERROR,"PMOD3-4 test failed \n");	
 	}else{
 		test_log(INFO,"PMOD3-4 test passed \n");
+	}
+	#endif
+
+	#ifdef TEST_ARD
+	if(test_arduino_port() < 0){
+		test_log(ERROR,"Arduino connector test failed \n");	
+	}else{
+		test_log(INFO,"Arduino connector test passed \n");
 	}
 	#endif
 	
