@@ -1,13 +1,13 @@
-Release 14.1 ngdbuild P.15xf (lin64)
+Release 14.1 ngdbuild P.15xf (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-Command Line: /opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -intstyle
-ise -dd _ngo -sd ipcore_dir -nt timestamp -uc logibone_ra3.ucf -p
+Command Line: C:\Xilinx\14.1\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe
+-intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc logibone_ra3.ucf -p
 xc6slx9-tqg144-2 logibone_test.ngc logibone_test.ngd
 
 Reading NGO file
-"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/lo
-gibone_test.ngc" ...
+"E:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/logi-test/logibone
+-hw/logibone_test.ngc" ...
 Gathering constraint information from source properties...
 Done.
 
@@ -38,10 +38,10 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   2
 
-Total memory usage is 407388 kilobytes
+Total memory usage is 165564 kilobytes
 
 Writing NGD file "logibone_test.ngd" ...
-Total REAL time to NGDBUILD completion:  8 sec
-Total CPU time to NGDBUILD completion:   8 sec
+Total REAL time to NGDBUILD completion:  3 sec
+Total CPU time to NGDBUILD completion:   3 sec
 
 Writing NGDBUILD log file "logibone_test.bld"...

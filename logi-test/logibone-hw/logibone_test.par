@@ -1,21 +1,19 @@
-Release 14.1 par P.15xf (lin64)
+Release 14.1 par P.15xf (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-yaya::  Wed Jan 29 00:03:54 2014
+MJ-PC::  Wed Jan 29 16:19:17 2014
 
 par -w -intstyle ise -ol high -mt off logibone_test_map.ncd logibone_test.ncd
 logibone_test.pcf 
 
 
 Constraints file: logibone_test.pcf.
-Loading device for application Rf_Device from file '6slx9.nph' in environment /opt/Xilinx/14.1/ISE_DS/ISE/.
+Loading device for application Rf_Device from file '6slx9.nph' in environment C:\Xilinx\14.1\ISE_DS\ISE\.
    "logibone_test" is an NCD, version 3.2, device xc6slx9, package tqg144, speed -2
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-INFO:Security:67 - XILINXD_LICENSE_FILE is set to '/opt/Xilinx/13.1/ISE_DS/EDK/data/core_licenses' in
-/home/jpiat/.flexlmrc.
 INFO:Security:54 - 'xc6slx9' is a WebPack part.
-WARNING:Security:42 - Your license support version '2014.01' for WebPack expires in 2 days after which you will not
-qualify for Xilinx software updates or new releases.
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue
+to function, but you no longer qualify for Xilinx software updates or new releases.
 
 ----------------------------------------------------------------------
 
@@ -30,36 +28,36 @@ Device speed data version:  "PRODUCTION 1.21 2012-04-23".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                   845 out of  11,440    7%
-    Number used as Flip Flops:                 845
+  Number of Slice Registers:                   787 out of  11,440    6%
+    Number used as Flip Flops:                 787
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        759 out of   5,720   13%
-    Number used as logic:                      728 out of   5,720   12%
-      Number using O6 output only:             579
-      Number using O5 output only:              70
-      Number using O5 and O6:                   79
+  Number of Slice LUTs:                        719 out of   5,720   12%
+    Number used as logic:                      689 out of   5,720   12%
+      Number using O6 output only:             560
+      Number using O5 output only:              62
+      Number using O5 and O6:                   67
       Number used as ROM:                        0
-    Number used as Memory:                      13 out of   1,440    1%
+    Number used as Memory:                      16 out of   1,440    1%
       Number used as Dual Port RAM:              0
       Number used as Single Port RAM:            0
-      Number used as Shift Register:            13
-        Number using O6 output only:             3
+      Number used as Shift Register:            16
+        Number using O6 output only:             6
         Number using O5 output only:             0
         Number using O5 and O6:                 10
-    Number used exclusively as route-thrus:     18
-      Number with same-slice register load:     15
+    Number used exclusively as route-thrus:     14
+      Number with same-slice register load:     11
       Number with same-slice carry load:         3
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   319 out of   1,430   22%
-  Nummber of MUXCYs used:                      132 out of   2,860    4%
-  Number of LUT Flip Flop pairs used:        1,044
-    Number with an unused Flip Flop:           230 out of   1,044   22%
-    Number with an unused LUT:                 285 out of   1,044   27%
-    Number of fully used LUT-FF pairs:         529 out of   1,044   50%
+  Number of occupied Slices:                   337 out of   1,430   23%
+  Nummber of MUXCYs used:                      124 out of   2,860    4%
+  Number of LUT Flip Flop pairs used:        1,002
+    Number with an unused Flip Flop:           240 out of   1,002   23%
+    Number with an unused LUT:                 283 out of   1,002   28%
+    Number of fully used LUT-FF pairs:         479 out of   1,002   47%
     Number of slice register sites lost
       to control set restrictions:               0 out of  11,440    0%
 
@@ -115,8 +113,8 @@ Specific Feature Utilization:
 Overall effort level (-ol):   High 
 Router effort level (-rl):    High 
 
-Starting initial Timing Analysis.  REAL time: 54 secs 
-Finished initial Timing Analysis.  REAL time: 54 secs 
+Starting initial Timing Analysis.  REAL time: 3 secs 
+Finished initial Timing Analysis.  REAL time: 3 secs 
 
 WARNING:Par:288 - The signal GPMC_BEN<0>_IBUF has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal GPMC_BEN<1>_IBUF has no load.  PAR will not attempt to route this signal.
@@ -125,29 +123,29 @@ WARNING:Par:288 - The signal ARD_SCL_IBUF has no load.  PAR will not attempt to 
 Starting Router
 
 
-Phase  1  : 4694 unrouted;      REAL time: 55 secs 
+Phase  1  : 4464 unrouted;      REAL time: 3 secs 
 
-Phase  2  : 4109 unrouted;      REAL time: 56 secs 
+Phase  2  : 3896 unrouted;      REAL time: 3 secs 
 
-Phase  3  : 1483 unrouted;      REAL time: 1 mins 6 secs 
+Phase  3  : 1362 unrouted;      REAL time: 5 secs 
 
-Phase  4  : 1483 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 7 secs 
+Phase  4  : 1362 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 5 secs 
 
 Updating file: logibone_test.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 15 secs 
+Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 
-Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 15 secs 
+Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 
-Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 15 secs 
+Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 
-Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 15 secs 
+Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 
-Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 15 secs 
+Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 
-Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 16 secs 
-Total REAL time to Router completion: 1 mins 16 secs 
-Total CPU time to Router completion: 36 secs 
+Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
+Total REAL time to Router completion: 7 secs 
+Total CPU time to Router completion: 8 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -165,9 +163,9 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|          clk_100Mhz |  BUFGMUX_X2Y3| No   |  292 |  0.758     |  2.149      |
+|      GPMC_CLK_BUFGP |  BUFGMUX_X2Y1| No   |   27 |  0.718     |  2.109      |
 +---------------------+--------------+------+------+------------+-------------+
-|      GPMC_CLK_BUFGP |  BUFGMUX_X2Y1| No   |   27 |  0.710     |  2.109      |
+|          clk_100Mhz |  BUFGMUX_X2Y3| No   |  279 |  0.758     |  2.149      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -189,14 +187,15 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  TS_pll0_clk2x = PERIOD TIMEGRP "pll0_clk2 | SETUP       |     1.379ns|     8.621ns|       0|           0
-  x" TS_PER_CLK50 / 2 HIGH 50%              | HOLD        |     0.311ns|            |       0|           0
+  TS_pll0_clk2x = PERIOD TIMEGRP "pll0_clk2 | SETUP       |     1.549ns|     8.451ns|       0|           0
+  x" TS_PER_CLK50 / 2 HIGH 50%              | HOLD        |     0.349ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
   TS_PER_CLK50 = PERIOD TIMEGRP "clk50_grp" | MINLOWPULSE |    12.000ns|     8.000ns|       0|           0
    20 ns HIGH 50%                           |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
-  TS_PER_CLK100 = PERIOD TIMEGRP "clk100_gr | SETUP       |    17.267ns|     2.733ns|       0|           0
-  p" 20 ns HIGH 50%                         | HOLD        |     0.524ns|            |       0|           0
+  TS_PER_CLK100 = PERIOD TIMEGRP "clk100_gr | SETUP       |    17.538ns|     2.462ns|       0|           0
+  p" 20 ns HIGH 50%                         | HOLD        |     0.525ns|            |       0|           0
+                                            | MINPERIOD   |    17.334ns|     2.666ns|       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -210,8 +209,8 @@ Derived Constraints for TS_PER_CLK50
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_PER_CLK50                   |     20.000ns|      8.000ns|     17.242ns|            0|            0|            0|        16444|
-| TS_pll0_clk2x                 |     10.000ns|      8.621ns|          N/A|            0|            0|        16444|            0|
+|TS_PER_CLK50                   |     20.000ns|      8.000ns|     16.902ns|            0|            0|            0|        11369|
+| TS_pll0_clk2x                 |     10.000ns|      8.451ns|          N/A|            0|            0|        11369|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 All constraints were met.
@@ -223,10 +222,10 @@ All signals are completely routed.
 
 WARNING:Par:283 - There are 4 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
-Total REAL time to PAR completion: 1 mins 18 secs 
-Total CPU time to PAR completion: 38 secs 
+Total REAL time to PAR completion: 8 secs 
+Total CPU time to PAR completion: 8 secs 
 
-Peak Memory Usage:  632 MB
+Peak Memory Usage:  322 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.
