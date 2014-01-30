@@ -330,7 +330,7 @@ seg0 : logi_virtual_7seg
 		  gls_reset   => sys_reset ,
 		  gls_clk     => sys_clk ,
 		  -- Wishbone signals
-		  wbs_add      =>  intercon_seg0_wbm_address ,
+		  wbs_address     =>  intercon_seg0_wbm_address ,
 		  wbs_writedata => intercon_seg0_wbm_writedata,
 		  wbs_readdata  => intercon_seg0_wbm_readdata,
 		  wbs_strobe    => intercon_seg0_wbm_strobe,
@@ -350,7 +350,7 @@ leds0 : logi_virtual_led
 		  gls_reset   => sys_reset ,
 		  gls_clk     => sys_clk ,
 		  -- Wishbone signals
-		  wbs_add      =>  intercon_leds0_wbm_address ,
+		  wbs_address     =>  intercon_leds0_wbm_address ,
 		  wbs_writedata => intercon_leds0_wbm_writedata,
 		  wbs_readdata  => intercon_leds0_wbm_readdata,
 		  wbs_strobe    => intercon_leds0_wbm_strobe,
@@ -368,7 +368,7 @@ leds0 : logi_virtual_led
 		  gls_reset   => sys_reset ,
 		  gls_clk     => sys_clk ,
 		  -- Wishbone signals
-		  wbs_add      =>  intercon_sw0_wbm_address ,
+		  wbs_address     =>  intercon_sw0_wbm_address ,
 		  wbs_writedata => intercon_sw0_wbm_writedata,
 		  wbs_readdata  => intercon_sw0_wbm_readdata,
 		  wbs_strobe    => intercon_sw0_wbm_strobe,
@@ -386,7 +386,7 @@ leds0 : logi_virtual_led
 		  gls_reset   => sys_reset ,
 		  gls_clk     => sys_clk ,
 		  -- Wishbone signals
-		  wbs_add      =>  intercon_pb0_wbm_address ,
+		  wbs_address     =>  intercon_pb0_wbm_address ,
 		  wbs_writedata => intercon_pb0_wbm_writedata,
 		  wbs_readdata  => intercon_pb0_wbm_readdata,
 		  wbs_strobe    => intercon_pb0_wbm_strobe,
