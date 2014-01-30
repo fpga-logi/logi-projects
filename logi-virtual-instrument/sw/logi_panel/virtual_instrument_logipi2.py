@@ -6,7 +6,7 @@ import pygame, sys, random, os , time
 from pygame.locals import * 
 
 #DEFINES
-USE_WINDOWS = 1
+USE_WINDOWS = 0
 WINDOWS_UPDATE_COUNT = 0
 USE_FINGER_POINTER = 0
 OUTPUT_MOUSE_LOCATION_DATA = 0
