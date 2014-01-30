@@ -1,21 +1,18 @@
-Release 14.1 - xst P.15xf (lin64)
+Release 14.1 - xst P.15xf (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
---> 
-Parameter TMPDIR set to xst/projnav.tmp
+--> Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.09 secs
  
---> 
-Parameter xsthdpdir set to xst
+--> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.09 secs
  
---> 
-Reading design: logibone_test.prj
+--> Reading design: logibone_test.prj
 
 TABLE OF CONTENTS
   1) Synthesis Options Summary
@@ -111,75 +108,75 @@ Cores Search Directories           : {"ipcore_dir"  }
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/ipcore_dir/clock_gen.vhd" into library work
+Parsing VHDL file "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\ipcore_dir\clock_gen.vhd" into library work
 Parsing entity <clock_gen>.
 Parsing architecture <xilinx> of entity <clock_gen>.
-Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/ipcore_dir/clock_gen/example_design/clock_gen_exdes.vhd" into library work
+Parsing VHDL file "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\ipcore_dir\clock_gen\example_design\clock_gen_exdes.vhd" into library work
 Parsing entity <clock_gen_exdes>.
 Parsing architecture <xilinx> of entity <clock_gen_exdes>.
-Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/peripherals/logi_wishbone_peripherals_pack.vhd" into library work
+Parsing VHDL file "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\logi-hard\wishbone\peripherals\logi_wishbone_peripherals_pack.vhd" into library work
 Parsing package <logi_wishbone_peripherals_pack>.
 Parsing package body <logi_wishbone_peripherals_pack>.
-Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/logi_wishbone_pack.vhd" into library work
+Parsing VHDL file "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\logi-hard\wishbone\logi_wishbone_pack.vhd" into library work
 Parsing package <logi_wishbone_pack>.
 Parsing package body <logi_wishbone_pack>.
-Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/primitive/dpram_NxN.vhd" into library work
+Parsing VHDL file "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\hard-cv\hw\rtl\primitive\dpram_NxN.vhd" into library work
 Parsing entity <dpram_NxN>.
 Parsing architecture <behavioral> of entity <dpram_nxn>.
-Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/hamster-logipi-sdram_v0.5/hw/SDRAM_Controller.vhd" into library work
+Parsing VHDL file "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\hamster-logipi-sdram_v0.5\hw\SDRAM_Controller.vhd" into library work
 Parsing entity <SDRAM_Controller>.
 Parsing architecture <Behavioral> of entity <sdram_controller>.
-WARNING:HDLCompiler:946 - "/home/jpiat/development/FPGA/logi-family/logi-projects/hamster-logipi-sdram_v0.5/hw/SDRAM_Controller.vhd" Line 196: Actual for formal port c1 is neither a static name nor a globally static expression
-Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/hamster-logipi-sdram_v0.5/hw/Memory_tester.vhd" into library work
+WARNING:HDLCompiler:946 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\hamster-logipi-sdram_v0.5\hw\SDRAM_Controller.vhd" Line 177: Actual for formal port c1 is neither a static name nor a globally static expression
+Parsing VHDL file "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\hamster-logipi-sdram_v0.5\hw\Memory_tester.vhd" into library work
 Parsing entity <Memory_tester>.
 Parsing architecture <Behavioral> of entity <memory_tester>.
-Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/wishbone_intercon.vhd" into library work
+Parsing VHDL file "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\logi-hard\wishbone\wishbone_intercon.vhd" into library work
 Parsing entity <wishbone_intercon>.
 Parsing architecture <Behavioral> of entity <wishbone_intercon>.
-Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/peripherals/wishbone_register.vhd" into library work
+Parsing VHDL file "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\logi-hard\wishbone\peripherals\wishbone_register.vhd" into library work
 Parsing entity <wishbone_register>.
 Parsing architecture <Behavioral> of entity <wishbone_register>.
-Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/peripherals/wishbone_mem.vhd" into library work
+Parsing VHDL file "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\logi-hard\wishbone\peripherals\wishbone_mem.vhd" into library work
 Parsing entity <wishbone_mem>.
 Parsing architecture <Behavioral> of entity <wishbone_mem>.
-Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/peripherals/wishbone_gpio.vhd" into library work
+Parsing VHDL file "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\logi-hard\wishbone\peripherals\wishbone_gpio.vhd" into library work
 Parsing entity <wishbone_gpio>.
 Parsing architecture <Behavioral> of entity <wishbone_gpio>.
-Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/gpmc_wishbone_wrapper.vhd" into library work
+Parsing VHDL file "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\logi-hard\wishbone\gpmc_wishbone_wrapper.vhd" into library work
 Parsing entity <gpmc_wishbone_wrapper>.
 Parsing architecture <RTL> of entity <gpmc_wishbone_wrapper>.
-Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" into library work
+Parsing VHDL file "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" into library work
 Parsing entity <logibone_test>.
 Parsing architecture <Behavioral> of entity <logibone_test>.
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 384: Partially associated formal gpio cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 385: Partially associated formal gpio cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 402: Partially associated formal gpio cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 403: Partially associated formal gpio cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 404: Partially associated formal gpio cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 405: Partially associated formal gpio cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 444: Partially associated formal reg_out cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 447: Partially associated formal reg_out cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 448: Partially associated formal reg_out cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 449: Partially associated formal reg_out cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 450: Partially associated formal reg_out cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 451: Partially associated formal reg_out cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 452: Partially associated formal reg_out cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 453: Partially associated formal reg_out cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 454: Partially associated formal reg_out cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 455: Partially associated formal reg_out cannot have actual OPEN
-WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 456: Partially associated formal reg_out cannot have actual OPEN
+WARNING:HDLCompiler:701 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 384: Partially associated formal gpio cannot have actual OPEN
+WARNING:HDLCompiler:701 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 385: Partially associated formal gpio cannot have actual OPEN
+WARNING:HDLCompiler:701 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 402: Partially associated formal gpio cannot have actual OPEN
+WARNING:HDLCompiler:701 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 403: Partially associated formal gpio cannot have actual OPEN
+WARNING:HDLCompiler:701 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 404: Partially associated formal gpio cannot have actual OPEN
+WARNING:HDLCompiler:701 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 405: Partially associated formal gpio cannot have actual OPEN
+WARNING:HDLCompiler:701 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 444: Partially associated formal reg_out cannot have actual OPEN
+WARNING:HDLCompiler:701 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 447: Partially associated formal reg_out cannot have actual OPEN
+WARNING:HDLCompiler:701 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 448: Partially associated formal reg_out cannot have actual OPEN
+WARNING:HDLCompiler:701 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 449: Partially associated formal reg_out cannot have actual OPEN
+WARNING:HDLCompiler:701 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 450: Partially associated formal reg_out cannot have actual OPEN
+WARNING:HDLCompiler:701 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 451: Partially associated formal reg_out cannot have actual OPEN
+WARNING:HDLCompiler:701 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 452: Partially associated formal reg_out cannot have actual OPEN
+WARNING:HDLCompiler:701 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 453: Partially associated formal reg_out cannot have actual OPEN
+WARNING:HDLCompiler:701 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 454: Partially associated formal reg_out cannot have actual OPEN
+WARNING:HDLCompiler:701 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 455: Partially associated formal reg_out cannot have actual OPEN
+WARNING:HDLCompiler:701 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 456: Partially associated formal reg_out cannot have actual OPEN
 
 =========================================================================
 *                            HDL Elaboration                            *
 =========================================================================
 
 Elaborating entity <logibone_test> (architecture <Behavioral>) from library <work>.
-WARNING:HDLCompiler:1127 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 239: Assignment to gls_resetn ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 239: Assignment to gls_resetn ignored, since the identifier is never used
 
 Elaborating entity <clock_gen> (architecture <xilinx>) from library <work>.
 
 Elaborating entity <gpmc_wishbone_wrapper> (architecture <RTL>) with generics from library <work>.
-WARNING:HDLCompiler:1127 - "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/gpmc_wishbone_wrapper.vhd" Line 140: Assignment to advn_bridge ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\logi-hard\wishbone\gpmc_wishbone_wrapper.vhd" Line 140: Assignment to advn_bridge ignored, since the identifier is never used
 
 Elaborating entity <wishbone_intercon> (architecture <Behavioral>) with generics from library <work>.
 
@@ -194,8 +191,8 @@ Elaborating entity <dpram_NxN> (architecture <behavioral>) with generics from li
 Elaborating entity <Memory_tester> (architecture <Behavioral>) with generics from library <work>.
 
 Elaborating entity <SDRAM_Controller> (architecture <Behavioral>) with generics from library <work>.
-INFO:HDLCompiler:679 - "/home/jpiat/development/FPGA/logi-family/logi-projects/hamster-logipi-sdram_v0.5/hw/SDRAM_Controller.vhd" Line 490. Case statement is complete. others clause is never selected
-WARNING:HDLCompiler:634 - "/home/jpiat/development/FPGA/logi-family/logi-projects/hamster-logipi-sdram_v0.5/hw/SDRAM_Controller.vhd" Line 141: Net <addr_col[12]> does not have a driver.
+INFO:HDLCompiler:679 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\hamster-logipi-sdram_v0.5\hw\SDRAM_Controller.vhd" Line 468. Case statement is complete. others clause is never selected
+WARNING:HDLCompiler:634 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\hamster-logipi-sdram_v0.5\hw\SDRAM_Controller.vhd" Line 131: Net <addr_col[12]> does not have a driver.
 WARNING:HDLCompiler:634 - "Unknown" Line 0: Net <reg0_reg_in[11][15]> does not have a driver.
 WARNING:HDLCompiler:634 - "Unknown" Line 0: Net <reg0_reg_in[11][14]> does not have a driver.
 WARNING:HDLCompiler:634 - "Unknown" Line 0: Net <reg0_reg_in[11][13]> does not have a driver.
@@ -218,20 +215,20 @@ WARNING:HDLCompiler:634 - "Unknown" Line 0: Net <reg0_reg_in[11][0]> does not ha
 =========================================================================
 
 Synthesizing Unit <logibone_test>.
-    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd".
+    Related source file is "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd".
 WARNING:Xst:647 - Input <GPMC_BEN> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<1>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<2>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<3>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<4>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<5>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<6>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<7>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<8>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<9>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<10>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 409: Output port <reg_out<11>> of the instance <reg0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" line 500: Output port <SDRAM_CS> of the instance <Inst_SDRAM_Controller> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" line 409: Output port <reg_out<1>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" line 409: Output port <reg_out<2>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" line 409: Output port <reg_out<3>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" line 409: Output port <reg_out<4>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" line 409: Output port <reg_out<5>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" line 409: Output port <reg_out<6>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" line 409: Output port <reg_out<7>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" line 409: Output port <reg_out<8>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" line 409: Output port <reg_out<9>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" line 409: Output port <reg_out<10>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" line 409: Output port <reg_out<11>> of the instance <reg0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" line 500: Output port <SDRAM_CS> of the instance <Inst_SDRAM_Controller> is unconnected or connected to loadless signal.
 Always blocking tristate driving signal <ARD_SCL> is removed.
 Always blocking tristate driving signal <ARD_SDA> is removed.
 WARNING:Xst:653 - Signal <reg0_reg_in<11><15>> is used but never assigned. This sourceless signal will be automatically connected to value GND.
@@ -260,13 +257,13 @@ WARNING:Xst:653 - Signal <reg0_reg_in<11><0>> is used but never assigned. This s
 Unit <logibone_test> synthesized.
 
 Synthesizing Unit <clock_gen>.
-    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/ipcore_dir/clock_gen.vhd".
+    Related source file is "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\ipcore_dir\clock_gen.vhd".
     Summary:
 	no macro.
 Unit <clock_gen> synthesized.
 
 Synthesizing Unit <gpmc_wishbone_wrapper>.
-    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/gpmc_wishbone_wrapper.vhd".
+    Related source file is "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\logi-hard\wishbone\gpmc_wishbone_wrapper.vhd".
         sync = true
         burst = true
     Found 1-bit register for signal <wen_bridge>.
@@ -306,7 +303,7 @@ Synthesizing Unit <gpmc_wishbone_wrapper>.
 Unit <gpmc_wishbone_wrapper> synthesized.
 
 Synthesizing Unit <wishbone_intercon>.
-    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/wishbone_intercon.vhd".
+    Related source file is "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\logi-hard\wishbone\wishbone_intercon.vhd".
         memory_map = ("000000000000001X","000000000000010X","000000000000011X","000000000001XXXX","0001XXXXXXXXXXXX")
 WARNING:Xst:647 - Input <gls_reset> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <gls_clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -411,7 +408,7 @@ WARNING:Xst:647 - Input <gls_clk> is never used. This port will be preserved and
 Unit <wishbone_intercon> synthesized.
 
 Synthesizing Unit <wishbone_gpio>.
-    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/peripherals/wishbone_gpio.vhd".
+    Related source file is "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\logi-hard\wishbone\peripherals\wishbone_gpio.vhd".
         wb_size = 16
 WARNING:Xst:647 - Input <wbs_address<15:1>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 1-bit register for signal <write_ack>.
@@ -443,7 +440,7 @@ WARNING:Xst:647 - Input <wbs_address<15:1>> is never used. This port will be pre
 Unit <wishbone_gpio> synthesized.
 
 Synthesizing Unit <wishbone_register>.
-    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/peripherals/wishbone_register.vhd".
+    Related source file is "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\logi-hard\wishbone\peripherals\wishbone_register.vhd".
         wb_size = 16
         nb_regs = 12
 WARNING:Xst:647 - Input <wbs_address<15:4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -482,11 +479,11 @@ INFO:Xst:3019 - HDL ADVISOR - 256 flip-flops were inferred for signal <reg_in_d>
 Unit <wishbone_register> synthesized.
 
 Synthesizing Unit <wishbone_mem>.
-    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/peripherals/wishbone_mem.vhd".
+    Related source file is "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\logi-hard\wishbone\peripherals\wishbone_mem.vhd".
         mem_size = 2048
         wb_size = 16
         wb_addr_size = 16
-INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/peripherals/wishbone_mem.vhd" line 127: Output port <dpo> of the instance <ram0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\logi-hard\wishbone\peripherals\wishbone_mem.vhd" line 127: Output port <dpo> of the instance <ram0> is unconnected or connected to loadless signal.
     Found 1-bit register for signal <write_ack>.
     Found 1-bit register for signal <read_ack>.
     Summary:
@@ -494,7 +491,7 @@ INFO:Xst:3210 - "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/per
 Unit <wishbone_mem> synthesized.
 
 Synthesizing Unit <dpram_NxN>.
-    Related source file is "/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/primitive/dpram_NxN.vhd".
+    Related source file is "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\hard-cv\hw\rtl\primitive\dpram_NxN.vhd".
         SIZE = 2048
         NBIT = 16
         ADDR_WIDTH = 16
@@ -509,29 +506,27 @@ WARNING:Xst:647 - Input <dpra<15:11>> is never used. This port will be preserved
 Unit <dpram_NxN> synthesized.
 
 Synthesizing Unit <Memory_tester>.
-    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-projects/hamster-logipi-sdram_v0.5/hw/Memory_tester.vhd".
+    Related source file is "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\hamster-logipi-sdram_v0.5\hw\Memory_tester.vhd".
         address_width = 23
     Found 8-bit register for signal <debug_dump>.
     Found 1-bit register for signal <b>.
     Found 29-bit register for signal <test_counter>.
-    Found 32-bit register for signal <received>.
-    Found 32-bit register for signal <wanted>.
     Found 1-bit register for signal <has_errored>.
     Found 1-bit register for signal <e>.
-    Found 27-bit register for signal <read_counter>.
+    Found 28-bit register for signal <read_counter>.
     Found 16-bit register for signal <debug>.
-    Found 29-bit adder for signal <test_counter[28]_GND_169_o_add_28_OUT> created at line 1241.
-    Found 27-bit adder for signal <read_counter[26]_GND_169_o_add_31_OUT> created at line 1241.
-    Found 32-bit comparator not equal for signal <n0043> created at line 185
+    Found 29-bit adder for signal <test_counter[28]_GND_169_o_add_27_OUT> created at line 1241.
+    Found 28-bit adder for signal <read_counter[27]_GND_169_o_add_32_OUT> created at line 1241.
+    Found 32-bit comparator not equal for signal <n0044> created at line 190
     Summary:
 	inferred   2 Adder/Subtractor(s).
-	inferred 147 D-type flip-flop(s).
+	inferred  84 D-type flip-flop(s).
 	inferred   1 Comparator(s).
-	inferred   3 Multiplexer(s).
+	inferred   2 Multiplexer(s).
 Unit <Memory_tester> synthesized.
 
 Synthesizing Unit <SDRAM_Controller>.
-    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-projects/hamster-logipi-sdram_v0.5/hw/SDRAM_Controller.vhd".
+    Related source file is "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\hamster-logipi-sdram_v0.5\hw\SDRAM_Controller.vhd".
         sdram_address_width = 24
         sdram_column_bits = 9
         sdram_startup_cycles = 10100
@@ -542,20 +537,20 @@ Synthesizing Unit <SDRAM_Controller>.
     Set property "IOB = TRUE" for signal <iob_dqm>.
     Set property "IOB = TRUE" for signal <iob_bank>.
     Set property "IOB = TRUE" for signal <captured_data>.
-    Set property "fsm_encoding = ONE-HOT" for signal <state>.
     Set property "IOB = TRUE" for signal <iob_cke>.
 WARNING:Xst:2935 - Signal 'addr_col<12:9>', unconnected in block 'SDRAM_Controller', is tied to its initial value (0000).
     Found 16-bit register for signal <captured_data_last>.
     Found 4-bit register for signal <iob_command>.
     Found 13-bit register for signal <iob_address>.
     Found 2-bit register for signal <iob_bank>.
-    Found 14-bit register for signal <startup_refresh_count>.
-    Found 1-bit register for signal <can_back_to_back>.
+    Found 16-bit register for signal <startup_wait_count>.
+    Found 14-bit register for signal <refresh_count>.
+    Found 1-bit register for signal <pending_refresh>.
     Found 13-bit register for signal <save_row>.
     Found 2-bit register for signal <save_bank>.
     Found 13-bit register for signal <save_col>.
     Found 1-bit register for signal <save_wr>.
-    Found 32-bit register for signal <save_data_in>.
+    Found 32-bit register for signal <save_d_in>.
     Found 4-bit register for signal <save_byte_enable>.
     Found 1-bit register for signal <got_transaction>.
     Found 1-bit register for signal <ready_for_new>.
@@ -566,29 +561,30 @@ WARNING:Xst:2935 - Signal 'addr_col<12:9>', unconnected in block 'SDRAM_Controll
     Found 4-bit register for signal <dqm_sr>.
     Found 1-bit register for signal <iob_cke>.
     Found 5-bit register for signal <state>.
+    Found 13-bit register for signal <opened_row>.
+    Found 2-bit register for signal <opened_bank>.
     Found 1-bit register for signal <iob_dq_hiz>.
     Found 16-bit register for signal <iob_data>.
-    Found 16-bit register for signal <iob_data_next>.
     Found 16-bit register for signal <captured_data>.
     Found finite state machine <FSM_0> for signal <state>.
     -----------------------------------------------------------------------
-    | States             | 18                                             |
-    | Transitions        | 42                                             |
+    | States             | 21                                             |
+    | Transitions        | 50                                             |
     | Inputs             | 6                                              |
-    | Outputs            | 6                                              |
+    | Outputs            | 7                                              |
     | Clock              | clk (rising_edge)                              |
     | Power Up State     | s_startup                                      |
-    | Encoding           | ONE-HOT                                        |
+    | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 14-bit adder for signal <startup_refresh_count[13]_GND_170_o_add_7_OUT> created at line 1241.
-    Found 14-bit subtractor for signal <GND_170_o_GND_170_o_add_32_OUT> created at line 1241.
-    Found 2-bit comparator equal for signal <addr_bank[1]_save_bank[1]_equal_9_o> created at line 253
-    Found 13-bit comparator equal for signal <addr_row[12]_save_row[12]_equal_10_o> created at line 253
+    Found 14-bit adder for signal <refresh_count[13]_GND_170_o_add_9_OUT> created at line 1241.
+    Found 16-bit subtractor for signal <GND_170_o_GND_170_o_mux_82_OUT> created at line 476.
+    Found 2-bit comparator equal for signal <opened_bank[1]_save_bank[1]_equal_63_o> created at line 441
+    Found 13-bit comparator equal for signal <opened_row[12]_save_row[12]_equal_64_o> created at line 441
 INFO:Xst:2774 - HDL ADVISOR - IOB property attached to signal captured_data may hinder XST clustering optimizations.
     Summary:
 	inferred   2 Adder/Subtractor(s).
-	inferred 211 D-type flip-flop(s).
+	inferred 226 D-type flip-flop(s).
 	inferred   2 Comparator(s).
 	inferred  54 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
@@ -602,22 +598,22 @@ Macro Statistics
  2048x16-bit dual-port RAM                             : 1
 # Adders/Subtractors                                   : 6
  14-bit adder                                          : 1
- 14-bit subtractor                                     : 1
  16-bit adder                                          : 1
- 27-bit adder                                          : 1
+ 16-bit subtractor                                     : 1
+ 28-bit adder                                          : 1
  29-bit adder                                          : 1
  3-bit subtractor                                      : 1
 # Registers                                            : 96
  1-bit register                                        : 26
  128-bit register                                      : 1
- 13-bit register                                       : 3
+ 13-bit register                                       : 4
  14-bit register                                       : 1
  16-bit register                                       : 50
- 2-bit register                                        : 3
- 27-bit register                                       : 1
+ 2-bit register                                        : 4
+ 28-bit register                                       : 1
  29-bit register                                       : 1
  3-bit register                                        : 1
- 32-bit register                                       : 4
+ 32-bit register                                       : 2
  4-bit register                                        : 3
  5-bit register                                        : 1
  8-bit register                                        : 1
@@ -625,13 +621,12 @@ Macro Statistics
  13-bit comparator equal                               : 1
  2-bit comparator equal                                : 1
  32-bit comparator not equal                           : 1
-# Multiplexers                                         : 64
- 1-bit 2-to-1 multiplexer                              : 26
+# Multiplexers                                         : 63
+ 1-bit 2-to-1 multiplexer                              : 31
  128-bit 2-to-1 multiplexer                            : 1
  13-bit 2-to-1 multiplexer                             : 9
- 14-bit 2-to-1 multiplexer                             : 4
  16-bit 12-to-1 multiplexer                            : 1
- 16-bit 2-to-1 multiplexer                             : 4
+ 16-bit 2-to-1 multiplexer                             : 2
  2-bit 2-to-1 multiplexer                              : 6
  23-bit 2-to-1 multiplexer                             : 1
  3-bit 2-to-1 multiplexer                              : 1
@@ -649,6 +644,8 @@ Macro Statistics
 =========================================================================
 
 INFO:Xst:2261 - The FF/Latch <save_col_0> in Unit <Inst_SDRAM_Controller> is equivalent to the following 3 FFs/Latches, which will be removed : <save_col_9> <save_col_11> <save_col_12> 
+WARNING:Xst:1426 - The value init of the FF/Latch debug_dump_7 hinder the constant cleaning in the block Inst_Memory_tester.
+   You should achieve better results by setting this init to 0.
 WARNING:Xst:1710 - FF/Latch <reg_in_d_0_6> (without init value) has a constant value of 0 in block <reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <reg_in_d_0_7> (without init value) has a constant value of 1 in block <reg0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <reg_in_d_0_8> (without init value) has a constant value of 0 in block <reg0>. This FF/Latch will be trimmed during the optimization process.
@@ -732,6 +729,11 @@ The following registers are absorbed into counter <test_counter>: 1 register on 
 The following registers are absorbed into counter <read_counter>: 1 register on signal <read_counter>.
 Unit <Memory_tester> synthesized (advanced).
 
+Synthesizing (advanced) Unit <SDRAM_Controller>.
+The following registers are absorbed into counter <startup_wait_count>: 1 register on signal <startup_wait_count>.
+The following registers are absorbed into counter <refresh_count>: 1 register on signal <refresh_count>.
+Unit <SDRAM_Controller> synthesized (advanced).
+
 Synthesizing (advanced) Unit <dpram_NxN>.
 INFO:Xst:3226 - The RAM <Mram_RAM> will be implemented as a BLOCK RAM, absorbing the following register(s): <spo> <dpo>
     -----------------------------------------------------------------------
@@ -773,26 +775,24 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 1
  2048x16-bit dual-port block RAM                       : 1
-# Adders/Subtractors                                   : 2
- 14-bit adder                                          : 1
- 14-bit subtractor                                     : 1
-# Counters                                             : 4
+# Counters                                             : 6
+ 14-bit up counter                                     : 1
+ 16-bit down counter                                   : 1
  16-bit up counter                                     : 1
- 27-bit up counter                                     : 1
+ 28-bit up counter                                     : 1
  29-bit up counter                                     : 1
  3-bit down counter                                    : 1
-# Registers                                            : 1114
- Flip-Flops                                            : 1114
+# Registers                                            : 1035
+ Flip-Flops                                            : 1035
 # Comparators                                          : 3
  13-bit comparator equal                               : 1
  2-bit comparator equal                                : 1
  32-bit comparator not equal                           : 1
-# Multiplexers                                         : 104
+# Multiplexers                                         : 73
  1-bit 12-to-1 multiplexer                             : 16
- 1-bit 2-to-1 multiplexer                              : 55
+ 1-bit 2-to-1 multiplexer                              : 28
  128-bit 2-to-1 multiplexer                            : 1
  13-bit 2-to-1 multiplexer                             : 9
- 14-bit 2-to-1 multiplexer                             : 4
  16-bit 2-to-1 multiplexer                             : 1
  2-bit 2-to-1 multiplexer                              : 6
  23-bit 2-to-1 multiplexer                             : 1
@@ -854,40 +854,42 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <reg_in_d_0_4> (with
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <reg_in_d_0_5> (without init value) has a constant value of 1 in block <wishbone_register>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <reg_in_d_0_6> (without init value) has a constant value of 0 in block <wishbone_register>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <reg_in_d_0_7> (without init value) has a constant value of 1 in block <wishbone_register>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1426 - The value init of the FF/Latch debug_dump_7 hinder the constant cleaning in the block Memory_tester.
+   You should achieve better results by setting this init to 0.
 WARNING:Xst:1710 - FF/Latch <save_col_0> (without init value) has a constant value of 0 in block <SDRAM_Controller>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <reg_in_d_2_8> in Unit <wishbone_register> is equivalent to the following 7 FFs/Latches, which will be removed : <reg_in_d_2_9> <reg_in_d_2_10> <reg_in_d_2_11> <reg_in_d_2_12> <reg_in_d_2_13> <reg_in_d_2_14> <reg_in_d_2_15> 
 WARNING:Xst:1710 - FF/Latch <reg_in_d_2_7> (without init value) has a constant value of 1 in block <wishbone_register>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <reg_in_d_2_8> (without init value) has a constant value of 0 in block <wishbone_register>. This FF/Latch will be trimmed during the optimization process.
-Optimizing FSM <Inst_SDRAM_Controller/FSM_0> on signal <state[1:18]> with ONE-HOT encoding.
------------------------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <Inst_SDRAM_Controller/FSM_0> on signal <state[1:21]> with one-hot encoding.
+--------------------------------------
  State       | Encoding
------------------------------------
- s_startup   | 000000000000000001
- s_idle_in_6 | 000000000100000000
- s_idle_in_5 | 000000000000000100
- s_idle_in_4 | 000000000000001000
- s_idle_in_3 | 000000000000010000
- s_idle_in_2 | 000000000000100000
- s_idle_in_1 | 000000000001000000
- s_idle      | 000000000000000010
- s_open_in_2 | 000000000010000000
- s_open_in_1 | 000000001000000000
- s_write_1   | 000000100000000000
- s_write_2   | 000001000000000000
- s_write_3   | 000010000000000000
- s_read_1    | 000000010000000000
- s_read_2    | 001000000000000000
- s_read_3    | 010000000000000000
- s_read_4    | 100000000000000000
- s_precharge | 000100000000000000
------------------------------------
+--------------------------------------
+ s_startup   | 000000000000000000001
+ s_idle_in_9 | 100000000000000000000
+ s_idle_in_8 | 000000000000000000100
+ s_idle_in_7 | 000000000000000001000
+ s_idle_in_6 | 000000000000000010000
+ s_idle_in_5 | 000000000000000100000
+ s_idle_in_4 | 000000000000001000000
+ s_idle_in_3 | 000000000000010000000
+ s_idle_in_2 | 000000000000100000000
+ s_idle_in_1 | 000000000001000000000
+ s_idle      | 000000000000000000010
+ s_open_in_2 | 000000000010000000000
+ s_open_in_1 | 000000000100000000000
+ s_write_1   | 000000010000000000000
+ s_write_2   | 000000100000000000000
+ s_write_3   | 000001000000000000000
+ s_read_1    | 000000001000000000000
+ s_read_2    | 000100000000000000000
+ s_read_3    | 001000000000000000000
+ s_read_4    | 010000000000000000000
+ s_precharge | 000010000000000000000
+--------------------------------------
 WARNING:Xst:1293 - FF/Latch <dqm_sr_2> has a constant value of 1 in block <SDRAM_Controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <dqm_sr_3> has a constant value of 1 in block <SDRAM_Controller>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2261 - The FF/Latch <wanted_24> in Unit <Memory_tester> is equivalent to the following FF/Latch, which will be removed : <wanted_28> 
-INFO:Xst:2261 - The FF/Latch <wanted_25> in Unit <Memory_tester> is equivalent to the following FF/Latch, which will be removed : <wanted_29> 
-INFO:Xst:2261 - The FF/Latch <wanted_26> in Unit <Memory_tester> is equivalent to the following FF/Latch, which will be removed : <wanted_30> 
-INFO:Xst:2261 - The FF/Latch <wanted_27> in Unit <Memory_tester> is equivalent to the following FF/Latch, which will be removed : <wanted_31> 
-INFO:Xst:2261 - The FF/Latch <state_FSM_FFd3> in Unit <SDRAM_Controller> is equivalent to the following FF/Latch, which will be removed : <data_ready_delay_4> 
+INFO:Xst:2261 - The FF/Latch <state_FSM_FFd4> in Unit <SDRAM_Controller> is equivalent to the following FF/Latch, which will be removed : <data_ready_delay_4> 
 WARNING:Xst:2042 - Unit logibone_test: 26 internal tristates are replaced by logic (pull-up yes): gpio1/gpio<0>, gpio1/gpio<10>, gpio1/gpio<11>, gpio1/gpio<12>, gpio1/gpio<13>, gpio1/gpio<14>, gpio1/gpio<15>, gpio1/gpio<1>, gpio1/gpio<2>, gpio1/gpio<3>, gpio1/gpio<4>, gpio1/gpio<5>, gpio1/gpio<6>, gpio1/gpio<7>, gpio1/gpio<8>, gpio1/gpio<9>, gpio2/gpio<10>, gpio2/gpio<11>, gpio2/gpio<12>, gpio2/gpio<13>, gpio2/gpio<14>, gpio2/gpio<15>, gpio2/gpio<6>, gpio2/gpio<7>, gpio2/gpio<8>, gpio2/gpio<9>.
 WARNING:Xst:2040 - Unit wishbone_intercon: 16 multi-source signals are replaced by logic (pull-up yes): wbs_readdata<0>, wbs_readdata<10>, wbs_readdata<11>, wbs_readdata<12>, wbs_readdata<13>, wbs_readdata<14>, wbs_readdata<15>, wbs_readdata<1>, wbs_readdata<2>, wbs_readdata<3>, wbs_readdata<4>, wbs_readdata<5>, wbs_readdata<6>, wbs_readdata<7>, wbs_readdata<8>, wbs_readdata<9>.
 
@@ -1093,18 +1095,33 @@ WARNING:Xst:2677 - Node <reg0/reg_out_d_1_3> of sequential type is unconnected i
 WARNING:Xst:2677 - Node <reg0/reg_out_d_1_2> of sequential type is unconnected in block <logibone_test>.
 WARNING:Xst:2677 - Node <reg0/reg_out_d_1_1> of sequential type is unconnected in block <logibone_test>.
 WARNING:Xst:2677 - Node <reg0/reg_out_d_1_0> of sequential type is unconnected in block <logibone_test>.
+WARNING:Xst:1293 - FF/Latch <Inst_Memory_tester/test_counter_28> has a constant value of 0 in block <logibone_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_SDRAM_Controller/refresh_count_13> has a constant value of 0 in block <logibone_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_SDRAM_Controller/refresh_count_12> has a constant value of 0 in block <logibone_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_SDRAM_Controller/refresh_count_11> has a constant value of 0 in block <logibone_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_SDRAM_Controller/refresh_count_10> has a constant value of 0 in block <logibone_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_SDRAM_Controller/iob_command_3> has a constant value of 0 in block <logibone_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_SDRAM_Controller/iob_command_3> has a constant value of 0 in block <logibone_test>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Inst_SDRAM_Controller/iob_command_3> has a constant value of 0 in block <logibone_test>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Inst_SDRAM_Controller/iob_command_3> has a constant value of 0 in block <logibone_test>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Inst_SDRAM_Controller/iob_command_3> has a constant value of 0 in block <logibone_test>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/dqm_sr_1> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/dqm_sr_0> 
-INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/save_data_in_30> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/save_data_in_26> 
-INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/save_data_in_31> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/save_data_in_27> 
-INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/save_data_in_28> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/save_data_in_24> 
-INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/save_data_in_29> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/save_data_in_25> 
-INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/iob_data_next_12> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/iob_data_next_8> 
-INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/iob_data_next_13> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/iob_data_next_9> 
-INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/iob_data_next_14> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/iob_data_next_10> 
-INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/iob_data_next_15> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/iob_data_next_11> 
+INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/save_d_in_4> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/save_d_in_0> 
+INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/save_d_in_5> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/save_d_in_1> 
+INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/save_d_in_6> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/save_d_in_2> 
+INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/save_d_in_7> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/save_d_in_3> 
+INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/save_d_in_12> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/save_d_in_8> 
+INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/save_d_in_13> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/save_d_in_9> 
+INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/save_d_in_14> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/save_d_in_10> 
+INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/save_d_in_20> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/save_d_in_16> 
+INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/save_d_in_15> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/save_d_in_11> 
+INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/save_d_in_21> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/save_d_in_17> 
+INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/save_d_in_22> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/save_d_in_18> 
+INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/save_d_in_23> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/save_d_in_19> 
+INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/save_d_in_30> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/save_d_in_26> 
+INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/save_d_in_31> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/save_d_in_27> 
+INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/save_d_in_28> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/save_d_in_24> 
+INFO:Xst:2261 - The FF/Latch <Inst_SDRAM_Controller/save_d_in_29> in Unit <logibone_test> is equivalent to the following FF/Latch, which will be removed : <Inst_SDRAM_Controller/save_d_in_25> 
 INFO:Xst:3203 - The FF/Latch <Inst_Memory_tester/has_errored> in Unit <logibone_test> is the opposite to the following FF/Latch, which will be removed : <Inst_Memory_tester/e> 
 
 Mapping all equations...
@@ -1113,13 +1130,12 @@ WARNING:Xst:1293 - FF/Latch <Inst_SDRAM_Controller/iob_command_3> has a constant
 WARNING:Xst:1293 - FF/Latch <Inst_SDRAM_Controller/iob_command_3> has a constant value of 0 in block <logibone_test>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Inst_SDRAM_Controller/iob_command_3> has a constant value of 0 in block <logibone_test>. This FF/Latch will be trimmed during the optimization process.
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block logibone_test, actual ratio is 25.
+Found area constraint ratio of 100 (+ 5) on block logibone_test, actual ratio is 24.
 WARNING:Xst:1293 - FF/Latch <Inst_SDRAM_Controller/iob_command_3> has a constant value of 0 in block <logibone_test>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Inst_SDRAM_Controller/iob_command_3> has a constant value of 0 in block <logibone_test>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Inst_SDRAM_Controller/iob_command_3> has a constant value of 0 in block <logibone_test>. This FF/Latch will be trimmed during the optimization process.
 Replicating register Inst_SDRAM_Controller/iob_cke to handle IOB=TRUE attribute
 
-FlipFlop gpmc2wishbone/address_12 has been replicated 1 time(s)
 WARNING:Xst:1293 - FF/Latch <Inst_SDRAM_Controller/iob_command_3> has a constant value of 0 in block <logibone_test>. This FF/Latch will be trimmed during the optimization process.
 
 Final Macro Processing ...
@@ -1147,6 +1163,9 @@ Processing Unit <logibone_test> :
 	Found 2-bit shift register for signal <gpio0/wbs_readdata_2>.
 	Found 2-bit shift register for signal <gpio0/wbs_readdata_1>.
 	Found 2-bit shift register for signal <gpio0/wbs_readdata_0>.
+	Found 2-bit shift register for signal <Inst_SDRAM_Controller/state_FSM_FFd12>.
+	Found 2-bit shift register for signal <Inst_SDRAM_Controller/state_FSM_FFd14-In>.
+	Found 2-bit shift register for signal <Inst_SDRAM_Controller/state_FSM_FFd18-In>.
 	Found 4-bit shift register for signal <Inst_SDRAM_Controller/data_ready_delay_0>.
 Unit <logibone_test> processed.
 
@@ -1154,10 +1173,10 @@ Unit <logibone_test> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 893
- Flip-Flops                                            : 893
-# Shift Registers                                      : 23
- 2-bit shift register                                  : 22
+# Registers                                            : 832
+ Flip-Flops                                            : 832
+# Shift Registers                                      : 26
+ 2-bit shift register                                  : 25
  4-bit shift register                                  : 1
 
 =========================================================================
@@ -1183,33 +1202,33 @@ Top Level Output File Name         : logibone_test.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1007
+# BELS                             : 947
 #      GND                         : 1
-#      INV                         : 41
-#      LUT1                        : 73
-#      LUT2                        : 43
-#      LUT3                        : 67
-#      LUT4                        : 137
-#      LUT5                        : 237
-#      LUT6                        : 184
-#      MUXCY                       : 115
-#      MUXF7                       : 8
+#      INV                         : 46
+#      LUT1                        : 65
+#      LUT2                        : 40
+#      LUT3                        : 53
+#      LUT4                        : 110
+#      LUT5                        : 242
+#      LUT6                        : 171
+#      MUXCY                       : 111
+#      MUXF7                       : 9
 #      VCC                         : 1
-#      XORCY                       : 100
-# FlipFlops/Latches                : 917
-#      FD                          : 137
-#      FDC                         : 38
+#      XORCY                       : 98
+# FlipFlops/Latches                : 859
+#      FD                          : 110
+#      FDC                         : 37
 #      FDC_1                       : 32
 #      FDCE                        : 118
-#      FDE                         : 577
+#      FDE                         : 545
 #      FDP                         : 3
 #      FDP_1                       : 3
-#      FDS                         : 8
+#      FDR                         : 10
 #      ODDR2                       : 1
 # RAMS                             : 2
 #      RAMB16BWER                  : 2
-# Shift Registers                  : 23
-#      SRLC16E                     : 23
+# Shift Registers                  : 26
+#      SRLC16E                     : 26
 # Clock Buffers                    : 2
 #      BUFG                        : 1
 #      BUFGP                       : 1
@@ -1230,18 +1249,18 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             846  out of  11440     7%  
- Number of Slice LUTs:                  805  out of   5720    14%  
-    Number used as Logic:               782  out of   5720    13%  
-    Number used as Memory:               23  out of   1440     1%  
-       Number used as SRL:               23
+ Number of Slice Registers:             788  out of  11440     6%  
+ Number of Slice LUTs:                  753  out of   5720    13%  
+    Number used as Logic:               727  out of   5720    12%  
+    Number used as Memory:               26  out of   1440     1%  
+       Number used as SRL:               26
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1150
-   Number with an unused Flip Flop:     304  out of   1150    26%  
-   Number with an unused LUT:           345  out of   1150    30%  
-   Number of fully used LUT-FF pairs:   501  out of   1150    43%  
-   Number of unique control sets:        24
+ Number of LUT Flip Flop pairs used:   1093
+   Number with an unused Flip Flop:     305  out of   1093    27%  
+   Number with an unused LUT:           340  out of   1093    31%  
+   Number of fully used LUT-FF pairs:   448  out of   1093    40%  
+   Number of unique control sets:        25
 
 IO Utilization: 
  Number of IOs:                          96
@@ -1274,7 +1293,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-OSC_FPGA                           | DCM_SP:CLK2X           | 892   |
+OSC_FPGA                           | DCM_SP:CLK2X           | 837   |
 GPMC_CLK                           | BUFGP                  | 51    |
 -----------------------------------+------------------------+-------+
 
@@ -1286,7 +1305,7 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 15.176ns (Maximum Frequency: 65.894MHz)
+   Minimum period: 15.100ns (Maximum Frequency: 66.225MHz)
    Minimum input arrival time before clock: 4.300ns
    Maximum output required time after clock: 5.098ns
    Maximum combinational path delay: 6.505ns
@@ -1297,10 +1316,10 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'OSC_FPGA'
-  Clock period: 15.176ns (frequency: 65.894MHz)
-  Total number of paths / destination ports: 16467 / 1309
+  Clock period: 15.100ns (frequency: 66.225MHz)
+  Total number of paths / destination ports: 11395 / 1222
 -------------------------------------------------------------------------
-Delay:               7.588ns (Levels of Logic = 4)
+Delay:               7.550ns (Levels of Logic = 4)
   Source:            gpmc2wishbone/address_15 (FF)
   Destination:       gpio0/output_15 (FF)
   Source Clock:      OSC_FPGA rising 2.0X
@@ -1310,15 +1329,15 @@ Delay:               7.588ns (Levels of Logic = 4)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q              4   0.525   1.032  gpmc2wishbone/address_15 (gpmc2wishbone/address_15)
+     FDC:C->Q              3   0.525   0.994  gpmc2wishbone/address_15 (gpmc2wishbone/address_15)
      LUT3:I0->O           21   0.235   1.310  intercon0/cs_vector<0><15>111 (intercon0/cs_vector<0><15>11)
      LUT6:I5->O            6   0.254   0.876  intercon0/cs_vector<0><15>1_1 (intercon0/cs_vector<0><15>12)
      LUT6:I5->O           19   0.254   1.369  intercon0/wbm_write<0>1 (n0059<0>)
      LUT3:I1->O           16   0.250   1.181  gpio0/_n0059_inv211 (gpio0/_n0059_inv)
      FDCE:CE                   0.302          gpio0/output_15
     ----------------------------------------
-    Total                      7.588ns (1.820ns logic, 5.768ns route)
-                                       (24.0% logic, 76.0% route)
+    Total                      7.550ns (1.820ns logic, 5.730ns route)
+                                       (24.1% logic, 75.9% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'GPMC_CLK'
@@ -1474,22 +1493,21 @@ Clock to Setup on destination clock OSC_FPGA
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-GPMC_CLK       |         |    1.364|         |         |
-OSC_FPGA       |    7.588|         |         |         |
+GPMC_CLK       |         |    1.324|         |         |
+OSC_FPGA       |    7.550|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 27.00 secs
-Total CPU time to Xst completion: 26.60 secs
+Total REAL time to Xst completion: 11.00 secs
+Total CPU time to Xst completion: 10.69 secs
  
 --> 
 
-
-Total memory usage is 413140 kilobytes
+Total memory usage is 280388 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  399 (   0 filtered)
-Number of infos    :   33 (   0 filtered)
+Number of warnings :  408 (   0 filtered)
+Number of infos    :   37 (   0 filtered)
 
