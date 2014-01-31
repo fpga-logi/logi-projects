@@ -201,15 +201,15 @@ int testRpiGpio(){
 	setGen3();
 	clrGen2();
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
-	if((valBuf & 0x0C00) != 0x0800){
-		test_log(ERROR, "RPI gpio 3-2 test failed, expected %04x got %04x \n", 0x0800, (valBuf & 0x0C00)); 
+	if((valBuf & 0x00C0) != 0x0080){
+		test_log(ERROR, "RPI gpio 3-2 test failed, expected %04x got %04x \n", 0x0080, (valBuf & 0x00C0)); 
 		res = -1 ;
 	}
 	clrGen3();
 	setGen2();
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
-	if((valBuf & 0x0C00) != 0x0400){
-		test_log(ERROR, "RPI gpio 3-2 test failed, expected %04x got %04x \n", 0x0400, (valBuf & 0x0C00)); 
+	if((valBuf & 0x00C0) != 0x0040){
+		test_log(ERROR, "RPI gpio 3-2 test failed, expected %04x got %04x \n", 0x0040, (valBuf & 0x00C0)); 
 		res = -1 ;
 	}
 	closeGPIOs();
