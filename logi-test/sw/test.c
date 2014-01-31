@@ -195,6 +195,7 @@ void clrGen3(){
 
 int testRpiGpio(){
 	unsigned short valBuf = 0 ;
+	int res = 0 ;
 	initGPIO();
 	wishbone_write((unsigned char *) &valBuf, 2, GPIO2DIR); // all inputs
 	setGen3();
@@ -202,20 +203,17 @@ int testRpiGpio(){
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
 	if((valBuf & 0x0C00) != 0x0800){
 		test_log(ERROR, "RPI gpio 3-2 test failed, expected %04x got %04x \n", 0x0800, (valBuf & 0x0C00)); 
-		closeGPIOs();		
-		return -1 ;
+		res = -1 ;
 	}
 	clrGen3();
 	setGen2();
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
 	if((valBuf & 0x0C00) != 0x0400){
 		test_log(ERROR, "RPI gpio 3-2 test failed, expected %04x got %04x \n", 0x0400, (valBuf & 0x0C00)); 
-		closeGPIOs();		
-		return -1 ;
+		res = -1 ;
 	}
-	
 	closeGPIOs();
-	return 0 ;
+	return res ;
 }
 
 #endif
