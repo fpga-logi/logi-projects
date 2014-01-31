@@ -5,6 +5,6 @@ create_project -name logibone-wishbone -dir "/home/jpiat/development/FPGA/logi-f
 set_property design_mode GateLvl [get_property srcset [current_run -impl]]
 set_property edif_top_file "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-wishbone/logibone-hw/logibone_wishbone.ngc" [ get_property srcset [ current_run ] ]
 add_files -norecurse { {/home/jpiat/development/FPGA/logi-family/logi-projects/logi-wishbone/logibone-hw} {ipcore_dir} }
-set_property target_constrs_file "logibone_ra2_1.ucf" [current_fileset -constrset]
-add_files [list {logibone_ra2_1.ucf}] -fileset [get_property constrset [current_run]]
+set_property target_constrs_file "logibone_ra3.ucf" [current_fileset -constrset]
+add_files [list {logibone_ra3.ucf}] -fileset [get_property constrset [current_run]]
 link_design

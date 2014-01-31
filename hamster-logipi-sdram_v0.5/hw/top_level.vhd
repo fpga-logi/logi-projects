@@ -1,7 +1,7 @@
 ----------------------------------------------------------------------------------
 -- Engineer: Mike Field <hamster@snap.net.nz>
---
--- Description: Top level module for the LogiPi SDRAM controller project
+-- 
+-- Description: Top level module for the LogiPi SDRAM controller project 
 --
 ----------------------------------------------------------------------------------
 library IEEE;
@@ -11,7 +11,7 @@ library UNISIM;
 use UNISIM.VComponents.all;
 
 entity top_level is
-    Port ( OSC_FPGA      : in    STD_LOGIC;
+    Port ( clk_50      : in    STD_LOGIC;
            led         : out   STD_LOGIC_VECTOR( 1 downto 0);
            SDRAM_CLK   : out   STD_LOGIC;
            SDRAM_CKE   : out   STD_LOGIC;
@@ -23,20 +23,16 @@ entity top_level is
            SDRAM_ADDR  : out   STD_LOGIC_VECTOR (12 downto 0);
            SDRAM_BA    : out   STD_LOGIC_VECTOR( 1 downto 0);
            SDRAM_DQ    : inout STD_LOGIC_VECTOR (15 downto 0);
-
-			  PB2 				: in STD_LOGIC;
-           SYS_TX      : out std_logic);
+           
+           pi_rx       : out std_logic);
 end top_level;
 
 architecture Behavioral of top_level is
-
-	constant test_frequency	:	natural := 50 ;
-	constant freq_devider	:	natural := ((50) * 16)/test_frequency;
-   constant sdram_address_width : natural := 22;
-   constant sdram_column_bits   : natural := 8;
+   constant sdram_address_width : natural := 24;
+   constant sdram_column_bits   : natural := 10;
    constant sdram_startup_cycles: natural := 10100; -- 100us, plus a little more
-   constant test_width          : natural := sdram_address_width-1; -- each 32-bit word is two 16-bit SDRAM addresses
-   constant cycles_per_refresh  : natural := (64000*100)/4096-1;
+   constant cycles_per_refresh  : natural := (64000*100)/8192-1;
+   constant test_width          : natural := sdram_address_width-1; -- each 32-bit word is two 16-bit SDRAM addresses 
 
 	COMPONENT SDRAM_Controller
     generic (
@@ -48,15 +44,15 @@ architecture Behavioral of top_level is
     PORT(
 		clk             : IN std_logic;
 		reset           : IN std_logic;
-
+      
       -- Interface to issue commands
 		cmd_ready       : OUT std_logic;
 		cmd_enable      : IN  std_logic;
 		cmd_wr          : IN  std_logic;
       cmd_address     : in  STD_LOGIC_VECTOR(sdram_address_width-2 downto 0); -- address to read/write
 		cmd_byte_enable : IN  std_logic_vector(3 downto 0);
-		cmd_data_in     : IN  std_logic_vector(31 downto 0);
-
+		cmd_data_in     : IN  std_logic_vector(31 downto 0);    
+      
       -- Data being read back from SDRAM
 		data_out        : OUT std_logic_vector(31 downto 0);
 		data_out_ready  : OUT std_logic;
@@ -71,14 +67,14 @@ architecture Behavioral of top_level is
 		SDRAM_DQM       : OUT   std_logic_vector(1 downto 0);
 		SDRAM_ADDR      : OUT   std_logic_vector(12 downto 0);
 		SDRAM_BA        : OUT   std_logic_vector(1 downto 0);
-		SDRAM_DATA      : INOUT std_logic_vector(15 downto 0)
+		SDRAM_DATA      : INOUT std_logic_vector(15 downto 0)     
 		);
 	END COMPONENT;
 
 	COMPONENT blinker
 	PORT(
 		clk : IN std_logic;
-		i : IN std_logic;
+		i : IN std_logic;          
 		o : OUT std_logic
 		);
 	END COMPONENT;
@@ -87,19 +83,19 @@ architecture Behavioral of top_level is
       GENERIC( tx_freq :natural);
       PORT(  capture_clk : IN  std_logic;
              tx_clk      : IN  std_logic;
-             probes      : IN  std_logic_vector(15 downto 0);
+             probes      : IN  std_logic_vector(15 downto 0);          
              serial_tx   : OUT std_logic);
    END COMPONENT;
-
+   
    COMPONENT Memory_tester
       Generic (address_width : natural := 4);
       Port ( clk           : in  STD_LOGIC;
-
+      
            cmd_enable      : out std_logic;
            cmd_wr          : out std_logic;
            cmd_address     : out std_logic_vector(address_width-1 downto 0);
            cmd_byte_enable : out std_logic_vector(3 downto 0);
-           cmd_data_in     : out std_logic_vector(31 downto 0);
+           cmd_data_in     : out std_logic_vector(31 downto 0);    
            cmd_ready       : in  std_logic;
 
            data_out        : in  std_logic_vector(31 downto 0);
@@ -113,7 +109,7 @@ architecture Behavioral of top_level is
 
    -- signals for clocking
    signal clk, clku, clkfb, clkb   : std_logic;
-
+   
    -- signals to interface with the memory controller
    signal cmd_address     : std_logic_vector(sdram_address_width-2 downto 0) := (others => '0');
    signal cmd_wr          : std_logic := '1';
@@ -123,7 +119,7 @@ architecture Behavioral of top_level is
    signal cmd_ready       : std_logic;
    signal data_out        : std_logic_vector(31 downto 0);
    signal data_out_ready  : std_logic;
-
+   
    -- misc signals
    signal error_refresh   : std_logic;
    signal error_testing   : std_logic;
@@ -131,47 +127,39 @@ architecture Behavioral of top_level is
    signal debug           : std_logic_vector(15 downto 0);
    signal tester_debug    : std_logic_vector(15 downto 0);
    signal is_idle         : std_logic;
-   signal iob_data        : std_logic_vector(15 downto 0);
+   signal iob_data        : std_logic_vector(15 downto 0);      
    signal error_blink     : std_logic;
-
+ 
    begin
 i_error_blink : blinker PORT MAP(
    clk => clk,
    i => error_testing,
    o => error_blink
    );
-
+   
    led(0) <= blink;
    led(1) <= error_blink;
 
 Inst_Memory_tester: Memory_tester GENERIC MAP(address_width => test_width) PORT MAP(
       clk             => clk,
-
+      
       cmd_address     => cmd_address(test_width-1 downto 0),
       cmd_wr          => cmd_wr,
       cmd_enable      => cmd_enable,
       cmd_ready       => cmd_ready,
       cmd_byte_enable => cmd_byte_enable,
       cmd_data_in     => cmd_data_in,
-
+      
       data_out        => data_out,
       data_out_ready  => data_out_ready,
-
+      
       debug           => tester_debug,
-
+      
       error_testing   => error_testing,
       blink           => blink
    );
-
-   debug(14 downto 0) <= tester_debug(14 downto 0);
-	debug(15) <= '1';
-
-   --debug <= tester_debug; original
-	--forcing a trigger on cheapscope:
-	debug(14 downto 0) <= tester_debug(14 downto 0);
-	debug(15) <= '1';
-	--debug(15) <= NOT PB2;  --This will cause a trigger when pb2 is pushed.  (large delay between captures, not sure why?)
-
+   
+   debug <= tester_debug;
 
 Inst_SDRAM_Controller: SDRAM_Controller GENERIC MAP (
       sdram_address_width => sdram_address_width,
@@ -188,10 +176,10 @@ Inst_SDRAM_Controller: SDRAM_Controller GENERIC MAP (
       cmd_ready       => cmd_ready,
       cmd_byte_enable => cmd_byte_enable,
       cmd_data_in     => cmd_data_in,
-
+      
       data_out        => data_out,
       data_out_ready  => data_out_ready,
-
+   
       SDRAM_CLK       => SDRAM_CLK,
       SDRAM_CKE       => SDRAM_CKE,
       SDRAM_CS        => SDRAM_CS,
@@ -211,17 +199,17 @@ Inst_cheapscope: cheapscope GENERIC MAP (
       capture_clk => clk,
       probes      => debug,
       tx_clk      => clk,
-      serial_tx   => SYS_TX
+      serial_tx   => pi_rx
    );
 
-
+   
 PLL_BASE_inst : PLL_BASE generic map (
-      BANDWIDTH      => "OPTIMIZED",        -- "HIGH", "LOW" or "OPTIMIZED"
+      BANDWIDTH      => "OPTIMIZED",        -- "HIGH", "LOW" or "OPTIMIZED" 
       CLKFBOUT_MULT  => 16 ,                 -- Multiply value for all CLKOUT clock outputs (1-64)
       CLKFBOUT_PHASE => 0.0,                -- Phase offset in degrees of the clock feedback output (0.0-360.0).
       CLKIN_PERIOD   => 20.00,              -- Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
       -- CLKOUT0_DIVIDE - CLKOUT5_DIVIDE: Divide amount for CLKOUT# clock output (1-128)
-      CLKOUT0_DIVIDE => 8,       CLKOUT1_DIVIDE => 8,
+      CLKOUT0_DIVIDE => 10,       CLKOUT1_DIVIDE => 10,
       CLKOUT2_DIVIDE => 1,       CLKOUT3_DIVIDE => 1,
       CLKOUT4_DIVIDE => 1,       CLKOUT5_DIVIDE => 1,
       -- CLKOUT0_DUTY_CYCLE - CLKOUT5_DUTY_CYCLE: Duty cycle for CLKOUT# clock output (0.01-0.99).
@@ -232,9 +220,9 @@ PLL_BASE_inst : PLL_BASE generic map (
       CLKOUT0_PHASE => 0.0,      CLKOUT1_PHASE => 0.0, -- Capture clock
       CLKOUT2_PHASE => 0.0,      CLKOUT3_PHASE => 0.0,
       CLKOUT4_PHASE => 0.0,      CLKOUT5_PHASE => 0.0,
-
+      
       CLK_FEEDBACK => "CLKFBOUT",           -- Clock source to drive CLKFBIN ("CLKFBOUT" or "CLKOUT0")
-      COMPENSATION => "SYSTEM_SYNCHRONOUS", -- "SYSTEM_SYNCHRONOUS", "SOURCE_SYNCHRONOUS", "EXTERNAL"
+      COMPENSATION => "SYSTEM_SYNCHRONOUS", -- "SYSTEM_SYNCHRONOUS", "SOURCE_SYNCHRONOUS", "EXTERNAL" 
       DIVCLK_DIVIDE => 1,                   -- Division value for all output clocks (1-52)
       REF_JITTER => 0.1,                    -- Reference Clock Jitter in UI (0.000-0.999).
       RESET_ON_LOSS_OF_LOCK => FALSE        -- Must be set to FALSE
@@ -251,7 +239,7 @@ PLL_BASE_inst : PLL_BASE generic map (
    );
 
    -- Buffering of clocks
-BUFG_1 : BUFG port map (O => clkb,    I => OSC_FPGA);
+BUFG_1 : BUFG port map (O => clkb,    I => clk_50);
 BUFG_3 : BUFG port map (O => clk,     I => clku);
 
 end Behavioral;

@@ -1,14 +1,14 @@
-Release 14.1 - Bitgen P.15xf (lin64)
+Release 14.1 - Bitgen P.15xf (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 Loading device for application Rf_Device from file '6slx9.nph' in environment
-/opt/Xilinx/14.1/ISE_DS/ISE/.
+C:\Xilinx\14.1\ISE_DS\ISE\.
    "logibone_test" is an NCD, version 3.2, device xc6slx9, package tqg144, speed
 -2
 Opened constraints file logibone_test.pcf.
 
-Wed Jan 29 00:05:43 2014
+Wed Jan 29 16:19:35 2014
 
-/opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/bitgen -intstyle ise -w -g DebugBitstream:No -g Binary:no -g CRC:Enable -g Reset_on_err:No -g ConfigRate:2 -g ProgPin:PullUp -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp -g TmsPin:PullUp -g UnusedPin:PullDown -g UserID:0xFFFFFFFF -g ExtMasterCclk_en:No -g SPI_buswidth:1 -g TIMER_CFG:0xFFFF -g multipin_wakeup:No -g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 -g GWE_cycle:6 -g LCK_cycle:NoWait -g Security:None -g DonePipe:Yes -g DriveDone:No -g en_sw_gsr:No -g drive_awake:No -g sw_clk:Startupclk -g sw_gwe_cycle:5 -g sw_gts_cycle:4 logibone_test.ncd 
+C:\Xilinx\14.1\ISE_DS\ISE\bin\nt64\unwrapped\bitgen.exe -intstyle ise -w -g DebugBitstream:No -g Binary:no -g CRC:Enable -g Reset_on_err:No -g ConfigRate:2 -g ProgPin:PullUp -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp -g TmsPin:PullUp -g UnusedPin:PullDown -g UserID:0xFFFFFFFF -g ExtMasterCclk_en:No -g SPI_buswidth:1 -g TIMER_CFG:0xFFFF -g multipin_wakeup:No -g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 -g GWE_cycle:6 -g LCK_cycle:NoWait -g Security:None -g DonePipe:Yes -g DriveDone:No -g en_sw_gsr:No -g drive_awake:No -g sw_clk:Startupclk -g sw_gwe_cycle:5 -g sw_gts_cycle:4 logibone_test.ncd 
 
 Summary of Bitgen Options:
 +----------------------+----------------------+
@@ -130,12 +130,10 @@ There were 0 CONFIG constraint(s) processed from logibone_test.pcf.
 
 Running DRC.
 DRC detected 0 errors and 0 warnings.
-INFO:Security:67 - XILINXD_LICENSE_FILE is set to
-'/opt/Xilinx/13.1/ISE_DS/EDK/data/core_licenses' in /home/jpiat/.flexlmrc.
 INFO:Security:54 - 'xc6slx9' is a WebPack part.
-WARNING:Security:42 - Your license support version '2014.01' for WebPack expires
-in 2 days after which you will not qualify for Xilinx software updates or new
-releases.
+WARNING:Security:42 - Your software subscription period has lapsed. Your current
+version of Xilinx tools will continue to function, but you no longer qualify for
+Xilinx software updates or new releases.
 
 Creating bit map...
 Saving bit stream in "logibone_test.bit".

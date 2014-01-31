@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2013-12-19T17:14:01</DateModified>
+  <DateModified>2014-01-29T19:04:25</DateModified>
   <ModuleName>logibone_camera</ModuleName>
   <SummaryTimeStamp>2013-06-24T16:04:03</SummaryTimeStamp>
   <SavedFilePath>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-camera-demo/logibone-hw/iseconfig/logibone_camera.xreport</SavedFilePath>

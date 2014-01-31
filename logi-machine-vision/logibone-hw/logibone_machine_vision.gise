@@ -22,9 +22,272 @@
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="logibone_machine_vision.xise"/>
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/par.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="ipcore_dir/coregen.log"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="logibone_machine_vision_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="sobel3x3_pipeline_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="sobel3x3_pipeline_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="sobel3x3_pipeline_isim_beh.wdb"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="sobel3x3_pixel_pipeline.bld"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="sobel3x3_pixel_pipeline.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="sobel3x3_pixel_pipeline.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="sobel3x3_pixel_pipeline.ncd" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="sobel3x3_pixel_pipeline.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="sobel3x3_pixel_pipeline.ngd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="sobel3x3_pixel_pipeline.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="sobel3x3_pixel_pipeline.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="sobel3x3_pixel_pipeline.par" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="sobel3x3_pixel_pipeline.pcf" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="sobel3x3_pixel_pipeline.prj"/>
+    <file xil_pn:fileType="FILE_TRCE_MISC" xil_pn:name="sobel3x3_pixel_pipeline.ptwx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="sobel3x3_pixel_pipeline.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="sobel3x3_pixel_pipeline.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="sobel3x3_pixel_pipeline.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="sobel3x3_pixel_pipeline.twx" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="sobel3x3_pixel_pipeline.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XPI" xil_pn:name="sobel3x3_pixel_pipeline.xpi"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="sobel3x3_pixel_pipeline.xst"/>
+    <file xil_pn:fileType="FILE_NCD" xil_pn:name="sobel3x3_pixel_pipeline_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="sobel3x3_pixel_pipeline_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="sobel3x3_pixel_pipeline_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="sobel3x3_pixel_pipeline_map.ncd" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="sobel3x3_pixel_pipeline_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="sobel3x3_pixel_pipeline_map.xrpt"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="sobel3x3_pixel_pipeline_map_fpga_editor.log"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="sobel3x3_pixel_pipeline_ngdbuild.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="sobel3x3_pixel_pipeline_pad.csv" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="sobel3x3_pixel_pipeline_pad.txt" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="sobel3x3_pixel_pipeline_par.xrpt"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="sobel3x3_pixel_pipeline_summary.html"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="sobel3x3_pixel_pipeline_summary.xml"/>
+    <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="sobel3x3_pixel_pipeline_usage.xml"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="sobel3x3_pixel_pipeline_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
   </files>
 
-  <transforms xmlns="http://www.xilinx.com/XMLSchema"/>
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1391034105" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1391034105">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1391034105" xil_pn:in_ck="5396877410053761429" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1391034105">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/block3X3.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/block3X3_pixel_pipeline.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/conv3x3.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/fifo2pixel.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/filter/filter_pack.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/filter/gauss3x3.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/filter/hyst_threshold.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/filter/sobel3x3.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/filter/sobel3x3_pixel_pipeline.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/image_pack.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/line_counter.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/matNxM_latch.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/pixel2fifo.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/pixel_counter.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/primitive/MAC16.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/primitive/dpram_NxN.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/primitive/primitive_pack.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/utils/dp_fifo.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/utils/edge_triggered_latch.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/utils/generic_delay.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/utils/generic_latch.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/utils/simple_counter.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/utils/utils_pack.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/simulation/camera/camera_pack.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/simulation/camera/libv.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/simulation/camera/pgm.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/simulation/camera/pgm_writer.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/simulation/camera/virtual_camera.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/testbench/sobel3x3_pipeline_tb.vhd"/>
+      <outfile xil_pn:name="../../../logi-hard/wishbone/gpmc_wishbone_wrapper.vhd"/>
+      <outfile xil_pn:name="../../../logi-hard/wishbone/logi_wishbone_pack.vhd"/>
+      <outfile xil_pn:name="../../../logi-hard/wishbone/peripherals/logi_wishbone_peripherals_pack.vhd"/>
+      <outfile xil_pn:name="../../../logi-hard/wishbone/peripherals/wishbone_fifo.vhd"/>
+      <outfile xil_pn:name="logibone_machine_vision.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1391034105" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-8887831588231967074" xil_pn:start_ts="1391034105">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1391034105" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-1053258006075875556" xil_pn:start_ts="1391034105">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1391091086" xil_pn:in_ck="2088049057168484748" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="6801718947886193454" xil_pn:start_ts="1391091086">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="ipcore_dir/clock_gen.vhd"/>
+      <outfile xil_pn:name="ipcore_dir/clock_gen/example_design/clock_gen_exdes.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1391034105" xil_pn:in_ck="5946218267888689437" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1391034105">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/block3X3.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/block3X3_pixel_pipeline.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/conv3x3.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/fifo2pixel.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/filter/filter_pack.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/filter/gauss3x3.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/filter/hyst_threshold.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/filter/sobel3x3.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/filter/sobel3x3_pixel_pipeline.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/image_pack.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/line_counter.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/matNxM_latch.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/pixel2fifo.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/image/pixel_counter.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/primitive/MAC16.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/primitive/dpram_NxN.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/primitive/primitive_pack.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/utils/dp_fifo.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/utils/edge_triggered_latch.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/utils/generic_delay.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/utils/generic_latch.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/utils/simple_counter.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/rtl/utils/utils_pack.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/simulation/camera/camera_pack.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/simulation/camera/libv.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/simulation/camera/pgm.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/simulation/camera/pgm_writer.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/simulation/camera/virtual_camera.vhd"/>
+      <outfile xil_pn:name="../../../hard-cv/hw/testbench/sobel3x3_pipeline_tb.vhd"/>
+      <outfile xil_pn:name="../../../logi-hard/wishbone/gpmc_wishbone_wrapper.vhd"/>
+      <outfile xil_pn:name="../../../logi-hard/wishbone/logi_wishbone_pack.vhd"/>
+      <outfile xil_pn:name="../../../logi-hard/wishbone/peripherals/logi_wishbone_peripherals_pack.vhd"/>
+      <outfile xil_pn:name="../../../logi-hard/wishbone/peripherals/wishbone_fifo.vhd"/>
+      <outfile xil_pn:name="ipcore_dir/clock_gen.vhd"/>
+      <outfile xil_pn:name="ipcore_dir/clock_gen/example_design/clock_gen_exdes.vhd"/>
+      <outfile xil_pn:name="logibone_machine_vision.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1391091089" xil_pn:in_ck="5946218267888689437" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-8592064454092712676" xil_pn:start_ts="1391091086">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="fuse.log"/>
+      <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="isim.log"/>
+      <outfile xil_pn:name="sobel3x3_pipeline_beh.prj"/>
+      <outfile xil_pn:name="sobel3x3_pipeline_isim_beh.exe"/>
+      <outfile xil_pn:name="xilinxsim.ini"/>
+    </transform>
+    <transform xil_pn:end_ts="1391091089" xil_pn:in_ck="3147638078896803255" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-4879059195346508151" xil_pn:start_ts="1391091089">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="isim.cmd"/>
+      <outfile xil_pn:name="isim.log"/>
+      <outfile xil_pn:name="sobel3x3_pipeline_isim_beh.wdb"/>
+    </transform>
+    <transform xil_pn:end_ts="1391034408" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1391034408">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1391034408" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="6246544744880957151" xil_pn:start_ts="1391034408">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1391034408" xil_pn:in_ck="2088049057168484748" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="6801718947886193454" xil_pn:start_ts="1391034408">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1391034408" xil_pn:in_ck="-4881357408278203013" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1391034408">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1391034408" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="2675940169582904929" xil_pn:start_ts="1391034408">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1391034408" xil_pn:in_ck="-4881357408278203013" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="250970745955965653" xil_pn:start_ts="1391034408">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1391034408" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="3190259655737475704" xil_pn:start_ts="1391034408">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1391034416" xil_pn:in_ck="-2938234829447595074" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="5299925422792437639" xil_pn:start_ts="1391034408">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.lso"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.ngc"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.ngr"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.prj"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.stx"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.syr"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.xst"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_xst.xrpt"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
+    </transform>
+    <transform xil_pn:end_ts="1391034416" xil_pn:in_ck="7613107932848923458" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="8996588939048344438" xil_pn:start_ts="1391034416">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1391034421" xil_pn:in_ck="-9026850081660487439" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="4889189163985697657" xil_pn:start_ts="1391034416">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.bld"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.ngd"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_ngdbuild.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1391034447" xil_pn:in_ck="-9026850081660487438" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="1448924893915930207" xil_pn:start_ts="1391034421">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.pcf"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_map.map"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_map.mrp"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_map.ncd"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_map.ngm"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_map.xrpt"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_summary.xml"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_usage.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1391034499" xil_pn:in_ck="-5874371230878420725" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1391034447">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.ncd"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.pad"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.par"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.ptwx"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.unroutes"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.xpi"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_pad.csv"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_pad.txt"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline_par.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1391034499" xil_pn:in_ck="-9026850081660487570" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1391034495">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.twr"/>
+      <outfile xil_pn:name="sobel3x3_pixel_pipeline.twx"/>
+    </transform>
+  </transforms>
 
 </generated_project>

@@ -5,67 +5,67 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="946" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/hamster-logipi-sdram_v0.5/hw/SDRAM_Controller.vhd" Line 196: Actual for formal port <arg fmt="%s" index="1">c1</arg> is neither a static name nor a globally static expression
+<msg type="warning" file="HDLCompiler" num="946" delta="old" >"E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\hamster-logipi-sdram_v0.5\hw\SDRAM_Controller.vhd" Line 177: Actual for formal port <arg fmt="%s" index="1">c1</arg> is neither a static name nor a globally static expression
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 384: Partially associated formal <arg fmt="%s" index="1">gpio</arg> cannot have actual OPEN
+<msg type="warning" file="HDLCompiler" num="701" delta="old" >"E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 384: Partially associated formal <arg fmt="%s" index="1">gpio</arg> cannot have actual OPEN
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 385: Partially associated formal <arg fmt="%s" index="1">gpio</arg> cannot have actual OPEN
+<msg type="warning" file="HDLCompiler" num="701" delta="old" >"E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 385: Partially associated formal <arg fmt="%s" index="1">gpio</arg> cannot have actual OPEN
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 402: Partially associated formal <arg fmt="%s" index="1">gpio</arg> cannot have actual OPEN
+<msg type="warning" file="HDLCompiler" num="701" delta="old" >"E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 402: Partially associated formal <arg fmt="%s" index="1">gpio</arg> cannot have actual OPEN
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 403: Partially associated formal <arg fmt="%s" index="1">gpio</arg> cannot have actual OPEN
+<msg type="warning" file="HDLCompiler" num="701" delta="old" >"E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 403: Partially associated formal <arg fmt="%s" index="1">gpio</arg> cannot have actual OPEN
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 404: Partially associated formal <arg fmt="%s" index="1">gpio</arg> cannot have actual OPEN
+<msg type="warning" file="HDLCompiler" num="701" delta="old" >"E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 404: Partially associated formal <arg fmt="%s" index="1">gpio</arg> cannot have actual OPEN
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 405: Partially associated formal <arg fmt="%s" index="1">gpio</arg> cannot have actual OPEN
+<msg type="warning" file="HDLCompiler" num="701" delta="old" >"E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 405: Partially associated formal <arg fmt="%s" index="1">gpio</arg> cannot have actual OPEN
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 444: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
+<msg type="warning" file="HDLCompiler" num="701" delta="old" >"E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 444: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 447: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
+<msg type="warning" file="HDLCompiler" num="701" delta="old" >"E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 447: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 448: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
+<msg type="warning" file="HDLCompiler" num="701" delta="old" >"E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 448: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 449: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
+<msg type="warning" file="HDLCompiler" num="701" delta="old" >"E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 449: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 450: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
+<msg type="warning" file="HDLCompiler" num="701" delta="old" >"E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 450: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 451: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
+<msg type="warning" file="HDLCompiler" num="701" delta="old" >"E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 451: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 452: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
+<msg type="warning" file="HDLCompiler" num="701" delta="old" >"E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 452: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 453: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
+<msg type="warning" file="HDLCompiler" num="701" delta="old" >"E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 453: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 454: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
+<msg type="warning" file="HDLCompiler" num="701" delta="old" >"E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 454: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 455: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
+<msg type="warning" file="HDLCompiler" num="701" delta="old" >"E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 455: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="701" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 456: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
+<msg type="warning" file="HDLCompiler" num="701" delta="old" >"E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 456: Partially associated formal <arg fmt="%s" index="1">reg_out</arg> cannot have actual OPEN
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd" Line 239: Assignment to <arg fmt="%s" index="1">gls_resetn</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd" Line 239: Assignment to <arg fmt="%s" index="1">gls_resetn</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/gpmc_wishbone_wrapper.vhd" Line 140: Assignment to <arg fmt="%s" index="1">advn_bridge</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\logi-hard\wishbone\gpmc_wishbone_wrapper.vhd" Line 140: Assignment to <arg fmt="%s" index="1">advn_bridge</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="634" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/hamster-logipi-sdram_v0.5/hw/SDRAM_Controller.vhd" Line 141: Net &lt;<arg fmt="%s" index="1">addr_col[12]</arg>&gt; does not have a driver.
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\hamster-logipi-sdram_v0.5\hw\SDRAM_Controller.vhd" Line 131: Net &lt;<arg fmt="%s" index="1">addr_col[12]</arg>&gt; does not have a driver.
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="634" delta="old" >Net &lt;<arg fmt="%s" index="1">reg0_reg_in[11][15]</arg>&gt; does not have a driver.
@@ -119,40 +119,40 @@
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">GPMC_BEN</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;1&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;1&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;2&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;2&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;3&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;3&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;4&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;4&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;5&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;5&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;6&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;6&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;7&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;7&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;8&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;8&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;9&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;9&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;10&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;10&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;11&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">409</arg>: Output port &lt;<arg fmt="%s" index="3">reg_out&lt;11&gt;</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">reg0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">500</arg>: Output port &lt;<arg fmt="%s" index="3">SDRAM_CS</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Inst_SDRAM_Controller</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-test\logibone-hw\logibone_test.vhd</arg>&quot; line <arg fmt="%s" index="2">500</arg>: Output port &lt;<arg fmt="%s" index="3">SDRAM_CS</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Inst_SDRAM_Controller</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
 <msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">reg0_reg_in&lt;11&gt;&lt;15&gt;</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
@@ -218,7 +218,7 @@
 <msg type="info" file="Xst" num="3019" delta="old" >HDL ADVISOR - <arg fmt="%s" index="1">256</arg> flip-flops were inferred for signal &lt;<arg fmt="%s" index="2">reg_in_d</arg>&gt;. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/peripherals/wishbone_mem.vhd</arg>&quot; line <arg fmt="%s" index="2">127</arg>: Output port &lt;<arg fmt="%s" index="3">dpo</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">ram0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\logi-hard\wishbone\peripherals\wishbone_mem.vhd</arg>&quot; line <arg fmt="%s" index="2">127</arg>: Output port &lt;<arg fmt="%s" index="3">dpo</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">ram0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">a&lt;15:11&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -234,6 +234,10 @@
 </msg>
 
 <msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">save_col_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">Inst_SDRAM_Controller</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;save_col_9&gt; &lt;save_col_11&gt; &lt;save_col_12&gt; </arg>
+</msg>
+
+<msg type="warning" file="Xst" num="1426" delta="old" >The value init of the FF/Latch <arg fmt="%s" index="1">debug_dump_7</arg> hinder the constant cleaning in the block <arg fmt="%s" index="2">Inst_Memory_tester</arg>.
+You should achieve better results by setting this init to <arg fmt="%i" index="3">0</arg>.
 </msg>
 
 <msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">reg_in_d_0_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">reg0</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
@@ -613,6 +617,10 @@
 <msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">reg_in_d_0_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">wishbone_register</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
+<msg type="warning" file="Xst" num="1426" delta="old" >The value init of the FF/Latch <arg fmt="%s" index="1">debug_dump_7</arg> hinder the constant cleaning in the block <arg fmt="%s" index="2">Memory_tester</arg>.
+You should achieve better results by setting this init to <arg fmt="%i" index="3">0</arg>.
+</msg>
+
 <msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">save_col_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">SDRAM_Controller</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
@@ -631,22 +639,10 @@
 <msg type="warning" file="Xst" num="1896" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">dqm_sr_3</arg>&gt; has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">SDRAM_Controller</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">wanted_24</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">Memory_tester</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;wanted_28&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">state_FSM_FFd4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">SDRAM_Controller</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;data_ready_delay_4&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">wanted_25</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">Memory_tester</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;wanted_29&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">wanted_26</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">Memory_tester</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;wanted_30&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">wanted_27</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">Memory_tester</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;wanted_31&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">state_FSM_FFd3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">SDRAM_Controller</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;data_ready_delay_4&gt; </arg>
-</msg>
-
-<msg type="warning" file="Xst" num="2042" delta="new" >Unit <arg fmt="%s" index="1">logibone_test</arg>: <arg fmt="%d" index="2">26</arg> internal tristates are replaced by logic (pull-up <arg fmt="%s" index="3">yes</arg>): </msg>
+<msg type="warning" file="Xst" num="2042" delta="old" >Unit <arg fmt="%s" index="1">logibone_test</arg>: <arg fmt="%d" index="2">26</arg> internal tristates are replaced by logic (pull-up <arg fmt="%s" index="3">yes</arg>): </msg>
 
 <msg type="warning" file="Xst" num="2040" delta="old" >Unit <arg fmt="%s" index="1">wishbone_intercon</arg>: <arg fmt="%d" index="2">16</arg> multi-source signals are replaced by logic (pull-up <arg fmt="%s" index="3">yes</arg>): </msg>
 
@@ -1229,6 +1225,27 @@
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">reg0/reg_out_d_1_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt;.
 </msg>
 
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">Inst_Memory_tester/test_counter_28</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_test</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/refresh_count_13</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_test</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/refresh_count_12</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_test</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/refresh_count_11</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_test</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/refresh_count_10</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_test</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/iob_command_3</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_test</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/iob_command_3</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_test</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
 <msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/iob_command_3</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_test</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
@@ -1241,28 +1258,52 @@
 <msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/dqm_sr_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/dqm_sr_0&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/save_data_in_30</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/save_data_in_26&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/save_d_in_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/save_d_in_0&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/save_data_in_31</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/save_data_in_27&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/save_d_in_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/save_d_in_1&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/save_data_in_28</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/save_data_in_24&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/save_d_in_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/save_d_in_2&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/save_data_in_29</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/save_data_in_25&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/save_d_in_7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/save_d_in_3&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/iob_data_next_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/iob_data_next_8&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/save_d_in_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/save_d_in_8&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/iob_data_next_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/iob_data_next_9&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/save_d_in_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/save_d_in_9&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/iob_data_next_14</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/iob_data_next_10&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/save_d_in_14</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/save_d_in_10&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/iob_data_next_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/iob_data_next_11&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/save_d_in_20</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/save_d_in_16&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/save_d_in_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/save_d_in_11&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/save_d_in_21</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/save_d_in_17&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/save_d_in_22</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/save_d_in_18&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/save_d_in_23</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/save_d_in_19&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/save_d_in_30</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/save_d_in_26&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/save_d_in_31</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/save_d_in_27&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/save_d_in_28</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/save_d_in_24&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_SDRAM_Controller/save_d_in_29</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_SDRAM_Controller/save_d_in_25&gt; </arg>
 </msg>
 
 <msg type="info" file="Xst" num="3203" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Inst_Memory_tester/has_errored</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_test</arg>&gt; is the opposite to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Inst_Memory_tester/e&gt; </arg>
