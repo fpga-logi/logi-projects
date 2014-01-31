@@ -68,10 +68,6 @@ architecture Behavioral of logibone_wishbone is
 		CLK_IN1           : in     std_logic;
 		-- Clock out ports
 		CLK_OUT1          : out    std_logic;
-		CLK_OUT2          : out    std_logic;
-		CLK_OUT3          : out    std_logic;
-		CLK_OUT4          : out    std_logic;
-		CLK_OUT5          : out    std_logic;
 		-- Status and control signals
 		LOCKED            : out    std_logic
 	);
@@ -125,6 +121,9 @@ begin
 
 --LED(1) <= (GPMC_BEN(0) XOR GPMC_BEN(1)) ;
 
+ARD_SCL <= 'Z' ;
+ARD_SDA <= 'Z' ;
+
 sys_reset <= NOT PB(0); 
 sys_resetn <= NOT sys_reset ; -- for preipherals with active low reset
 
@@ -134,10 +133,6 @@ pll0 : clock_gen
     CLK_IN1 => OSC_FPGA,
     -- Clock out ports
     CLK_OUT1 => clk_100Mhz,
-    CLK_OUT2 => clk_120Mhz,
-	 CLK_OUT3 => clk_24Mhz,
-	 CLK_OUT4 => clk_50Mhz,
-	 CLK_OUT5 => clk_50Mhz_ext,
     -- Status and control signals
     LOCKED => clock_locked);
 
@@ -146,7 +141,7 @@ sys_clk <= clk_100Mhz;--clk_120Mhz ;
 
 
 gpmc2wishbone : gpmc_wishbone_wrapper 
-generic map(sync => false)
+generic map(sync => true, burst => true)
 port map
     (
       -- GPMC SIGNALS
@@ -156,7 +151,6 @@ port map
 		gpmc_wen => GPMC_WEN,
 		gpmc_advn => GPMC_ADVN,
 		gpmc_clk => GPMC_CLK,
-		--gpmc_clk => clk_50Mhz,
 		
       -- Global Signals
       gls_reset => sys_reset,
@@ -225,7 +219,7 @@ register0 : wishbone_register
 		  gls_reset   => sys_reset ,
 		  gls_clk     => sys_clk ,
 		  -- Wishbone signals
-		  wbs_add      =>  intercon_register_wbm_address ,
+		  wbs_address      =>  intercon_register_wbm_address ,
 		  wbs_writedata => intercon_register_wbm_writedata,
 		  wbs_readdata  => intercon_register_wbm_readdata,
 		  wbs_strobe    => intercon_register_wbm_strobe,
@@ -254,7 +248,7 @@ register0 : wishbone_register
 			  gls_reset   => sys_reset ,
 			  gls_clk     => sys_clk ,
 			  -- Wishbone signals
-			  wbs_add      =>  intercon_pwm0_wbm_address ,
+			  wbs_address      =>  intercon_pwm0_wbm_address ,
 			  wbs_writedata => intercon_pwm0_wbm_writedata,
 			  wbs_readdata  => intercon_pwm0_wbm_readdata,
 			  wbs_strobe    => intercon_pwm0_wbm_strobe,
@@ -286,7 +280,7 @@ port map(
 			  gls_reset   => sys_reset ,
 			  gls_clk     => sys_clk ,
 			  -- Wishbone signals
-			  wbs_add      =>  intercon_mem0_wbm_address ,
+			  wbs_address      =>  intercon_mem0_wbm_address ,
 			  wbs_writedata => intercon_mem0_wbm_writedata,
 			  wbs_readdata  => intercon_mem0_wbm_readdata,
 			  wbs_strobe    => intercon_mem0_wbm_strobe,

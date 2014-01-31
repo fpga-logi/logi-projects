@@ -1,9 +1,9 @@
 --------------------------------------------------------------------------------
-Release 14.1 Trace  (lin64)
+Release 14.1 Trace  (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-/opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v 3 -s 2 -n
-3 -fastpaths -xml logibone_test.twx logibone_test.ncd -o logibone_test.twr
+C:\Xilinx\14.1\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 2
+-n 3 -fastpaths -xml logibone_test.twx logibone_test.ncd -o logibone_test.twr
 logibone_test.pcf -ucf logibone_ra3.ucf
 
 Design file:              logibone_test.ncd
@@ -69,17 +69,17 @@ For more information, see Period Analysis in the Timing Closure User Guide (UG61
 
  136 paths analyzed, 52 endpoints analyzed, 0 failing endpoints
  0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is   2.733ns.
+ Minimum period is   2.666ns.
 --------------------------------------------------------------------------------
 
-Paths for end point gpmc2wishbone/address_bridge_15 (SLICE_X20Y51.CIN), 12 paths
+Paths for end point gpmc2wishbone/address_bridge_15 (SLICE_X20Y48.CIN), 12 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     17.267ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     17.538ns (requirement - (data path - clock path skew + uncertainty))
   Source:               gpmc2wishbone/address_bridge_0 (FF)
   Destination:          gpmc2wishbone/address_bridge_15 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      2.683ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.015ns (0.193 - 0.208)
+  Data Path Delay:      2.467ns (Levels of Logic = 4)
+  Clock Path Skew:      0.040ns (0.668 - 0.628)
   Source Clock:         GPMC_CLK_BUFGP falling at 10.000ns
   Destination Clock:    GPMC_CLK_BUFGP falling at 30.000ns
   Clock Uncertainty:    0.035ns
@@ -94,33 +94,33 @@ Slack (setup path):     17.267ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y48.AQ      Tcko                  0.525   gpmc2wishbone/address_bridge<3>
+    SLICE_X20Y45.AQ      Tcko                  0.525   gpmc2wishbone/address_bridge<3>
                                                        gpmc2wishbone/address_bridge_0
-    SLICE_X20Y48.A2      net (fanout=2)        1.176   gpmc2wishbone/address_bridge<0>
-    SLICE_X20Y48.COUT    Topcya                0.474   gpmc2wishbone/address_bridge<3>
+    SLICE_X20Y45.A3      net (fanout=2)        0.960   gpmc2wishbone/address_bridge<0>
+    SLICE_X20Y45.COUT    Topcya                0.474   gpmc2wishbone/address_bridge<3>
                                                        gpmc2wishbone/Mcount_address_bridge_lut<0>
                                                        gpmc2wishbone/Mcount_address_bridge_cy<3>
-    SLICE_X20Y49.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<3>
-    SLICE_X20Y49.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<7>
+    SLICE_X20Y46.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<3>
+    SLICE_X20Y46.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<7>
                                                        gpmc2wishbone/Mcount_address_bridge_cy<7>
-    SLICE_X20Y50.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<7>
-    SLICE_X20Y50.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<11>
+    SLICE_X20Y47.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<7>
+    SLICE_X20Y47.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<11>
                                                        gpmc2wishbone/Mcount_address_bridge_cy<11>
-    SLICE_X20Y51.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<11>
-    SLICE_X20Y51.CLK     Tcinck                0.313   gpmc2wishbone/address_bridge<15>
+    SLICE_X20Y48.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<11>
+    SLICE_X20Y48.CLK     Tcinck                0.313   gpmc2wishbone/address_bridge<15>
                                                        gpmc2wishbone/Mcount_address_bridge_xor<15>
                                                        gpmc2wishbone/address_bridge_15
     -------------------------------------------------  ---------------------------
-    Total                                      2.683ns (1.498ns logic, 1.185ns route)
-                                                       (55.8% logic, 44.2% route)
+    Total                                      2.467ns (1.498ns logic, 0.969ns route)
+                                                       (60.7% logic, 39.3% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     18.061ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     18.068ns (requirement - (data path - clock path skew + uncertainty))
   Source:               gpmc2wishbone/address_bridge_4 (FF)
   Destination:          gpmc2wishbone/address_bridge_15 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      1.890ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.014ns (0.193 - 0.207)
+  Data Path Delay:      1.935ns (Levels of Logic = 3)
+  Clock Path Skew:      0.038ns (0.668 - 0.630)
   Source Clock:         GPMC_CLK_BUFGP falling at 10.000ns
   Destination Clock:    GPMC_CLK_BUFGP falling at 30.000ns
   Clock Uncertainty:    0.035ns
@@ -135,30 +135,30 @@ Slack (setup path):     18.061ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y49.AQ      Tcko                  0.525   gpmc2wishbone/address_bridge<7>
+    SLICE_X20Y46.AQ      Tcko                  0.525   gpmc2wishbone/address_bridge<7>
                                                        gpmc2wishbone/address_bridge_4
-    SLICE_X20Y49.A5      net (fanout=2)        0.479   gpmc2wishbone/address_bridge<4>
-    SLICE_X20Y49.COUT    Topcya                0.474   gpmc2wishbone/address_bridge<7>
+    SLICE_X20Y46.A4      net (fanout=2)        0.524   gpmc2wishbone/address_bridge<4>
+    SLICE_X20Y46.COUT    Topcya                0.474   gpmc2wishbone/address_bridge<7>
                                                        gpmc2wishbone/Mcount_address_bridge_lut<4>
                                                        gpmc2wishbone/Mcount_address_bridge_cy<7>
-    SLICE_X20Y50.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<7>
-    SLICE_X20Y50.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<11>
+    SLICE_X20Y47.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<7>
+    SLICE_X20Y47.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<11>
                                                        gpmc2wishbone/Mcount_address_bridge_cy<11>
-    SLICE_X20Y51.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<11>
-    SLICE_X20Y51.CLK     Tcinck                0.313   gpmc2wishbone/address_bridge<15>
+    SLICE_X20Y48.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<11>
+    SLICE_X20Y48.CLK     Tcinck                0.313   gpmc2wishbone/address_bridge<15>
                                                        gpmc2wishbone/Mcount_address_bridge_xor<15>
                                                        gpmc2wishbone/address_bridge_15
     -------------------------------------------------  ---------------------------
-    Total                                      1.890ns (1.405ns logic, 0.485ns route)
-                                                       (74.3% logic, 25.7% route)
+    Total                                      1.935ns (1.405ns logic, 0.530ns route)
+                                                       (72.6% logic, 27.4% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     18.110ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               gpmc2wishbone/address_bridge_8 (FF)
+Slack (setup path):     18.206ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               gpmc2wishbone/address_bridge_3 (FF)
   Destination:          gpmc2wishbone/address_bridge_15 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      1.842ns (Levels of Logic = 2)
-  Clock Path Skew:      -0.013ns (0.193 - 0.206)
+  Data Path Delay:      1.799ns (Levels of Logic = 4)
+  Clock Path Skew:      0.040ns (0.668 - 0.628)
   Source Clock:         GPMC_CLK_BUFGP falling at 10.000ns
   Destination Clock:    GPMC_CLK_BUFGP falling at 30.000ns
   Clock Uncertainty:    0.035ns
@@ -169,34 +169,40 @@ Slack (setup path):     18.110ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_bridge_8 to gpmc2wishbone/address_bridge_15
+  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_bridge_3 to gpmc2wishbone/address_bridge_15
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y50.AQ      Tcko                  0.525   gpmc2wishbone/address_bridge<11>
-                                                       gpmc2wishbone/address_bridge_8
-    SLICE_X20Y50.A4      net (fanout=2)        0.527   gpmc2wishbone/address_bridge<8>
-    SLICE_X20Y50.COUT    Topcya                0.474   gpmc2wishbone/address_bridge<11>
-                                                       gpmc2wishbone/Mcount_address_bridge_lut<8>
+    SLICE_X20Y45.DQ      Tcko                  0.525   gpmc2wishbone/address_bridge<3>
+                                                       gpmc2wishbone/address_bridge_3
+    SLICE_X20Y45.D5      net (fanout=2)        0.454   gpmc2wishbone/address_bridge<3>
+    SLICE_X20Y45.COUT    Topcyd                0.312   gpmc2wishbone/address_bridge<3>
+                                                       gpmc2wishbone/Mcount_address_bridge_lut<3>
+                                                       gpmc2wishbone/Mcount_address_bridge_cy<3>
+    SLICE_X20Y46.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<3>
+    SLICE_X20Y46.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<7>
+                                                       gpmc2wishbone/Mcount_address_bridge_cy<7>
+    SLICE_X20Y47.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<7>
+    SLICE_X20Y47.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<11>
                                                        gpmc2wishbone/Mcount_address_bridge_cy<11>
-    SLICE_X20Y51.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<11>
-    SLICE_X20Y51.CLK     Tcinck                0.313   gpmc2wishbone/address_bridge<15>
+    SLICE_X20Y48.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<11>
+    SLICE_X20Y48.CLK     Tcinck                0.313   gpmc2wishbone/address_bridge<15>
                                                        gpmc2wishbone/Mcount_address_bridge_xor<15>
                                                        gpmc2wishbone/address_bridge_15
     -------------------------------------------------  ---------------------------
-    Total                                      1.842ns (1.312ns logic, 0.530ns route)
-                                                       (71.2% logic, 28.8% route)
+    Total                                      1.799ns (1.336ns logic, 0.463ns route)
+                                                       (74.3% logic, 25.7% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point gpmc2wishbone/address_bridge_13 (SLICE_X20Y51.CIN), 12 paths
+Paths for end point gpmc2wishbone/address_bridge_13 (SLICE_X20Y48.CIN), 12 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     17.277ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     17.548ns (requirement - (data path - clock path skew + uncertainty))
   Source:               gpmc2wishbone/address_bridge_0 (FF)
   Destination:          gpmc2wishbone/address_bridge_13 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      2.673ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.015ns (0.193 - 0.208)
+  Data Path Delay:      2.457ns (Levels of Logic = 4)
+  Clock Path Skew:      0.040ns (0.668 - 0.628)
   Source Clock:         GPMC_CLK_BUFGP falling at 10.000ns
   Destination Clock:    GPMC_CLK_BUFGP falling at 30.000ns
   Clock Uncertainty:    0.035ns
@@ -211,33 +217,33 @@ Slack (setup path):     17.277ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y48.AQ      Tcko                  0.525   gpmc2wishbone/address_bridge<3>
+    SLICE_X20Y45.AQ      Tcko                  0.525   gpmc2wishbone/address_bridge<3>
                                                        gpmc2wishbone/address_bridge_0
-    SLICE_X20Y48.A2      net (fanout=2)        1.176   gpmc2wishbone/address_bridge<0>
-    SLICE_X20Y48.COUT    Topcya                0.474   gpmc2wishbone/address_bridge<3>
+    SLICE_X20Y45.A3      net (fanout=2)        0.960   gpmc2wishbone/address_bridge<0>
+    SLICE_X20Y45.COUT    Topcya                0.474   gpmc2wishbone/address_bridge<3>
                                                        gpmc2wishbone/Mcount_address_bridge_lut<0>
                                                        gpmc2wishbone/Mcount_address_bridge_cy<3>
-    SLICE_X20Y49.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<3>
-    SLICE_X20Y49.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<7>
+    SLICE_X20Y46.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<3>
+    SLICE_X20Y46.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<7>
                                                        gpmc2wishbone/Mcount_address_bridge_cy<7>
-    SLICE_X20Y50.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<7>
-    SLICE_X20Y50.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<11>
+    SLICE_X20Y47.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<7>
+    SLICE_X20Y47.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<11>
                                                        gpmc2wishbone/Mcount_address_bridge_cy<11>
-    SLICE_X20Y51.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<11>
-    SLICE_X20Y51.CLK     Tcinck                0.303   gpmc2wishbone/address_bridge<15>
+    SLICE_X20Y48.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<11>
+    SLICE_X20Y48.CLK     Tcinck                0.303   gpmc2wishbone/address_bridge<15>
                                                        gpmc2wishbone/Mcount_address_bridge_xor<15>
                                                        gpmc2wishbone/address_bridge_13
     -------------------------------------------------  ---------------------------
-    Total                                      2.673ns (1.488ns logic, 1.185ns route)
-                                                       (55.7% logic, 44.3% route)
+    Total                                      2.457ns (1.488ns logic, 0.969ns route)
+                                                       (60.6% logic, 39.4% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     18.071ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     18.078ns (requirement - (data path - clock path skew + uncertainty))
   Source:               gpmc2wishbone/address_bridge_4 (FF)
   Destination:          gpmc2wishbone/address_bridge_13 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      1.880ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.014ns (0.193 - 0.207)
+  Data Path Delay:      1.925ns (Levels of Logic = 3)
+  Clock Path Skew:      0.038ns (0.668 - 0.630)
   Source Clock:         GPMC_CLK_BUFGP falling at 10.000ns
   Destination Clock:    GPMC_CLK_BUFGP falling at 30.000ns
   Clock Uncertainty:    0.035ns
@@ -252,30 +258,30 @@ Slack (setup path):     18.071ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y49.AQ      Tcko                  0.525   gpmc2wishbone/address_bridge<7>
+    SLICE_X20Y46.AQ      Tcko                  0.525   gpmc2wishbone/address_bridge<7>
                                                        gpmc2wishbone/address_bridge_4
-    SLICE_X20Y49.A5      net (fanout=2)        0.479   gpmc2wishbone/address_bridge<4>
-    SLICE_X20Y49.COUT    Topcya                0.474   gpmc2wishbone/address_bridge<7>
+    SLICE_X20Y46.A4      net (fanout=2)        0.524   gpmc2wishbone/address_bridge<4>
+    SLICE_X20Y46.COUT    Topcya                0.474   gpmc2wishbone/address_bridge<7>
                                                        gpmc2wishbone/Mcount_address_bridge_lut<4>
                                                        gpmc2wishbone/Mcount_address_bridge_cy<7>
-    SLICE_X20Y50.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<7>
-    SLICE_X20Y50.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<11>
+    SLICE_X20Y47.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<7>
+    SLICE_X20Y47.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<11>
                                                        gpmc2wishbone/Mcount_address_bridge_cy<11>
-    SLICE_X20Y51.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<11>
-    SLICE_X20Y51.CLK     Tcinck                0.303   gpmc2wishbone/address_bridge<15>
+    SLICE_X20Y48.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<11>
+    SLICE_X20Y48.CLK     Tcinck                0.303   gpmc2wishbone/address_bridge<15>
                                                        gpmc2wishbone/Mcount_address_bridge_xor<15>
                                                        gpmc2wishbone/address_bridge_13
     -------------------------------------------------  ---------------------------
-    Total                                      1.880ns (1.395ns logic, 0.485ns route)
-                                                       (74.2% logic, 25.8% route)
+    Total                                      1.925ns (1.395ns logic, 0.530ns route)
+                                                       (72.5% logic, 27.5% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     18.120ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               gpmc2wishbone/address_bridge_8 (FF)
+Slack (setup path):     18.216ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               gpmc2wishbone/address_bridge_3 (FF)
   Destination:          gpmc2wishbone/address_bridge_13 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      1.832ns (Levels of Logic = 2)
-  Clock Path Skew:      -0.013ns (0.193 - 0.206)
+  Data Path Delay:      1.789ns (Levels of Logic = 4)
+  Clock Path Skew:      0.040ns (0.668 - 0.628)
   Source Clock:         GPMC_CLK_BUFGP falling at 10.000ns
   Destination Clock:    GPMC_CLK_BUFGP falling at 30.000ns
   Clock Uncertainty:    0.035ns
@@ -286,34 +292,40 @@ Slack (setup path):     18.120ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_bridge_8 to gpmc2wishbone/address_bridge_13
+  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_bridge_3 to gpmc2wishbone/address_bridge_13
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y50.AQ      Tcko                  0.525   gpmc2wishbone/address_bridge<11>
-                                                       gpmc2wishbone/address_bridge_8
-    SLICE_X20Y50.A4      net (fanout=2)        0.527   gpmc2wishbone/address_bridge<8>
-    SLICE_X20Y50.COUT    Topcya                0.474   gpmc2wishbone/address_bridge<11>
-                                                       gpmc2wishbone/Mcount_address_bridge_lut<8>
+    SLICE_X20Y45.DQ      Tcko                  0.525   gpmc2wishbone/address_bridge<3>
+                                                       gpmc2wishbone/address_bridge_3
+    SLICE_X20Y45.D5      net (fanout=2)        0.454   gpmc2wishbone/address_bridge<3>
+    SLICE_X20Y45.COUT    Topcyd                0.312   gpmc2wishbone/address_bridge<3>
+                                                       gpmc2wishbone/Mcount_address_bridge_lut<3>
+                                                       gpmc2wishbone/Mcount_address_bridge_cy<3>
+    SLICE_X20Y46.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<3>
+    SLICE_X20Y46.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<7>
+                                                       gpmc2wishbone/Mcount_address_bridge_cy<7>
+    SLICE_X20Y47.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<7>
+    SLICE_X20Y47.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<11>
                                                        gpmc2wishbone/Mcount_address_bridge_cy<11>
-    SLICE_X20Y51.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<11>
-    SLICE_X20Y51.CLK     Tcinck                0.303   gpmc2wishbone/address_bridge<15>
+    SLICE_X20Y48.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<11>
+    SLICE_X20Y48.CLK     Tcinck                0.303   gpmc2wishbone/address_bridge<15>
                                                        gpmc2wishbone/Mcount_address_bridge_xor<15>
                                                        gpmc2wishbone/address_bridge_13
     -------------------------------------------------  ---------------------------
-    Total                                      1.832ns (1.302ns logic, 0.530ns route)
-                                                       (71.1% logic, 28.9% route)
+    Total                                      1.789ns (1.326ns logic, 0.463ns route)
+                                                       (74.1% logic, 25.9% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point gpmc2wishbone/address_bridge_14 (SLICE_X20Y51.CIN), 12 paths
+Paths for end point gpmc2wishbone/address_bridge_14 (SLICE_X20Y48.CIN), 12 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     17.308ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     17.579ns (requirement - (data path - clock path skew + uncertainty))
   Source:               gpmc2wishbone/address_bridge_0 (FF)
   Destination:          gpmc2wishbone/address_bridge_14 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      2.642ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.015ns (0.193 - 0.208)
+  Data Path Delay:      2.426ns (Levels of Logic = 4)
+  Clock Path Skew:      0.040ns (0.668 - 0.628)
   Source Clock:         GPMC_CLK_BUFGP falling at 10.000ns
   Destination Clock:    GPMC_CLK_BUFGP falling at 30.000ns
   Clock Uncertainty:    0.035ns
@@ -328,33 +340,33 @@ Slack (setup path):     17.308ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y48.AQ      Tcko                  0.525   gpmc2wishbone/address_bridge<3>
+    SLICE_X20Y45.AQ      Tcko                  0.525   gpmc2wishbone/address_bridge<3>
                                                        gpmc2wishbone/address_bridge_0
-    SLICE_X20Y48.A2      net (fanout=2)        1.176   gpmc2wishbone/address_bridge<0>
-    SLICE_X20Y48.COUT    Topcya                0.474   gpmc2wishbone/address_bridge<3>
+    SLICE_X20Y45.A3      net (fanout=2)        0.960   gpmc2wishbone/address_bridge<0>
+    SLICE_X20Y45.COUT    Topcya                0.474   gpmc2wishbone/address_bridge<3>
                                                        gpmc2wishbone/Mcount_address_bridge_lut<0>
                                                        gpmc2wishbone/Mcount_address_bridge_cy<3>
-    SLICE_X20Y49.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<3>
-    SLICE_X20Y49.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<7>
+    SLICE_X20Y46.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<3>
+    SLICE_X20Y46.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<7>
                                                        gpmc2wishbone/Mcount_address_bridge_cy<7>
-    SLICE_X20Y50.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<7>
-    SLICE_X20Y50.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<11>
+    SLICE_X20Y47.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<7>
+    SLICE_X20Y47.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<11>
                                                        gpmc2wishbone/Mcount_address_bridge_cy<11>
-    SLICE_X20Y51.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<11>
-    SLICE_X20Y51.CLK     Tcinck                0.272   gpmc2wishbone/address_bridge<15>
+    SLICE_X20Y48.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<11>
+    SLICE_X20Y48.CLK     Tcinck                0.272   gpmc2wishbone/address_bridge<15>
                                                        gpmc2wishbone/Mcount_address_bridge_xor<15>
                                                        gpmc2wishbone/address_bridge_14
     -------------------------------------------------  ---------------------------
-    Total                                      2.642ns (1.457ns logic, 1.185ns route)
-                                                       (55.1% logic, 44.9% route)
+    Total                                      2.426ns (1.457ns logic, 0.969ns route)
+                                                       (60.1% logic, 39.9% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     18.102ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     18.109ns (requirement - (data path - clock path skew + uncertainty))
   Source:               gpmc2wishbone/address_bridge_4 (FF)
   Destination:          gpmc2wishbone/address_bridge_14 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      1.849ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.014ns (0.193 - 0.207)
+  Data Path Delay:      1.894ns (Levels of Logic = 3)
+  Clock Path Skew:      0.038ns (0.668 - 0.630)
   Source Clock:         GPMC_CLK_BUFGP falling at 10.000ns
   Destination Clock:    GPMC_CLK_BUFGP falling at 30.000ns
   Clock Uncertainty:    0.035ns
@@ -369,30 +381,30 @@ Slack (setup path):     18.102ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y49.AQ      Tcko                  0.525   gpmc2wishbone/address_bridge<7>
+    SLICE_X20Y46.AQ      Tcko                  0.525   gpmc2wishbone/address_bridge<7>
                                                        gpmc2wishbone/address_bridge_4
-    SLICE_X20Y49.A5      net (fanout=2)        0.479   gpmc2wishbone/address_bridge<4>
-    SLICE_X20Y49.COUT    Topcya                0.474   gpmc2wishbone/address_bridge<7>
+    SLICE_X20Y46.A4      net (fanout=2)        0.524   gpmc2wishbone/address_bridge<4>
+    SLICE_X20Y46.COUT    Topcya                0.474   gpmc2wishbone/address_bridge<7>
                                                        gpmc2wishbone/Mcount_address_bridge_lut<4>
                                                        gpmc2wishbone/Mcount_address_bridge_cy<7>
-    SLICE_X20Y50.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<7>
-    SLICE_X20Y50.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<11>
+    SLICE_X20Y47.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<7>
+    SLICE_X20Y47.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<11>
                                                        gpmc2wishbone/Mcount_address_bridge_cy<11>
-    SLICE_X20Y51.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<11>
-    SLICE_X20Y51.CLK     Tcinck                0.272   gpmc2wishbone/address_bridge<15>
+    SLICE_X20Y48.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<11>
+    SLICE_X20Y48.CLK     Tcinck                0.272   gpmc2wishbone/address_bridge<15>
                                                        gpmc2wishbone/Mcount_address_bridge_xor<15>
                                                        gpmc2wishbone/address_bridge_14
     -------------------------------------------------  ---------------------------
-    Total                                      1.849ns (1.364ns logic, 0.485ns route)
-                                                       (73.8% logic, 26.2% route)
+    Total                                      1.894ns (1.364ns logic, 0.530ns route)
+                                                       (72.0% logic, 28.0% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     18.151ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               gpmc2wishbone/address_bridge_8 (FF)
+Slack (setup path):     18.247ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               gpmc2wishbone/address_bridge_3 (FF)
   Destination:          gpmc2wishbone/address_bridge_14 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      1.801ns (Levels of Logic = 2)
-  Clock Path Skew:      -0.013ns (0.193 - 0.206)
+  Data Path Delay:      1.758ns (Levels of Logic = 4)
+  Clock Path Skew:      0.040ns (0.668 - 0.628)
   Source Clock:         GPMC_CLK_BUFGP falling at 10.000ns
   Destination Clock:    GPMC_CLK_BUFGP falling at 30.000ns
   Clock Uncertainty:    0.035ns
@@ -403,36 +415,42 @@ Slack (setup path):     18.151ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_bridge_8 to gpmc2wishbone/address_bridge_14
+  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_bridge_3 to gpmc2wishbone/address_bridge_14
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y50.AQ      Tcko                  0.525   gpmc2wishbone/address_bridge<11>
-                                                       gpmc2wishbone/address_bridge_8
-    SLICE_X20Y50.A4      net (fanout=2)        0.527   gpmc2wishbone/address_bridge<8>
-    SLICE_X20Y50.COUT    Topcya                0.474   gpmc2wishbone/address_bridge<11>
-                                                       gpmc2wishbone/Mcount_address_bridge_lut<8>
+    SLICE_X20Y45.DQ      Tcko                  0.525   gpmc2wishbone/address_bridge<3>
+                                                       gpmc2wishbone/address_bridge_3
+    SLICE_X20Y45.D5      net (fanout=2)        0.454   gpmc2wishbone/address_bridge<3>
+    SLICE_X20Y45.COUT    Topcyd                0.312   gpmc2wishbone/address_bridge<3>
+                                                       gpmc2wishbone/Mcount_address_bridge_lut<3>
+                                                       gpmc2wishbone/Mcount_address_bridge_cy<3>
+    SLICE_X20Y46.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<3>
+    SLICE_X20Y46.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<7>
+                                                       gpmc2wishbone/Mcount_address_bridge_cy<7>
+    SLICE_X20Y47.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<7>
+    SLICE_X20Y47.COUT    Tbyp                  0.093   gpmc2wishbone/address_bridge<11>
                                                        gpmc2wishbone/Mcount_address_bridge_cy<11>
-    SLICE_X20Y51.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<11>
-    SLICE_X20Y51.CLK     Tcinck                0.272   gpmc2wishbone/address_bridge<15>
+    SLICE_X20Y48.CIN     net (fanout=1)        0.003   gpmc2wishbone/Mcount_address_bridge_cy<11>
+    SLICE_X20Y48.CLK     Tcinck                0.272   gpmc2wishbone/address_bridge<15>
                                                        gpmc2wishbone/Mcount_address_bridge_xor<15>
                                                        gpmc2wishbone/address_bridge_14
     -------------------------------------------------  ---------------------------
-    Total                                      1.801ns (1.271ns logic, 0.530ns route)
-                                                       (70.6% logic, 29.4% route)
+    Total                                      1.758ns (1.295ns logic, 0.463ns route)
+                                                       (73.7% logic, 26.3% route)
 
 --------------------------------------------------------------------------------
 
 Hold Paths: TS_PER_CLK100 = PERIOD TIMEGRP "clk100_grp" 20 ns HIGH 50%;
 --------------------------------------------------------------------------------
 
-Paths for end point gpmc2wishbone/address_bridge_15 (SLICE_X20Y51.D6), 1 path
+Paths for end point gpmc2wishbone/address_bridge_15 (SLICE_X20Y48.D6), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.524ns (requirement - (clock path skew + uncertainty - data path))
+Slack (hold path):      0.525ns (requirement - (clock path skew + uncertainty - data path))
   Source:               gpmc2wishbone/address_bridge_15 (FF)
   Destination:          gpmc2wishbone/address_bridge_15 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.524ns (Levels of Logic = 1)
+  Data Path Delay:      0.525ns (Levels of Logic = 1)
   Clock Path Skew:      0.000ns
   Source Clock:         GPMC_CLK_BUFGP falling at 30.000ns
   Destination Clock:    GPMC_CLK_BUFGP falling at 30.000ns
@@ -442,20 +460,20 @@ Slack (hold path):      0.524ns (requirement - (clock path skew + uncertainty - 
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y51.DQ      Tcko                  0.234   gpmc2wishbone/address_bridge<15>
+    SLICE_X20Y48.DQ      Tcko                  0.234   gpmc2wishbone/address_bridge<15>
                                                        gpmc2wishbone/address_bridge_15
-    SLICE_X20Y51.D6      net (fanout=2)        0.026   gpmc2wishbone/address_bridge<15>
-    SLICE_X20Y51.CLK     Tah         (-Th)    -0.264   gpmc2wishbone/address_bridge<15>
+    SLICE_X20Y48.D6      net (fanout=2)        0.027   gpmc2wishbone/address_bridge<15>
+    SLICE_X20Y48.CLK     Tah         (-Th)    -0.264   gpmc2wishbone/address_bridge<15>
                                                        gpmc2wishbone/Mcount_address_bridge_lut<15>
                                                        gpmc2wishbone/Mcount_address_bridge_xor<15>
                                                        gpmc2wishbone/address_bridge_15
     -------------------------------------------------  ---------------------------
-    Total                                      0.524ns (0.498ns logic, 0.026ns route)
-                                                       (95.0% logic, 5.0% route)
+    Total                                      0.525ns (0.498ns logic, 0.027ns route)
+                                                       (94.9% logic, 5.1% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point gpmc2wishbone/address_bridge_1 (SLICE_X20Y48.B5), 1 path
+Paths for end point gpmc2wishbone/address_bridge_1 (SLICE_X20Y45.B5), 1 path
 --------------------------------------------------------------------------------
 Slack (hold path):      0.536ns (requirement - (clock path skew + uncertainty - data path))
   Source:               gpmc2wishbone/address_bridge_1 (FF)
@@ -471,10 +489,10 @@ Slack (hold path):      0.536ns (requirement - (clock path skew + uncertainty - 
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y48.BQ      Tcko                  0.234   gpmc2wishbone/address_bridge<3>
+    SLICE_X20Y45.BQ      Tcko                  0.234   gpmc2wishbone/address_bridge<3>
                                                        gpmc2wishbone/address_bridge_1
-    SLICE_X20Y48.B5      net (fanout=2)        0.065   gpmc2wishbone/address_bridge<1>
-    SLICE_X20Y48.CLK     Tah         (-Th)    -0.237   gpmc2wishbone/address_bridge<3>
+    SLICE_X20Y45.B5      net (fanout=2)        0.065   gpmc2wishbone/address_bridge<1>
+    SLICE_X20Y45.CLK     Tah         (-Th)    -0.237   gpmc2wishbone/address_bridge<3>
                                                        gpmc2wishbone/Mcount_address_bridge_lut<1>
                                                        gpmc2wishbone/Mcount_address_bridge_cy<3>
                                                        gpmc2wishbone/address_bridge_1
@@ -484,7 +502,7 @@ Slack (hold path):      0.536ns (requirement - (clock path skew + uncertainty - 
 
 --------------------------------------------------------------------------------
 
-Paths for end point gpmc2wishbone/address_bridge_5 (SLICE_X20Y49.B5), 1 path
+Paths for end point gpmc2wishbone/address_bridge_5 (SLICE_X20Y46.B5), 1 path
 --------------------------------------------------------------------------------
 Slack (hold path):      0.536ns (requirement - (clock path skew + uncertainty - data path))
   Source:               gpmc2wishbone/address_bridge_5 (FF)
@@ -500,10 +518,10 @@ Slack (hold path):      0.536ns (requirement - (clock path skew + uncertainty - 
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y49.BQ      Tcko                  0.234   gpmc2wishbone/address_bridge<7>
+    SLICE_X20Y46.BQ      Tcko                  0.234   gpmc2wishbone/address_bridge<7>
                                                        gpmc2wishbone/address_bridge_5
-    SLICE_X20Y49.B5      net (fanout=2)        0.065   gpmc2wishbone/address_bridge<5>
-    SLICE_X20Y49.CLK     Tah         (-Th)    -0.237   gpmc2wishbone/address_bridge<7>
+    SLICE_X20Y46.B5      net (fanout=2)        0.065   gpmc2wishbone/address_bridge<5>
+    SLICE_X20Y46.CLK     Tah         (-Th)    -0.237   gpmc2wishbone/address_bridge<7>
                                                        gpmc2wishbone/Mcount_address_bridge_lut<5>
                                                        gpmc2wishbone/Mcount_address_bridge_cy<7>
                                                        gpmc2wishbone/address_bridge_5
@@ -545,19 +563,19 @@ Timing constraint: TS_pll0_clk2x = PERIOD TIMEGRP "pll0_clk2x" TS_PER_CLK50 / 2
 HIGH 50%;
 For more information, see Period Analysis in the Timing Closure User Guide (UG612).
 
- 16444 paths analyzed, 2777 endpoints analyzed, 0 failing endpoints
+ 11369 paths analyzed, 2501 endpoints analyzed, 0 failing endpoints
  0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is   8.621ns.
+ Minimum period is   8.451ns.
 --------------------------------------------------------------------------------
 
-Paths for end point gpio0/output_12 (SLICE_X10Y6.CE), 35 paths
+Paths for end point gpio2/output_0 (SLICE_X12Y30.CE), 35 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     1.379ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               gpmc2wishbone/address_5 (FF)
-  Destination:          gpio0/output_12 (FF)
+Slack (setup path):     1.549ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               gpmc2wishbone/address_7 (FF)
+  Destination:          gpio2/output_0 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      8.370ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.016ns (0.769 - 0.785)
+  Data Path Delay:      8.185ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.031ns (0.687 - 0.718)
   Source Clock:         clk_100Mhz rising at 0.000ns
   Destination Clock:    clk_100Mhz rising at 10.000ns
   Clock Uncertainty:    0.235ns
@@ -568,35 +586,35 @@ Slack (setup path):     1.379ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.400ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_5 to gpio0/output_12
+  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_7 to gpio2/output_0
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X21Y49.BQ      Tcko                  0.430   gpmc2wishbone/address<7>
-                                                       gpmc2wishbone/address_5
-    SLICE_X19Y35.C1      net (fanout=5)        2.418   gpmc2wishbone/address<5>
-    SLICE_X19Y35.C       Tilo                  0.259   n0059<2>
-                                                       intercon0/cs_vector<0><15>1_1
-    SLICE_X19Y33.B4      net (fanout=6)        0.596   intercon0/cs_vector<0><15>12
-    SLICE_X19Y33.B       Tilo                  0.259   gpio0/dir<2>
-                                                       intercon0/wbm_write<0>1
-    SLICE_X19Y26.D5      net (fanout=19)       0.954   n0059<0>
-    SLICE_X19Y26.D       Tilo                  0.259   gpio0/_n0059_inv
-                                                       gpio0/_n0059_inv211
-    SLICE_X10Y6.CE       net (fanout=4)        2.881   gpio0/_n0059_inv
-    SLICE_X10Y6.CLK      Tceck                 0.314   gpio0/output<15>
-                                                       gpio0/output_12
+    SLICE_X20Y43.DQ      Tcko                  0.525   gpmc2wishbone/address<7>
+                                                       gpmc2wishbone/address_7
+    SLICE_X18Y33.C1      net (fanout=5)        2.328   gpmc2wishbone/address<7>
+    SLICE_X18Y33.C       Tilo                  0.235   intercon0/wbs_readdata<12>LogicTrst1
+                                                       intercon0/cs_vector<0><15>1
+    SLICE_X10Y15.D6      net (fanout=22)       2.185   intercon0/cs_vector<0><15>1
+    SLICE_X10Y15.D       Tilo                  0.235   intercon0/wbm_strobe<2>1
+                                                       intercon0/wbm_strobe<2>1_1
+    SLICE_X8Y15.A4       net (fanout=1)        0.513   intercon0/wbm_strobe<2>1
+    SLICE_X8Y15.A        Tilo                  0.254   gpio2/_n0059_inv
+                                                       gpio2/_n0059_inv211
+    SLICE_X12Y30.CE      net (fanout=2)        1.597   gpio2/_n0059_inv
+    SLICE_X12Y30.CLK     Tceck                 0.313   gpio2/output<3>
+                                                       gpio2/output_0
     -------------------------------------------------  ---------------------------
-    Total                                      8.370ns (1.521ns logic, 6.849ns route)
-                                                       (18.2% logic, 81.8% route)
+    Total                                      8.185ns (1.562ns logic, 6.623ns route)
+                                                       (19.1% logic, 80.9% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     1.392ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               gpmc2wishbone/address_14 (FF)
-  Destination:          gpio0/output_12 (FF)
+Slack (setup path):     1.699ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               gpmc2wishbone/address_12 (FF)
+  Destination:          gpio2/output_0 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      8.421ns (Levels of Logic = 4)
-  Clock Path Skew:      0.048ns (0.769 - 0.721)
+  Data Path Delay:      8.037ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.029ns (0.687 - 0.716)
   Source Clock:         clk_100Mhz rising at 0.000ns
   Destination Clock:    clk_100Mhz rising at 10.000ns
   Clock Uncertainty:    0.235ns
@@ -607,38 +625,38 @@ Slack (setup path):     1.392ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.400ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_14 to gpio0/output_12
+  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_12 to gpio2/output_0
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y44.CQ      Tcko                  0.525   gpmc2wishbone/address<15>
-                                                       gpmc2wishbone/address_14
-    SLICE_X20Y42.B4      net (fanout=4)        0.548   gpmc2wishbone/address<14>
-    SLICE_X20Y42.B       Tilo                  0.254   mem_0/write_ack
-                                                       intercon0/cs_vector<0><15>111
-    SLICE_X19Y35.C2      net (fanout=21)       1.572   intercon0/cs_vector<0><15>11
-    SLICE_X19Y35.C       Tilo                  0.259   n0059<2>
-                                                       intercon0/cs_vector<0><15>1_1
-    SLICE_X19Y33.B4      net (fanout=6)        0.596   intercon0/cs_vector<0><15>12
-    SLICE_X19Y33.B       Tilo                  0.259   gpio0/dir<2>
-                                                       intercon0/wbm_write<0>1
-    SLICE_X19Y26.D5      net (fanout=19)       0.954   n0059<0>
-    SLICE_X19Y26.D       Tilo                  0.259   gpio0/_n0059_inv
-                                                       gpio0/_n0059_inv211
-    SLICE_X10Y6.CE       net (fanout=4)        2.881   gpio0/_n0059_inv
-    SLICE_X10Y6.CLK      Tceck                 0.314   gpio0/output<15>
-                                                       gpio0/output_12
+    SLICE_X21Y37.AQ      Tcko                  0.430   gpmc2wishbone/address<15>
+                                                       gpmc2wishbone/address_12
+    SLICE_X21Y37.A4      net (fanout=21)       0.930   gpmc2wishbone/address<12>
+    SLICE_X21Y37.A       Tilo                  0.259   gpmc2wishbone/address<15>
+                                                       intercon0/cs_vector<0><15>1_SW0
+    SLICE_X18Y33.C6      net (fanout=2)        1.086   N8
+    SLICE_X18Y33.C       Tilo                  0.235   intercon0/wbs_readdata<12>LogicTrst1
+                                                       intercon0/cs_vector<0><15>1
+    SLICE_X10Y15.D6      net (fanout=22)       2.185   intercon0/cs_vector<0><15>1
+    SLICE_X10Y15.D       Tilo                  0.235   intercon0/wbm_strobe<2>1
+                                                       intercon0/wbm_strobe<2>1_1
+    SLICE_X8Y15.A4       net (fanout=1)        0.513   intercon0/wbm_strobe<2>1
+    SLICE_X8Y15.A        Tilo                  0.254   gpio2/_n0059_inv
+                                                       gpio2/_n0059_inv211
+    SLICE_X12Y30.CE      net (fanout=2)        1.597   gpio2/_n0059_inv
+    SLICE_X12Y30.CLK     Tceck                 0.313   gpio2/output<3>
+                                                       gpio2/output_0
     -------------------------------------------------  ---------------------------
-    Total                                      8.421ns (1.870ns logic, 6.551ns route)
-                                                       (22.2% logic, 77.8% route)
+    Total                                      8.037ns (1.726ns logic, 6.311ns route)
+                                                       (21.5% logic, 78.5% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     1.403ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               gpmc2wishbone/address_15 (FF)
-  Destination:          gpio0/output_12 (FF)
+Slack (setup path):     1.775ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               gpmc2wishbone/address_10 (FF)
+  Destination:          gpio2/output_0 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      8.410ns (Levels of Logic = 4)
-  Clock Path Skew:      0.048ns (0.769 - 0.721)
+  Data Path Delay:      7.961ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.029ns (0.687 - 0.716)
   Source Clock:         clk_100Mhz rising at 0.000ns
   Destination Clock:    clk_100Mhz rising at 10.000ns
   Clock Uncertainty:    0.235ns
@@ -649,41 +667,41 @@ Slack (setup path):     1.403ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.400ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_15 to gpio0/output_12
+  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_10 to gpio2/output_0
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y44.DQ      Tcko                  0.525   gpmc2wishbone/address<15>
-                                                       gpmc2wishbone/address_15
-    SLICE_X20Y42.B6      net (fanout=4)        0.537   gpmc2wishbone/address<15>
-    SLICE_X20Y42.B       Tilo                  0.254   mem_0/write_ack
-                                                       intercon0/cs_vector<0><15>111
-    SLICE_X19Y35.C2      net (fanout=21)       1.572   intercon0/cs_vector<0><15>11
-    SLICE_X19Y35.C       Tilo                  0.259   n0059<2>
-                                                       intercon0/cs_vector<0><15>1_1
-    SLICE_X19Y33.B4      net (fanout=6)        0.596   intercon0/cs_vector<0><15>12
-    SLICE_X19Y33.B       Tilo                  0.259   gpio0/dir<2>
-                                                       intercon0/wbm_write<0>1
-    SLICE_X19Y26.D5      net (fanout=19)       0.954   n0059<0>
-    SLICE_X19Y26.D       Tilo                  0.259   gpio0/_n0059_inv
-                                                       gpio0/_n0059_inv211
-    SLICE_X10Y6.CE       net (fanout=4)        2.881   gpio0/_n0059_inv
-    SLICE_X10Y6.CLK      Tceck                 0.314   gpio0/output<15>
-                                                       gpio0/output_12
+    SLICE_X21Y37.CMUX    Tshcko                0.518   gpmc2wishbone/address<15>
+                                                       gpmc2wishbone/address_10
+    SLICE_X21Y37.A1      net (fanout=4)        0.766   gpmc2wishbone/address<10>
+    SLICE_X21Y37.A       Tilo                  0.259   gpmc2wishbone/address<15>
+                                                       intercon0/cs_vector<0><15>1_SW0
+    SLICE_X18Y33.C6      net (fanout=2)        1.086   N8
+    SLICE_X18Y33.C       Tilo                  0.235   intercon0/wbs_readdata<12>LogicTrst1
+                                                       intercon0/cs_vector<0><15>1
+    SLICE_X10Y15.D6      net (fanout=22)       2.185   intercon0/cs_vector<0><15>1
+    SLICE_X10Y15.D       Tilo                  0.235   intercon0/wbm_strobe<2>1
+                                                       intercon0/wbm_strobe<2>1_1
+    SLICE_X8Y15.A4       net (fanout=1)        0.513   intercon0/wbm_strobe<2>1
+    SLICE_X8Y15.A        Tilo                  0.254   gpio2/_n0059_inv
+                                                       gpio2/_n0059_inv211
+    SLICE_X12Y30.CE      net (fanout=2)        1.597   gpio2/_n0059_inv
+    SLICE_X12Y30.CLK     Tceck                 0.313   gpio2/output<3>
+                                                       gpio2/output_0
     -------------------------------------------------  ---------------------------
-    Total                                      8.410ns (1.870ns logic, 6.540ns route)
-                                                       (22.2% logic, 77.8% route)
+    Total                                      7.961ns (1.814ns logic, 6.147ns route)
+                                                       (22.8% logic, 77.2% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point gpio0/output_15 (SLICE_X10Y6.CE), 35 paths
+Paths for end point gpio2/output_2 (SLICE_X12Y30.CE), 35 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     1.402ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               gpmc2wishbone/address_5 (FF)
-  Destination:          gpio0/output_15 (FF)
+Slack (setup path):     1.593ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               gpmc2wishbone/address_7 (FF)
+  Destination:          gpio2/output_2 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      8.347ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.016ns (0.769 - 0.785)
+  Data Path Delay:      8.141ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.031ns (0.687 - 0.718)
   Source Clock:         clk_100Mhz rising at 0.000ns
   Destination Clock:    clk_100Mhz rising at 10.000ns
   Clock Uncertainty:    0.235ns
@@ -694,35 +712,35 @@ Slack (setup path):     1.402ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.400ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_5 to gpio0/output_15
+  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_7 to gpio2/output_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X21Y49.BQ      Tcko                  0.430   gpmc2wishbone/address<7>
-                                                       gpmc2wishbone/address_5
-    SLICE_X19Y35.C1      net (fanout=5)        2.418   gpmc2wishbone/address<5>
-    SLICE_X19Y35.C       Tilo                  0.259   n0059<2>
-                                                       intercon0/cs_vector<0><15>1_1
-    SLICE_X19Y33.B4      net (fanout=6)        0.596   intercon0/cs_vector<0><15>12
-    SLICE_X19Y33.B       Tilo                  0.259   gpio0/dir<2>
-                                                       intercon0/wbm_write<0>1
-    SLICE_X19Y26.D5      net (fanout=19)       0.954   n0059<0>
-    SLICE_X19Y26.D       Tilo                  0.259   gpio0/_n0059_inv
-                                                       gpio0/_n0059_inv211
-    SLICE_X10Y6.CE       net (fanout=4)        2.881   gpio0/_n0059_inv
-    SLICE_X10Y6.CLK      Tceck                 0.291   gpio0/output<15>
-                                                       gpio0/output_15
+    SLICE_X20Y43.DQ      Tcko                  0.525   gpmc2wishbone/address<7>
+                                                       gpmc2wishbone/address_7
+    SLICE_X18Y33.C1      net (fanout=5)        2.328   gpmc2wishbone/address<7>
+    SLICE_X18Y33.C       Tilo                  0.235   intercon0/wbs_readdata<12>LogicTrst1
+                                                       intercon0/cs_vector<0><15>1
+    SLICE_X10Y15.D6      net (fanout=22)       2.185   intercon0/cs_vector<0><15>1
+    SLICE_X10Y15.D       Tilo                  0.235   intercon0/wbm_strobe<2>1
+                                                       intercon0/wbm_strobe<2>1_1
+    SLICE_X8Y15.A4       net (fanout=1)        0.513   intercon0/wbm_strobe<2>1
+    SLICE_X8Y15.A        Tilo                  0.254   gpio2/_n0059_inv
+                                                       gpio2/_n0059_inv211
+    SLICE_X12Y30.CE      net (fanout=2)        1.597   gpio2/_n0059_inv
+    SLICE_X12Y30.CLK     Tceck                 0.269   gpio2/output<3>
+                                                       gpio2/output_2
     -------------------------------------------------  ---------------------------
-    Total                                      8.347ns (1.498ns logic, 6.849ns route)
-                                                       (17.9% logic, 82.1% route)
+    Total                                      8.141ns (1.518ns logic, 6.623ns route)
+                                                       (18.6% logic, 81.4% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     1.415ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               gpmc2wishbone/address_14 (FF)
-  Destination:          gpio0/output_15 (FF)
+Slack (setup path):     1.743ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               gpmc2wishbone/address_12 (FF)
+  Destination:          gpio2/output_2 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      8.398ns (Levels of Logic = 4)
-  Clock Path Skew:      0.048ns (0.769 - 0.721)
+  Data Path Delay:      7.993ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.029ns (0.687 - 0.716)
   Source Clock:         clk_100Mhz rising at 0.000ns
   Destination Clock:    clk_100Mhz rising at 10.000ns
   Clock Uncertainty:    0.235ns
@@ -733,38 +751,38 @@ Slack (setup path):     1.415ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.400ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_14 to gpio0/output_15
+  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_12 to gpio2/output_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y44.CQ      Tcko                  0.525   gpmc2wishbone/address<15>
-                                                       gpmc2wishbone/address_14
-    SLICE_X20Y42.B4      net (fanout=4)        0.548   gpmc2wishbone/address<14>
-    SLICE_X20Y42.B       Tilo                  0.254   mem_0/write_ack
-                                                       intercon0/cs_vector<0><15>111
-    SLICE_X19Y35.C2      net (fanout=21)       1.572   intercon0/cs_vector<0><15>11
-    SLICE_X19Y35.C       Tilo                  0.259   n0059<2>
-                                                       intercon0/cs_vector<0><15>1_1
-    SLICE_X19Y33.B4      net (fanout=6)        0.596   intercon0/cs_vector<0><15>12
-    SLICE_X19Y33.B       Tilo                  0.259   gpio0/dir<2>
-                                                       intercon0/wbm_write<0>1
-    SLICE_X19Y26.D5      net (fanout=19)       0.954   n0059<0>
-    SLICE_X19Y26.D       Tilo                  0.259   gpio0/_n0059_inv
-                                                       gpio0/_n0059_inv211
-    SLICE_X10Y6.CE       net (fanout=4)        2.881   gpio0/_n0059_inv
-    SLICE_X10Y6.CLK      Tceck                 0.291   gpio0/output<15>
-                                                       gpio0/output_15
+    SLICE_X21Y37.AQ      Tcko                  0.430   gpmc2wishbone/address<15>
+                                                       gpmc2wishbone/address_12
+    SLICE_X21Y37.A4      net (fanout=21)       0.930   gpmc2wishbone/address<12>
+    SLICE_X21Y37.A       Tilo                  0.259   gpmc2wishbone/address<15>
+                                                       intercon0/cs_vector<0><15>1_SW0
+    SLICE_X18Y33.C6      net (fanout=2)        1.086   N8
+    SLICE_X18Y33.C       Tilo                  0.235   intercon0/wbs_readdata<12>LogicTrst1
+                                                       intercon0/cs_vector<0><15>1
+    SLICE_X10Y15.D6      net (fanout=22)       2.185   intercon0/cs_vector<0><15>1
+    SLICE_X10Y15.D       Tilo                  0.235   intercon0/wbm_strobe<2>1
+                                                       intercon0/wbm_strobe<2>1_1
+    SLICE_X8Y15.A4       net (fanout=1)        0.513   intercon0/wbm_strobe<2>1
+    SLICE_X8Y15.A        Tilo                  0.254   gpio2/_n0059_inv
+                                                       gpio2/_n0059_inv211
+    SLICE_X12Y30.CE      net (fanout=2)        1.597   gpio2/_n0059_inv
+    SLICE_X12Y30.CLK     Tceck                 0.269   gpio2/output<3>
+                                                       gpio2/output_2
     -------------------------------------------------  ---------------------------
-    Total                                      8.398ns (1.847ns logic, 6.551ns route)
-                                                       (22.0% logic, 78.0% route)
+    Total                                      7.993ns (1.682ns logic, 6.311ns route)
+                                                       (21.0% logic, 79.0% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     1.426ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               gpmc2wishbone/address_15 (FF)
-  Destination:          gpio0/output_15 (FF)
+Slack (setup path):     1.819ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               gpmc2wishbone/address_10 (FF)
+  Destination:          gpio2/output_2 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      8.387ns (Levels of Logic = 4)
-  Clock Path Skew:      0.048ns (0.769 - 0.721)
+  Data Path Delay:      7.917ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.029ns (0.687 - 0.716)
   Source Clock:         clk_100Mhz rising at 0.000ns
   Destination Clock:    clk_100Mhz rising at 10.000ns
   Clock Uncertainty:    0.235ns
@@ -775,41 +793,41 @@ Slack (setup path):     1.426ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.400ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_15 to gpio0/output_15
+  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_10 to gpio2/output_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y44.DQ      Tcko                  0.525   gpmc2wishbone/address<15>
-                                                       gpmc2wishbone/address_15
-    SLICE_X20Y42.B6      net (fanout=4)        0.537   gpmc2wishbone/address<15>
-    SLICE_X20Y42.B       Tilo                  0.254   mem_0/write_ack
-                                                       intercon0/cs_vector<0><15>111
-    SLICE_X19Y35.C2      net (fanout=21)       1.572   intercon0/cs_vector<0><15>11
-    SLICE_X19Y35.C       Tilo                  0.259   n0059<2>
-                                                       intercon0/cs_vector<0><15>1_1
-    SLICE_X19Y33.B4      net (fanout=6)        0.596   intercon0/cs_vector<0><15>12
-    SLICE_X19Y33.B       Tilo                  0.259   gpio0/dir<2>
-                                                       intercon0/wbm_write<0>1
-    SLICE_X19Y26.D5      net (fanout=19)       0.954   n0059<0>
-    SLICE_X19Y26.D       Tilo                  0.259   gpio0/_n0059_inv
-                                                       gpio0/_n0059_inv211
-    SLICE_X10Y6.CE       net (fanout=4)        2.881   gpio0/_n0059_inv
-    SLICE_X10Y6.CLK      Tceck                 0.291   gpio0/output<15>
-                                                       gpio0/output_15
+    SLICE_X21Y37.CMUX    Tshcko                0.518   gpmc2wishbone/address<15>
+                                                       gpmc2wishbone/address_10
+    SLICE_X21Y37.A1      net (fanout=4)        0.766   gpmc2wishbone/address<10>
+    SLICE_X21Y37.A       Tilo                  0.259   gpmc2wishbone/address<15>
+                                                       intercon0/cs_vector<0><15>1_SW0
+    SLICE_X18Y33.C6      net (fanout=2)        1.086   N8
+    SLICE_X18Y33.C       Tilo                  0.235   intercon0/wbs_readdata<12>LogicTrst1
+                                                       intercon0/cs_vector<0><15>1
+    SLICE_X10Y15.D6      net (fanout=22)       2.185   intercon0/cs_vector<0><15>1
+    SLICE_X10Y15.D       Tilo                  0.235   intercon0/wbm_strobe<2>1
+                                                       intercon0/wbm_strobe<2>1_1
+    SLICE_X8Y15.A4       net (fanout=1)        0.513   intercon0/wbm_strobe<2>1
+    SLICE_X8Y15.A        Tilo                  0.254   gpio2/_n0059_inv
+                                                       gpio2/_n0059_inv211
+    SLICE_X12Y30.CE      net (fanout=2)        1.597   gpio2/_n0059_inv
+    SLICE_X12Y30.CLK     Tceck                 0.269   gpio2/output<3>
+                                                       gpio2/output_2
     -------------------------------------------------  ---------------------------
-    Total                                      8.387ns (1.847ns logic, 6.540ns route)
-                                                       (22.0% logic, 78.0% route)
+    Total                                      7.917ns (1.770ns logic, 6.147ns route)
+                                                       (22.4% logic, 77.6% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point gpio0/output_14 (SLICE_X10Y6.CE), 35 paths
+Paths for end point gpio2/output_3 (SLICE_X12Y30.CE), 35 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     1.404ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               gpmc2wishbone/address_5 (FF)
-  Destination:          gpio0/output_14 (FF)
+Slack (setup path):     1.596ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               gpmc2wishbone/address_7 (FF)
+  Destination:          gpio2/output_3 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      8.345ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.016ns (0.769 - 0.785)
+  Data Path Delay:      8.138ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.031ns (0.687 - 0.718)
   Source Clock:         clk_100Mhz rising at 0.000ns
   Destination Clock:    clk_100Mhz rising at 10.000ns
   Clock Uncertainty:    0.235ns
@@ -820,35 +838,35 @@ Slack (setup path):     1.404ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.400ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_5 to gpio0/output_14
+  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_7 to gpio2/output_3
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X21Y49.BQ      Tcko                  0.430   gpmc2wishbone/address<7>
-                                                       gpmc2wishbone/address_5
-    SLICE_X19Y35.C1      net (fanout=5)        2.418   gpmc2wishbone/address<5>
-    SLICE_X19Y35.C       Tilo                  0.259   n0059<2>
-                                                       intercon0/cs_vector<0><15>1_1
-    SLICE_X19Y33.B4      net (fanout=6)        0.596   intercon0/cs_vector<0><15>12
-    SLICE_X19Y33.B       Tilo                  0.259   gpio0/dir<2>
-                                                       intercon0/wbm_write<0>1
-    SLICE_X19Y26.D5      net (fanout=19)       0.954   n0059<0>
-    SLICE_X19Y26.D       Tilo                  0.259   gpio0/_n0059_inv
-                                                       gpio0/_n0059_inv211
-    SLICE_X10Y6.CE       net (fanout=4)        2.881   gpio0/_n0059_inv
-    SLICE_X10Y6.CLK      Tceck                 0.289   gpio0/output<15>
-                                                       gpio0/output_14
+    SLICE_X20Y43.DQ      Tcko                  0.525   gpmc2wishbone/address<7>
+                                                       gpmc2wishbone/address_7
+    SLICE_X18Y33.C1      net (fanout=5)        2.328   gpmc2wishbone/address<7>
+    SLICE_X18Y33.C       Tilo                  0.235   intercon0/wbs_readdata<12>LogicTrst1
+                                                       intercon0/cs_vector<0><15>1
+    SLICE_X10Y15.D6      net (fanout=22)       2.185   intercon0/cs_vector<0><15>1
+    SLICE_X10Y15.D       Tilo                  0.235   intercon0/wbm_strobe<2>1
+                                                       intercon0/wbm_strobe<2>1_1
+    SLICE_X8Y15.A4       net (fanout=1)        0.513   intercon0/wbm_strobe<2>1
+    SLICE_X8Y15.A        Tilo                  0.254   gpio2/_n0059_inv
+                                                       gpio2/_n0059_inv211
+    SLICE_X12Y30.CE      net (fanout=2)        1.597   gpio2/_n0059_inv
+    SLICE_X12Y30.CLK     Tceck                 0.266   gpio2/output<3>
+                                                       gpio2/output_3
     -------------------------------------------------  ---------------------------
-    Total                                      8.345ns (1.496ns logic, 6.849ns route)
-                                                       (17.9% logic, 82.1% route)
+    Total                                      8.138ns (1.515ns logic, 6.623ns route)
+                                                       (18.6% logic, 81.4% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     1.417ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               gpmc2wishbone/address_14 (FF)
-  Destination:          gpio0/output_14 (FF)
+Slack (setup path):     1.746ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               gpmc2wishbone/address_12 (FF)
+  Destination:          gpio2/output_3 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      8.396ns (Levels of Logic = 4)
-  Clock Path Skew:      0.048ns (0.769 - 0.721)
+  Data Path Delay:      7.990ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.029ns (0.687 - 0.716)
   Source Clock:         clk_100Mhz rising at 0.000ns
   Destination Clock:    clk_100Mhz rising at 10.000ns
   Clock Uncertainty:    0.235ns
@@ -859,38 +877,38 @@ Slack (setup path):     1.417ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.400ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_14 to gpio0/output_14
+  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_12 to gpio2/output_3
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y44.CQ      Tcko                  0.525   gpmc2wishbone/address<15>
-                                                       gpmc2wishbone/address_14
-    SLICE_X20Y42.B4      net (fanout=4)        0.548   gpmc2wishbone/address<14>
-    SLICE_X20Y42.B       Tilo                  0.254   mem_0/write_ack
-                                                       intercon0/cs_vector<0><15>111
-    SLICE_X19Y35.C2      net (fanout=21)       1.572   intercon0/cs_vector<0><15>11
-    SLICE_X19Y35.C       Tilo                  0.259   n0059<2>
-                                                       intercon0/cs_vector<0><15>1_1
-    SLICE_X19Y33.B4      net (fanout=6)        0.596   intercon0/cs_vector<0><15>12
-    SLICE_X19Y33.B       Tilo                  0.259   gpio0/dir<2>
-                                                       intercon0/wbm_write<0>1
-    SLICE_X19Y26.D5      net (fanout=19)       0.954   n0059<0>
-    SLICE_X19Y26.D       Tilo                  0.259   gpio0/_n0059_inv
-                                                       gpio0/_n0059_inv211
-    SLICE_X10Y6.CE       net (fanout=4)        2.881   gpio0/_n0059_inv
-    SLICE_X10Y6.CLK      Tceck                 0.289   gpio0/output<15>
-                                                       gpio0/output_14
+    SLICE_X21Y37.AQ      Tcko                  0.430   gpmc2wishbone/address<15>
+                                                       gpmc2wishbone/address_12
+    SLICE_X21Y37.A4      net (fanout=21)       0.930   gpmc2wishbone/address<12>
+    SLICE_X21Y37.A       Tilo                  0.259   gpmc2wishbone/address<15>
+                                                       intercon0/cs_vector<0><15>1_SW0
+    SLICE_X18Y33.C6      net (fanout=2)        1.086   N8
+    SLICE_X18Y33.C       Tilo                  0.235   intercon0/wbs_readdata<12>LogicTrst1
+                                                       intercon0/cs_vector<0><15>1
+    SLICE_X10Y15.D6      net (fanout=22)       2.185   intercon0/cs_vector<0><15>1
+    SLICE_X10Y15.D       Tilo                  0.235   intercon0/wbm_strobe<2>1
+                                                       intercon0/wbm_strobe<2>1_1
+    SLICE_X8Y15.A4       net (fanout=1)        0.513   intercon0/wbm_strobe<2>1
+    SLICE_X8Y15.A        Tilo                  0.254   gpio2/_n0059_inv
+                                                       gpio2/_n0059_inv211
+    SLICE_X12Y30.CE      net (fanout=2)        1.597   gpio2/_n0059_inv
+    SLICE_X12Y30.CLK     Tceck                 0.266   gpio2/output<3>
+                                                       gpio2/output_3
     -------------------------------------------------  ---------------------------
-    Total                                      8.396ns (1.845ns logic, 6.551ns route)
-                                                       (22.0% logic, 78.0% route)
+    Total                                      7.990ns (1.679ns logic, 6.311ns route)
+                                                       (21.0% logic, 79.0% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     1.428ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               gpmc2wishbone/address_15 (FF)
-  Destination:          gpio0/output_14 (FF)
+Slack (setup path):     1.822ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               gpmc2wishbone/address_10 (FF)
+  Destination:          gpio2/output_3 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      8.385ns (Levels of Logic = 4)
-  Clock Path Skew:      0.048ns (0.769 - 0.721)
+  Data Path Delay:      7.914ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.029ns (0.687 - 0.716)
   Source Clock:         clk_100Mhz rising at 0.000ns
   Destination Clock:    clk_100Mhz rising at 10.000ns
   Clock Uncertainty:    0.235ns
@@ -901,114 +919,114 @@ Slack (setup path):     1.428ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.400ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_15 to gpio0/output_14
+  Maximum Data Path at Slow Process Corner: gpmc2wishbone/address_10 to gpio2/output_3
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y44.DQ      Tcko                  0.525   gpmc2wishbone/address<15>
-                                                       gpmc2wishbone/address_15
-    SLICE_X20Y42.B6      net (fanout=4)        0.537   gpmc2wishbone/address<15>
-    SLICE_X20Y42.B       Tilo                  0.254   mem_0/write_ack
-                                                       intercon0/cs_vector<0><15>111
-    SLICE_X19Y35.C2      net (fanout=21)       1.572   intercon0/cs_vector<0><15>11
-    SLICE_X19Y35.C       Tilo                  0.259   n0059<2>
-                                                       intercon0/cs_vector<0><15>1_1
-    SLICE_X19Y33.B4      net (fanout=6)        0.596   intercon0/cs_vector<0><15>12
-    SLICE_X19Y33.B       Tilo                  0.259   gpio0/dir<2>
-                                                       intercon0/wbm_write<0>1
-    SLICE_X19Y26.D5      net (fanout=19)       0.954   n0059<0>
-    SLICE_X19Y26.D       Tilo                  0.259   gpio0/_n0059_inv
-                                                       gpio0/_n0059_inv211
-    SLICE_X10Y6.CE       net (fanout=4)        2.881   gpio0/_n0059_inv
-    SLICE_X10Y6.CLK      Tceck                 0.289   gpio0/output<15>
-                                                       gpio0/output_14
+    SLICE_X21Y37.CMUX    Tshcko                0.518   gpmc2wishbone/address<15>
+                                                       gpmc2wishbone/address_10
+    SLICE_X21Y37.A1      net (fanout=4)        0.766   gpmc2wishbone/address<10>
+    SLICE_X21Y37.A       Tilo                  0.259   gpmc2wishbone/address<15>
+                                                       intercon0/cs_vector<0><15>1_SW0
+    SLICE_X18Y33.C6      net (fanout=2)        1.086   N8
+    SLICE_X18Y33.C       Tilo                  0.235   intercon0/wbs_readdata<12>LogicTrst1
+                                                       intercon0/cs_vector<0><15>1
+    SLICE_X10Y15.D6      net (fanout=22)       2.185   intercon0/cs_vector<0><15>1
+    SLICE_X10Y15.D       Tilo                  0.235   intercon0/wbm_strobe<2>1
+                                                       intercon0/wbm_strobe<2>1_1
+    SLICE_X8Y15.A4       net (fanout=1)        0.513   intercon0/wbm_strobe<2>1
+    SLICE_X8Y15.A        Tilo                  0.254   gpio2/_n0059_inv
+                                                       gpio2/_n0059_inv211
+    SLICE_X12Y30.CE      net (fanout=2)        1.597   gpio2/_n0059_inv
+    SLICE_X12Y30.CLK     Tceck                 0.266   gpio2/output<3>
+                                                       gpio2/output_3
     -------------------------------------------------  ---------------------------
-    Total                                      8.385ns (1.845ns logic, 6.540ns route)
-                                                       (22.0% logic, 78.0% route)
+    Total                                      7.914ns (1.767ns logic, 6.147ns route)
+                                                       (22.3% logic, 77.7% route)
 
 --------------------------------------------------------------------------------
 
 Hold Paths: TS_pll0_clk2x = PERIOD TIMEGRP "pll0_clk2x" TS_PER_CLK50 / 2 HIGH 50%;
 --------------------------------------------------------------------------------
 
-Paths for end point mem_0/ram0/Mram_RAM2 (RAMB16_X1Y18.DIA3), 1 path
+Paths for end point Inst_SDRAM_Controller/Mshreg_state_FSM_FFd12 (SLICE_X0Y45.AI), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.311ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               gpmc2wishbone/writedata_12 (FF)
-  Destination:          mem_0/ram0/Mram_RAM2 (RAM)
+Slack (hold path):      0.349ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               Inst_SDRAM_Controller/state_FSM_FFd14 (FF)
+  Destination:          Inst_SDRAM_Controller/Mshreg_state_FSM_FFd12 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.308ns (Levels of Logic = 0)
-  Clock Path Skew:      -0.003ns (0.070 - 0.073)
+  Data Path Delay:      0.350ns (Levels of Logic = 0)
+  Clock Path Skew:      0.001ns (0.043 - 0.042)
   Source Clock:         clk_100Mhz rising at 10.000ns
   Destination Clock:    clk_100Mhz rising at 10.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: gpmc2wishbone/writedata_12 to mem_0/ram0/Mram_RAM2
+  Minimum Data Path at Fast Process Corner: Inst_SDRAM_Controller/state_FSM_FFd14 to Inst_SDRAM_Controller/Mshreg_state_FSM_FFd12
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y35.AQ      Tcko                  0.200   gpmc2wishbone/writedata<15>
-                                                       gpmc2wishbone/writedata_12
-    RAMB16_X1Y18.DIA3    net (fanout=7)        0.161   gpmc2wishbone/writedata<12>
-    RAMB16_X1Y18.CLKA    Trckd_DIA   (-Th)     0.053   mem_0/ram0/Mram_RAM2
-                                                       mem_0/ram0/Mram_RAM2
+    SLICE_X1Y46.AQ       Tcko                  0.198   Inst_SDRAM_Controller/pending_refresh
+                                                       Inst_SDRAM_Controller/state_FSM_FFd14
+    SLICE_X0Y45.AI       net (fanout=2)        0.122   Inst_SDRAM_Controller/state_FSM_FFd13-In
+    SLICE_X0Y45.CLK      Tdh         (-Th)    -0.030   Inst_SDRAM_Controller/state_FSM_FFd18
+                                                       Inst_SDRAM_Controller/Mshreg_state_FSM_FFd12
     -------------------------------------------------  ---------------------------
-    Total                                      0.308ns (0.147ns logic, 0.161ns route)
-                                                       (47.7% logic, 52.3% route)
+    Total                                      0.350ns (0.228ns logic, 0.122ns route)
+                                                       (65.1% logic, 34.9% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point mem_0/ram0/Mram_RAM2 (RAMB16_X1Y18.DIA4), 1 path
+Paths for end point Inst_SDRAM_Controller/Mshreg_state_FSM_FFd14-In (SLICE_X0Y45.BI), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.312ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               gpmc2wishbone/writedata_13 (FF)
-  Destination:          mem_0/ram0/Mram_RAM2 (RAM)
+Slack (hold path):      0.383ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               Inst_SDRAM_Controller/state_FSM_FFd17 (FF)
+  Destination:          Inst_SDRAM_Controller/Mshreg_state_FSM_FFd14-In (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.309ns (Levels of Logic = 0)
-  Clock Path Skew:      -0.003ns (0.070 - 0.073)
+  Data Path Delay:      0.384ns (Levels of Logic = 0)
+  Clock Path Skew:      0.001ns (0.043 - 0.042)
   Source Clock:         clk_100Mhz rising at 10.000ns
   Destination Clock:    clk_100Mhz rising at 10.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: gpmc2wishbone/writedata_13 to mem_0/ram0/Mram_RAM2
+  Minimum Data Path at Fast Process Corner: Inst_SDRAM_Controller/state_FSM_FFd17 to Inst_SDRAM_Controller/Mshreg_state_FSM_FFd14-In
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y35.BQ      Tcko                  0.200   gpmc2wishbone/writedata<15>
-                                                       gpmc2wishbone/writedata_13
-    RAMB16_X1Y18.DIA4    net (fanout=7)        0.162   gpmc2wishbone/writedata<13>
-    RAMB16_X1Y18.CLKA    Trckd_DIA   (-Th)     0.053   mem_0/ram0/Mram_RAM2
-                                                       mem_0/ram0/Mram_RAM2
+    SLICE_X1Y46.DMUX     Tshcko                0.244   Inst_SDRAM_Controller/pending_refresh
+                                                       Inst_SDRAM_Controller/state_FSM_FFd17
+    SLICE_X0Y45.BI       net (fanout=1)        0.111   Inst_SDRAM_Controller/state_FSM_FFd16-In
+    SLICE_X0Y45.CLK      Tdh         (-Th)    -0.029   Inst_SDRAM_Controller/state_FSM_FFd18
+                                                       Inst_SDRAM_Controller/Mshreg_state_FSM_FFd14-In
     -------------------------------------------------  ---------------------------
-    Total                                      0.309ns (0.147ns logic, 0.162ns route)
-                                                       (47.6% logic, 52.4% route)
+    Total                                      0.384ns (0.273ns logic, 0.111ns route)
+                                                       (71.1% logic, 28.9% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point Inst_SDRAM_Controller/iob_data_next_15 (SLICE_X0Y50.CE), 1 path
+Paths for end point reg0/reg_in_d_3_4 (SLICE_X2Y15.AX), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.335ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               Inst_SDRAM_Controller/state_FSM_FFd7 (FF)
-  Destination:          Inst_SDRAM_Controller/iob_data_next_15 (FF)
+Slack (hold path):      0.394ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               debug_long_register_116 (FF)
+  Destination:          reg0/reg_in_d_3_4 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.400ns (Levels of Logic = 0)
-  Clock Path Skew:      0.065ns (0.406 - 0.341)
+  Data Path Delay:      0.396ns (Levels of Logic = 0)
+  Clock Path Skew:      0.002ns (0.044 - 0.042)
   Source Clock:         clk_100Mhz rising at 10.000ns
   Destination Clock:    clk_100Mhz rising at 10.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: Inst_SDRAM_Controller/state_FSM_FFd7 to Inst_SDRAM_Controller/iob_data_next_15
+  Minimum Data Path at Fast Process Corner: debug_long_register_116 to reg0/reg_in_d_3_4
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X2Y46.BQ       Tcko                  0.200   Inst_SDRAM_Controller/state_FSM_FFd1
-                                                       Inst_SDRAM_Controller/state_FSM_FFd7
-    SLICE_X0Y50.CE       net (fanout=11)       0.308   Inst_SDRAM_Controller/state_FSM_FFd7
-    SLICE_X0Y50.CLK      Tckce       (-Th)     0.108   Inst_SDRAM_Controller/iob_data_next<15>
-                                                       Inst_SDRAM_Controller/iob_data_next_15
+    SLICE_X3Y15.AQ       Tcko                  0.198   debug_long_register<119>
+                                                       debug_long_register_116
+    SLICE_X2Y15.AX       net (fanout=1)        0.150   debug_long_register<116>
+    SLICE_X2Y15.CLK      Tckdi       (-Th)    -0.048   reg0/reg_in_d_3<7>
+                                                       reg0/reg_in_d_3_4
     -------------------------------------------------  ---------------------------
-    Total                                      0.400ns (0.092ns logic, 0.308ns route)
-                                                       (23.0% logic, 77.0% route)
+    Total                                      0.396ns (0.246ns logic, 0.150ns route)
+                                                       (62.1% logic, 37.9% route)
 
 --------------------------------------------------------------------------------
 
@@ -1019,7 +1037,7 @@ Slack: 6.430ns (period - min period limit)
   Min period limit: 3.570ns (280.112MHz) (Trper_CLKA(Fmax))
   Physical resource: mem_0/ram0/Mram_RAM1/CLKA
   Logical resource: mem_0/ram0/Mram_RAM1/CLKA
-  Location pin: RAMB16_X1Y22.CLKA
+  Location pin: RAMB16_X1Y18.CLKA
   Clock network: clk_100Mhz
 --------------------------------------------------------------------------------
 Slack: 6.430ns (period - min period limit)
@@ -1027,7 +1045,7 @@ Slack: 6.430ns (period - min period limit)
   Min period limit: 3.570ns (280.112MHz) (Trper_CLKB(Fmax))
   Physical resource: mem_0/ram0/Mram_RAM1/CLKB
   Logical resource: mem_0/ram0/Mram_RAM1/CLKB
-  Location pin: RAMB16_X1Y22.CLKB
+  Location pin: RAMB16_X1Y18.CLKB
   Clock network: clk_100Mhz
 --------------------------------------------------------------------------------
 Slack: 6.430ns (period - min period limit)
@@ -1035,7 +1053,7 @@ Slack: 6.430ns (period - min period limit)
   Min period limit: 3.570ns (280.112MHz) (Trper_CLKA(Fmax))
   Physical resource: mem_0/ram0/Mram_RAM2/CLKA
   Logical resource: mem_0/ram0/Mram_RAM2/CLKA
-  Location pin: RAMB16_X1Y18.CLKA
+  Location pin: RAMB16_X1Y16.CLKA
   Clock network: clk_100Mhz
 --------------------------------------------------------------------------------
 
@@ -1047,8 +1065,8 @@ Derived Constraints for TS_PER_CLK50
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_PER_CLK50                   |     20.000ns|      8.000ns|     17.242ns|            0|            0|            0|        16444|
-| TS_pll0_clk2x                 |     10.000ns|      8.621ns|          N/A|            0|            0|        16444|            0|
+|TS_PER_CLK50                   |     20.000ns|      8.000ns|     16.902ns|            0|            0|            0|        11369|
+| TS_pll0_clk2x                 |     10.000ns|      8.451ns|          N/A|            0|            0|        11369|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 All constraints were met.
@@ -1063,7 +1081,7 @@ Clock to Setup on destination clock GPMC_CLK
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-GPMC_CLK       |         |         |         |    2.733|
+GPMC_CLK       |         |         |         |    2.462|
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock OSC_FPGA
@@ -1071,7 +1089,7 @@ Clock to Setup on destination clock OSC_FPGA
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-OSC_FPGA       |    8.621|         |         |         |
+OSC_FPGA       |    8.451|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
@@ -1080,23 +1098,23 @@ Timing summary:
 
 Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
 
-Constraints cover 16580 paths, 0 nets, and 3932 connections
+Constraints cover 11505 paths, 0 nets, and 3705 connections
 
 Design statistics:
-   Minimum period:   8.621ns{1}   (Maximum frequency: 115.996MHz)
+   Minimum period:   8.451ns{1}   (Maximum frequency: 118.329MHz)
 
 
 ------------------------------------Footnotes-----------------------------------
 1)  The minimum period statistic assumes all single cycle delays.
 
-Analysis completed Wed Jan 29 00:05:30 2014 
+Analysis completed Wed Jan 29 16:19:31 2014 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 408 MB
+Peak Memory Usage: 228 MB
 
 
 

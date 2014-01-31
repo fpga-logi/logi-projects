@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <time.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/mman.h>
@@ -56,6 +57,8 @@
 #define GPIO_TEST2_2 0x8888
 
 char * bitFilePath = "../logipi_test.bit" ;
+FILE * log_file;
+char text_buffer [512] ;
 
 enum dbg_level{
 	INFO,
@@ -74,24 +77,46 @@ int kbhit()
 }
 
 void init_test_log(){
+	char buffer [256] ;	
+	unsigned long int ts = time(NULL); 
+	sprintf(buffer, "%ld_test.log", ts);
+	log_file = fopen(buffer, "W+");
+	if(log_file == NULL){
+		printf("Cannot create log file \n");	
+	}
 }
 
 void close_test_log(){
+	fclose(log_file);
 }
 
 void test_log(enum dbg_level lvl, char * fmt, ...){
+	int msg_size ;	
 	va_list args;
     	va_start(args,fmt);
+	msg_size = sprintf(text_buffer, fmt, args);
 	switch(lvl){
 		case INFO :
-			printf("INFO : ");
+			if(log_file != NULL){
+				fwrite(log_file, "INFO : ", 7);				
+				fwrite(log_file, text_buffer, msg_size);
+			}
+			printf("INFO : ");			
 			vprintf(fmt,args);
 			break ;
 		case WARNING : 
+			if(log_file != NULL){
+				fwrite(log_file, "WARNING : ", 10);				
+				fwrite(log_file, text_buffer, msg_size);
+			}
 			printf("WARNING : ");
 			vprintf(fmt,args);
 			break ;
-		case ERROR : 
+		case ERROR : 			
+			if(log_file != NULL){
+				fwrite(log_file, "ERROR : ", 8);				
+				fwrite(log_file, text_buffer, msg_size);
+			}
 			printf("ERROR : ");
 			vprintf(fmt,args);
 			break ;
