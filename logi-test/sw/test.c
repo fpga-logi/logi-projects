@@ -194,8 +194,9 @@ void clrGen3(){
 }
 
 int testRpiGpio(){
-	unsigned short valBuf ;
+	unsigned short valBuf = 0 ;
 	initGPIO();
+	wishbone_write((unsigned char *) &valBuf, 2, GPIO2DIR); // all inputs
 	setGen3();
 	clrGen2();
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
@@ -573,6 +574,13 @@ int main(int argc, char ** argv){
 	}
 	#endif
 	
+	#ifdef TEST_RPI_GPIO
+	if(testRpiGpio() < 0){
+		test_log(ERROR,"RPI GPIO test failed \n");	
+	}else{
+		test_log(INFO,"RPI GPIO connector test passed \n");
+	}
+	#endif
 	
 	
 	#ifdef TEST_LED
@@ -620,6 +628,8 @@ int main(int argc, char ** argv){
 		test_log(INFO,"SW test passed \n");
 	}
 	#endif
+
+	
 	
 	#ifdef TEST_SDRAM
 	test_log(INFO,"----------------Testing SDRAM--------------\n");	
