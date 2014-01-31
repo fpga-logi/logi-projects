@@ -84,7 +84,11 @@ void test_log(enum dbg_level lvl, char * fmt, ...){
 	printf("\n");
 }	
 
-
+#define GPIO_TEST1_DIR 0x5555	
+#define GPIO_TEST1_1 0x1111
+#define GPIO_TEST1_1_EXPECTED 0x2222
+#define GPIO_TEST1_2 0x4444
+#define GPIO_TEST1_2_EXPECTED 0x8888
 int testPMOD12(){
 	unsigned short int dirBuf ;
 	unsigned short int valBuf ;
