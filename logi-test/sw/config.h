@@ -4,6 +4,7 @@
 #define TEST_PMOD_1_2
 #ifdef LOGIPI
 #define TEST_PMOD_3_4
+#define TEST_RPI_GPIO
 #endif
 #define TEST_SW
 #define TEST_PB		
