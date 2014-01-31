@@ -77,7 +77,7 @@ port( OSC_FPGA : in std_logic;
 	  ARD_D : inout std_logic_vector(13 downto 8);
 	  
 	  -- pi GPIO
-	  RP_GPIO_GEN : inout std_logic_vector(3 downto 2)
+	  RP_GPIO_GEN : inout std_logic_vector(4 downto 2)
 );
 end logipi_test;
 
@@ -400,9 +400,8 @@ gpio2 : wishbone_gpio
 			wbs_ack        => intercon_gpio2_wbm_ack,    
 			wbs_cycle      => intercon_gpio2_wbm_cycle, 
 			gpio(15 downto 12) => open,  -- connect to arduino pins and pi expansion port
-			gpio(11 downto 10) => open,
-			gpio(9 downto 8) => open, 
-			gpio(7 downto 6) => RP_GPIO_GEN(3 downto 2),  
+			gpio(11 downto 9) => open,
+			gpio(8 downto 6) => RP_GPIO_GEN(4 downto 2),  
 			gpio(5 downto 0) => ARD_D(13 downto 8)
 	 );	
 	

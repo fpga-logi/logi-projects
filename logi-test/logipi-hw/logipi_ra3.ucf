@@ -129,7 +129,7 @@ NET "SYS_SDA" LOC = "P98" | IOSTANDARD = LVTTL;			#Shared with Arduino SDA
 NET "SYS_SCL" LOC = "P97" | IOSTANDARD = LVTTL;			#Shared with Arduino SCL
 #NET "SYS_TX" LOC= "P51" ;			#Shared with Arduino TX
 #NET "SYS_RX" LOC= "P50" ;			#Shared with Arduino RX
-#NET "RP_GPIO_GCLK" LOC = "P95";
+NET "RP_GPIO_GEN<4>" LOC = "P95" | IOSTANDARD = LVTTL ;
 NET "RP_GPIO_GEN<2>" LOC = "P81" | IOSTANDARD = LVTTL ;
 NET "RP_GPIO_GEN<3>" LOC = "P80" | IOSTANDARD = LVTTL ;
 
