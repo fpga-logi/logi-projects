@@ -14,6 +14,9 @@
 #include "config.h"
 
 
+
+
+
 FILE * log_file;
 char text_buffer [512] ;
 
@@ -83,6 +86,140 @@ void test_log(enum dbg_level lvl, char * fmt, ...){
 	va_end(args);
 	printf("\n");
 }	
+
+
+#ifdef LOGIPI
+
+
+#define BCM2708_PERI_BASE        0x20000000
+#define GPIO_BASE                (BCM2708_PERI_BASE + 0x200000) /* GPIO controller */
+
+#define PAGE_SIZE (4*1024)
+#define BLOCK_SIZE (4*1024)
+
+#define INP_GPIO(g) *(gpio+((g)/10)) &= ~(7<<(((g)%10)*3))
+#define OUT_GPIO(g) *(gpio+((g)/10)) |=  (1<<(((g)%10)*3))
+#define SET_GPIO_ALT(g,a) *(gpio+(((g)/10))) |= (((a)<=3?(a)+4:(a)==4?3:2)<<(((g)%10)*3))
+
+#define GPIO_REG(g) *(gpio+(((g)/10)))
+
+#define GPIO_SET *(gpio+7)  // sets   bits which are 1 ignores bits which are 0
+#define GPIO_CLR *(gpio+10) // clears bits which are 1 ignores bits which are 0
+#define GPIO_LEV *(gpio+13) // clears bits which are 1 ignores bits which are 0
+
+
+#define GPIO_GEN_2 27
+#define GPIO_GEN_3 22
+
+int  mem_fd;
+void *gpio_map;
+
+// I/O access
+volatile unsigned *gpio;
+unsigned cfg_save[2] ;
+
+void initGPIO(){
+	unsigned int i = 0 ;
+	if ((mem_fd = open("/dev/mem", O_RDWR|O_SYNC) ) < 0) {
+		printf("can't open /dev/mem \n");
+		exit(EXIT_FAILURE);
+	}
+
+	/* mmap GPIO */
+	gpio_map = mmap(
+	NULL,             //Any adddress in our space will do
+	BLOCK_SIZE,       //Map length
+	PROT_READ|PROT_WRITE,// Enable reading & writting to mapped memory
+	MAP_SHARED,       //Shared with other processes
+	mem_fd,           //File to map
+	GPIO_BASE         //Offset to GPIO peripheral
+	);
+
+	close(mem_fd); //No need to keep mem_fd open after mmap
+
+	if (gpio_map == MAP_FAILED) {
+		printf("mmap error %04x\n", (unsigned int) gpio_map);//errno also set!
+		exit(EXIT_FAILURE);
+	}
+
+	// Always use volatile pointer!
+	gpio = (volatile unsigned *)gpio_map;
+
+	for(i = 0; i < 2 ; i ++){
+		switch(i){
+			case 0:
+				cfg_save[i] = GPIO_REG(GPIO_GEN_2);
+				break ;
+			case 1:
+				cfg_save[i] = GPIO_REG(GPIO_GEN_3);
+			default: 
+				break ;
+		};
+		
+	}
+
+	OUT_GPIO(GPIO_GEN_2);
+	OUT_GPIO(GPIO_GEN_3);
+}
+
+void closeGPIOs(){
+	unsigned int i ;
+	for(i = 0; i < 2 ; i ++){
+		switch(i){
+			case 0:
+				GPIO_REG(GPIO_GEN_2) = cfg_save[i] ;
+				break ;
+			case 1:
+				GPIO_REG(GPIO_GEN_3) = cfg_save[i] ;
+				break ;
+			default: 
+				break ;
+		};
+		
+	}
+}
+
+void setGen2(){
+	GPIO_SET =  1 << GPIO_GEN_2 ;
+}
+void clrGen2(){
+	GPIO_CLR = 1 << GPIO_GEN_2 ;
+}
+
+void setGen3(){
+	GPIO_SET =  1 << GPIO_GEN_3 ;
+}
+void clrGen3(){
+	GPIO_CLR = 1 << GPIO_GEN_3 ;
+}
+
+int testRpiGpio(){
+	unsigned short valBuf ;
+	initGPIO();
+	setGen3();
+	clrGen2();
+	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
+	if((valBuf & 0x0C00) != 0x0800){
+		test_log(ERROR, "RPI gpio 3-2 test failed, expected %04x got %04x \n", 0x0800, (valBuf & 0x0C00)); 
+		closeGPIOs();		
+		return -1 ;
+	}
+	clrGen3();
+	setGen2();
+	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
+	if((valBuf & 0x0C00) != 0x0400){
+		test_log(ERROR, "RPI gpio 3-2 test failed, expected %04x got %04x \n", 0x0400, (valBuf & 0x0C00)); 
+		closeGPIOs();		
+		return -1 ;
+	}
+	
+	closeGPIOs();
+	return 0 ;
+}
+
+#endif
+
+
 
 int testPMOD12(){
 	unsigned short int dirBuf ;
