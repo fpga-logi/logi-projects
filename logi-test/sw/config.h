@@ -82,6 +82,8 @@
 #define REG_DEBUG_RAM 0x0013
 #define MEM0  0x1000
 
+
+#define ARD_MASK 0x003F
 #define ARD_TEST1_DIR 0x0015	
 #define ARD_TEST1_1 0x0011
 #define ARD_TEST1_1_EXPECTED 0xFF22
@@ -112,6 +114,8 @@
 #define REG2  0x0024
 #define REG_DEBUG_RAM 0x0026
 #define MEM0  0x2000
+
+#define ARD_MASK 0x003F
 
 #define ARD_TEST1_DIR 0x0015	
 #define ARD_TEST1_1 0x0011
