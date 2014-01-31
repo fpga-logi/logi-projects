@@ -110,13 +110,14 @@ void test_log(enum dbg_level lvl, char * fmt, ...){
 
 #define GPIO_GEN_2 27
 #define GPIO_GEN_3 22
+#define GPIO_GEN_4 4
 
 int  mem_fd;
 void *gpio_map;
 
 // I/O access
 volatile unsigned *gpio;
-unsigned cfg_save[2] ;
+unsigned cfg_save[3] ;
 
 void initGPIO(){
 	unsigned int i = 0 ;
@@ -145,13 +146,17 @@ void initGPIO(){
 	// Always use volatile pointer!
 	gpio = (volatile unsigned *)gpio_map;
 
-	for(i = 0; i < 2 ; i ++){
+	for(i = 0; i < 3 ; i ++){
 		switch(i){
 			case 0:
 				cfg_save[i] = GPIO_REG(GPIO_GEN_2);
 				break ;
 			case 1:
 				cfg_save[i] = GPIO_REG(GPIO_GEN_3);
+				break ;
+			case 2:
+				cfg_save[i] = GPIO_REG(GPIO_GEN_4);
+				break ;
 			default: 
 				break ;
 		};
@@ -160,17 +165,21 @@ void initGPIO(){
 
 	OUT_GPIO(GPIO_GEN_2);
 	OUT_GPIO(GPIO_GEN_3);
+	OUT_GPIO(GPIO_GEN_4);
 }
 
 void closeGPIOs(){
 	unsigned int i ;
-	for(i = 0; i < 2 ; i ++){
+	for(i = 0; i < 3 ; i ++){
 		switch(i){
 			case 0:
 				GPIO_REG(GPIO_GEN_2) = cfg_save[i] ;
 				break ;
 			case 1:
 				GPIO_REG(GPIO_GEN_3) = cfg_save[i] ;
+				break ;
+			case 2:
+				GPIO_REG(GPIO_GEN_4) = cfg_save[i] ;
 				break ;
 			default: 
 				break ;
@@ -193,6 +202,14 @@ void clrGen3(){
 	GPIO_CLR = 1 << GPIO_GEN_3 ;
 }
 
+void setGen4(){
+	GPIO_SET =  1 << GPIO_GEN_4 ;
+}
+void clrGen4(){
+	GPIO_CLR = 1 << GPIO_GEN_4 ;
+}
+
+
 int testRpiGpio(){
 	unsigned short valBuf = 0 ;
 	int res = 0 ;
@@ -200,16 +217,26 @@ int testRpiGpio(){
 	wishbone_write((unsigned char *) &valBuf, 2, GPIO2DIR); // all inputs
 	setGen3();
 	clrGen2();
+	clrGen4();
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
-	if((valBuf & 0x00C0) != 0x0080){
-		test_log(ERROR, "RPI gpio 3-2 test failed, expected %04x got %04x \n", 0x0080, (valBuf & 0x00C0)); 
+	if((valBuf & 0x01C0) != 0x0080){
+		test_log(ERROR, "RPI gpio 4-3-2 test failed, expected %04x got %04x \n", 0x0080, (valBuf & 0x01C0)); 
 		res = -1 ;
 	}
 	clrGen3();
+	clrGen4();
 	setGen2();
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
-	if((valBuf & 0x00C0) != 0x0040){
-		test_log(ERROR, "RPI gpio 3-2 test failed, expected %04x got %04x \n", 0x0040, (valBuf & 0x00C0)); 
+	if((valBuf & 0x01C0) != 0x0040){
+		test_log(ERROR, "RPI gpio 4-3-2 test failed, expected %04x got %04x \n", 0x0040, (valBuf & 0x01C0)); 
+		res = -1 ;
+	}
+	clrGen3();
+	clrGen2();
+	setGen4();
+	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
+	if((valBuf & 0x01C0) != 0x0100){
+		test_log(ERROR, "RPI gpio 4-3-2 test failed, expected %04x got %04x \n", 0x0100, (valBuf & 0x01C0)); 
 		res = -1 ;
 	}
 	closeGPIOs();
