@@ -96,7 +96,7 @@
 #define ARD_TEST2_2 0x0008
 #define ARD_TEST2_2_EXPECTED 0x0004
 
-#define LOG_PATH "~/home/pi/tests_log/%ld_test.log"
+#define LOG_PATH "/home/pi/tests_log/%ld_test.log"
 
 #endif
 
@@ -130,7 +130,7 @@
 #define ARD_TEST2_2 0x0008
 #define ARD_TEST2_2_EXPECTED 0x0004
 
-#define LOG_PATH "~/home/ubuntu/tests_log/%ld_test.log"
+#define LOG_PATH "/home/ubuntu/tests_log/%ld_test.log"
 
 #endif
 
