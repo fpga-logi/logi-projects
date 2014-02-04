@@ -54,7 +54,7 @@ void test_log(enum dbg_level lvl, char * fmt, ...){
 	int msg_size ;	
 	va_list args;
     	va_start(args,fmt);
-	msg_size = sprintf(text_buffer, fmt, args);
+	msg_size = vsprintf(text_buffer, fmt, args);
 	switch(lvl){
 		case INFO :
 			if(log_file != NULL){
