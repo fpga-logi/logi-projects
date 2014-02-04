@@ -39,7 +39,7 @@ int kbhit()
 void init_test_log(){
 	char buffer [256] ;	
 	unsigned long int ts = time(NULL); 
-	sprintf(buffer, "%ld_test.log", ts);
+	sprintf(buffer, LOG_PATH, ts);
 	log_file = fopen(buffer, "w+");
 	if(log_file == NULL){
 		printf("Cannot create log file \n");	
