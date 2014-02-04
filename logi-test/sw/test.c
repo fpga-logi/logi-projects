@@ -491,7 +491,7 @@ int testLVDS(){
         wishbone_read((unsigned char *) & read_val, 2, REG2);
         read_val = (read_val >> SATA_READ_SHIFT) & 0x01 ;
         if(!read_val){
-		test_log(ERROR," writing 1 reading %x :  \n", read_val );
+		test_log(ERROR," writing 1 reading %u :  \n", (unsigned int) read_val );
 		result -- ;   
         }
         write_val = 0;
@@ -499,7 +499,7 @@ int testLVDS(){
         wishbone_read((unsigned char *) &read_val, 2, REG2);
         read_val = (read_val >> SATA_READ_SHIFT) & 0x01 ;
         if(read_val){
-		test_log(ERROR," writing 0 reading %x :  \n", read_val );
+		test_log(ERROR," writing 0 reading %x :  \n", (unsigned int) read_val );
 		result -- ;   
         }
         return result ;
