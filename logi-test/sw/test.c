@@ -44,21 +44,29 @@ void init_test_log(){
 	if(log_file == NULL){
 		printf("Cannot create log file \n");	
 	}
+	fwrite("TIMESTAMP, TEST_NAME, TYPE, TEST_MSG\n", sizeof(char), 37, log_file);
 }
 
 void close_test_log(){
 	fclose(log_file);
 }
 
-void test_log(enum dbg_level lvl, char * fmt, ...){
+void test_log(enum dbg_level lvl, char * test_name, char * fmt, ...){
 	int msg_size ;	
+	unsigned long int ts;
 	va_list args;
     	va_start(args,fmt);
+	ts = time(NULL); 
+	msg_size = sprintf(text_buffer, "%ld", ts);
+	fwrite(text_buffer, sizeof(char), msg_size, log_file); //writing timestamp to file
+	fwrite(",", sizeof(char), 1, log_file); 
+	fwrite(test_name, sizeof(char), strlen(test_name), log_file); //writing test name
+	fwrite(",", sizeof(char), 1, log_file); 
 	msg_size = vsprintf(text_buffer, fmt, args);
 	switch(lvl){
 		case INFO :
 			if(log_file != NULL){
-				fwrite("INFO : ", sizeof(char), 7, log_file);				
+				fwrite("INFO,", sizeof(char), 5, log_file);			
 				fwrite(text_buffer, sizeof(char), msg_size, log_file);
 			}
 			printf("INFO : ");			
@@ -66,7 +74,7 @@ void test_log(enum dbg_level lvl, char * fmt, ...){
 			break ;
 		case WARNING : 
 			if(log_file != NULL){
-				fwrite("WARNING : ", sizeof(char), 10, log_file);				
+				fwrite("WARNING,", sizeof(char), 8, log_file);				
 				fwrite(text_buffer, sizeof(char), msg_size, log_file);
 			}
 			printf("WARNING : ");
@@ -74,7 +82,7 @@ void test_log(enum dbg_level lvl, char * fmt, ...){
 			break ;
 		case ERROR : 			
 			if(log_file != NULL){
-				fwrite("ERROR : ", sizeof(char), 8, log_file);				
+				fwrite("ERROR,", sizeof(char), 6, log_file);				
 				fwrite(text_buffer, sizeof(char), msg_size, log_file);
 			}
 			printf("ERROR : ");
@@ -220,7 +228,7 @@ int testRpiGpio(){
 	clrGen4();
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
 	if((valBuf & 0x01C0) != 0x0080){
-		test_log(ERROR, "RPI gpio 4-3-2 test failed, expected %04x got %04x \n", 0x0080, (valBuf & 0x01C0)); 
+		test_log(ERROR, "RPI_GPIO", "RPI gpio 4-3-2 test failed, expected %04x got %04x \n", 0x0080, (valBuf & 0x01C0)); 
 		res = -1 ;
 	}
 	clrGen3();
@@ -228,7 +236,7 @@ int testRpiGpio(){
 	setGen2();
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
 	if((valBuf & 0x01C0) != 0x0040){
-		test_log(ERROR, "RPI gpio 4-3-2 test failed, expected %04x got %04x \n", 0x0040, (valBuf & 0x01C0)); 
+		test_log(ERROR,"RPI_GPIO" ,"RPI gpio 4-3-2 test failed, expected %04x got %04x \n", 0x0040, (valBuf & 0x01C0)); 
 		res = -1 ;
 	}
 	clrGen3();
@@ -236,7 +244,7 @@ int testRpiGpio(){
 	setGen4();
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
 	if((valBuf & 0x01C0) != 0x0100){
-		test_log(ERROR, "RPI gpio 4-3-2 test failed, expected %04x got %04x \n", 0x0100, (valBuf & 0x01C0)); 
+		test_log(ERROR,"RPI_GPIO", "RPI gpio 4-3-2 test failed, expected %04x got %04x \n", 0x0100, (valBuf & 0x01C0)); 
 		res = -1 ;
 	}
 	closeGPIOs();
@@ -257,12 +265,12 @@ int testPMOD12(){
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
 	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
 	if(valBuf != GPIO_TEST1_1_EXPECTED){
-		test_log(ERROR, "Pass 1 : Expected %04x got %04x \n", (GPIO_TEST1_1_EXPECTED), valBuf);
+		test_log(ERROR, "PMOD_1_2", "Pass 1 : Expected %04x got %04x \n", (GPIO_TEST1_1_EXPECTED), valBuf);
 		if((valBuf & 0x00FF) != ((GPIO_TEST1_1_EXPECTED) & 0x00FF)){
-			test_log(ERROR, "Failure on PMOD1\n");		
+			test_log(ERROR, "PMOD_1_2", "Failure on PMOD1\n");		
 		}
 		if((valBuf & 0xFF00) != ((GPIO_TEST1_1_EXPECTED) & 0xFF00)){
-			test_log(ERROR,"Failure on PMOD2\n");		
+			test_log(ERROR, "PMOD_1_2","Failure on PMOD2\n");		
 		}	
 		return -1 ;
 	}
@@ -271,12 +279,12 @@ int testPMOD12(){
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
 	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
 	if(valBuf != (GPIO_TEST1_2_EXPECTED) ){
-		test_log(ERROR, "Pass 2 : Expected %04x got %04x \n", (GPIO_TEST1_2_EXPECTED), valBuf);
+		test_log(ERROR, "PMOD_1_2", "Pass 2 : Expected %04x got %04x \n", (GPIO_TEST1_2_EXPECTED), valBuf);
 		if((valBuf & 0x00FF) != ((GPIO_TEST1_2_EXPECTED) & 0x00FF)){
-			test_log(ERROR,"Failure on PMOD1\n");		
+			test_log(ERROR, "PMOD_1_2","Failure on PMOD1\n");		
 		}
 		if((valBuf & 0xFF00) != ((GPIO_TEST1_2_EXPECTED) & 0xFF00)){
-			test_log(ERROR,"Failure on PMOD2\n");		
+			test_log(ERROR, "PMOD_1_2","Failure on PMOD2\n");		
 		}	 
 		return -1 ;
 	}
@@ -288,12 +296,12 @@ int testPMOD12(){
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
 	if(valBuf != (GPIO_TEST2_1_EXPECTED)){
-		test_log(ERROR, "Pass 3 : Expected %04x got %04x \n", (GPIO_TEST2_1_EXPECTED), valBuf);
+		test_log(ERROR, "PMOD_1_2", "Pass 3 : Expected %04x got %04x \n", (GPIO_TEST2_1_EXPECTED), valBuf);
 		if((valBuf & 0x00FF) != ((GPIO_TEST2_1_EXPECTED) & 0x00FF)){
-			test_log(ERROR,"Failure on PMOD1\n");		
+			test_log(ERROR, "PMOD_1_2","Failure on PMOD1\n");		
 		}
 		if((valBuf & 0xFF00) != ((GPIO_TEST2_1_EXPECTED) & 0xFF00)){
-			test_log(ERROR,"Failure on PMOD2\n");		
+			test_log(ERROR, "PMOD_1_2","Failure on PMOD2\n");		
 		}		 
 		return -1 ;
 	}
@@ -302,12 +310,12 @@ int testPMOD12(){
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
 	if(valBuf != (GPIO_TEST2_2_EXPECTED) ){
-		test_log(ERROR, "Pass 4 : Expected %04x got %04x \n", (GPIO_TEST2_2_EXPECTED), valBuf);
+		test_log(ERROR, "PMOD_1_2", "Pass 4 : Expected %04x got %04x \n", (GPIO_TEST2_2_EXPECTED), valBuf);
 		if((valBuf & 0x00FF) != ((GPIO_TEST2_2_EXPECTED) & 0x00FF)){
-			test_log(ERROR,"Failure on PMOD1\n");		
+			test_log(ERROR, "PMOD_1_2","Failure on PMOD1\n");		
 		}
 		if((valBuf & 0xFF00) != ((GPIO_TEST2_2_EXPECTED) & 0xFF00)){
-			test_log(ERROR,"Failure on PMOD2\n");		
+			test_log(ERROR, "PMOD_1_2","Failure on PMOD2\n");		
 		}
 		return -1 ;
 	}
@@ -324,11 +332,12 @@ int testPMOD34(){
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
 	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
 	if(valBuf != (GPIO_TEST1_1_EXPECTED)){
+		test_log(ERROR, "PMOD_3_4", "Pass 1 : Expected %04x got %04x \n", (GPIO_TEST1_1_EXPECTED), valBuf);
 		if((valBuf & 0x00FF) != ((GPIO_TEST1_1_EXPECTED) & 0x00FF)){
-			test_log(ERROR,"Failure on PMOD3\n");		
+			test_log(ERROR, "PMOD_3_4","Failure on PMOD3\n");		
 		}
 		if((valBuf & 0xFF00) != ((GPIO_TEST1_1_EXPECTED) & 0xFF00)){
-			test_log(ERROR,"Failure on PMOD4\n");		
+			test_log(ERROR, "PMOD_3_4","Failure on PMOD4\n");		
 		}		
 		return -1 ;
 	}
@@ -337,11 +346,12 @@ int testPMOD34(){
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
 	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
 	if(valBuf != (GPIO_TEST1_2_EXPECTED) ){
+		test_log(ERROR, "PMOD_3_4", "Pass 1 : Expected %04x got %04x \n", (GPIO_TEST1_2_EXPECTED), valBuf);
 		if((valBuf & 0x00FF) != ((GPIO_TEST1_2_EXPECTED) & 0x00FF)){
-			test_log(ERROR,"Failure on PMOD3\n");		
+			test_log(ERROR, "PMOD_3_4","Failure on PMOD3\n");		
 		}
 		if((valBuf & 0xFF00) != ((GPIO_TEST1_2_EXPECTED) & 0xFF00)){
-			test_log(ERROR,"Failure on PMOD4\n");		
+			test_log(ERROR, "PMOD_3_4","Failure on PMOD4\n");		
 		}
 		return -1 ;
 	}
@@ -352,11 +362,12 @@ int testPMOD34(){
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
 	if(valBuf != (GPIO_TEST2_1_EXPECTED)){
+		test_log(ERROR, "PMOD_3_4", "Pass 1 : Expected %04x got %04x \n", (GPIO_TEST2_1_EXPECTED), valBuf);
 		if((valBuf & 0x00FF) != ((GPIO_TEST2_1_EXPECTED) & 0x00FF)){
-			test_log(ERROR,"Failure on PMOD3\n");		
+			test_log(ERROR, "PMOD_3_4","Failure on PMOD3\n");		
 		}
 		if((valBuf & 0xFF00) != ((GPIO_TEST2_1_EXPECTED) & 0xFF00)){
-			test_log(ERROR,"Failure on PMOD4\n");		
+			test_log(ERROR, "PMOD_3_4","Failure on PMOD4\n");		
 		}		
 		return -1 ;
 	}
@@ -365,11 +376,12 @@ int testPMOD34(){
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
 	if(valBuf != (GPIO_TEST2_2_EXPECTED) ){
+		test_log(ERROR, "PMOD_3_4", "Pass 1 : Expected %04x got %04x \n", (GPIO_TEST2_2_EXPECTED), valBuf);
 		if((valBuf & 0x00FF) != ((GPIO_TEST2_2_EXPECTED) & 0x00FF)){
-			test_log(ERROR,"Failure on PMOD3\n");		
+			test_log(ERROR, "PMOD_3_4","Failure on PMOD3\n");		
 		}
 		if((valBuf & 0xFF00) != ((GPIO_TEST2_2_EXPECTED) & 0xFF00)){
-			test_log(ERROR,"Failure on PMOD4\n");		
+			test_log(ERROR, "PMOD_3_4","Failure on PMOD4\n");		
 		}		
 		return -1 ;
 	}
@@ -424,7 +436,7 @@ int testLED(){
 	unsigned int i = 0 ;
 	unsigned short int ledVal = 0x01 ;
 	wishbone_write((unsigned char *) &ledVal, 2, REG0);
-	for(i = 0 ; i < 2 ; i ++){
+	for(i = 0 ; i < 6 ; i ++){
 		ledVal = (~ledVal) & LED_MASK ;
 		wishbone_write((unsigned char *) &ledVal, 2, REG0);
 		sleep(1);
@@ -442,17 +454,17 @@ int testCom(){
 	}	
 
 	if((i = wishbone_write((unsigned char *) writeVals, 2048, MEM0)) < 2048){
-		test_log(ERROR,"Write error !, returned %d \n", i);
+		test_log(ERROR, "COM","Write error !, returned %d \n", i);
 		return -1 ;
 	}
 	if((i = wishbone_read((unsigned char *) readVals, 2048, MEM0)) < 2048){
-		test_log(ERROR,"Read error !, returned %d \n", i);
+		test_log(ERROR, "COM","Read error !, returned %d \n", i);
 		return -1 ;
 	}
 	for(i = 0; i < 512; i ++){
 		if(readVals[i] != writeVals[i]){
-			test_log(ERROR,"Corrupted Value @%i\n", i);	
-			test_log(ERROR,"Expecting  0x%04x , got 0x%04x \n", writeVals[i], readVals[i]);	 	
+			test_log(ERROR, "COM","Corrupted Value @%i\n", i);	
+			test_log(ERROR, "COM","Expecting  0x%04x , got 0x%04x \n", writeVals[i], readVals[i]);	 	
 			return -1 ;	
 		}
 	}
@@ -476,10 +488,10 @@ int getSdramDump(){
 	unsigned short int buffer[8];
 	unsigned char i ;
 	wishbone_read((unsigned char *) buffer, 16, REG_DEBUG_RAM);
-	test_log(ERROR,"test failed : %d \n", (unsigned int) (buffer[0] & 0x8000 == 0x8000));
-	test_log(ERROR,"at address : %08x \n", ((buffer[0] & 0x7FFF) | (buffer[1] << 15)));
-	test_log(ERROR,"with pattern : %04x%04x \n", buffer[5], buffer[6]);
-	test_log(ERROR,"obtained : %04x%04x \n", buffer[2], buffer[3]);
+	test_log(ERROR, "SDRAM","test failed : %d \n", (unsigned int) (buffer[0] & 0x8000 == 0x8000));
+	test_log(ERROR, "SDRAM","at address : %08x \n", ((buffer[0] & 0x7FFF) | (buffer[1] << 15)));
+	test_log(ERROR, "SDRAM","with pattern : %04x%04x \n", buffer[5], buffer[6]);
+	test_log(ERROR, "SDRAM","obtained : %04x%04x \n", buffer[2], buffer[3]);
 	return 0 ;
 }
 
@@ -491,7 +503,7 @@ int testLVDS(){
         wishbone_read((unsigned char *) & read_val, 2, REG2);
         read_val = (read_val >> SATA_READ_SHIFT) & 0x01 ;
         if(!read_val){
-		test_log(ERROR," writing 1 reading %u :  \n", (unsigned int) read_val );
+		test_log(ERROR, "LVDS"," writing 1 reading %u :  \n", (unsigned int) read_val );
 		result -- ;   
         }
         write_val = 0;
@@ -499,7 +511,7 @@ int testLVDS(){
         wishbone_read((unsigned char *) &read_val, 2, REG2);
         read_val = (read_val >> SATA_READ_SHIFT) & 0x01 ;
         if(read_val){
-		test_log(ERROR," writing 0 reading %x :  \n", (unsigned int) read_val );
+		test_log(ERROR, "LVDS"," writing 0 reading %x :  \n", (unsigned int) read_val );
 		result -- ;   
         }
         return result ;
@@ -516,7 +528,7 @@ int test_arduino_port(){
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
 	valBuf = (valBuf & (~ARD_TEST1_DIR)) & ARD_MASK  ;
 	if(valBuf != ARD_TEST1_1_EXPECTED){
-		test_log(ERROR, "Pass 1 : Expected %04x got %04x \n", (ARD_TEST1_1_EXPECTED), valBuf);
+		test_log(ERROR, "ARDUINO", "Pass 1 : Expected %04x got %04x \n", (ARD_TEST1_1_EXPECTED), valBuf);
 		return -1 ;
 	}
 	valBuf = ARD_TEST1_2 ;
@@ -524,7 +536,7 @@ int test_arduino_port(){
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
 	valBuf = (valBuf & (~ARD_TEST1_DIR)) & ARD_MASK  ;
 	if(valBuf != (ARD_TEST1_2_EXPECTED) ){
-		test_log(ERROR, "Pass 2 : Expected %04x got %04x \n", (ARD_TEST1_2_EXPECTED), valBuf); 
+		test_log(ERROR, "ARDUINO", "Pass 2 : Expected %04x got %04x \n", (ARD_TEST1_2_EXPECTED), valBuf); 
 		return -1 ;
 	}
 
@@ -535,7 +547,7 @@ int test_arduino_port(){
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
 	valBuf = (valBuf & (~ARD_TEST2_DIR)) & ARD_MASK  ;
 	if(valBuf != (ARD_TEST2_1_EXPECTED)){
-		test_log(ERROR, "Pass 3 : Expected %04x got %04x \n", (ARD_TEST2_1_EXPECTED), valBuf); 
+		test_log(ERROR, "ARDUINO", "Pass 3 : Expected %04x got %04x \n", (ARD_TEST2_1_EXPECTED), valBuf); 
 		return -1 ;
 	}
 	valBuf = ARD_TEST2_2 ;
@@ -543,7 +555,7 @@ int test_arduino_port(){
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
 	valBuf = (valBuf & (~ARD_TEST2_DIR)) & ARD_MASK  ;
 	if(valBuf != (ARD_TEST2_2_EXPECTED) ){
-		test_log(ERROR, "Pass 4 : Expected %04x got %04x \n", (ARD_TEST2_2_EXPECTED), valBuf);
+		test_log(ERROR, "ARDUINO", "Pass 4 : Expected %04x got %04x \n", (ARD_TEST2_2_EXPECTED), valBuf);
 		return -1 ;
 	}
 	return 0 ;
@@ -552,129 +564,129 @@ int test_arduino_port(){
 
 int main(int argc, char ** argv){
 	char c ;	
-	char * argv2 [3];	
-	test_log(INFO,"Press Enter to begin testing \n");
-	while(fgets(&c, 1, stdin)== NULL);
-	init_test_log();
-	test_log(INFO,"----------------Loading FPGA--------------\n");	
+	char * argv2 [3];
+	init_test_log();	
+	test_log(INFO,"MAIN", "Press Enter to begin testing \n");
+	while(fgets(&c, 1, stdin) == NULL);
+	test_log(INFO, "MAIN","----------------Loading FPGA--------------\n");	
 	// load fpga
 	system(LOAD_CMD);
 	//
 	sleep(1);
-	test_log(INFO,"-----------------Starting Test-------------\n");
+	test_log(INFO, "MAIN","-----------------Starting Test-------------\n");
 	
 	#ifdef TEST_COMM
-	test_log(INFO,"-----------------Communication Test---------------\n");
+	test_log(INFO, "COM","-----------------Communication Test---------------\n");
 	if(testCom() < 0) {
-		test_log(ERROR,"Communication test failed \n");	
+		test_log(ERROR, "COM","Communication test failed \n");	
 		close_test_log();
 		return -1 ;
 	}else{
-		test_log(INFO,"Communication test passed \n");	
+		test_log(INFO, "COM","Communication test passed \n");	
 	}
 	#endif
 	
 	#ifdef TEST_PMOD_1_2
-	test_log(INFO,"-------------------GPIO Test---------------\n");
+	test_log(INFO, "MAIN","-------------------GPIO Test---------------\n");
 	if(testPMOD12() < 0){
-		test_log(ERROR,"PMOD1-2 test failed \n");		
+		test_log(ERROR, "PMOD_1_2","PMOD1-2 test failed \n");		
 	}else{
-		test_log(INFO,"PMOD1-2 test passed \n");
+		test_log(INFO, "PMOD_1_2","PMOD1-2 test passed \n");
 	}
 	#endif
 
 	#ifdef TEST_PMOD_3_4
 	if(testPMOD34() < 0){
-		test_log(ERROR,"PMOD3-4 test failed \n");	
+		test_log(ERROR, "PMOD_3_4","PMOD3-4 test failed \n");	
 	}else{
-		test_log(INFO,"PMOD3-4 test passed \n");
+		test_log(INFO, "PMOD_3_4","PMOD3-4 test passed \n");
 	}
 	#endif
 
 	#ifdef TEST_ARD
 	if(test_arduino_port() < 0){
-		test_log(ERROR,"Arduino connector test failed \n");	
+		test_log(ERROR, "ARDUINO","Arduino connector test failed \n");	
 	}else{
-		test_log(INFO,"Arduino connector test passed \n");
+		test_log(INFO, "ARDUINO","Arduino connector test passed \n");
 	}
 	#endif
 	
 	#ifdef TEST_RPI_GPIO
 	if(testRpiGpio() < 0){
-		test_log(ERROR,"RPI GPIO test failed \n");	
+		test_log(ERROR, "RPI_GPIO","RPI GPIO test failed \n");	
 	}else{
-		test_log(INFO,"RPI GPIO connector test passed \n");
+		test_log(INFO, "RPI_GPIO","RPI GPIO connector test passed \n");
 	}
 	#endif
 	
 	
 	#ifdef TEST_LED
-	test_log(INFO,"----------------Testing LEDs--------------\n");
+	test_log(INFO, "MAIN","----------------Testing LEDs--------------\n");
 	testLED();
 	printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
 	while(fgets(&c, 2, stdin)== NULL) printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
 	printf("%c \n", c);
 	if(c == 'n'){
-		test_log(INFO,"Led test failed \n");	
+		test_log(ERROR, "LED","Led test failed \n");	
 	}else{
 		while(c != 'y'){
 			testLED();
 			printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
 			while(fgets(&c, 2, stdin)== NULL) printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
 			if(c == 'n'){
-				test_log(ERROR,"Led test failed \n");	
+				test_log(ERROR, "LED","Led test failed \n");	
 				break ;	
 			}
 			printf("\n");
 		}
 		if(c == 'y'){
-			test_log(INFO,"Led test passed \n");
+			test_log(INFO, "LED","Led test passed \n");
 		}
 	}
 	#endif
 	
 	#ifdef TEST_PB
 	printf("\n");
-	test_log(INFO,"----------------Testing PB--------------\n");
+	test_log(INFO, "MAIN","----------------Testing PB--------------\n");
 	printf("Click the Push buttons, press enter if nothing happens \n");
 	if(testPB() < 0){
-		test_log(ERROR,"PB test failed \n");	
+		test_log(ERROR, "PB","PB test failed \n");	
 	}else{
-		test_log(INFO,"PB test passed \n");
+		test_log(INFO, "PB","PB test passed \n");
 	}
 	#endif
 	
 	#ifdef TEST_SW
-	test_log(INFO,"----------------Testing SW--------------\n");
+	test_log(INFO, "MAIN","----------------Testing SW--------------\n");
 	printf("Switch the switches, press enter if nothing happens \n");
 	if(testSW() < 0){
-		test_log(ERROR,"SW test failed \n");	
+		test_log(ERROR, "SW","SW test failed \n");	
 	}else{
-		test_log(INFO,"SW test passed \n");
+		test_log(INFO, "SW","SW test passed \n");
 	}
 	#endif
 
 	
 	
 	#ifdef TEST_SDRAM
-	test_log(INFO,"----------------Testing SDRAM--------------\n");	
+	test_log(INFO, "MAIN","----------------Testing SDRAM--------------\n");	
 	while(testSdram() > 0) sleep(1);
 	if(testSdram() < 0){
-		test_log(ERROR,"SDRAM test failed \n");
+		test_log(ERROR, "SDRAM","SDRAM test failed \n");
 		getSdramDump();	
 	}else{
-		test_log(INFO,"SDRAM test passed \n");	
+		test_log(INFO, "SDRAM","SDRAM test passed \n");	
 	}
 	#endif
 
 	#ifdef TEST_LVDS
-	test_log(INFO,"----------------Testing LVDS--------------\n");	
+	test_log(INFO, "MAIN","----------------Testing LVDS--------------\n");	
 	if(testLVDS() < 0){
-		test_log(ERROR,"LVDS test failed \n");	
+		test_log(ERROR, "LVDS","LVDS test failed \n");	
 	}else{
-		test_log(INFO,"LVDS test passed \n");	
+		test_log(INFO, "LVDS","LVDS test passed \n");	
 	}
-	test_log(INFO,"--------------- End of test ----------------\n");
+	test_log(INFO, "MAIN","--------------- End of test ----------------\n");
 	#endif
 	close_test_log();
 	return 0 ;
