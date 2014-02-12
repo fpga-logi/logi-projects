@@ -521,6 +521,7 @@ int testLVDS(){
 int test_arduino_port(){
 	unsigned short int dirBuf ;
 	unsigned short int valBuf ;
+	int test_result = 0 ;
 	dirBuf = ARD_TEST1_DIR ;
 	valBuf = ARD_TEST1_1 ; 
 	wishbone_write((unsigned char *) &dirBuf, 2, GPIO2DIR);
@@ -529,7 +530,7 @@ int test_arduino_port(){
 	valBuf = (valBuf & (~ARD_TEST1_DIR)) & ARD_MASK  ;
 	if(valBuf != ARD_TEST1_1_EXPECTED){
 		test_log(ERROR, "ARDUINO", "Pass 1 : Expected %04x got %04x \n", (ARD_TEST1_1_EXPECTED), valBuf);
-		return -1 ;
+		test_result =  -1 ;
 	}
 	valBuf = ARD_TEST1_2 ;
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO2);
@@ -537,7 +538,7 @@ int test_arduino_port(){
 	valBuf = (valBuf & (~ARD_TEST1_DIR)) & ARD_MASK  ;
 	if(valBuf != (ARD_TEST1_2_EXPECTED) ){
 		test_log(ERROR, "ARDUINO", "Pass 2 : Expected %04x got %04x \n", (ARD_TEST1_2_EXPECTED), valBuf); 
-		return -1 ;
+		test_result =  -1 ;
 	}
 
 	dirBuf = ARD_TEST2_DIR ;
@@ -548,7 +549,7 @@ int test_arduino_port(){
 	valBuf = (valBuf & (~ARD_TEST2_DIR)) & ARD_MASK  ;
 	if(valBuf != (ARD_TEST2_1_EXPECTED)){
 		test_log(ERROR, "ARDUINO", "Pass 3 : Expected %04x got %04x \n", (ARD_TEST2_1_EXPECTED), valBuf); 
-		return -1 ;
+		test_result =  -1 ;
 	}
 	valBuf = ARD_TEST2_2 ;
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO2);
@@ -556,9 +557,9 @@ int test_arduino_port(){
 	valBuf = (valBuf & (~ARD_TEST2_DIR)) & ARD_MASK  ;
 	if(valBuf != (ARD_TEST2_2_EXPECTED) ){
 		test_log(ERROR, "ARDUINO", "Pass 4 : Expected %04x got %04x \n", (ARD_TEST2_2_EXPECTED), valBuf);
-		return -1 ;
+		test_result =  -1 ;
 	}
-	return 0 ;
+	return test_result ;
 
 }
 
