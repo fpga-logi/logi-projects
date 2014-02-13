@@ -350,7 +350,7 @@ int testPMOD12OpenTest(){
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
 	if(valBuf != 0x00){
-		test_log(ERROR, "PMOD_1_2 Open Test", "Pass 3 : Expected %04x got %04x \n", 0x00, valBuf);
+		test_log(ERROR, "PMOD_1_2 Open Test", "Pass 2 : Expected %04x got %04x \n", 0x00, valBuf);
 		if((valBuf & 0x00FF) != ((0x00) & 0x00FF)){
 			test_log(ERROR, "PMOD_1_2","Failure on PMOD1\n");		
 		}
@@ -455,7 +455,7 @@ int testPMOD34OpenTest(){
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
 	if(valBuf != (0x00)){
-		test_log(ERROR, "PMOD_3_4 Open Test", "Pass 1 : Expected %04x got %04x \n", (0x00), valBuf);
+		test_log(ERROR, "PMOD_3_4 Open Test", "Pass 2 : Expected %04x got %04x \n", (0x00), valBuf);
 		if((valBuf & 0x00FF) != ((0x00) & 0x00FF)){
 			test_log(ERROR, "PMOD_3_4","Failure on PMOD3\n");		
 		}
@@ -673,11 +673,11 @@ int test_arduino_port_open(){
 }
 
 int main(int argc, char ** argv){
-	char c ;	
+	char c [10];	
 	char * argv2 [3];
 	init_test_log();	
 	test_log(INFO,"MAIN", "Press Enter to begin testing \n");
-	while(fgets(&c, 1, stdin) == NULL);
+	while(fgets(c, 2, stdin) == NULL);
 	test_log(INFO, "MAIN","----------------Loading FPGA--------------\n");	
 	// load fpga
 	system(LOAD_CMD);
@@ -734,22 +734,22 @@ int main(int argc, char ** argv){
 	test_log(INFO, "MAIN","----------------Testing LEDs--------------\n");
 	testLED();
 	printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
-	while(fgets(&c, 2, stdin)== NULL) printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
-	printf("%c \n", c);
-	if(c == 'n'){
+	while(fgets(c, 2, stdin)== NULL) printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
+	//printf("%c \n", c[0]);
+	if(c[0] == 'n'){
 		test_log(ERROR, "LED","Led test failed \n");	
 	}else{
-		while(c != 'y'){
+		while(c[0] != 'y'){
 			testLED();
 			printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
-			while(fgets(&c, 2, stdin)== NULL) printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
-			if(c == 'n'){
+			while(fgets(c, 2, stdin)== NULL) printf("Did the two LED blinked ? (r=retry, y=yes, n=no):");
+			if(c[0] == 'n'){
 				test_log(ERROR, "LED","Led test failed \n");	
 				break ;	
 			}
 			printf("\n");
 		}
-		if(c == 'y'){
+		if(c[0] == 'y'){
 			test_log(INFO, "LED","Led test passed \n");
 		}
 	}
@@ -801,8 +801,9 @@ int main(int argc, char ** argv){
 
 
 	test_log(INFO, "MAIN","----------------Starting Open Test--------------\n");
-	test_log(INFO, "MAIN","------Remove IOs test-jiigs and then press a key to continue------\n");
-	while(fgets(&c, 2, stdin)== NULL);
+	test_log(INFO, "MAIN","------Remove IOs test-jiigs and then press y key to continue------\n");
+	c[0] = 'a' ;	
+	while(fgets(c, 2, stdin)== NULL || c[0] != 'y');
 	
 	#ifdef TEST_PMOD_1_2
 	if(testPMOD12OpenTest() < 0){
