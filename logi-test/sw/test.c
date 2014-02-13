@@ -322,6 +322,46 @@ int testPMOD12(){
 	return 0 ;
 }
 
+
+int testPMOD12OpenTest(){
+	unsigned short int dirBuf ;
+	unsigned short int valBuf ;
+	dirBuf = GPIO_TEST1_DIR ;
+	valBuf = GPIO_TEST1_DIR ; 
+	wishbone_write((unsigned char *) &dirBuf, 2, GPIO0DIR);
+	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
+	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
+	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
+	if(valBuf != 0x00){
+		test_log(ERROR, "PMOD_1_2 Open Test", "Pass 1 : Expected %04x got %04x \n", 0x00, valBuf);
+		if((valBuf & 0x00FF) != ((0x00) & 0x00FF)){
+			test_log(ERROR, "PMOD_1_2", "Failure on PMOD1\n");		
+		}
+		if((valBuf & 0xFF00) != ((0x00) & 0xFF00)){
+			test_log(ERROR, "PMOD_1_2","Failure on PMOD2\n");		
+		}	
+		return -1 ;
+	}
+
+	dirBuf = GPIO_TEST2_DIR ;
+	valBuf = GPIO_TEST2_DIR ; 
+	wishbone_write((unsigned char *) &dirBuf, 2, GPIO0DIR);
+	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
+	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
+	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
+	if(valBuf != 0x00){
+		test_log(ERROR, "PMOD_1_2 Open Test", "Pass 3 : Expected %04x got %04x \n", 0x00, valBuf);
+		if((valBuf & 0x00FF) != ((0x00) & 0x00FF)){
+			test_log(ERROR, "PMOD_1_2","Failure on PMOD1\n");		
+		}
+		if((valBuf & 0xFF00) != ((0x00) & 0xFF00)){
+			test_log(ERROR, "PMOD_1_2","Failure on PMOD2\n");		
+		}		 
+		return -1 ;
+	}
+	return 0 ;
+}
+
 int testPMOD34(){
 	unsigned short int dirBuf ;
 	unsigned short int valBuf ;
@@ -386,6 +426,44 @@ int testPMOD34(){
 		return -1 ;
 	}
 
+	return 0 ;
+}
+
+int testPMOD34OpenTest(){
+	unsigned short int dirBuf ;
+	unsigned short int valBuf ;
+	dirBuf = GPIO_TEST1_DIR ;
+	valBuf = GPIO_TEST1_DIR ; 
+	wishbone_write((unsigned char *) &dirBuf, 2, GPIO1DIR);
+	wishbone_write((unsigned char *)&valBuf, 2, GPIO1);
+	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
+	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
+	if(valBuf != 0x00 ){
+		test_log(ERROR, "PMOD_3_4 Open Test", "Pass 1 : Expected %04x got %04x \n", 0x00, valBuf);
+		if((valBuf & 0x00FF) != ((0x00) & 0x00FF)){
+			test_log(ERROR, "PMOD_3_4","Failure on PMOD3\n");		
+		}
+		if((valBuf & 0xFF00) != ((0x00) & 0xFF00)){
+			test_log(ERROR, "PMOD_3_4","Failure on PMOD4\n");		
+		}		
+		return -1 ;
+	}
+	dirBuf = GPIO_TEST2_DIR ;
+	valBuf = GPIO_TEST2_DIR ; 
+	wishbone_write((unsigned char *) &dirBuf, 2, GPIO1DIR);
+	wishbone_write((unsigned char *)&valBuf, 2, GPIO1);
+	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
+	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
+	if(valBuf != (0x00)){
+		test_log(ERROR, "PMOD_3_4 Open Test", "Pass 1 : Expected %04x got %04x \n", (0x00), valBuf);
+		if((valBuf & 0x00FF) != ((0x00) & 0x00FF)){
+			test_log(ERROR, "PMOD_3_4","Failure on PMOD3\n");		
+		}
+		if((valBuf & 0xFF00) != ((0x00) & 0xFF00)){
+			test_log(ERROR, "PMOD_3_4","Failure on PMOD4\n");		
+		}		
+		return -1 ;
+	}
 	return 0 ;
 }
 
@@ -563,6 +641,37 @@ int test_arduino_port(){
 
 }
 
+
+
+int test_arduino_port_open(){
+	unsigned short int dirBuf ;
+	unsigned short int valBuf ;
+	int test_result = 0 ;
+	dirBuf = ARD_TEST1_DIR ;
+	valBuf = ARD_TEST1_DIR ; 
+	wishbone_write((unsigned char *) &dirBuf, 2, GPIO2DIR);
+	wishbone_write((unsigned char *)&valBuf, 2, GPIO2);
+	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
+	valBuf = (valBuf & (~ARD_TEST1_DIR)) & ARD_MASK  ;
+	if(valBuf != 0x00){
+		test_log(ERROR, "ARDUINO Open Test", "Pass 1 : Expected %04x got %04x \n", 0x00, valBuf);
+		test_result =  -1 ;
+	}
+
+	dirBuf = ARD_TEST2_DIR ;
+	valBuf = ARD_TEST2_DIR ; 
+	wishbone_write((unsigned char *) &dirBuf, 2, GPIO2DIR);
+	wishbone_write((unsigned char *)&valBuf, 2, GPIO2);
+	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
+	valBuf = (valBuf & (~ARD_TEST2_DIR)) & ARD_MASK  ;
+	if(valBuf != 0x00){
+		test_log(ERROR, "ARDUINO Open Test", "Pass 3 : Expected %04x got %04x \n", 0x00, valBuf); 
+		test_result =  -1 ;
+	}
+	return test_result ;
+
+}
+
 int main(int argc, char ** argv){
 	char c ;	
 	char * argv2 [3];
@@ -689,6 +798,39 @@ int main(int argc, char ** argv){
 	}
 	test_log(INFO, "MAIN","--------------- End of test ----------------\n");
 	#endif
+
+
+	test_log(INFO, "MAIN","----------------Starting Open Test--------------\n");
+	test_log(INFO, "MAIN","------Remove IOs test-jiigs and then press a key to continue------\n");
+	while(fgets(&c, 2, stdin)== NULL);
+	
+	#ifdef TEST_PMOD_1_2
+	if(testPMOD12OpenTest() < 0){
+		test_log(ERROR, "PMOD_1_2 Open","PMOD1-2 Open test failed \n");		
+	}else{
+		test_log(INFO, "PMOD_1_2 Open","PMOD1-2 Open test passed \n");
+	}
+	#endif
+
+	#ifdef TEST_PMOD_3_4
+	if(testPMOD34OpenTest() < 0){
+		test_log(ERROR, "PMOD_3_4 Open","PMOD3-4 Open test failed \n");	
+	}else{
+		test_log(INFO, "PMOD_3_4 Open","PMOD3-4 Open test passed \n");
+	}
+	#endif
+
+	#ifdef TEST_ARD
+	if(test_arduino_port_open() < 0){
+		test_log(ERROR, "ARDUINO Open","Arduino connector Open test failed \n");	
+	}else{
+		test_log(INFO, "ARDUINO Open","Arduino connector Open test passed \n");
+	}
+	#endif
+
+
+
+
 	close_test_log();
 	return 0 ;
 	
