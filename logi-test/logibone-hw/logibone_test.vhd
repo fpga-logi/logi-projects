@@ -404,6 +404,7 @@ gpio2 : wishbone_gpio
 			gpio(9 downto 8) => open, 
 			gpio(7 downto 6) => open,  -- connect to sata port and arduino pins 
 			gpio(5 downto 0) => ARD_D
+			--gpio(5 downto 0) => open
 	 );	
 	
 reg0 : wishbone_register
