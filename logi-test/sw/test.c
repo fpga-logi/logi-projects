@@ -326,8 +326,8 @@ int testPMOD12(){
 int testPMOD12OpenTest(){
 	unsigned short int dirBuf ;
 	unsigned short int valBuf ;
-	dirBuf = GPIO_TEST1_DIR ;
-	valBuf = (~GPIO_TEST1_DIR) ; // pulling pins down
+	dirBuf = (unsigned short int)GPIO_TEST1_DIR ;
+	valBuf = ((unsigned short int)~GPIO_TEST1_DIR) ; // pulling pins down
 	wishbone_write((unsigned char *) &dirBuf, 2, GPIO0DIR);
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
@@ -432,8 +432,8 @@ int testPMOD34(){
 int testPMOD34OpenTest(){
 	unsigned short int dirBuf ;
 	unsigned short int valBuf ;
-	dirBuf = GPIO_TEST1_DIR ;
-	valBuf = (~GPIO_TEST1_DIR) ; 
+	dirBuf = (unsigned short int)GPIO_TEST1_DIR ;
+	valBuf = ((unsigned short int)~GPIO_TEST1_DIR) ; 
 	wishbone_write((unsigned char *) &dirBuf, 2, GPIO1DIR);
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO1);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
