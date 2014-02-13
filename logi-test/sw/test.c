@@ -327,13 +327,13 @@ int testPMOD12OpenTest(){
 	unsigned short int dirBuf ;
 	unsigned short int valBuf ;
 	dirBuf = GPIO_TEST1_DIR ;
-	valBuf = GPIO_TEST1_DIR ; 
+	valBuf = (~GPIO_TEST1_DIR) ; // pulling pins down
 	wishbone_write((unsigned char *) &dirBuf, 2, GPIO0DIR);
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
 	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
-	if(valBuf != 0x00){
-		test_log(ERROR, "PMOD_1_2 Open Test", "Pass 1 : Expected %04x got %04x \n", 0x00, valBuf);
+	if(valBuf != (unsigned short int) (~GPIO_TEST1_DIR)){
+		test_log(ERROR, "PMOD_1_2 Open Test", "Pass 1 : Expected %04x got %04x \n", (unsigned short int) (~GPIO_TEST1_DIR), valBuf);
 		if((valBuf & 0x00FF) != ((0x00) & 0x00FF)){
 			test_log(ERROR, "PMOD_1_2", "Failure on PMOD1\n");		
 		}
@@ -344,13 +344,13 @@ int testPMOD12OpenTest(){
 	}
 
 	dirBuf = GPIO_TEST2_DIR ;
-	valBuf = GPIO_TEST2_DIR ; 
+	valBuf = ~GPIO_TEST2_DIR ; 
 	wishbone_write((unsigned char *) &dirBuf, 2, GPIO0DIR);
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
-	if(valBuf != 0x00){
-		test_log(ERROR, "PMOD_1_2 Open Test", "Pass 2 : Expected %04x got %04x \n", 0x00, valBuf);
+	if(valBuf != (unsigned short int) (~GPIO_TEST2_DIR)){
+		test_log(ERROR, "PMOD_1_2 Open Test", "Pass 2 : Expected %04x got %04x \n", (unsigned short int) (~GPIO_TEST2_DIR), valBuf);
 		if((valBuf & 0x00FF) != ((0x00) & 0x00FF)){
 			test_log(ERROR, "PMOD_1_2","Failure on PMOD1\n");		
 		}
@@ -433,13 +433,13 @@ int testPMOD34OpenTest(){
 	unsigned short int dirBuf ;
 	unsigned short int valBuf ;
 	dirBuf = GPIO_TEST1_DIR ;
-	valBuf = GPIO_TEST1_DIR ; 
+	valBuf = (~GPIO_TEST1_DIR) ; 
 	wishbone_write((unsigned char *) &dirBuf, 2, GPIO1DIR);
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO1);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
 	valBuf = valBuf & (~GPIO_TEST1_DIR)  ;
-	if(valBuf != 0x00 ){
-		test_log(ERROR, "PMOD_3_4 Open Test", "Pass 1 : Expected %04x got %04x \n", 0x00, valBuf);
+	if(valBuf != (unsigned short int) (~GPIO_TEST1_DIR) ){
+		test_log(ERROR, "PMOD_3_4 Open Test", "Pass 1 : Expected %04x got %04x \n", (unsigned short int) ~GPIO_TEST1_DIR, valBuf);
 		if((valBuf & 0x00FF) != ((0x00) & 0x00FF)){
 			test_log(ERROR, "PMOD_3_4","Failure on PMOD3\n");		
 		}
@@ -449,13 +449,13 @@ int testPMOD34OpenTest(){
 		return -1 ;
 	}
 	dirBuf = GPIO_TEST2_DIR ;
-	valBuf = GPIO_TEST2_DIR ; 
+	valBuf = ~GPIO_TEST2_DIR ; 
 	wishbone_write((unsigned char *) &dirBuf, 2, GPIO1DIR);
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO1);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO1);
 	valBuf = valBuf & (~GPIO_TEST2_DIR)  ;
-	if(valBuf != (0x00)){
-		test_log(ERROR, "PMOD_3_4 Open Test", "Pass 2 : Expected %04x got %04x \n", (0x00), valBuf);
+	if(valBuf != (unsigned short int) (~GPIO_TEST2_DIR)){
+		test_log(ERROR, "PMOD_3_4 Open Test", "Pass 2 : Expected %04x got %04x \n", (unsigned short int) (~GPIO_TEST2_DIR), valBuf);
 		if((valBuf & 0x00FF) != ((0x00) & 0x00FF)){
 			test_log(ERROR, "PMOD_3_4","Failure on PMOD3\n");		
 		}
@@ -607,6 +607,7 @@ int test_arduino_port(){
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
 	valBuf = (valBuf & (~ARD_TEST1_DIR)) & ARD_MASK  ;
 	if(valBuf != ARD_TEST1_1_EXPECTED){
+		test_log(ERROR, "ARDUINO ", "Failure on Arduino connector test");
 		test_log(ERROR, "ARDUINO", "Pass 1 : Expected %04x got %04x \n", (ARD_TEST1_1_EXPECTED), valBuf);
 		test_result =  -1 ;
 	}
@@ -615,6 +616,7 @@ int test_arduino_port(){
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
 	valBuf = (valBuf & (~ARD_TEST1_DIR)) & ARD_MASK  ;
 	if(valBuf != (ARD_TEST1_2_EXPECTED) ){
+		test_log(ERROR, "ARDUINO ", "Failure on Arduino connector test");
 		test_log(ERROR, "ARDUINO", "Pass 2 : Expected %04x got %04x \n", (ARD_TEST1_2_EXPECTED), valBuf); 
 		test_result =  -1 ;
 	}
@@ -626,6 +628,7 @@ int test_arduino_port(){
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
 	valBuf = (valBuf & (~ARD_TEST2_DIR)) & ARD_MASK  ;
 	if(valBuf != (ARD_TEST2_1_EXPECTED)){
+		test_log(ERROR, "ARDUINO ", "Failure on Arduino connector test");
 		test_log(ERROR, "ARDUINO", "Pass 3 : Expected %04x got %04x \n", (ARD_TEST2_1_EXPECTED), valBuf); 
 		test_result =  -1 ;
 	}
@@ -634,6 +637,7 @@ int test_arduino_port(){
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
 	valBuf = (valBuf & (~ARD_TEST2_DIR)) & ARD_MASK  ;
 	if(valBuf != (ARD_TEST2_2_EXPECTED) ){
+		test_log(ERROR, "ARDUINO ", "Failure on Arduino connector test");
 		test_log(ERROR, "ARDUINO", "Pass 4 : Expected %04x got %04x \n", (ARD_TEST2_2_EXPECTED), valBuf);
 		test_result =  -1 ;
 	}
@@ -648,24 +652,26 @@ int test_arduino_port_open(){
 	unsigned short int valBuf ;
 	int test_result = 0 ;
 	dirBuf = ARD_TEST1_DIR ;
-	valBuf = ARD_TEST1_DIR ; 
+	valBuf = ~(ARD_TEST1_DIR) ; 
 	wishbone_write((unsigned char *) &dirBuf, 2, GPIO2DIR);
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO2);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
 	valBuf = (valBuf & (~ARD_TEST1_DIR)) & ARD_MASK  ;
-	if(valBuf != 0x00){
-		test_log(ERROR, "ARDUINO Open Test", "Pass 1 : Expected %04x got %04x \n", 0x00, valBuf);
+	if(valBuf != (unsigned short int) ((~ARD_TEST1_DIR)&ARD_MASK)){
+		test_log(ERROR, "ARDUINO Open Test", "Failure on Arduino connector open test");
+		test_log(ERROR, "ARDUINO Open Test", "Pass 1 : Expected %04x got %04x \n", (unsigned short int) ((~ARD_TEST1_DIR)&ARD_MASK), valBuf);
 		test_result =  -1 ;
 	}
 
 	dirBuf = ARD_TEST2_DIR ;
-	valBuf = ARD_TEST2_DIR ; 
+	valBuf = ~ARD_TEST2_DIR ; 
 	wishbone_write((unsigned char *) &dirBuf, 2, GPIO2DIR);
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO2);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO2);
 	valBuf = (valBuf & (~ARD_TEST2_DIR)) & ARD_MASK  ;
-	if(valBuf != 0x00){
-		test_log(ERROR, "ARDUINO Open Test", "Pass 3 : Expected %04x got %04x \n", 0x00, valBuf); 
+	if(valBuf != (unsigned short int) ((~ARD_TEST2_DIR)&ARD_MASK)){
+		test_log(ERROR, "ARDUINO Open Test", "Failure on Arduino connector open test");
+		test_log(ERROR, "ARDUINO Open Test", "Pass 2 : Expected %04x got %04x \n", (unsigned short int) ((~ARD_TEST2_DIR)&ARD_MASK), valBuf); 
 		test_result =  -1 ;
 	}
 	return test_result ;
