@@ -222,7 +222,7 @@ register0 : wishbone_register
 		  gls_reset   => sys_reset ,
 		  gls_clk     => sys_clk ,
 		  -- Wishbone signals
-		  wbs_add      =>  intercon_register_wbm_address ,
+		  wbs_address      =>  intercon_register_wbm_address ,
 		  wbs_writedata => intercon_register_wbm_writedata,
 		  wbs_readdata  => intercon_register_wbm_readdata,
 		  wbs_strobe    => intercon_register_wbm_strobe,
@@ -251,7 +251,7 @@ register0 : wishbone_register
 			  gls_reset   => sys_reset ,
 			  gls_clk     => sys_clk ,
 			  -- Wishbone signals
-			  wbs_add      =>  intercon_pwm0_wbm_address ,
+			  wbs_address      =>  intercon_pwm0_wbm_address ,
 			  wbs_writedata => intercon_pwm0_wbm_writedata,
 			  wbs_readdata  => intercon_pwm0_wbm_readdata,
 			  wbs_strobe    => intercon_pwm0_wbm_strobe,
@@ -283,7 +283,7 @@ port map(
 			  gls_reset   => sys_reset ,
 			  gls_clk     => sys_clk ,
 			  -- Wishbone signals
-			  wbs_add      =>  intercon_mem0_wbm_address ,
+			  wbs_address      =>  intercon_mem0_wbm_address ,
 			  wbs_writedata => intercon_mem0_wbm_writedata,
 			  wbs_readdata  => intercon_mem0_wbm_readdata,
 			  wbs_strobe    => intercon_mem0_wbm_strobe,
