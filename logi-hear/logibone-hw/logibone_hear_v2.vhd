@@ -180,7 +180,7 @@ begin
 ARD_SCL <= 'Z' ;
 ARD_SDA <= 'Z' ;
 
-LED(1) <= (GPMC_BEN(0) XOR GPMC_BEN(1)) ;
+LED(1) <= fifo0_full ;
 LED(0) <= fifo0_wr ; -- should give an indication of SPDIF working
 sys_reset <= NOT PB(0); 
 sys_resetn <= NOT sys_reset ; -- for preipherals with active low reset
@@ -196,12 +196,13 @@ pll0 : clock_gen
     -- Status and control signals
     LOCKED => clock_locked);
 
-sys_clk <= clk_120Mhz ;
-audio_clk <= clk_120Mhz ;
+sys_clk <= clk_100Mhz ;
+audio_clk <= clk_100Mhz ;
 --GPMC_CLK <= clk_50Mhz;
 
 
 gpmc2wishbone : gpmc_wishbone_wrapper 
+generic map(sync => true, burst => false)
 port map
     (
       -- GPMC SIGNALS
@@ -301,7 +302,7 @@ intercon_wrapper_wbm_ack	<= intercon_register_wbm_ack when reg_cs = '1' else
 			  gls_reset   => sys_reset ,
 			  gls_clk     => sys_clk ,
 			  -- Wishbone signals
-			  wbs_add      =>  intercon_register_wbm_address ,
+			  wbs_address      =>  intercon_register_wbm_address ,
 			  wbs_writedata => intercon_register_wbm_writedata,
 			  wbs_readdata  => intercon_register_wbm_readdata,
 			  wbs_strobe    => intercon_register_wbm_strobe,
@@ -327,13 +328,14 @@ intercon_wrapper_wbm_ack	<= intercon_register_wbm_ack when reg_cs = '1' else
 		generic map(
 				SIZE	=> 4096,
 				B_BURST_SIZE => 512,
-				SYNC_LOGIC_INTERFACE => true)
+				SYNC_LOGIC_INTERFACE => true,
+				AUTO_INC => false)
 		port map(
 			-- Syscon signals
 			gls_reset    => sys_reset,
 			gls_clk      => sys_clk,
 			-- Wishbone signals
-			wbs_add      =>  intercon_fifo0_wbm_address ,
+			wbs_address      =>  intercon_fifo0_wbm_address ,
 			wbs_writedata => intercon_fifo0_wbm_writedata,
 			wbs_readdata  => intercon_fifo0_wbm_readdata,
 			wbs_strobe    => intercon_fifo0_wbm_strobe,
@@ -364,7 +366,7 @@ intercon_wrapper_wbm_ack	<= intercon_register_wbm_ack when reg_cs = '1' else
 			gls_reset    => sys_reset,
 			gls_clk      => sys_clk,
 			-- Wishbone signals
-			wbs_add      =>  intercon_fifo1_wbm_address ,
+			wbs_address      =>  intercon_fifo1_wbm_address ,
 			wbs_writedata => intercon_fifo1_wbm_writedata,
 			wbs_readdata  => intercon_fifo1_wbm_readdata,
 			wbs_strobe    => intercon_fifo1_wbm_strobe,
@@ -395,7 +397,7 @@ intercon_wrapper_wbm_ack	<= intercon_register_wbm_ack when reg_cs = '1' else
 			gls_reset    => sys_reset,
 			gls_clk      => sys_clk,
 			-- Wishbone signals
-			wbs_add      =>  intercon_fifo2_wbm_address ,
+			wbs_address      =>  intercon_fifo2_wbm_address ,
 			wbs_writedata => intercon_fifo2_wbm_writedata,
 			wbs_readdata  => intercon_fifo2_wbm_readdata,
 			wbs_strobe    => intercon_fifo2_wbm_strobe,
@@ -427,7 +429,7 @@ intercon_wrapper_wbm_ack	<= intercon_register_wbm_ack when reg_cs = '1' else
 			gls_reset    => sys_reset,
 			gls_clk      => sys_clk,
 			-- Wishbone signals
-			wbs_add      =>  intercon_intr_wbm_address ,
+			wbs_address      =>  intercon_intr_wbm_address ,
 			wbs_writedata => intercon_intr_wbm_writedata,
 			wbs_readdata  => intercon_intr_wbm_readdata,
 			wbs_strobe    => intercon_intr_wbm_strobe,
@@ -479,7 +481,7 @@ aes_receivers : hear_aes_receiver
 		generic map(nb_aes_channel => 3,
 				wb_data_width => 16,
 				wb_add_width =>  16 ,
-				CLOCK_FREQUENCY => 120_000_000,
+				CLOCK_FREQUENCY => 100_000_000,
 				CMP_VAL_LSB     => 4,
 				JITTER_ALLOWANCE  => 2
 				)

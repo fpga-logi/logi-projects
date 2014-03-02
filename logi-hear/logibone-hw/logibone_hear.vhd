@@ -244,6 +244,7 @@ audio_clk <= clk_120Mhz ;
 
 
 gpmc2wishbone : gpmc_wishbone_wrapper 
+generic map(sync => false, burst => false)
 port map
     (
       -- GPMC SIGNALS

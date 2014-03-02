@@ -8,7 +8,7 @@
 <!-- Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/Logi-projects/blink_led/logipi-hw/logipi_blink.vhd&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/jpiat/development/FPGA/logi-family/logi-projects/blink_led/logipi-hw/logipi_blink.vhd&quot; into library work</arg>
 </msg>
 
 </messages>

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2013-11-13T17:06:00</DateModified>
+  <DateModified>2014-02-17T19:15:45</DateModified>
   <ModuleName>logibone_hear_v2</ModuleName>
-  <SummaryTimeStamp>2013-11-11T19:45:15</SummaryTimeStamp>
+  <SummaryTimeStamp>Unknown</SummaryTimeStamp>
   <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-hear/logibone-hw/</ImplementationReportsDirectory>
-  <DateInitialized>2013-11-04T21:53:40</DateInitialized>
+  <DateInitialized>2014-02-17T19:15:45</DateInitialized>
   <SavedFilePath>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-hear/logibone-hw/iseconfig/logibone_hear_v2.xreport</SavedFilePath>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

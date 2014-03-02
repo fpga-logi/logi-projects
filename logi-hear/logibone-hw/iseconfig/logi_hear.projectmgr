@@ -14,6 +14,7 @@
          <ClosedNode>/hear_aes_receiver - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-hear|hw|hear_aes_receiver.vhd</ClosedNode>
          <ClosedNode>/logibone_hear - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-hear|logibone-hw|logibone_hear.vhd</ClosedNode>
          <ClosedNode>/logibone_hear - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-hear|logibone-hw|logibone_hear.vhd/AESRX1 - aes_rx - synth</ClosedNode>
+         <ClosedNode>/logibone_hear - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-hear|logibone-hw|logibone_hear.vhd/fifo0 - wishbone_fifo - RTL</ClosedNode>
          <ClosedNode>/logibone_hear - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-hear|logibone-hw|logibone_hear.vhd/fifo0 - wishbone_fifo - RTL/fifo_A - dp_fifo - Behavioral</ClosedNode>
          <ClosedNode>/logibone_hear - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-hear|logibone-hw|logibone_hear.vhd/fifo0 - wishbone_fifo - RTL/fifo_B - dp_fifo - Behavioral</ClosedNode>
          <ClosedNode>/logibone_hear_v2 - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-hear|logibone-hw|logibone_hear_v2.vhd/aes_receivers - hear_aes_receiver - Behavioral/AESRXi - aes_rx - synth</ClosedNode>
@@ -22,13 +23,13 @@
          <ClosedNode>/logibone_hear_v2 - Behavioral |home|jpiat|development|FPGA|logi-family|logi-projects|logi-hear|logibone-hw|logibone_hear_v2.vhd/fifo2 - wishbone_fifo - RTL</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>logibone_hear_v2 - Behavioral (/home/jpiat/development/FPGA/logi-family/logi-projects/logi-hear/logibone-hw/logibone_hear_v2.vhd)</SelectedItem>
+         <SelectedItem>fifo0 - wishbone_fifo - RTL (/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/peripherals/wishbone_fifo.vhd)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >5</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000285000000020000000000000000000000000200000064ffffffff000000810000000300000002000002850000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>logibone_hear_v2 - Behavioral (/home/jpiat/development/FPGA/logi-family/logi-projects/logi-hear/logibone-hw/logibone_hear_v2.vhd)</CurrentItem>
+      <CurrentItem>fifo0 - wishbone_fifo - RTL (/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/peripherals/wishbone_fifo.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -36,26 +37,26 @@
          <ClosedNode>Design Utilities</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000013e000000010000000100000000000000000000000064ffffffff0000008100000000000000010000013e0000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f2000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f20000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView guiview="File" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>logibone_ra2_1.ucf</SelectedItem>
+         <SelectedItem>logi_wishbone_peripherals_pack.vhd</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >4</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000027b000000040101000100000000000000000000000064ffffffff000000810000000000000004000001200000000100000000000000290000000100000000000000840000000100000000000000ae0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>logibone_ra2_1.ucf</CurrentItem>
+      <CurrentItem>logi_wishbone_peripherals_pack.vhd</CurrentItem>
    </ItemView>
    <ItemView guiview="Library" >
       <ClosedNodes>
@@ -79,13 +80,13 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Design Utilities</SelectedItem>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000013e000000010000000100000000000000000000000064ffffffff0000008100000000000000010000013e0000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f2000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f20000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Design Utilities</CurrentItem>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_UCF" guiview="Process" >
       <ClosedNodes>
@@ -93,15 +94,15 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000013e000000010000000100000000000000000000000064ffffffff0000008100000000000000010000013e0000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f2000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f20000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
-   <SourceProcessView>000000ff00000000000000020000014c0000011d01000000060100000002</SourceProcessView>
+   <SourceProcessView>000000ff0000000000000002000001390000008f01000000060100000002</SourceProcessView>
    <CurrentView>Implementation</CurrentView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_XCO" guiview="Process" >
       <ClosedNodes>
@@ -109,13 +110,13 @@
          <ClosedNode>CORE Generator</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000013e000000010000000100000000000000000000000064ffffffff0000008100000000000000010000013e0000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f2000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f20000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>

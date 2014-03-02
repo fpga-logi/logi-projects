@@ -27,7 +27,8 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 library work ;
 use work.utils_pack.all ;
-use work.peripheral_pack.all ;
+use work.logi_wishbone_pack.all ;
+use work.logi_wishbone_peripherals_pack.all ;
 use work.interface_pack.all ;
 use work.conf_pack.all ;
 use work.filter_pack.all ;
@@ -43,15 +44,16 @@ port( OSC_FPGA : in std_logic;
 		LED : out std_logic_vector(1 downto 0);
 		
 		--PMOD
-		PMOD1_9, PMOD1_3  : inout std_logic ; -- used as SCL, SDA
-		PMOD1_1 ,PMOD1_4 : out std_logic ; -- used as reset and xclk 
-		PMOD1_10, PMOD1_2, PMOD1_8, PMOD1_7 : in std_logic ; -- used as pclk, href, vsync
-		PMOD2 : in std_logic_vector(7 downto 0); -- used as cam data
+		PMOD1 : inout std_logic_vector(7 downto 0); -- used as cam ctrl
+		PMOD2 : inout std_logic_vector(7 downto 0); -- used as cam data
 		
+		-- i2C
+		ARD_SDA, ARD_SCL : inout std_logic ;
 		
 		--gpmc interface
-		GPMC_CSN : in std_logic_vector(2 downto 0);
-		GPMC_WEN, GPMC_OEN, GPMC_ADVN, GPMC_CLK, GPMC_BE0N, GPMC_BE1N:	in std_logic;
+		GPMC_CSN : in std_logic;
+		GPMC_WEN, GPMC_OEN, GPMC_ADVN, GPMC_CLK :	in std_logic;
+		GPMC_BEN : in std_logic_vector(1 downto 0);
 		GPMC_AD :	inout std_logic_vector(15 downto 0)
 );
 end logibone_camera;
@@ -69,19 +71,33 @@ architecture Behavioral of logibone_camera is
 	END COMPONENT;
 
 	
-	signal clk_sys, clk_100, clk_24, clk_locked : std_logic ;
-	signal resetn , sys_resetn : std_logic ;
+	signal gls_clk, clk_120, clk_24, clk_locked : std_logic ;
+	signal gls_reset , sys_resetn : std_logic ;
 	
 	signal counter_output : std_logic_vector(31 downto 0);
 	signal fifo_output : std_logic_vector(15 downto 0);
 	signal fifo_input : std_logic_vector(15 downto 0);
 	signal latch_output : std_logic_vector(15 downto 0);
 	signal fifoB_wr, fifoA_rd, fifoA_rd_old, fifoA_empty, fifoA_full, fifoB_empty, fifoB_full : std_logic ;
-	signal bus_data_in, bus_data_out : std_logic_vector(15 downto 0);
-	signal bus_fifo_out : std_logic_vector(15 downto 0);
-	signal bus_addr : std_logic_vector(15 downto 0);
-	signal bus_wr, bus_rd, bus_cs : std_logic ;
-	signal cs_fifo : std_logic ;
+	
+	
+	-- wishbone intercon signals
+	signal intercon_wrapper_wbm_address :  std_logic_vector(15 downto 0);
+	signal intercon_wrapper_wbm_readdata :  std_logic_vector(15 downto 0);
+	signal intercon_wrapper_wbm_writedata :  std_logic_vector(15 downto 0);
+	signal intercon_wrapper_wbm_strobe :  std_logic;
+	signal intercon_wrapper_wbm_write :  std_logic;
+	signal intercon_wrapper_wbm_ack :  std_logic;
+	signal intercon_wrapper_wbm_cycle :  std_logic;
+
+	signal intercon_fifo0_wbm_address :  std_logic_vector(15 downto 0);
+	signal intercon_fifo0_wbm_readdata :  std_logic_vector(15 downto 0);
+	signal intercon_fifo0_wbm_writedata :  std_logic_vector(15 downto 0);
+	signal intercon_fifo0_wbm_strobe :  std_logic;
+	signal intercon_fifo0_wbm_write :  std_logic;
+	signal intercon_fifo0_wbm_ack :  std_logic;
+	signal intercon_fifo0_wbm_cycle :  std_logic;
+	
 	
 	
 	signal cam_data : std_logic_vector(7 downto 0);
@@ -94,89 +110,129 @@ architecture Behavioral of logibone_camera is
 	signal pixel_y_from_interface, pixel_u_from_interface, pixel_v_from_interface: std_logic_vector(7 downto 0);
 	signal pxclk_from_interface, href_from_interface, vsync_from_interface : std_logic ;
 
+	signal pipeline_reset : std_logic ;
 	
 	for all : yuv_register_rom use entity work.yuv_register_rom(ov7725_qvga);
-	for all : muxed_addr_interface use entity work.muxed_addr_interface(RTL_v2);
 	
 begin
 	
-	resetn <= PB(0) ;
+	
+	ARD_SCL <= 'Z' ;
+	ARD_SDA <= 'Z' ;
+	
+	
 	sys_clocks_gen: clock_gen 
 	PORT MAP(
 		CLK_IN1 => OSC_FPGA,
-		CLK_OUT1 => clk_100,
+		CLK_OUT1 => gls_clk,
 		CLK_OUT2 => clk_24,
-		CLK_OUT3 => clk_sys, --120Mhz system clock
+		CLK_OUT3 => clk_120, --120Mhz system clock
 		LOCKED => clk_locked
 	);
 
 
-	reset0: reset_generator 
-	generic map(HOLD_0 => 1000)
-	port map(clk => clk_sys, 
-		resetn => resetn ,
-		resetn_0 => sys_resetn
-	 );
+rst_gen : reset_generator -- camera needs a 1ms reset before taking commands
+generic map(HOLD_0	=> 5000)
+port map(clk => gls_clk, 
+	  resetn => PB(0),
+     resetn_0 => sys_resetn
+	  );
 
+gls_reset <= NOT sys_resetn; 
 
-divider : simple_counter 
-	 generic map(NBIT => 32)
-    port map( clk => clk_sys, 
-           resetn => sys_resetn, 
-           sraz => '0',
-           en => '1',
-			  load => '0' ,
-			  E => X"00000000",
-			  Q => counter_output
-			  );
-LED(0) <= counter_output(24);
 LED(1) <= cam_vsync ;
+LED(0) <= gls_reset ;
+
+gpmc2wishbone : gpmc_wishbone_wrapper 
+generic map(sync => true, burst => true)
+port map
+    (
+      -- GPMC SIGNALS
+      gpmc_ad => GPMC_AD, 
+      gpmc_csn => GPMC_CSN,
+      gpmc_oen => GPMC_OEN,
+		gpmc_wen => GPMC_WEN,
+		gpmc_advn => GPMC_ADVN,
+		gpmc_clk => GPMC_CLK,
+		
+      -- Global Signals
+      gls_reset => gls_reset,
+      gls_clk   => gls_clk,
+      -- Wishbone interface signals
+      wbm_address    => intercon_wrapper_wbm_address,  -- Address bus
+      wbm_readdata   => intercon_wrapper_wbm_readdata,  -- Data bus for read access
+      wbm_writedata 	=> intercon_wrapper_wbm_writedata,  -- Data bus for write access
+      wbm_strobe     => intercon_wrapper_wbm_strobe,     -- Data Strobe
+      wbm_write      => intercon_wrapper_wbm_write,      -- Write access
+      wbm_ack        => intercon_wrapper_wbm_ack,        -- acknowledge
+      wbm_cycle      => intercon_wrapper_wbm_cycle       -- bus cycle in progress
+    );
 
 
-mem_interface0 : muxed_addr_interface
-generic map(ADDR_WIDTH => 16 , DATA_WIDTH =>  16)
-port map(clk => clk_sys ,
-	  resetn => sys_resetn ,
-	  data	=> GPMC_AD,
-	  wrn => GPMC_WEN, oen => GPMC_OEN, addr_en_n => GPMC_ADVN, csn => GPMC_CSN(1),
-	  be0n => GPMC_BE0N, be1n => GPMC_BE1N,
-	  data_bus_out	=> bus_data_out,
-	  data_bus_in	=> bus_data_in ,
-	  addr_bus	=> bus_addr, 
-	  wr => bus_wr , rd => bus_rd 
+intercon0 : wishbone_intercon
+generic map(memory_map => (0 => "000000XXXXXXXXXX") -- fifo0
+)
+port map(
+		gls_reset => gls_reset,
+			gls_clk   => gls_clk,
+		
+		
+		wbs_address    => intercon_wrapper_wbm_address,  	-- Address bus
+		wbs_readdata   => intercon_wrapper_wbm_readdata,  	-- Data bus for read access
+		wbs_writedata 	=> intercon_wrapper_wbm_writedata,  -- Data bus for write access
+		wbs_strobe     => intercon_wrapper_wbm_strobe,     -- Data Strobe
+		wbs_write      => intercon_wrapper_wbm_write,      -- Write access
+		wbs_ack        => intercon_wrapper_wbm_ack,        -- acknowledge
+		wbs_cycle      => intercon_wrapper_wbm_cycle,      -- bus cycle in progress
+		
+		-- Wishbone master signals
+		wbm_address(0) => intercon_fifo0_wbm_address,
+		
+		wbm_writedata(0)  => intercon_fifo0_wbm_writedata,
+		wbm_readdata(0)  => intercon_fifo0_wbm_readdata,
+		wbm_strobe(0)  => intercon_fifo0_wbm_strobe,
+		wbm_cycle(0)   => intercon_fifo0_wbm_cycle,
+		wbm_write(0)   => intercon_fifo0_wbm_write,
+		wbm_ack(0)      => intercon_fifo0_wbm_ack
+		
 );
 
-cs_fifo <= '1' when bus_addr(15 downto 10) = "000000" else
-			  '0' ;	  
 
-bus_data_in <= bus_fifo_out when cs_fifo = '1' else
-					bus_addr ; --(others => '0');
-
-bi_fifo0 : fifo_peripheral 
-		generic map(ADDR_WIDTH => 16,WIDTH => 16, SIZE => 8192, BURST_SIZE => 512)
+bi_fifo0 : wishbone_fifo 
+		generic map(
+			ADDR_WIDTH => 16,
+			WIDTH => 16, 
+			SIZE => 8192, 
+			B_BURST_SIZE => 512,
+			SYNC_LOGIC_INTERFACE => true)
 		port map(
-			clk => clk_sys,
-			resetn => sys_resetn,
-			addr_bus => bus_addr,
-			wr_bus => bus_wr,
-			rd_bus => bus_rd,
-			cs_bus => cs_fifo,
+			gls_clk => gls_clk,
+			gls_reset => gls_reset,
+
+			wbs_address  => intercon_fifo0_wbm_address , 
+			wbs_writedata => intercon_fifo0_wbm_writedata,
+			wbs_readdata  => intercon_fifo0_wbm_readdata,
+			wbs_strobe   => intercon_fifo0_wbm_strobe,
+			wbs_cycle    => intercon_fifo0_wbm_cycle,
+			wbs_write    => intercon_fifo0_wbm_write,
+			wbs_ack      => intercon_fifo0_wbm_ack,
+			
+			
 			wrB => fifoB_wr,
 			rdA => fifoA_rd,
-			data_bus_in => bus_data_out,
-			data_bus_out => bus_fifo_out,
 			inputB => fifo_input, 
 			outputA => fifo_output,
 			emptyA => open,
 			fullA => open,
 			emptyB => open,
 			fullB => open,
-			burst_available_B => open
+			burst_available_B => open,
+			fifoB_reset => pipeline_reset
 		);
  
  conf_rom : yuv_register_rom
 	port map(
-	   clk => clk_sys, en => '1' ,
+	   clk => gls_clk, en => '1' ,
  		data => rom_data,
  		addr => rom_addr
 	); 
@@ -184,17 +240,17 @@ bi_fifo0 : fifo_peripheral
  camera_conf_block : i2c_conf 
 	generic map(ADD_WIDTH => 8 , SLAVE_ADD => "0100001")
 	port map(
-		clock => clk_sys, 
+		clock => gls_clk, 
 		resetn => sys_resetn ,		
  		i2c_clk => clk_24 ,
-		scl => PMOD1_9,
- 		sda => PMOD1_3, 
+		scl => PMOD2(6),
+ 		sda => PMOD2(2), 
 		reg_addr => rom_addr ,
 		reg_data => rom_data
 	);	
 		
  camera0: yuv_camera_interface
-		port map(clock => clk_sys,
+		port map(clock => gls_clk,
 					resetn => sys_resetn,
 					pixel_data => cam_data, 
 					pxclk => cam_pclk, href => cam_href, vsync => cam_vsync,
@@ -205,26 +261,62 @@ bi_fifo0 : fifo_peripheral
 		);	
 		
 	cam_xclk <= clk_24;
-	PMOD1_4 <= cam_xclk ;
-	--cam_data <= PMOD2 ;
-	cam_data <= PMOD2(3) & PMOD2(7) & PMOD2(2) & PMOD2(6) & PMOD2(1) & PMOD2(5) & PMOD2(0) & PMOD2(4) ;
-	cam_pclk <= PMOD1_10 ;
-	cam_href <= PMOD1_2 ;
-	cam_vsync <= PMOD1_8 ;
-	PMOD1_1 <= cam_reset ;
-	cam_reset <= resetn ;
+	PMOD2(3) <= cam_xclk ;
+	cam_data <= PMOD1(3) & PMOD1(7) & PMOD1(2) & PMOD1(6) & PMOD1(1) & PMOD1(5) & PMOD1(0) & PMOD1(4) ;
+	cam_pclk <= PMOD2(7) ;
+	cam_href <= PMOD2(1) ;
+	cam_vsync <= PMOD2(5) ;
+	PMOD2(0) <= cam_reset ;
+	cam_reset <= PB(0) ;
 
 	
-yuv_pix2fifo : yuv_pixel2fifo 
+--yuv_pix2fifo : yuv_pixel2fifo 
+--port map(
+--	clk => gls_clk, resetn => sys_resetn,
+--	sreset => pipeline_reset ,
+--	pixel_clock => pxclk_from_interface, hsync => href_from_interface, vsync => vsync_from_interface,
+--	pixel_y => pixel_y_from_interface,
+--	pixel_u => pixel_u_from_interface,
+--	pixel_v => pixel_v_from_interface,
+--	fifo_data => fifo_input, 
+--	fifo_wr => fifoB_wr 
+--);
+
+
+adapt_bin : adaptive_pixel_class
+		generic map(nb_class => 2)
+		port map(
+			clk => clk,
+			resetn => resetn,
+			pixel_clock => pxclk_from_interface,
+			hsync => hsync,
+			vsync => vsync,
+			pixel_data_in => pixel_data_in,
+			pixel_clock_out => class_pxclk_out, 
+			hsync_out => class_hsync_out, 
+			vsync_out => class_vsync_out,
+			pixel_data_out => pixel_class_out,
+			chist_addr => chist_pixel_val,
+			chist_data => chist_val_amount,
+			chist_available => chist_available ,
+			chist_reset => reset_chist_run 
+		);
+
+
+pix_to_fifo : pixel2fifo 
+generic map(ADD_SYNC => true)
 port map(
-	clk => clk_sys, resetn => sys_resetn,
+	clk => gls_clk, resetn => sys_resetn,
+--	sreset => pipeline_reset ,
 	pixel_clock => pxclk_from_interface, hsync => href_from_interface, vsync => vsync_from_interface,
-	pixel_y => pixel_y_from_interface,
-	pixel_u => pixel_u_from_interface,
-	pixel_v => pixel_v_from_interface,
+	pixel_data_in => pixel_y_from_interface,
+	--pixel_y => pixel_y_from_interface,
+	--pixel_u => pixel_u_from_interface,
+	--pixel_v => pixel_v_from_interface,
 	fifo_data => fifo_input, 
 	fifo_wr => fifoB_wr 
 );
+
 
 
 end Behavioral;

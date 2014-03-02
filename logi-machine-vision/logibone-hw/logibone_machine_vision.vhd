@@ -79,7 +79,7 @@ architecture Behavioral of logibone_machine_vision is
 
 	-- syscon
 	signal sys_reset, sys_resetn,sys_clk, clock_locked : std_logic ;
-	signal clk_100Mhz, clk_120Mhz, clk_24Mhz, clk_50Mhz, clk_50Mhz_ext : std_logic ;
+	signal clk_100Mhz, clk_120Mhz, clk_20Mhz, clk_50Mhz, clk_50Mhz_ext : std_logic ;
 
 	-- wishbone intercon signals
 	signal intercon_wrapper_wbm_address :  std_logic_vector(15 downto 0);
@@ -134,15 +134,15 @@ pll0 : clock_gen
     -- Clock out ports
     CLK_OUT1 => clk_100Mhz,
     CLK_OUT2 => clk_120Mhz,
-	 CLK_OUT3 => clk_24Mhz,
+	 CLK_OUT3 => clk_20Mhz,
     -- Status and control signals
     LOCKED => clock_locked);
 
-sys_clk <= clk_120Mhz;
+sys_clk <= clk_100Mhz;
 
 
 gpmc2wishbone : gpmc_wishbone_wrapper 
-generic map(sync => true, burst => false)
+generic map(sync => true, burst => true)
 port map
     (
       -- GPMC SIGNALS
@@ -170,20 +170,32 @@ port map
 -- Intercon -----------------------------------------------------------
 -- will be generated automatically in the future
 
-fifo0_cs <= '1' ;	
-
-intercon_fifo0_wbm_address <= intercon_wrapper_wbm_address ;
-intercon_fifo0_wbm_writedata <= intercon_wrapper_wbm_writedata ;
-intercon_fifo0_wbm_write <= intercon_wrapper_wbm_write and fifo0_cs ;
-intercon_fifo0_wbm_strobe <= intercon_wrapper_wbm_strobe and fifo0_cs ;
-intercon_fifo0_wbm_cycle <= intercon_wrapper_wbm_cycle and fifo0_cs ;								
-
-
-intercon_wrapper_wbm_readdata	<= intercon_fifo0_wbm_readdata when fifo0_cs = '1' else
-											intercon_wrapper_wbm_address ;
-											
-intercon_wrapper_wbm_ack	<= intercon_fifo0_wbm_ack when fifo0_cs = '1' else
-										'0' ;
+intercon0 : wishbone_intercon
+generic map(memory_map => (0 => "00000XXXXXXXXXXX") -- fifo0
+)
+port map(
+		gls_reset => sys_reset,
+		gls_clk   => sys_clk,
+		
+		
+		wbs_address    => intercon_wrapper_wbm_address,  	-- Address bus
+		wbs_readdata   => intercon_wrapper_wbm_readdata,  	-- Data bus for read access
+		wbs_writedata 	=> intercon_wrapper_wbm_writedata,  -- Data bus for write access
+		wbs_strobe     => intercon_wrapper_wbm_strobe,     -- Data Strobe
+		wbs_write      => intercon_wrapper_wbm_write,      -- Write access
+		wbs_ack        => intercon_wrapper_wbm_ack,        -- acknowledge
+		wbs_cycle      => intercon_wrapper_wbm_cycle,      -- bus cycle in progress
+		
+		-- Wishbone master signals
+		wbm_address(0) => intercon_fifo0_wbm_address,
+		wbm_writedata(0)  => intercon_fifo0_wbm_writedata,
+		wbm_readdata(0)  => intercon_fifo0_wbm_readdata,
+		wbm_strobe(0)  => intercon_fifo0_wbm_strobe,
+		wbm_cycle(0)   => intercon_fifo0_wbm_cycle,
+		wbm_write(0)   => intercon_fifo0_wbm_write,
+		wbm_ack(0)      => intercon_fifo0_wbm_ack
+		
+);
 									      
 
 fifo0 : wishbone_fifo
@@ -199,7 +211,7 @@ port map(
 	gls_reset => sys_reset,
 	gls_clk   => sys_clk,
 	-- Wishbone signals
-	wbs_add => intercon_fifo0_wbm_address,
+	wbs_address => intercon_fifo0_wbm_address,
 	wbs_writedata => intercon_fifo0_wbm_writedata,
 	wbs_readdata  => intercon_fifo0_wbm_readdata,
 	wbs_strobe    => intercon_fifo0_wbm_strobe,
@@ -280,15 +292,15 @@ port map(
 );
 
 
-output_pxclk <= pxclk_from_hyst ;
-output_href <= href_from_hyst ;
-output_vsync <= vsync_from_hyst ;
-output_pixel <= pixel_from_hyst ;
+--output_pxclk <= pxclk_from_hyst ;
+--output_href <= href_from_hyst ;
+--output_vsync <= vsync_from_hyst ;
+--output_pixel <= pixel_from_hyst ;
 
---output_pxclk <= pxclk_from_sobel ;
---output_href <= href_from_sobel ;
---output_vsync <= vsync_from_sobel ;
---output_pixel <= pixel_from_sobel ;
+output_pxclk <= pxclk_from_sobel ;
+output_href <= href_from_sobel ;
+output_vsync <= vsync_from_sobel ;
+output_pixel <= pixel_from_sobel ;
 
 --output_pxclk <= pxclk_from_gauss ;
 --output_href <= href_from_gauss ;

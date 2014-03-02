@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2014-01-16T13:55:05</DateModified>
+  <DateModified>2014-02-03T10:57:50</DateModified>
   <ModuleName>logibone_wishbone</ModuleName>
-  <SummaryTimeStamp>2014-01-15T16:11:18</SummaryTimeStamp>
+  <SummaryTimeStamp>Unknown</SummaryTimeStamp>
   <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-wishbone/logibone-hw/</ImplementationReportsDirectory>
-  <DateInitialized>2013-10-17T12:08:47</DateInitialized>
+  <DateInitialized>2014-02-03T10:57:47</DateInitialized>
   <SavedFilePath>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-wishbone/logibone-hw/iseconfig/logibone_wishbone.xreport</SavedFilePath>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
@@ -19,7 +19,7 @@
     <toc-item title="Detailed Reports" target="Detailed Reports" />
    </view>
    <view inputState="Unknown" program="implementation" contextTags="FPGA_ONLY" hidden="true" type="HTML" file="logibone_wishbone_envsettings.html" label="System Settings" />
-   <view inputState="Translated" program="map" locator="MAP_IOB_TABLE" contextTags="FPGA_ONLY" type="IOBProperties" file="logibone_wishbone_map.xrpt" label="IOB Properties" />
+   <view inputState="Translated" program="map" locator="MAP_IOB_TABLE" contextTags="FPGA_ONLY" type="IOBProperties" file="logibone_wishbone_map.xrpt" showConstraints="0" label="IOB Properties" />
    <view inputState="Translated" program="map" contextTags="FPGA_ONLY" hidden="true" type="Control_Sets" file="logibone_wishbone_map.xrpt" label="Control Set Information" />
    <view inputState="Translated" program="map" locator="MAP_MODULE_HIERARCHY" contextTags="FPGA_ONLY" type="Module_Utilization" file="logibone_wishbone_map.xrpt" label="Module Level Utilization" />
    <view inputState="Mapped" program="par" locator="CONSTRAINT_TABLE" contextTags="FPGA_ONLY" type="ConstraintsData" file="logibone_wishbone.ptwx" label="Timing Constraints" translator="ptwxToTableXML.xslt" />

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2013-07-26T01:42:09</DateModified>
+  <DateModified>2014-02-25T18:03:52</DateModified>
   <ModuleName>logibone_blink</ModuleName>
-  <SummaryTimeStamp>Unknown</SummaryTimeStamp>
+  <SummaryTimeStamp>2014-02-20T21:12:56</SummaryTimeStamp>
   <SavedFilePath>/home/jpiat/development/FPGA/logi-family/logi-projects/blink_led/logibone-hw/iseconfig/logibone_blink.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/blink_led/logibone-hw</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/blink_led/logibone-hw/</ImplementationReportsDirectory>
   <DateInitialized>2013-07-26T01:42:03</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

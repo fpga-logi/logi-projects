@@ -1,0 +1,28 @@
+Running: /opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/fuse -relaunch -intstyle "ise" -incremental -lib "secureip" -o "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-car/logipi-hw/heart_beat_tb_isim_beh.exe" -prj "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-car/logipi-hw/heart_beat_tb_beh.prj" "work.heart_beat_tb" 
+ISim P.15xf (signature 0x8ddf5b5d)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-car/logipi-hw/../../../logi-hard/utils/logi_utils_pack.vhd" into library work
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-car/logipi-hw/../../../logi-hard/control/heart_beat.vhd" into library work
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-car/logipi-hw/../../../logi-hard/test_bench/heart_beat_tb.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 97948 KB
+Fuse CPU Usage: 1070 ms
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling package numeric_std
+Compiling package math_real
+Compiling package logi_utils_pack
+Compiling architecture rtl of entity heart_beat [\heart_beat(10,100000,20000)\]
+Compiling architecture behavior of entity heart_beat_tb
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 10 VHDL Units
+Built simulation executable /home/jpiat/development/FPGA/logi-family/logi-projects/logi-car/logipi-hw/heart_beat_tb_isim_beh.exe
+Fuse Memory Usage: 677968 KB
+Fuse CPU Usage: 1220 ms
+GCC CPU Usage: 160 ms

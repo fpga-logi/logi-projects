@@ -5,5 +5,577 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/gpmc_wishbone_wrapper.vhd" Line 162: Assignment to <arg fmt="%s" index="1">advn_bridge</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/conf/i2c_conf.vhd" Line 58: Net &lt;<arg fmt="%s" index="1">rcv</arg>&gt; does not have a driver.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/interface/yuv_camera_interface.vhd" Line 114: Assignment to <arg fmt="%s" index="1">pxclkt</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-camera-demo/logibone-hw/logibone_camera.vhd" Line 81: Net &lt;<arg fmt="%s" index="1">fifoA_rd</arg>&gt; does not have a driver.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">PB&lt;1:1&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">GPMC_BEN</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-camera-demo/logibone-hw/logibone_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">124</arg>: Output port &lt;<arg fmt="%s" index="3">CLK_OUT3</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">sys_clocks_gen</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-camera-demo/logibone-hw/logibone_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">124</arg>: Output port &lt;<arg fmt="%s" index="3">LOCKED</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">sys_clocks_gen</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-camera-demo/logibone-hw/logibone_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">201</arg>: Output port &lt;<arg fmt="%s" index="3">outputA</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">bi_fifo0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-camera-demo/logibone-hw/logibone_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">201</arg>: Output port &lt;<arg fmt="%s" index="3">emptyA</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">bi_fifo0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-camera-demo/logibone-hw/logibone_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">201</arg>: Output port &lt;<arg fmt="%s" index="3">fullA</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">bi_fifo0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-camera-demo/logibone-hw/logibone_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">201</arg>: Output port &lt;<arg fmt="%s" index="3">emptyB</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">bi_fifo0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-camera-demo/logibone-hw/logibone_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">201</arg>: Output port &lt;<arg fmt="%s" index="3">fullB</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">bi_fifo0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-camera-demo/logibone-hw/logibone_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">201</arg>: Output port &lt;<arg fmt="%s" index="3">burst_available_B</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">bi_fifo0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-camera-demo/logibone-hw/logibone_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">201</arg>: Output port &lt;<arg fmt="%s" index="3">burst_available_A</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">bi_fifo0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-camera-demo/logibone-hw/logibone_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">201</arg>: Output port &lt;<arg fmt="%s" index="3">fifoA_reset</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">bi_fifo0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-camera-demo/logibone-hw/logibone_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">201</arg>: Output port &lt;<arg fmt="%s" index="3">fifoB_reset</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">bi_fifo0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-camera-demo/logibone-hw/logibone_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">252</arg>: Output port &lt;<arg fmt="%s" index="3">u_data</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">camera0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/logi-projects/logi-camera-demo/logibone-hw/logibone_camera.vhd</arg>&quot; line <arg fmt="%s" index="2">252</arg>: Output port &lt;<arg fmt="%s" index="3">v_data</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">camera0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">fifoA_rd</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="info" file="Xst" num="2774" delta="old" >HDL ADVISOR - <arg fmt="%s" index="1">IOB</arg> <arg fmt="%s" index="2">property</arg> attached to signal <arg fmt="%s" index="3">csn_bridge</arg> may hinder XST clustering optimizations.
+</msg>
+
+<msg type="info" file="Xst" num="2774" delta="old" >HDL ADVISOR - <arg fmt="%s" index="1">IOB</arg> <arg fmt="%s" index="2">property</arg> attached to signal <arg fmt="%s" index="3">wen_bridge</arg> may hinder XST clustering optimizations.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">gls_reset</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">gls_clk</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">wbs_address&lt;8:2&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">wbs_address&lt;15:10&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/utils/dp_fifo.vhd</arg>&quot; line <arg fmt="%s" index="2">66</arg>: Output port &lt;<arg fmt="%s" index="3">spo</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">dp_ram0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/utils/dp_fifo.vhd</arg>&quot; line <arg fmt="%s" index="2">66</arg>: Output port &lt;<arg fmt="%s" index="3">spo</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">dp_ram0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">addr&lt;7:7&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="2999" delta="old" >Signal &apos;<arg fmt="%s" index="1">rom</arg>&apos;, unconnected in block &apos;<arg fmt="%s" index="2">yuv_register_rom</arg>&apos;, is tied to its initial value.
+</msg>
+
+<msg type="warning" file="Xst" num="3035" delta="old" >Index value(s) does not match array range for signal &lt;<arg fmt="%s" index="1">rom</arg>&gt;, simulation mismatch.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">clock</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jpiat/development/FPGA/logi-family/hard-cv/hw/rtl/conf/i2c_conf.vhd</arg>&quot; line <arg fmt="%s" index="2">66</arg>: Output port &lt;<arg fmt="%s" index="3">data_out</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">i2c_master0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">rcv</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="1290" delta="old" >Hierarchical block &lt;<arg fmt="%s" index="1">u_latch</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">camera0</arg>&gt;.
+It will be removed from the design.
+</msg>
+
+<msg type="warning" file="Xst" num="1290" delta="old" >Hierarchical block &lt;<arg fmt="%s" index="1">v_latch_a</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">camera0</arg>&gt;.
+It will be removed from the design.
+</msg>
+
+<msg type="warning" file="Xst" num="1290" delta="old" >Hierarchical block &lt;<arg fmt="%s" index="1">u_latch_b</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">camera0</arg>&gt;.
+It will be removed from the design.
+</msg>
+
+<msg type="warning" file="Xst" num="1290" delta="old" >Hierarchical block &lt;<arg fmt="%s" index="1">v_latch_b</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">camera0</arg>&gt;.
+It will be removed from the design.
+</msg>
+
+<msg type="warning" file="Xst" num="1290" delta="old" >Hierarchical block &lt;<arg fmt="%s" index="1">dp_ram0</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">fifo_A</arg>&gt;.
+It will be removed from the design.
+</msg>
+
+<msg type="info" file="Xst" num="3226" delta="old" >The RAM &lt;<arg fmt="%s" index="1">Mram_RAM</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+<msg type="info" file="Xst" num="3218" delta="old" >HDL ADVISOR - The RAM &lt;<arg fmt="%s" index="1">Mram__n0049</arg>&gt; will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+</msg>
+
+<msg type="info" file="Xst" num="3226" delta="old" >The RAM &lt;<arg fmt="%s" index="1">Mram_rom</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">slave_addr_i_0</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">i2c_master</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">pixel_count_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">pixel2fifo</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">pixel_count_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">pixel2fifo</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">pixel_count_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">pixel2fifo</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">pixel_count_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">pixel2fifo</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">pixel_count_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">pixel2fifo</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">pixel_count_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">pixel2fifo</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">pixel_count_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">pixel2fifo</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="old" >Instance <arg fmt="%s" index="1">sys_clocks_gen/pll_base_inst</arg> in unit <arg fmt="%s" index="2">sys_clocks_gen/pll_base_inst</arg> of type <arg fmt="%s" index="3">PLL_BASE</arg> has been replaced by <arg fmt="%s" index="4">PLL_ADV</arg>
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/data_out_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/data_out_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/data_out_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/data_out_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/data_out_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/data_out_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/data_out_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/data_out_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2040" delta="old" >Unit <arg fmt="%s" index="1">wishbone_intercon</arg>: <arg fmt="%d" index="2">16</arg> multi-source signals are replaced by logic (pull-up <arg fmt="%s" index="3">yes</arg>): </msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/bit_count_7</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/bit_count_7</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/bit_count_5</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/bit_count_4</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/bit_count_6</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/bit_count_6</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/bit_count_5</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/bit_count_4</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_bridge_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_bridge_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_bridge_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_bridge_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_bridge_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_bridge_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_bridge_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_bridge_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_bridge_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_bridge_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_bridge_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_bridge_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_bridge_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_bridge_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_bridge_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">gpmc2wishbone/writedata_bridge_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/pixel_counter/Qp_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_data_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_data_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_data_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_data_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_data_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_data_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_data_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_data_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_data_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_data_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_data_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_data_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_data_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_data_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_data_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_data_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_b/Qp_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_b/Qp_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_b/Qp_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_b/Qp_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_b/Qp_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_b/Qp_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_b/Qp_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_b/Qp_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch_b/Qp_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch_b/Qp_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch_b/Qp_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch_b/Qp_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch_b/Qp_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch_b/Qp_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch_b/Qp_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch_b/Qp_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_a/Qp_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_a/Qp_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_a/Qp_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_a/Qp_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_a/Qp_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_a/Qp_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_a/Qp_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/v_latch_a/Qp_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch/Qp_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch/Qp_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch/Qp_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch/Qp_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch/Qp_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch/Qp_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch/Qp_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">camera0/u_latch/Qp_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bi_fifo0/fifo_A/wr_addr_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bi_fifo0/fifo_A/wr_addr_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bi_fifo0/fifo_A/wr_addr_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bi_fifo0/fifo_A/wr_addr_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bi_fifo0/fifo_A/wr_addr_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bi_fifo0/fifo_A/wr_addr_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bi_fifo0/fifo_A/wr_addr_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bi_fifo0/fifo_A/wr_addr_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bi_fifo0/fifo_A/wr_addr_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bi_fifo0/fifo_A/wr_addr_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bi_fifo0/fifo_A/wr_addr_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bi_fifo0/fifo_A/wr_addr_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bi_fifo0/fifo_A/wr_addr_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bi_fifo0/fifo_A/dp_ram0/Mram_RAM7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bi_fifo0/fifo_A/dp_ram0/Mram_RAM6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bi_fifo0/fifo_A/dp_ram0/Mram_RAM8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bi_fifo0/fifo_A/dp_ram0/Mram_RAM4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bi_fifo0/fifo_A/dp_ram0/Mram_RAM3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bi_fifo0/fifo_A/dp_ram0/Mram_RAM5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bi_fifo0/fifo_A/dp_ram0/Mram_RAM1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">bi_fifo0/fifo_A/dp_ram0/Mram_RAM2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">rst_gen/counter0_13</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">rst_gen/counter0_14</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">rst_gen/counter0_15</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">rst_gen/counter0_16</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">rst_gen/counter0_17</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">rst_gen/counter0_18</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">rst_gen/counter0_19</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">rst_gen/counter0_20</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">rst_gen/counter0_21</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">rst_gen/counter0_22</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">rst_gen/counter0_23</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">rst_gen/counter0_24</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">rst_gen/counter0_25</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">rst_gen/counter0_26</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">rst_gen/counter0_27</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">rst_gen/counter0_28</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">rst_gen/counter0_29</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">rst_gen/counter0_30</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">camera_conf_block/i2c_master0/tick_count_7</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">logibone_camera</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">camera0/vsync_old</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">logibone_camera</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;camera0/delay_sync/gen_delay[0].gen_input.latch_0/Qp_1&gt; </arg>
+</msg>
+
 </messages>
 
