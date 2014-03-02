@@ -11,12 +11,86 @@ Target Device  : xc6slx9
 Target Package : tqg144
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Tue Jun 25 15:26:24 2013
+Mapped Date    : Mon Feb  3 16:23:15 2014
 
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+INFO:Security:67 - XILINXD_LICENSE_FILE is set to
+'/opt/Xilinx/13.1/ISE_DS/EDK/data/core_licenses' in /home/jpiat/.flexlmrc.
+INFO:Security:54 - 'xc6slx9' is a WebPack part.
+WARNING:Security:42 - Your software subscription period has lapsed. Your current
+version of Xilinx tools will continue to function, but you no longer qualify for
+Xilinx software updates or new releases.
+----------------------------------------------------------------------
 Mapping design into LUTs...
 Running directed packing...
 Running delay-based LUT packing...
 Updating timing models...
+WARNING:Pack:1653 - At least one timing constraint is impossible to meet because component delays alone exceed the constraint. A timing
+   constraint summary below shows the failing constraints (preceded with an Asterisk (*)). Please use the Timing Analyzer (GUI) or TRCE
+   (command line) with the Mapped NCD and PCF files to identify which constraints and paths are failing because of the component delays
+   alone. If the failing path(s) is mapped to Xilinx components as expected, consider relaxing the constraint. If it is not mapped to
+   components as expected, re-evaluate your HDL and how synthesis is optimizing the path. To allow the tools to bypass this error, set the
+   environment variable XIL_TIMING_ALLOW_IMPOSSIBLE to 1.
+
+
+   For more information about the Timing Analyzer, consult the Xilinx Timing Analyzer Reference manual; for more information on TRCE,
+   consult the Xilinx Command Line Tools User Guide "TRACE" chapter.
+INFO:Timing:3284 - This timing report was generated using estimated delay 
+   information.  For accurate numbers, please refer to the post Place and Route 
+   timing report.
+Number of Timing Constraints that were not applied: 1
+
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+----------------------------------------------------------------------------------------------------------
+  Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
+                                            |             |    Slack   | Achievable | Errors |    Score   
+----------------------------------------------------------------------------------------------------------
+* TS_sys_clocks_gen_clkout1 = PERIOD TIMEGR | SETUP       |    -2.172ns|    95.986ns|      36|       37598
+  P "sys_clocks_gen_clkout1" TS_PER_CLK50 / | HOLD        |     0.304ns|            |       0|           0
+   0.48 HIGH 50%                            |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_sys_clocks_gen_clkout0 = PERIOD TIMEGR | SETUP       |     0.508ns|     6.952ns|       0|           0
+  P "sys_clocks_gen_clkout0" TS_PER_CLK50 / | HOLD        |     0.132ns|            |       0|           0
+   2 HIGH 50%                               |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_PER_CLK50 = PERIOD TIMEGRP "clk50_grp" | MINLOWPULSE |    15.000ns|     5.000ns|       0|           0
+   20 ns HIGH 50%                           |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_PER_CLK100 = PERIOD TIMEGRP "clk100_gr | SETUP       |    18.516ns|     1.484ns|       0|           0
+  p" 20 ns HIGH 50%                         | HOLD        |     0.331ns|            |       0|           0
+                                            | MINPERIOD   |    17.334ns|     2.666ns|       0|           0
+----------------------------------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Review Timing Report for more details on the following derived constraints.
+To create a Timing Report, run "trce -v 12 -fastpaths -o design_timing_report design.ncd design.pcf"
+or "Run Timing Analysis" from Timing Analyzer (timingan).
+Derived Constraints for TS_PER_CLK50
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+---
+----------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths
+Analyzed       |
+|           Constraint          | Requirement
+|-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    |
+Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+---
+----------+
+|TS_PER_CLK50                   |     20.000ns|      5.000ns|     46.073ns|            0|           36|            0|   
+    13604|
+| TS_sys_clocks_gen_clkout1     |     41.667ns|     95.986ns|          N/A|           36|            0|         2557|   
+        0|
+| TS_sys_clocks_gen_clkout0     |     10.000ns|      6.952ns|          N/A|            0|            0|        11047|   
+        0|
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+---
+----------+
+
+1 constraint not met.
+
+
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
 Running timing-driven placement...
@@ -24,13 +98,13 @@ Total REAL time at the beginning of Placer: 5 secs
 Total CPU  time at the beginning of Placer: 4 secs 
 
 Phase 1.1  Initial Placement Analysis
-Phase 1.1  Initial Placement Analysis (Checksum:b3435649) REAL time: 5 secs 
+Phase 1.1  Initial Placement Analysis (Checksum:183c6120) REAL time: 5 secs 
 
 Phase 2.7  Design Feasibility Check
 WARNING:Place:1206 - This design contains a global buffer instance,
-   <sys_clocks_gen/clkout2_buf>, driving the net, <PMOD1_4_OBUF>, that is
+   <sys_clocks_gen/clkout2_buf>, driving the net, <PMOD2_3_OBUF>, that is
    driving the following (first 30) non-clock load pins off chip.
-   < PIN: PMOD1_4.O; >
+   < PIN: PMOD2<3>.O; >
    This design practice, in Spartan-6, can lead to an unroutable situation due
    to limitations in the global routing. If the design does route there may be
    excessive delay or skew on this net. It is recommended to use a Clock
@@ -43,9 +117,9 @@ WARNING:Place:1206 - This design contains a global buffer instance,
    specified COMP.PIN.
 WARNING:Place:1137 - This design is not guaranteed to be routable! This design
    contains a global buffer instance, <sys_clocks_gen/clkout2_buf>, driving the
-   net, <PMOD1_4_OBUF>, that is driving the following (first 30) non-clock load
+   net, <PMOD2_3_OBUF>, that is driving the following (first 30) non-clock load
    pins.
-   < PIN: PMOD1_4.O; >
+   < PIN: PMOD2<3>.O; >
    This is not a recommended design practice in Spartan-6 due to limitations in
    the global routing that may cause excessive delay, skew or unroutable
    situations.  It is recommended to only use a BUFG resource to drive clock
@@ -54,62 +128,74 @@ WARNING:Place:1137 - This design is not guaranteed to be routable! This design
    CLOCK_DEDICATED_ROUTE constraint was applied on COMP.PIN
    <sys_clocks_gen/clkout2_buf.O> allowing your design to continue. This
    constraint disables all clock placer rules related to the specified COMP.PIN.
-Phase 2.7  Design Feasibility Check (Checksum:b3435649) REAL time: 5 secs 
+Phase 2.7  Design Feasibility Check (Checksum:183c6120) REAL time: 5 secs 
 
 Phase 3.31  Local Placement Optimization
-Phase 3.31  Local Placement Optimization (Checksum:b3435649) REAL time: 5 secs 
+Phase 3.31  Local Placement Optimization (Checksum:183c6120) REAL time: 5 secs 
 
 Phase 4.2  Initial Placement for Architecture Specific Features
 
-........
+.......
 WARNING:Place:1109 - A clock IOB / BUFGMUX clock component pair have been found
    that are not placed at an optimal clock IOB / BUFGMUX site pair. The clock
-   IOB component <PMOD1_10> is placed at site <P57>. The corresponding BUFG
-   component <PMOD1_10_BUFGP/BUFG> is placed at site <BUFGMUX_X2Y2>. There is
+   IOB component <GPMC_CLK> is placed at site <P105>. The corresponding BUFG
+   component <GPMC_CLK_BUFGP/BUFG> is placed at site <BUFGMUX_X2Y9>. There is
    only a select set of IOBs that can use the fast path to the Clocker buffer,
    and they are not being used. You may want to analyze why this problem exists
    and correct it. This is normally an ERROR but the CLOCK_DEDICATED_ROUTE
-   constraint was applied on COMP.PIN <PMOD1_10.PAD> allowing your design to
+   constraint was applied on COMP.PIN <GPMC_CLK.PAD> allowing your design to
+   continue. This constraint disables all clock placer rules related to the
+   specified COMP.PIN. The use of this override is highly discouraged as it may
+   lead to very poor timing results. It is recommended that this error condition
+   be corrected in the design.
+WARNING:Place:1109 - A clock IOB / BUFGMUX clock component pair have been found
+   that are not placed at an optimal clock IOB / BUFGMUX site pair. The clock
+   IOB component <PMOD2<7>> is placed at site <P57>. The corresponding BUFG
+   component <PMOD2_7_BUFGP/BUFG> is placed at site <BUFGMUX_X3Y5>. There is
+   only a select set of IOBs that can use the fast path to the Clocker buffer,
+   and they are not being used. You may want to analyze why this problem exists
+   and correct it. This is normally an ERROR but the CLOCK_DEDICATED_ROUTE
+   constraint was applied on COMP.PIN <PMOD2<7>.PAD> allowing your design to
    continue. This constraint disables all clock placer rules related to the
    specified COMP.PIN. The use of this override is highly discouraged as it may
    lead to very poor timing results. It is recommended that this error condition
    be corrected in the design.
 Phase 4.2  Initial Placement for Architecture Specific Features
-(Checksum:e4c988eb) REAL time: 8 secs 
+(Checksum:c4e164ff) REAL time: 7 secs 
 
 Phase 5.36  Local Placement Optimization
-Phase 5.36  Local Placement Optimization (Checksum:e4c988eb) REAL time: 8 secs 
+Phase 5.36  Local Placement Optimization (Checksum:c4e164ff) REAL time: 7 secs 
 
 Phase 6.30  Global Clock Region Assignment
-Phase 6.30  Global Clock Region Assignment (Checksum:e4c988eb) REAL time: 8 secs 
+Phase 6.30  Global Clock Region Assignment (Checksum:c4e164ff) REAL time: 7 secs 
 
 Phase 7.3  Local Placement Optimization
-Phase 7.3  Local Placement Optimization (Checksum:e4c988eb) REAL time: 8 secs 
+Phase 7.3  Local Placement Optimization (Checksum:c4e164ff) REAL time: 7 secs 
 
 Phase 8.5  Local Placement Optimization
-Phase 8.5  Local Placement Optimization (Checksum:e4c988eb) REAL time: 8 secs 
+Phase 8.5  Local Placement Optimization (Checksum:c4e164ff) REAL time: 7 secs 
 
 Phase 9.8  Global Placement
-................
+...............
 ..................................................................
-.................
-............
-Phase 9.8  Global Placement (Checksum:42175cac) REAL time: 9 secs 
+.........................
+..
+Phase 9.8  Global Placement (Checksum:cc865fb2) REAL time: 9 secs 
 
 Phase 10.5  Local Placement Optimization
-Phase 10.5  Local Placement Optimization (Checksum:42175cac) REAL time: 9 secs 
+Phase 10.5  Local Placement Optimization (Checksum:cc865fb2) REAL time: 9 secs 
 
 Phase 11.18  Placement Optimization
-Phase 11.18  Placement Optimization (Checksum:fda47694) REAL time: 10 secs 
+Phase 11.18  Placement Optimization (Checksum:8123b732) REAL time: 10 secs 
 
 Phase 12.5  Local Placement Optimization
-Phase 12.5  Local Placement Optimization (Checksum:fda47694) REAL time: 10 secs 
+Phase 12.5  Local Placement Optimization (Checksum:8123b732) REAL time: 10 secs 
 
 Phase 13.34  Placement Validation
-Phase 13.34  Placement Validation (Checksum:f423a4aa) REAL time: 10 secs 
+Phase 13.34  Placement Validation (Checksum:6ca9289d) REAL time: 10 secs 
 
 Total REAL time to Placer completion: 10 secs 
-Total CPU  time to Placer completion: 9 secs 
+Total CPU  time to Placer completion: 10 secs 
 Running post-placement packing...
 Writing output files...
 WARNING:PhysDesignRules:2410 - This design is using one or more 9K Block RAMs
@@ -122,18 +208,18 @@ Design Summary
 
 Design Summary:
 Number of errors:      0
-Number of warnings:    4
+Number of warnings:    6
 Slice Logic Utilization:
-  Number of Slice Registers:                   248 out of  11,440    2%
-    Number used as Flip Flops:                 248
+  Number of Slice Registers:                   292 out of  11,440    2%
+    Number used as Flip Flops:                 292
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        326 out of   5,720    5%
-    Number used as logic:                      315 out of   5,720    5%
-      Number using O6 output only:             179
-      Number using O5 output only:              30
-      Number using O5 and O6:                  106
+  Number of Slice LUTs:                        395 out of   5,720    6%
+    Number used as logic:                      388 out of   5,720    6%
+      Number using O6 output only:             254
+      Number using O5 output only:              41
+      Number using O5 and O6:                   93
       Number used as ROM:                        0
     Number used as Memory:                       1 out of   1,440    1%
       Number used as Dual Port RAM:              0
@@ -142,21 +228,21 @@ Slice Logic Utilization:
         Number using O6 output only:             1
         Number using O5 output only:             0
         Number using O5 and O6:                  0
-    Number used exclusively as route-thrus:     10
-      Number with same-slice register load:      8
-      Number with same-slice carry load:         2
+    Number used exclusively as route-thrus:      6
+      Number with same-slice register load:      0
+      Number with same-slice carry load:         6
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   130 out of   1,430    9%
-  Nummber of MUXCYs used:                      124 out of   2,860    4%
-  Number of LUT Flip Flop pairs used:          373
-    Number with an unused Flip Flop:           145 out of     373   38%
-    Number with an unused LUT:                  47 out of     373   12%
-    Number of fully used LUT-FF pairs:         181 out of     373   48%
+  Number of occupied Slices:                   170 out of   1,430   11%
+  Nummber of MUXCYs used:                      120 out of   2,860    4%
+  Number of LUT Flip Flop pairs used:          454
+    Number with an unused Flip Flop:           189 out of     454   41%
+    Number with an unused LUT:                  59 out of     454   12%
+    Number of fully used LUT-FF pairs:         206 out of     454   45%
     Number of unique control sets:              23
     Number of slice register sites lost
-      to control set restrictions:              71 out of  11,440    1%
+      to control set restrictions:              67 out of  11,440    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -167,7 +253,7 @@ Slice Logic Distribution:
 IO Utilization:
   Number of bonded IOBs:                        46 out of     102   45%
     Number of LOCed IOBs:                       46 out of      46  100%
-    IOB Flip Flops:                              7
+    IOB Flip Flops:                             19
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         8 out of      32   25%
@@ -178,15 +264,20 @@ Specific Feature Utilization:
   Number of BUFIO2FB/BUFIO2FB_2CLKs:             1 out of      32    3%
     Number used as BUFIO2FBs:                    1
     Number used as BUFIO2FB_2CLKs:               0
-  Number of BUFG/BUFGMUXs:                       4 out of      16   25%
-    Number used as BUFGs:                        4
+  Number of BUFG/BUFGMUXs:                       5 out of      16   31%
+    Number used as BUFGs:                        5
     Number used as BUFGMUX:                      0
   Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
-  Number of ILOGIC2/ISERDES2s:                   7 out of     200    3%
-    Number used as ILOGIC2s:                     7
+  Number of ILOGIC2/ISERDES2s:                   3 out of     200    1%
+    Number used as ILOGIC2s:                     3
     Number used as ISERDES2s:                    0
-  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     200    0%
-  Number of OLOGIC2/OSERDES2s:                   0 out of     200    0%
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:         3 out of     200    1%
+    Number used as IODELAY2s:                    3
+    Number used as IODRP2s:                      0
+    Number used as IODRP2_MCBs:                  0
+  Number of OLOGIC2/OSERDES2s:                  16 out of     200    8%
+    Number used as OLOGIC2s:                    16
+    Number used as OSERDES2s:                    0
   Number of BSCANs:                              0 out of       4    0%
   Number of BUFHs:                               0 out of     128    0%
   Number of BUFPLLs:                             0 out of       8    0%
@@ -200,10 +291,10 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                3.75
+Average Fanout of Non-Clock Nets:                3.94
 
-Peak Memory Usage:  669 MB
-Total REAL time to MAP completion:  10 secs 
+Peak Memory Usage:  670 MB
+Total REAL time to MAP completion:  11 secs 
 Total CPU time to MAP completion:   10 secs 
 
 Mapping completed.

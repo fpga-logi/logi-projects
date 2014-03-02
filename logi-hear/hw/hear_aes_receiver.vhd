@@ -231,6 +231,7 @@ generate_receivers : for i in 0 to nb_aes_channel-1 generate
 			  detect              => rate_detect(i),
 			  rate                => rate(i));
 
+		 frame_info(i)(15 downto 4) <= (others => '0') ;
 		 frame_info(i)(3 downto 0) <= rate(i) ;
 		 sample_valid(i) <= channel2(i) OR channel1(i) ;
 		 

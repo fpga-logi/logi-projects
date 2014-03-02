@@ -2,26 +2,18 @@ Release 14.1 ngdbuild P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
 Command Line: /opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -intstyle
-ise -dd _ngo -sd ipcore_dir -nt timestamp -uc logibone_camera.ucf -p
+ise -dd _ngo -sd ipcore_dir -nt timestamp -uc logibone_ra2_1.ucf -p
 xc6slx9-tqg144-2 logibone_camera.ngc logibone_camera.ngd
 
 Reading NGO file
-"/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logibone-hw/
-logibone_camera.ngc" ...
+"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-camera-demo/logibon
+e-hw/logibone_camera.ngc" ...
 Gathering constraint information from source properties...
 Done.
 
-Annotating constraints to design from ucf file "logibone_camera.ucf" ...
+Annotating constraints to design from ucf file "logibone_ra2_1.ucf" ...
 Resolving constraint associations...
 Checking Constraint Associations...
-WARNING:ConstraintSystem:137 - Constraint <NET "GPMC_CLK" TNM_NET = clk100_grp;>
-   [logibone_camera.ucf(13)]: No appropriate instances for the TNM constraint
-   are driven by "GPMC_CLK".
-
-WARNING:ConstraintSystem:56 - Constraint <TIMESPEC TS_PER_CLK100 = PERIOD
-   "clk100_grp" 10.0 ns;> [logibone_camera.ucf(19)]: Unable to find an active
-   'TNM' or 'TimeGrp' constraint named 'clk100_grp'.
-
 INFO:ConstraintSystem:178 - TNM 'clk50_grp', used in period specification
    'TS_PER_CLK50', was traced into PLL_ADV instance PLL_ADV. The following new
    TNM groups and period specifications were generated at the PLL_ADV output(s):
@@ -33,27 +25,15 @@ INFO:ConstraintSystem:178 - TNM 'clk50_grp', used in period specification
    'TS_PER_CLK50', was traced into PLL_ADV instance PLL_ADV. The following new
    TNM groups and period specifications were generated at the PLL_ADV output(s):
     
-   CLKOUT2: <TIMESPEC TS_sys_clocks_gen_clkout2 = PERIOD
-   "sys_clocks_gen_clkout2" TS_PER_CLK50 / 2.4 HIGH 50%>
-
-WARNING:ConstraintSystem:191 - The TNM 'clk100_grp', does not directly or
-   indirectly drive any flip-flops, latches and/or RAMS and cannot be actively
-   used by the referencing Period constraint 'TS_PER_CLK100'. If clock manager
-   blocks are directly or indirectly driven, a new TNM constraint will not be
-   derived even though the referencing constraint is a PERIOD constraint unless
-   an output of the clock manager drives flip-flops, latches or RAMs. This TNM
-   is used in the following user PERIOD specification:
-   <TIMESPEC TS_PER_CLK100 = PERIOD "clk100_grp" 10.0 ns;>
-   [logibone_camera.ucf(19)]
-
-WARNING:ConstraintSystem:197 - The following specification is invalid because
-   the referenced TNM constraint was removed:
-   <TIMESPEC TS_PER_CLK100 = PERIOD "clk100_grp" 10.0 ns;>
-   [logibone_camera.ucf(19)]
+   CLKOUT0: <TIMESPEC TS_sys_clocks_gen_clkout0 = PERIOD
+   "sys_clocks_gen_clkout0" TS_PER_CLK50 / 2 HIGH 50%>
 
 Done...
 
 Checking expanded design ...
+WARNING:NgdBuild:470 - bidirect pad net 'PMOD2<4>' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'ARD_SDA' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'ARD_SCL' has no legal driver
 
 Partition Implementation Status
 -------------------------------
@@ -64,9 +44,9 @@ Partition Implementation Status
 
 NGDBUILD Design Results Summary:
   Number of errors:     0
-  Number of warnings:   4
+  Number of warnings:   3
 
-Total memory usage is 404016 kilobytes
+Total memory usage is 404564 kilobytes
 
 Writing NGD file "logibone_camera.ngd" ...
 Total REAL time to NGDBUILD completion:  3 sec
