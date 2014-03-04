@@ -85,7 +85,7 @@
 #define ARD_TEST2_1 0x0022
 #define ARD_TEST2_1_EXPECTED 0x0011
 #define ARD_TEST2_2 0x0008
-#define ARD_TEST2_2_EXPECTED 0x0004
+#define ARD_TEST2_2_EXPECTED 0x0001
 
 #define LOG_PATH "/home/pi/tests_log/%ld_test.log"
 
