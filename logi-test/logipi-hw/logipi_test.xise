@@ -15,7 +15,9 @@
   <version xil_pn:ise_version="14.1" xil_pn:schema_version="2"/>
 
   <files>
-    <file xil_pn:name="logipi_ra2.ucf" xil_pn:type="FILE_UCF"/>
+    <file xil_pn:name="logipi_ra2.ucf" xil_pn:type="FILE_UCF">
+      <association xil_pn:name="Implementation" xil_pn:seqID="1"/>
+    </file>
     <file xil_pn:name="../../../logi-hard/wishbone/spi_wishbone_wrapper.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="3"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="8"/>
