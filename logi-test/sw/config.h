@@ -72,6 +72,8 @@
 #define MEM0  0x1000
 
 
+//1-2-3-1-2-3
+
 #define ARD_MASK 0x003F
 #define ARD_TEST1_DIR 0x0015	
 #define ARD_TEST1_1 0x0011
@@ -105,19 +107,21 @@
 #define REG_DEBUG_RAM 0x0026
 #define MEM0  0x2000
 
-#define ARD_MASK 0x003F
 
+//1-2-3-1-2-3
+
+#define ARD_MASK 0x003F
 #define ARD_TEST1_DIR 0x0015	
 #define ARD_TEST1_1 0x0011
-#define ARD_TEST1_1_EXPECTED 0x0022
+#define ARD_TEST1_1_EXPECTED 0x000A
 #define ARD_TEST1_2 0x0004
-#define ARD_TEST1_2_EXPECTED 0x0008
+#define ARD_TEST1_2_EXPECTED 0x0020
 
 #define ARD_TEST2_DIR 0x002A	
 #define ARD_TEST2_1 0x0022
-#define ARD_TEST2_1_EXPECTED 0x0011
+#define ARD_TEST2_1_EXPECTED 0x0014
 #define ARD_TEST2_2 0x0008
-#define ARD_TEST2_2_EXPECTED 0x0004
+#define ARD_TEST2_2_EXPECTED 0x0001
 
 #define LOG_PATH "/home/ubuntu/tests_log/%ld_test.log"
 
