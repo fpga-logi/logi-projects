@@ -1,16 +1,18 @@
 //DEFINE WHICH TESTS TO RUN
-#define TEST_SDRAM 	
-#define TEST_LED	
-#define TEST_PMOD_1_2
+//COMMENT OUT TESTS YOU DO NOT WANT TO RUN
+#define TEST_SDRAM 		//test the SDRAM
+#define TEST_LED		//test the leds
+#define TEST_PMOD_1_2	//test pmod 1 and pmod2 (shared jig)
 #ifdef LOGIPI
-#define TEST_PMOD_3_4
+#define TEST_PMOD_3_4	//test pmod 3 and pmod4 (shared jig)
 #define TEST_RPI_GPIO
 #endif
-#define TEST_SW
-#define TEST_PB		
-#define TEST_COMM	
-#define TEST_LVDS 	
-#define TEST_ARD
+#define TEST_SW		//test dip switches
+#define TEST_PB		//test the pushbuttons
+#define TEST_COMM	//test communication between host/fpga
+#define TEST_LVDS 	//testing the LVDS pins
+#define TEST_ARD	//testing arduino connector pins
+//#define TEST_OPEN	//removing test jigs test (open)
 
 
 #ifdef OLD_TEST
