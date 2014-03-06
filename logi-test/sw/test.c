@@ -14,9 +14,6 @@
 #include "config.h"
 
 
-
-
-
 FILE * log_file;
 char text_buffer [512] ;
 
@@ -805,7 +802,9 @@ int main(int argc, char ** argv){
 	test_log(INFO, "MAIN","--------------- End of test ----------------\n");
 	#endif
 
-
+	
+	
+	#ifdef TEST_OPEN
 	test_log(INFO, "MAIN","----------------Starting Open Test--------------\n");
 	test_log(INFO, "MAIN","------Remove IOs test-jiigs and then press y key to continue------\n");
 	c[0] = 'a' ;	
@@ -833,6 +832,7 @@ int main(int argc, char ** argv){
 	}else{
 		test_log(INFO, "ARDUINO Open","Arduino connector Open test passed \n");
 	}
+	#endif
 	#endif
 
 
