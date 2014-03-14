@@ -43,7 +43,7 @@ port( OSC_FPGA : in std_logic;
 		LED : out std_logic_vector(1 downto 0);	
 		
 		--i2c
-		SYS_I2C_SCL, SYS_I2C_SDA : inout std_logic ;
+		SYS_SCL, SYS_SDA : inout std_logic ;
 		
 		--spi
 		SYS_SPI_SCK, RP_SPI_CE0N, SYS_SPI_MOSI : in std_logic ;
