@@ -16,8 +16,6 @@ NET SYS_SPI_SCK TNM_NET = clk32_grp;
 ##### Clock Period Constraints #####
 TIMESPEC TS_PER_CLK50 = PERIOD "clk50_grp" 20.0 ns ;
 #TIMESPEC TS_PER_CLK100 = PERIOD "clk100_grp" 10.0 ns;
-TIMESPEC TS_PER_CLK32 = PERIOD "clk32_grp" 20.0 ns;
-#PIN "sys_clocks_gen/clkout2_buf.O" CLOCK_DEDICATED_ROUTE = FALSE;
 NET "SYS_SPI_SCK" CLOCK_DEDICATED_ROUTE = FALSE;
 
 #######################
@@ -80,24 +78,24 @@ NET "OSC_FPGA"      LOC = "P124"  ;# IO_L30N_GCLK0_USERCCLK_2
 
 
 #PMODS
-#NET "PMOD1_1" LOC = "P114" ;
-#NET "PMOD1_2" LOC = "P111" ;
-#NET "PMOD1_3" LOC = "P123" ;
-#NET "PMOD1_4" LOC = "P102" ;
-#NET "PMOD1_7" LOC = "P112" ;
-#NET "PMOD1_8" LOC = "P62" ;
-#NET "PMOD1_9" LOC = "P105" ;
-#NET "PMOD1_10" LOC = "P104" ;
+NET "PMOD1<0>" LOC = "P21" ;
+NET "PMOD1<1>" LOC = "P119" ;
+NET "PMOD1<2>" LOC = "P101" ;
+NET "PMOD1<3>" LOC = "P116" ;
+NET "PMOD1<4>" LOC = "P120" ;
+NET "PMOD1<5>" LOC = "P118" ;
+NET "PMOD1<6>" LOC = "P117" ;
+NET "PMOD1<7>" LOC = "P115" ;
 #
 #
-#NET "PMOD2_1" LOC = "P121" ;
-#NET "PMOD2_2" LOC = "P119" ;
-#NET "PMOD2_3" LOC = "P101" ;
-#NET "PMOD2_4" LOC = "P116" ;
-#NET "PMOD2_7" LOC = "P120" ;
-#NET "PMOD2_8" LOC = "P118" ;
-#NET "PMOD2_9" LOC = "P117" ;
-#NET "PMOD2_10" LOC = "P115" ;
+NET "PMOD2<0>" LOC = "P114" ;
+NET "PMOD2<1>" LOC = "P111" ;
+NET "PMOD2<2>" LOC = "P123" ;
+NET "PMOD2<3>" LOC = "P102" ;
+NET "PMOD2<4>" LOC = "P112" ;
+NET "PMOD2<5>" LOC = "P62" ;
+NET "PMOD2<6>" LOC = "P105" ;
+NET "PMOD2<7>" LOC = "P104" ;
 
 #NET "PMOD3_1" LOC = "P98" ;
 #NET "PMOD3_2" LOC = "P97" ;
@@ -108,25 +106,23 @@ NET "OSC_FPGA"      LOC = "P124"  ;# IO_L30N_GCLK0_USERCCLK_2
 #NET "PMOD3_9" LOC = "P95" ;
 #NET "PMOD3_10" LOC = "P94" ;
 
-#NET "PMOD3<0>" LOC = "P98" ;
-#NET "PMOD3<1>" LOC = "P97" ;
-#NET "PMOD3<2>" LOC = "P93" ;
-#NET "PMOD3<3>" LOC = "P92" ;
-#NET "PMOD3<4>" LOC = "P100" ;
-#NET "PMOD3<5>" LOC = "P99" ;
-#NET "PMOD3<6>" LOC = "P95" ;
-#NET "PMOD3<7>" LOC = "P94" ;
-#
-#
-#
-#NET "PMOD4_1" LOC = "P85" ;
-#NET "PMOD4_2" LOC = "P84" ;
-#NET "PMOD4_3" LOC = "P81" ;
-#NET "PMOD4_4" LOC = "P80" ;
-#NET "PMOD4_7" LOC = "P88" ;
-#NET "PMOD4_8" LOC = "P87" ;
-#NET "PMOD4_9" LOC = "P83" ;
-#NET "PMOD4_10" LOC = "P82" ;
+NET "PMOD3<0>" LOC = "P98" ;
+NET "PMOD3<1>" LOC = "P97" ;
+NET "PMOD3<2>" LOC = "P93" ;
+NET "PMOD3<3>" LOC = "P92" ;
+NET "PMOD3<4>" LOC = "P100" ;
+NET "PMOD3<5>" LOC = "P99" ;
+NET "PMOD3<6>" LOC = "P95" ;
+NET "PMOD3<7>" LOC = "P94" ;
+
+NET "PMOD4<0>" LOC = "P85" ;
+NET "PMOD4<1>" LOC = "P84" ;
+NET "PMOD4<2>" LOC = "P81" ;
+NET "PMOD4<3>" LOC = "P80" ;
+NET "PMOD4<4>" LOC = "P88" ;
+NET "PMOD4<5>" LOC = "P87" ;
+NET "PMOD4<6>" LOC = "P83" ;
+NET "PMOD4<7>" LOC = "P82" ;
 
 #RASPBERRY-PI CONNECTOR
 
