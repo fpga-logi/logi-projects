@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2014-03-26T21:00:28</DateModified>
+  <DateModified>2014-03-26T22:20:42</DateModified>
   <ModuleName>logi_edu_test</ModuleName>
-  <SummaryTimeStamp>2014-03-26T20:58:55</SummaryTimeStamp>
+  <SummaryTimeStamp>2014-03-26T22:18:59</SummaryTimeStamp>
   <SavedFilePath>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-edu-test/logipi-hw/iseconfig/logipi_test.xreport</SavedFilePath>
   <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-edu-test/logipi-hw</ImplementationReportsDirectory>
   <DateInitialized>2014-03-26T20:24:04</DateInitialized>

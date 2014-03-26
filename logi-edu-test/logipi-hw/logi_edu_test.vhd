@@ -36,11 +36,13 @@ use work.logi_wishbone_pack.all ;
 use work.logi_wishbone_peripherals_pack.all ;
 
 entity logi_edu_test is
-port( OSC_FPGA : in std_logic;
+port( 
+
+		OSC_FPGA : in std_logic;
 
 		--onboard
 		PB : in std_logic_vector(1 downto 0);
-		SW : in std_logic_vector(1 downto 0);
+		--SW : in std_logic_vector(1 downto 0);
 		LED : out std_logic_vector(1 downto 0);	
 		
 		PMOD3 : inout std_logic_vector(7 downto 0); 
@@ -54,7 +56,7 @@ port( OSC_FPGA : in std_logic;
 		SYS_SCL, SYS_SDA : inout std_logic ;
 		
 		--spi
-		SYS_SPI_SCK, RP_SPI_CE0N, RP_SPI_CE1N, SYS_SPI_MOSI : in std_logic ;
+		SYS_SPI_SCK, RP_SPI_CE0N, SYS_SPI_MOSI : in std_logic ;
 		SYS_SPI_MISO : out std_logic
 );
 end logi_edu_test;
@@ -92,14 +94,6 @@ architecture Behavioral of logi_edu_test is
 	signal intercon_wrapper_wbm_write :  std_logic;
 	signal intercon_wrapper_wbm_ack :  std_logic;
 	signal intercon_wrapper_wbm_cycle :  std_logic;
-
-	signal intercon_reg0_wbm_address :  std_logic_vector(15 downto 0);
-	signal intercon_reg0_wbm_readdata :  std_logic_vector(15 downto 0);
-	signal intercon_reg0_wbm_writedata :  std_logic_vector(15 downto 0);
-	signal intercon_reg0_wbm_strobe :  std_logic;
-	signal intercon_reg0_wbm_write :  std_logic;
-	signal intercon_reg0_wbm_ack :  std_logic;
-	signal intercon_reg0_wbm_cycle :  std_logic;
 
 	signal intercon_gpio0_wbm_address :  std_logic_vector(15 downto 0);
 	signal intercon_gpio0_wbm_readdata :  std_logic_vector(15 downto 0);
@@ -154,7 +148,8 @@ pll0 : clock_gen
 gls_clk <= clk_100Mhz;
 
 
-
+SYS_SCL <= 'Z' ;
+SYS_SDA <= 'Z' ;
 
 mem_interface0 : spi_wishbone_wrapper
 		port map(
@@ -307,6 +302,7 @@ PMOD3(0) <= sseg_edu_anode_out(6); --G
 PMOD2(7) <= sseg_edu_anode_out(7); --DP
 
 
+
 sound_0: sound_440 -- generates 440hz pwm
 		generic map(clk_freq_hz => 100_000_000)
 		port map(
@@ -320,7 +316,9 @@ sound_1: sound_440 -- tricking module to produce 220hz pwm
 			clk => gls_clk, reset => gls_reset,
 			sound_out =>  PMOD4(6)
 		);
-	
+		
+LED(0) <=  sseg_edu_cathode_out(0);
+LED(1) <= PB(0) ;
 	
 end Behavioral;
 

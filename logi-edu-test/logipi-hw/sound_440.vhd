@@ -63,11 +63,10 @@ elsif clk'event and clk = '1' then
 	else
 		divider_counter <= divider_counter - 1 ;
 	end if ;
-
-
 end if ;
 end process ;
 
+sound_out <= output_buffer ;
 
 end Behavioral;
 
