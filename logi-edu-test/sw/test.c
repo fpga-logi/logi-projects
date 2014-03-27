@@ -148,7 +148,7 @@ int testSSEG(){
 	char sseg_buff [6] ;
 	unsigned int i ;
 	unsigned int count = 0 ;
-	while(count < 16){
+	while(count < 8){
 		sseg_buff[0] = (count & 0x01)<<7 | decode_sseg[count];	
 		sseg_buff[1] = (count & 0x01)<<7 | decode_sseg[15 - count];
 		sseg_buff[2] = (count & 0x01)<<7 | decode_sseg[count];
