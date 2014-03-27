@@ -200,24 +200,12 @@ int main(int argc, char ** argv){
 	#ifdef TEST_SSEG
 	test_log(INFO, "COM","-----------------SSEG Test---------------\n");
 	testSSEG();
-	printf("Did the sseg counted (in hex) ? (r=retry, y=yes, n=no):");
-	while(fgets(c, 2, stdin)== NULL || (c[0] != 'n' && c[0] != 'y')) printf("Did the sseg counted (in hex) ? (r=retry, y=yes, n=no):");
+	printf("Did the sseg counted (in hex) ? (y=yes, n=no):");
+	while(fgets(c, 2, stdin)== NULL || (c[0] != 'n' && c[0] != 'y')) printf("Did the sseg counted (in hex) ? (y=yes, n=no):");
 	if(c[0] == 'n'){
 		test_log(ERROR, "SSEG","SSEG test failed \n");	
 	}else{
-		while(c[0] != 'y'){
-			testSSEG();
-			printf("Did the sseg counted (in hex) ? (r=retry, y=yes, n=no):");
-			while(fgets(c, 2, stdin)== NULL) printf("Did the sseg counted (in hex) ? (r=retry, y=yes, n=no):");
-			if(c[0] == 'n'){
-				test_log(ERROR, "SSEG","SSEG test failed \n");	
-				break ;	
-			}
-			printf("\n");
-		}
-		if(c[0] == 'y'){
-			test_log(INFO, "SSEG","SSEG test passed \n");
-		}
+		test_log(INFO, "SSEG","SSEG test passed \n");
 	}
 	#endif
 
