@@ -1,21 +1,18 @@
-Release 14.1 - xst P.15xf (lin64)
+Release 14.1 - xst P.15xf (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
---> 
-Parameter TMPDIR set to xst/projnav.tmp
+--> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.16 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
  
---> 
-Parameter xsthdpdir set to xst
+--> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.16 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
  
---> 
-Reading design: logipi_blink.prj
+--> Reading design: logipi_blink.prj
 
 TABLE OF CONTENTS
   1) Synthesis Options Summary
@@ -108,7 +105,7 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/blink_led/logipi-hw/logipi_blink.vhd" into library work
+Parsing VHDL file "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\blink_led\logipi-hw\logipi_blink.vhd" into library work
 Parsing entity <logipi_blink>.
 Parsing architecture <Behavioral> of entity <logipi_blink>.
 
@@ -123,9 +120,9 @@ Elaborating entity <logipi_blink> (architecture <Behavioral>) from library <work
 =========================================================================
 
 Synthesizing Unit <logipi_blink>.
-    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-projects/blink_led/logipi-hw/logipi_blink.vhd".
+    Related source file is "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\blink_led\logipi-hw\logipi_blink.vhd".
     Found 32-bit register for signal <counter_output>.
-    Found 32-bit adder for signal <counter_output[31]_GND_7_o_add_0_OUT> created at line 54.
+    Found 32-bit adder for signal <counter_output[31]_GND_7_o_add_0_OUT> created at line 58.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  32 D-type flip-flop(s).
@@ -218,8 +215,8 @@ Primitive and Black Box Usage:
 #      FD                          : 25
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 2
-#      OBUF                        : 2
+# IO Buffers                       : 4
+#      OBUF                        : 4
 
 Device utilization summary:
 ---------------------------
@@ -240,8 +237,8 @@ Slice Logic Distribution:
    Number of unique control sets:         1
 
 IO Utilization: 
- Number of IOs:                           3
- Number of bonded IOBs:                   3  out of    102     2%  
+ Number of IOs:                           5
+ Number of bonded IOBs:                   5  out of    102     4%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
@@ -280,7 +277,7 @@ Speed Grade: -2
 
    Minimum period: 2.491ns (Maximum Frequency: 401.485MHz)
    Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: 4.162ns
+   Maximum output required time after clock: 4.202ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -336,22 +333,22 @@ Delay:               2.491ns (Levels of Logic = 26)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'OSC_FPGA'
-  Total number of paths / destination ports: 2 / 2
+  Total number of paths / destination ports: 4 / 4
 -------------------------------------------------------------------------
-Offset:              4.162ns (Levels of Logic = 1)
-  Source:            counter_output_23 (FF)
-  Destination:       LED<1> (PAD)
+Offset:              4.202ns (Levels of Logic = 1)
+  Source:            counter_output_20 (FF)
+  Destination:       ps2c_1 (PAD)
   Source Clock:      OSC_FPGA rising
 
-  Data Path: counter_output_23 to LED<1>
+  Data Path: counter_output_20 to ps2c_1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               2   0.525   0.725  counter_output_23 (counter_output_23)
-     OBUF:I->O                 2.912          LED_1_OBUF (LED<1>)
+     FD:C->Q               3   0.525   0.765  counter_output_20 (counter_output_20)
+     OBUF:I->O                 2.912          ps2c_1_OBUF (ps2c_1)
     ----------------------------------------
-    Total                      4.162ns (3.437ns logic, 0.725ns route)
-                                       (82.6% logic, 17.4% route)
+    Total                      4.202ns (3.437ns logic, 0.765ns route)
+                                       (81.8% logic, 18.2% route)
 
 =========================================================================
 
@@ -369,13 +366,12 @@ OSC_FPGA       |    2.491|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 18.00 secs
-Total CPU time to Xst completion: 17.06 secs
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 4.64 secs
  
 --> 
 
-
-Total memory usage is 402832 kilobytes
+Total memory usage is 268484 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    7 (   0 filtered)

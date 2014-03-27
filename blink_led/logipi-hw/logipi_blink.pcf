@@ -1,11 +1,13 @@
 //! **************************************************************************
-// Written by: Map P.15xf on Thu Jun 06 01:46:22 2013
+// Written by: Map P.15xf on Fri Mar 21 16:52:29 2014
 //! **************************************************************************
 
 SCHEMATIC START;
 COMP "LED<0>" LOCATE = SITE "P58" LEVEL 1;
 COMP "LED<1>" LOCATE = SITE "P59" LEVEL 1;
 COMP "OSC_FPGA" LOCATE = SITE "P124" LEVEL 1;
+COMP "ps2c_1" LOCATE = SITE "P88" LEVEL 1;
+COMP "ps2d_1" LOCATE = SITE "P87" LEVEL 1;
 TIMEGRP clk50_grp = BEL "counter_output_0" BEL "counter_output_1" BEL
         "counter_output_2" BEL "counter_output_3" BEL "counter_output_4" BEL
         "counter_output_5" BEL "counter_output_6" BEL "counter_output_7" BEL
