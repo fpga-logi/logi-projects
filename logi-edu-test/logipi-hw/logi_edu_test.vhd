@@ -103,22 +103,6 @@ architecture Behavioral of logi_edu_test is
 	signal intercon_gpio0_wbm_ack :  std_logic;
 	signal intercon_gpio0_wbm_cycle :  std_logic;
 	
-	signal intercon_gpio1_wbm_address :  std_logic_vector(15 downto 0);
-	signal intercon_gpio1_wbm_readdata :  std_logic_vector(15 downto 0);
-	signal intercon_gpio1_wbm_writedata :  std_logic_vector(15 downto 0);
-	signal intercon_gpio1_wbm_strobe :  std_logic;
-	signal intercon_gpio1_wbm_write :  std_logic;
-	signal intercon_gpio1_wbm_ack :  std_logic;
-	signal intercon_gpio1_wbm_cycle :  std_logic;
-	
-	signal intercon_gpio2_wbm_address :  std_logic_vector(15 downto 0);
-	signal intercon_gpio2_wbm_readdata :  std_logic_vector(15 downto 0);
-	signal intercon_gpio2_wbm_writedata :  std_logic_vector(15 downto 0);
-	signal intercon_gpio2_wbm_strobe :  std_logic;
-	signal intercon_gpio2_wbm_write :  std_logic;
-	signal intercon_gpio2_wbm_ack :  std_logic;
-	signal intercon_gpio2_wbm_cycle :  std_logic;
-	
 	signal intercon_sseg0_wbm_address :  std_logic_vector(15 downto 0);
 	signal intercon_sseg0_wbm_readdata :  std_logic_vector(15 downto 0);
 	signal intercon_sseg0_wbm_writedata :  std_logic_vector(15 downto 0);
@@ -182,8 +166,7 @@ intercon0 : wishbone_intercon
 generic map(memory_map => 
 (
 "000000000000001X", -- gpio0
-"000000000000010X", -- gpio1
-"00000000000010XX") -- sseg0
+"00000000000001XX") -- sseg0
 )
 port map(
 		gls_reset => gls_reset,
@@ -200,26 +183,19 @@ port map(
 		
 		-- Wishbone master signals
 		wbm_address(0) => intercon_gpio0_wbm_address,
-		wbm_address(1) => intercon_gpio1_wbm_address,
-		wbm_address(2) => intercon_sseg0_wbm_address,
+		wbm_address(1) => intercon_sseg0_wbm_address,
 		wbm_writedata(0)  => intercon_gpio0_wbm_writedata,
-		wbm_writedata(1)  => intercon_gpio1_wbm_writedata,
-		wbm_writedata(2)  => intercon_sseg0_wbm_writedata,
+		wbm_writedata(1)  => intercon_sseg0_wbm_writedata,
 		wbm_readdata(0)  => intercon_gpio0_wbm_readdata,
-		wbm_readdata(1)  => intercon_gpio1_wbm_readdata,
-		wbm_readdata(2)  => intercon_sseg0_wbm_readdata,
+		wbm_readdata(1)  => intercon_sseg0_wbm_readdata,
 		wbm_strobe(0)  => intercon_gpio0_wbm_strobe,
-		wbm_strobe(1)  => intercon_gpio1_wbm_strobe,
-		wbm_strobe(2)  => intercon_sseg0_wbm_strobe,
+		wbm_strobe(1)  => intercon_sseg0_wbm_strobe,
 		wbm_cycle(0)   => intercon_gpio0_wbm_cycle,
-		wbm_cycle(1)   => intercon_gpio1_wbm_cycle,
-		wbm_cycle(2)   => intercon_sseg0_wbm_cycle,
+		wbm_cycle(1)   => intercon_sseg0_wbm_cycle,
 		wbm_write(0)   => intercon_gpio0_wbm_write,
-		wbm_write(1)   => intercon_gpio1_wbm_write,
-		wbm_write(2)   => intercon_sseg0_wbm_write,
+		wbm_write(1)   => intercon_sseg0_wbm_write,
 		wbm_ack(0)      => intercon_gpio0_wbm_ack,
-		wbm_ack(1)      => intercon_gpio1_wbm_ack,
-		wbm_ack(2)      => intercon_sseg0_wbm_ack
+		wbm_ack(1)      => intercon_sseg0_wbm_ack
 		
 );
 									      
@@ -241,31 +217,13 @@ gpio0 : wishbone_gpio
 			wbs_ack        => intercon_gpio0_wbm_ack,    
 			wbs_cycle      => intercon_gpio0_wbm_cycle, 
 
-			gpio(15 downto 8) => open, 
-			gpio(7 downto 0) => PMOD1
+			gpio(15 downto 8) => open,
+			gpio(7) => PMOD4(7), -- wired to NES2_DAT
+			gpio(6) => open,
+			gpio(5 downto 1) => PMOD4(5 downto 1), -- 4,5 bits are wired to servo_1 servo_2
+																 -- 1, 2, 3 bits are wired to NES_CLK, NES_LAT, NES1_DAT
+			gpio(0) => open
 	 );
-
-gpio1 : wishbone_gpio
-	 port map
-	 (
-			gls_reset => gls_reset,
-			gls_clk   => gls_clk,
-
-
-			wbs_address    => intercon_gpio1_wbm_address,  	
-			wbs_readdata   => intercon_gpio1_wbm_readdata,  	
-			wbs_writedata 	=> intercon_gpio1_wbm_writedata,  
-			wbs_strobe     => intercon_gpio1_wbm_strobe,      
-			wbs_write      => intercon_gpio1_wbm_write,    
-			wbs_ack        => intercon_gpio1_wbm_ack,    
-			wbs_cycle      => intercon_gpio1_wbm_cycle, 
-
-			gpio(15) => PMOD4(7), 
-			gpio(14) => open, 
-			gpio(13 downto 9) => PMOD4(5 downto 1), 
-			gpio(8) => open, 
-			gpio(7 downto 0) => open
-	 );	
 
 sseg0 : wishbone_7seg4x
 	 port map
@@ -301,7 +259,7 @@ PMOD3(6) <= sseg_edu_anode_out(5); --F
 PMOD3(0) <= sseg_edu_anode_out(6); --G
 PMOD2(7) <= sseg_edu_anode_out(7); --DP
 
-
+PMOD1 <= (others => 'Z') ;
 
 sound_0: sound_440 -- generates 440hz pwm
 		generic map(clk_freq_hz => 100_000_000)
@@ -310,7 +268,7 @@ sound_0: sound_440 -- generates 440hz pwm
 			sound_out =>  PMOD4(0)
 		);
 		
-sound_1: sound_440 -- tricking module to produce 220hz pwm
+sound_1: sound_440 -- tricking module to produce 220
 		generic map(clk_freq_hz => 50_000_000)
 		port map(
 			clk => gls_clk, reset => gls_reset,
