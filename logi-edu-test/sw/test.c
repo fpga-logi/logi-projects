@@ -127,6 +127,17 @@ int main(int argc, char ** argv){
 	sleep(1);
 	test_log(INFO, "MAIN","-----------------Starting Test-------------\n");
 	
+	#ifdef TEST_SOUND
+	test_log(INFO, "COM","-----------------Sound Test---------------\n");
+	printf("Do you have a sound coming out the audio jack ? (y=yes, n=no):");
+	while(fgets(c, 2, stdin)== NULL) printf("Do you have a sound coming out the audio jack ? (y=yes, n=no):");
+	if(c[0] == 'n'){
+		test_log(ERROR, "SOUND","SOUND test failed \n");	
+	}else{
+		test_log(INFO, "SOUND","SOUND test passed \n");
+	}
+	#endif
+	
 	#ifdef TEST_SSEG
 	test_log(INFO, "COM","-----------------SSEG Test---------------\n");
 	testSSEG();

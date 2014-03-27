@@ -102,13 +102,14 @@ int testSSEG(){
 	unsigned int i ;
 	unsigned int count = 0 ;
 	while(count < 16){
-		sseg_buff[0] = decode_sseg[count];	
-		sseg_buff[1] = decode_sseg[15 - count];
-		sseg_buff[2] = decode_sseg[count];
-		sseg_buff[3] = decode_sseg[15 - count];
+		sseg_buff[0] = (count & 0x01)<<7 | decode_sseg[count];	
+		sseg_buff[1] = (count & 0x01)<<7 | decode_sseg[15 - count];
+		sseg_buff[2] = (count & 0x01)<<7 | decode_sseg[count];
+		sseg_buff[3] = (count & 0x01)<<7 | decode_sseg[15 - count];
 		sseg_buff[4] = decode_sseg[count];
 		wishbone_write((unsigned char *) sseg_buff, 6, SSEG_0);
-		sleep(1);	
+		sleep(1);
+		count ++ ;	
 	}
 	return 0 ;
 }
@@ -125,6 +126,17 @@ int main(int argc, char ** argv){
 	//
 	sleep(1);
 	test_log(INFO, "MAIN","-----------------Starting Test-------------\n");
+	
+	#ifdef TEST_SOUND
+	test_log(INFO, "COM","-----------------Sound Test---------------\n");
+	printf("Do you have a sound coming out the audio jack ? (y=yes, n=no):");
+	while(fgets(c, 2, stdin)== NULL) printf("Do you have a sound coming out the audio jack ? (y=yes, n=no):");
+	if(c[0] == 'n'){
+		test_log(ERROR, "SOUND","SOUND test failed \n");	
+	}else{
+		test_log(INFO, "SOUND","SOUND test passed \n");
+	}
+	#endif
 	
 	#ifdef TEST_SSEG
 	test_log(INFO, "COM","-----------------SSEG Test---------------\n");

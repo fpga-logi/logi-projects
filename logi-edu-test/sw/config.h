@@ -1,7 +1,7 @@
 //DEFINE WHICH TESTS TO RUN
 //COMMENT OUT TESTS YOU DO NOT WANT TO RUN
 #define TEST_SSEG 		//test the SSEG
-
+#define TEST_SOUND		//test the sound output
 
 
 
