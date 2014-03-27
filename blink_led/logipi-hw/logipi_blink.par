@@ -1,15 +1,21 @@
-Release 14.1 par P.15xf (lin64)
+Release 14.1 par P.15xf (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-yaya::  Thu Jun 06 01:46:28 2013
+MJ-PC::  Fri Mar 21 16:52:31 2014
 
 par -w -intstyle ise -ol high -mt off logipi_blink_map.ncd logipi_blink.ncd
 logipi_blink.pcf 
 
 
 Constraints file: logipi_blink.pcf.
-Loading device for application Rf_Device from file '6slx9.nph' in environment /opt/Xilinx/14.1/ISE_DS/ISE/.
+Loading device for application Rf_Device from file '6slx9.nph' in environment C:\Xilinx\14.1\ISE_DS\ISE\.
    "logipi_blink" is an NCD, version 3.2, device xc6slx9, package tqg144, speed -2
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+INFO:Security:54 - 'xc6slx9' is a WebPack part.
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue
+to function, but you no longer qualify for Xilinx software updates or new releases.
+
+----------------------------------------------------------------------
 
 Initializing temperature to 85.000 Celsius. (default - Range: 0.000 to 85.000 Celsius)
 Initializing voltage to 1.140 Volts. (default - Range: 1.140 to 1.260 Volts)
@@ -56,8 +62,8 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                         3 out of     102    2%
-    Number of LOCed IOBs:                        3 out of       3  100%
+  Number of bonded IOBs:                         5 out of     102    4%
+    Number of LOCed IOBs:                        5 out of       5  100%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      32    0%
@@ -88,35 +94,35 @@ Specific Feature Utilization:
 Overall effort level (-ol):   High 
 Router effort level (-rl):    High 
 
-Starting initial Timing Analysis.  REAL time: 51 secs 
-Finished initial Timing Analysis.  REAL time: 51 secs 
+Starting initial Timing Analysis.  REAL time: 2 secs 
+Finished initial Timing Analysis.  REAL time: 2 secs 
 
 Starting Router
 
 
-Phase  1  : 65 unrouted;      REAL time: 52 secs 
+Phase  1  : 67 unrouted;      REAL time: 2 secs 
 
-Phase  2  : 33 unrouted;      REAL time: 52 secs 
+Phase  2  : 35 unrouted;      REAL time: 2 secs 
 
-Phase  3  : 0 unrouted;      REAL time: 52 secs 
+Phase  3  : 0 unrouted;      REAL time: 2 secs 
 
-Phase  4  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 53 secs 
+Phase  4  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 3 secs 
 
 Updating file: logipi_blink.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 54 secs 
+Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 3 secs 
 
-Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 54 secs 
+Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 3 secs 
 
-Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 54 secs 
+Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 3 secs 
 
-Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 54 secs 
+Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 3 secs 
 
-Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 54 secs 
+Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 3 secs 
 
-Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 54 secs 
-Total REAL time to Router completion: 54 secs 
-Total CPU time to Router completion: 13 secs 
+Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 3 secs 
+Total REAL time to Router completion: 3 secs 
+Total CPU time to Router completion: 3 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -134,7 +140,7 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|      OSC_FPGA_BUFGP |  BUFGMUX_X3Y7| No   |    7 |  0.067     |  1.466      |
+|      OSC_FPGA_BUFGP |  BUFGMUX_X3Y7| No   |    7 |  0.011     |  1.403      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -154,7 +160,7 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  TS_PER_CLK50 = PERIOD TIMEGRP "clk50_grp" | SETUP       |    17.809ns|     2.191ns|       0|           0
+  TS_PER_CLK50 = PERIOD TIMEGRP "clk50_grp" | SETUP       |    17.792ns|     2.208ns|       0|           0
    20 ns HIGH 50%                           | HOLD        |     0.465ns|            |       0|           0
                                             | MINPERIOD   |    17.334ns|     2.666ns|       0|           0
 ----------------------------------------------------------------------------------------------------------
@@ -167,10 +173,10 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 54 secs 
-Total CPU time to PAR completion: 13 secs 
+Total REAL time to PAR completion: 3 secs 
+Total CPU time to PAR completion: 3 secs 
 
-Peak Memory Usage:  606 MB
+Peak Memory Usage:  296 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.

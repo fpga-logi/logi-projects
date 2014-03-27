@@ -1,4 +1,4 @@
-Release 14.1 Map P.15xf (lin64)
+Release 14.1 Map P.15xf (nt64)
 Xilinx Map Application Log File for Design 'logipi_blink'
 
 Design Information
@@ -11,8 +11,14 @@ Target Device  : xc6slx9
 Target Package : tqg144
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Thu Jun  6 01:45:55 2013
+Mapped Date    : Fri Mar 21 16:52:25 2014
 
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+INFO:Security:54 - 'xc6slx9' is a WebPack part.
+WARNING:Security:42 - Your software subscription period has lapsed. Your current
+version of Xilinx tools will continue to function, but you no longer qualify for
+Xilinx software updates or new releases.
+----------------------------------------------------------------------
 Mapping design into LUTs...
 Running directed packing...
 Running delay-based LUT packing...
@@ -20,54 +26,54 @@ Updating timing models...
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
 Running timing-driven placement...
-Total REAL time at the beginning of Placer: 23 secs 
-Total CPU  time at the beginning of Placer: 13 secs 
+Total REAL time at the beginning of Placer: 2 secs 
+Total CPU  time at the beginning of Placer: 2 secs 
 
 Phase 1.1  Initial Placement Analysis
-Phase 1.1  Initial Placement Analysis (Checksum:26525219) REAL time: 24 secs 
+Phase 1.1  Initial Placement Analysis (Checksum:dd0ec5c7) REAL time: 3 secs 
 
 Phase 2.7  Design Feasibility Check
-Phase 2.7  Design Feasibility Check (Checksum:26525219) REAL time: 25 secs 
+Phase 2.7  Design Feasibility Check (Checksum:dd0ec5c7) REAL time: 3 secs 
 
 Phase 3.31  Local Placement Optimization
-Phase 3.31  Local Placement Optimization (Checksum:26525219) REAL time: 25 secs 
+Phase 3.31  Local Placement Optimization (Checksum:dd0ec5c7) REAL time: 3 secs 
 
 Phase 4.2  Initial Placement for Architecture Specific Features
 
 Phase 4.2  Initial Placement for Architecture Specific Features
-(Checksum:fb976243) REAL time: 26 secs 
+(Checksum:dd0ec5c7) REAL time: 3 secs 
 
 Phase 5.36  Local Placement Optimization
-Phase 5.36  Local Placement Optimization (Checksum:fb976243) REAL time: 26 secs 
+Phase 5.36  Local Placement Optimization (Checksum:dd0ec5c7) REAL time: 3 secs 
 
 Phase 6.30  Global Clock Region Assignment
-Phase 6.30  Global Clock Region Assignment (Checksum:fb976243) REAL time: 26 secs 
+Phase 6.30  Global Clock Region Assignment (Checksum:dd0ec5c7) REAL time: 3 secs 
 
 Phase 7.3  Local Placement Optimization
-Phase 7.3  Local Placement Optimization (Checksum:fb976243) REAL time: 26 secs 
+Phase 7.3  Local Placement Optimization (Checksum:dd0ec5c7) REAL time: 3 secs 
 
 Phase 8.5  Local Placement Optimization
-Phase 8.5  Local Placement Optimization (Checksum:fb976243) REAL time: 26 secs 
+Phase 8.5  Local Placement Optimization (Checksum:dd0ec5c7) REAL time: 3 secs 
 
 Phase 9.8  Global Placement
 ..
 ..
-Phase 9.8  Global Placement (Checksum:62036d86) REAL time: 26 secs 
+Phase 9.8  Global Placement (Checksum:a2a42d51) REAL time: 3 secs 
 
 Phase 10.5  Local Placement Optimization
-Phase 10.5  Local Placement Optimization (Checksum:62036d86) REAL time: 26 secs 
+Phase 10.5  Local Placement Optimization (Checksum:a2a42d51) REAL time: 3 secs 
 
 Phase 11.18  Placement Optimization
-Phase 11.18  Placement Optimization (Checksum:548f90a6) REAL time: 26 secs 
+Phase 11.18  Placement Optimization (Checksum:27616001) REAL time: 3 secs 
 
 Phase 12.5  Local Placement Optimization
-Phase 12.5  Local Placement Optimization (Checksum:548f90a6) REAL time: 26 secs 
+Phase 12.5  Local Placement Optimization (Checksum:27616001) REAL time: 3 secs 
 
 Phase 13.34  Placement Validation
-Phase 13.34  Placement Validation (Checksum:548f90a6) REAL time: 26 secs 
+Phase 13.34  Placement Validation (Checksum:27616001) REAL time: 3 secs 
 
-Total REAL time to Placer completion: 26 secs 
-Total CPU  time to Placer completion: 16 secs 
+Total REAL time to Placer completion: 3 secs 
+Total CPU  time to Placer completion: 3 secs 
 Running post-placement packing...
 Writing output files...
 
@@ -113,8 +119,8 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                         3 out of     102    2%
-    Number of LOCed IOBs:                        3 out of       3  100%
+  Number of bonded IOBs:                         5 out of     102    4%
+    Number of LOCed IOBs:                        5 out of       5  100%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      32    0%
@@ -141,11 +147,11 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                1.06
+Average Fanout of Non-Clock Nets:                1.13
 
-Peak Memory Usage:  658 MB
-Total REAL time to MAP completion:  27 secs 
-Total CPU time to MAP completion:   17 secs 
+Peak Memory Usage:  339 MB
+Total REAL time to MAP completion:  3 secs 
+Total CPU time to MAP completion:   3 secs 
 
 Mapping completed.
 See MAP report file "logipi_blink_map.mrp" for details.

@@ -1,9 +1,9 @@
 --------------------------------------------------------------------------------
-Release 14.1 Trace  (lin64)
+Release 14.1 Trace  (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-/opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v 3 -s 2 -n
-3 -fastpaths -xml logipi_blink.twx logipi_blink.ncd -o logipi_blink.twr
+C:\Xilinx\14.1\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 2
+-n 3 -fastpaths -xml logipi_blink.twx logipi_blink.ncd -o logipi_blink.twr
 logipi_blink.pcf -ucf logipi_blink.ucf
 
 Design file:              logipi_blink.ncd
@@ -34,14 +34,14 @@ For more information, see Period Analysis in the Timing Closure User Guide (UG61
  Minimum period is   2.666ns.
 --------------------------------------------------------------------------------
 
-Paths for end point counter_output_24 (SLICE_X18Y20.CIN), 24 paths
+Paths for end point counter_output_24 (SLICE_X18Y24.CIN), 24 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     17.809ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     17.792ns (requirement - (data path - clock path skew + uncertainty))
   Source:               counter_output_0 (FF)
   Destination:          counter_output_24 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      2.066ns (Levels of Logic = 7)
-  Clock Path Skew:      -0.090ns (0.596 - 0.686)
+  Data Path Delay:      2.145ns (Levels of Logic = 7)
+  Clock Path Skew:      -0.028ns (0.285 - 0.313)
   Source Clock:         OSC_FPGA_BUFGP rising at 0.000ns
   Destination Clock:    OSC_FPGA_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -56,42 +56,42 @@ Slack (setup path):     17.809ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y14.AQ      Tcko                  0.476   counter_output<3>
+    SLICE_X18Y18.AQ      Tcko                  0.476   counter_output<3>
                                                        counter_output_0
-    SLICE_X18Y14.A5      net (fanout=1)        0.405   counter_output<0>
-    SLICE_X18Y14.COUT    Topcya                0.472   counter_output<3>
+    SLICE_X18Y18.A5      net (fanout=1)        0.405   counter_output<0>
+    SLICE_X18Y18.COUT    Topcya                0.472   counter_output<3>
                                                        Mcount_counter_output_lut<0>_INV_0
                                                        Mcount_counter_output_cy<3>
-    SLICE_X18Y15.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<3>
-    SLICE_X18Y15.COUT    Tbyp                  0.091   counter_output<7>
+    SLICE_X18Y19.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<3>
+    SLICE_X18Y19.COUT    Tbyp                  0.091   counter_output<7>
                                                        Mcount_counter_output_cy<7>
-    SLICE_X18Y16.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<7>
-    SLICE_X18Y16.COUT    Tbyp                  0.091   counter_output<11>
+    SLICE_X18Y20.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<7>
+    SLICE_X18Y20.COUT    Tbyp                  0.091   counter_output<11>
                                                        Mcount_counter_output_cy<11>
-    SLICE_X18Y17.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<11>
-    SLICE_X18Y17.COUT    Tbyp                  0.091   counter_output<15>
+    SLICE_X18Y21.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<11>
+    SLICE_X18Y21.COUT    Tbyp                  0.091   counter_output<15>
                                                        Mcount_counter_output_cy<15>
-    SLICE_X18Y18.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<15>
-    SLICE_X18Y18.COUT    Tbyp                  0.091   counter_output<19>
+    SLICE_X18Y22.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<15>
+    SLICE_X18Y22.COUT    Tbyp                  0.091   counter_output<19>
                                                        Mcount_counter_output_cy<19>
-    SLICE_X18Y19.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<19>
-    SLICE_X18Y19.COUT    Tbyp                  0.091   counter_output<23>
+    SLICE_X18Y23.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<19>
+    SLICE_X18Y23.COUT    Tbyp                  0.091   counter_output<23>
                                                        Mcount_counter_output_cy<23>
-    SLICE_X18Y20.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<23>
-    SLICE_X18Y20.CLK     Tcinck                0.240   counter_output<24>
+    SLICE_X18Y24.CIN     net (fanout=1)        0.082   Mcount_counter_output_cy<23>
+    SLICE_X18Y24.CLK     Tcinck                0.240   counter_output<24>
                                                        Mcount_counter_output_xor<24>
                                                        counter_output_24
     -------------------------------------------------  ---------------------------
-    Total                                      2.066ns (1.643ns logic, 0.423ns route)
-                                                       (79.5% logic, 20.5% route)
+    Total                                      2.145ns (1.643ns logic, 0.502ns route)
+                                                       (76.6% logic, 23.4% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     17.902ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     17.888ns (requirement - (data path - clock path skew + uncertainty))
   Source:               counter_output_4 (FF)
   Destination:          counter_output_24 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      1.972ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.091ns (0.596 - 0.687)
+  Data Path Delay:      2.051ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.026ns (0.285 - 0.311)
   Source Clock:         OSC_FPGA_BUFGP rising at 0.000ns
   Destination Clock:    OSC_FPGA_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -106,39 +106,39 @@ Slack (setup path):     17.902ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y15.AQ      Tcko                  0.476   counter_output<7>
+    SLICE_X18Y19.AQ      Tcko                  0.476   counter_output<7>
                                                        counter_output_4
-    SLICE_X18Y15.A5      net (fanout=1)        0.405   counter_output<4>
-    SLICE_X18Y15.COUT    Topcya                0.472   counter_output<7>
+    SLICE_X18Y19.A5      net (fanout=1)        0.405   counter_output<4>
+    SLICE_X18Y19.COUT    Topcya                0.472   counter_output<7>
                                                        counter_output<4>_rt
                                                        Mcount_counter_output_cy<7>
-    SLICE_X18Y16.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<7>
-    SLICE_X18Y16.COUT    Tbyp                  0.091   counter_output<11>
+    SLICE_X18Y20.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<7>
+    SLICE_X18Y20.COUT    Tbyp                  0.091   counter_output<11>
                                                        Mcount_counter_output_cy<11>
-    SLICE_X18Y17.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<11>
-    SLICE_X18Y17.COUT    Tbyp                  0.091   counter_output<15>
+    SLICE_X18Y21.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<11>
+    SLICE_X18Y21.COUT    Tbyp                  0.091   counter_output<15>
                                                        Mcount_counter_output_cy<15>
-    SLICE_X18Y18.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<15>
-    SLICE_X18Y18.COUT    Tbyp                  0.091   counter_output<19>
+    SLICE_X18Y22.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<15>
+    SLICE_X18Y22.COUT    Tbyp                  0.091   counter_output<19>
                                                        Mcount_counter_output_cy<19>
-    SLICE_X18Y19.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<19>
-    SLICE_X18Y19.COUT    Tbyp                  0.091   counter_output<23>
+    SLICE_X18Y23.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<19>
+    SLICE_X18Y23.COUT    Tbyp                  0.091   counter_output<23>
                                                        Mcount_counter_output_cy<23>
-    SLICE_X18Y20.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<23>
-    SLICE_X18Y20.CLK     Tcinck                0.240   counter_output<24>
+    SLICE_X18Y24.CIN     net (fanout=1)        0.082   Mcount_counter_output_cy<23>
+    SLICE_X18Y24.CLK     Tcinck                0.240   counter_output<24>
                                                        Mcount_counter_output_xor<24>
                                                        counter_output_24
     -------------------------------------------------  ---------------------------
-    Total                                      1.972ns (1.552ns logic, 0.420ns route)
-                                                       (78.7% logic, 21.3% route)
+    Total                                      2.051ns (1.552ns logic, 0.499ns route)
+                                                       (75.7% logic, 24.3% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     17.936ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     17.919ns (requirement - (data path - clock path skew + uncertainty))
   Source:               counter_output_3 (FF)
   Destination:          counter_output_24 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      1.939ns (Levels of Logic = 7)
-  Clock Path Skew:      -0.090ns (0.596 - 0.686)
+  Data Path Delay:      2.018ns (Levels of Logic = 7)
+  Clock Path Skew:      -0.028ns (0.285 - 0.313)
   Source Clock:         OSC_FPGA_BUFGP rising at 0.000ns
   Destination Clock:    OSC_FPGA_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -153,45 +153,45 @@ Slack (setup path):     17.936ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y14.DQ      Tcko                  0.476   counter_output<3>
+    SLICE_X18Y18.DQ      Tcko                  0.476   counter_output<3>
                                                        counter_output_3
-    SLICE_X18Y14.D5      net (fanout=1)        0.460   counter_output<3>
-    SLICE_X18Y14.COUT    Topcyd                0.290   counter_output<3>
+    SLICE_X18Y18.D5      net (fanout=1)        0.460   counter_output<3>
+    SLICE_X18Y18.COUT    Topcyd                0.290   counter_output<3>
                                                        counter_output<3>_rt
                                                        Mcount_counter_output_cy<3>
-    SLICE_X18Y15.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<3>
-    SLICE_X18Y15.COUT    Tbyp                  0.091   counter_output<7>
+    SLICE_X18Y19.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<3>
+    SLICE_X18Y19.COUT    Tbyp                  0.091   counter_output<7>
                                                        Mcount_counter_output_cy<7>
-    SLICE_X18Y16.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<7>
-    SLICE_X18Y16.COUT    Tbyp                  0.091   counter_output<11>
+    SLICE_X18Y20.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<7>
+    SLICE_X18Y20.COUT    Tbyp                  0.091   counter_output<11>
                                                        Mcount_counter_output_cy<11>
-    SLICE_X18Y17.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<11>
-    SLICE_X18Y17.COUT    Tbyp                  0.091   counter_output<15>
+    SLICE_X18Y21.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<11>
+    SLICE_X18Y21.COUT    Tbyp                  0.091   counter_output<15>
                                                        Mcount_counter_output_cy<15>
-    SLICE_X18Y18.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<15>
-    SLICE_X18Y18.COUT    Tbyp                  0.091   counter_output<19>
+    SLICE_X18Y22.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<15>
+    SLICE_X18Y22.COUT    Tbyp                  0.091   counter_output<19>
                                                        Mcount_counter_output_cy<19>
-    SLICE_X18Y19.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<19>
-    SLICE_X18Y19.COUT    Tbyp                  0.091   counter_output<23>
+    SLICE_X18Y23.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<19>
+    SLICE_X18Y23.COUT    Tbyp                  0.091   counter_output<23>
                                                        Mcount_counter_output_cy<23>
-    SLICE_X18Y20.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<23>
-    SLICE_X18Y20.CLK     Tcinck                0.240   counter_output<24>
+    SLICE_X18Y24.CIN     net (fanout=1)        0.082   Mcount_counter_output_cy<23>
+    SLICE_X18Y24.CLK     Tcinck                0.240   counter_output<24>
                                                        Mcount_counter_output_xor<24>
                                                        counter_output_24
     -------------------------------------------------  ---------------------------
-    Total                                      1.939ns (1.461ns logic, 0.478ns route)
-                                                       (75.3% logic, 24.7% route)
+    Total                                      2.018ns (1.461ns logic, 0.557ns route)
+                                                       (72.4% logic, 27.6% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point counter_output_22 (SLICE_X18Y19.CIN), 20 paths
+Paths for end point counter_output_22 (SLICE_X18Y23.CIN), 20 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     17.827ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     17.892ns (requirement - (data path - clock path skew + uncertainty))
   Source:               counter_output_0 (FF)
   Destination:          counter_output_22 (FF)
   Requirement:          20.000ns
   Data Path Delay:      2.051ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.087ns (0.599 - 0.686)
+  Clock Path Skew:      -0.022ns (0.184 - 0.206)
   Source Clock:         OSC_FPGA_BUFGP rising at 0.000ns
   Destination Clock:    OSC_FPGA_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -206,26 +206,26 @@ Slack (setup path):     17.827ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y14.AQ      Tcko                  0.476   counter_output<3>
+    SLICE_X18Y18.AQ      Tcko                  0.476   counter_output<3>
                                                        counter_output_0
-    SLICE_X18Y14.A5      net (fanout=1)        0.405   counter_output<0>
-    SLICE_X18Y14.COUT    Topcya                0.472   counter_output<3>
+    SLICE_X18Y18.A5      net (fanout=1)        0.405   counter_output<0>
+    SLICE_X18Y18.COUT    Topcya                0.472   counter_output<3>
                                                        Mcount_counter_output_lut<0>_INV_0
                                                        Mcount_counter_output_cy<3>
-    SLICE_X18Y15.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<3>
-    SLICE_X18Y15.COUT    Tbyp                  0.091   counter_output<7>
+    SLICE_X18Y19.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<3>
+    SLICE_X18Y19.COUT    Tbyp                  0.091   counter_output<7>
                                                        Mcount_counter_output_cy<7>
-    SLICE_X18Y16.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<7>
-    SLICE_X18Y16.COUT    Tbyp                  0.091   counter_output<11>
+    SLICE_X18Y20.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<7>
+    SLICE_X18Y20.COUT    Tbyp                  0.091   counter_output<11>
                                                        Mcount_counter_output_cy<11>
-    SLICE_X18Y17.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<11>
-    SLICE_X18Y17.COUT    Tbyp                  0.091   counter_output<15>
+    SLICE_X18Y21.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<11>
+    SLICE_X18Y21.COUT    Tbyp                  0.091   counter_output<15>
                                                        Mcount_counter_output_cy<15>
-    SLICE_X18Y18.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<15>
-    SLICE_X18Y18.COUT    Tbyp                  0.091   counter_output<19>
+    SLICE_X18Y22.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<15>
+    SLICE_X18Y22.COUT    Tbyp                  0.091   counter_output<19>
                                                        Mcount_counter_output_cy<19>
-    SLICE_X18Y19.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<19>
-    SLICE_X18Y19.CLK     Tcinck                0.319   counter_output<23>
+    SLICE_X18Y23.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<19>
+    SLICE_X18Y23.CLK     Tcinck                0.319   counter_output<23>
                                                        Mcount_counter_output_cy<23>
                                                        counter_output_22
     -------------------------------------------------  ---------------------------
@@ -233,12 +233,12 @@ Slack (setup path):     17.827ns (requirement - (data path - clock path skew + u
                                                        (79.5% logic, 20.5% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     17.920ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     17.988ns (requirement - (data path - clock path skew + uncertainty))
   Source:               counter_output_4 (FF)
   Destination:          counter_output_22 (FF)
   Requirement:          20.000ns
   Data Path Delay:      1.957ns (Levels of Logic = 5)
-  Clock Path Skew:      -0.088ns (0.599 - 0.687)
+  Clock Path Skew:      -0.020ns (0.184 - 0.204)
   Source Clock:         OSC_FPGA_BUFGP rising at 0.000ns
   Destination Clock:    OSC_FPGA_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -253,23 +253,23 @@ Slack (setup path):     17.920ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y15.AQ      Tcko                  0.476   counter_output<7>
+    SLICE_X18Y19.AQ      Tcko                  0.476   counter_output<7>
                                                        counter_output_4
-    SLICE_X18Y15.A5      net (fanout=1)        0.405   counter_output<4>
-    SLICE_X18Y15.COUT    Topcya                0.472   counter_output<7>
+    SLICE_X18Y19.A5      net (fanout=1)        0.405   counter_output<4>
+    SLICE_X18Y19.COUT    Topcya                0.472   counter_output<7>
                                                        counter_output<4>_rt
                                                        Mcount_counter_output_cy<7>
-    SLICE_X18Y16.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<7>
-    SLICE_X18Y16.COUT    Tbyp                  0.091   counter_output<11>
+    SLICE_X18Y20.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<7>
+    SLICE_X18Y20.COUT    Tbyp                  0.091   counter_output<11>
                                                        Mcount_counter_output_cy<11>
-    SLICE_X18Y17.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<11>
-    SLICE_X18Y17.COUT    Tbyp                  0.091   counter_output<15>
+    SLICE_X18Y21.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<11>
+    SLICE_X18Y21.COUT    Tbyp                  0.091   counter_output<15>
                                                        Mcount_counter_output_cy<15>
-    SLICE_X18Y18.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<15>
-    SLICE_X18Y18.COUT    Tbyp                  0.091   counter_output<19>
+    SLICE_X18Y22.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<15>
+    SLICE_X18Y22.COUT    Tbyp                  0.091   counter_output<19>
                                                        Mcount_counter_output_cy<19>
-    SLICE_X18Y19.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<19>
-    SLICE_X18Y19.CLK     Tcinck                0.319   counter_output<23>
+    SLICE_X18Y23.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<19>
+    SLICE_X18Y23.CLK     Tcinck                0.319   counter_output<23>
                                                        Mcount_counter_output_cy<23>
                                                        counter_output_22
     -------------------------------------------------  ---------------------------
@@ -277,12 +277,12 @@ Slack (setup path):     17.920ns (requirement - (data path - clock path skew + u
                                                        (78.7% logic, 21.3% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     17.954ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     18.019ns (requirement - (data path - clock path skew + uncertainty))
   Source:               counter_output_3 (FF)
   Destination:          counter_output_22 (FF)
   Requirement:          20.000ns
   Data Path Delay:      1.924ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.087ns (0.599 - 0.686)
+  Clock Path Skew:      -0.022ns (0.184 - 0.206)
   Source Clock:         OSC_FPGA_BUFGP rising at 0.000ns
   Destination Clock:    OSC_FPGA_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -297,26 +297,26 @@ Slack (setup path):     17.954ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y14.DQ      Tcko                  0.476   counter_output<3>
+    SLICE_X18Y18.DQ      Tcko                  0.476   counter_output<3>
                                                        counter_output_3
-    SLICE_X18Y14.D5      net (fanout=1)        0.460   counter_output<3>
-    SLICE_X18Y14.COUT    Topcyd                0.290   counter_output<3>
+    SLICE_X18Y18.D5      net (fanout=1)        0.460   counter_output<3>
+    SLICE_X18Y18.COUT    Topcyd                0.290   counter_output<3>
                                                        counter_output<3>_rt
                                                        Mcount_counter_output_cy<3>
-    SLICE_X18Y15.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<3>
-    SLICE_X18Y15.COUT    Tbyp                  0.091   counter_output<7>
+    SLICE_X18Y19.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<3>
+    SLICE_X18Y19.COUT    Tbyp                  0.091   counter_output<7>
                                                        Mcount_counter_output_cy<7>
-    SLICE_X18Y16.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<7>
-    SLICE_X18Y16.COUT    Tbyp                  0.091   counter_output<11>
+    SLICE_X18Y20.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<7>
+    SLICE_X18Y20.COUT    Tbyp                  0.091   counter_output<11>
                                                        Mcount_counter_output_cy<11>
-    SLICE_X18Y17.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<11>
-    SLICE_X18Y17.COUT    Tbyp                  0.091   counter_output<15>
+    SLICE_X18Y21.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<11>
+    SLICE_X18Y21.COUT    Tbyp                  0.091   counter_output<15>
                                                        Mcount_counter_output_cy<15>
-    SLICE_X18Y18.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<15>
-    SLICE_X18Y18.COUT    Tbyp                  0.091   counter_output<19>
+    SLICE_X18Y22.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<15>
+    SLICE_X18Y22.COUT    Tbyp                  0.091   counter_output<19>
                                                        Mcount_counter_output_cy<19>
-    SLICE_X18Y19.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<19>
-    SLICE_X18Y19.CLK     Tcinck                0.319   counter_output<23>
+    SLICE_X18Y23.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<19>
+    SLICE_X18Y23.CLK     Tcinck                0.319   counter_output<23>
                                                        Mcount_counter_output_cy<23>
                                                        counter_output_22
     -------------------------------------------------  ---------------------------
@@ -325,14 +325,14 @@ Slack (setup path):     17.954ns (requirement - (data path - clock path skew + u
 
 --------------------------------------------------------------------------------
 
-Paths for end point counter_output_23 (SLICE_X18Y19.CIN), 20 paths
+Paths for end point counter_output_23 (SLICE_X18Y23.CIN), 20 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     17.827ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     17.892ns (requirement - (data path - clock path skew + uncertainty))
   Source:               counter_output_0 (FF)
   Destination:          counter_output_23 (FF)
   Requirement:          20.000ns
   Data Path Delay:      2.051ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.087ns (0.599 - 0.686)
+  Clock Path Skew:      -0.022ns (0.184 - 0.206)
   Source Clock:         OSC_FPGA_BUFGP rising at 0.000ns
   Destination Clock:    OSC_FPGA_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -347,26 +347,26 @@ Slack (setup path):     17.827ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y14.AQ      Tcko                  0.476   counter_output<3>
+    SLICE_X18Y18.AQ      Tcko                  0.476   counter_output<3>
                                                        counter_output_0
-    SLICE_X18Y14.A5      net (fanout=1)        0.405   counter_output<0>
-    SLICE_X18Y14.COUT    Topcya                0.472   counter_output<3>
+    SLICE_X18Y18.A5      net (fanout=1)        0.405   counter_output<0>
+    SLICE_X18Y18.COUT    Topcya                0.472   counter_output<3>
                                                        Mcount_counter_output_lut<0>_INV_0
                                                        Mcount_counter_output_cy<3>
-    SLICE_X18Y15.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<3>
-    SLICE_X18Y15.COUT    Tbyp                  0.091   counter_output<7>
+    SLICE_X18Y19.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<3>
+    SLICE_X18Y19.COUT    Tbyp                  0.091   counter_output<7>
                                                        Mcount_counter_output_cy<7>
-    SLICE_X18Y16.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<7>
-    SLICE_X18Y16.COUT    Tbyp                  0.091   counter_output<11>
+    SLICE_X18Y20.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<7>
+    SLICE_X18Y20.COUT    Tbyp                  0.091   counter_output<11>
                                                        Mcount_counter_output_cy<11>
-    SLICE_X18Y17.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<11>
-    SLICE_X18Y17.COUT    Tbyp                  0.091   counter_output<15>
+    SLICE_X18Y21.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<11>
+    SLICE_X18Y21.COUT    Tbyp                  0.091   counter_output<15>
                                                        Mcount_counter_output_cy<15>
-    SLICE_X18Y18.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<15>
-    SLICE_X18Y18.COUT    Tbyp                  0.091   counter_output<19>
+    SLICE_X18Y22.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<15>
+    SLICE_X18Y22.COUT    Tbyp                  0.091   counter_output<19>
                                                        Mcount_counter_output_cy<19>
-    SLICE_X18Y19.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<19>
-    SLICE_X18Y19.CLK     Tcinck                0.319   counter_output<23>
+    SLICE_X18Y23.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<19>
+    SLICE_X18Y23.CLK     Tcinck                0.319   counter_output<23>
                                                        Mcount_counter_output_cy<23>
                                                        counter_output_23
     -------------------------------------------------  ---------------------------
@@ -374,12 +374,12 @@ Slack (setup path):     17.827ns (requirement - (data path - clock path skew + u
                                                        (79.5% logic, 20.5% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     17.920ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     17.988ns (requirement - (data path - clock path skew + uncertainty))
   Source:               counter_output_4 (FF)
   Destination:          counter_output_23 (FF)
   Requirement:          20.000ns
   Data Path Delay:      1.957ns (Levels of Logic = 5)
-  Clock Path Skew:      -0.088ns (0.599 - 0.687)
+  Clock Path Skew:      -0.020ns (0.184 - 0.204)
   Source Clock:         OSC_FPGA_BUFGP rising at 0.000ns
   Destination Clock:    OSC_FPGA_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -394,23 +394,23 @@ Slack (setup path):     17.920ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y15.AQ      Tcko                  0.476   counter_output<7>
+    SLICE_X18Y19.AQ      Tcko                  0.476   counter_output<7>
                                                        counter_output_4
-    SLICE_X18Y15.A5      net (fanout=1)        0.405   counter_output<4>
-    SLICE_X18Y15.COUT    Topcya                0.472   counter_output<7>
+    SLICE_X18Y19.A5      net (fanout=1)        0.405   counter_output<4>
+    SLICE_X18Y19.COUT    Topcya                0.472   counter_output<7>
                                                        counter_output<4>_rt
                                                        Mcount_counter_output_cy<7>
-    SLICE_X18Y16.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<7>
-    SLICE_X18Y16.COUT    Tbyp                  0.091   counter_output<11>
+    SLICE_X18Y20.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<7>
+    SLICE_X18Y20.COUT    Tbyp                  0.091   counter_output<11>
                                                        Mcount_counter_output_cy<11>
-    SLICE_X18Y17.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<11>
-    SLICE_X18Y17.COUT    Tbyp                  0.091   counter_output<15>
+    SLICE_X18Y21.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<11>
+    SLICE_X18Y21.COUT    Tbyp                  0.091   counter_output<15>
                                                        Mcount_counter_output_cy<15>
-    SLICE_X18Y18.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<15>
-    SLICE_X18Y18.COUT    Tbyp                  0.091   counter_output<19>
+    SLICE_X18Y22.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<15>
+    SLICE_X18Y22.COUT    Tbyp                  0.091   counter_output<19>
                                                        Mcount_counter_output_cy<19>
-    SLICE_X18Y19.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<19>
-    SLICE_X18Y19.CLK     Tcinck                0.319   counter_output<23>
+    SLICE_X18Y23.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<19>
+    SLICE_X18Y23.CLK     Tcinck                0.319   counter_output<23>
                                                        Mcount_counter_output_cy<23>
                                                        counter_output_23
     -------------------------------------------------  ---------------------------
@@ -418,12 +418,12 @@ Slack (setup path):     17.920ns (requirement - (data path - clock path skew + u
                                                        (78.7% logic, 21.3% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     17.954ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     18.019ns (requirement - (data path - clock path skew + uncertainty))
   Source:               counter_output_3 (FF)
   Destination:          counter_output_23 (FF)
   Requirement:          20.000ns
   Data Path Delay:      1.924ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.087ns (0.599 - 0.686)
+  Clock Path Skew:      -0.022ns (0.184 - 0.206)
   Source Clock:         OSC_FPGA_BUFGP rising at 0.000ns
   Destination Clock:    OSC_FPGA_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -438,26 +438,26 @@ Slack (setup path):     17.954ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y14.DQ      Tcko                  0.476   counter_output<3>
+    SLICE_X18Y18.DQ      Tcko                  0.476   counter_output<3>
                                                        counter_output_3
-    SLICE_X18Y14.D5      net (fanout=1)        0.460   counter_output<3>
-    SLICE_X18Y14.COUT    Topcyd                0.290   counter_output<3>
+    SLICE_X18Y18.D5      net (fanout=1)        0.460   counter_output<3>
+    SLICE_X18Y18.COUT    Topcyd                0.290   counter_output<3>
                                                        counter_output<3>_rt
                                                        Mcount_counter_output_cy<3>
-    SLICE_X18Y15.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<3>
-    SLICE_X18Y15.COUT    Tbyp                  0.091   counter_output<7>
+    SLICE_X18Y19.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<3>
+    SLICE_X18Y19.COUT    Tbyp                  0.091   counter_output<7>
                                                        Mcount_counter_output_cy<7>
-    SLICE_X18Y16.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<7>
-    SLICE_X18Y16.COUT    Tbyp                  0.091   counter_output<11>
+    SLICE_X18Y20.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<7>
+    SLICE_X18Y20.COUT    Tbyp                  0.091   counter_output<11>
                                                        Mcount_counter_output_cy<11>
-    SLICE_X18Y17.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<11>
-    SLICE_X18Y17.COUT    Tbyp                  0.091   counter_output<15>
+    SLICE_X18Y21.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<11>
+    SLICE_X18Y21.COUT    Tbyp                  0.091   counter_output<15>
                                                        Mcount_counter_output_cy<15>
-    SLICE_X18Y18.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<15>
-    SLICE_X18Y18.COUT    Tbyp                  0.091   counter_output<19>
+    SLICE_X18Y22.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<15>
+    SLICE_X18Y22.COUT    Tbyp                  0.091   counter_output<19>
                                                        Mcount_counter_output_cy<19>
-    SLICE_X18Y19.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<19>
-    SLICE_X18Y19.CLK     Tcinck                0.319   counter_output<23>
+    SLICE_X18Y23.CIN     net (fanout=1)        0.003   Mcount_counter_output_cy<19>
+    SLICE_X18Y23.CLK     Tcinck                0.319   counter_output<23>
                                                        Mcount_counter_output_cy<23>
                                                        counter_output_23
     -------------------------------------------------  ---------------------------
@@ -469,7 +469,7 @@ Slack (setup path):     17.954ns (requirement - (data path - clock path skew + u
 Hold Paths: TS_PER_CLK50 = PERIOD TIMEGRP "clk50_grp" 20 ns HIGH 50%;
 --------------------------------------------------------------------------------
 
-Paths for end point counter_output_24 (SLICE_X18Y20.A6), 1 path
+Paths for end point counter_output_24 (SLICE_X18Y24.A6), 1 path
 --------------------------------------------------------------------------------
 Slack (hold path):      0.465ns (requirement - (clock path skew + uncertainty - data path))
   Source:               counter_output_24 (FF)
@@ -485,10 +485,10 @@ Slack (hold path):      0.465ns (requirement - (clock path skew + uncertainty - 
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y20.AQ      Tcko                  0.200   counter_output<24>
+    SLICE_X18Y24.AQ      Tcko                  0.200   counter_output<24>
                                                        counter_output_24
-    SLICE_X18Y20.A6      net (fanout=2)        0.027   counter_output<24>
-    SLICE_X18Y20.CLK     Tah         (-Th)    -0.238   counter_output<24>
+    SLICE_X18Y24.A6      net (fanout=2)        0.027   counter_output<24>
+    SLICE_X18Y24.CLK     Tah         (-Th)    -0.238   counter_output<24>
                                                        counter_output<24>_rt
                                                        Mcount_counter_output_xor<24>
                                                        counter_output_24
@@ -498,7 +498,7 @@ Slack (hold path):      0.465ns (requirement - (clock path skew + uncertainty - 
 
 --------------------------------------------------------------------------------
 
-Paths for end point counter_output_1 (SLICE_X18Y14.B5), 1 path
+Paths for end point counter_output_1 (SLICE_X18Y18.B5), 1 path
 --------------------------------------------------------------------------------
 Slack (hold path):      0.505ns (requirement - (clock path skew + uncertainty - data path))
   Source:               counter_output_1 (FF)
@@ -514,10 +514,10 @@ Slack (hold path):      0.505ns (requirement - (clock path skew + uncertainty - 
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y14.BQ      Tcko                  0.200   counter_output<3>
+    SLICE_X18Y18.BQ      Tcko                  0.200   counter_output<3>
                                                        counter_output_1
-    SLICE_X18Y14.B5      net (fanout=1)        0.071   counter_output<1>
-    SLICE_X18Y14.CLK     Tah         (-Th)    -0.234   counter_output<3>
+    SLICE_X18Y18.B5      net (fanout=1)        0.071   counter_output<1>
+    SLICE_X18Y18.CLK     Tah         (-Th)    -0.234   counter_output<3>
                                                        counter_output<1>_rt
                                                        Mcount_counter_output_cy<3>
                                                        counter_output_1
@@ -527,7 +527,7 @@ Slack (hold path):      0.505ns (requirement - (clock path skew + uncertainty - 
 
 --------------------------------------------------------------------------------
 
-Paths for end point counter_output_5 (SLICE_X18Y15.B5), 1 path
+Paths for end point counter_output_5 (SLICE_X18Y19.B5), 1 path
 --------------------------------------------------------------------------------
 Slack (hold path):      0.505ns (requirement - (clock path skew + uncertainty - data path))
   Source:               counter_output_5 (FF)
@@ -543,10 +543,10 @@ Slack (hold path):      0.505ns (requirement - (clock path skew + uncertainty - 
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y15.BQ      Tcko                  0.200   counter_output<7>
+    SLICE_X18Y19.BQ      Tcko                  0.200   counter_output<7>
                                                        counter_output_5
-    SLICE_X18Y15.B5      net (fanout=1)        0.071   counter_output<5>
-    SLICE_X18Y15.CLK     Tah         (-Th)    -0.234   counter_output<7>
+    SLICE_X18Y19.B5      net (fanout=1)        0.071   counter_output<5>
+    SLICE_X18Y19.CLK     Tah         (-Th)    -0.234   counter_output<7>
                                                        counter_output<5>_rt
                                                        Mcount_counter_output_cy<7>
                                                        counter_output_5
@@ -571,7 +571,7 @@ Slack: 19.525ns (period - min period limit)
   Min period limit: 0.475ns (2105.263MHz) (Tcp)
   Physical resource: counter_output<3>/CLK
   Logical resource: counter_output_0/CK
-  Location pin: SLICE_X18Y14.CLK
+  Location pin: SLICE_X18Y18.CLK
   Clock network: OSC_FPGA_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.525ns (period - min period limit)
@@ -579,7 +579,7 @@ Slack: 19.525ns (period - min period limit)
   Min period limit: 0.475ns (2105.263MHz) (Tcp)
   Physical resource: counter_output<3>/CLK
   Logical resource: counter_output_1/CK
-  Location pin: SLICE_X18Y14.CLK
+  Location pin: SLICE_X18Y18.CLK
   Clock network: OSC_FPGA_BUFGP
 --------------------------------------------------------------------------------
 
@@ -596,7 +596,7 @@ Clock to Setup on destination clock OSC_FPGA
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-OSC_FPGA       |    2.191|         |         |         |
+OSC_FPGA       |    2.208|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
@@ -614,14 +614,14 @@ Design statistics:
 ------------------------------------Footnotes-----------------------------------
 1)  The minimum period statistic assumes all single cycle delays.
 
-Analysis completed Thu Jun  6 01:47:37 2013 
+Analysis completed Fri Mar 21 16:52:39 2014 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 388 MB
+Peak Memory Usage: 211 MB
 
 
 

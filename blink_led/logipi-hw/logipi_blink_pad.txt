@@ -1,7 +1,7 @@
-Release 14.1 - par P.15xf (lin64)
+Release 14.1 - par P.15xf (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-Thu Jun  6 01:47:23 2013
+Fri Mar 21 16:52:35 2014
 
 
 INFO: The IO information is provided in three file formats as part of the Place and Route (PAR) process.  These formats are:
@@ -95,7 +95,7 @@ Pinout by Pin Number:
 |P73       |           |         |SUSPEND                   |         |           |              |          |         |           |         |         |          |           |                |
 |P74       |           |IOBS     |IO_L74N_DOUT_BUSY_1       |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |P75       |           |IOBM     |IO_L74P_AWAKE_1           |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
-|P76       |           |         |VCCO_1                    |         |           |1             |          |         |           |         |any******|          |           |                |
+|P76       |           |         |VCCO_1                    |         |           |1             |          |         |           |         |2.50     |          |           |                |
 |P77       |           |         |GND                       |         |           |              |          |         |           |         |         |          |           |                |
 |P78       |           |IOBS     |IO_L47N_1                 |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |P79       |           |IOBM     |IO_L47P_1                 |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
@@ -105,9 +105,9 @@ Pinout by Pin Number:
 |P83       |           |IOBM     |IO_L45P_1                 |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |P84       |           |IOBS     |IO_L43N_GCLK4_1           |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |P85       |           |IOBM     |IO_L43P_GCLK5_1           |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
-|P86       |           |         |VCCO_1                    |         |           |1             |          |         |           |         |any******|          |           |                |
-|P87       |           |IOBS     |IO_L42N_GCLK6_TRDY1_1     |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
-|P88       |           |IOBM     |IO_L42P_GCLK7_1           |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
+|P86       |           |         |VCCO_1                    |         |           |1             |          |         |           |         |2.50     |          |           |                |
+|P87       |ps2d_1     |IOB      |IO_L42N_GCLK6_TRDY1_1     |OUTPUT   |LVCMOS25*  |1             |12        |SLOW     |           |         |         |LOCATED   |NO         |NONE            |
+|P88       |ps2c_1     |IOB      |IO_L42P_GCLK7_1           |OUTPUT   |LVCMOS25*  |1             |12        |SLOW     |           |         |         |LOCATED   |NO         |NONE            |
 |P89       |           |         |VCCINT                    |         |           |              |          |         |           |         |1.2      |          |           |                |
 |P90       |           |         |VCCAUX                    |         |           |              |          |         |           |         |2.5      |          |           |                |
 |P91       |           |         |GND                       |         |           |              |          |         |           |         |         |          |           |                |
@@ -122,7 +122,7 @@ Pinout by Pin Number:
 |P100      |           |IOBM     |IO_L33P_1                 |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |P101      |           |IOBS     |IO_L32N_1                 |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |P102      |           |IOBM     |IO_L32P_1                 |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
-|P103      |           |         |VCCO_1                    |         |           |1             |          |         |           |         |any******|          |           |                |
+|P103      |           |         |VCCO_1                    |         |           |1             |          |         |           |         |2.50     |          |           |                |
 |P104      |           |IOBS     |IO_L1N_VREF_1             |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |P105      |           |IOBM     |IO_L1P_1                  |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |P106      |           |         |TDO                       |         |           |              |          |         |           |         |         |          |           |                |

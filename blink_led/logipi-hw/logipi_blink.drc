@@ -1,7 +1,7 @@
-Release 14.1 Drc P.15xf (lin64)
+Release 14.1 Drc P.15xf (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-Thu Jun  6 01:47:49 2013
+Fri Mar 21 16:55:00 2014
 
 drc -z logipi_blink.ncd logipi_blink.pcf
 
