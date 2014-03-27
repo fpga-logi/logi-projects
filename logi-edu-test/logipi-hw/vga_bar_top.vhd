@@ -31,7 +31,6 @@ architecture arch of vga_bar_top is
 
 begin
 	reset <= '0'; -- disable reset	
-	video_on <= '1';
 	pix_x <= unsigned(pixel_x);
    pix_y <= unsigned(pixel_y);
 
@@ -47,13 +46,13 @@ begin
 	green <= rgb(0) & rgb(1) & rgb(2) 	when COLOR_GRAY_SEL='1' else rgb(1) & rgb(1) & rgb(1);
 	blue 	<= rgb(0) & rgb(1) & rgb(2) 	when COLOR_GRAY_SEL='1' else rgb(2) & rgb(2) & rgb(2);
 
-	rgb_next <= "000" when pix_x>=0 and pix_x<SEG_8_STEP else
-					"001" when pix_x>=SEG_8_STEP and pix_x<(SEG_8_STEP*2) else
-					"010" when pix_x>=2*SEG_8_STEP and pix_x<(SEG_8_STEP*3) else
-					"011" when pix_x>=3*SEG_8_STEP and pix_x<(SEG_8_STEP*4) else
-					"100" when pix_x>=4*SEG_8_STEP and pix_x<(SEG_8_STEP*5) else
-					"101" when pix_x>=5*SEG_8_STEP and pix_x<(SEG_8_STEP*6) else
-					"110" when pix_x>=6*SEG_8_STEP and pix_x<(SEG_8_STEP*7) else
+	rgb_next <= "000" when pix_x>=0 and pix_x<(SEG_8_STEP-1) else
+					"001" when pix_x>=SEG_8_STEP-1 and pix_x<(SEG_8_STEP*2-1) else
+					"010" when pix_x>=(2*SEG_8_STEP)-1 and pix_x<(SEG_8_STEP*3-1) else
+					"011" when pix_x>=(3*SEG_8_STEP)-1 and pix_x<(SEG_8_STEP*4-1) else
+					"100" when pix_x>=(4*SEG_8_STEP)-1 and pix_x<(SEG_8_STEP*5-1) else
+					"101" when pix_x>=(5*SEG_8_STEP)-1 and pix_x<(SEG_8_STEP*6-1) else
+					"110" when pix_x>=(6*SEG_8_STEP)-1 and pix_x<(SEG_8_STEP*7-1) else
 					"111";
  
 	-- rgb buffer
@@ -65,5 +64,5 @@ begin
          end if;
       end if;
    end process;
-   rgb <= rgb_reg;
+	rgb <= rgb_reg when video_on='1' else "000";
 end arch;
