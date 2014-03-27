@@ -43,7 +43,7 @@ port(
 end sound_440;
 
 architecture Behavioral of sound_440 is
-constant clk_divider : positive := 2*(100_000_000/440) ;
+constant clk_divider : positive := 2*(clk_freq_hz/440) ;
 
 signal divider_counter : std_logic_vector(nbit(clk_divider)-1 downto 0);
 signal output_buffer : std_logic ;
