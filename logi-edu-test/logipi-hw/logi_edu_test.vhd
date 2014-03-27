@@ -69,6 +69,7 @@ architecture Behavioral of logi_edu_test is
 		CLK_IN1           : in     std_logic;
 		-- Clock out ports
 		CLK_OUT1          : out    std_logic;
+		CLK_OUT2          : out    std_logic;
 		-- Status and control signals
 		LOCKED            : out    std_logic
 	);
@@ -81,10 +82,30 @@ architecture Behavioral of logi_edu_test is
 		sound_out : out std_logic 
 		);
 	end component;
+	
+	component vga_sync is
+   port(
+      clk, reset: in std_logic;
+      hsync, vsync: out std_logic;
+      video_on, p_tick: out std_logic;
+      pixel_x, pixel_y: out std_logic_vector (9 downto 0)
+    );
+	end component;
+
+	component vga_bar_top is
+	generic (COLOR_GRAY_SEL : std_logic := '0'); --color = 0 , gray = 1
+	port (
+		clk: in std_logic;		
+		hsync, vsync: out  std_logic;
+		red: out std_logic_vector(2 downto 0);
+		green: out std_logic_vector(2 downto 0);
+		blue: out std_logic_vector(2 downto 0)
+	);
+	end component;
 
 	-- syscon
 	signal gls_reset, gls_resetn,gls_clk, clock_locked : std_logic ;
-	signal clk_100Mhz : std_logic ;
+	signal clk_100Mhz, clk_50Mhz, vga_clk : std_logic ;
 
 	-- wishbone intercon signals
 	signal intercon_wrapper_wbm_address :  std_logic_vector(15 downto 0);
@@ -114,6 +135,10 @@ architecture Behavioral of logi_edu_test is
 	-- logic signals
 	signal sseg_edu_cathode_out : std_logic_vector(4 downto 0);
 	signal sseg_edu_anode_out : std_logic_vector(7 downto 0);
+	
+	-- vga signals
+	signal vga_hsync, vga_vsync : std_logic ;
+	signal vga_red, vga_green, vga_blue : std_logic_vector(2 downto 0);
 begin
 
 
@@ -126,10 +151,12 @@ pll0 : clock_gen
     CLK_IN1 => OSC_FPGA,
     -- Clock out ports
     CLK_OUT1 => clk_100Mhz,
+	 CLK_OUT2 => clk_50Mhz,
     -- Status and control signals
     LOCKED => clock_locked);
 
 gls_clk <= clk_100Mhz;
+vga_clk <= clk_50Mhz;
 
 
 SYS_SCL <= 'Z' ;
@@ -243,11 +270,11 @@ sseg0 : wishbone_7seg4x
 			sseg_edu_anode_out => sseg_edu_anode_out
 	 );
 
-PMOD2(4) <= sseg_edu_cathode_out(0);
-PMOD2(0) <= sseg_edu_cathode_out(1);
-PMOD2(2) <= sseg_edu_cathode_out(2);
-PMOD2(3) <= sseg_edu_cathode_out(3);
-PMOD2(1) <= sseg_edu_cathode_out(4);
+PMOD2(4) <= sseg_edu_cathode_out(0); -- cathode 0
+PMOD2(0) <= sseg_edu_cathode_out(1); -- cathode 1
+PMOD2(2) <= sseg_edu_cathode_out(2); -- cathode 2
+PMOD2(3) <= sseg_edu_cathode_out(3); -- cathode 3
+PMOD2(1) <= sseg_edu_cathode_out(4); -- cathode 4
 
 
 PMOD3(5) <= sseg_edu_anode_out(0); --A
@@ -259,7 +286,6 @@ PMOD3(6) <= sseg_edu_anode_out(5); --F
 PMOD3(0) <= sseg_edu_anode_out(6); --G
 PMOD2(7) <= sseg_edu_anode_out(7); --DP
 
-PMOD1 <= (others => 'Z') ;
 
 sound_0: sound_440 -- generates 440hz pwm
 		generic map(clk_freq_hz => 100_000_000)
@@ -274,6 +300,26 @@ sound_1: sound_440 -- tricking module to produce 220
 			clk => gls_clk, reset => gls_reset,
 			sound_out =>  PMOD4(6)
 		);
+		
+vga0 : vga_bar_top
+	generic  map(COLOR_GRAY_SEL => '0') --color = 0 , gray = 1
+	port map(
+		clk => vga_clk,	
+		hsync => vga_hsync, vsync => vga_vsync,
+		red => vga_red,
+		green => vga_green,
+		blue => vga_blue
+	);
+		
+PMOD1(3) <= vga_hsync ;
+PMOD1(7) <= vga_vsync ;	
+PMOD1(0) <= vga_red(2);
+PMOD1(4) <= vga_red(1);
+PMOD1(1) <= vga_green(2);
+PMOD1(5) <= vga_green(1);
+PMOD1(2) <= vga_blue(2);
+PMOD1(6) <= vga_blue(1);
+
 		
 LED(0) <=  sseg_edu_cathode_out(0);
 LED(1) <= PB(0) ;
