@@ -18,6 +18,7 @@ FILE * log_file;
 char text_buffer [512] ;
 
 #define SHOW_IMG "fbi -T 2 grabbed_frame0000.jpg"
+#define RM_IMG "rm *.jpg"
 
 enum dbg_level{
 	INFO,
@@ -231,11 +232,12 @@ int main(int argc, char ** argv){
 	// load fpga
 	system(LOAD_CMD);
 	//
-	sleep(2);
+	sleep(1);
+	system(RM_IMG);
 	test_log(INFO, "MAIN","-----------------Starting Test-------------\n");
 	test_log(INFO, "COM","-----------------Cam Test---------------\n");
 	grab_frame();
-	system(SHOW_IMG);
+	//system(SHOW_IMG);
 	close_test_log();
 	return 0 ;
 	
