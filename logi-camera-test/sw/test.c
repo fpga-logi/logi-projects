@@ -17,6 +17,8 @@
 FILE * log_file;
 char text_buffer [512] ;
 
+#define SHOW_IMG "fbi -T 2 grabbed_frame0000.jpg"
+
 enum dbg_level{
 	INFO,
 	WARNING, 
@@ -125,6 +127,7 @@ int grab_frame(void){
 	unsigned short fifo_state, fifo_data ;
 	float y, u, v ;
 	float r, g, b ;
+	unsigned int retry_counter = 0 ;
 
 	image_buffer = (unsigned char *) malloc(IMAGE_WIDTH*IMAGE_HEIGHT*NB_CHAN*4+1024); // 1024 extra to ease the read function
         rgb_buffer = (unsigned char *) malloc(IMAGE_WIDTH*IMAGE_HEIGHT*3);
@@ -133,7 +136,7 @@ int grab_frame(void){
 		return -1 ;
 	}
 
-	for(inc = 0 ; inc < nbFrames ; ){
+	for(inc = 0 ; inc < (nbFrames && retry_counter < 5) ; ){
 		/*sprintf(yuv_file_name, "./grabbed_frame%04d.yuv", inc);
 		sprintf(rgb_file_name, "./grabbed_frame%04d.rgb", inc);*/ 
 		sprintf(jpeg_file_name, "./grabbed_frame%04d.jpg", inc);
@@ -176,14 +179,11 @@ int grab_frame(void){
 			inc ++ ;
 			printf("frame found !\n");
 		}else{
-			for(i = 0 ; i < 16; i ++){
-				printf("%02x,", image_buffer[i]);
-			}
-			printf("\n");
 			printf("sync not found !\n");
 			/*fclose(rgb_fd);
                 	fclose(yuv_fd);*/
 			fclose(jpeg_fd);
+			retry_counter ++ ;
 			continue ;
 		}
 		start_buffer += 2 ;
@@ -215,6 +215,9 @@ int grab_frame(void){
 		fclose(yuv_fd);*/
 		fclose(jpeg_fd);
 	}
+	if(retry_counter == 5){
+		return -1 ;
+	}
 	return 0 ;
 }
 
@@ -232,6 +235,7 @@ int main(int argc, char ** argv){
 	test_log(INFO, "MAIN","-----------------Starting Test-------------\n");
 	test_log(INFO, "COM","-----------------Cam Test---------------\n");
 	grab_frame();
+	system(SHOW_IMG);
 	close_test_log();
 	return 0 ;
 	
