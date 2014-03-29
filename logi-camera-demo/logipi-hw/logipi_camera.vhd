@@ -421,7 +421,8 @@ begin
 			pixel_u => X"80",--pixel_u_from_interface,
 			pixel_v => X"80",--pixel_v_from_interface,
 			fifo_data => preview_fifo_input,
-			fifo_wr => preview_fifo_wr
+			fifo_wr => preview_fifo_wr,
+			sreset => '0'			--mj added, not sure if this will conflict.  
 		);	
 
 end Behavioral;

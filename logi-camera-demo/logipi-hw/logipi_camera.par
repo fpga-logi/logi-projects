@@ -1,15 +1,21 @@
-Release 14.1 par P.15xf (lin64)
+Release 14.1 par P.15xf (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-yaya::  Wed Oct 30 03:41:02 2013
+MJ-PC::  Sat Mar 29 14:04:35 2014
 
 par -w -intstyle ise -ol high -mt off logipi_camera_map.ncd logipi_camera.ncd
 logipi_camera.pcf 
 
 
 Constraints file: logipi_camera.pcf.
-Loading device for application Rf_Device from file '6slx9.nph' in environment /opt/Xilinx/14.1/ISE_DS/ISE/.
+Loading device for application Rf_Device from file '6slx9.nph' in environment C:\Xilinx\14.1\ISE_DS\ISE\.
    "logipi_camera" is an NCD, version 3.2, device xc6slx9, package tqg144, speed -2
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+INFO:Security:54 - 'xc6slx9' is a WebPack part.
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue
+to function, but you no longer qualify for Xilinx software updates or new releases.
+
+----------------------------------------------------------------------
 
 Initializing temperature to 85.000 Celsius. (default - Range: 0.000 to 85.000 Celsius)
 Initializing voltage to 1.140 Volts. (default - Range: 1.140 to 1.260 Volts)
@@ -22,16 +28,16 @@ Device speed data version:  "PRODUCTION 1.21 2012-04-23".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                 1,971 out of  11,440   17%
-    Number used as Flip Flops:               1,965
+  Number of Slice Registers:                 1,981 out of  11,440   17%
+    Number used as Flip Flops:               1,975
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                6
-  Number of Slice LUTs:                      1,809 out of   5,720   31%
-    Number used as logic:                    1,587 out of   5,720   27%
-      Number using O6 output only:           1,067
+  Number of Slice LUTs:                      1,823 out of   5,720   31%
+    Number used as logic:                    1,592 out of   5,720   27%
+      Number using O6 output only:           1,074
       Number using O5 output only:              57
-      Number using O5 and O6:                  463
+      Number using O5 and O6:                  461
       Number used as ROM:                        0
     Number used as Memory:                     102 out of   1,440    7%
       Number used as Dual Port RAM:              0
@@ -40,18 +46,18 @@ Slice Logic Utilization:
         Number using O6 output only:            13
         Number using O5 output only:             0
         Number using O5 and O6:                 89
-    Number used exclusively as route-thrus:    120
-      Number with same-slice register load:     98
+    Number used exclusively as route-thrus:    129
+      Number with same-slice register load:    107
       Number with same-slice carry load:        22
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   651 out of   1,430   45%
+  Number of occupied Slices:                   660 out of   1,430   46%
   Nummber of MUXCYs used:                      980 out of   2,860   34%
-  Number of LUT Flip Flop pairs used:        2,097
-    Number with an unused Flip Flop:           533 out of   2,097   25%
-    Number with an unused LUT:                 288 out of   2,097   13%
-    Number of fully used LUT-FF pairs:       1,276 out of   2,097   60%
+  Number of LUT Flip Flop pairs used:        2,076
+    Number with an unused Flip Flop:           497 out of   2,076   23%
+    Number with an unused LUT:                 253 out of   2,076   12%
+    Number of fully used LUT-FF pairs:       1,326 out of   2,076   63%
     Number of slice register sites lost
       to control set restrictions:               0 out of  11,440    0%
 
@@ -98,8 +104,8 @@ Specific Feature Utilization:
 Overall effort level (-ol):   High 
 Router effort level (-rl):    High 
 
-Starting initial Timing Analysis.  REAL time: 48 secs 
-Finished initial Timing Analysis.  REAL time: 48 secs 
+Starting initial Timing Analysis.  REAL time: 4 secs 
+Finished initial Timing Analysis.  REAL time: 4 secs 
 
 WARNING:Par:288 - The signal SYS_SDA_IBUF has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal SYS_SCL_IBUF has no load.  PAR will not attempt to route this signal.
@@ -107,31 +113,31 @@ WARNING:Par:288 - The signal PMOD4_7_IBUF has no load.  PAR will not attempt to 
 Starting Router
 
 
-Phase  1  : 10202 unrouted;      REAL time: 49 secs 
+Phase  1  : 10200 unrouted;      REAL time: 4 secs 
 
-Phase  2  : 7803 unrouted;      REAL time: 50 secs 
+Phase  2  : 7821 unrouted;      REAL time: 4 secs 
 
-Phase  3  : 2011 unrouted;      REAL time: 58 secs 
+Phase  3  : 2054 unrouted;      REAL time: 9 secs 
 
-Phase  4  : 2015 unrouted; (Setup:154212, Hold:229, Component Switching Limit:0)     REAL time: 59 secs 
-
-Updating file: logipi_camera.ncd with current fully routed design.
-
-Phase  5  : 0 unrouted; (Setup:153948, Hold:221, Component Switching Limit:0)     REAL time: 1 mins 5 secs 
-
-Phase  6  : 0 unrouted; (Setup:153917, Hold:221, Component Switching Limit:0)     REAL time: 1 mins 6 secs 
+Phase  4  : 2056 unrouted; (Setup:171097, Hold:140, Component Switching Limit:0)     REAL time: 9 secs 
 
 Updating file: logipi_camera.ncd with current fully routed design.
 
-Phase  7  : 0 unrouted; (Setup:145131, Hold:221, Component Switching Limit:0)     REAL time: 1 mins 15 secs 
+Phase  5  : 0 unrouted; (Setup:171604, Hold:127, Component Switching Limit:0)     REAL time: 13 secs 
 
-Phase  8  : 0 unrouted; (Setup:145131, Hold:221, Component Switching Limit:0)     REAL time: 1 mins 15 secs 
+Phase  6  : 0 unrouted; (Setup:171393, Hold:127, Component Switching Limit:0)     REAL time: 13 secs 
 
-Phase  9  : 0 unrouted; (Setup:145131, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 15 secs 
+Updating file: logipi_camera.ncd with current fully routed design.
 
-Phase 10  : 0 unrouted; (Setup:145131, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 16 secs 
-Total REAL time to Router completion: 1 mins 16 secs 
-Total CPU time to Router completion: 38 secs 
+Phase  7  : 0 unrouted; (Setup:171393, Hold:127, Component Switching Limit:0)     REAL time: 17 secs 
+
+Phase  8  : 0 unrouted; (Setup:171393, Hold:127, Component Switching Limit:0)     REAL time: 17 secs 
+
+Phase  9  : 0 unrouted; (Setup:171393, Hold:0, Component Switching Limit:0)     REAL time: 17 secs 
+
+Phase 10  : 0 unrouted; (Setup:171393, Hold:0, Component Switching Limit:0)     REAL time: 17 secs 
+Total REAL time to Router completion: 17 secs 
+Total CPU time to Router completion: 18 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -149,15 +155,15 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|              clk_96 | BUFGMUX_X2Y10| No   |  432 |  0.120     |  1.511      |
+|              clk_96 |  BUFGMUX_X3Y7| No   |  434 |  0.120     |  1.511      |
 +---------------------+--------------+------+------+------------+-------------+
-|        PMOD4_4_OBUF |  BUFGMUX_X2Y1| No   |   36 |  0.065     |  1.474      |
+|        PMOD4_4_OBUF |  BUFGMUX_X2Y1| No   |   33 |  0.013     |  1.409      |
 +---------------------+--------------+------+------+------------+-------------+
-|   SYS_SPI_SCK_BUFGP |  BUFGMUX_X2Y9| No   |   20 |  0.068     |  1.466      |
+|   SYS_SPI_SCK_BUFGP | BUFGMUX_X3Y13| No   |   20 |  0.079     |  1.509      |
 +---------------------+--------------+------+------+------------+-------------+
-|      PMOD4_10_BUFGP |  BUFGMUX_X2Y3| No   |   11 |  0.009     |  1.401      |
+|      PMOD4_10_BUFGP |  BUFGMUX_X2Y2| No   |   12 |  0.104     |  1.500      |
 +---------------------+--------------+------+------+------------+-------------+
-|              deb_pb |         Local|      |    1 |  0.000     |  2.216      |
+|              deb_pb |         Local|      |    1 |  0.000     |  1.920      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -168,7 +174,7 @@ the minimum and maximum path delays which includes logic delays.
 * The fanout is the number of component pins not the individual BEL loads,
 for example SLICE loads not FF loads.
 
-Timing Score: 145131 (Setup: 145131, Hold: 0, Component Switching Limit: 0)
+Timing Score: 171393 (Setup: 171393, Hold: 0, Component Switching Limit: 0)
 
 WARNING:Par:468 - Your design did not meet timing.  The following are some suggestions to assist you to meet timing in your design.
 
@@ -195,16 +201,16 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-* TS_sys_clocks_gen_clkout1 = PERIOD TIMEGR | SETUP       |    -2.575ns|   106.065ns|      90|      145131
+* TS_sys_clocks_gen_clkout1 = PERIOD TIMEGR | SETUP       |    -2.473ns|   103.514ns|      90|      171393
   P "sys_clocks_gen_clkout1"         TS_PER | HOLD        |     0.405ns|            |       0|           0
   _CLK50 / 0.48 HIGH 50%                    |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
-  TS_sys_clocks_gen_clkout2 = PERIOD TIMEGR | SETUP       |     1.079ns|     8.921ns|       0|           0
-  P "sys_clocks_gen_clkout2"         TS_PER | HOLD        |     0.297ns|            |       0|           0
+  TS_sys_clocks_gen_clkout2 = PERIOD TIMEGR | SETUP       |     1.388ns|     8.612ns|       0|           0
+  P "sys_clocks_gen_clkout2"         TS_PER | HOLD        |     0.301ns|            |       0|           0
   _CLK50 / 2 HIGH 50%                       |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
-  TS_PER_CLK32 = PERIOD TIMEGRP "clk32_grp" | SETUP       |    14.396ns|     5.604ns|       0|           0
-   20 ns HIGH 50%                           | HOLD        |     0.394ns|            |       0|           0
+  TS_PER_CLK32 = PERIOD TIMEGRP "clk32_grp" | SETUP       |    14.782ns|     5.218ns|       0|           0
+   20 ns HIGH 50%                           | HOLD        |     0.406ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
   TS_PER_CLK50 = PERIOD TIMEGRP "clk50_grp" | MINLOWPULSE |    15.000ns|     5.000ns|       0|           0
    20 ns HIGH 50%                           |             |            |            |        |            
@@ -221,9 +227,9 @@ Derived Constraints for TS_PER_CLK50
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_PER_CLK50                   |     20.000ns|      5.000ns|     50.911ns|            0|           90|            0|       145202|
-| TS_sys_clocks_gen_clkout1     |     41.667ns|    106.065ns|          N/A|           90|            0|         4131|            0|
-| TS_sys_clocks_gen_clkout2     |     10.000ns|      8.921ns|          N/A|            0|            0|       141071|            0|
+|TS_PER_CLK50                   |     20.000ns|      5.000ns|     49.687ns|            0|           90|            0|       146508|
+| TS_sys_clocks_gen_clkout1     |     41.667ns|    103.514ns|          N/A|           90|            0|         4205|            0|
+| TS_sys_clocks_gen_clkout2     |     10.000ns|      8.612ns|          N/A|            0|            0|       142303|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 1 constraint not met.
@@ -235,10 +241,10 @@ All signals are completely routed.
 
 WARNING:Par:283 - There are 3 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
-Total REAL time to PAR completion: 1 mins 18 secs 
-Total CPU time to PAR completion: 39 secs 
+Total REAL time to PAR completion: 18 secs 
+Total CPU time to PAR completion: 19 secs 
 
-Peak Memory Usage:  705 MB
+Peak Memory Usage:  369 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.

@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logipi-hw/logipi_camera.ncd
-OUTFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logipi-hw/logipi_camera.bit
+INFILE=E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.ncd
+OUTFILE=E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.bit
 FAMILY=Spartan6
 PART=xc6slx9-2tqg144
-WORKINGDIR=/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logipi-hw
+WORKINGDIR=E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw
 LICENSE=WebPack
-USER_INFO=208450455_1777487672_0_558
+USER_INFO=202672454_0_0_674

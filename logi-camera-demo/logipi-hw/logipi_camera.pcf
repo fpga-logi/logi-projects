@@ -1,39 +1,39 @@
 //! **************************************************************************
-// Written by: Map P.15xf on Wed Oct 30 03:40:57 2013
+// Written by: Map P.15xf on Sat Mar 29 14:04:32 2014
 //! **************************************************************************
 
 SCHEMATIC START;
-COMP "OSC_FPGA" LOCATE = SITE "P124" LEVEL 1;
-COMP "SYS_SDA" LOCATE = SITE "P57" LEVEL 1;
-COMP "SYS_SCL" LOCATE = SITE "P56" LEVEL 1;
-COMP "PB<0>" LOCATE = SITE "P67" LEVEL 1;
-COMP "PB<1>" LOCATE = SITE "P61" LEVEL 1;
+COMP "OSC_FPGA" LOCATE = SITE "P85" LEVEL 1;
+COMP "SYS_SDA" LOCATE = SITE "P98" LEVEL 1;
+COMP "SYS_SCL" LOCATE = SITE "P97" LEVEL 1;
+COMP "PB<0>" LOCATE = SITE "P102" LEVEL 1;
+COMP "PB<1>" LOCATE = SITE "P101" LEVEL 1;
 COMP "SYS_SPI_SCK" LOCATE = SITE "P70" LEVEL 1;
 PIN SYS_SPI_SCK_pin<0> = BEL "SYS_SPI_SCK" PINNAME PAD;
 PIN "SYS_SPI_SCK_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
-COMP "LED<0>" LOCATE = SITE "P58" LEVEL 1;
-COMP "LED<1>" LOCATE = SITE "P59" LEVEL 1;
-COMP "SYS_SPI_MISO" LOCATE = SITE "P66" LEVEL 1;
+COMP "LED<0>" LOCATE = SITE "P105" LEVEL 1;
+COMP "LED<1>" LOCATE = SITE "P104" LEVEL 1;
+COMP "SYS_SPI_MISO" LOCATE = SITE "P75" LEVEL 1;
 COMP "SYS_SPI_MOSI" LOCATE = SITE "P65" LEVEL 1;
-COMP "PMOD3<0>" LOCATE = SITE "P98" LEVEL 1;
-COMP "PMOD3<1>" LOCATE = SITE "P97" LEVEL 1;
-COMP "PMOD3<2>" LOCATE = SITE "P93" LEVEL 1;
-COMP "PMOD3<3>" LOCATE = SITE "P92" LEVEL 1;
-COMP "PMOD3<4>" LOCATE = SITE "P100" LEVEL 1;
-COMP "PMOD3<5>" LOCATE = SITE "P99" LEVEL 1;
-COMP "PMOD3<6>" LOCATE = SITE "P95" LEVEL 1;
-COMP "PMOD3<7>" LOCATE = SITE "P94" LEVEL 1;
-COMP "PMOD4_10" LOCATE = SITE "P82" LEVEL 1;
+COMP "PMOD3<0>" LOCATE = SITE "P138" LEVEL 1;
+COMP "PMOD3<1>" LOCATE = SITE "P137" LEVEL 1;
+COMP "PMOD3<2>" LOCATE = SITE "P124" LEVEL 1;
+COMP "PMOD3<3>" LOCATE = SITE "P123" LEVEL 1;
+COMP "PMOD3<4>" LOCATE = SITE "P119" LEVEL 1;
+COMP "PMOD3<5>" LOCATE = SITE "P118" LEVEL 1;
+COMP "PMOD3<6>" LOCATE = SITE "P117" LEVEL 1;
+COMP "PMOD3<7>" LOCATE = SITE "P116" LEVEL 1;
+COMP "PMOD4_10" LOCATE = SITE "P133" LEVEL 1;
 PIN PMOD4_10_pin<0> = BEL "PMOD4_10" PINNAME PAD;
 PIN "PMOD4_10_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
-COMP "RP_SPI_CE0N" LOCATE = SITE "P44" LEVEL 1;
-COMP "PMOD4_1" LOCATE = SITE "P85" LEVEL 1;
-COMP "PMOD4_2" LOCATE = SITE "P84" LEVEL 1;
-COMP "PMOD4_3" LOCATE = SITE "P81" LEVEL 1;
-COMP "PMOD4_4" LOCATE = SITE "P80" LEVEL 1;
-COMP "PMOD4_7" LOCATE = SITE "P88" LEVEL 1;
-COMP "PMOD4_8" LOCATE = SITE "P87" LEVEL 1;
-COMP "PMOD4_9" LOCATE = SITE "P83" LEVEL 1;
+COMP "RP_SPI_CE0N" LOCATE = SITE "P79" LEVEL 1;
+COMP "PMOD4_1" LOCATE = SITE "P112" LEVEL 1;
+COMP "PMOD4_2" LOCATE = SITE "P111" LEVEL 1;
+COMP "PMOD4_3" LOCATE = SITE "P132" LEVEL 1;
+COMP "PMOD4_4" LOCATE = SITE "P131" LEVEL 1;
+COMP "PMOD4_7" LOCATE = SITE "P115" LEVEL 1;
+COMP "PMOD4_8" LOCATE = SITE "P114" LEVEL 1;
+COMP "PMOD4_9" LOCATE = SITE "P134" LEVEL 1;
 PIN sys_clocks_gen/clkout2_buf_pin<1> = BEL "sys_clocks_gen/clkout2_buf"
         PINNAME O;
 PIN "sys_clocks_gen/clkout2_buf_pin<1>" CLOCK_DEDICATED_ROUTE = FALSE;
@@ -166,31 +166,32 @@ TIMEGRP sys_clocks_gen_clkout2 = BEL "gauss3x3_0/pixel_from_conv_latched_11"
         "sobel0/sum_y_step_2_6" BEL "sobel0/sum_y_step_2_5" BEL
         "sobel0/sum_y_step_2_4" BEL "sobel0/sum_y_step_2_3" BEL
         "sobel0/sum_y_step_2_2" BEL "sobel0/sum_y_step_2_1" BEL
-        "sobel0/sum_y_step_2_0" BEL "sobel0/sum_x_step_1_13" BEL
-        "sobel0/sum_x_step_1_12" BEL "sobel0/sum_x_step_1_11" BEL
-        "sobel0/sum_x_step_1_10" BEL "sobel0/sum_x_step_1_9" BEL
-        "sobel0/sum_x_step_1_8" BEL "sobel0/sum_x_step_1_7" BEL
-        "sobel0/sum_x_step_1_6" BEL "sobel0/sum_x_step_1_5" BEL
-        "sobel0/sum_x_step_1_4" BEL "sobel0/sum_x_step_1_3" BEL
-        "sobel0/sum_x_step_1_2" BEL "sobel0/sum_x_step_1_1" BEL
-        "sobel0/sum_x_step_1_0" BEL "sobel0/sum_y_step_1_13" BEL
-        "sobel0/sum_y_step_1_12" BEL "sobel0/sum_y_step_1_11" BEL
-        "sobel0/sum_y_step_1_10" BEL "sobel0/sum_y_step_1_9" BEL
-        "sobel0/sum_y_step_1_8" BEL "sobel0/sum_y_step_1_7" BEL
-        "sobel0/sum_y_step_1_6" BEL "sobel0/sum_y_step_1_5" BEL
-        "sobel0/sum_y_step_1_4" BEL "sobel0/sum_y_step_1_3" BEL
-        "sobel0/sum_y_step_1_2" BEL "sobel0/sum_y_step_1_1" BEL
-        "sobel0/sum_y_step_1_0" BEL "sobel0/sum_y_step_0_8" BEL
-        "sobel0/sum_y_step_0_7" BEL "sobel0/sum_y_step_0_6" BEL
-        "sobel0/sum_y_step_0_5" BEL "sobel0/sum_y_step_0_4" BEL
-        "sobel0/sum_y_step_0_3" BEL "sobel0/sum_y_step_0_2" BEL
-        "sobel0/sum_y_step_0_1" BEL "sobel0/sum_y_step_0_0" BEL
-        "sobel0/sum_x_step_0_8" BEL "sobel0/sum_x_step_0_7" BEL
-        "sobel0/sum_x_step_0_6" BEL "sobel0/sum_x_step_0_5" BEL
-        "sobel0/sum_x_step_0_4" BEL "sobel0/sum_x_step_0_3" BEL
-        "sobel0/sum_x_step_0_2" BEL "sobel0/sum_x_step_0_1" BEL
-        "sobel0/sum_x_step_0_0" BEL "harris_detector/sobel0/sum_x_step_0_0"
-        BEL "harris_detector/sobel0/sum_x_step_0_1" BEL
+        "sobel0/sum_y_step_2_0" BEL "sobel0/sum_x_step_1_15" BEL
+        "sobel0/sum_x_step_1_13" BEL "sobel0/sum_x_step_1_12" BEL
+        "sobel0/sum_x_step_1_11" BEL "sobel0/sum_x_step_1_10" BEL
+        "sobel0/sum_x_step_1_9" BEL "sobel0/sum_x_step_1_8" BEL
+        "sobel0/sum_x_step_1_7" BEL "sobel0/sum_x_step_1_6" BEL
+        "sobel0/sum_x_step_1_5" BEL "sobel0/sum_x_step_1_4" BEL
+        "sobel0/sum_x_step_1_3" BEL "sobel0/sum_x_step_1_2" BEL
+        "sobel0/sum_x_step_1_1" BEL "sobel0/sum_x_step_1_0" BEL
+        "sobel0/sum_y_step_1_13" BEL "sobel0/sum_y_step_1_12" BEL
+        "sobel0/sum_y_step_1_11" BEL "sobel0/sum_y_step_1_10" BEL
+        "sobel0/sum_y_step_1_9" BEL "sobel0/sum_y_step_1_8" BEL
+        "sobel0/sum_y_step_1_7" BEL "sobel0/sum_y_step_1_6" BEL
+        "sobel0/sum_y_step_1_5" BEL "sobel0/sum_y_step_1_4" BEL
+        "sobel0/sum_y_step_1_3" BEL "sobel0/sum_y_step_1_2" BEL
+        "sobel0/sum_y_step_1_1" BEL "sobel0/sum_y_step_1_0" BEL
+        "sobel0/sum_y_step_0_8" BEL "sobel0/sum_y_step_0_7" BEL
+        "sobel0/sum_y_step_0_6" BEL "sobel0/sum_y_step_0_5" BEL
+        "sobel0/sum_y_step_0_4" BEL "sobel0/sum_y_step_0_3" BEL
+        "sobel0/sum_y_step_0_2" BEL "sobel0/sum_y_step_0_1" BEL
+        "sobel0/sum_y_step_0_0" BEL "sobel0/sum_x_step_0_8" BEL
+        "sobel0/sum_x_step_0_7" BEL "sobel0/sum_x_step_0_6" BEL
+        "sobel0/sum_x_step_0_5" BEL "sobel0/sum_x_step_0_4" BEL
+        "sobel0/sum_x_step_0_3" BEL "sobel0/sum_x_step_0_2" BEL
+        "sobel0/sum_x_step_0_1" BEL "sobel0/sum_x_step_0_0" BEL
+        "harris_detector/sobel0/sum_x_step_0_0" BEL
+        "harris_detector/sobel0/sum_x_step_0_1" BEL
         "harris_detector/sobel0/sum_x_step_0_2" BEL
         "harris_detector/sobel0/sum_x_step_0_3" BEL
         "harris_detector/sobel0/sum_x_step_0_4" BEL
@@ -613,7 +614,10 @@ TIMEGRP sys_clocks_gen_clkout2 = BEL "gauss3x3_0/pixel_from_conv_latched_11"
         "gauss3x3_0/block0/pixel_counter0/pixel_count_temp_6" BEL
         "gauss3x3_0/block0/pixel_counter0/pixel_count_temp_7" BEL
         "gauss3x3_0/block0/pixel_counter0/pixel_count_temp_8" BEL
-        "sys_clocks_gen/clkout3_buf" BEL "camera0/pixel_clock_out_t" BEL
+        "sys_clocks_gen/clkout3_buf" BEL "camera0/y_data_7" BEL
+        "camera0/y_data_6" BEL "camera0/y_data_5" BEL "camera0/y_data_4" BEL
+        "camera0/y_data_3" BEL "camera0/y_data_2" BEL "camera0/y_data_1" BEL
+        "camera0/y_data_0" BEL "camera0/pixel_clock_out_t" BEL
         "camera0/vsynct" BEL "camera0/hsynct" BEL "mem_interface0/rd" BEL
         "mem_interface0/wr" BEL "reset0/counter0_9" BEL "reset0/counter0_8"
         BEL "reset0/counter0_7" BEL "reset0/counter0_6" BEL
@@ -1834,10 +1838,10 @@ TIMEGRP sys_clocks_gen_clkout2 = BEL "gauss3x3_0/pixel_from_conv_latched_11"
         "ds_image/pixel_data_out_3" BEL "ds_image/pixel_data_out_2" BEL
         "ds_image/pixel_data_out_1" BEL "ds_image/pixel_data_out_0" BEL
         "ds_image/vsync_out" BEL "ds_image/vsync_old" BEL "ds_image/pxclk_old"
-        BEL "ds_image/hsync_old" BEL "pixel_to_fifo/vsync_old" BEL
-        "pixel_to_fifo/pxclk_old" BEL "ds_image/line_counter_0" BEL
-        "ds_image/hsync_out" BEL "gauss3x3_0/block0/new_blockq" BEL
-        "sobel0/block0/new_blockq" BEL
+        BEL "ds_image/hsync_old" BEL "pixel_to_fifo/pxclk_old" BEL
+        "pixel_to_fifo/vsync_old" BEL "ds_image/line_counter_0" BEL
+        "pixel_to_fifo/enabled" BEL "ds_image/hsync_out" BEL
+        "gauss3x3_0/block0/new_blockq" BEL "sobel0/block0/new_blockq" BEL
         "sobel0/delay_sync/gen_delay[0].gen_input.latch_0/Qp_2" BEL
         "harris_detector/delay_pclk/gen_delay[3].gen_output.latch_delay/Qp_0"
         BEL "harris_detector/delay_pclk/gen_delay[2].gen_delay.latch_i/Qp_0"

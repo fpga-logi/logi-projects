@@ -1,7 +1,7 @@
-Release 14.1 Drc P.15xf (lin64)
+Release 14.1 Drc P.15xf (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-Wed Oct 30 03:42:37 2013
+Sat Mar 29 14:05:05 2014
 
 drc -z logipi_camera.ncd logipi_camera.pcf
 

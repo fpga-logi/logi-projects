@@ -3,11 +3,11 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pn" timeStamp="Wed Oct 30 03:40:59 2013">
+<application name="pn" timeStamp="Sat Mar 29 14:04:34 2014">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="C54350726A20A73BFD3E7976D2E06298" type="project"/>
-<property name="ProjectIteration" value="12" type="project"/>
-<property name="ProjectFile" value="/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logipi-hw/logipi-hw.xise" type="project"/>
+<property name="ProjectIteration" value="14" type="project"/>
+<property name="ProjectFile" value="E:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/1NEW-DEV/logi-projects/logi-camera-demo/logipi-hw/logipi-hw.xise" type="project"/>
 <property name="ProjectCreationTimestamp" value="2013-06-25T20:34:58" type="project"/>
 </section>
 <section name="Project Statistics" visible="true">
@@ -24,11 +24,12 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PROP_UserConstraintEditorPreference" value="Text Editor" type="process"/>
 <property name="PROP_intProjectCreationTimestamp" value="2013-06-25T20:34:58" type="design"/>
 <property name="PROP_intWbtProjectID" value="C54350726A20A73BFD3E7976D2E06298" type="design"/>
-<property name="PROP_intWbtProjectIteration" value="12" type="process"/>
+<property name="PROP_intWbtProjectIteration" value="14" type="process"/>
 <property name="PROP_intWorkingDirLocWRTProjDir" value="Same" type="design"/>
 <property name="PROP_intWorkingDirUsed" value="No" type="design"/>
 <property name="PROP_xilxBitgStart_IntDone" value="true" type="process"/>
 <property name="PROP_AutoTop" value="true" type="design"/>
+<property name="PROP_CompxlibEdkSimLib" value="true" type="process"/>
 <property name="PROP_DevFamily" value="Spartan6" type="design"/>
 <property name="PROP_DevDevice" value="xc6slx9" type="design"/>
 <property name="PROP_DevFamilyPMName" value="spartan6" type="design"/>

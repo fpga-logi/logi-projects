@@ -4,7 +4,7 @@ Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
 Project Information
 --------------------
 ProjectID=C54350726A20A73BFD3E7976D2E06298
-ProjectIteration=12
+ProjectIteration=14
 
 WebTalk Summary
 ----------------
@@ -13,4 +13,4 @@ INFO:WebTalk:1 - WebTalk is enabled because you are using a WebPACK license.
 INFO:WebTalk:8 - WebTalk Install setting is ON.
 INFO:WebTalk:6 - WebTalk User setting is ON.
 
-INFO:WebTalk:5 - /home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/logipi-hw/usage_statistics_webtalk.html WebTalk report has not been sent to Xilinx.  Please check your network and proxy settings.  For additional details about this file, please refer to the WebTalk help file at /opt/Xilinx/14.1/ISE_DS/ISE/data/reports/webtalk_introduction.html
+INFO:WebTalk:4 - E:/Dropbox/Prj/Valent/LOGI-FAMILY/1logi-github/1NEW-DEV/logi-projects/logi-camera-demo/logipi-hw/usage_statistics_webtalk.html WebTalk report has been successfully sent to Xilinx on 2014-03-29T14:05:18.  For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/14.1/ISE_DS/ISE/data/reports/webtalk_introduction.html
