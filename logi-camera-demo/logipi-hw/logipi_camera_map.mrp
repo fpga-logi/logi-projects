@@ -1,4 +1,4 @@
-Release 14.1 Map P.15xf (lin64)
+Release 14.1 Map P.15xf (nt64)
 Xilinx Mapping Report File for Design 'logipi_camera'
 
 Design Information
@@ -11,23 +11,23 @@ Target Device  : xc6slx9
 Target Package : tqg144
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Wed Oct 30 03:39:40 2013
+Mapped Date    : Sat Mar 29 14:04:05 2014
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    7
+Number of warnings:    6
 Slice Logic Utilization:
-  Number of Slice Registers:                 1,971 out of  11,440   17%
-    Number used as Flip Flops:               1,965
+  Number of Slice Registers:                 1,981 out of  11,440   17%
+    Number used as Flip Flops:               1,975
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                6
-  Number of Slice LUTs:                      1,809 out of   5,720   31%
-    Number used as logic:                    1,587 out of   5,720   27%
-      Number using O6 output only:           1,067
+  Number of Slice LUTs:                      1,823 out of   5,720   31%
+    Number used as logic:                    1,592 out of   5,720   27%
+      Number using O6 output only:           1,074
       Number using O5 output only:              57
-      Number using O5 and O6:                  463
+      Number using O5 and O6:                  461
       Number used as ROM:                        0
     Number used as Memory:                     102 out of   1,440    7%
       Number used as Dual Port RAM:              0
@@ -36,21 +36,21 @@ Slice Logic Utilization:
         Number using O6 output only:            13
         Number using O5 output only:             0
         Number using O5 and O6:                 89
-    Number used exclusively as route-thrus:    120
-      Number with same-slice register load:     98
+    Number used exclusively as route-thrus:    129
+      Number with same-slice register load:    107
       Number with same-slice carry load:        22
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   651 out of   1,430   45%
+  Number of occupied Slices:                   660 out of   1,430   46%
   Nummber of MUXCYs used:                      980 out of   2,860   34%
-  Number of LUT Flip Flop pairs used:        2,097
-    Number with an unused Flip Flop:           533 out of   2,097   25%
-    Number with an unused LUT:                 288 out of   2,097   13%
-    Number of fully used LUT-FF pairs:       1,276 out of   2,097   60%
-    Number of unique control sets:              40
+  Number of LUT Flip Flop pairs used:        2,076
+    Number with an unused Flip Flop:           497 out of   2,076   23%
+    Number with an unused LUT:                 253 out of   2,076   12%
+    Number of fully used LUT-FF pairs:       1,326 out of   2,076   63%
+    Number of unique control sets:              41
     Number of slice register sites lost
-      to control set restrictions:             140 out of  11,440    1%
+      to control set restrictions:             138 out of  11,440    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -93,9 +93,9 @@ Specific Feature Utilization:
 
 Average Fanout of Non-Clock Nets:                2.77
 
-Peak Memory Usage:  718 MB
-Total REAL time to MAP completion:  1 mins 18 secs 
-Total CPU time to MAP completion:   1 mins 7 secs 
+Peak Memory Usage:  402 MB
+Total REAL time to MAP completion:  27 secs 
+Total CPU time to MAP completion:   27 secs 
 
 Table of Contents
 -----------------
@@ -118,6 +118,9 @@ Section 1 - Errors
 
 Section 2 - Warnings
 --------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current
+version of Xilinx tools will continue to function, but you no longer qualify for
+Xilinx software updates or new releases.
 WARNING:Pack:1653 - At least one timing constraint is impossible to meet because component delays alone exceed the constraint. A timing
    constraint summary below shows the failing constraints (preceded with an Asterisk (*)). Please use the Timing Analyzer (GUI) or TRCE
    (command line) with the Mapped NCD and PCF files to identify which constraints and paths are failing because of the component delays
@@ -158,27 +161,15 @@ WARNING:Place:1137 - This design is not guaranteed to be routable! This design
 WARNING:Place:1109 - A clock IOB / BUFGMUX clock component pair have been found
    that are not placed at an optimal clock IOB / BUFGMUX site pair. The clock
    IOB component <SYS_SPI_SCK> is placed at site <P70>. The corresponding BUFG
-   component <SYS_SPI_SCK_BUFGP/BUFG> is placed at site <BUFGMUX_X2Y9>. There is
-   only a select set of IOBs that can use the fast path to the Clocker buffer,
-   and they are not being used. You may want to analyze why this problem exists
-   and correct it. This is normally an ERROR but the CLOCK_DEDICATED_ROUTE
-   constraint was applied on COMP.PIN <SYS_SPI_SCK.PAD> allowing your design to
-   continue. This constraint disables all clock placer rules related to the
-   specified COMP.PIN. The use of this override is highly discouraged as it may
-   lead to very poor timing results. It is recommended that this error condition
-   be corrected in the design.
-WARNING:Place:1109 - A clock IOB / BUFGMUX clock component pair have been found
-   that are not placed at an optimal clock IOB / BUFGMUX site pair. The clock
-   IOB component <PMOD4_10> is placed at site <P82>. The corresponding BUFG
-   component <PMOD4_10_BUFGP/BUFG> is placed at site <BUFGMUX_X2Y3>. There is
-   only a select set of IOBs that can use the fast path to the Clocker buffer,
-   and they are not being used. You may want to analyze why this problem exists
-   and correct it. This is normally an ERROR but the CLOCK_DEDICATED_ROUTE
-   constraint was applied on COMP.PIN <PMOD4_10.PAD> allowing your design to
-   continue. This constraint disables all clock placer rules related to the
-   specified COMP.PIN. The use of this override is highly discouraged as it may
-   lead to very poor timing results. It is recommended that this error condition
-   be corrected in the design.
+   component <SYS_SPI_SCK_BUFGP/BUFG> is placed at site <BUFGMUX_X3Y13>. There
+   is only a select set of IOBs that can use the fast path to the Clocker
+   buffer, and they are not being used. You may want to analyze why this problem
+   exists and correct it. This is normally an ERROR but the
+   CLOCK_DEDICATED_ROUTE constraint was applied on COMP.PIN <SYS_SPI_SCK.PAD>
+   allowing your design to continue. This constraint disables all clock placer
+   rules related to the specified COMP.PIN. The use of this override is highly
+   discouraged as it may lead to very poor timing results. It is recommended
+   that this error condition be corrected in the design.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net deb_pb is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to
    control the loading of data into the flip-flop.
@@ -189,6 +180,7 @@ WARNING:PhysDesignRules:2410 - This design is using one or more 9K Block RAMs
 
 Section 3 - Informational
 -------------------------
+INFO:Security:54 - 'xc6slx9' is a WebPack part.
 INFO:LIT:243 - Logical network PMOD4_7_IBUF has no load.
 INFO:LIT:395 - The above info message is repeated 2 more times for the following
    (max. 5 shown):
@@ -212,9 +204,9 @@ INFO:Pack:1650 - Map created a placed design.
 
 Section 4 - Removed Logic Summary
 ---------------------------------
- 232 block(s) removed
-  34 block(s) optimized away
- 195 signal(s) removed
+ 228 block(s) removed
+  35 block(s) optimized away
+ 193 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
@@ -935,20 +927,6 @@ loadless and has been removed.
 Loadless block "sobel0/Madd_sobel_response_Madd10" (ROM) removed.
 Loadless block "sobel0/Madd_sum_x_step[0][15]_x_add_vec[1][15]_add_20_OUT14"
 (ROM) removed.
-Loadless block
-"sobel0/Madd_sum_x_step[0][15]_x_add_vec[1][15]_add_20_OUT_lut<0>14" (ROM)
-removed.
- The signal "sobel0/Madd_sum_x_step[0][15]_x_add_vec[1][15]_add_20_OUT12" is
-loadless and has been removed.
-  Loadless block "sobel0/Madd_sum_x_step[0][15]_x_add_vec[1][15]_add_20_OUT12"
-(ROM) removed.
-Loadless block
-"sobel0/Madd_sum_x_step[0][15]_x_add_vec[1][15]_add_20_OUT_lut<0>15" (ROM)
-removed.
- The signal "sobel0/Madd_sum_x_step[0][15]_x_add_vec[1][15]_add_20_OUT13" is
-loadless and has been removed.
-  Loadless block "sobel0/Madd_sum_x_step[0][15]_x_add_vec[1][15]_add_20_OUT13"
-(ROM) removed.
 Loadless block "sobel0/Madd_sum_x_step[1][15]_x_add_vec[2][15]_add_21_OUT15"
 (ROM) removed.
 Loadless block "sobel0/Madd_sum_y_step[0][15]_y_add_vec[1][15]_add_18_OUT14"
@@ -1028,9 +1006,11 @@ LUT4 		sobel0/Madd_sum_x_step[0][15]_x_add_vec[1][15]_add_20_OUT_lut<0>12
    optimized to 1
 LUT4 		sobel0/Madd_sum_x_step[0][15]_x_add_vec[1][15]_add_20_OUT_lut<0>13
    optimized to 1
-LUT4 		sobel0/Madd_sum_x_step[1][15]_x_add_vec[2][15]_add_21_OUT_lut<0>14
+LUT4 		sobel0/Madd_sum_x_step[0][15]_x_add_vec[1][15]_add_20_OUT_lut<0>14
    optimized to 1
-LUT4 		sobel0/Madd_sum_x_step[1][15]_x_add_vec[2][15]_add_21_OUT_lut<0>15
+LUT4 		sobel0/Madd_sum_x_step[0][15]_x_add_vec[1][15]_add_20_OUT_lut<0>15
+   optimized to 1
+LUT4 		sobel0/Madd_sum_x_step[1][15]_x_add_vec[2][15]_add_21_OUT_lut<0>14
    optimized to 1
 LUT4 		sobel0/Madd_sum_y_step[0][15]_y_add_vec[1][15]_add_18_OUT_lut<0>10
    optimized to 1
@@ -1089,9 +1069,9 @@ Derived Constraints for TS_PER_CLK50
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_PER_CLK50                   |     20.000ns|      5.000ns|     20.192ns|            0|            8|            0|       145202|
-| TS_sys_clocks_gen_clkout1     |     41.667ns|     42.066ns|          N/A|            8|            0|         4131|            0|
-| TS_sys_clocks_gen_clkout2     |     10.000ns|      4.742ns|          N/A|            0|            0|       141071|            0|
+|TS_PER_CLK50                   |     20.000ns|      5.000ns|     20.192ns|            0|            8|            0|       146508|
+| TS_sys_clocks_gen_clkout1     |     41.667ns|     42.066ns|          N/A|            8|            0|         4205|            0|
+| TS_sys_clocks_gen_clkout2     |     10.000ns|      4.742ns|          N/A|            0|            0|       142303|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 1 constraint not met.
@@ -1106,33 +1086,33 @@ Section 6 - IOB Properties
 |                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
 | CS_FLASH                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| LED<0>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| LED<1>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| OSC_FPGA                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| PB<0>                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| PB<1>                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| PMOD3<0>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| PMOD3<1>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| PMOD3<2>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| PMOD3<3>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| PMOD3<4>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| PMOD3<5>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| PMOD3<6>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| PMOD3<7>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| PMOD4_1                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| PMOD4_2                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| PMOD4_3                            | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              | PULLUP   |          |
-| PMOD4_4                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| PMOD4_7                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| PMOD4_8                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| PMOD4_9                            | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              | PULLUP   |          |
-| PMOD4_10                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| RP_SPI_CE0N                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| SYS_SCL                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| SYS_SDA                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| SYS_SPI_MISO                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| SYS_SPI_MOSI                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| SYS_SPI_SCK                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| LED<0>                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| LED<1>                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| OSC_FPGA                           | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| PB<0>                              | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| PB<1>                              | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| PMOD3<0>                           | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| PMOD3<1>                           | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| PMOD3<2>                           | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| PMOD3<3>                           | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| PMOD3<4>                           | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| PMOD3<5>                           | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| PMOD3<6>                           | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| PMOD3<7>                           | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| PMOD4_1                            | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| PMOD4_2                            | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| PMOD4_3                            | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW |              |          |          |
+| PMOD4_4                            | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| PMOD4_7                            | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| PMOD4_8                            | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| PMOD4_9                            | IOB              | BIDIR     | LVTTL                |       | 12       | SLOW |              |          |          |
+| PMOD4_10                           | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| RP_SPI_CE0N                        | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| SYS_SCL                            | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| SYS_SDA                            | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| SYS_SPI_MISO                       | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| SYS_SPI_MOSI                       | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| SYS_SPI_SCK                        | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Section 7 - RPMs
