@@ -1,21 +1,18 @@
-Release 14.1 - xst P.15xf (lin64)
-Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
---> 
-Parameter TMPDIR set to xst/projnav.tmp
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.09 secs
  
---> 
-Parameter xsthdpdir set to xst
+--> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.09 secs
  
---> 
-Reading design: wishbone_servo.prj
+--> Reading design: wishbone_servo.prj
 
 TABLE OF CONTENTS
   1) Synthesis Options Summary
@@ -108,7 +105,13 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/peripherals/wishbone_servo.vhd" into library work
+Parsing VHDL file "D:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-hard\utils\logi_utils_pack.vhd" into library work
+Parsing package <logi_utils_pack>.
+Parsing package body <logi_utils_pack>.
+Parsing VHDL file "D:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-hard\control\servo_controller.vhd" into library work
+Parsing entity <servo_controller>.
+Parsing architecture <Behavioral> of entity <servo_controller>.
+Parsing VHDL file "D:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-hard\wishbone\peripherals\wishbone_servo.vhd" into library work
 Parsing entity <wishbone_servo>.
 Parsing architecture <Behavioral> of entity <wishbone_servo>.
 
@@ -117,14 +120,16 @@ Parsing architecture <Behavioral> of entity <wishbone_servo>.
 =========================================================================
 
 Elaborating entity <wishbone_servo> (architecture <Behavioral>) with generics from library <work>.
-WARNING:HDLCompiler:89 - "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/peripherals/wishbone_servo.vhd" Line 86: <servo_controller> remains a black-box since it has no binding entity.
+
+Elaborating entity <servo_controller> (architecture <Behavioral>) with generics from library <work>.
+INFO:HDLCompiler:679 - "D:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-hard\control\servo_controller.vhd" Line 120. Case statement is complete. others clause is never selected
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Synthesizing Unit <wishbone_servo>.
-    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/peripherals/wishbone_servo.vhd".
+    Related source file is "D:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-hard\wishbone\peripherals\wishbone_servo.vhd".
         NB_SERVOS = 2
         wb_size = 16
         pos_width = 8
@@ -143,15 +148,59 @@ WARNING:Xst:647 - Input <wbs_address<15:2>> is never used. This port will be pre
 	inferred   3 Multiplexer(s).
 Unit <wishbone_servo> synthesized.
 
+Synthesizing Unit <servo_controller>.
+    Related source file is "D:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-hard\control\servo_controller.vhd".
+        pos_width = 8
+        clock_period = 10
+        minimum_high_pulse_width = 1000000
+        maximum_high_pulse_width = 2000000
+    Found 2-bit register for signal <current_state>.
+    Found 1-bit register for signal <servo_out>.
+    Found 11-bit register for signal <step_gen_counter>.
+    Found 15-bit register for signal <servo_step_counter>.
+    Found finite state machine <FSM_0> for signal <current_state>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 7                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 5                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | reset                                          |
+    | Power Up State     | reset                                          |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 11-bit adder for signal <step_gen_counter[10]_GND_9_o_add_20_OUT> created at line 155.
+    Found 15-bit adder for signal <servo_step_counter[14]_GND_9_o_add_25_OUT> created at line 166.
+    Found 15-bit comparator greater for signal <servo_step_counter[14]_GND_9_o_LessThan_19_o> created at line 137
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  27 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   3 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <servo_controller> synthesized.
+
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Registers                                            : 6
- 1-bit register                                        : 2
+# Adders/Subtractors                                   : 4
+ 11-bit adder                                          : 2
+ 15-bit adder                                          : 2
+# Registers                                            : 12
+ 1-bit register                                        : 4
+ 11-bit register                                       : 2
+ 15-bit register                                       : 2
  16-bit register                                       : 4
-# Multiplexers                                         : 3
+# Comparators                                          : 2
+ 15-bit comparator greater                             : 2
+# Multiplexers                                         : 9
+ 1-bit 2-to-1 multiplexer                              : 6
  16-bit 2-to-1 multiplexer                             : 3
+# FSMs                                                 : 2
 
 =========================================================================
 
@@ -159,6 +208,11 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
+
+Synthesizing (advanced) Unit <servo_controller>.
+The following registers are absorbed into counter <step_gen_counter>: 1 register on signal <step_gen_counter>.
+The following registers are absorbed into counter <servo_step_counter>: 1 register on signal <servo_step_counter>.
+Unit <servo_controller> synthesized (advanced).
 WARNING:Xst:2677 - Node <failsafe_regs_0_8> of sequential type is unconnected in block <wishbone_servo>.
 WARNING:Xst:2677 - Node <failsafe_regs_0_9> of sequential type is unconnected in block <wishbone_servo>.
 WARNING:Xst:2677 - Node <failsafe_regs_0_10> of sequential type is unconnected in block <wishbone_servo>.
@@ -180,24 +234,69 @@ WARNING:Xst:2677 - Node <failsafe_regs_1_15> of sequential type is unconnected i
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Registers                                            : 50
- Flip-Flops                                            : 50
-# Multiplexers                                         : 32
- 1-bit 2-to-1 multiplexer                              : 32
+# Counters                                             : 4
+ 11-bit up counter                                     : 2
+ 15-bit up counter                                     : 2
+# Registers                                            : 52
+ Flip-Flops                                            : 52
+# Comparators                                          : 2
+ 15-bit comparator greater                             : 2
+# Multiplexers                                         : 38
+ 1-bit 2-to-1 multiplexer                              : 38
+# FSMs                                                 : 2
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <gen_servo_ctrl[0].servo_ctrl/FSM_0> on signal <current_state[1:2]> with gray encoding.
+Optimizing FSM <gen_servo_ctrl[1].servo_ctrl/FSM_0> on signal <current_state[1:2]> with gray encoding.
+----------------------------
+ State          | Encoding
+----------------------------
+ reset          | 00
+ min_high_pulse | 01
+ servo_pulse    | 11
+ low_pulse      | 10
+----------------------------
 
 Optimizing unit <wishbone_servo> ...
 
+Optimizing unit <servo_controller> ...
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/servo_step_counter_0> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/servo_step_counter_0> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/servo_step_counter_1> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/servo_step_counter_1> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/servo_step_counter_2> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/servo_step_counter_2> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/servo_step_counter_3> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/servo_step_counter_3> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/servo_step_counter_4> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/servo_step_counter_4> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/servo_step_counter_5> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/servo_step_counter_5> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/servo_step_counter_6> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/servo_step_counter_6> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/servo_step_counter_7> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/servo_step_counter_7> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/step_gen_counter_0> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/step_gen_counter_0> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/servo_step_counter_8> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/servo_step_counter_8> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/step_gen_counter_1> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/step_gen_counter_1> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/servo_step_counter_9> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/servo_step_counter_9> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/step_gen_counter_2> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/step_gen_counter_2> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/step_gen_counter_3> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/step_gen_counter_3> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/step_gen_counter_4> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/step_gen_counter_4> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/step_gen_counter_5> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/step_gen_counter_5> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/step_gen_counter_6> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/step_gen_counter_6> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/step_gen_counter_7> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/step_gen_counter_7> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/step_gen_counter_8> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/step_gen_counter_8> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/step_gen_counter_9> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/step_gen_counter_9> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/servo_step_counter_10> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/servo_step_counter_10> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/servo_step_counter_11> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/servo_step_counter_11> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/current_state_FSM_FFd1> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/current_state_FSM_FFd1> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/servo_step_counter_12> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/servo_step_counter_12> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/current_state_FSM_FFd2> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/current_state_FSM_FFd2> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/servo_step_counter_13> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/servo_step_counter_13> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/servo_step_counter_14> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/servo_step_counter_14> 
+INFO:Xst:2261 - The FF/Latch <gen_servo_ctrl[1].servo_ctrl/step_gen_counter_10> in Unit <wishbone_servo> is equivalent to the following FF/Latch, which will be removed : <gen_servo_ctrl[0].servo_ctrl/step_gen_counter_10> 
+
 Mapping all equations...
-WARNING:Xst:2036 - Inserting OBUF on port <servos<1>> driven by black box <servo_controller>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <servos<0>> driven by black box <servo_controller>. Possible simulation mismatch.
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block wishbone_servo, actual ratio is 1.
+Found area constraint ratio of 100 (+ 5) on block wishbone_servo, actual ratio is 2.
 
 Final Macro Processing ...
 
@@ -205,8 +304,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 50
- Flip-Flops                                            : 50
+# Registers                                            : 80
+ Flip-Flops                                            : 80
 
 =========================================================================
 
@@ -229,24 +328,30 @@ Top Level Output File Name         : wishbone_servo.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 40
-#      INV                         : 1
-#      LUT2                        : 1
-#      LUT3                        : 34
-#      LUT5                        : 2
-#      LUT6                        : 2
-# FlipFlops/Latches                : 50
-#      FDC                         : 1
+# BELS                             : 188
+#      GND                         : 1
+#      INV                         : 4
+#      LUT1                        : 24
+#      LUT2                        : 3
+#      LUT3                        : 35
+#      LUT4                        : 38
+#      LUT5                        : 11
+#      LUT6                        : 9
+#      MUXCY                       : 36
+#      VCC                         : 1
+#      XORCY                       : 26
+# FlipFlops/Latches                : 80
+#      FD                          : 27
+#      FDC                         : 3
 #      FDCE                        : 28
-#      FDE                         : 17
+#      FDE                         : 16
 #      FDPE                        : 4
+#      FDS                         : 2
 # Clock Buffers                    : 1
-#      BUFG                        : 1
-# IO Buffers                       : 43
-#      IBUF                        : 24
+#      BUFGP                       : 1
+# IO Buffers                       : 42
+#      IBUF                        : 23
 #      OBUF                        : 19
-# Others                           : 2
-#      servo_controller            : 2
 
 Device utilization summary:
 ---------------------------
@@ -255,16 +360,16 @@ Selected Device : 6slx9tqg144-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              50  out of  11440     0%  
- Number of Slice LUTs:                   40  out of   5720     0%  
-    Number used as Logic:                40  out of   5720     0%  
+ Number of Slice Registers:              80  out of  11440     0%  
+ Number of Slice LUTs:                  124  out of   5720     2%  
+    Number used as Logic:               124  out of   5720     2%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     54
-   Number with an unused Flip Flop:       4  out of     54     7%  
-   Number with an unused LUT:            14  out of     54    25%  
-   Number of fully used LUT-FF pairs:    36  out of     54    66%  
-   Number of unique control sets:         6
+ Number of LUT Flip Flop pairs used:    154
+   Number with an unused Flip Flop:      74  out of    154    48%  
+   Number with an unused LUT:            30  out of    154    19%  
+   Number of fully used LUT-FF pairs:    50  out of    154    32%  
+   Number of unique control sets:         7
 
 IO Utilization: 
  Number of IOs:                          57
@@ -294,7 +399,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-gls_clk                            | IBUF+BUFG              | 50    |
+gls_clk                            | BUFGP                  | 80    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -305,8 +410,8 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: No path found
-   Minimum input arrival time before clock: 4.091ns
+   Minimum period: 4.800ns (Maximum Frequency: 208.349MHz)
+   Minimum input arrival time before clock: 5.115ns
    Maximum output required time after clock: 4.521ns
    Maximum combinational path delay: 5.898ns
 
@@ -315,28 +420,58 @@ Timing Details:
 All values displayed in nanoseconds (ns)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'gls_clk'
-  Total number of paths / destination ports: 344 / 132
+Timing constraint: Default period analysis for Clock 'gls_clk'
+  Clock period: 4.800ns (frequency: 208.349MHz)
+  Total number of paths / destination ports: 931 / 33
 -------------------------------------------------------------------------
-Offset:              4.091ns (Levels of Logic = 2)
-  Source:            wbs_address<0> (PAD)
-  Destination:       pos_regs_1_0 (FF)
+Delay:               4.800ns (Levels of Logic = 4)
+  Source:            gen_servo_ctrl[1].servo_ctrl/servo_step_counter_0 (FF)
+  Destination:       gen_servo_ctrl[1].servo_ctrl/servo_step_counter_14 (FF)
+  Source Clock:      gls_clk rising
   Destination Clock: gls_clk rising
 
-  Data Path: wbs_address<0> to pos_regs_1_0
+  Data Path: gen_servo_ctrl[1].servo_ctrl/servo_step_counter_0 to gen_servo_ctrl[1].servo_ctrl/servo_step_counter_14
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            20   1.222   1.340  wbs_address_0_IBUF (wbs_address_0_IBUF)
-     LUT5:I1->O           16   0.203   1.004  _n0065_inv11 (_n0065_inv)
-     FDCE:CE                   0.322          pos_regs_0_0
+     FD:C->Q               7   0.447   1.118  gen_servo_ctrl[1].servo_ctrl/servo_step_counter_0 (gen_servo_ctrl[1].servo_ctrl/servo_step_counter_0)
+     LUT6:I1->O            1   0.203   0.684  gen_servo_ctrl[1].servo_ctrl/GND_9_o_GND_9_o_equal_13_o<14>11 (gen_servo_ctrl[1].servo_ctrl/GND_9_o_GND_9_o_equal_13_o<14>11)
+     LUT2:I0->O            3   0.203   0.651  gen_servo_ctrl[1].servo_ctrl/GND_9_o_GND_9_o_equal_13_o<14>13 (gen_servo_ctrl[1].servo_ctrl/GND_9_o_GND_9_o_equal_13_o<14>1)
+     LUT6:I5->O           15   0.205   0.982  gen_servo_ctrl[1].servo_ctrl/Mmux_rst_servo_step_counter11 (gen_servo_ctrl[1].servo_ctrl/rst_servo_step_counter)
+     LUT4:I3->O            1   0.205   0.000  gen_servo_ctrl[1].servo_ctrl/servo_step_counter_14_rstpot (gen_servo_ctrl[1].servo_ctrl/servo_step_counter_14_rstpot)
+     FD:D                      0.102          gen_servo_ctrl[1].servo_ctrl/servo_step_counter_14
     ----------------------------------------
-    Total                      4.091ns (1.747ns logic, 2.344ns route)
-                                       (42.7% logic, 57.3% route)
+    Total                      4.800ns (1.365ns logic, 3.435ns route)
+                                       (28.4% logic, 71.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'gls_clk'
+  Total number of paths / destination ports: 378 / 135
+-------------------------------------------------------------------------
+Offset:              5.115ns (Levels of Logic = 7)
+  Source:            failsafe (PAD)
+  Destination:       gen_servo_ctrl[1].servo_ctrl/servo_out (FF)
+  Destination Clock: gls_clk rising
+
+  Data Path: failsafe to gen_servo_ctrl[1].servo_ctrl/servo_out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            16   1.222   1.233  failsafe_IBUF (failsafe_IBUF)
+     LUT3:I0->O            2   0.205   0.961  mux2211 (servo_pos<1><6>)
+     LUT5:I0->O            1   0.203   0.000  gen_servo_ctrl[1].servo_ctrl/Mcompar_servo_step_counter[14]_GND_9_o_LessThan_19_o_lut<3> (gen_servo_ctrl[1].servo_ctrl/Mcompar_servo_step_counter[14]_GND_9_o_LessThan_19_o_lut<3>)
+     MUXCY:S->O            1   0.172   0.000  gen_servo_ctrl[1].servo_ctrl/Mcompar_servo_step_counter[14]_GND_9_o_LessThan_19_o_cy<3> (gen_servo_ctrl[1].servo_ctrl/Mcompar_servo_step_counter[14]_GND_9_o_LessThan_19_o_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  gen_servo_ctrl[1].servo_ctrl/Mcompar_servo_step_counter[14]_GND_9_o_LessThan_19_o_cy<4> (gen_servo_ctrl[1].servo_ctrl/Mcompar_servo_step_counter[14]_GND_9_o_LessThan_19_o_cy<4>)
+     MUXCY:CI->O           1   0.213   0.580  gen_servo_ctrl[1].servo_ctrl/Mcompar_servo_step_counter[14]_GND_9_o_LessThan_19_o_cy<5> (gen_servo_ctrl[1].servo_ctrl/Mcompar_servo_step_counter[14]_GND_9_o_LessThan_19_o_cy<5>)
+     LUT3:I2->O            1   0.205   0.000  gen_servo_ctrl[1].servo_ctrl/PWR_10_o_servo_step_counter[14]_AND_19_o1 (gen_servo_ctrl[1].servo_ctrl/PWR_10_o_servo_step_counter[14]_AND_19_o)
+     FDS:D                     0.102          gen_servo_ctrl[1].servo_ctrl/servo_out
+    ----------------------------------------
+    Total                      5.115ns (2.341ns logic, 2.774ns route)
+                                       (45.8% logic, 54.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'gls_clk'
-  Total number of paths / destination ports: 66 / 33
+  Total number of paths / destination ports: 36 / 19
 -------------------------------------------------------------------------
 Offset:              4.521ns (Levels of Logic = 2)
   Source:            pos_regs_0_7 (FF)
@@ -356,7 +491,7 @@ Offset:              4.521ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 38 / 38
+  Total number of paths / destination ports: 16 / 16
 -------------------------------------------------------------------------
 Delay:               5.898ns (Levels of Logic = 3)
   Source:            wbs_address<0> (PAD)
@@ -378,18 +513,25 @@ Delay:               5.898ns (Levels of Logic = 3)
 Cross Clock Domains Report:
 --------------------------
 
+Clock to Setup on destination clock gls_clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+gls_clk        |    4.800|         |         |         |
+---------------+---------+---------+---------+---------+
+
 =========================================================================
 
 
-Total REAL time to Xst completion: 5.00 secs
-Total CPU time to Xst completion: 5.00 secs
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 6.18 secs
  
 --> 
 
-
-Total memory usage is 388980 kilobytes
+Total memory usage is 265364 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   20 (   0 filtered)
-Number of infos    :    0 (   0 filtered)
+Number of warnings :   17 (   0 filtered)
+Number of infos    :   28 (   0 filtered)
 
