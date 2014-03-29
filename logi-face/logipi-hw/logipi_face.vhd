@@ -228,7 +228,7 @@ intercon_wrapper_wbm_ack	<= intercon_led_mat_wbm_ack when led_mat_cs = '1' else
 										intercon_pwm0_wbm_ack when pwm0_cs = '1' else
 										'0' ;
 
- led_mat_interface : max7219_wb
+led_mat_interface : max7219_wb
 		generic map(
 				NB_DEVICE => 2, 
 				CLK_DIV => 10,
@@ -238,7 +238,7 @@ intercon_wrapper_wbm_ack	<= intercon_led_mat_wbm_ack when led_mat_cs = '1' else
 			gls_reset => sys_reset,
 			gls_clk   => clk_sys,
 
-			wbs_add      =>  intercon_led_mat_wbm_address ,
+			wbs_address      =>  intercon_led_mat_wbm_address ,
 			wbs_writedata => intercon_led_mat_wbm_writedata,
 			wbs_readdata  => intercon_led_mat_wbm_readdata,
 			wbs_strobe    => intercon_led_mat_wbm_strobe,
@@ -252,7 +252,7 @@ intercon_wrapper_wbm_ack	<= intercon_led_mat_wbm_ack when led_mat_cs = '1' else
 		);
 
 
-servo_wb : servo_controller_wb
+servo_wb : wishbone_servo
 generic map(
 			NB_SERVOS => 4 ,
 			wb_size => 16 , -- Data port size for wishbone
@@ -265,7 +265,7 @@ port map(
 		   gls_reset => sys_reset,
 			gls_clk   => clk_sys,
 
-			wbs_add      =>  intercon_servo_wbm_address ,
+			wbs_address      =>  intercon_servo_wbm_address ,
 			wbs_writedata => intercon_servo_wbm_writedata,
 			wbs_readdata  => intercon_servo_wbm_readdata,
 			wbs_strobe    => intercon_servo_wbm_strobe,
@@ -290,7 +290,7 @@ regs0 : wishbone_register
 		  gls_reset  => sys_reset,
 		  gls_clk    => clk_sys,
 		  -- Wishbone signals
-		  wbs_add       => intercon_reg0_wbm_address,
+		  wbs_address       => intercon_reg0_wbm_address,
 		  wbs_writedata => intercon_reg0_wbm_writedata,
 		  wbs_readdata  => intercon_reg0_wbm_readdata,
 		  wbs_strobe    => intercon_reg0_wbm_strobe,
@@ -313,7 +313,7 @@ port map(
 		  gls_reset => sys_reset,
 		  gls_clk   => clk_sys,
 		  -- Wishbone signals
-		  wbs_add       => intercon_pwm0_wbm_address,
+		  wbs_address      => intercon_pwm0_wbm_address,
 		  wbs_writedata => intercon_pwm0_wbm_writedata,
 		  wbs_readdata  => intercon_pwm0_wbm_readdata,
 		  wbs_strobe    => intercon_pwm0_wbm_strobe,
