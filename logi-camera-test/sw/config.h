@@ -3,7 +3,7 @@
 
 #ifdef LOGIPI
 
-#define LOAD_CMD "/usr/bin/logi_loader logi_cam_test.bit"
+#define LOAD_CMD "/usr/bin/logi_loader logi_camera_test.bit"
 
 #define FIFO_ADDR 0x0000
 #define FIFO_CMD_OFFSET 0x0004
