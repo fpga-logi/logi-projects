@@ -202,8 +202,7 @@ intercon0 : wishbone_intercon
 generic map(memory_map => 
 (
 "000000000000001X", -- gpio0
-"00000000000001XX", -- gpio1
-"0000000000001XXX") -- sseg0
+"00000000000001XX") -- sseg0
 )
 port map(
 		gls_reset => gls_reset,
@@ -212,87 +211,53 @@ port map(
 		wbs_address    => intercon_wrapper_wbm_address,  	-- Address bus
 		wbs_readdata   => intercon_wrapper_wbm_readdata,  	-- Data bus for read access
 		wbs_writedata 	=> intercon_wrapper_wbm_writedata,  -- Data bus for write access
-		wbs_strobe     => intercon_wrapper_wbm_strobe,                      -- Data Strobe
-		wbs_write      => intercon_wrapper_wbm_write,                      -- Write access
-		wbs_ack        => intercon_wrapper_wbm_ack,                      -- acknowledge
-		wbs_cycle      => intercon_wrapper_wbm_cycle,                       -- bus cycle in progress
+		wbs_strobe     => intercon_wrapper_wbm_strobe,     -- Data Strobe
+		wbs_write      => intercon_wrapper_wbm_write,      -- Write access
+		wbs_ack        => intercon_wrapper_wbm_ack,        -- acknowledge
+		wbs_cycle      => intercon_wrapper_wbm_cycle,      -- bus cycle in progress
 		
 		-- Wishbone master signals
 		wbm_address(0) => intercon_gpio0_wbm_address,
-		wbm_address(1) => intercon_gpio1_wbm_address,
-		wbm_address(2) => intercon_sseg0_wbm_address,
+		wbm_address(1) => intercon_sseg0_wbm_address,
 		
 		wbm_writedata(0)  => intercon_gpio0_wbm_writedata,
-		wbm_writedata(1)  => intercon_gpio1_wbm_writedata,
-		wbm_writedata(2)  => intercon_sseg0_wbm_writedata,
-			
+		wbm_writedata(1)  => intercon_sseg0_wbm_writedata,
+				
 		wbm_readdata(0)  => intercon_gpio0_wbm_readdata,
-		wbm_readdata(1)  => intercon_gpio1_wbm_readdata,
-		wbm_readdata(2)  => intercon_sseg0_wbm_readdata,
-		
+		wbm_readdata(1)  => intercon_sseg0_wbm_readdata,	
+			
 		wbm_strobe(0)  => intercon_gpio0_wbm_strobe,
-		wbm_strobe(1)  => intercon_gpio1_wbm_strobe,
-		wbm_strobe(2)  => intercon_sseg0_wbm_strobe,
-		
+		wbm_strobe(1)  => intercon_sseg0_wbm_strobe,
+
 		wbm_cycle(0)   => intercon_gpio0_wbm_cycle,
-		wbm_cycle(1)   => intercon_gpio1_wbm_cycle,
-		wbm_cycle(2)   => intercon_sseg0_wbm_cycle,
-		
+		wbm_cycle(1)   => intercon_sseg0_wbm_cycle,	
+	
 		wbm_write(0)   => intercon_gpio0_wbm_write,
-		wbm_write(1)   => intercon_gpio1_wbm_write,
-		wbm_write(2)   => intercon_sseg0_wbm_write,
-		
+		wbm_write(1)   => intercon_sseg0_wbm_write,	
+	
 		wbm_ack(0)      => intercon_gpio0_wbm_ack,
-		wbm_ack(1)      => intercon_gpio1_wbm_ack,
-		wbm_ack(2)      => intercon_sseg0_wbm_ack
-);
-									      
-										  
+		wbm_ack(1)      => intercon_sseg0_wbm_ack		
+	);
+									      										  
 -----------------------------------------------------------------------
+--DNT: SIGNALS NOT USE IN LOOPBACK TESTS: VGA AND, PS2_2, SSEG 
+--TO LOOPBACK TEST: PS2_1, NES, PWM
+-- USE THIS GOOGLE DOC TO SORT BETWEEN FUNCITON, PMOD# https://docs.google.com/spreadsheet/ccc?key=0AhVVrYeO_MdEdElXNE1PSzNPNDMxc2lXYklURmplNFE&usp=sharing
 
-gpio0 : wishbone_gpio
-	 port map
-	 (
-			gls_reset => gls_reset,
-			gls_clk   => gls_clk,
+--GPIO0 7:0 = PMOD1		--used on sseg and vga
+--GPIO0 15:8 = PMOD2 	--used on sseg and vga
+--GPIO1 7:0 = PMOD3		
+--GPIO1 15:8 = PMOD4 
+--SHORTS - PASS THROUGH CONNECTIONS ON PMOD PORT4
+--pwm2 - pwm1 			= p4_0  - p4_4  
+--nesclk - nes_data2 	= p4_1 - p4_3
+--neslat - nes_data1  	= p4_2 - p4_7
+--ps2clk_1 - ps2d_1		= p4_4 - p4_5
+--SET SIDE 1 HIGH - CHECK SIDE 2
 
-			wbs_address    => intercon_gpio0_wbm_address,  	
-			wbs_readdata   => intercon_gpio0_wbm_readdata,  	
-			wbs_writedata 	=> intercon_gpio0_wbm_writedata,  
-			wbs_strobe     => intercon_gpio0_wbm_strobe,      
-			wbs_write      => intercon_gpio0_wbm_write,    
-			wbs_ack        => intercon_gpio0_wbm_ack,    
-			wbs_cycle      => intercon_gpio0_wbm_cycle, 
-			--MAP GPIO TO IO PINS
---			gpio(15) => open, 		--map to pmod pin here
---			gpio(14) => open, 
---			gpio(13) => open, 
---			gpio(12) => open, 
---			gpio(11) => open, 
---			gpio(10) => open, 
---			gpio(9) => open,
---			gpio(8) => open,
---			gpio(7) => open,
---			gpio(6) => open,
---			gpio(5) => open,
---			gpio(4) => open,
---			gpio(3) => open,
---			gpio(2) => open,
---			gpio(1) => open,
---			gpio(0) => open
 
---			--GPIO_0
---			gpio(15 downto 8) => open,
---			gpio(7) => PMOD4(7), -- wired to NES2_DAT
---			gpio(6) => open,
---			gpio(5 downto 1) => PMOD4(5 downto 1), 	-- 4,5 bits are wired to servo_1 servo_2
---																	-- 1, 2, 3 bits are wired to NES_CLK, NES_LAT, NES1_DAT
-			gpio(15 downto 1) => open,
-			gpio(0) => led_signal(0)	
-	 );
-LED(0) <= led_signal(0);	 
 	 
-gpio1 : wishbone_gpio
+gpio0 : wishbone_gpio
 	 port map
 	 (
 			gls_reset => gls_reset,
@@ -305,27 +270,18 @@ gpio1 : wishbone_gpio
 			wbs_write      => intercon_gpio1_wbm_write,    
 			wbs_ack        => intercon_gpio1_wbm_ack,    
 			wbs_cycle      => intercon_gpio1_wbm_cycle, 
-			--MAP GPIO TO IO PINS
-			gpio(15) => open, 		--map to pmod pin here
-			gpio(14) => open, 
-			gpio(13) => open, 
-			gpio(12) => open, 
-			gpio(11) => open, 
-			gpio(10) => open, 
-			gpio(9) => open,
-			gpio(8) => open,
-			gpio(7) => open,
-			gpio(6) => open,
-			gpio(5) => open,
-			gpio(4) => open,
-			gpio(3) => open,
-			gpio(2) => open,
-			gpio(1) => open,
-			gpio(0) => led_signal(1)
-	 );
-LED(1) <= led_signal(1);
-	 
-
+			--MAP GPIO TO IO PI											 TEST1-OUT	TEST1-DIR EXPECT-PORT TEST1-REVERSE = INVERTED FROM TEST1
+			gpio(7) =>PMOD4(7),		--NES_DATA1       PMOD4(7)		0			0				1
+			gpio(6) =>PMOD4(6),		--PWM1            PMOD4(6)		0			0				1
+			gpio(5) =>PMOD4(5),		--PS2D_1          PMOD4(5)		0			0				1
+			gpio(4) =>PMOD4(4),		--PS2C_1          PMOD4(4)		1			1				0
+			gpio(3) =>PMOD4(3),		--NES_DAT2        PMOD4(3)		0			0				1
+			gpio(2) =>PMOD4(2),		--NES_LAT         PMOD4(2)		1			1				0
+			gpio(1) => PMOD4(1),		--NES_CLK         PMOD4(1)		1			1				0	
+			gpio(0) => PMOD4(0),		--PWM2            PMOD4(0)		1			1				0
+			gpio(15 downto 8) => open			
+		);
+	
 sseg0 : wishbone_7seg4x
 	 port map
 	 (
@@ -387,14 +343,17 @@ PMOD1(3) <= vga_hsync ;
 PMOD1(7) <= vga_vsync ;	
 PMOD1(0) <= vga_red(2);
 PMOD1(4) <= vga_red(1);
+PMOD3(7) <= vga_red(0);
 PMOD1(1) <= vga_green(2);
 PMOD1(5) <= vga_green(1);
+PMOD3(3) <= vga_green(0);
 PMOD1(2) <= vga_blue(2);
 PMOD1(6) <= vga_blue(1);
+PMOD3(2) <= vga_blue(0);
 
 		
---LED(0) <=  sseg_edu_cathode_out(0);
---LED(1) <= PB(0) ;
+LED(0) <=  sseg_edu_cathode_out(0);
+LED(1) <= PB(0) ;
 	
 end Behavioral;
 
