@@ -9,19 +9,25 @@ MIN_ANGLE = -45.0
 MAX_ANGLE = 45.0
 PULSE_CENTER = 127
 
+STEERING_CHANNEL = 0
+ESC_CHANNEL = 1
+
 class UgvPlatform(object):
 	
 	def __init__(self):
 		logi_hal.enableWatchdog((ugv_map.Watch_0)
 	
-	def setServoPulse(self, index, pos):	
-		logi_hal.setServoPulse(ugv_map.Servo_0, index, pos)
+	def setSpeed(self, pos):	
+		logi_hal.setServoPulse(ugv_map.Servo_0, ESC_CHANNEL, pos)
+
+	def setSpeedFailsafe(self, pos):	
+		logi_hal.setServoFailSafeAngle(ugv_map.Servo_0, ESC_CHANNEL, pos)
 	
-	def setServoFailSafeAngle(self, index, angle):
-		logi_hal.setServoFailSafeAngle(ugv_map.Servo_0, index, angle)
+	def setSteeringFailSafeAngle(self, angle):
+		logi_hal.setServoFailSafeAngle(ugv_map.Servo_0, STEERING_CHANNEL, angle)
 	
-	def setServoAngle(self, index, angle):
-		logi_hal.setServoAngle(ugv_map.Servo_0, index, angle)
+	def setSteeringAngle(self, angle):
+		logi_hal.setServoAngle(ugv_map.Servo_0, STEERING_CHANNEL, angle)
 
 	def resetWatchdog(self):
 		logi_hal.resetWatchdog((ugv_map.Watch_0)

@@ -67,7 +67,6 @@ architecture Behavioral of logibone_hear_v2 is
 		-- Clock out ports
 		CLK_OUT1          : out    std_logic;
 		CLK_OUT2          : out    std_logic;
-		CLK_OUT3          : out    std_logic;
 		-- Status and control signals
 		LOCKED            : out    std_logic
 	);
@@ -192,7 +191,6 @@ pll0 : clock_gen
     -- Clock out ports
     CLK_OUT1 => clk_100Mhz,
     CLK_OUT2 => clk_120Mhz,
-	 CLK_OUT3 => clk_150Mhz,
     -- Status and control signals
     LOCKED => clock_locked);
 

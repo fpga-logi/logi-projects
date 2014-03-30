@@ -51,7 +51,7 @@
 #  input clocks. You can use these to time your system
 #----------------------------------------------------------------
 NET "CLK_IN1" TNM_NET = "CLK_IN1";
-TIMESPEC "TS_CLK_IN1" = PERIOD "CLK_IN1" 20.000 ns HIGH 50% INPUT_JITTER 200.0ps;
+TIMESPEC "TS_CLK_IN1" = PERIOD "CLK_IN1" 20.0 ns HIGH 50% INPUT_JITTER 200.0ps;
 
 # Derived clock periods. These are commented out because they are 
 #   automatically propogated by the tools
@@ -63,8 +63,6 @@ TIMESPEC "TS_CLK_IN1" = PERIOD "CLK_IN1" 20.000 ns HIGH 50% INPUT_JITTER 200.0ps
 
 # NET "clk_int[2]" TNM_NET = "CLK_OUT2";
 # TIMESPEC "TS_CLK_OUT2" = PERIOD "CLK_OUT2" 120.000 MHz;
-# NET "clk_int[3]" TNM_NET = "CLK_OUT3";
-# TIMESPEC "TS_CLK_OUT3" = PERIOD "CLK_OUT3" 150.000 MHz;
 
 # FALSE PATH constraints 
 PIN "COUNTER_RESET" TIG;
