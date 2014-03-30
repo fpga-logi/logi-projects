@@ -17,7 +17,7 @@
 FILE * log_file;
 char text_buffer [512] ;
 
-#define SHOW_IMG "fbi -T 2 grabbed_frame0000.jpg"
+#define SHOW_IMG "fbi -T 2 -a grabbed_frame0000.jpg"
 #define RM_IMG "rm *.jpg"
 
 enum dbg_level{
