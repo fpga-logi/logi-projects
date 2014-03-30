@@ -116,6 +116,23 @@ component aes_rx
 			fifo_full : in std_logic 
 		);
 	end component;
+	
+		component samples162fifo is
+		port(
+			clk, rst : in std_logic ;
+			
+			frame_info : in std_logic_vector(15 downto 0);
+			timestamp : in std_logic_vector(31 downto 0);
+			frame0 : in std_logic ;
+			data : in std_logic_vector(23 downto 0);
+			data_valid : in std_logic ;
+			
+			
+			fifo_write : out std_logic ;
+			fifo_data : out std_logic_vector(15 downto 0);
+			fifo_full : in std_logic 
+		);
+	end component;
 
 constant counter_modulo : integer := CLOCK_FREQUENCY/1_000_000 ; -- counting at 1Mhz
 
@@ -236,7 +253,7 @@ generate_receivers : for i in 0 to nb_aes_channel-1 generate
 		 sample_valid(i) <= channel2(i) OR channel1(i) ;
 		 
 		 
-			samples_to_fifo_i : samples2fifo
+			samples_to_fifo_i : samples162fifo
 				port map (
 					clk  => audio_clk,
 					rst  => audio_reset, -- controled through register to guarantuee alignement of data on frame

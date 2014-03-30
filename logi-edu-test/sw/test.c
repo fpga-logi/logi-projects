@@ -99,7 +99,7 @@ int testIOs(){
 	unsigned short int dirBuf ;
 	unsigned short int valBuf ;
 	dirBuf = GPIO_TEST1_DIR ;
-	valBuf = GPIO_TEST1_1 ; 
+	valBuf = GPIO_TEST1_1 ;
 	wishbone_write((unsigned char *) &dirBuf, 2, GPIO0DIR);
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
 	wishbone_read((unsigned char *)&valBuf, 2, GPIO0);
