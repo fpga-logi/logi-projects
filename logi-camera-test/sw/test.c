@@ -200,7 +200,7 @@ int grab_frame(void){
 		for(i = 0 ; i < IMAGE_WIDTH*IMAGE_HEIGHT ; i ++){
 			y = (float) start_buffer[(i*NB_CHAN)] ;
 			if(NB_CHAN == 2){
-				if(i%2 != 0){
+				if(i%2 == 0){
 					u = (float) start_buffer[(i*2)+1];
 					v = (float) start_buffer[(i*2)+3];
 				}else{
