@@ -142,7 +142,7 @@ begin
 	);
 	gls_clk <= clk_96 ;
 
-	gls_reset <= not PB(0) ;
+	gls_reset <= not clk_locked ;
 	gls_resetn <= not gls_reset ;
 	
 	
@@ -312,7 +312,7 @@ begin
 			vsync => vsync_from_ds,
 			pixel_y => pixel_y_from_ds,
 			pixel_u => pixel_u_from_interface,--pixel_u_from_interface,
-			pixel_v => pixel_v_from_interface,--pixel_v_from_interface,
+			pixel_v => pixel_v_from_interface,
 			fifo_data => preview_fifo_input,
 			fifo_wr => preview_fifo_wr
 		);	
