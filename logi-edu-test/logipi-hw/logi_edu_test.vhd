@@ -124,13 +124,6 @@ architecture Behavioral of logi_edu_test is
 	signal intercon_gpio0_wbm_ack :  std_logic;
 	signal intercon_gpio0_wbm_cycle :  std_logic;
 	
-	signal intercon_gpio1_wbm_address :  std_logic_vector(15 downto 0);
-	signal intercon_gpio1_wbm_readdata :  std_logic_vector(15 downto 0);
-	signal intercon_gpio1_wbm_writedata :  std_logic_vector(15 downto 0);
-	signal intercon_gpio1_wbm_strobe :  std_logic;
-	signal intercon_gpio1_wbm_write :  std_logic;
-	signal intercon_gpio1_wbm_ack :  std_logic;
-	signal intercon_gpio1_wbm_cycle :  std_logic;
 	
 	signal intercon_sseg0_wbm_address :  std_logic_vector(15 downto 0);
 	signal intercon_sseg0_wbm_readdata :  std_logic_vector(15 downto 0);
@@ -263,22 +256,22 @@ gpio0 : wishbone_gpio
 			gls_reset => gls_reset,
 			gls_clk   => gls_clk,
 
-			wbs_address    => intercon_gpio1_wbm_address,  	
-			wbs_readdata   => intercon_gpio1_wbm_readdata,  	
-			wbs_writedata 	=> intercon_gpio1_wbm_writedata,  
-			wbs_strobe     => intercon_gpio1_wbm_strobe,      
-			wbs_write      => intercon_gpio1_wbm_write,    
-			wbs_ack        => intercon_gpio1_wbm_ack,    
-			wbs_cycle      => intercon_gpio1_wbm_cycle, 
+			wbs_address    => intercon_gpio0_wbm_address,  	
+			wbs_readdata   => intercon_gpio0_wbm_readdata,  	
+			wbs_writedata 	=> intercon_gpio0_wbm_writedata,  
+			wbs_strobe     => intercon_gpio0_wbm_strobe,      
+			wbs_write      => intercon_gpio0_wbm_write,    
+			wbs_ack        => intercon_gpio0_wbm_ack,    
+			wbs_cycle      => intercon_gpio0_wbm_cycle, 
 			--MAP GPIO TO IO PI											 TEST1-OUT	TEST1-DIR EXPECT-PORT TEST1-REVERSE = INVERTED FROM TEST1
 			gpio(7) =>PMOD4(7),		--NES_DATA1       PMOD4(7)		0			0				1
-			gpio(6) =>PMOD4(6),		--PWM1            PMOD4(6)		0			0				1
+			gpio(6) =>open,			--PWM1            PMOD4(6)		0			0				1
 			gpio(5) =>PMOD4(5),		--PS2D_1          PMOD4(5)		0			0				1
 			gpio(4) =>PMOD4(4),		--PS2C_1          PMOD4(4)		1			1				0
 			gpio(3) =>PMOD4(3),		--NES_DAT2        PMOD4(3)		0			0				1
 			gpio(2) =>PMOD4(2),		--NES_LAT         PMOD4(2)		1			1				0
 			gpio(1) => PMOD4(1),		--NES_CLK         PMOD4(1)		1			1				0	
-			gpio(0) => PMOD4(0),		--PWM2            PMOD4(0)		1			1				0
+			gpio(0) => open,			--PWM2            PMOD4(0)		1			1				0
 			gpio(15 downto 8) => open			
 		);
 	
