@@ -96,6 +96,7 @@ void test_log(enum dbg_level lvl, char * test_name, char * fmt, ...){
 
 
 int testIOs(){
+	unsigned int error_count = 0 ;
 	unsigned short int dirBuf ;
 	unsigned short int valBuf ;
 	dirBuf = GPIO_TEST1_DIR ;
@@ -107,7 +108,7 @@ int testIOs(){
 	if(valBuf != GPIO_TEST1_1_EXPECTED){
 		test_log(ERROR, "IO", "Pass 1 : Expected %04x got %04x \n", (GPIO_TEST1_1_EXPECTED), valBuf);
 		test_log(ERROR, "IO","Failure\n");
-		return -1 ;
+		error_count ++ ;
 	}
 	valBuf = GPIO_TEST1_2 ;
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
@@ -116,7 +117,7 @@ int testIOs(){
 	if(valBuf != (GPIO_TEST1_2_EXPECTED) ){
 		test_log(ERROR, "IO", "Pass 2 : Expected %04x got %04x \n", (GPIO_TEST1_2_EXPECTED), valBuf);
 		test_log(ERROR, "IO","Failure\n"); 
-		return -1 ;
+		error_count ++ ;
 	}
 
 	dirBuf = GPIO_TEST2_DIR ;
@@ -128,7 +129,7 @@ int testIOs(){
 	if(valBuf != (GPIO_TEST2_1_EXPECTED)){
 		test_log(ERROR, "IO", "Pass 3 : Expected %04x got %04x \n", (GPIO_TEST2_1_EXPECTED), valBuf);
 		test_log(ERROR, "IO","Failure\n");		 
-		return -1 ;
+		error_count ++ ;
 	}
 	valBuf = GPIO_TEST2_2 ;
 	wishbone_write((unsigned char *)&valBuf, 2, GPIO0);
@@ -137,8 +138,9 @@ int testIOs(){
 	if(valBuf != (GPIO_TEST2_2_EXPECTED) ){
 		test_log(ERROR, "IO", "Pass 4 : Expected %04x got %04x \n", (GPIO_TEST2_2_EXPECTED), valBuf);
 		test_log(ERROR, "IO","Failure\n");
-		return -1 ;
+		error_count ++ ;
 	}
+	if(error_count > 0) return -1 ;
 	return 0 ;
 }
 
