@@ -237,7 +237,7 @@ int main(int argc, char ** argv){
 	test_log(INFO, "MAIN","-----------------Starting Test-------------\n");
 	test_log(INFO, "COM","-----------------Cam Test---------------\n");
 	grab_frame();
-	//system(SHOW_IMG);
+	system(SHOW_IMG);
 	close_test_log();
 	return 0 ;
 	
