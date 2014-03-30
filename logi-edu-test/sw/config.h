@@ -1,18 +1,20 @@
 //DEFINE WHICH TESTS TO RUN
 //COMMENT OUT TESTS YOU DO NOT WANT TO RUN
-#define TEST_SSEG 		//test the SSEG
-#define TEST_SOUND		//test the sound output
+//#define TEST_SOUND		//test the sound output
+//#define TEST_VGA		//test the vga output
 #define TEST_IO		//test the onboard IO
-#define TEST_VGA		//test the vga output
-
+//#define TEST_SSEG 		//test the SSEG
 
 #ifdef LOGIPI
 
 #define LOAD_CMD "/usr/bin/logi_loader logi_edu_test.bit"
-#define SSEG_0 0x0004
 #define GPIO0 0x0000
-#define GPIO0DIR 0x0001
 
+#define GPIO0DIR 0x0001
+#define GPIO1 0x0004
+
+#define GPIO0DIR 0x0001
+#define SSEG_0 0x0008
 
 #define GPIO_TEST1_DIR 0x0055	
 #define GPIO_TEST1_1 0x0011

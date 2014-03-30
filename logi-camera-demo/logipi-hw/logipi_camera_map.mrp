@@ -11,7 +11,7 @@ Target Device  : xc6slx9
 Target Package : tqg144
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Sat Mar 29 14:04:05 2014
+Mapped Date    : Sat Mar 29 14:13:39 2014
 
 Design Summary
 --------------
@@ -23,10 +23,10 @@ Slice Logic Utilization:
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                6
-  Number of Slice LUTs:                      1,823 out of   5,720   31%
-    Number used as logic:                    1,592 out of   5,720   27%
+  Number of Slice LUTs:                      1,811 out of   5,720   31%
+    Number used as logic:                    1,591 out of   5,720   27%
       Number using O6 output only:           1,074
-      Number using O5 output only:              57
+      Number using O5 output only:              56
       Number using O5 and O6:                  461
       Number used as ROM:                        0
     Number used as Memory:                     102 out of   1,440    7%
@@ -36,18 +36,18 @@ Slice Logic Utilization:
         Number using O6 output only:            13
         Number using O5 output only:             0
         Number using O5 and O6:                 89
-    Number used exclusively as route-thrus:    129
-      Number with same-slice register load:    107
+    Number used exclusively as route-thrus:    118
+      Number with same-slice register load:     96
       Number with same-slice carry load:        22
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   660 out of   1,430   46%
+  Number of occupied Slices:                   672 out of   1,430   46%
   Nummber of MUXCYs used:                      980 out of   2,860   34%
-  Number of LUT Flip Flop pairs used:        2,076
-    Number with an unused Flip Flop:           497 out of   2,076   23%
-    Number with an unused LUT:                 253 out of   2,076   12%
-    Number of fully used LUT-FF pairs:       1,326 out of   2,076   63%
+  Number of LUT Flip Flop pairs used:        2,121
+    Number with an unused Flip Flop:           510 out of   2,121   24%
+    Number with an unused LUT:                 310 out of   2,121   14%
+    Number of fully used LUT-FF pairs:       1,301 out of   2,121   61%
     Number of unique control sets:              41
     Number of slice register sites lost
       to control set restrictions:             138 out of  11,440    1%
@@ -1069,8 +1069,8 @@ Derived Constraints for TS_PER_CLK50
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_PER_CLK50                   |     20.000ns|      5.000ns|     20.192ns|            0|            8|            0|       146508|
-| TS_sys_clocks_gen_clkout1     |     41.667ns|     42.066ns|          N/A|            8|            0|         4205|            0|
+|TS_PER_CLK50                   |     20.000ns|      5.000ns|     20.192ns|            0|            8|            0|       146507|
+| TS_sys_clocks_gen_clkout1     |     41.667ns|     42.066ns|          N/A|            8|            0|         4204|            0|
 | TS_sys_clocks_gen_clkout2     |     10.000ns|      4.742ns|          N/A|            0|            0|       142303|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 

@@ -230,7 +230,7 @@ int main(int argc, char ** argv){
 	while(fgets(c, 2, stdin) == NULL);
 	test_log(INFO, "MAIN","----------------Loading FPGA--------------\n");	
 	// load fpga
-	system(LOAD_CMD);
+	//system(LOAD_CMD);
 	//
 	sleep(1);
 	system(RM_IMG);

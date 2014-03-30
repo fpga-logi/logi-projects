@@ -253,9 +253,6 @@ pll0 : clock_gen
 
 gls_clk <= clk_100Mhz;
 
-
-
-
 mem_interface0 : spi_wishbone_wrapper
 		port map(
 			-- Global Signals
@@ -352,7 +349,6 @@ gpio0 : wishbone_gpio
 	 (
 			gls_reset => gls_reset,
 			gls_clk   => gls_clk,
-
 
 			wbs_address    => intercon_gpio0_wbm_address,  	
 			wbs_readdata   => intercon_gpio0_wbm_readdata,  	
