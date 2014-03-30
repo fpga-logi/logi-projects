@@ -259,7 +259,7 @@ Elaborating entity <dp_fifo> (architecture <Behavioral>) with generics from libr
 
 Elaborating entity <dpram_NxN> (architecture <behavioral>) with generics from library <work>.
 
-Elaborating entity <yuv_register_rom> (architecture <ov7670_qvga>) from library <work>.
+Elaborating entity <yuv_register_rom> (architecture <ov7725_qvga>) from library <work>.
 
 Elaborating entity <i2c_conf> (architecture <Behavioral>) with generics from library <work>.
 
@@ -333,22 +333,22 @@ WARNING:HDLCompiler:1127 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-
 Synthesizing Unit <logipi_camera>.
     Related source file is "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd".
 WARNING:Xst:647 - Input <PMOD4_7> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 152: Output port <CLK_OUT1> of the instance <sys_clocks_gen> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 152: Output port <LOCKED> of the instance <sys_clocks_gen> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 187: Output port <holding> of the instance <debouncer> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 233: Output port <outputA> of the instance <fifo_preview> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 233: Output port <emptyA> of the instance <fifo_preview> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 233: Output port <fullA> of the instance <fifo_preview> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 233: Output port <emptyB> of the instance <fifo_preview> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 233: Output port <fullB> of the instance <fifo_preview> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 233: Output port <burst_available_B> of the instance <fifo_preview> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 233: Output port <fifoA_reset> of the instance <fifo_preview> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 233: Output port <fifoB_reset> of the instance <fifo_preview> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 281: Output port <u_data> of the instance <camera0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 281: Output port <v_data> of the instance <camera0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 323: Output port <x_grad> of the instance <sobel0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 323: Output port <y_grad> of the instance <sobel0> is unconnected or connected to loadless signal.
-    Found 16-bit comparator greater for signal <GND_16_o_signed_harris_resp[15]_LessThan_5_o> created at line 353
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 151: Output port <CLK_OUT1> of the instance <sys_clocks_gen> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 151: Output port <LOCKED> of the instance <sys_clocks_gen> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 186: Output port <holding> of the instance <debouncer> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 232: Output port <outputA> of the instance <fifo_preview> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 232: Output port <emptyA> of the instance <fifo_preview> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 232: Output port <fullA> of the instance <fifo_preview> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 232: Output port <emptyB> of the instance <fifo_preview> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 232: Output port <fullB> of the instance <fifo_preview> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 232: Output port <burst_available_B> of the instance <fifo_preview> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 232: Output port <fifoA_reset> of the instance <fifo_preview> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 232: Output port <fifoB_reset> of the instance <fifo_preview> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 280: Output port <u_data> of the instance <camera0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 280: Output port <v_data> of the instance <camera0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 322: Output port <x_grad> of the instance <sobel0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.vhd" line 322: Output port <y_grad> of the instance <sobel0> is unconnected or connected to loadless signal.
+    Found 16-bit comparator greater for signal <GND_16_o_signed_harris_resp[15]_LessThan_5_o> created at line 352
     Summary:
 	inferred   1 Comparator(s).
 	inferred   3 Multiplexer(s).
@@ -500,9 +500,10 @@ Unit <dpram_NxN_1> synthesized.
 
 Synthesizing Unit <yuv_register_rom>.
     Related source file is "E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\hard-cv\hw\rtl\conf\yuv_register_rom.vhd".
+WARNING:Xst:647 - Input <addr<7:7>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2999 - Signal 'rom', unconnected in block 'yuv_register_rom', is tied to its initial value.
 WARNING:Xst:3035 - Index value(s) does not match array range for signal <rom>, simulation mismatch.
-    Found 160x16-bit single-port Read Only RAM <Mram_rom> for signal <rom>.
+    Found 75x16-bit single-port Read Only RAM <Mram_rom> for signal <rom>.
     Found 16-bit register for signal <data>.
     Summary:
 	inferred   1 RAM(s).
@@ -995,11 +996,11 @@ HDL Synthesis Report
 
 Macro Statistics
 # RAMs                                                 : 12
- 160x16-bit single-port Read Only RAM                  : 1
  164x16-bit dual-port RAM                              : 1
  321x16-bit dual-port RAM                              : 4
  321x64-bit dual-port RAM                              : 3
  4x3-bit single-port Read Only RAM                     : 1
+ 75x16-bit single-port Read Only RAM                   : 1
  8192x16-bit dual-port RAM                             : 2
 # Multipliers                                          : 6
  16x16-bit multiplier                                  : 3
@@ -1327,7 +1328,7 @@ INFO:Xst:3226 - The RAM <Mram_rom> will be implemented as a BLOCK RAM, absorbing
     | ram_type           | Block                               |          |
     -----------------------------------------------------------------------
     | Port A                                                              |
-    |     aspect ratio   | 160-word x 16-bit                   |          |
+    |     aspect ratio   | 75-word x 16-bit                    |          |
     |     mode           | write-first                         |          |
     |     clkA           | connected to signal <clk>           | rise     |
     |     weA            | connected to signal <GND>           | high     |
@@ -1380,11 +1381,11 @@ Advanced HDL Synthesis Report
 
 Macro Statistics
 # RAMs                                                 : 12
- 160x16-bit single-port block Read Only RAM            : 1
  164x16-bit dual-port block RAM                        : 1
  321x16-bit dual-port block RAM                        : 4
  321x64-bit dual-port block RAM                        : 3
  4x3-bit single-port distributed Read Only RAM         : 1
+ 75x16-bit single-port block Read Only RAM             : 1
  8192x16-bit dual-port block RAM                       : 2
 # Multipliers                                          : 6
  16x16-bit multiplier                                  : 3
@@ -2300,7 +2301,7 @@ Delay:               7.962ns (Levels of Logic = 23)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'sys_clocks_gen/pll_base_inst/CLKOUT1'
   Clock period: 6.795ns (frequency: 147.167MHz)
-  Total number of paths / destination ports: 4115 / 127
+  Total number of paths / destination ports: 4114 / 126
 -------------------------------------------------------------------------
 Delay:               6.795ns (Levels of Logic = 5)
   Source:            camera_conf_block/i2c_master0/tick_count_4 (FF)
@@ -2608,14 +2609,14 @@ sys_clocks_gen/pll_base_inst/CLKOUT2|    7.962|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 18.00 secs
-Total CPU time to Xst completion: 17.48 secs
+Total REAL time to Xst completion: 17.00 secs
+Total CPU time to Xst completion: 17.77 secs
  
 --> 
 
-Total memory usage is 299844 kilobytes
+Total memory usage is 296772 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  347 (   0 filtered)
+Number of warnings :  348 (   0 filtered)
 Number of infos    :  206 (   0 filtered)
 

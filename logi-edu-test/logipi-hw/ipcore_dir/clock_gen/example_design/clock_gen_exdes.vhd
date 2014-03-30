@@ -71,9 +71,9 @@ port
   CLK_IN1           : in  std_logic;
   -- Reset that only drives logic in example design
   COUNTER_RESET     : in  std_logic;
-  CLK_OUT           : out std_logic_vector(1 downto 1) ;
+  CLK_OUT           : out std_logic_vector(2 downto 1) ;
   -- High bits of counters driven by clocks
-  COUNT             : out std_logic;
+  COUNT             : out std_logic_vector(2 downto 1);
   -- Status and control signals
   LOCKED            : out std_logic
  );
@@ -86,19 +86,22 @@ architecture xilinx of clock_gen_exdes is
   -- Counter width
   constant C_W        : integer := 16;
 
+  -- Number of counters
+  constant NUM_C      : integer := 2;
+  -- Array typedef
+  type ctrarr is array (1 to NUM_C) of std_logic_vector(C_W-1 downto 0);
 
   -- When the clock goes out of lock, reset the counters
   signal   locked_int : std_logic;
   signal   reset_int  : std_logic                     := '0';
-
-  -- Declare the clocks and counter
-  signal   clk        : std_logic;
-  signal   clk_int    : std_logic;
-  signal   counter    : std_logic_vector(C_W-1 downto 0) := (others => '0');
-  signal rst_sync : std_logic;
-  signal rst_sync_int : std_logic;
-  signal rst_sync_int1 : std_logic;
-  signal rst_sync_int2 : std_logic;
+  -- Declare the clocks and counters
+  signal   clk        : std_logic_vector(NUM_C downto 1);
+  signal   clk_int    : std_logic_vector(NUM_C downto 1);
+  signal   counter    : ctrarr := (( others => (others => '0')));
+  signal rst_sync : std_logic_vector(NUM_C downto 1);
+  signal rst_sync_int : std_logic_vector(NUM_C downto 1);
+  signal rst_sync_int1 : std_logic_vector(NUM_C downto 1);
+  signal rst_sync_int2 : std_logic_vector(NUM_C downto 1);
 
 
 component clock_gen is
@@ -107,6 +110,7 @@ port
   CLK_IN1           : in     std_logic;
   -- Clock out ports
   CLK_OUT1          : out    std_logic;
+  CLK_OUT2          : out    std_logic;
   -- Status and control signals
   LOCKED            : out    std_logic
  );
@@ -120,19 +124,21 @@ begin
   reset_int <= (not locked_int) or COUNTER_RESET;
 
 
- process (clk, reset_int) begin
+  counters_1: for count_gen in 1 to NUM_C generate begin
+ process (clk(count_gen), reset_int) begin
    if (reset_int = '1') then
-       rst_sync <= '1';
-       rst_sync_int <= '1';
-       rst_sync_int1 <= '1';
-       rst_sync_int2 <= '1';
-   elsif (clk 'event and clk='1') then
-       rst_sync <= '0';
-       rst_sync_int <= rst_sync;
-       rst_sync_int1 <= rst_sync_int;
-       rst_sync_int2 <= rst_sync_int1;
+       rst_sync(count_gen) <= '1';
+       rst_sync_int(count_gen) <= '1';
+       rst_sync_int1(count_gen) <= '1';
+       rst_sync_int2(count_gen) <= '1';
+   elsif (clk(count_gen) 'event and clk(count_gen)='1') then
+       rst_sync(count_gen) <= '0';
+       rst_sync_int(count_gen) <= rst_sync(count_gen);
+       rst_sync_int1(count_gen) <= rst_sync_int(count_gen);
+       rst_sync_int2(count_gen) <= rst_sync_int1(count_gen);
    end if;
  end process;
+end generate counters_1;
 
 
   -- Instantiation of the clocking network
@@ -142,27 +148,35 @@ begin
    (-- Clock in ports
     CLK_IN1            => CLK_IN1,
     -- Clock out ports
-    CLK_OUT1           => clk_int,
+    CLK_OUT1           => clk_int(1),
+    CLK_OUT2           => clk_int(2),
     -- Status and control signals
     LOCKED             => locked_int);
 
-   CLK_OUT(1) <=  clk_int;
+   CLK_OUT <=  clk_int;
 
   -- Connect the output clocks to the design
   -------------------------------------------
-  clk <= clk_int;
+  clk(1) <= clk_int(1);
+  clk(2) <= clk_int(2);
 
   -- Output clock sampling
   -------------------------------------
-  process (clk, rst_sync_int2) begin
-      if (rst_sync_int2 = '1') then
-        counter <= (others => '0') after TCQ;
-      elsif (rising_edge(clk)) then
-        counter <= counter + 1 after TCQ;
-      end if;
-  end process;
-  -- alias the high bit to the output
-  COUNT <= counter(C_W-1);
+  counters: for count_gen in 1 to NUM_C generate begin
+    process (clk(count_gen), rst_sync_int2(count_gen)) begin
+        if (rst_sync_int2(count_gen) = '1') then
+          counter(count_gen) <= (others => '0') after TCQ;
+        elsif (rising_edge (clk(count_gen))) then
+          counter(count_gen) <= counter(count_gen) + 1 after TCQ;
+        end if;
+    end process;
+
+    -- alias the high bit of each counter to the corresponding
+    --   bit in the output bus
+    COUNT(count_gen) <= counter(count_gen)(C_W-1);
+
+  end generate counters;
+
 
 
 end xilinx;

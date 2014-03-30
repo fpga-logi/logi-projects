@@ -45,9 +45,9 @@ port(
 		--SW : in std_logic_vector(1 downto 0);
 		LED : out std_logic_vector(1 downto 0);	
 		
-		PMOD3 : inout std_logic_vector(7 downto 0); 
-		
 		PMOD4 : inout std_logic_vector(7 downto 0); 
+		
+		PMOD3 : inout std_logic_vector(7 downto 0); 
 		
 		PMOD2 : inout std_logic_vector(7 downto 0); 
 		
@@ -124,6 +124,14 @@ architecture Behavioral of logi_edu_test is
 	signal intercon_gpio0_wbm_ack :  std_logic;
 	signal intercon_gpio0_wbm_cycle :  std_logic;
 	
+	signal intercon_gpio1_wbm_address :  std_logic_vector(15 downto 0);
+	signal intercon_gpio1_wbm_readdata :  std_logic_vector(15 downto 0);
+	signal intercon_gpio1_wbm_writedata :  std_logic_vector(15 downto 0);
+	signal intercon_gpio1_wbm_strobe :  std_logic;
+	signal intercon_gpio1_wbm_write :  std_logic;
+	signal intercon_gpio1_wbm_ack :  std_logic;
+	signal intercon_gpio1_wbm_cycle :  std_logic;
+	
 	signal intercon_sseg0_wbm_address :  std_logic_vector(15 downto 0);
 	signal intercon_sseg0_wbm_readdata :  std_logic_vector(15 downto 0);
 	signal intercon_sseg0_wbm_writedata :  std_logic_vector(15 downto 0);
@@ -139,6 +147,9 @@ architecture Behavioral of logi_edu_test is
 	-- vga signals
 	signal vga_hsync, vga_vsync : std_logic ;
 	signal vga_red, vga_green, vga_blue : std_logic_vector(2 downto 0);
+	
+	signal led_signal: std_logic_vector(1 downto 0);
+	
 begin
 
 
@@ -184,8 +195,6 @@ mem_interface0 : spi_wishbone_wrapper
 			wbm_cycle      => intercon_wrapper_wbm_cycle                       -- bus cycle in progress
 			);
 
-
-
 -- Intercon -----------------------------------------------------------
 -- will be generated automatically in the future
 
@@ -193,13 +202,13 @@ intercon0 : wishbone_intercon
 generic map(memory_map => 
 (
 "000000000000001X", -- gpio0
-"00000000000001XX") -- sseg0
+"00000000000001XX", -- gpio1
+"0000000000001XXX") -- sseg0
 )
 port map(
 		gls_reset => gls_reset,
-			gls_clk   => gls_clk,
-		
-		
+		gls_clk   => gls_clk,
+	
 		wbs_address    => intercon_wrapper_wbm_address,  	-- Address bus
 		wbs_readdata   => intercon_wrapper_wbm_readdata,  	-- Data bus for read access
 		wbs_writedata 	=> intercon_wrapper_wbm_writedata,  -- Data bus for write access
@@ -210,20 +219,32 @@ port map(
 		
 		-- Wishbone master signals
 		wbm_address(0) => intercon_gpio0_wbm_address,
-		wbm_address(1) => intercon_sseg0_wbm_address,
-		wbm_writedata(0)  => intercon_gpio0_wbm_writedata,
-		wbm_writedata(1)  => intercon_sseg0_wbm_writedata,
-		wbm_readdata(0)  => intercon_gpio0_wbm_readdata,
-		wbm_readdata(1)  => intercon_sseg0_wbm_readdata,
-		wbm_strobe(0)  => intercon_gpio0_wbm_strobe,
-		wbm_strobe(1)  => intercon_sseg0_wbm_strobe,
-		wbm_cycle(0)   => intercon_gpio0_wbm_cycle,
-		wbm_cycle(1)   => intercon_sseg0_wbm_cycle,
-		wbm_write(0)   => intercon_gpio0_wbm_write,
-		wbm_write(1)   => intercon_sseg0_wbm_write,
-		wbm_ack(0)      => intercon_gpio0_wbm_ack,
-		wbm_ack(1)      => intercon_sseg0_wbm_ack
+		wbm_address(1) => intercon_gpio1_wbm_address,
+		wbm_address(2) => intercon_sseg0_wbm_address,
 		
+		wbm_writedata(0)  => intercon_gpio0_wbm_writedata,
+		wbm_writedata(1)  => intercon_gpio1_wbm_writedata,
+		wbm_writedata(2)  => intercon_sseg0_wbm_writedata,
+			
+		wbm_readdata(0)  => intercon_gpio0_wbm_readdata,
+		wbm_readdata(1)  => intercon_gpio1_wbm_readdata,
+		wbm_readdata(2)  => intercon_sseg0_wbm_readdata,
+		
+		wbm_strobe(0)  => intercon_gpio0_wbm_strobe,
+		wbm_strobe(1)  => intercon_gpio1_wbm_strobe,
+		wbm_strobe(2)  => intercon_sseg0_wbm_strobe,
+		
+		wbm_cycle(0)   => intercon_gpio0_wbm_cycle,
+		wbm_cycle(1)   => intercon_gpio1_wbm_cycle,
+		wbm_cycle(2)   => intercon_sseg0_wbm_cycle,
+		
+		wbm_write(0)   => intercon_gpio0_wbm_write,
+		wbm_write(1)   => intercon_gpio1_wbm_write,
+		wbm_write(2)   => intercon_sseg0_wbm_write,
+		
+		wbm_ack(0)      => intercon_gpio0_wbm_ack,
+		wbm_ack(1)      => intercon_gpio1_wbm_ack,
+		wbm_ack(2)      => intercon_sseg0_wbm_ack
 );
 									      
 										  
@@ -235,7 +256,6 @@ gpio0 : wishbone_gpio
 			gls_reset => gls_reset,
 			gls_clk   => gls_clk,
 
-
 			wbs_address    => intercon_gpio0_wbm_address,  	
 			wbs_readdata   => intercon_gpio0_wbm_readdata,  	
 			wbs_writedata 	=> intercon_gpio0_wbm_writedata,  
@@ -243,14 +263,68 @@ gpio0 : wishbone_gpio
 			wbs_write      => intercon_gpio0_wbm_write,    
 			wbs_ack        => intercon_gpio0_wbm_ack,    
 			wbs_cycle      => intercon_gpio0_wbm_cycle, 
+			--MAP GPIO TO IO PINS
+--			gpio(15) => open, 		--map to pmod pin here
+--			gpio(14) => open, 
+--			gpio(13) => open, 
+--			gpio(12) => open, 
+--			gpio(11) => open, 
+--			gpio(10) => open, 
+--			gpio(9) => open,
+--			gpio(8) => open,
+--			gpio(7) => open,
+--			gpio(6) => open,
+--			gpio(5) => open,
+--			gpio(4) => open,
+--			gpio(3) => open,
+--			gpio(2) => open,
+--			gpio(1) => open,
+--			gpio(0) => open
 
-			gpio(15 downto 8) => open,
-			gpio(7) => PMOD4(7), -- wired to NES2_DAT
-			gpio(6) => open,
-			gpio(5 downto 1) => PMOD4(5 downto 1), -- 4,5 bits are wired to servo_1 servo_2
-																 -- 1, 2, 3 bits are wired to NES_CLK, NES_LAT, NES1_DAT
-			gpio(0) => open
+--			--GPIO_0
+--			gpio(15 downto 8) => open,
+--			gpio(7) => PMOD4(7), -- wired to NES2_DAT
+--			gpio(6) => open,
+--			gpio(5 downto 1) => PMOD4(5 downto 1), 	-- 4,5 bits are wired to servo_1 servo_2
+--																	-- 1, 2, 3 bits are wired to NES_CLK, NES_LAT, NES1_DAT
+			gpio(15 downto 1) => open,
+			gpio(0) => led_signal(0)	
 	 );
+LED(0) <= led_signal(0);	 
+	 
+gpio1 : wishbone_gpio
+	 port map
+	 (
+			gls_reset => gls_reset,
+			gls_clk   => gls_clk,
+
+			wbs_address    => intercon_gpio1_wbm_address,  	
+			wbs_readdata   => intercon_gpio1_wbm_readdata,  	
+			wbs_writedata 	=> intercon_gpio1_wbm_writedata,  
+			wbs_strobe     => intercon_gpio1_wbm_strobe,      
+			wbs_write      => intercon_gpio1_wbm_write,    
+			wbs_ack        => intercon_gpio1_wbm_ack,    
+			wbs_cycle      => intercon_gpio1_wbm_cycle, 
+			--MAP GPIO TO IO PINS
+			gpio(15) => open, 		--map to pmod pin here
+			gpio(14) => open, 
+			gpio(13) => open, 
+			gpio(12) => open, 
+			gpio(11) => open, 
+			gpio(10) => open, 
+			gpio(9) => open,
+			gpio(8) => open,
+			gpio(7) => open,
+			gpio(6) => open,
+			gpio(5) => open,
+			gpio(4) => open,
+			gpio(3) => open,
+			gpio(2) => open,
+			gpio(1) => open,
+			gpio(0) => led_signal(1)
+	 );
+LED(1) <= led_signal(1);
+	 
 
 sseg0 : wishbone_7seg4x
 	 port map
@@ -270,22 +344,20 @@ sseg0 : wishbone_7seg4x
 			sseg_edu_anode_out => sseg_edu_anode_out
 	 );
 
-PMOD2(4) <= sseg_edu_cathode_out(0); -- cathode 0
-PMOD2(0) <= sseg_edu_cathode_out(1); -- cathode 1
-PMOD2(2) <= sseg_edu_cathode_out(2); -- cathode 2
-PMOD2(3) <= sseg_edu_cathode_out(3); -- cathode 3
-PMOD2(1) <= sseg_edu_cathode_out(4); -- cathode 4
+	PMOD2(4) <= sseg_edu_cathode_out(0); -- cathode 0
+	PMOD2(0) <= sseg_edu_cathode_out(1); -- cathode 1
+	PMOD2(2) <= sseg_edu_cathode_out(2); -- cathode 2
+	PMOD2(3) <= sseg_edu_cathode_out(3); -- cathode 3
+	PMOD2(1) <= sseg_edu_cathode_out(4); -- cathode 4
 
-
-PMOD3(5) <= sseg_edu_anode_out(0); --A
-PMOD3(4) <= sseg_edu_anode_out(1); --B
-PMOD3(1) <= sseg_edu_anode_out(2); --C
-PMOD2(5) <= sseg_edu_anode_out(3); --D
-PMOD2(6) <= sseg_edu_anode_out(4); --E
-PMOD3(6) <= sseg_edu_anode_out(5); --F
-PMOD3(0) <= sseg_edu_anode_out(6); --G
-PMOD2(7) <= sseg_edu_anode_out(7); --DP
-
+	PMOD3(5) <= sseg_edu_anode_out(0); --A
+	PMOD3(4) <= sseg_edu_anode_out(1); --B
+	PMOD3(1) <= sseg_edu_anode_out(2); --C
+	PMOD2(5) <= sseg_edu_anode_out(3); --D
+	PMOD2(6) <= sseg_edu_anode_out(4); --E
+	PMOD3(6) <= sseg_edu_anode_out(5); --F
+	PMOD3(0) <= sseg_edu_anode_out(6); --G
+	PMOD2(7) <= sseg_edu_anode_out(7); --DP
 
 sound_0: sound_440 -- generates 440hz pwm
 		generic map(clk_freq_hz => 100_000_000)
@@ -321,8 +393,8 @@ PMOD1(2) <= vga_blue(2);
 PMOD1(6) <= vga_blue(1);
 
 		
-LED(0) <=  sseg_edu_cathode_out(0);
-LED(1) <= PB(0) ;
+--LED(0) <=  sseg_edu_cathode_out(0);
+--LED(1) <= PB(0) ;
 	
 end Behavioral;
 

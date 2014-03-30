@@ -1,7 +1,7 @@
 ##############################################################
 #
-# Xilinx Core Generator version 14.7
-# Date: Sun Mar 30 00:58:34 2014
+# Xilinx Core Generator version 14.1
+# Date: Tue Mar  4 21:08:15 2014
 #
 ##############################################################
 #
@@ -74,9 +74,9 @@ CSET clkout1_requested_out_freq=100.000
 CSET clkout1_requested_phase=0.000
 CSET clkout2_drives=BUFG
 CSET clkout2_requested_duty_cycle=50.000
-CSET clkout2_requested_out_freq=50
+CSET clkout2_requested_out_freq=100.000
 CSET clkout2_requested_phase=0.000
-CSET clkout2_used=true
+CSET clkout2_used=false
 CSET clkout3_drives=BUFG
 CSET clkout3_requested_duty_cycle=50.000
 CSET clkout3_requested_out_freq=100.000
@@ -189,7 +189,7 @@ CSET mmcm_notes=None
 CSET mmcm_ref_jitter1=0.010
 CSET mmcm_ref_jitter2=0.010
 CSET mmcm_startup_wait=false
-CSET num_out_clks=2
+CSET num_out_clks=1
 CSET override_dcm=false
 CSET override_dcm_clkgen=false
 CSET override_mmcm=false
@@ -263,4 +263,4 @@ CSET use_status=false
 MISC pkg_timestamp=2011-12-28T09:11:49Z
 # END Extra information
 GENERATE
-# CRC: a78daff2
+# CRC:  8e1fdce

@@ -58,9 +58,11 @@ TIMESPEC "TS_CLK_IN1" = PERIOD "CLK_IN1" 20.0 ns HIGH 50% INPUT_JITTER 200.0ps;
 # However, if you'd like to use them for module level testing, you 
 #   can copy them into your module level timing checks
 #-----------------------------------------------------------------
-# NET "clk_int" TNM_NET = "CLK_OUT1";
+# NET "clk_int[1]" TNM_NET = "CLK_OUT1";
 # TIMESPEC "TS_CLK_OUT1" = PERIOD "CLK_OUT1" 100.000 MHz;
 
+# NET "clk_int[2]" TNM_NET = "CLK_OUT2";
+# TIMESPEC "TS_CLK_OUT2" = PERIOD "CLK_OUT2" 50.000 MHz;
 
 # FALSE PATH constraints 
 PIN "COUNTER_RESET" TIG;
