@@ -248,8 +248,7 @@ port map(
 --GPIO0 15:8 = PMOD2 	--used on sseg and vga
 --GPIO1 7:0 = PMOD3		
 --GPIO1 15:8 = PMOD4 
---SHORTS - PASS THROUGH CONNECTIONS ON PMOD PORT4
---pwm2 - pwm1 			= p4_0  - p4_4  
+--SHORTS - PASS THROUGH CONNECTIONS ON PMOD PORT4  
 --nesclk - nes_data2 	= p4_1 - p4_3
 --neslat - nes_data1  	= p4_2 - p4_7
 --ps2clk_1 - ps2d_1		= p4_4 - p4_5
@@ -263,22 +262,25 @@ gpio0 : wishbone_gpio
 			gls_reset => gls_reset,
 			gls_clk   => gls_clk,
 
-			wbs_address    => intercon_gpio1_wbm_address,  	
-			wbs_readdata   => intercon_gpio1_wbm_readdata,  	
-			wbs_writedata 	=> intercon_gpio1_wbm_writedata,  
-			wbs_strobe     => intercon_gpio1_wbm_strobe,      
-			wbs_write      => intercon_gpio1_wbm_write,    
-			wbs_ack        => intercon_gpio1_wbm_ack,    
-			wbs_cycle      => intercon_gpio1_wbm_cycle, 
+			wbs_address    => intercon_gpio0_wbm_address,  	
+			wbs_readdata   => intercon_gpio0_wbm_readdata,  	
+			wbs_writedata 	=> intercon_gpio0_wbm_writedata,  
+			wbs_strobe     => intercon_gpio0_wbm_strobe,      
+			wbs_write      => intercon_gpio0_wbm_write,    
+			wbs_ack        => intercon_gpio0_wbm_ack,    
+			wbs_cycle      => intercon_gpio0_wbm_cycle, 
 			--MAP GPIO TO IO PI											 TEST1-OUT	TEST1-DIR EXPECT-PORT TEST1-REVERSE = INVERTED FROM TEST1
 			gpio(7) =>PMOD4(7),		--NES_DATA1       PMOD4(7)		0			0				1
-			gpio(6) =>PMOD4(6),		--PWM1            PMOD4(6)		0			0				1
+			--gpio(6) =>PMOD4(6),		--PWM1            PMOD4(6)		0			0				1
+			gpio(6) => open,
 			gpio(5) =>PMOD4(5),		--PS2D_1          PMOD4(5)		0			0				1
 			gpio(4) =>PMOD4(4),		--PS2C_1          PMOD4(4)		1			1				0
 			gpio(3) =>PMOD4(3),		--NES_DAT2        PMOD4(3)		0			0				1
 			gpio(2) =>PMOD4(2),		--NES_LAT         PMOD4(2)		1			1				0
 			gpio(1) => PMOD4(1),		--NES_CLK         PMOD4(1)		1			1				0	
-			gpio(0) => PMOD4(0),		--PWM2            PMOD4(0)		1			1				0
+			
+			--gpio(0) => PMOD4(0),		--PWM2            PMOD4(0)		1			1				0
+			gpio(0) => open,
 			gpio(15 downto 8) => open			
 		);
 	
