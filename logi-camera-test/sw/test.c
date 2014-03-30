@@ -129,7 +129,7 @@ int grab_frame(void){
 	float y, u, v ;
 	float r, g, b ;
 	unsigned int retry_counter = 0 ;
-
+	unsigned int retry_pixel = 0 ;
 	image_buffer = (unsigned char *) malloc(IMAGE_WIDTH*IMAGE_HEIGHT*NB_CHAN*4+1024); // 1024 extra to ease the read function
         rgb_buffer = (unsigned char *) malloc(IMAGE_WIDTH*IMAGE_HEIGHT*3);
 	if(image_buffer == NULL || rgb_buffer == NULL){
@@ -160,11 +160,20 @@ int grab_frame(void){
                                 printf("%02x, ", cmd_buffer[i]);
                 }*/
 		nb = 0 ;
-		while(nb < ((IMAGE_WIDTH)*(IMAGE_HEIGHT)*NB_CHAN)*3){
+		retry_pixel = 0 ; 
+		while(nb < ((IMAGE_WIDTH)*(IMAGE_HEIGHT)*NB_CHAN)*3 && retry_pixel < 10000){
 			wishbone_read((unsigned char *) cmd_buffer, 6, FIFO_ADDR+FIFO_CMD_OFFSET);
-			while(cmd_buffer[2] < 1024) wishbone_read((unsigned char *) cmd_buffer, 6, FIFO_ADDR+FIFO_CMD_OFFSET);
+			while(cmd_buffer[2] < 1024 && retry_pixel < 10000){
+				 wishbone_read((unsigned char *) cmd_buffer, 6, FIFO_ADDR+FIFO_CMD_OFFSET);
+				 retry_pixel ++ ;
+			}
 			wishbone_read_noinc(&image_buffer[nb], 2048, FIFO_ADDR);
 			nb += 2048 ;
+		}
+		if(retry_pixel == 10000){
+			printf("no camera detected !\n");
+                        fclose(jpeg_fd);
+			return -1 ;
 		}
 		printf("nb : %u \n", nb);
 		start_buffer = image_buffer ;
@@ -191,7 +200,7 @@ int grab_frame(void){
 		for(i = 0 ; i < IMAGE_WIDTH*IMAGE_HEIGHT ; i ++){
 			y = (float) start_buffer[(i*NB_CHAN)] ;
 			if(NB_CHAN == 2){
-				if(i%2 == 0){
+				if(i%2 != 0){
 					u = (float) start_buffer[(i*2)+1];
 					v = (float) start_buffer[(i*2)+3];
 				}else{
@@ -230,14 +239,18 @@ int main(int argc, char ** argv){
 	while(fgets(c, 2, stdin) == NULL);
 	test_log(INFO, "MAIN","----------------Loading FPGA--------------\n");	
 	// load fpga
-	//system(LOAD_CMD);
+	system(LOAD_CMD);
 	//
 	sleep(1);
 	system(RM_IMG);
 	test_log(INFO, "MAIN","-----------------Starting Test-------------\n");
 	test_log(INFO, "COM","-----------------Cam Test---------------\n");
-	grab_frame();
-	system(SHOW_IMG);
+	if(grab_frame() >= 0){
+		system(SHOW_IMG);
+		test_log(INFO, "CAM","CAM test passed");
+	}else{
+		test_log(ERROR, "CAM","CAM test failed","\n");
+	}
 	close_test_log();
 	return 0 ;
 	
