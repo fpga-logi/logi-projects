@@ -201,7 +201,7 @@ mem_interface0 : spi_wishbone_wrapper
 intercon0 : wishbone_intercon
 generic map(memory_map => 
 (
-"000000000000001X", -- gpio0
+"000000000000000X", -- gpio0
 "00000000000001XX") -- sseg0
 )
 port map(
