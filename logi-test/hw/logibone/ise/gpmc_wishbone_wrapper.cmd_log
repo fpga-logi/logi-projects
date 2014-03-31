@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/gpmc_wishbone_wrapper.xst" -ofn "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/gpmc_wishbone_wrapper.syr" 
