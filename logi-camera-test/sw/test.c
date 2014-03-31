@@ -247,9 +247,15 @@ int main(int argc, char ** argv){
 	test_log(INFO, "COM","-----------------Cam Test---------------\n");
 	if(grab_frame() >= 0){
 		system(SHOW_IMG);
-		test_log(INFO, "CAM","CAM test passed");
+		printf("Do the low resolution image look good ? (y=yes, n=no):");
+		while(fgets(c, 2, stdin) == NULL || (c[0] != 'n' && c[0] != 'y')) printf("Do the low resolution image look good ? (y=yes, n=no):");
+		if(c[0] == 'n'){
+			test_log(ERROR, "CAM","CAM test failed");	
+		}else{
+			test_log(INFO, "CAM","CAM test passed");
+		}
 	}else{
-		test_log(ERROR, "CAM","CAM test failed","\n");
+		test_log(ERROR, "CAM","CAM test failed");
 	}
 	close_test_log();
 	return 0 ;
