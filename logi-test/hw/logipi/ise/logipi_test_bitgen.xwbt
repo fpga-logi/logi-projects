@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logipi-hw/logipi_test.ncd
-OUTFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logipi-hw/logipi_test.bit
+INFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/hw/logipi/ise/logipi_test.ncd
+OUTFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/hw/logipi/ise/logipi_test.bit
 FAMILY=Spartan6
 PART=xc6slx9-2tqg144
-WORKINGDIR=/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logipi-hw
+WORKINGDIR=/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/hw/logipi/ise
 LICENSE=WebPack
-USER_INFO=__174162038_174162039_174422429
+USER_INFO=208450455_1777487672_0_558
