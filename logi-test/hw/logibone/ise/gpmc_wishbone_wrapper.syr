@@ -1,0 +1,396 @@
+Release 14.1 - xst P.15xf (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> 
+Reading design: gpmc_wishbone_wrapper.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "gpmc_wishbone_wrapper.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "gpmc_wishbone_wrapper"
+Output Format                      : NGC
+Target Device                      : xc6slx9-2-tqg144
+
+---- Source Options
+Top Module Name                    : gpmc_wishbone_wrapper
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/gpmc_wishbone_wrapper.vhd" into library work
+Parsing entity <gpmc_wishbone_wrapper>.
+Parsing architecture <RTL> of entity <gpmc_wishbone_wrapper>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logibone-hw/ipcore_dir/clock_gen/example_design/clock_gen_exdes.vhd" into library work
+Parsing entity <clock_gen_exdes>.
+Parsing architecture <xilinx> of entity <clock_gen_exdes>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <gpmc_wishbone_wrapper> (architecture <RTL>) with generics from library <work>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <gpmc_wishbone_wrapper>.
+    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/gpmc_wishbone_wrapper.vhd".
+        sync = false
+        burst = false
+    Set property "IOB = TRUE" for signal <csn_bridge>.
+    Set property "IOB = TRUE" for signal <wen_bridge>.
+    Set property "IOB = TRUE" for signal <oen_bridge>.
+WARNING:Xst:647 - Input <gpmc_clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <wbm_ack> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit register for signal <wbm_write>.
+    Found 1-bit register for signal <cs>.
+    Found 1-bit register for signal <read>.
+    Found 16-bit register for signal <wbm_writedata>.
+    Found 16-bit register for signal <wbm_address>.
+    Found 1-bit tristate buffer for signal <gpmc_ad<15>> created at line 108
+    Found 1-bit tristate buffer for signal <gpmc_ad<14>> created at line 108
+    Found 1-bit tristate buffer for signal <gpmc_ad<13>> created at line 108
+    Found 1-bit tristate buffer for signal <gpmc_ad<12>> created at line 108
+    Found 1-bit tristate buffer for signal <gpmc_ad<11>> created at line 108
+    Found 1-bit tristate buffer for signal <gpmc_ad<10>> created at line 108
+    Found 1-bit tristate buffer for signal <gpmc_ad<9>> created at line 108
+    Found 1-bit tristate buffer for signal <gpmc_ad<8>> created at line 108
+    Found 1-bit tristate buffer for signal <gpmc_ad<7>> created at line 108
+    Found 1-bit tristate buffer for signal <gpmc_ad<6>> created at line 108
+    Found 1-bit tristate buffer for signal <gpmc_ad<5>> created at line 108
+    Found 1-bit tristate buffer for signal <gpmc_ad<4>> created at line 108
+    Found 1-bit tristate buffer for signal <gpmc_ad<3>> created at line 108
+    Found 1-bit tristate buffer for signal <gpmc_ad<2>> created at line 108
+    Found 1-bit tristate buffer for signal <gpmc_ad<1>> created at line 108
+    Found 1-bit tristate buffer for signal <gpmc_ad<0>> created at line 108
+    Summary:
+	inferred  35 D-type flip-flop(s).
+	inferred  16 Tristate(s).
+Unit <gpmc_wishbone_wrapper> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 5
+ 1-bit register                                        : 3
+ 16-bit register                                       : 2
+# Tristates                                            : 16
+ 1-bit tristate buffer                                 : 16
+# Xors                                                 : 1
+ 1-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 35
+ Flip-Flops                                            : 35
+# Xors                                                 : 1
+ 1-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <gpmc_wishbone_wrapper> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block gpmc_wishbone_wrapper, actual ratio is 0.
+FlipFlop write has been replicated 1 time(s) to handle iob=true attribute.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 36
+ Flip-Flops                                            : 36
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : gpmc_wishbone_wrapper.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 7
+#      INV                         : 3
+#      LUT2                        : 2
+#      LUT3                        : 2
+# FlipFlops/Latches                : 36
+#      FDC                         : 4
+#      FDCE                        : 32
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 72
+#      IBUF                        : 21
+#      IOBUF                       : 16
+#      OBUF                        : 35
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9tqg144-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:               3  out of  11440     0%  
+ Number of Slice LUTs:                    7  out of   5720     0%  
+    Number used as Logic:                 7  out of   5720     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     10
+   Number with an unused Flip Flop:       7  out of     10    70%  
+   Number with an unused LUT:             3  out of     10    30%  
+   Number of fully used LUT-FF pairs:     0  out of     10     0%  
+   Number of unique control sets:         3
+
+IO Utilization: 
+ Number of IOs:                          75
+ Number of bonded IOBs:                  73  out of    102    71%  
+    IOB Flip Flops/Latches:              33
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+gls_clk                            | BUFGP                  | 36    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: 4.000ns
+   Maximum output required time after clock: 5.307ns
+   Maximum combinational path delay: 6.545ns
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'gls_clk'
+  Total number of paths / destination ports: 137 / 104
+-------------------------------------------------------------------------
+Offset:              4.000ns (Levels of Logic = 2)
+  Source:            gpmc_wen (PAD)
+  Destination:       writedata_0 (FF)
+  Destination Clock: gls_clk rising
+
+  Data Path: gpmc_wen to writedata_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.328   0.954  gpmc_wen_IBUF (gpmc_wen_IBUF)
+     LUT3:I0->O           16   0.235   1.181  gpmc_advn_gpmc_wen_AND_4_o11 (gpmc_advn_gpmc_wen_AND_4_o)
+     FDCE:CE                   0.302          writedata_0
+    ----------------------------------------
+    Total                      4.000ns (1.865ns logic, 2.135ns route)
+                                       (46.6% logic, 53.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'gls_clk'
+  Total number of paths / destination ports: 39 / 35
+-------------------------------------------------------------------------
+Offset:              5.307ns (Levels of Logic = 2)
+  Source:            cs (FF)
+  Destination:       wbm_strobe (PAD)
+  Source Clock:      gls_clk rising
+
+  Data Path: cs to wbm_strobe
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              1   0.525   0.910  cs (cs)
+     LUT3:I0->O            2   0.235   0.725  wbm_strobe1 (wbm_cycle_OBUF)
+     OBUF:I->O                 2.912          wbm_strobe_OBUF (wbm_strobe)
+    ----------------------------------------
+    Total                      5.307ns (3.672ns logic, 1.635ns route)
+                                       (69.2% logic, 30.8% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 48 / 16
+-------------------------------------------------------------------------
+Delay:               6.545ns (Levels of Logic = 3)
+  Source:            gpmc_csn (PAD)
+  Destination:       gpmc_ad<15> (PAD)
+
+  Data Path: gpmc_csn to gpmc_ad<15>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             3   1.328   0.874  gpmc_csn_IBUF (gpmc_csn_IBUF)
+     LUT2:I0->O           16   0.250   1.181  gpmc_csn_gpmc_oen_AND_5_o_inv1 (gpmc_csn_gpmc_oen_AND_5_o_inv)
+     IOBUF:T->IO               2.912          gpmc_ad_15_IOBUF (gpmc_ad<15>)
+    ----------------------------------------
+    Total                      6.545ns (4.490ns logic, 2.055ns route)
+                                       (68.6% logic, 31.4% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 5.01 secs
+ 
+--> 
+
+
+Total memory usage is 403128 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

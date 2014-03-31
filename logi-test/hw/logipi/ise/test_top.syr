@@ -1,0 +1,647 @@
+Release 14.1 - xst P.15xf (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.07 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.07 secs
+ 
+--> 
+Reading design: test_top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "test_top.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "test_top"
+Output Format                      : NGC
+Target Device                      : xc6slx9-2-tqg144
+
+---- Source Options
+Top Module Name                    : test_top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/logi_wishbone_pack.vhd" into library work
+Parsing package <logi_wishbone_pack>.
+Parsing package body <logi_wishbone_pack>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/wishbone_intercon.vhd" into library work
+Parsing entity <wishbone_intercon>.
+Parsing architecture <Behavioral> of entity <wishbone_intercon>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/spi_wishbone_wrapper.vhd" into library work
+Parsing entity <spi_wishbone_wrapper>.
+Parsing architecture <RTL> of entity <spi_wishbone_wrapper>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/peripherals/wishbone_gpio.vhd" into library work
+Parsing entity <wishbone_gpio>.
+Parsing architecture <Behavioral> of entity <wishbone_gpio>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/peripherals/logi_wishbone_peripherals_pack.vhd" into library work
+Parsing package <logi_wishbone_peripherals_pack>.
+Parsing package body <logi_wishbone_peripherals_pack>.
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logipi-hw/test_top.vhd" into library work
+Parsing entity <test_top>.
+Parsing architecture <structural> of entity <test_top>.
+WARNING:HDLCompiler:701 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logipi-hw/test_top.vhd" Line 125: Partially associated formal gpio cannot have actual OPEN
+Parsing VHDL file "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logipi-hw/ipcore_dir/clock_gen/example_design/clock_gen_exdes.vhd" into library work
+Parsing entity <clock_gen_exdes>.
+Parsing architecture <xilinx> of entity <clock_gen_exdes>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <test_top> (architecture <structural>) from library <work>.
+
+Elaborating entity <spi_wishbone_wrapper> (architecture <RTL>) with generics from library <work>.
+WARNING:HDLCompiler:1127 - "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/spi_wishbone_wrapper.vhd" Line 166: Assignment to read ignored, since the identifier is never used
+
+Elaborating entity <wishbone_intercon> (architecture <Behavioral>) with generics from library <work>.
+
+Elaborating entity <wishbone_gpio> (architecture <Behavioral>) with generics from library <work>.
+WARNING:HDLCompiler:634 - "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logipi-hw/test_top.vhd" Line 40: Net <clkfb> does not have a driver.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <test_top>.
+    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-test/logipi-hw/test_top.vhd".
+WARNING:Xst:647 - Input <PB> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <SW> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+Always blocking tristate driving signal <PMOD2<7>> is removed.
+Always blocking tristate driving signal <PMOD2<6>> is removed.
+Always blocking tristate driving signal <PMOD2<5>> is removed.
+Always blocking tristate driving signal <PMOD2<4>> is removed.
+Always blocking tristate driving signal <PMOD2<3>> is removed.
+Always blocking tristate driving signal <PMOD2<2>> is removed.
+Always blocking tristate driving signal <PMOD2<1>> is removed.
+Always blocking tristate driving signal <PMOD2<0>> is removed.
+WARNING:Xst:653 - Signal <clkfb> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Summary:
+	no macro.
+Unit <test_top> synthesized.
+
+Synthesizing Unit <spi_wishbone_wrapper>.
+    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/spi_wishbone_wrapper.vhd".
+        BIG_ENDIAN = true
+WARNING:Xst:647 - Input <wbm_ack> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit register for signal <write>.
+    Found 1-bit register for signal <strobe>.
+    Found 4-bit register for signal <bit_count>.
+    Found 16-bit register for signal <data_out_sr>.
+    Found 15-bit register for signal <data_in_sr<14:0>>.
+    Found 1-bit register for signal <data_confn>.
+    Found 1-bit register for signal <auto_inc>.
+    Found 1-bit register for signal <rd_wrn>.
+    Found 1-bit register for signal <data_byte>.
+    Found 1-bit register for signal <wr_latched>.
+    Found 1-bit register for signal <rd_latched>.
+    Found 16-bit register for signal <addr_bus_latched>.
+    Found 16-bit register for signal <data_in_latched>.
+    Found 4-bit adder for signal <bit_count[3]_GND_10_o_add_0_OUT> created at line 80.
+    Found 16-bit adder for signal <addr_bus_latched[15]_GND_10_o_add_13_OUT> created at line 123.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  75 D-type flip-flop(s).
+	inferred   4 Multiplexer(s).
+Unit <spi_wishbone_wrapper> synthesized.
+
+Synthesizing Unit <wishbone_intercon>.
+    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/wishbone_intercon.vhd".
+        memory_map = ("000000000000000X")
+WARNING:Xst:647 - Input <gls_reset> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <gls_clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit tristate buffer for signal <wbs_readdata<15>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<14>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<13>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<12>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<11>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<10>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<9>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<8>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<7>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<6>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<5>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<4>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<3>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<2>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<1>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<0>> created at line 84
+    Found 1-bit tristate buffer for signal <wbs_readdata<15>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<14>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<13>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<12>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<11>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<10>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<9>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<8>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<7>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<6>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<5>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<4>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<3>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<2>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<1>> created at line 91
+    Found 1-bit tristate buffer for signal <wbs_readdata<0>> created at line 91
+    Summary:
+	inferred  32 Tristate(s).
+Unit <wishbone_intercon> synthesized.
+
+Synthesizing Unit <wishbone_gpio>.
+    Related source file is "/home/jpiat/development/FPGA/logi-family/logi-hard/wishbone/peripherals/wishbone_gpio.vhd".
+        wb_size = 16
+WARNING:Xst:647 - Input <wbs_address<15:1>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit register for signal <write_ack>.
+    Found 16-bit register for signal <output>.
+    Found 16-bit register for signal <dir>.
+    Found 16-bit register for signal <input>.
+    Found 16-bit register for signal <wbs_readdata>.
+    Found 1-bit register for signal <read_ack>.
+    Found 1-bit tristate buffer for signal <gpio<15>> created at line 50
+    Found 1-bit tristate buffer for signal <gpio<14>> created at line 50
+    Found 1-bit tristate buffer for signal <gpio<13>> created at line 50
+    Found 1-bit tristate buffer for signal <gpio<12>> created at line 50
+    Found 1-bit tristate buffer for signal <gpio<11>> created at line 50
+    Found 1-bit tristate buffer for signal <gpio<10>> created at line 50
+    Found 1-bit tristate buffer for signal <gpio<9>> created at line 50
+    Found 1-bit tristate buffer for signal <gpio<8>> created at line 50
+    Found 1-bit tristate buffer for signal <gpio<7>> created at line 50
+    Found 1-bit tristate buffer for signal <gpio<6>> created at line 50
+    Found 1-bit tristate buffer for signal <gpio<5>> created at line 50
+    Found 1-bit tristate buffer for signal <gpio<4>> created at line 50
+    Found 1-bit tristate buffer for signal <gpio<3>> created at line 50
+    Found 1-bit tristate buffer for signal <gpio<2>> created at line 50
+    Found 1-bit tristate buffer for signal <gpio<1>> created at line 50
+    Found 1-bit tristate buffer for signal <gpio<0>> created at line 50
+    Summary:
+	inferred  66 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+	inferred  16 Tristate(s).
+Unit <wishbone_gpio> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 16-bit adder                                          : 1
+ 4-bit adder                                           : 1
+# Registers                                            : 19
+ 1-bit register                                        : 10
+ 15-bit register                                       : 1
+ 16-bit register                                       : 7
+ 4-bit register                                        : 1
+# Multiplexers                                         : 5
+ 1-bit 2-to-1 multiplexer                              : 2
+ 16-bit 2-to-1 multiplexer                             : 3
+# Tristates                                            : 48
+ 1-bit tristate buffer                                 : 48
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <spi_wishbone_wrapper>.
+The following registers are absorbed into counter <bit_count>: 1 register on signal <bit_count>.
+Unit <spi_wishbone_wrapper> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 16-bit adder                                          : 1
+# Counters                                             : 1
+ 4-bit up counter                                      : 1
+# Registers                                            : 137
+ Flip-Flops                                            : 137
+# Multiplexers                                         : 4
+ 1-bit 2-to-1 multiplexer                              : 1
+ 16-bit 2-to-1 multiplexer                             : 3
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <data_out_sr_0> (without init value) has a constant value of 0 in block <spi_wishbone_wrapper>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:1901 - Instance PLL_BASE_inst in unit PLL_BASE_inst of type PLL_BASE has been replaced by PLL_ADV
+
+WARNING:Xst:528 - Multi-source in Unit <test_top> on signal <osc_buff>; this signal is connected to multiple drivers.
+Drivers are: 
+   Output signal of BUFG instance <BUFG_1>
+   Output port PLL_ADV:CLKFBOUT of instance <PLL_BASE_inst/PLL_BASE_inst>
+WARNING:Xst:2042 - Unit test_top: 8 internal tristates are replaced by logic (pull-up yes): GPIO_0/gpio<2>, GPIO_0/gpio<3>, GPIO_0/gpio<4>, GPIO_0/gpio<5>, GPIO_0/gpio<6>, GPIO_0/gpio<7>, N2, N3.
+WARNING:Xst:2040 - Unit wishbone_intercon: 16 multi-source signals are replaced by logic (pull-up yes): wbs_readdata<0>, wbs_readdata<10>, wbs_readdata<11>, wbs_readdata<12>, wbs_readdata<13>, wbs_readdata<14>, wbs_readdata<15>, wbs_readdata<1>, wbs_readdata<2>, wbs_readdata<3>, wbs_readdata<4>, wbs_readdata<5>, wbs_readdata<6>, wbs_readdata<7>, wbs_readdata<8>, wbs_readdata<9>.
+
+Optimizing unit <test_top> ...
+
+Optimizing unit <spi_wishbone_wrapper> ...
+
+Optimizing unit <wishbone_intercon> ...
+WARNING:Xst:2677 - Node <GPIO_0/read_ack> of sequential type is unconnected in block <test_top>.
+WARNING:Xst:2677 - Node <GPIO_0/write_ack> of sequential type is unconnected in block <test_top>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block test_top, actual ratio is 3.
+
+Final Macro Processing ...
+
+Processing Unit <test_top> :
+	Found 2-bit shift register for signal <GPIO_0/wbs_readdata_15>.
+	Found 2-bit shift register for signal <GPIO_0/wbs_readdata_14>.
+	Found 2-bit shift register for signal <GPIO_0/wbs_readdata_13>.
+	Found 2-bit shift register for signal <GPIO_0/wbs_readdata_12>.
+	Found 2-bit shift register for signal <GPIO_0/wbs_readdata_11>.
+	Found 2-bit shift register for signal <GPIO_0/wbs_readdata_10>.
+	Found 2-bit shift register for signal <GPIO_0/wbs_readdata_9>.
+	Found 2-bit shift register for signal <GPIO_0/wbs_readdata_8>.
+Unit <test_top> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 122
+ Flip-Flops                                            : 122
+# Shift Registers                                      : 8
+ 2-bit shift register                                  : 8
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : test_top.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 133
+#      GND                         : 1
+#      INV                         : 13
+#      LUT1                        : 15
+#      LUT2                        : 10
+#      LUT3                        : 6
+#      LUT4                        : 6
+#      LUT5                        : 29
+#      LUT6                        : 21
+#      MUXCY                       : 15
+#      VCC                         : 1
+#      XORCY                       : 16
+# FlipFlops/Latches                : 130
+#      FDC                         : 39
+#      FDCE                        : 35
+#      FDE                         : 56
+# Shift Registers                  : 8
+#      SRLC16E                     : 8
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 14
+#      IBUF                        : 2
+#      IBUFG                       : 1
+#      IOBUF                       : 8
+#      OBUF                        : 1
+#      OBUFT                       : 2
+# Others                           : 1
+#      PLL_ADV                     : 1
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9tqg144-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             130  out of  11440     1%  
+ Number of Slice LUTs:                  108  out of   5720     1%  
+    Number used as Logic:               100  out of   5720     1%  
+    Number used as Memory:                8  out of   1440     0%  
+       Number used as SRL:                8
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    170
+   Number with an unused Flip Flop:      40  out of    170    23%  
+   Number with an unused LUT:            62  out of    170    36%  
+   Number of fully used LUT-FF pairs:    68  out of    170    40%  
+   Number of unique control sets:         8
+
+IO Utilization: 
+ Number of IOs:                          27
+ Number of bonded IOBs:                  15  out of    102    14%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+ Number of PLL_ADVs:                      1  out of      2    50%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+----------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)      | Load  |
+-----------------------------------+----------------------------+-------+
+PLL_BASE_inst/CLKOUT0              | NONE(GPIO_0/wbs_readdata_7)| 66    |
+SCK                                | BUFGP                      | 72    |
+-----------------------------------+----------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 4.996ns (Maximum Frequency: 200.160MHz)
+   Minimum input arrival time before clock: 5.207ns
+   Maximum output required time after clock: 8.793ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'PLL_BASE_inst/CLKOUT0'
+  Clock period: 3.264ns (frequency: 306.373MHz)
+  Total number of paths / destination ports: 96 / 56
+-------------------------------------------------------------------------
+Delay:               3.264ns (Levels of Logic = 1)
+  Source:            Master_0/strobe (FF)
+  Destination:       GPIO_0/dir_15 (FF)
+  Source Clock:      PLL_BASE_inst/CLKOUT0 rising
+  Destination Clock: PLL_BASE_inst/CLKOUT0 rising
+
+  Data Path: Master_0/strobe to GPIO_0/dir_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.525   1.002  Master_0/strobe (Master_0/strobe)
+     LUT4:I0->O           16   0.254   1.181  GPIO_0/wbs_strobe_wbs_address[0]_AND_17_o1 (GPIO_0/wbs_strobe_wbs_address[0]_AND_17_o)
+     FDCE:CE                   0.302          GPIO_0/dir_0
+    ----------------------------------------
+    Total                      3.264ns (1.081ns logic, 2.183ns route)
+                                       (33.1% logic, 66.9% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'SCK'
+  Clock period: 4.996ns (frequency: 200.160MHz)
+  Total number of paths / destination ports: 962 / 103
+-------------------------------------------------------------------------
+Delay:               4.996ns (Levels of Logic = 2)
+  Source:            Master_0/data_confn (FF)
+  Destination:       Master_0/addr_bus_latched_15 (FF)
+  Source Clock:      SCK rising
+  Destination Clock: SCK rising
+
+  Data Path: Master_0/data_confn to Master_0/addr_bus_latched_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             5   0.525   1.271  Master_0/data_confn (Master_0/data_confn)
+     LUT6:I1->O           17   0.254   1.209  Master_0/auto_inc_GND_10_o_AND_4_o1 (Master_0/auto_inc_GND_10_o_AND_4_o)
+     LUT5:I4->O           16   0.254   1.181  Master_0/_n0123_inv1 (Master_0/_n0123_inv)
+     FDE:CE                    0.302          Master_0/addr_bus_latched_0
+    ----------------------------------------
+    Total                      4.996ns (1.335ns logic, 3.661ns route)
+                                       (26.7% logic, 73.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SCK'
+  Total number of paths / destination ports: 75 / 75
+-------------------------------------------------------------------------
+Offset:              5.207ns (Levels of Logic = 2)
+  Source:            SS (PAD)
+  Destination:       Master_0/data_in_latched_15 (FF)
+  Destination Clock: SCK rising
+
+  Data Path: SS to Master_0/data_in_latched_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            42   1.328   2.142  SS_IBUF (SS_IBUF)
+     LUT6:I0->O           16   0.254   1.181  Master_0/_n0130_inv1 (Master_0/_n0130_inv)
+     FDE:CE                    0.302          Master_0/data_in_latched_0
+    ----------------------------------------
+    Total                      5.207ns (1.884ns logic, 3.323ns route)
+                                       (36.2% logic, 63.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'PLL_BASE_inst/CLKOUT0'
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Offset:              2.009ns (Levels of Logic = 1)
+  Source:            PMOD1<7> (PAD)
+  Destination:       GPIO_0/Mshreg_wbs_readdata_15 (FF)
+  Destination Clock: PLL_BASE_inst/CLKOUT0 rising
+
+  Data Path: PMOD1<7> to GPIO_0/Mshreg_wbs_readdata_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IOBUF:IO->O           1   1.328   0.681  PMOD1_7_IOBUF (N4)
+     SRLC16E:D                -0.060          GPIO_0/Mshreg_wbs_readdata_15
+    ----------------------------------------
+    Total                      2.009ns (1.328ns logic, 0.681ns route)
+                                       (66.1% logic, 33.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'PLL_BASE_inst/CLKOUT0'
+  Total number of paths / destination ports: 21 / 11
+-------------------------------------------------------------------------
+Offset:              5.158ns (Levels of Logic = 2)
+  Source:            GPIO_0/wbs_readdata_7 (FF)
+  Destination:       MISO (PAD)
+  Source Clock:      PLL_BASE_inst/CLKOUT0 rising
+
+  Data Path: GPIO_0/wbs_readdata_7 to MISO
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.525   0.790  GPIO_0/wbs_readdata_7 (GPIO_0/wbs_readdata_7)
+     LUT5:I3->O            1   0.250   0.681  Master_0/Mmux_miso11 (MISO_OBUF)
+     OBUF:I->O                 2.912          MISO_OBUF (MISO)
+    ----------------------------------------
+    Total                      5.158ns (3.687ns logic, 1.471ns route)
+                                       (71.5% logic, 28.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'SCK'
+  Total number of paths / destination ports: 21 / 1
+-------------------------------------------------------------------------
+Offset:              8.793ns (Levels of Logic = 4)
+  Source:            Master_0/addr_bus_latched_2 (FF)
+  Destination:       MISO (PAD)
+  Source Clock:      SCK rising
+
+  Data Path: Master_0/addr_bus_latched_2 to MISO
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              4   0.525   1.259  Master_0/addr_bus_latched_2 (Master_0/addr_bus_latched_2)
+     LUT6:I0->O           16   0.254   1.612  Intercon_0/cs_vector<15>1 (Intercon_0/cs_vector<15>)
+     LUT5:I0->O            3   0.254   1.042  Intercon_0/cs_vector<15>3 (Intercon_0/cs_vector)
+     LUT5:I1->O            1   0.254   0.681  Master_0/Mmux_miso11 (MISO_OBUF)
+     OBUF:I->O                 2.912          MISO_OBUF (MISO)
+    ----------------------------------------
+    Total                      8.793ns (4.199ns logic, 4.594ns route)
+                                       (47.8% logic, 52.2% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock PLL_BASE_inst/CLKOUT0
+---------------------+---------+---------+---------+---------+
+                     | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock         |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------------+---------+---------+---------+---------+
+PLL_BASE_inst/CLKOUT0|    3.264|         |         |         |
+SCK                  |    6.616|         |         |         |
+---------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SCK
+---------------------+---------+---------+---------+---------+
+                     | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock         |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------------+---------+---------+---------+---------+
+PLL_BASE_inst/CLKOUT0|    2.747|         |         |         |
+SCK                  |    4.996|         |         |         |
+---------------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 13.00 secs
+Total CPU time to Xst completion: 12.80 secs
+ 
+--> 
+
+
+Total memory usage is 404296 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   16 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+
