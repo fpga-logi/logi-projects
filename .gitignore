@@ -24,3 +24,9 @@
 */_xmsgs/*   
 */iseconfig/*  
 */ipcore_dir/*.txt   
+*.cmd_log
+*.syr
+*.xmsgs
+*.vho
+*.bat
+
