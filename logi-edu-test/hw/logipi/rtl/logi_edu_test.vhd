@@ -264,13 +264,13 @@ gpio0 : wishbone_gpio
 			wbs_cycle      => intercon_gpio0_wbm_cycle, 
 			--MAP GPIO TO IO PI											 TEST1-OUT	TEST1-DIR EXPECT-PORT TEST1-REVERSE = INVERTED FROM TEST1
 			gpio(7) =>PMOD4(7),		--NES_DATA1       PMOD4(7)		0			0				1
-			gpio(6) =>open,			--PWM1            PMOD4(6)		0			0				1
+			gpio(6) =>PMOD4(6),			--PWM1            PMOD4(6)		0			0				1
 			gpio(5) =>PMOD4(5),		--PS2D_1          PMOD4(5)		0			0				1
 			gpio(4) =>PMOD4(4),		--PS2C_1          PMOD4(4)		1			1				0
 			gpio(3) =>PMOD4(3),		--NES_DAT2        PMOD4(3)		0			0				1
 			gpio(2) =>PMOD4(2),		--NES_LAT         PMOD4(2)		1			1				0
 			gpio(1) => PMOD4(1),		--NES_CLK         PMOD4(1)		1			1				0	
-			gpio(0) => open,			--PWM2            PMOD4(0)		1			1				0
+			gpio(0) => PMOD4(0),			--PWM2            PMOD4(0)		1			1				0
 			gpio(15 downto 8) => open			
 		);
 	
@@ -307,19 +307,21 @@ sseg0 : wishbone_7seg4x
 	PMOD3(0) <= sseg_edu_anode_out(6); --G
 	PMOD2(7) <= sseg_edu_anode_out(7); --DP
 
-sound_0: sound_440 -- generates 440hz pwm
-		generic map(clk_freq_hz => 100_000_000)
-		port map(
-			clk => gls_clk, reset => gls_reset,
-			sound_out =>  PMOD4(0)
-		);
-		
-sound_1: sound_440 -- tricking module to produce 220
-		generic map(clk_freq_hz => 50_000_000)
-		port map(
-			clk => gls_clk, reset => gls_reset,
-			sound_out =>  PMOD4(6)
-		);
+
+-- following code tests the audio out.
+--sound_0: sound_440 -- generates 440hz pwm
+--		generic map(clk_freq_hz => 100_000_000)
+--		port map(
+--			clk => gls_clk, reset => gls_reset,
+--			sound_out =>  PMOD4(0)
+--		);
+--		
+--sound_1: sound_440 -- tricking module to produce 220
+--		generic map(clk_freq_hz => 50_000_000)
+--		port map(
+--			clk => gls_clk, reset => gls_reset,
+--			sound_out =>  PMOD4(6)
+--		);
 		
 vga0 : vga_bar_top
 	generic  map(COLOR_GRAY_SEL => '0') --color = 0 , gray = 1
