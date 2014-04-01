@@ -1,8 +1,0 @@
-Release 14.1 Drc P.15xf (lin64)
-Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
-
-Sun Mar 30 22:20:33 2014
-
-drc -z logi_edu_test.ncd logi_edu_test.pcf
-
-DRC detected 0 errors and 0 warnings.
