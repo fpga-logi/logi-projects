@@ -30,17 +30,17 @@ ps2c_1 	<-> ps2d_1		= p4_4	<->	 p4_5 */ //
 //output pattern 	= 0bxxxx xxxx 1110 1000	= 0xE8
 //expected read  	= 0bxxxx xxxx 0001 0111	= 0x17
 
-#define GPIO_TEST1_DIR 0x0016		//IO tristate direction 1 = output, P4_1, P4_2, P4_4 as outputs	
+#define GPIO_TEST1_DIR 0x0056		//IO tristate direction 1 = output, P4_1, P4_2, P4_4, P4_6 as outputs	
 #define GPIO_TEST1_1 0x00012		//values assigned to output pins, testing P4_4, P4_1 
-#define GPIO_TEST1_1_EXPECTED 0xFF69	//pattern received at the input pins P4_3, P4_5 should be high
-#define GPIO_TEST1_2 0x0004		// testing P4_2
-#define GPIO_TEST1_2_EXPECTED 0xFFC1    //P4_7 should be high
+#define GPIO_TEST1_1_EXPECTED 0xFF28	//pattern received at the input pins P4_3, P4_5 should be high
+#define GPIO_TEST1_2 0x0044		// testing P4_2, P4_6
+#define GPIO_TEST1_2_EXPECTED 0xFF81    //P4_7, P4_0 should be high
 
-#define GPIO_TEST2_DIR 0x00A8 //IO tristate direction 1 = output, P4_5, P4_7, P4_3 as outputs	
+#define GPIO_TEST2_DIR 0x00A9 //IO tristate direction 1 = output, P4_5, P4_7, P4_3, P4_0 as outputs	
 #define GPIO_TEST2_1 0x0088 // testing P4_3, P4_7
-#define GPIO_TEST2_1_EXPECTED 0xFF47
-#define GPIO_TEST2_2 0x0020 // testing P4_5
-#define GPIO_TEST2_2_EXPECTED 0xFF51 
+#define GPIO_TEST2_1_EXPECTED 0xFF06 // P4_2 P4_1 high
+#define GPIO_TEST2_2 0x0021 // testing P4_5, P4_0
+#define GPIO_TEST2_2_EXPECTED 0xFF50 // P4_4, P4_6 high
 
 
 #endif
