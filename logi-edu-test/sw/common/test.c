@@ -174,7 +174,7 @@ int main(int argc, char ** argv){
 	//
 	sleep(1);
 	test_log(INFO, "MAIN","-----------------Starting Test-------------\n");
-	
+/*	
 	#ifdef TEST_SOUND
 	test_log(INFO, "COM","-----------------Sound Test---------------\n");
 	printf("Do you have a sound coming out the audio jack ? (y=yes, n=no):");
@@ -185,6 +185,7 @@ int main(int argc, char ** argv){
 		test_log(INFO, "SOUND","SOUND test passed \n");
 	}
 	#endif
+*/
 	memset(c, 0, 10);
 	#ifdef TEST_VGA
 	sleep(1);
