@@ -1,0 +1,15 @@
+Release 14.1 - par P.15xf (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Sun Mar 30 22:20:25 2014
+
+All signals are completely routed.
+
+WARNING:ParHelpers:361 - There are 3 loadless signals in this design. This design will cause Bitgen to issue DRC
+   warnings.
+
+   PB<1>_IBUF
+   SYS_SCL_IBUF
+   SYS_SDA_IBUF
+
+

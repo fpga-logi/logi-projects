@@ -1,0 +1,53 @@
+Release 14.1 ngdbuild P.15xf (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: /opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -intstyle
+ise -dd _ngo -sd ipcore_dir -nt timestamp -uc logipi_ra3.ucf -p xc6slx9-tqg144-2
+logi_edu_test.ngc logi_edu_test.ngd
+
+Reading NGO file
+"/home/jpiat/development/FPGA/logi-family/logi-projects/logi-edu-test/logipi-hw/
+logi_edu_test.ngc" ...
+Gathering constraint information from source properties...
+Done.
+
+Annotating constraints to design from ucf file "logipi_ra3.ucf" ...
+Resolving constraint associations...
+Checking Constraint Associations...
+INFO:ConstraintSystem:178 - TNM 'clk50_grp', used in period specification
+   'TS_PER_CLK50', was traced into DCM_SP instance pll0/dcm_sp_inst. The
+   following new TNM groups and period specifications were generated at the
+   DCM_SP output(s): 
+   CLK2X: <TIMESPEC TS_pll0_clk2x = PERIOD "pll0_clk2x" TS_PER_CLK50 / 2 HIGH
+   50%>
+
+INFO:ConstraintSystem:178 - TNM 'clk50_grp', used in period specification
+   'TS_PER_CLK50', was traced into DCM_SP instance pll0/dcm_sp_inst. The
+   following new TNM groups and period specifications were generated at the
+   DCM_SP output(s): 
+   CLK0: <TIMESPEC TS_pll0_clk0 = PERIOD "pll0_clk0" TS_PER_CLK50 HIGH 50%>
+
+Done...
+
+Checking expanded design ...
+WARNING:NgdBuild:470 - bidirect pad net 'SYS_SCL' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'SYS_SDA' has no legal driver
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   2
+
+Total memory usage is 402912 kilobytes
+
+Writing NGD file "logi_edu_test.ngd" ...
+Total REAL time to NGDBUILD completion:  3 sec
+Total CPU time to NGDBUILD completion:   3 sec
+
+Writing NGDBUILD log file "logi_edu_test.bld"...
