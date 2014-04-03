@@ -1,9 +1,9 @@
 //DEFINE WHICH TESTS TO RUN
 //COMMENT OUT TESTS YOU DO NOT WANT TO RUN
 //#define TEST_SOUND		//test the sound output
-//#define TEST_VGA		//test the vga output
+#define TEST_VGA		//test the vga output
 #define TEST_IO		//test the onboard IO
-//#define TEST_SSEG 		//test the SSEG
+#define TEST_SSEG 		//test the SSEG
 
 #ifdef LOGIPI
 #define LOG_PATH "/home/pi/tests_log/%ld_test.log"
