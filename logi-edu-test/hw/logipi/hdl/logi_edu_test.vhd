@@ -93,7 +93,7 @@ architecture Behavioral of logi_edu_test is
 	end component;
 
 	component vga_bar_top is
-	generic (COLOR_GRAY_SEL : std_logic := '0'); --color = 0 , gray = 1
+	generic (COLOR_GRAY_SEL : std_logic := '1'); --color = 0 , gray = 1
 	port (
 		clk: in std_logic;		
 		hsync, vsync: out  std_logic;
@@ -324,7 +324,7 @@ sseg0 : wishbone_7seg4x
 --		);
 		
 vga0 : vga_bar_top
-	generic  map(COLOR_GRAY_SEL => '0') --color = 0 , gray = 1
+	generic  map(COLOR_GRAY_SEL => '1') --color = 0 , gray = 1
 	port map(
 		clk => vga_clk,	
 		hsync => vga_hsync, vsync => vga_vsync,
@@ -332,18 +332,19 @@ vga0 : vga_bar_top
 		green => vga_green,
 		blue => vga_blue
 	);
-		
+	
+--VGA SIGNAL MAPPING
 PMOD1(3) <= vga_hsync ;
 PMOD1(7) <= vga_vsync ;	
-PMOD1(0) <= vga_red(2);
-PMOD1(4) <= vga_red(1);
-PMOD3(7) <= vga_red(0);
-PMOD1(1) <= vga_green(2);
-PMOD1(5) <= vga_green(1);
-PMOD3(3) <= vga_green(0);
-PMOD1(2) <= vga_blue(2);
-PMOD1(6) <= vga_blue(1);
-PMOD3(2) <= vga_blue(0);
+PMOD1(0) <= vga_red(2);		
+PMOD1(4) <= vga_red(1);		
+PMOD3(7) <= vga_red(0); 	
+PMOD1(1) <= vga_green(2);	
+PMOD1(5) <= vga_green(1);	
+PMOD3(3) <= vga_green(0);	
+PMOD1(2) <= vga_blue(2);	
+PMOD1(6) <= vga_blue(1);	
+PMOD3(2) <= vga_blue(0);	
 
 		
 LED(0) <=  sseg_edu_cathode_out(0);
