@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=D:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-wishbone\logipi-hw\logipi_wishbone.ncd
-OUTFILE=D:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-wishbone\logipi-hw\logipi_wishbone.bit
-FAMILY=Spartan6
-PART=xc6slx9-2tqg144
-WORKINGDIR=D:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-projects\logi-wishbone\logipi-hw
-LICENSE=WebPack
-USER_INFO=202672454_0_0_239

@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-wishbone/logibone-hw/wishbone_double_buffer_tb_isim_beh.exe" -prj "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-wishbone/logibone-hw/wishbone_double_buffer_tb_beh.prj" "work.wishbone_double_buffer_tb" 
