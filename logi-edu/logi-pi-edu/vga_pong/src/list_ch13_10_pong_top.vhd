@@ -4,11 +4,12 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 entity pong_top is
    port(
-      clk, n_reset: in std_logic;
-      n_btn: in std_logic_vector (1 downto 0);
+      clk, reset_n: in std_logic;
+      btn_n: in std_logic_vector (1 downto 0);
       hsync, vsync: out std_logic;
-      rgb: out   std_logic_vector (2 downto 0);
+      red, green, blue: out   std_logic_vector (2 downto 0);
 		--nes pins
+		nes1_dat : in std_logic;
 		nes2_dat : in std_logic;
 		nes_lat : out std_logic;
 		nes_clk : out std_logic;	
@@ -33,14 +34,15 @@ architecture arch of pong_top is
    signal ball: std_logic_vector(1 downto 0);
 	signal reset: std_logic;
 	signal btn: std_logic_vector(1 downto 0);
+	signal rgb: std_logic_vector(2 downto 0);
 	--nes signals
 	signal nes_a, nes_b, nes_sel, nes_start, nes_up, nes_down, nes_left, nes_right: std_logic;
 	signal nes_clk_buf, nes_lat_buf:std_logic;
 	signal paddle_up, paddle_down: std_logic;		-- will hold the or'd nes or button data to send to graph.
 	
 begin
-	reset <= not(n_reset);
-	btn <= not(n_btn);
+	reset <= not(reset_n);
+	btn <= not(btn_n);
 	nes_lat <= nes_lat_buf;
 	nes_clk <= nes_clk_buf;
 	
@@ -50,6 +52,10 @@ begin
 	--indicate status on leds
 	led(0) <= nes_clk_buf;
 	led(1) <= nes_lat_buf;
+	
+	blue <= rgb(2) & rgb (2) & rgb(2);
+	green <= rgb(1) & rgb (1) & rgb(1);
+	red <= rgb(0) & rgb (0) & rgb(0);
 	
 	-- instantiate nes controller unit
 	nes_unit: entity work.nes_ctl(arch)
