@@ -42,8 +42,7 @@ entity nes_ctl is
 			nes_dat : in std_logic;
 			nes_lat : out std_logic;
 			nes_clk : out std_logic;	
-			nes_a, nes_b, nes_sel, nes_start: out std_logic;
-			nes_up, nes_down, nes_left, nes_right: out std_logic
+			nes_data_out: out std_logic_vector(7 downto 0)
 	);
 end nes_ctl;
 
@@ -55,7 +54,9 @@ architecture arch of nes_ctl is
 	type state_type is (s0,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15,s16,s17,s18);
 	signal state_reg, state_next: state_type;
 	signal nes_datn: std_logic;
-
+	signal nes_data_reg, nes_data_next: std_logic_vector(7 downto 0);
+	signal nes_a, nes_b, nes_sel, nes_start,nes_up, nes_down, nes_left, nes_right: std_logic;
+	
 begin
 
 	--synchronous logic
@@ -64,13 +65,22 @@ begin
 		if(reset= '1') then
 			count_reg <= (others=>'0');
 			state_reg <= s0;
-
+			nes_data_reg <= (others=>'0');
 		elsif (clk'event and clk = '1') then
 			count_reg <= count_next;
 			state_reg <= state_next;
-
+			nes_data_reg(0) <= nes_a;
+			nes_data_reg(1) <= nes_b;
+			nes_data_reg(2) <= nes_up;
+			nes_data_reg(3) <= nes_down;
+			nes_data_reg(4) <= nes_left;
+			nes_data_reg(5) <= nes_right;
+			nes_data_reg(6) <= nes_sel;
+			nes_data_reg(7) <= nes_start;
 		end if;
 	end process;
+	nes_data_out <= nes_data_reg;
+	
 
 	count_next <= count_reg +1;		--increment counter, will overflow
 	nes_tick <= '1' when count_reg = 0 else '0';		-- tick on every overflow
@@ -79,11 +89,21 @@ begin
 	--STATE MACHINE
 	process(clk)
 	begin
-		if(clk'event and clk = '1') then
-			--m_tick_q <= m_tick;
+		
+		if(clk'event and clk = '1') then				
 			if(nes_tick = '1') then
-				nes_lat <= '0';	--deafault outputs
-				nes_clk <= '0';
+					nes_data_next <= nes_data_next;	
+					nes_lat <= '0';	--default outputs
+					nes_clk <= '0';
+--					nes_a <= '0';
+--					nes_b <= '0';
+--					nes_left <= '0';
+--					nes_right <= '0';
+--					nes_up <= '0';
+--					nes_down <= '0';
+--					nes_sel <= '0';
+--					nes_start <= '0';
+--					test_a <= '0';
 				case state_reg is
 					when s0 =>
 						state_next <= s1;
@@ -149,11 +169,11 @@ begin
 						nes_clk <= '0';
 					when s18 =>
 						state_next <= s0;
+						--nes_data_next <=  nes_sel & nes_start & nes_right & nes_left & nes_down & nes_up & nes_b & nes_a;-- & nes_a ; --syncronize the update of all the nes signals for the output register.
 				end case;
 			end if;
 		end if;
 	end process;
-	
 	
 end arch;
 
