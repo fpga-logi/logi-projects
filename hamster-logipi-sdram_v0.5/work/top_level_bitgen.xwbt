@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/hamster-logipi-sdram_v0.5/work/top_level.ncd
-OUTFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/hamster-logipi-sdram_v0.5/work/top_level.bit
-FAMILY=Spartan6
-PART=xc6slx9-3tqg144
-WORKINGDIR=/home/jpiat/development/FPGA/logi-family/logi-projects/hamster-logipi-sdram_v0.5/work
-LICENSE=WebPack
-USER_INFO=__174162038_174162039_174422429

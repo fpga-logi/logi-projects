@@ -29,6 +29,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PROP_intWorkingDirUsed" value="No" type="design"/>
 <property name="PROP_xilxBitgStart_IntDone" value="true" type="process"/>
 <property name="PROP_AutoTop" value="true" type="design"/>
+<property name="PROP_CompxlibEdkSimLib" value="true" type="process"/>
 <property name="PROP_DevFamily" value="Spartan6" type="design"/>
 <property name="PROP_DevDevice" value="xc6slx9" type="design"/>
 <property name="PROP_DevFamilyPMName" value="spartan6" type="design"/>
@@ -36,8 +37,9 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PROP_Synthesis_Tool" value="XST (VHDL/Verilog)" type="design"/>
 <property name="PROP_DevSpeed" value="-2" type="design"/>
 <property name="PROP_PreferredLanguage" value="VHDL" type="design"/>
+<property name="FILE_COREGEN" value="1" type="source"/>
 <property name="FILE_UCF" value="1" type="source"/>
-<property name="FILE_VHDL" value="4" type="source"/>
+<property name="FILE_VHDL" value="38" type="source"/>
 </section>
 </application>
 </document>

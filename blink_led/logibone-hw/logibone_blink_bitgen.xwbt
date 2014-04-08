@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/blink_led/logibone-hw/logibone_blink.ncd
-OUTFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/blink_led/logibone-hw/logibone_blink.bit
-FAMILY=Spartan6
-PART=xc6slx9-2tqg144
-WORKINGDIR=/home/jpiat/development/FPGA/logi-family/logi-projects/blink_led/logibone-hw
-LICENSE=WebPack
-USER_INFO=208450455_1777487672_0_558

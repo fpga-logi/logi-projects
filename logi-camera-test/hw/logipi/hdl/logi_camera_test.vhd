@@ -100,6 +100,22 @@ architecture Behavioral of logi_camera_test is
 	signal intercon_fifo0_wbm_write :  std_logic;
 	signal intercon_fifo0_wbm_ack :  std_logic;
 	signal intercon_fifo0_wbm_cycle :  std_logic;
+	
+	signal intercon_reg0_wbm_address :  std_logic_vector(15 downto 0);
+	signal intercon_reg0_wbm_readdata :  std_logic_vector(15 downto 0);
+	signal intercon_reg0_wbm_writedata :  std_logic_vector(15 downto 0);
+	signal intercon_reg0_wbm_strobe :  std_logic;
+	signal intercon_reg0_wbm_write :  std_logic;
+	signal intercon_reg0_wbm_ack :  std_logic;
+	signal intercon_reg0_wbm_cycle :  std_logic;
+	
+	signal intercon_mem0_wbm_address :  std_logic_vector(15 downto 0);
+	signal intercon_mem0_wbm_readdata :  std_logic_vector(15 downto 0);
+	signal intercon_mem0_wbm_writedata :  std_logic_vector(15 downto 0);
+	signal intercon_mem0_wbm_strobe :  std_logic;
+	signal intercon_mem0_wbm_write :  std_logic;
+	signal intercon_mem0_wbm_ack :  std_logic;
+	signal intercon_mem0_wbm_cycle :  std_logic;
 
 	
 	
@@ -124,7 +140,7 @@ architecture Behavioral of logi_camera_test is
 	signal cam_conf_reset : std_logic ;
 	
 --	for all : yuv_register_rom use entity work.yuv_register_rom(ov7725_qvga);
-	for all : yuv_register_rom use entity work.yuv_register_rom(ov7670_qvga);
+--	for all : yuv_register_rom use entity work.yuv_register_rom(ov7670_qvga);
 	constant IMAGE_WIDTH : integer := 320 ;
 	constant IMAGE_HEIGHT : integer := 240 ;
 begin
@@ -144,15 +160,7 @@ begin
 
 	gls_reset <= not clk_locked ;
 	gls_resetn <= not gls_reset ;
-	
-	
-	reset0: reset_generator 
-		generic map(HOLD_0 => 5000)
-		port map(
-		clk => gls_clk, 
-		resetn => gls_resetn ,
-		resetn_0 => cam_conf_reset
-		);
+
 
 	LED(0) <= gls_resetn;
 	SYS_SCL <= 'Z' ;
@@ -182,7 +190,9 @@ begin
 				
 	intercon0 : wishbone_intercon
 		generic map(memory_map => 
-		(0 => "0000000000000XXX" -- fifo0
+		("0000000000000XXX", -- fifo0
+       "0000000000001000", -- reg0
+		 "00000001XXXXXXXX" -- mem0
 		))
 		port map(
 			gls_reset => gls_reset,
@@ -199,12 +209,32 @@ begin
 			
 			-- Wishbone master signals
 			wbm_address(0) => intercon_fifo0_wbm_address,
+			wbm_address(1) => intercon_reg0_wbm_address,
+			wbm_address(2) => intercon_mem0_wbm_address,
+			
 			wbm_writedata(0)  => intercon_fifo0_wbm_writedata,
+			wbm_writedata(1)  => intercon_reg0_wbm_writedata,
+			wbm_writedata(2)  => intercon_mem0_wbm_writedata,
+			
 			wbm_readdata(0)  => intercon_fifo0_wbm_readdata,
+			wbm_readdata(1)  => intercon_reg0_wbm_readdata,
+			wbm_readdata(2)  => intercon_mem0_wbm_readdata,
+
 			wbm_strobe(0)  => intercon_fifo0_wbm_strobe,
+			wbm_strobe(1)  => intercon_reg0_wbm_strobe,
+			wbm_strobe(2)  => intercon_mem0_wbm_strobe,
+			
 			wbm_cycle(0)   => intercon_fifo0_wbm_cycle,
+			wbm_cycle(1)   => intercon_reg0_wbm_cycle,
+			wbm_cycle(2)   => intercon_mem0_wbm_cycle,
+
 			wbm_write(0)   => intercon_fifo0_wbm_write,
-			wbm_ack(0)      => intercon_fifo0_wbm_ack			
+			wbm_write(1)   => intercon_reg0_wbm_write,
+			wbm_write(2)   => intercon_mem0_wbm_write,
+			
+			wbm_ack(0)      => intercon_fifo0_wbm_ack,
+			wbm_ack(1)      => intercon_reg0_wbm_ack,
+			wbm_ack(2)      => intercon_mem0_wbm_ack			
 		);			
 						
 	fifo0 : wishbone_fifo
@@ -244,17 +274,69 @@ begin
  
  
 -- Camera Interface and configuration instantiation 
-	conf_rom : yuv_register_rom
-		port map(
-			clk => clk_24, en => '1' ,
-			data => rom_data,
-			addr => rom_addr
-		); 
+dyn_conf_rom :  wishbone_shared_mem
+	generic map( mem_size=> 256,
+				wb_size  => 16 , -- Data port size for wishbone
+				wb_addr_size => 16  -- Data port size for wishbone
+			  )
+	port map(
+			-- Syscon signals
+			gls_reset => gls_reset,
+			gls_clk   => gls_clk,
+			-- Wishbone signals
+			wbs_address => intercon_mem0_wbm_address,
+			wbs_writedata => intercon_mem0_wbm_writedata,
+			wbs_readdata  => intercon_mem0_wbm_readdata,
+			wbs_strobe    => intercon_mem0_wbm_strobe,
+			wbs_cycle     => intercon_mem0_wbm_cycle,
+			wbs_write     => intercon_mem0_wbm_write,
+			wbs_ack       => intercon_mem0_wbm_ack,
+
+
+			-- Logic signals
+			write_in => '0' ,
+			addr_in => rom_addr,
+			data_in => (others => '0'),
+			data_out => rom_data
+	);
+
+-- Camera Interface and configuration instantiation 
+cam_control_reg :  wishbone_register
+	generic map( nb_regs=> 1,
+				wb_size  => 16  -- Data port size for wishbone
+			  )
+	port map(
+			-- Syscon signals
+			gls_reset => gls_reset,
+			gls_clk   => gls_clk,
+			-- Wishbone signals
+			wbs_address => intercon_reg0_wbm_address,
+			wbs_writedata => intercon_reg0_wbm_writedata,
+			wbs_readdata  => intercon_reg0_wbm_readdata,
+			wbs_strobe    => intercon_reg0_wbm_strobe,
+			wbs_cycle     => intercon_reg0_wbm_cycle,
+			wbs_write     => intercon_reg0_wbm_write,
+			wbs_ack       => intercon_reg0_wbm_ack,
+
+
+			-- Logic signals
+			reg_out(0)(15 downto 1) => open,
+			reg_out(0)(0) => cam_conf_reset,
+			reg_in(0) => X"BEEF"
+	);
+
+
+--	conf_rom : yuv_register_rom
+--		port map(
+--			clk => clk_24, en => '1' ,
+--			data => rom_data,
+--			addr => rom_addr
+--		); 
  
 	camera_conf_block : i2c_conf 
 		generic map(ADD_WIDTH => 8 , SLAVE_ADD => "0100001")
 		port map(
-			clock => clk_24, 
+			clock => clk_24,  -- clk divider for i2c was fixed, need to move to generic
 			resetn => cam_conf_reset ,		
 			i2c_clk => clk_24 ,
 			scl => PMOD4(6),
