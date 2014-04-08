@@ -9,7 +9,6 @@ import skeleton_map
 #GPIO_0 	= 0x0000
 #pwm 	= 	0x0020
 
-
 MIN_ANGLE = -45.0
 MAX_ANGLE = 45.0
 PULSE_CENTER = 127
@@ -97,31 +96,76 @@ if __name__ == "__main__":
 		# print "nes2_select:	", nes2_select
 		# print "nes2_start:	", nes2_start, "\n"
 
-		
-		if nes1_up >= 1 :
+#setServoAngle(address, index, angle, max_pulse=255.0, min_angle=-45.0, max_angle=45.0):
+		#SERVO 1 READ VALUES AND WRITE TO SERVO	*************************	
+		if (nes1_up or nes1_right)  >= 1 :
 			servo_angle1 = servo_angle1 + 1
 			if servo_angle1 > MAX_ANGLE : #check max values
 				servo_angle1 = MAX_ANGLE	
-			logi_hal.setServoAngle(0x0010, 0, servo_angle1)
+			logi_hal.setServoAngle(0x0010, 0, servo_angle1,255,MIN_ANGLE,MAX_ANGLE)
 			#print "increment angle: " , servo_angle
-		elif nes1_down >= 1:
+		elif (nes1_down or nes1_left) >= 1:
 			servo_angle1 = servo_angle1 -1
 			if servo_angle1 < MIN_ANGLE : #check max values
 				servo_angle1 = MIN_ANGLE	
-			logi_hal.setServoAngle(0x0010, 0, servo_angle1)
+			logi_hal.setServoAngle(0x0010, 0, servo_angle1,255,MIN_ANGLE,MAX_ANGLE)
 			#print "decrement angle: " , servo_angle
+		
+		#move at half the rate button a and b
+		if nes1_a >= 1:
+			servo_angle1 = servo_angle1 +.5
+			if servo_angle1 > MAX_ANGLE : #check max values
+				servo_angle1 = MAX_ANGLE	
+			logi_hal.setServoAngle(0x0010, 0, servo_angle1,255,MIN_ANGLE,MAX_ANGLE)
+		elif nes1_b >= 1:
+			servo_angle1 = servo_angle1 -.5
+			if servo_angle1 < MIN_ANGLE : #check max values
+				servo_angle1 = MIN_ANGLE	
+			logi_hal.setServoAngle(0x0010, 0, servo_angle1,255,MIN_ANGLE,MAX_ANGLE)	
+		
+		#move to extreme positions	
+		if nes1_start >= 1:
+			servo_angle1 = MAX_ANGLE
+			logi_hal.setServoAngle(0x0010, 0, servo_angle1,255,MIN_ANGLE,MAX_ANGLE)
+		elif nes1_select >= 1:
+			servo_angle1 = MIN_ANGLE
+			logi_hal.setServoAngle(0x0010, 0, servo_angle1,255,MIN_ANGLE,MAX_ANGLE)
 			
-		if nes2_up >= 1 :
+			
+		#SERVO 2 READ VALUES AND WRITE TO SERVO*********************************			
+		if (nes2_up or nes2_right) >= 1 :
 			servo_angle2 = servo_angle2 + 1
 			if servo_angle2 > MAX_ANGLE : #check max values
 				servo_angle2 = MAX_ANGLE	
 			logi_hal.setServoAngle(0x0010, 1, servo_angle2)
 			#print "increment angle: " , servo_angle
-		elif nes2_down >= 1:
+		elif (nes2_down or nes2_left) >= 1:
 			servo_angle2 = servo_angle2 -1
 			if servo_angle2 < MIN_ANGLE : #check max values
 				servo_angle2 = MIN_ANGLE	
 			logi_hal.setServoAngle(0x0010, 1, servo_angle2)
+		
+		if nes2_start >= 1:
+			servo_angle2 = MAX_ANGLE
+			logi_hal.setServoAngle(0x0010, 1, servo_angle2)
+		elif nes2_select >= 1:
+			servo_angle2 = MIN_ANGLE
+			logi_hal.setServoAngle(0x0010, 1, servo_angle2)
+			
+		#move at half the rate button a and b
+		if nes2_a >= 1:
+			servo_angle2 = servo_angle2 +.5
+			if servo_angle2 > MAX_ANGLE : #check max values
+				servo_angle2 = MAX_ANGLE	
+			logi_hal.setServoAngle(0x0010, 1, servo_angle2,255,MIN_ANGLE,MAX_ANGLE)
+		elif nes2_b >= 1:
+			servo_angle2 = servo_angle2 -.5
+			if servo_angle2 < MIN_ANGLE : #check max values
+				servo_angle2 = MIN_ANGLE	
+			logi_hal.setServoAngle(0x0010, 1, servo_angle2,255,MIN_ANGLE,MAX_ANGLE)	
+			
+			
+			
 			#print "decrement angle: " , servo_angle
 			
 		#print "servo_angle: ", servo_angle , "\n"
