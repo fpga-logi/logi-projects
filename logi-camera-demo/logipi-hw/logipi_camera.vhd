@@ -50,9 +50,7 @@ port( OSC_FPGA : in std_logic;
 		LED : out std_logic_vector(1 downto 0);	
 		
 		--PMODS
-		PMOD4_9, PMOD4_3  : inout std_logic ; -- used as SCL, SDA
-		PMOD4_1, PMOD4_4 : out std_logic ; -- used as reset and xclk 
-		PMOD4_10, PMOD4_2, PMOD4_8, PMOD4_7 : in std_logic ; -- used as pclk, href, vsync
+		PMOD4 : inout std_logic_vector(7 downto 0);
 		PMOD3 : in std_logic_vector(7 downto 0); -- used as cam data
 		
 		--i2c
@@ -270,8 +268,8 @@ begin
 			clock => clk_24, 
 			resetn => sys_resetn ,		
 			i2c_clk => clk_24 ,
-			scl => PMOD4_9,
-			sda => PMOD4_3, 
+			scl => PMOD4(6),
+			sda => PMOD4(2), 
 			reg_addr => rom_addr ,
 			reg_data => rom_data
 		);	
@@ -291,12 +289,12 @@ begin
 		);	
 		
 	cam_xclk <= clk_24;
-	PMOD4_4 <= cam_xclk ;
+	PMOD4(3) <= cam_xclk ;
 	cam_data <= PMOD3(3) & PMOD3(7) & PMOD3(2) & PMOD3(6) & PMOD3(1) & PMOD3(5) & PMOD3(0) & PMOD3(4) ;
-	cam_pclk <= PMOD4_10 ;
-	cam_href <= PMOD4_2 ;
-	cam_vsync <= PMOD4_8 ;
-	PMOD4_1 <= cam_reset ;
+	cam_pclk <= PMOD4(7) ;
+	cam_href <= PMOD4(1) ;
+	cam_vsync <= PMOD4(5) ;
+	PMOD4(0) <= cam_reset ;
 	cam_reset <= resetn ;
 
 	LED(1) <= cam_vsync ;
