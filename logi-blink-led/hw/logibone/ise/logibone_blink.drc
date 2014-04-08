@@ -1,0 +1,8 @@
+Release 14.1 Drc P.15xf (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Thu Feb 20 21:12:02 2014
+
+drc -z logibone_blink.ncd logibone_blink.pcf
+
+DRC detected 0 errors and 0 warnings.
