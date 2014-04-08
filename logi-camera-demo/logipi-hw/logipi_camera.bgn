@@ -1,14 +1,14 @@
-Release 14.1 - Bitgen P.15xf (nt64)
-Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+Release 14.7 - Bitgen P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 Loading device for application Rf_Device from file '6slx9.nph' in environment
-C:\Xilinx\14.1\ISE_DS\ISE\.
+C:\Xilinx\14.7\ISE_DS\ISE\.
    "logipi_camera" is an NCD, version 3.2, device xc6slx9, package tqg144, speed
 -2
 Opened constraints file logipi_camera.pcf.
 
-Sat Mar 29 14:14:38 2014
+Sun Mar 30 09:57:39 2014
 
-C:\Xilinx\14.1\ISE_DS\ISE\bin\nt64\unwrapped\bitgen.exe -intstyle ise -w -g DebugBitstream:No -g Binary:no -g CRC:Enable -g Reset_on_err:No -g ConfigRate:2 -g ProgPin:PullUp -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp -g TmsPin:PullUp -g UnusedPin:PullDown -g UserID:0xFFFFFFFF -g ExtMasterCclk_en:No -g SPI_buswidth:1 -g TIMER_CFG:0xFFFF -g multipin_wakeup:No -g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 -g GWE_cycle:6 -g LCK_cycle:NoWait -g Security:None -g DonePipe:Yes -g DriveDone:No -g en_sw_gsr:No -g drive_awake:No -g sw_clk:Startupclk -g sw_gwe_cycle:5 -g sw_gts_cycle:4 logipi_camera.ncd 
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\bitgen.exe -intstyle ise -w -g DebugBitstream:No -g Binary:no -g CRC:Enable -g Reset_on_err:No -g ConfigRate:2 -g ProgPin:PullUp -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp -g TmsPin:PullUp -g UnusedPin:PullDown -g UserID:0xFFFFFFFF -g ExtMasterCclk_en:No -g SPI_buswidth:1 -g TIMER_CFG:0xFFFF -g multipin_wakeup:No -g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 -g GWE_cycle:6 -g LCK_cycle:NoWait -g Security:None -g DonePipe:Yes -g DriveDone:No -g en_sw_gsr:No -g drive_awake:No -g sw_clk:Startupclk -g sw_gwe_cycle:5 -g sw_gts_cycle:4 logipi_camera.ncd 
 
 INFO:Bitgen:341 - This design is using one or more 9K Block RAMs (RAMB8BWER). 
    9K Block RAM initialization data, both user defined and default, requires a
@@ -98,8 +98,6 @@ Summary of Bitgen Options:
 +----------------------+----------------------+
 | ExtMasterCclk_divide | 1*                   |
 +----------------------+----------------------+
-| MaskVectorFile       | No*                  |
-+----------------------+----------------------+
 | CrcCoverage          | No*                  |
 +----------------------+----------------------+
 | glutmask             | Yes*                 |
@@ -122,6 +120,8 @@ Summary of Bitgen Options:
 +----------------------+----------------------+
 | spi_buswidth         | 1**                  |
 +----------------------+----------------------+
+| TimeStamp            | Default*             |
++----------------------+----------------------+
 | IEEE1532             | No*                  |
 +----------------------+----------------------+
 | Binary               | No**                 |
@@ -142,11 +142,6 @@ WARNING:PhysDesignRules:2410 - This design is using one or more 9K Block RAMs
    please reference Xilinx Answer Record 39999.
 DRC detected 0 errors and 2 warnings.  Please see the previously displayed
 individual error or warning messages for more details.
-INFO:Security:54 - 'xc6slx9' is a WebPack part.
-WARNING:Security:42 - Your software subscription period has lapsed. Your current
-version of Xilinx tools will continue to function, but you no longer qualify for
-Xilinx software updates or new releases.
-
 Creating bit map...
 Saving bit stream in "logipi_camera.bit".
 Bitstream generation is complete.
