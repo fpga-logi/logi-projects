@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.ncd
-OUTFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw/mark1_rpi_camera.bit
-FAMILY=Spartan6
-PART=xc6slx9-2tqg144
-WORKINGDIR=/home/jpiat/development/FPGA/logi-family/logi-projects/camera-demo/mark1-rpi-hw
-LICENSE=WebPack
-USER_INFO=__174162038_174162039_174422429

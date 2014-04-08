@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.ncd
-OUTFILE=E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw\logipi_camera.bit
-FAMILY=Spartan6
-PART=xc6slx9-2tqg144
-WORKINGDIR=E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\1NEW-DEV\logi-projects\logi-camera-demo\logipi-hw
-LICENSE=WebPack
-USER_INFO=202672454_0_0_674
