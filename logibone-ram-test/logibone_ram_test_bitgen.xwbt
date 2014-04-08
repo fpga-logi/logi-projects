@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=D:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-Projects\Logi-projects\logibone-ram-test\logibone_ram_test.ncd
-OUTFILE=D:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-Projects\Logi-projects\logibone-ram-test\logibone_ram_test.bit
-FAMILY=Spartan6
-PART=xc6slx9-2tqg144
-WORKINGDIR=D:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\Logi-Projects\Logi-projects\logibone-ram-test
-LICENSE=WebPack
-USER_INFO=202672454_0_0_338

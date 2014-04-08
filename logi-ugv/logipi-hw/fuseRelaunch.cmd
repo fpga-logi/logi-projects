@@ -1,1 +1,0 @@
--intstyle "ise" -incremental -lib "secureip" -o "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-car/logipi-hw/heart_beat_tb_isim_beh.exe" -prj "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-car/logipi-hw/heart_beat_tb_beh.prj" "work.heart_beat_tb" 

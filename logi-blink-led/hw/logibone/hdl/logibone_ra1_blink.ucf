@@ -1,0 +1,32 @@
+######################################################
+######################################################
+## These constraints are for Mark-1 RPI/FPGA shield ##
+######################################################
+######################################################
+
+######################
+# Timing Constraints #
+######################
+
+##### Grouping Constraints #####
+NET OSC_FPGA TNM_NET = clk50_grp;
+
+##### Clock Period Constraints #####
+TIMESPEC TS_PER_CLK50 = PERIOD "clk50_grp" 20.0 ns;
+
+#######################
+# Pin LOC Constraints #
+######################
+
+##### Bank 2 #####
+NET "LED[0]" IOSTANDARD = LVTTL;
+NET "LED[0]" DRIVE = 2;
+NET "LED[0]" SLEW = SLOW;
+NET "LED[0]" LOC = P55;
+# 
+NET "LED[1]" IOSTANDARD = LVTTL;
+NET "LED[1]" DRIVE = 2;
+NET "LED[1]" SLEW = SLOW;
+NET "LED[1]" LOC = P93;
+NET "OSC_FPGA" LOC = P92;
+

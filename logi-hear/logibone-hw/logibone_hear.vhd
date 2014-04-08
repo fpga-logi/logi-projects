@@ -124,6 +124,23 @@ architecture Behavioral of logibone_hear is
 			fifo_full : in std_logic 
 		);
 	end component;
+	
+	component spdif_48k_ds is
+		port(
+			clk, reset : in std_logic ;
+			
+			rate_in : in std_logic_vector(3 downto 0);
+			frame0_in : in std_logic ;
+			chan1_en_in, chan2_en_in : in std_logic ;
+			data_in : in std_logic_vector(23 downto 0);
+			
+			
+			rate_out : out std_logic_vector(3 downto 0);
+			frame0_out : out std_logic ;
+			data_out : out std_logic_vector(23 downto 0);
+			chan1_en_out, chan2_en_out : out std_logic 
+		);
+	end component;
 
 	-- syscon
 	signal sys_reset, sys_resetn,sys_clk, clock_locked,audio_clk : std_logic ;
@@ -189,10 +206,10 @@ signal parity_err1 :        std_logic;                      -- parity err signal
 signal err_capture1 :       std_logic;                      -- parity err capture FF
 signal err_cap_rst :        std_logic;                      -- error capture reset
 signal aes1_locked :        std_logic;                      -- Rx locked
-signal channel1 :           std_logic;                      -- ch 1 enable
-signal channel2 :           std_logic;                      -- ch 2 enable
+signal channel1, ds_channel1 :           std_logic;                      -- ch 1 enable
+signal channel2, ds_channel1 :           std_logic;                      -- ch 2 enable
 signal audio1_out :         aes_audio_sample_type;          -- ch 1 audio data
-signal audio2_out :         aes_audio_sample_type;          -- ch 2 audio data
+signal audio2_out, ds_data_out :         aes_audio_sample_type;          -- ch 2 audio data
 signal valid1_out :         std_logic;                      -- ch 1 valid bit
 signal valid2_out :         std_logic;                      -- ch 2 valid bit
 signal user1_out :          std_logic;                      -- ch 1 user bit
@@ -200,7 +217,7 @@ signal user2_out :          std_logic;                      -- ch 2 user bit
 signal cs1_out :            std_logic;                      -- ch 1 ch status
 signal cs2_out :            std_logic;                      -- ch 2 ch status
 signal aes_frame_count1 :   aes_frame_counter_type;         -- frame counter
-signal aes_frame0 :         std_logic;                      -- 1 = first frame
+signal aes_frame0, ds_frame0 :         std_logic;                      -- 1 = first frame
 signal cs1_crc_out :        std_logic;                      -- ch 1 C CRC bit
 signal cs1_crc_out_en :     std_logic;                      -- ch 1 C CRC enable
 signal cs1_crc_err :        std_logic;                      -- ch 1 C CRC err capture
@@ -210,7 +227,7 @@ signal cs2_crc_out_en :     std_logic;                      -- ch 2 C CRC enable
 signal cs2_crc_err :        std_logic;                      -- ch 2 C CRC err capture
 signal cs2_crc_err_det :    std_logic;                      -- ch 2 C CRC err detect
 signal rate_detect :        std_logic;                      -- 1 if valid AES rate
-signal rate :               aes_rate_type;                  -- detected AES rate
+signal rate, ds_rate :               aes_rate_type;                  -- detected AES rate
 
 
 
@@ -462,8 +479,27 @@ flag_register(13 downto 0) <= parity_err1 & aes1_locked & rate & aes_frame_count
 	  rate                => rate);
 
 
- frame_info(3 downto 0) <= rate ;
- sample_valid <= channel2 OR channel1 ;
+ 
+ ds_48k_0 : spdif_48k_ds
+		port map(
+			clk => audio_clk, 
+			reset => sys_reset,
+			
+			rate_in => rate ,
+			frame0_in => aes_frame0,
+			chan1_en_in => channel1, chan2_en_in => channel2,
+			data_in => audio2_out,
+			
+			
+			rate_out => ds_rate,
+			frame0_out => ds_frame0,
+			data_out => ds_data_out,
+			chan1_en_out => ds_channel1, 
+			chan2_en_out => ds_channel2
+		);
+	 
+	 frame_info(3 downto 0) <= ds_rate ;
+    sample_valid <= ds_channel2 OR ds_channel1 ;
  
  
  samples_to_fifo_0 : samples2fifo
@@ -471,10 +507,10 @@ flag_register(13 downto 0) <= parity_err1 & aes1_locked & rate & aes_frame_count
 	  clk                 => audio_clk,
 	  rst                 => rst_audio_pipeline, -- controled through register to guarantuee alignement of data on frame
 	  
-	  frame0 => aes_frame0 ,
+	  frame0 => ds_frame0 ,
 	  
 	  frame_info => frame_info ,
-	  data			     => audio2_out,
+	  data			     => ds_data_out,
 	  data_valid				=> sample_valid,
 	  
 	  
