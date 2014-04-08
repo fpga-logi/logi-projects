@@ -136,8 +136,8 @@ architecture Behavioral of logipi_camera is
 	signal switch_value : std_logic_vector(1 downto 0);
 	signal deb_pb : std_logic ;
 	
-	for all : yuv_register_rom use entity work.yuv_register_rom(ov7725_qvga);
---	for all : yuv_register_rom use entity work.yuv_register_rom(ov7670_qvga);
+--	for all : yuv_register_rom use entity work.yuv_register_rom(ov7725_qvga);
+	for all : yuv_register_rom use entity work.yuv_register_rom(ov7670_qvga);
 	for all : gauss3x3 use entity work.gauss3x3(RTL);
 	for all : sobel3x3 use entity work.sobel3x3(RTL);
 	constant IMAGE_WIDTH : integer := 320 ;
