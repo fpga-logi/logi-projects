@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-camera-demo/logibone-hw/histogram_tb_isim_beh.exe" -prj "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-camera-demo/logibone-hw/histogram_tb_beh.prj" "work.histogram_tb" 
