@@ -34,9 +34,6 @@ use UNISIM.VComponents.all;
 
 entity logipi_blink is
 port( OSC_FPGA : in std_logic;
-
-		ps2c_1 : out std_logic;
-		ps2d_1 : out std_logic;
 		--onboard
 		LED : out std_logic_vector(1 downto 0)
 );
@@ -60,8 +57,6 @@ begin
 	end process ;
 	LED(0) <= counter_output(24);
 	LED(1) <= counter_output(23);
-	ps2c_1 <= counter_output(20);
-	ps2d_1 <= counter_output(20); 
 
 
 	

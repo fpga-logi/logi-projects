@@ -63,19 +63,7 @@ begin
 		end if;
 	end process ;
 	LED(0) <= counter_output(24);
-	--LED(1) <= counter_output(23);
-	
-	
-	
-	beat0 : heart_beat
-	generic map(clk_period_ns => 20, 
-					beat_period_ns => 900_000_000,
-					beat_length_ns => 100_000_000)
-	port map( gls_clk => OSC_FPGA,
-				gls_reset => '0',
-				beat_out => LED(1)
-	);
-	 LED <= (others => 'Z') ;
+	LED(1) <= counter_output(23);
 	
 end Behavioral;
 
