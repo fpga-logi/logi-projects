@@ -21,25 +21,25 @@ NET "clk"    LOC = P85;
 ##========================================================
 ## NES controller pins
 ##========================================================
-NET "nes_clk"  	LOC = P111	|	IOSTANDARD = LVCMOS33;	#PMOD4_2
-NET "nes_lat"  	LOC = P132	|	IOSTANDARD = LVCMOS33;	#PMOD4_3
-NET "nes1_dat"    LOC = P133	|	IOSTANDARD = LVCMOS33;	#PMOD4_10
-NET "nes2_dat"  	LOC = P131	|	IOSTANDARD = LVCMOS33;	#PMOD4_4
+#NET "nes_clk"  	LOC = P111	|	IOSTANDARD = LVCMOS33;	#PMOD4_2
+#NET "nes_lat"  	LOC = P124	|	IOSTANDARD = LVCMOS33;	#PMOD4_3
+#NET "nes1_dat"    LOC = P133	|	IOSTANDARD = LVCMOS33;	#PMOD4_10
+#NET "nes2_dat"  	LOC = P123	|	IOSTANDARD = LVCMOS33;	#PMOD4_4
 
 ##BUTTONS AND SWITHES ARE REVERSED IN ORDER BASED ON FACING THE LOGI-PI UPSIDE DOWN
 ## THE BUTTON SW ORDERING ARE BIT ORIENTED LSB FROM LEFT TO RIGHT
 ##========================================================
 ## Buttons
 ##========================================================
-#NET "btn_n<0>"   LOC = P102;	#checked 140326
-#NET "btn_n<1>"   LOC = P101;
-NET "reset_n"  	LOC = P101;	#reset needs to be moved around depending on applicaion, use sw or button
+NET "btn_n<0>"   LOC = P102;	#checked 140326
+NET "btn_n<1>"   LOC = P101;
+#NET "reset_n"  	LOC = P101;	--reset needs to be moved around depending on applicaion, use sw or button
 
 ##=========================================================
 ### 2 slide switches
 ##==========================================================
 ## This is how the pins should be laid out.  Needs reversed on PCB					
-#NET reset_n	LOC = P99	|	IOSTANDARD = LVCMOS33;
+NET reset_n 	LOC = P99	|	IOSTANDARD = LVCMOS33;
 #NET "sw<0>"  LOC = P99	|	IOSTANDARD = LVCMOS33;
 #NET "sw<1>"  LOC = P100	|	IOSTANDARD = LVCMOS33;
 
@@ -48,26 +48,26 @@ NET "reset_n"  	LOC = P101;	#reset needs to be moved around depending on applica
 ###========================================================
 
 #RA2
-#NET "red<0>"  LOC = P116 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;		//P3_10
-#NET "red<1>"  LOC = P88 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;		//P1_7
-#NET "red<2>"  LOC = P5 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;		//P1_1
-#
-#NET "green<0>"  LOC = P123 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;		//P3_4	
-#NET "green<1>"  LOC = P92 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//P1_8
-#NET "green<2>"  LOC = P2 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//P1_2
-#
-#NET "blue<0>"  LOC = P124 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;		//P3_3 
-#NET "blue<1>"  LOC = P93 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;		//P1_9
-#NET "blue<2>"  LOC = P1 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;		//P1_3
-#
-#NET "vsync"   LOC = P94 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//P1_10
-#NET "hsync"   LOC = P16  	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//P1_4	
+NET "red<0>"  LOC = P116 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;		//P3_10
+NET "red<1>"  LOC = P88 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;		//P1_7
+NET "red<2>"  LOC = P5 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;		//P1_1
+
+NET "green<0>"  LOC = P123 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;		//P3_4	
+NET "green<1>"  LOC = P92 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//P1_8
+NET "green<2>"  LOC = P2 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//P1_2
+
+NET "blue<0>"  LOC = P124 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;		//P3_3 
+NET "blue<1>"  LOC = P93 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;		//P1_9
+NET "blue<2>"  LOC = P1 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;		//P1_3
+
+NET "vsync"   LOC = P94 	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//P1_10
+NET "hsync"   LOC = P16  	| DRIVE=24 | SLEW=FAST	|	IOSTANDARD = LVCMOS33;	//P1_4	
 
 #========================================================
 # 2 discrete LEDs
 #========================================================
-NET "led<0>"  LOC = P105	|	IOSTANDARD = LVCMOS33;
-NET "led<1>"  LOC = P104	|	IOSTANDARD = LVCMOS33;
+#NET "led<0>"  LOC = P105	|	IOSTANDARD = LVCMOS33;
+#NET "led<1>"  LOC = P104	|	IOSTANDARD = LVCMOS33;
 
 ##========================================================
 ## PS2 port 1
