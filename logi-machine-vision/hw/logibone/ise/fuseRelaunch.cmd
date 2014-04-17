@@ -1,1 +1,0 @@
--intstyle "ise" -incremental -lib "secureip" -o "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-machine-vision/logibone-hw/sobel3x3_pipeline_isim_beh.exe" -prj "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-machine-vision/logibone-hw/sobel3x3_pipeline_beh.prj" "work.sobel3x3_pipeline" 
