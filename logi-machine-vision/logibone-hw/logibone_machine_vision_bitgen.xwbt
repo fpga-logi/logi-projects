@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/logi-machine-vision/logibone-hw/logibone_machine_vision.ncd
-OUTFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/logi-machine-vision/logibone-hw/logibone_machine_vision.bit
-FAMILY=Spartan6
-PART=xc6slx9-2tqg144
-WORKINGDIR=/home/jpiat/development/FPGA/logi-family/logi-projects/logi-machine-vision/logibone-hw
-LICENSE=WebPack
-USER_INFO=__174162038_174162039_174422429
