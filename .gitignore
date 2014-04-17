@@ -19,6 +19,7 @@
 *.cgp 
 *.tcl 
 *.out 
+*.wdb
 */tmp/* 
 */clock_gen/*  
 */_xmsgs/*   
