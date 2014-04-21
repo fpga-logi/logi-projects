@@ -1,1 +1,0 @@
--intstyle "ise" -incremental -lib "secureip" -o "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-face/logipi-hw/mcp3002_tb_isim_beh.exe" -prj "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-face/logipi-hw/mcp3002_tb_beh.prj" "work.mcp3002_tb" 
