@@ -1,0 +1,26 @@
+######################################################
+######################################################
+## UCF Constraints file                             ##
+######################################################
+######################################################
+
+######################
+# Timing Constraints #
+######################
+
+##### Grouping Constraints #####
+NET OSC_FPGA TNM_NET = clk50_grp;
+
+##### Clock Period Constraints #####
+TIMESPEC TS_PER_CLK50 = PERIOD "clk50_grp" 20.0 ns;
+
+#######################
+# Pin LOC Constraints #
+######################
+
+##### Bank 2 #####
+#NET SHIELD_RST    LOC = "P40"  ;# IO_L64N_D9_2
+NET LED<0>        LOC = "P62"  ;# IO_L64P_D8_2
+NET LED<1>        LOC = "P74"  ;# IO_L62N_D6_2
+NET OSC_FPGA      LOC = "P92"  ;# IO_L30N_GCLK0_USERCCLK_2
+
