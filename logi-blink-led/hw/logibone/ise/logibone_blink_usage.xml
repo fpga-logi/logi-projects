@@ -4,8 +4,8 @@
      changes made to this file may result in unpredictable
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
-<DeviceUsageSummary rev="25">
-<DesignStatistics TimeStamp="Thu Feb 20 21:12:51 2014"><group name="NetStatistics">
+<DeviceUsageSummary rev="26">
+<DesignStatistics TimeStamp="Fri Apr 25 09:18:22 2014"><group name="NetStatistics">
 <item name="NumNets_Active" rev="25">
 <attrib name="value" value="107"/></item>
 <item name="NumNets_Vcc" rev="25">
@@ -72,89 +72,48 @@
 <attrib name="value" value="3"/></item>
 </group>
 <group name="MiscellaneousStatistics">
-<item name="AGG_BONDED_IO" rev="24">
-<attrib name="value" value="5"/></item>
-<item name="AGG_IO" rev="24">
-<attrib name="value" value="5"/></item>
-<item name="AGG_LOCED_IO" rev="24">
-<attrib name="value" value="5"/></item>
-<item name="AGG_SLICE" rev="24">
+<item name="AGG_BONDED_IO" rev="26">
+<attrib name="value" value="3"/></item>
+<item name="AGG_IO" rev="26">
+<attrib name="value" value="3"/></item>
+<item name="AGG_LOCED_IO" rev="26">
+<attrib name="value" value="3"/></item>
+<item name="AGG_SLICE" rev="26">
+<attrib name="value" value="7"/></item>
+<item name="NUM_BONDED_IOB" rev="26">
+<attrib name="value" value="3"/></item>
+<item name="NUM_BSFULL" rev="26">
 <attrib name="value" value="25"/></item>
-<item name="NUM_BONDED_IOB" rev="24">
-<attrib name="value" value="5"/></item>
-<item name="NUM_BSFULL" rev="24">
-<attrib name="value" value="53"/></item>
-<item name="NUM_BSLUTONLY" rev="24">
-<attrib name="value" value="33"/></item>
-<item name="NUM_BSUSED" rev="24">
-<attrib name="value" value="86"/></item>
-<item name="NUM_BUFG" rev="24">
-<attrib name="value" value="1"/></item>
-<item name="NUM_LOCED_IOB" rev="24">
-<attrib name="value" value="5"/></item>
-<item name="NUM_LOGIC_O5ANDO6" rev="24">
+<item name="NUM_BSUSED" rev="26">
 <attrib name="value" value="25"/></item>
-<item name="NUM_LOGIC_O5ONLY" rev="24">
-<attrib name="value" value="24"/></item>
-<item name="NUM_LOGIC_O6ONLY" rev="24">
-<attrib name="value" value="36"/></item>
-<item name="NUM_LUT_RT_DRIVES_CARRY4" rev="24">
+<item name="NUM_BUFG" rev="26">
 <attrib name="value" value="1"/></item>
-<item name="NUM_LUT_RT_EXO6" rev="24">
+<item name="NUM_LOCED_IOB" rev="26">
+<attrib name="value" value="3"/></item>
+<item name="NUM_LOGIC_O5ANDO6" rev="26">
 <attrib name="value" value="1"/></item>
-<item name="NUM_LUT_RT_O6" rev="24">
-<attrib name="value" value="24"/></item>
-<item name="NUM_SLICEL" rev="24">
-<attrib name="value" value="14"/></item>
-<item name="NUM_SLICEX" rev="24">
-<attrib name="value" value="11"/></item>
-<item name="NUM_SLICE_CARRY4" rev="24">
-<attrib name="value" value="14"/></item>
-<item name="NUM_SLICE_CONTROLSET" rev="24">
-<attrib name="value" value="2"/></item>
-<item name="NUM_SLICE_CYINIT" rev="24">
-<attrib name="value" value="137"/></item>
-<item name="NUM_SLICE_FF" rev="24">
-<attrib name="value" value="53"/></item>
-<item name="NUM_SLICE_UNUSEDCTRL" rev="24">
-<attrib name="value" value="10"/></item>
-<item name="NUM_UNUSABLE_FF_BELS" rev="24">
-<attrib name="value" value="11"/></item>
+<item name="NUM_LOGIC_O5ONLY" rev="26">
+<attrib name="value" value="23"/></item>
+<item name="NUM_LUT_RT_DRIVES_CARRY4" rev="26">
+<attrib name="value" value="1"/></item>
+<item name="NUM_LUT_RT_EXO6" rev="26">
+<attrib name="value" value="1"/></item>
+<item name="NUM_LUT_RT_O6" rev="26">
+<attrib name="value" value="23"/></item>
+<item name="NUM_SLICEL" rev="26">
+<attrib name="value" value="7"/></item>
+<item name="NUM_SLICE_CARRY4" rev="26">
+<attrib name="value" value="7"/></item>
+<item name="NUM_SLICE_CONTROLSET" rev="26">
+<attrib name="value" value="1"/></item>
+<item name="NUM_SLICE_CYINIT" rev="26">
+<attrib name="value" value="50"/></item>
+<item name="NUM_SLICE_FF" rev="26">
+<attrib name="value" value="25"/></item>
+<item name="NUM_UNUSABLE_FF_BELS" rev="26">
+<attrib name="value" value="7"/></item>
 </group>
 </DesignStatistics>
-<DeviceUsage TimeStamp="Thu Feb 20 21:12:51 2014"><group name="SiteSummary">
-<item name="BUFG" rev="25">
-<attrib name="total" value="1000000"/><attrib name="used" value="1"/></item>
-<item name="BUFG_BUFG" rev="25">
-<attrib name="total" value="1000000"/><attrib name="used" value="1"/></item>
-<item name="CARRY4" rev="25">
-<attrib name="total" value="1000000"/><attrib name="used" value="14"/></item>
-<item name="HARD0" rev="25">
-<attrib name="total" value="1000000"/><attrib name="used" value="1"/></item>
-<item name="HARD1" rev="25">
-<attrib name="total" value="1000000"/><attrib name="used" value="1"/></item>
-<item name="IOB" rev="25">
-<attrib name="total" value="1000000"/><attrib name="used" value="5"/></item>
-<item name="IOB_IMUX" rev="25">
-<attrib name="total" value="1000000"/><attrib name="used" value="3"/></item>
-<item name="IOB_INBUF" rev="25">
-<attrib name="total" value="1000000"/><attrib name="used" value="3"/></item>
-<item name="IOB_OUTBUF" rev="25">
-<attrib name="total" value="1000000"/><attrib name="used" value="2"/></item>
-<item name="LUT5" rev="25">
-<attrib name="total" value="1000000"/><attrib name="used" value="49"/></item>
-<item name="LUT6" rev="25">
-<attrib name="total" value="1000000"/><attrib name="used" value="86"/></item>
-<item name="PAD" rev="25">
-<attrib name="total" value="1000000"/><attrib name="used" value="5"/></item>
-<item name="REG_SR" rev="25">
-<attrib name="total" value="1000000"/><attrib name="used" value="53"/></item>
-<item name="SLICEL" rev="25">
-<attrib name="total" value="1000000"/><attrib name="used" value="14"/></item>
-<item name="SLICEX" rev="25">
-<attrib name="total" value="1000000"/><attrib name="used" value="11"/></item>
-</group>
-</DeviceUsage>
 <ReportConfigData TimeStamp="Thu Feb 20 21:12:51 2014"><group name="REG_SR">
 <item name="CK" rev="25">
 <attrib name="CK" value="53"/><attrib name="CK_INV" value="0"/></item>
