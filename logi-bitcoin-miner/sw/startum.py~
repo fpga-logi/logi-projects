@@ -1,0 +1,45 @@
+# Echo server program
+import socket
+import sys
+import json
+
+HOST = 'eu-stratum.btcguild.com'
+PORT = 3333             
+
+
+def getStratumResponse(stratum_s):
+	msg = ''
+	data = stratum_s.recv(1)
+	while data != '\n':
+		data = stratum_s.recv(1)
+		msg = msg + data
+	return msg	
+
+subscribe_request = {"id":1, "method":"mining.subscribe", "params": []}
+worker_register = {"params": ["voelker_1", "1234"], "id": 1, "method": "mining.authorize"}
+
+for res in socket.getaddrinfo(HOST, PORT, socket.AF_UNSPEC, socket.SOCK_STREAM):
+	af, socktype, proto, canonname, sa = res
+	try:
+		s = socket.socket(af, socktype, proto)
+	except socket.error, msg:
+		s = None
+		continue
+	try:
+		s.connect(sa)
+	except socket.error, msg:
+		s.close()
+		s = None
+		continue
+	break
+if s is None:
+	print 'could not open socket'
+	sys.exit(1)
+
+s.send(json.dumps(subscribe_request)+'\n')
+print 'Received', repr(getStratumResponse(s))
+s.send(json.dumps(worker_register)+'\n')
+print 'Received', repr(getStratumResponse(s))
+print 'Received', repr(getStratumResponse(s))
+
+
