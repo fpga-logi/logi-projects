@@ -1,7 +1,7 @@
-Release 14.1 - par P.15xf (lin64)
-Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+Release 14.6 - par P.68d (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Thu Feb 20 21:11:44 2014
+Fri Apr 25 09:18:28 2014
 
 
 INFO: The IO information is provided in three file formats as part of the Place and Route (PAR) process.  These formats are:
@@ -106,8 +106,8 @@ Pinout by Pin Number:
 |P84       |           |IOBS     |IO_L43N_GCLK4_1           |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |P85       |           |IOBM     |IO_L43P_GCLK5_1           |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |P86       |           |         |VCCO_1                    |         |           |1             |          |         |           |         |2.50     |          |           |                |
-|P87       |ARD_SCL    |IOB      |IO_L42N_GCLK6_TRDY1_1     |INPUT    |LVTTL      |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
-|P88       |ARD_SDA    |IOB      |IO_L42P_GCLK7_1           |INPUT    |LVTTL      |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
+|P87       |           |IOBS     |IO_L42N_GCLK6_TRDY1_1     |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
+|P88       |           |IOBM     |IO_L42P_GCLK7_1           |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |P89       |           |         |VCCINT                    |         |           |              |          |         |           |         |1.2      |          |           |                |
 |P90       |           |         |VCCAUX                    |         |           |              |          |         |           |         |2.5      |          |           |                |
 |P91       |           |         |GND                       |         |           |              |          |         |           |         |         |          |           |                |

@@ -20,17 +20,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
-use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL
-
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
-library UNISIM;
-use UNISIM.VComponents.all;
 
 entity logipi_blink is
 port( OSC_FPGA : in std_logic;
@@ -39,15 +28,12 @@ port( OSC_FPGA : in std_logic;
 );
 end logipi_blink;
 
-
-
 architecture Behavioral of logipi_blink is
 	
 	-- Led counter
 	signal counter_output : std_logic_vector(31 downto 0);
 	
 begin
-	
 	
 	process(OSC_FPGA)
 	begin
@@ -58,7 +44,5 @@ begin
 	LED(0) <= counter_output(24);
 	LED(1) <= counter_output(23);
 
-
-	
 end Behavioral;
 
