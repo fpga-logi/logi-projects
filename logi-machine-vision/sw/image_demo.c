@@ -12,10 +12,14 @@
 #include <linux/ioctl.h>
 
 #include "jpeg_func.h"
-#include "fifolib.h"
+#include "logilib.h"
 
 #define IMAGE_WIDTH 320
 #define IMAGE_HEIGHT 240
+
+#define LINE_BURST 2
+
+#define FIFO_CMD_ADDR 0x0200
 
 int min(int a, int b){
 	if(a > b ){
@@ -33,10 +37,11 @@ int main(int argc, char ** argv){
 	FILE * raw_file ;
 	int i,j, res ;
 	unsigned int pos = 0 ;
+	unsigned short int cmd_buffer[4];
 	unsigned char image_buffer[(320*240)] ; //monochrome frame buffer
 	unsigned short fifo_state, fifo_data ;
-	if(fifo_open(0) < 0){
-		printf("Error opening fifo 0 \n");
+	if(logi_open() < 0){
+		printf("Error openinglogi \n");
 		return -1 ;	
 	}
 	jpeg_fd  = fopen("./grabbed_frame.jpg", "w");
@@ -53,13 +58,20 @@ int main(int argc, char ** argv){
 	}
 	
 	printf("issuing reset to fifo \n");
-	fifo_reset(0);
-	printf("fifo size : %d, free: %d, available : %d \n", fifo_getSize(0), fifo_getNbFree(0), fifo_getNbAvailable(0));
+	cmd_buffer[1] = 0; 
+	cmd_buffer[2] = 0 ;
+	logi_write(cmd_buffer, 6, FIFO_CMD_ADDR);
+	logi_read(cmd_buffer, 6, FIFO_CMD_ADDR);
+	printf("fifo size : %d, free: %d, available : %d \n", cmd_buffer[0],cmd_buffer[1], cmd_buffer[2]);
 	clock_gettime(CLOCK_REALTIME, &cpu_time);
 	start_time = cpu_time.tv_nsec ;
-	 for(i = 0 ; i < IMAGE_HEIGHT ; i ++){
-		fifo_write(0, &inputImage[(i*IMAGE_WIDTH)], IMAGE_WIDTH);
-		fifo_read(0, &image_buffer[(i*IMAGE_WIDTH)], IMAGE_WIDTH);
+	 for(i = 0 ; i < IMAGE_HEIGHT ; i +=LINE_BURST){
+		logi_write(&inputImage[(i*IMAGE_WIDTH)], IMAGE_WIDTH*LINE_BURST, 0x0000);
+		do{
+			logi_read(cmd_buffer, 6, FIFO_CMD_ADDR);
+			//printf("fifo size : %d, free: %d, available : %d \n", cmd_buffer[0],cmd_buffer[1], cmd_buffer[2]);
+		}while((cmd_buffer[2]*2) < IMAGE_WIDTH*LINE_BURST);
+		logi_read(&image_buffer[(i*IMAGE_WIDTH)], IMAGE_WIDTH*LINE_BURST, 0x0000);
         }
 	clock_gettime(CLOCK_REALTIME, &cpu_time);
 	end_time = cpu_time.tv_nsec ;
@@ -67,7 +79,7 @@ int main(int argc, char ** argv){
 	diff_time = diff_time/1000000000 ;
 	printf("transffered %d bytes in %f s : %f B/s \n", IMAGE_WIDTH * IMAGE_HEIGHT, diff_time, (IMAGE_WIDTH * IMAGE_HEIGHT)/diff_time);
 	write_jpegfile(image_buffer, 320, 240, jpeg_fd, 100);
-	fifo_close(0);
+	logi_close();
 	fclose(jpeg_fd);
 	return 0 ;
 }
