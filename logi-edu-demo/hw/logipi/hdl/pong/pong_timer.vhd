@@ -22,7 +22,6 @@ begin
          timer_reg <= timer_next;
       end if;
    end process;
-	
    -- next-state logic
    process(timer_start,timer_reg,timer_tick)
    begin
