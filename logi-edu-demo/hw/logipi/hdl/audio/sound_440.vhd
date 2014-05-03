@@ -58,18 +58,18 @@ if reset = '1' then
 	output_buffer  <= '0' ;
 	divider_counter <= std_logic_vector(to_unsigned(clk_divider, nbit(clk_divider)));
 elsif clk'event and clk = '1' then
-	if divider_counter = 0 then
-		divider_counter <= std_logic_vector(to_unsigned(clk_divider, nbit(clk_divider)));
-		output_buffer <= not output_buffer ;
-	else
-		divider_counter <= divider_counter - 1 ;
-	end if ;
+	if en = '1' then
+		if divider_counter = 0 then
+			divider_counter <= std_logic_vector(to_unsigned(clk_divider, nbit(clk_divider)));
+			output_buffer <= not output_buffer ;
+		else
+			divider_counter <= divider_counter - 1 ;
+		end if ;
+	end if;
 end if ;
 end process ;
 
-sound_out <=  output_buffer when en='1' else '0';
-
---sound_out <= output_buffer ;
+sound_out <=  output_buffer;
 
 end Behavioral;
 

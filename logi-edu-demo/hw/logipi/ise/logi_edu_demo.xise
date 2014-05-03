@@ -17,70 +17,70 @@
   <files>
     <file xil_pn:name="../../../../../logi-hard/hdl/utils/logi_utils_pack.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="1"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="8"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="12"/>
     </file>
     <file xil_pn:name="../../../../../logi-hard/hdl/wishbone/logi_wishbone_pack.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="15"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="20"/>
     </file>
     <file xil_pn:name="../../../../../logi-hard/hdl/wishbone/peripherals/logi_wishbone_peripherals_pack.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="14"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="19"/>
     </file>
     <file xil_pn:name="ipcore_dir/clock_gen.xco" xil_pn:type="FILE_COREGEN">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="9"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="13"/>
     </file>
     <file xil_pn:name="../hdl/vga/vga_bar_top.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="68"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="10"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="14"/>
     </file>
     <file xil_pn:name="../hdl/vga/vga_sync.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="69"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="2"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../hdl/ucf/logipi_ra3.ucf" xil_pn:type="FILE_UCF">
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../hdl/audio/sound_440.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="17"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="13"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="18"/>
     </file>
     <file xil_pn:name="../hdl/sseg/ssegx4_basic.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="70"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="11"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="15"/>
     </file>
     <file xil_pn:name="../hdl/sseg/list_ch04_15_disp_hex.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="74"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="3"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="5"/>
     </file>
     <file xil_pn:name="../hdl/pong/font_rom.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="75"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="1"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="4"/>
     </file>
     <file xil_pn:name="../hdl/pong/pong_counter.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="76"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="7"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="11"/>
     </file>
     <file xil_pn:name="../hdl/pong/pong_graph.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="77"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="6"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="10"/>
     </file>
     <file xil_pn:name="../hdl/pong/pong_text.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="78"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="5"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="9"/>
     </file>
     <file xil_pn:name="../hdl/pong/pong_timer.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="79"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="4"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="8"/>
     </file>
     <file xil_pn:name="../hdl/pong/pong_top.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="80"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="12"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="17"/>
     </file>
     <file xil_pn:name="../hdl/pong/vga_sync.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="81"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="7"/>
     </file>
     <file xil_pn:name="../hdl/pong/nes_ctl/nes_ctl.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="82"/>
@@ -88,7 +88,27 @@
     </file>
     <file xil_pn:name="../hdl/logi_edu_demo.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="24"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="21"/>
+    </file>
+    <file xil_pn:name="../hdl/ps2/mouse.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="76"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="6"/>
+    </file>
+    <file xil_pn:name="../hdl/ps2/mouse_led_sseg.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="77"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="16"/>
+    </file>
+    <file xil_pn:name="../hdl/ps2/ps2_rx.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="78"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="2"/>
+    </file>
+    <file xil_pn:name="../hdl/ps2/ps2_rxtx.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="79"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="3"/>
+    </file>
+    <file xil_pn:name="../hdl/ps2/ps2_tx.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="80"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="1"/>
     </file>
     <file xil_pn:name="ipcore_dir/clock_gen.xise" xil_pn:type="FILE_COREGENISE">
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>

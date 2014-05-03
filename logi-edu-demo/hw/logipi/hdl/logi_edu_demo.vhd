@@ -42,7 +42,7 @@ port(
 
 		OSC_FPGA : in std_logic;
 		--onboard
-		PB : in std_logic_vector(1 downto 0);
+		PBN : in std_logic_vector(1 downto 0);
 		SW : in std_logic_vector(1 downto 0);
 		LED : out std_logic_vector(1 downto 0);	
 		PMOD4 : inout std_logic_vector(7 downto 0); 
@@ -72,8 +72,7 @@ architecture Behavioral of logi_edu_demo is
 		-- Status and control signals
 		LOCKED            : out    std_logic
 	);
-	end component;
-	
+	end component;	
 	component pong_top
 	   port(
       clk, reset: in std_logic;
@@ -83,7 +82,6 @@ architecture Behavioral of logi_edu_demo is
 		led: out std_logic_vector(1 downto 0)
    );
 	end component;
-	
 	component sseg4x_basic
 	port 
 	 (	  reset    : in std_logic ;
@@ -92,7 +90,6 @@ architecture Behavioral of logi_edu_demo is
 		  sseg_edu_anode_out : out std_logic_vector(7 downto 0) -- sseg anode	  
 	 );
 	 end component;
-	
 	component sound_440 is
 		generic(clk_freq_hz : positive := 100_000_000);
 		port(
@@ -101,7 +98,6 @@ architecture Behavioral of logi_edu_demo is
 		sound_out : out std_logic 
 		);
 	end component;
-
 	component vga_bar_top is
 	port (
 		clk: in std_logic;	
@@ -112,6 +108,14 @@ architecture Behavioral of logi_edu_demo is
 		green: out std_logic_vector(2 downto 0);
 		blue: out std_logic_vector(2 downto 0)
 	);
+	end component;
+	component mouse_led_sseg is
+   port (
+      clk, reset: in  std_logic;
+      ps2d_1, ps2c_1: inout std_logic;
+		btn: out std_logic_vector(2 downto 0);
+		led : out std_logic_vector(1 downto 0)
+   );
 	end component;
 
 	-- syscon
@@ -131,12 +135,16 @@ architecture Behavioral of logi_edu_demo is
 	signal vga_pong: std_logic_vector (10 downto 0); -- [vsync(10) & hsync(9) & r(8:6)  & g(5:3) & r(2:0)]
 	signal vga_out: std_logic_vector (10 downto 0);  -- [vsync(10) & hsync(9) & r(8:6)  & g(5:3) & r(2:0)]
 
+	--ps2
+	signal ps2c_1, ps2d_1: std_logic;
 	
 	signal led_signal: std_logic_vector(1 downto 0);
-	signal pbn: std_logic_vector(1 downto 0);
+	signal btn_mouse: std_logic_vector(2 downto 0);
+	signal pb: std_logic_vector(1 downto 0);
 	
 begin
 
+	--added incase users wants to use wishbone
 	SYS_SPI_SCK <= 'Z';
 	RP_SPI_CE0N <= 'Z'; 
 	SYS_SPI_MOSI <= 'Z';
@@ -144,36 +152,39 @@ begin
 	SYS_SCL <= 'Z' ;
 	SYS_SDA <= 'Z' ;
 		
-	pbn <= NOT(PB);	--invert the push button signals
-	gls_reset <= pbn(1);
+	pb <= NOT(PBN);	--invert the push button signals
 
-
-
+	mouse: mouse_led_sseg
+   port map(
+      clk => vga_clk,
+		reset => pb(1),
+      ps2d_1 =>	ps2d_1,
+		ps2c_1 =>	ps2c_1,
+		btn => btn_mouse,
+		led => LED
+   );
 	sseg : sseg4x_basic
 	port map(
 		clk => gls_clk, reset => '0',
 		sseg_edu_cathode_out => sseg_edu_cathode_out,
 		sseg_edu_anode_out  => sseg_edu_anode_out 
-	);
-	
+	);	
 	sound_0: sound_440 -- generates 440hz pwm
 		generic map(clk_freq_hz => 100_000_000)
 		port map(
 			clk => gls_clk, 
 			reset => '0',
-			en => pbn(0),
+			en => pb(0) or btn_mouse(0),
 			sound_out =>  PMOD4(0)
-	);
-		
+	);	
 	sound_1: sound_440 -- tricking module to produce 220
 		generic map(clk_freq_hz => 50_000_000)
 		port map(
 			clk => gls_clk, 
 			reset => '0',
-			en => pbn(0),
+			en => pb(1) or btn_mouse(1),
 			sound_out =>  PMOD4(6)
 		);
-
 	pll0 : clock_gen
 	port map
    (-- Clock in ports
@@ -186,30 +197,7 @@ begin
 	);
 	gls_clk <= clk_100Mhz;
 	vga_clk <= clk_50Mhz;
-
---	vga0 : vga_bar_top
---	port map(
---		clk => vga_clk,	
---		reset => '0',
---		sel => SW(1),
---		hsync => hsync_vga, vsync => vsync_vga,
---		red => red_vga,
---		green => green_vga,
---		blue => blue_vga
---	);
---	pong: pong_top
---	   port map(
---      clk => vga_clk  , reset => '0',
---      btn => pbn,
---      hsync => hsync_pong,
---		vsync => vsync_pong,
---      red => red_pong, 
---		green => green_pong , 
---		blue => blue_pong,
---		led => open
---   );
-
--- [vsync(10) & hsync(9) & b(8:6)  & g(5:3) & r(2:0)]
+	-- [vsync(10) & hsync(9) & b(8:6)  & g(5:3) & r(2:0)]
 	vga0 : vga_bar_top
 	port map(
 		clk => vga_clk,	
@@ -221,11 +209,11 @@ begin
 		green => vga_bar(5 downto 3),
 		blue 	=> vga_bar(8 downto 6)
 	);
--- [vsync(10) & hsync(9) & b(8:6)  & g(5:3) & r(2:0)]
+	-- [vsync(10) & hsync(9) & b(8:6)  & g(5:3) & r(2:0)]
 	pong: pong_top
 	   port map(
       clk 	=> vga_clk  , reset => '0',
-      btn 	=> pbn,
+      btn 	=> pb or (btn_mouse(1) & btn_mouse(0)) ,
       hsync => vga_pong(9),
 		vsync => vga_pong(10),
       red 	=> vga_pong(2 downto 0), 
@@ -235,65 +223,26 @@ begin
    );
 	
 	
--- [vsync(10) & hsync(9) & b(8:6)  & g(5:3) & r(2:0)]
-vga_out <= vga_pong when SW(0) = '1' else vga_bar;
-PMOD1(3) <= vga_out(9);		--hsync_vga ;
-PMOD1(7) <= vga_out(10);	--vsync_vga ;	
-PMOD1(0) <= vga_out(2);		--red_vga(2);		
-PMOD1(4) <= vga_out(1);		--red_vga(1);		
-PMOD3(7) <= vga_out(0);		--red_vga(0); 	
-PMOD1(1) <= vga_out(5); 	--green_vga(2);	
-PMOD1(5) <= vga_out(4);		--green_vga(1);	
-PMOD3(3) <= vga_out(3);		--green_vga(0);	
-PMOD1(2) <= vga_out(8);		--blue_vga(2);	
-PMOD1(6) <= vga_out(7);		--blue_vga(1);	
-PMOD3(2) <= vga_out(6);		--blue_vga(0);		
-					
-	
-	
-	
---	process(SW, hsync_vga, vsync_vga, hsync_pong, vsync_pong, red_vga, green_vga,
---				blue_vga, red_pong, green_pong, blue_pong)
---	begin
---		if(SW(0)='1') then
---			--VGA SIGNAL MAPPING
---			PMOD1(3) <= hsync_vga ;
---			PMOD1(7) <= vsync_vga ;	
---			PMOD1(0) <= red_vga(2);		
---			PMOD1(4) <= red_vga(1);		
---			PMOD3(7) <= red_vga(0); 	
---			PMOD1(1) <= green_vga(2);	
---			PMOD1(5) <= green_vga(1);	
---			PMOD3(3) <= green_vga(0);	
---			PMOD1(2) <= blue_vga(2);	
---			PMOD1(6) <= blue_vga(1);	
---			PMOD3(2) <= blue_vga(0);	
---		else 
---			--VGA SIGNAL MAPPING
---			PMOD1(3) <= hsync_pong ;
---			PMOD1(7) <= vsync_pong ;	
---			PMOD1(0) <= red_pong(2);		
---			PMOD1(4) <= red_pong(1);		
---			PMOD3(7) <= red_pong(0); 	
---			PMOD1(1) <= green_pong(2);	
---			PMOD1(5) <= green_pong(1);	
---			PMOD3(3) <= green_pong(0);	
---			PMOD1(2) <= blue_pong(2);	
---			PMOD1(6) <= blue_pong(1);	
---			PMOD3(2) <= blue_pong(0);	
---		end if;
---	end process;
-
-
-	
-	
+	-- [vsync(10) & hsync(9) & b(8:6)  & g(5:3) & r(2:0)]
+	vga_out <= vga_pong when SW(0) = '1' else vga_bar;
+	PMOD1(3) <= vga_out(9);		--hsync_vga ;
+	PMOD1(7) <= vga_out(10);	--vsync_vga ;	
+	PMOD1(0) <= vga_out(2);		--red_vga(2);		
+	PMOD1(4) <= vga_out(1);		--red_vga(1);		
+	PMOD3(7) <= vga_out(0);		--red_vga(0); 	
+	PMOD1(1) <= vga_out(5); 	--green_vga(2);	
+	PMOD1(5) <= vga_out(4);		--green_vga(1);	
+	PMOD3(3) <= vga_out(3);		--green_vga(0);	
+	PMOD1(2) <= vga_out(8);		--blue_vga(2);	
+	PMOD1(6) <= vga_out(7);		--blue_vga(1);	
+	PMOD3(2) <= vga_out(6);		--blue_vga(0);		
+						
 	PMOD2(4) <= sseg_edu_cathode_out(0); -- cathode 0
 	PMOD2(0) <= sseg_edu_cathode_out(1); -- cathode 1
 	PMOD2(2) <= sseg_edu_cathode_out(2); -- cathode 2
 	PMOD2(3) <= sseg_edu_cathode_out(3); -- cathode 3
 	--PMOD2(1) <= sseg_edu_cathode_out(4); -- cathode 4
 	PMOD2(1) <= '0'; -- cathode 4
-
 	PMOD3(5) <= sseg_edu_anode_out(0); --A
 	PMOD3(4) <= sseg_edu_anode_out(1); --B
 	PMOD3(1) <= sseg_edu_anode_out(2); --C
@@ -303,7 +252,9 @@ PMOD3(2) <= vga_out(6);		--blue_vga(0);
 	PMOD3(0) <= sseg_edu_anode_out(6); --G
 	PMOD2(7) <= sseg_edu_anode_out(7); --DP
 	
-	LED <= SW;
+	PMOD4(4) <= ps2c_1;
+	PMOD4(5) <= ps2d_1;
+--	
 
 end Behavioral;
 

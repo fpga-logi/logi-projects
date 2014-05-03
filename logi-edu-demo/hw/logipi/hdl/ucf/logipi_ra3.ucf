@@ -28,8 +28,8 @@ NET "OSC_FPGA"      LOC = "P85" | IOSTANDARD = LVTTL;
 #Peripherals#############################################################
 NET "LED<0>"        LOC = "P105" | IOSTANDARD = LVTTL;		#SHARED WITH ARD_D6
 NET "LED<1>"        LOC = "P104" | IOSTANDARD = LVTTL;		#SHARED WITH ARD_D7
-NET "PB<0>"        LOC = "P102" | IOSTANDARD = LVTTL;
-NET "PB<1>"        LOC = "P101" | IOSTANDARD = LVTTL;
+NET "PBN<0>"        LOC = "P102" | IOSTANDARD = LVTTL;
+NET "PBN<1>"        LOC = "P101" | IOSTANDARD = LVTTL;
 NET "SW<0>"        LOC = "P99" | IOSTANDARD = LVTTL;
 NET "SW<1>"        LOC = "P100" | IOSTANDARD = LVTTL;
 
