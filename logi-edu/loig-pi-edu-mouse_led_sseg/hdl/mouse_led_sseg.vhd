@@ -7,6 +7,7 @@ entity mouse_led_sseg is
       clk, reset_n: in  std_logic;
       ps2d_1, ps2c_1: inout std_logic;
       sseg: out std_logic_vector(7 downto 0);
+		led: out std_logic_vector(1 downto 0);
 		an: out std_logic_vector(3 downto 0)
    );
 end mouse_led_sseg;
@@ -45,7 +46,7 @@ begin
    p_next <= p_reg when m_done_tick='0' else
              "0000000000" when btnm(0)='1' else --left button
              "1111111111" when btnm(1)='1' else --right button
-             p_reg + unsigned(xm(8) & xm);
+             p_reg + unsigned(xm(8) & xm);	--shifting the x values
 
    with p_reg(9 downto 7) select
       --led <= "10000000" when "000",
@@ -57,6 +58,8 @@ begin
              "00000100" when "101",
              "00000010" when "110",
              "00000001" when others;
+				 
+	led <= std_logic_vector(p_reg(3 downto 2));
 
 
 end arch;

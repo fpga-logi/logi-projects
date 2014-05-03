@@ -62,8 +62,8 @@ NET "reset_n"  	LOC = P101;	#--reset needs to be moved around depending on appli
 #========================================================
 # 2 discrete LEDs
 #========================================================
-#NET "led<0>"  LOC = P105	;
-#NET "led<1>"  LOC = P104	;
+NET "led<0>"  LOC = P105	;
+NET "led<1>"  LOC = P104	;
 
 ##========================================================
 ## PS2 port 1
