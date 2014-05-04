@@ -42,8 +42,7 @@ entity nes_ctl is
 			nes_dat : in std_logic;
 			nes_lat : out std_logic;
 			nes_clk : out std_logic;	
-			nes_a, nes_b, nes_sel, nes_start: out std_logic;
-			nes_up, nes_down, nes_left, nes_right: out std_logic
+			nes: out std_logic_vector(7 downto 0) --[nes_b(7)	nes_a(6) nes_sel(5) nes_start(4) nes_right(3) nes_left(2) nes_down(1) nes_up(0)]
 	);
 end nes_ctl;
 
@@ -54,7 +53,9 @@ architecture arch of nes_ctl is
 	--state variable
 	type state_type is (s0,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15,s16,s17,s18);
 	signal state_reg, state_next: state_type;
-	signal nes_datn: std_logic;
+	signal nes_b, nes_a, nes_sel, nes_start, nes_right, nes_left, nes_down, nes_up: std_logic;
+	signal nes_reg, nes_next: std_logic_vector(7 downto 0);
+	signal nes_detected: std_logic;
 
 begin
 
@@ -64,17 +65,17 @@ begin
 		if(reset= '1') then
 			count_reg <= (others=>'0');
 			state_reg <= s0;
-
+			nes_reg <= (others=>'0');
 		elsif (clk'event and clk = '1') then
 			count_reg <= count_next;
 			state_reg <= state_next;
-
+			nes_reg <= nes_next;
 		end if;
 	end process;
 
 	count_next <= count_reg +1;		--increment counter, will overflow
 	nes_tick <= '1' when count_reg = 0 else '0';		-- tick on every overflow
-	nes_datn <= not(nes_dat);
+	--nes_datn <= not(nes_dat);
 
 	--STATE MACHINE
 	process(clk)
@@ -82,7 +83,7 @@ begin
 		if(clk'event and clk = '1') then
 			--m_tick_q <= m_tick;
 			if(nes_tick = '1') then
-				nes_lat <= '0';	--deafault outputs
+				nes_lat <= '0';	--default outputs
 				nes_clk <= '0';
 				case state_reg is
 					when s0 =>
@@ -91,56 +92,56 @@ begin
 					when s1 =>
 						state_next <= s2;
 						nes_lat <= '0';
-						nes_a <= nes_datn;
+						nes_a <= nes_dat;
 					when s2 =>
 						state_next <= s3;
 						nes_clk <= '1';
 					when s3 =>
 						state_next <= s4;
 						nes_clk <= '0';
-						nes_b <= nes_datn;
+						nes_b <= nes_dat;
 					when s4 =>
 						state_next <= s5;
 						nes_clk <= '1';
 					when s5 =>
 						state_next <= s6;
 						nes_clk <= '0';
-						nes_sel <= nes_datn;						
+						nes_sel <= nes_dat;						
 					when s6 =>
 						state_next <= s7;
 						nes_clk <= '1';
 					when s7 =>
 						state_next <= s8;
 						nes_clk <= '0';
-						nes_start <= nes_datn;
+						nes_start <= nes_dat;
 					when s8 =>
 						state_next <= s9;
 						nes_clk <= '1';
 					when s9 =>
 						state_next <= s10;
 						nes_clk <= '0';
-						nes_up <= nes_datn;
+						nes_up <= nes_dat;
 					when s10 =>
 						state_next <= s11;
 						nes_clk <= '1';
 					when s11=>
 						state_next <= s12;
 						nes_clk <= '0';
-						nes_down <= nes_datn;
+						nes_down <= nes_dat;
 					when s12 =>
 						state_next <= s13;
 						nes_clk <= '1';
 					when s13 =>
 						state_next <= s14;
 						nes_clk <= '0';
-						nes_left <= nes_datn;
+						nes_left <= nes_dat;
 					when s14 =>
 						state_next <= s15;
 						nes_clk <= '1';
 					when s15 =>
 						state_next <= s16;
 						nes_clk <= '0';
-						nes_right <= nes_datn;
+						nes_right <= nes_dat;
 					when s16 =>
 						state_next <= s17;
 						nes_clk <= '1';
@@ -154,7 +155,12 @@ begin
 		end if;
 	end process;
 	
-	
+			  
+	--[nes_b(7)	nes_a(6) nes_sel(5) nes_start(4) nes_right(3) nes_left(2) nes_down(1) nes_up(0)]
+	nes_next <= nes_b & nes_a & nes_sel & nes_start & nes_right & nes_left & nes_down & nes_up;
+	nes_detected <= '0' when nes_reg = "00000000" else '1'; --nes will be all zeros if not connected.
+	nes <= nes_reg when nes_detected = '1' else (others=>'1');
+
 end arch;
 
 

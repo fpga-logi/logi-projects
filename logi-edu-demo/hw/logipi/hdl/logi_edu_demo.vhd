@@ -46,6 +46,7 @@ port(
 		SW : in std_logic_vector(1 downto 0);
 		LED : out std_logic_vector(1 downto 0);	
 		PMOD4 : inout std_logic_vector(7 downto 0); 
+		--PMOD4_7: in std_logic;
 		PMOD3 : inout std_logic_vector(7 downto 0); 
 		PMOD2 : inout std_logic_vector(7 downto 0); 
 		PMOD1 : inout std_logic_vector(7 downto 0); 
@@ -62,6 +63,17 @@ end logi_edu_demo;
 
 architecture Behavioral of logi_edu_demo is
 
+
+	component nes_ctl
+	port(
+			clk : in std_logic;
+			reset : in std_logic;
+			nes_dat : in std_logic;
+			nes_lat : out std_logic;
+			nes_clk : out std_logic;	
+			nes: out std_logic_vector(7 downto 0) --[nes_b(7)	nes_a(6) nes_sel(5) nes_start(4) nes_right(3) nes_left(2) nes_down(1) nes_up(0)]
+	);
+	end component;
 	component clock_gen
 	port
 	(-- Clock in ports
@@ -134,13 +146,18 @@ architecture Behavioral of logi_edu_demo is
 	signal vga_bar: std_logic_vector (10 downto 0);  -- [vsync(10) & hsync(9) & r(8:6)  & g(5:3) & r(2:0)]
 	signal vga_pong: std_logic_vector (10 downto 0); -- [vsync(10) & hsync(9) & r(8:6)  & g(5:3) & r(2:0)]
 	signal vga_out: std_logic_vector (10 downto 0);  -- [vsync(10) & hsync(9) & r(8:6)  & g(5:3) & r(2:0)]
-
 	--ps2
 	signal ps2c_1, ps2d_1: std_logic;
+	--nes
+	signal nes_lat, nes_clk, nes1_dat, nes2_dat: std_logic;
+	signal nes1, nes2: std_logic_vector(7 downto 0);	
 	
 	signal led_signal: std_logic_vector(1 downto 0);
 	signal btn_mouse: std_logic_vector(2 downto 0);
 	signal pb: std_logic_vector(1 downto 0);
+	
+	signal led_mouse: std_logic_vector(1 downto 0);	
+
 	
 begin
 
@@ -154,6 +171,25 @@ begin
 		
 	pb <= NOT(PBN);	--invert the push button signals
 
+
+	nes_ctl2: nes_ctl
+	port map(
+		clk => vga_clk,
+		reset => '0',
+		nes_dat => nes2_dat,
+		nes_lat => open,	--already driven
+		nes_clk => open,	--already driven
+		nes => nes2
+	);
+	nes_ctl1: nes_ctl
+	port map(
+		clk => vga_clk,
+		reset => '0',
+		nes_dat => nes1_dat,
+		nes_lat => nes_lat,
+		nes_clk => nes_clk,
+		nes => nes1
+	);
 	mouse: mouse_led_sseg
    port map(
       clk => vga_clk,
@@ -161,7 +197,7 @@ begin
       ps2d_1 =>	ps2d_1,
 		ps2c_1 =>	ps2c_1,
 		btn => btn_mouse,
-		led => LED
+		led => led_mouse
    );
 	sseg : sseg4x_basic
 	port map(
@@ -174,7 +210,8 @@ begin
 		port map(
 			clk => gls_clk, 
 			reset => '0',
-			en => pb(0) or btn_mouse(0),
+			en => pb(0) or btn_mouse(0) or not(nes1(0)) or not(nes2(0)) ,
+			--en => pb(0) or btn_mouse(0) ,
 			sound_out =>  PMOD4(0)
 	);	
 	sound_1: sound_440 -- tricking module to produce 220
@@ -182,7 +219,8 @@ begin
 		port map(
 			clk => gls_clk, 
 			reset => '0',
-			en => pb(1) or btn_mouse(1),
+			en => pb(1) or btn_mouse(1) or not(nes1(1)) or not(nes2(1)), 
+			--en => pb(1) or btn_mouse(1) ,
 			sound_out =>  PMOD4(6)
 		);
 	pll0 : clock_gen
@@ -213,7 +251,9 @@ begin
 	pong: pong_top
 	   port map(
       clk 	=> vga_clk  , reset => '0',
-      btn 	=> pb or (btn_mouse(1) & btn_mouse(0)) ,
+      btn 	=> pb or (btn_mouse(1) & btn_mouse(0)) or 
+			(not(nes1(1)) & not(nes1(0))) or --hold high if nex not connected
+			(not(nes2(1)) & not(nes2(0))) , --hold high if nex not connected
       hsync => vga_pong(9),
 		vsync => vga_pong(10),
       red 	=> vga_pong(2 downto 0), 
@@ -252,9 +292,18 @@ begin
 	PMOD3(0) <= sseg_edu_anode_out(6); --G
 	PMOD2(7) <= sseg_edu_anode_out(7); --DP
 	
-	PMOD4(4) <= ps2c_1;
-	PMOD4(5) <= ps2d_1;
---	
-
+	PMOD4(4) <= ps2c_1; 
+	PMOD4(5) <= ps2d_1;	
+	
+	PMOD4(2) <= nes_lat; 	--PMOD4(2)
+	PMOD4(1) <= nes_clk; 	--PMOD4(1), 
+	nes1_dat <= PMOD4(7);	--PMOD4(7)
+	nes2_dat <= PMOD4(3);
+	
+	LED(0) <= led_mouse(0) or not(nes1(7)) or not(nes1(6)) or not(nes1(5)) or not(nes1(4)) or 
+				not(nes1(3)) or not(nes1(2)) or  not(nes1(1)) or not(nes1(0)) ;
+	LED(1) <= led_mouse(1) or not(nes2(7)) or not(nes2(6)) or not(nes2(5)) or not(nes2(4)) or 
+				not(nes2(3)) or not(nes2(2)) or  not(nes2(1)) or not(nes2(0)) ;
+	
 end Behavioral;
 
