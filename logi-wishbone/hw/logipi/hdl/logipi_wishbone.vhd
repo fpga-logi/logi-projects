@@ -176,7 +176,7 @@ mem_interface0 : spi_wishbone_wrapper
 reg_cs <= '1' when intercon_wrapper_wbm_address(15 downto 2) = "00000000000000" else
 				'0' ;
 				
-pwm0_cs <= '1' when intercon_wrapper_wbm_address(15 downto 3) = "00000000000001"  else
+pwm0_cs <= '1' when intercon_wrapper_wbm_address(15 downto 3) = "00000000000001"  else --1000 = 0x08
 			 '0' ;
 			 
 mem0_cs <= '1' when intercon_wrapper_wbm_address(15 downto 11) = "00001"  else
