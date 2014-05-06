@@ -245,7 +245,7 @@ led_mat_interface : max7219_wb
 			wbs_cycle     => intercon_led_mat_wbm_cycle,
 			wbs_write     => intercon_led_mat_wbm_write,
 			wbs_ack       => intercon_led_mat_wbm_ack,
-			  
+			
 			DOUT => PMOD2(0),
 			SCLK => PMOD2(1),
 			LOAD => PMOD2(4)
@@ -273,6 +273,7 @@ port map(
 			wbs_write     => intercon_servo_wbm_write,
 			wbs_ack       => intercon_servo_wbm_ack,
 		  
+			failsafe => '0',  
 		   servos(0) => PMOD1(1),
 			servos(1) => PMOD1(5),
 			servos(2) => PMOD1(2),

@@ -15,7 +15,7 @@ USE_FRAMEBUFFER = 0
 SLEEP_TIME = .001
 
 if USE_WINDOWS==0 :
-	import logipi 
+	from logi import *
 
 if USE_FRAMEBUFFER :
 	"Ininitializes a new pygame screen using the framebuffer"
@@ -573,14 +573,14 @@ while True:
 		# 0x0010 PB -- PB(0) is wired to reset
 	
 	if USE_WINDOWS==0 :
-		count = logipi.directRead(0x00, 2)[0]
-		logipi.directWrite(0x01, (sw_val, 0x00))
-		logipi.directWrite(0x10, (pb_val, 0x00))
+		count = logiRead(0x00, 2)[0]
+		logiWrite(0x01, (sw_val, 0x00))
+		logiWrite(0x10, (pb_val, 0x00))
 		#update sseg
-		sseg1_val = logipi.directRead(0x08, 2)[0] # SSEG 0
-		sseg2_val = logipi.directRead(0x08, 2)[1] #SSEG 1
-		sseg3_val = logipi.directRead(0x09, 2)[0] # SSEG 2
-		sseg4_val = logipi.directRead(0x09, 2)[1] # SSEG 3
+		sseg1_val = logiRead(0x08, 2)[0] # SSEG 0
+		sseg2_val = logiRead(0x08, 2)[1] #SSEG 1
+		sseg3_val = logiRead(0x09, 2)[0] # SSEG 2
+		sseg4_val = logiRead(0x09, 2)[1] # SSEG 3
 	else:
 		if WINDOWS_UPDATE_COUNT:
 			count += 1  #AUTO INCREMENT

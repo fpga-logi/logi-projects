@@ -35,7 +35,7 @@ library work ;
 use work.logi_wishbone_pack.all ;
 use work.logi_virtual_components_pack.all ;
 
-entity logipi_virtual_instrument is
+entity logipi_virtual_component is
 port( OSC_FPGA : in std_logic;
 
 		--onboard
@@ -50,9 +50,9 @@ port( OSC_FPGA : in std_logic;
 		SYS_SPI_SCK, RP_SPI_CE0N, SYS_SPI_MOSI : in std_logic ;
 		SYS_SPI_MISO : out std_logic
 );
-end logipi_virtual_instrument;
+end logipi_virtual_component;
 
-architecture Behavioral of logipi_virtual_instrument is
+architecture Behavioral of logipi_virtual_component is
 
 	component clock_gen
 	port
@@ -137,6 +137,8 @@ architecture Behavioral of logipi_virtual_instrument is
 	signal vc_sw_val : std_logic_vector(7 downto 0);
 	signal sel: std_logic_vector(1 downto 0);
 	
+	signal btn: std_logic_vector(1 downto 0);
+	
 begin
 
 
@@ -144,7 +146,7 @@ begin
 -- Syscon
 -- The Syscon generats all the system clocks and reset of the reset of the architecture
 ---------------------------------------------------------------------
-
+btn <= not PB;
 sys_reset <= NOT PB(0); 
 sys_resetn <= NOT sys_reset ; -- for preipherals with active low reset
 
@@ -400,21 +402,28 @@ leds0 : logi_virtual_led
 -------------------------------------------------------------------	
 	 
 	 -- Device under test
-	 counter_enable  <= virtual_sw(0);
-	 counter_reset  <= virtual_pb(1);
-	 virtual_led(7 downto 0) <= cylon_reg; --counter_output;
-	 virtual_led(9 downto 8) <= SW;
-	 virtual_led(10) <= PB(1);
+	counter_enable  <= virtual_sw(0);
+	counter_reset  <= virtual_pb(3) or btn(1);
+	
+	 
+	LED <=  counter_output(1 downto 0) when virtual_sw(2) = '0' else
+			  (virtual_pb(1) & virtual_pb(0));
+	
+	virtual_led(7 downto 0) <= "000000" & SW(1) & SW(0) when virtual_sw(2) = '1' else 
+										cylon_reg when virtual_sw(1) = '0' else
+										counter_output(7 downto 0) when virtual_sw(1) = '1';
+
+	 --virtual_led(9 downto 8) <= SW;
+	 --virtual_led(10) <= PB(1);
 	 
 	 vc_sw_val <= virtual_sw(7 downto 0);	--get the vc switch vals 7 and 6 bits
 
 	--mux the count out enable input different frequncy values
 	with vc_sw_val(7 downto 6) select
 				update_count_output <= 	onehz_signal when 	"00",
-												fivehz_signal  when "01",
-												tenhz_signal  when "10",
-												onehundredhz_signal  when "11";
-				
+												fivehz_signal  when 	"01",
+												tenhz_signal  when 	"10",
+												onehundredhz_signal  when "11";			
 	
 	 process(sys_clk, sys_reset)
 	 begin
@@ -429,6 +438,7 @@ leds0 : logi_virtual_led
 		end if ;
 	 end process ;
 	 
+	 --CYLON GENERATOR
 	 process(sys_clk, sys_reset)
 	 begin
 		if sys_reset = '1' then
@@ -449,9 +459,6 @@ leds0 : logi_virtual_led
 			
 		end if ;
 	 end process ;
-	 
-	
-	LED <=  counter_output(1 downto 0);
 
 	deco_seg_out(7) <= '0' ;  -- dot point
 		with counter_output(3 downto 0) select
