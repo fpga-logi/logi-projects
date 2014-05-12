@@ -47,13 +47,13 @@ READ REGISTER ON THE FPGA
 
 WRITE AND READ AN UNINITIALIZED REGISTER ON THE FPGA
 1) read the uninitialized register_3 (0x0004)
-	ubuntu@arm:~/wishbone$ sudo ./read_wishbone 0x004
+	ubuntu@arm:~/wishbone$ sudo ./read_wishbone 0x002
 	should return: 0x0 
 2) write a value of 0x1234 to register_3  
-	ubuntu@arm:~/wishbone$ sudo ./write_wishbone 0x0004 0x1234
+	ubuntu@arm:~/wishbone$ sudo ./write_wishbone 0x0002 0x1234
 	should output: Writing 0x1234 @ 0x4 
 3) read back the contents stored in register_3
-	ubuntu@arm:~/wishbone$ sudo ./read_wishbone 0x004
+	ubuntu@arm:~/wishbone$ sudo ./read_wishbone 0x002
 	should return: 0x1234 
 
 

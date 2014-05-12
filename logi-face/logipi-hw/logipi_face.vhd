@@ -84,8 +84,8 @@ signal intercon_wrapper_wbm_address :  std_logic_vector(15 downto 0);
 signal intercon_wrapper_wbm_readdata :  std_logic_vector(15 downto 0);
 signal intercon_wrapper_wbm_writedata :  std_logic_vector(15 downto 0);
 signal intercon_wrapper_wbm_strobe :  std_logic;
-signal intercon_wrapper_wbm_write :  std_logic;
 signal intercon_wrapper_wbm_ack :  std_logic;
+signal intercon_wrapper_wbm_write :  std_logic;
 signal intercon_wrapper_wbm_cycle :  std_logic;
 
 
