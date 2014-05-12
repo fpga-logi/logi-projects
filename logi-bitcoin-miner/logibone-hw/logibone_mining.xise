@@ -9,10 +9,10 @@
     <!-- along with the project source files, is sufficient to open and    -->
     <!-- implement in ISE Project Navigator.                               -->
     <!--                                                                   -->
-    <!-- Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved. -->
+    <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved. -->
   </header>
 
-  <version xil_pn:ise_version="14.1" xil_pn:schema_version="2"/>
+  <version xil_pn:ise_version="14.6" xil_pn:schema_version="2"/>
 
   <files>
     <file xil_pn:name="Open-Source-FPGA-Bitcoin-Miner-master/projects/VHDL_Xilinx_Port/miner.vhd" xil_pn:type="FILE_VHDL">
@@ -87,23 +87,23 @@
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="27"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
-    <file xil_pn:name="../../../logi-hard/wishbone/gpmc_wishbone_wrapper.vhd" xil_pn:type="FILE_VHDL">
+    <file xil_pn:name="../../../logi-hard/hdl/wishbone/gpmc_wishbone_wrapper.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="32"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="16"/>
     </file>
-    <file xil_pn:name="../../../logi-hard/wishbone/wishbone_intercon.vhd" xil_pn:type="FILE_VHDL">
+    <file xil_pn:name="../../../logi-hard/hdl/wishbone/wishbone_intercon.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="33"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="14"/>
     </file>
-    <file xil_pn:name="../../../logi-hard/wishbone/logi_wishbone_pack.vhd" xil_pn:type="FILE_VHDL">
+    <file xil_pn:name="../../../logi-hard/hdl/wishbone/logi_wishbone_pack.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="34"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="11"/>
     </file>
-    <file xil_pn:name="../../../logi-hard/wishbone/peripherals/logi_wishbone_peripherals_pack.vhd" xil_pn:type="FILE_VHDL">
+    <file xil_pn:name="../../../logi-hard/hdl/wishbone/peripherals/logi_wishbone_peripherals_pack.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="35"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="10"/>
     </file>
-    <file xil_pn:name="../../../logi-hard/wishbone/peripherals/wishbone_register.vhd" xil_pn:type="FILE_VHDL">
+    <file xil_pn:name="../../../logi-hard/hdl/wishbone/peripherals/wishbone_register.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="36"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="15"/>
     </file>
@@ -111,7 +111,7 @@
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="37"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="13"/>
     </file>
-    <file xil_pn:name="../../../logi-hard/utils/logi_utils_pack.vhd" xil_pn:type="FILE_VHDL">
+    <file xil_pn:name="../../../logi-hard/hdl/utils/logi_utils_pack.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="55"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="8"/>
     </file>
