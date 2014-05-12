@@ -35,8 +35,6 @@ use work.conf_pack.all ;
 use work.filter_pack.all ;
 use work.feature_pack.all ;
 use work.image_pack.all ;
-use work.classifier_pack.all ;
-
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
 library UNISIM;
@@ -282,43 +280,7 @@ bi_fifo0 : wishbone_fifo
 	cam_vsync <= PMOD2(5) ;
 	PMOD2(0) <= cam_reset ;
 	cam_reset <= gls_resetn ;
-	
-	
-	chist : cumulative_histogram
-	generic map(image_height => IMAGE_HEIGHT)
-	port map(
-		clk => gls_clk,
-		resetn => gls_resetn,
-		pixel_clock => pxclk_from_interface, 
-		hsync => href_from_interface, 
-		vsync => vsync_from_interface, 
-		pixel_data_in => pixel_y_from_interface,
-		reset_chist => chist_reset,
-		chist_available => chist_available,
-		chist_pixel_val => chist_pixel_val,
-		chist_val_amount => chist_val_amount
-	);
-	
-	pixel_class : adaptive_pixel_class
-			generic map(image_width => IMAGE_WIDTH,
-						image_height => IMAGE_HEIGHT,
-						nb_class => 64)
-			port map(
-			clk => gls_clk, 
-			resetn => gls_resetn,
-			pixel_clock => pxclk_from_interface, 
-			hsync => href_from_interface, 
-			vsync => vsync_from_interface, 
-			pixel_data_in => pixel_y_from_interface,
-			pixel_clock_out => pxclk_from_classifier, 
-			hsync_out => href_from_classifier, 
-			vsync_out => vsync_from_classifier,
-			pixel_data_out => pixel_from_classifier,
-			chist_addr => chist_pixel_val,
-			chist_data => chist_val_amount,
-			chist_available => chist_available,
-			chist_reset => chist_reset
-			);
+
 
 	
 	gauss3x3_0	: gauss3x3 
@@ -380,26 +342,22 @@ bi_fifo0 : wishbone_fifo
 		generic map(NB	=>  4)
 		port map(
 			pixel_clock(0) => pxclk_from_interface, 
-			--pixel_clock(0) => pxclk_from_classifier, 
 			pixel_clock(1) => pxclk_from_gauss, 
 			pixel_clock(2) => pxclk_from_sobel, 
 			pixel_clock(3) => pxclk_from_harris,
 
 			hsync(0) => href_from_interface,
-			--hsync(0) => href_from_classifier,
 			hsync(1) => href_from_gauss, 
 			hsync(2) => href_from_sobel,
 			hsync(3) => href_from_harris,
 
 
 			vsync(0) => vsync_from_interface,
-			--vsync(0) => vsync_from_classifier,
 			vsync(1) => vsync_from_gauss,
 			vsync(2) => vsync_from_sobel,
 			vsync(3) => vsync_from_harris,
 
 			pixel_data(0) => pixel_y_from_interface	,
-			--pixel_data(0) => pixel_from_classifier	,
 			pixel_data(1) => pixel_from_gauss	,
 			pixel_data(2) => pixel_from_sobel	,
 			pixel_data(3) => pixel_from_harris	,
