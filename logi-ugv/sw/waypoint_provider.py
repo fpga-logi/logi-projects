@@ -1,6 +1,9 @@
 from gps_service import Point
+import csv
 
 
+
+## Waypoint must be provided in degree decimal not degree minute
 class WayPointException(Exception):
 
 	def __init__(self, value):
@@ -44,8 +47,30 @@ class StaticWayPointProvider(AbstractWayPointProvider):
 	
 	
 
+class PlannerWayPointProvider(AbstractWayPointProvider):
+
+	def __init__(self, wp_file):
+		super(StaticWayPointProvider, self).__init__()
+		with open(wp_file) as tsv:
+    		for line in csv.reader(tsv, dialect="excel-tab"):
+			if len(line) == 12:
+				self.waypoints.append( Point(line[8], line[9] ))
+
+
+	def getNextWayPoint(self):
+		if self.currentWayPointIndex < len(self.waypoints):
+       			self.currentWayPointIndex = self.currentWayPointIndex + 1
+		else:
+			raise WayPointException( "No more waypoints" )
+		return self.waypoints[self.currentWayPointIndex]
+
+	def getCurrentWayPoint(self):
+		return self.waypoints[self.currentWayPointIndex]
+
 		
 	
+
+
 
 
 

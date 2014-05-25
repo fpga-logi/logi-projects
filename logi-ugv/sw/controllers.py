@@ -10,7 +10,6 @@ import time
 from threading import Thread
 
 
-
 from math import radians, cos, sin, asin, sqrt, atan2 , degrees
 
 MAGN_VAR = 0.0
@@ -74,6 +73,7 @@ class IController:
 class BearingController(IController):
 	
 
+
 	def getCommand(self, sensor_map):
 		
 		ctrl = {}	
@@ -93,6 +93,42 @@ class BearingController(IController):
 		if distance < 3 or (distance < 5 and abs(heading_error) > 45.0):
 			ctrl[IController.next_waypoint_key] = 1
 		return ctrl
+
+class LocalController(IController):
+	
+	declination = 8.71 #boulder, 0.083 for Toulouse
+	
+	
+	__init__(self, home_point):
+		self.loc_coord = LocalCoordinates(home_point)
+
+
+	def getCommand(self, sensor_map):
+		
+		ctrl = {}	
+	
+		robot_imu = sensor_map[IController.imu_key]
+		robot_gps = sensor_map[IController.gps_key]
+		
+		
+		cur_xy = getXYPos(robot_gps)
+		target_xy = getXYPos(cur_waypoint)
+	
+		distance = math.sqrt(pow(cur_xy['x']-target_xy['x'] , 2)+pow(cur_xy['y']-target_xy['y'], 2))						
+
+		bearing = asin(fabs(cur_xy['y']-target_xy['y'])/distance)
+		bearing = bearing * (360.0/(2*math.pi)) # radian to degree
+	
+		robot_heading = eulerToHeading(robot_imu[1])
+		heading_error = heading - (bearing - declination)
+	
+		ctrl[IController.steering_key] = heading_error
+		print "Heading error :", heading_error
+		print "Distance to go :", distance
+		if distance < 3 or (distance < 5 and abs(heading_error) > 45.0):
+			ctrl[IController.next_waypoint_key] = 1
+		return ctrl
+
 
 
 class BlobTrackingController(IController):
@@ -266,6 +302,43 @@ class EthernetController(IController, Thread):
 		self._Thread__stop()
 	
 	
+class LocalCoordinates():
+	
+	def __init__(self, orig):
+		self.equatorial_radius = 6378137   #WGS-84 equatorial radius
+		self.equatorial_perimeter = (math.pi*2)*self.equatorial_radius
+		self.lat_scale_factor = (self.equatorial_perimeter)/360.0 	
+		if orig != Null:
+			self.setOriginPoint(orig)
+	
+	def getPosition(self):
+		return self.current_pos
 
+	def setLatLonOrigin(self, lat, lon):
+		self.origPoint = Point(lat, lon)
+		toRad = math.pi/180.0
+		lon_radius = math.sin((math.pi/2)-(lat*toRad))* self.equatorial_radius		
+		lon_perimeter = (math.pi*2)*lon_radius
+		self.lon_scale_factor = (lon_perimeter)/360.0
+	
+	def setOriginPoint(self, orig):
+		self.origPoint = orig
+		toRad = math.pi/180.0
+		lon_radius = math.sin((math.pi/2)-(orig.lat*toRad))* self.equatorial_radius		
+		lon_perimeter = (math.pi*2)*lon_radius
+		self.lon_scale_factor = (lon_perimeter)/360.0	
+	
+	def getXYPos(self, cp):
+		pos = {}
+		toRad = (2*math.pi)/360.0
+		diffLat = cp.lat - self.origPoint.lat
+		diffLon = cp.lon - self.origPoint.lon
+		x = diffLon * self.lon_scale_factor   
+		y = diffLat * self.lat_scale_factor 
+		dist = math.sqrt(pow(x, 2)+pow(y, 2))
+		pos["x"] = x
+		pos["y"] = y
+		pos["dist"] = dist
+		return pos
 
 	
