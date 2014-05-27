@@ -115,20 +115,28 @@ architecture structural of test_serial is
 	);
 	end component;
 	
-	component ping_sensor_v2 is
-		generic (CLK_FREQ_NS : positive := 20); --200ms @ 50Mhz
-		--generic (SAMPLE_PERIOD: integer := 8);	--@50Mhz, 40ms period = 2e6 counts
-		port( clk : in std_logic;
-			reset: in std_logic;
-			trigger_out: out std_logic;
-			echo_in: in std_logic;
-			ping_enable: in std_logic;
-			state_debug: out std_logic_vector(1 downto 0);
-			echo_length : out std_logic_vector(15 downto 0);
-			echo_done_out: out std_logic;
-			timeout: out std_logic
-		);
-	end component;
+component wishbone_ping is
+generic(	nb_ping : positive := 2;
+			clock_period_ns           : integer := 10
+		  );
+port(
+		  -- Syscon signals
+		  gls_reset    : in std_logic ;
+		  gls_clk      : in std_logic ;
+		  -- Wishbone signals
+		  wbs_address       : in std_logic_vector(15 downto 0) ;
+		  wbs_writedata : in std_logic_vector( 15 downto 0);
+		  wbs_readdata  : out std_logic_vector( 15 downto 0);
+		  wbs_strobe    : in std_logic ;
+		  wbs_cycle      : in std_logic ;
+		  wbs_write     : in std_logic ;
+		  wbs_ack       : out std_logic;
+			
+	     trigger : out std_logic_vector(nb_ping-1 downto 0 );
+		  echo : in std_logic_vector(nb_ping-1 downto 0)
+
+);
+end component;
 
 
 	signal gls_clk, gls_reset, clk_locked, osc_buff, clkfb : std_logic ;
@@ -138,7 +146,7 @@ architecture structural of test_serial is
 	signal top_SS_Master_0_ss : std_logic;
 	signal top_SCK_Master_0_sck : std_logic;
 	signal Master_0_miso_top_MISO : std_logic;
-	signal Intercon_0_wbm_GPS_0_wbs, Intercon_0_wbm_REG_0_wbs : wishbone_bus;
+	signal Intercon_0_wbm_GPS_0_wbs, Intercon_0_wbm_REG_0_wbs, Intercon_0_wbm_PING_0_wbs : wishbone_bus;
 
 	signal beat_0_beat_out_top_LED : std_logic;
 	signal gyro_x, gyro_offset, sonar_in : std_logic_vector(15 downto 0);
@@ -179,7 +187,7 @@ wbm_ack =>  Master_0_wbm_Intercon_0_wbs.ack
 
 Intercon_0 : wishbone_intercon
 generic map(
-memory_map => ("0000000000XXXXXX", "000000000100000X")
+memory_map => ("0000000000XXXXXX", "0000000001000000", "0000000001000001")
 )
 port map(
 	gls_clk => gls_clk, gls_reset => gls_reset,
@@ -194,24 +202,31 @@ wbs_ack =>  Master_0_wbm_Intercon_0_wbs.ack,
 
 wbm_address(0) =>  Intercon_0_wbm_GPS_0_wbs.address,
 wbm_address(1) =>  Intercon_0_wbm_REG_0_wbs.address,
+wbm_address(2) =>  Intercon_0_wbm_PING_0_wbs.address,
 wbm_writedata(0) =>  Intercon_0_wbm_GPS_0_wbs.writedata,
 wbm_writedata(1) =>  Intercon_0_wbm_REG_0_wbs.writedata,
+wbm_writedata(2) =>  Intercon_0_wbm_PING_0_wbs.writedata,
 wbm_readdata(0) =>  Intercon_0_wbm_GPS_0_wbs.readdata,
 wbm_readdata(1) =>  Intercon_0_wbm_REG_0_wbs.readdata,
+wbm_readdata(2) =>  Intercon_0_wbm_PING_0_wbs.readdata,
 wbm_cycle(0) =>  Intercon_0_wbm_GPS_0_wbs.cycle,
 wbm_cycle(1) =>  Intercon_0_wbm_REG_0_wbs.cycle,
+wbm_cycle(2) =>  Intercon_0_wbm_PING_0_wbs.cycle,
 wbm_strobe(0) =>  Intercon_0_wbm_GPS_0_wbs.strobe,
 wbm_strobe(1) =>  Intercon_0_wbm_REG_0_wbs.strobe,
+wbm_strobe(2) =>  Intercon_0_wbm_PING_0_wbs.strobe,
 wbm_write(0) =>  Intercon_0_wbm_GPS_0_wbs.write,
 wbm_write(1) =>  Intercon_0_wbm_REG_0_wbs.write,
+wbm_write(2) =>  Intercon_0_wbm_PING_0_wbs.write,
 wbm_ack(0) =>  Intercon_0_wbm_GPS_0_wbs.ack,
-wbm_ack(1) =>  Intercon_0_wbm_REG_0_wbs.ack
+wbm_ack(1) =>  Intercon_0_wbm_REG_0_wbs.ack,
+wbm_ack(2) =>  Intercon_0_wbm_PING_0_wbs.ack
 );
 
 
 reg0 :  wishbone_register 
 	generic map(
-		  nb_regs => 2 
+		  nb_regs => 1 
 	 )
 	 port map
 	 (
@@ -226,9 +241,7 @@ reg0 :  wishbone_register
 			wbs_ack =>  Intercon_0_wbm_REG_0_wbs.ack,
 			-- out signals
 			reg_out(0) => gyro_offset,
-			reg_out(1) => open,
-			reg_in(0) => gyro_x,
-			reg_in(1) => sonar_in
+			reg_in(0) => gyro_x
 	 );
 
 GPS_0 : wishbone_gps
@@ -272,17 +285,26 @@ gyro_interface :  l3gd20_interface
 		  SSN => ARD(5)
 	);
 
- ping :ping_sensor_v2 
-		generic map(CLK_FREQ_NS => 10)
-		port map( clk => gls_clk,
-			reset => gls_reset,
-			trigger_out => PMOD1(0),
-			echo_in =>  PMOD1(1),
-			ping_enable => '1',
-			state_debug => open,
-			echo_length => sonar_in,
-			echo_done_out => open
-		);
+ping0 : wishbone_ping
+generic map(	nb_ping => 1,
+			clock_period_ns => 10
+		  )
+port map(
+			gls_clk => gls_clk, gls_reset => gls_reset,
+
+			wbs_address =>  Intercon_0_wbm_PING_0_wbs.address,
+			wbs_writedata =>  Intercon_0_wbm_PING_0_wbs.writedata,
+			wbs_readdata =>  Intercon_0_wbm_PING_0_wbs.readdata,
+			wbs_cycle =>  Intercon_0_wbm_PING_0_wbs.cycle,
+			wbs_strobe =>  Intercon_0_wbm_PING_0_wbs.strobe,
+			wbs_write =>  Intercon_0_wbm_PING_0_wbs.write,
+			wbs_ack =>  Intercon_0_wbm_PING_0_wbs.ack,
+			
+	     trigger(0) => PMOD1(0),
+		  echo(0) => PMOD1(1)
+
+);
+
 
 beat_0 : heart_beat
 -- no generics

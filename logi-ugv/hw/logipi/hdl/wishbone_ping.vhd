@@ -79,7 +79,7 @@ signal ping_regs : reg16_array ;
 signal read_ack : std_logic ;
 signal write_ack : std_logic ;
 
-signal sensor_counter : std_logic_vector(3 downto 0);
+signal sensor_counter : std_logic_vector(3 downto 0); -- should depend on the number of sensor
 signal active_trigger, active_echo, ping_enable, echo_done, busy : std_logic ;
 signal echo_length : std_logic_vector(15 downto 0);
 signal enable_reg : std_logic_vector(15 downto 0);
@@ -137,7 +137,7 @@ port map(
 );
 
 
-gen_trigs_echo : for i in 0 to nb_ping generate
+gen_trigs_echo : for i in 0 to nb_ping-1 generate
 	trigger(i) <=  active_trigger when sensor_counter = i else
 					'0' ;
 	ping_enable <= '1' when sensor_counter = i and enable_reg(conv_integer(sensor_counter)) = '1' else
