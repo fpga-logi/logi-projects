@@ -295,7 +295,7 @@ dyn_conf_rom :  wishbone_shared_mem
 
 			-- Logic signals
 			write_in => '0' ,
-			addr_in => rom_addr,
+			addr_in => "00" & rom_addr,
 			data_in => (others => '0'),
 			data_out => rom_data
 	);
