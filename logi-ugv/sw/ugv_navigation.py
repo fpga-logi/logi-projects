@@ -5,6 +5,8 @@ from controllers import EthernetController as Controller
 
 import time
 
+threads = []
+
 from gps_service import GpsService
 from math import radians, cos, sin, asin, sqrt, atan2 , degrees
 
@@ -21,47 +23,51 @@ def populateSensorMap(robot, gps_service):
 	return sensor_map
 	
 
+def nav_loop():
+	robot = UgvPlatform()
+	#robot.setColorLut('lut_file.lut')
+	#robot.initImu('accelcal.txt', 'magcal.txt')
+	wp = StaticWayPointProvider()
+	gps_service = GpsService()
+	controller = Controller()
+	threads.append(controller)
+	#gps_service.start()
+	robot.setSteeringFailSafe(0.0)
+	robot.setSpeedFailSafe(ESC_ARM_ANGLE)
+	robot.resetWatchdog()
+	robot.setSteeringAngle(0.0)
+	robot.setSpeed(0)
+	while True:
+		robot.resetWatchdog()
+		#target_pos= wp.getCurrentWayPoint()
+		current_pos = gps_service.getPosition()
+		print "lat : "+str(current_pos.lat)+" lon :"+str(current_pos.lon)
+		#sensors = populateSensorMap(robot, gps_service)
+		sensors = {}
+		#if len(sensors) == 0:
+		#	time.sleep(0.1)
+		#	continue	
+		cmd = controller.getCommand(sensors)
+		if cmd == None:
+			break
+		print str(cmd)
+		if cmd.has_key(Controller.next_waypoint_key) and cmd[Controller.next_waypoint_key] != None and cmd[Controller.next_waypoint_key] == 1:
+			wp.getNextWaypoint()
+		else:	
+			robot.setSteeringAngle(cmd[Controller.steering_key])
+			robot.setSpeed(cmd[Controller.speed_key])
+		time.sleep(0.10)
+		robot.setSteeringAngle(0.0)        
+	robot.setSpeed(0)
+	print "Shutdown ESC then quit programm (for safety reason)"
+        while True:
+		time.sleep(1)	
+
 if __name__ == "__main__":
 	try:
-		robot = UgvPlatform()
-		#robot.setColorLut('lut_file.lut')
-		#robot.initImu('accelcal.txt', 'magcal.txt')
-		wp = StaticWayPointProvider()
-		gps_service = GpsService()
-		controller = Controller()
-		#gps_service.start()
-		robot.setSteeringFailSafe(0.0)
-		robot.setSpeedFailSafe(ESC_ARM_ANGLE)
-		robot.resetWatchdog()
-		robot.setSteeringAngle(0.0)
-		robot.setSpeed(0)
-		while True:
-			robot.resetWatchdog()
-			#target_pos= wp.getCurrentWayPoint()
-			current_pos = gps_service.getPosition()
-			print "lat : "+current_pos.lat+" lon :"+current_pos.lon
-			#sensors = populateSensorMap(robot, gps_service)
-			sensors = {}
-			#if len(sensors) == 0:
-			#	time.sleep(0.1)
-			#	continue	
-			cmd = controller.getCommand(sensors)
-			if cmd == None:
-				break
-			print str(cmd)
-			if cmd.has_key(Controller.next_waypoint_key) and cmd[Controller.next_waypoint_key] != None and cmd[Controller.next_waypoint_key] == 1:
-				wp.getNextWaypoint()
-			else:	
-				robot.setSteeringAngle(cmd[Controller.steering_key])
-				robot.setSpeed(cmd[Controller.speed_key])
-			time.sleep(0.10)
-
-		robot.setSteeringAngle(0.0)        
-		robot.setSpeed(0)
-		print "Shutdown ESC then quit programm (for safety reason)"
-	        while True:
-			time.sleep(1)	
+		nav_loop()
 	except KeyboardInterrupt:
-                controller.close()
-                print "dying !"
-                exit()
+		for t in threads:
+			t.close()
+		print "dying !"
+		exit()
