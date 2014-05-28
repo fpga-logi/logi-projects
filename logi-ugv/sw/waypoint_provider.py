@@ -52,9 +52,9 @@ class PlannerWayPointProvider(AbstractWayPointProvider):
 	def __init__(self, wp_file):
 		super(StaticWayPointProvider, self).__init__()
 		with open(wp_file) as tsv:
-    		for line in csv.reader(tsv, dialect="excel-tab"):
-			if len(line) == 12:
-				self.waypoints.append( Point(line[8], line[9] ))
+			for line in csv.reader(tsv, dialect="excel-tab"):
+				if len(line) == 12:
+					self.waypoints.append( Point(line[8], line[9] ))
 
 
 	def getNextWayPoint(self):

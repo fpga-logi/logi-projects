@@ -3,7 +3,6 @@ from datetime import datetime
 from datetime import timedelta
 
 import gps_service
-import gps
 import socket
 import json
 import time
@@ -14,7 +13,7 @@ from math import radians, cos, sin, asin, sqrt, atan2 , degrees
 
 MAGN_VAR = 0.0
 
-ESC_ARM_ANGLE = -15.0
+ESC_ARM_ANGLE = 0
 
 
 def eulerToHeading(euler):
@@ -99,7 +98,7 @@ class LocalController(IController):
 	declination = 8.71 #boulder, 0.083 for Toulouse
 	
 	
-	__init__(self, home_point):
+	def __init__(self, home_point):
 		self.loc_coord = LocalCoordinates(home_point)
 
 
@@ -212,7 +211,7 @@ class PathController(IController):
 		heading_error = self.path[self.path_index][0] - heading
 		print heading_error
 		ctrl[IController.steering_key] = heading_error 
-		ctrl[IController.speed_key] = 10.0
+		ctrl[IController.speed_key] = 160
 		return ctrl
 
 
@@ -258,7 +257,7 @@ class EthernetController(IController, Thread):
 					if not json_obj.has_key('time'):
 						json_obj['time'] = 0.0
 					if not json_obj.has_key('speed'):
-						json_obj['speed'] = 0.0
+						json_obj['speed'] = 0
 					if not json_obj.has_key('steer'):
 						json_obj['steer'] = 0.0
 					self.cmd.append(json_obj)
