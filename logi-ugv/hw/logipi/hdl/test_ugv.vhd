@@ -44,6 +44,50 @@ architecture structural of test_ugv is
 		strobe : std_logic;
 		ack : std_logic;
 	end record;
+	
+		component wishbone_gps is
+		generic(
+				wb_size : natural := 16 ; -- Data port size for wishbone
+				baudrate : positive := 115_200
+			  );
+		port(
+		-- Syscon signals
+			  gls_reset    : in std_logic ;
+			  gls_clk      : in std_logic ;
+			  -- Wishbone signals
+			  wbs_address       : in std_logic_vector(15 downto 0) ;
+			  wbs_writedata : in std_logic_vector( wb_size-1 downto 0);
+			  wbs_readdata  : out std_logic_vector( wb_size-1 downto 0);
+			  wbs_strobe    : in std_logic ;
+			  wbs_cycle      : in std_logic ;
+			  wbs_write     : in std_logic ;
+			  wbs_ack       : out std_logic ;
+			  rx_in : in std_logic 
+		);
+		end component;
+		
+		component wishbone_ping is
+		generic(	nb_ping : positive := 2;
+				clock_period_ns           : integer := 10
+			  );
+		port(
+			  -- Syscon signals
+			  gls_reset    : in std_logic ;
+			  gls_clk      : in std_logic ;
+			  -- Wishbone signals
+			  wbs_address       : in std_logic_vector(15 downto 0) ;
+			  wbs_writedata : in std_logic_vector( 15 downto 0);
+			  wbs_readdata  : out std_logic_vector( 15 downto 0);
+			  wbs_strobe    : in std_logic ;
+			  wbs_cycle      : in std_logic ;
+			  wbs_write     : in std_logic ;
+			  wbs_ack       : out std_logic;
+				
+			  trigger : out std_logic_vector(nb_ping-1 downto 0 );
+			  echo : in std_logic_vector(nb_ping-1 downto 0)
+
+		);
+		end component;
 
 	signal gls_clk, gls_reset, clk_locked, osc_buff, clkfb : std_logic ;
 
@@ -52,15 +96,16 @@ architecture structural of test_ugv is
 	signal top_SS_Master_0_ss : std_logic;
 	signal top_SCK_Master_0_sck : std_logic;
 	signal Master_0_miso_top_MISO : std_logic;
-	signal Intercon_0_wbm_GPIO_0_wbs : wishbone_bus;
-	signal Intercon_0_wbm_PWM_0_wbs : wishbone_bus;
-	signal Intercon_0_wbm_Servo_0_wbs : wishbone_bus;
-	signal Intercon_0_wbm_watchdog_0_wbs : wishbone_bus;
-	signal watchdog_0_reset_out_Servo_0_failsafe : std_logic;
-	signal Servo_0_servos_top_ARD : std_logic_vector((2-1) downto 0);
-	signal PWM_0_pwm_out_top_PMOD2 : std_logic_vector((3-1) downto 0);
-	signal GPIO_0_gpio_top_PMOD1 : std_logic_vector((8-1) downto 0);
-	signal beat_0_beat_out_top_LED : std_logic;
+	signal Intercon_0_wbm_GPS_0_wbs : wishbone_bus;
+	signal Intercon_0_wbm_PING_0_wbs : wishbone_bus;
+	signal Intercon_0_wbm_SERVO_0_wbs : wishbone_bus;
+	signal Intercon_0_wbm_WATCH_0_wbs : wishbone_bus;
+	signal WATCH_0_reset_out_SERVO_0_failsafe : std_logic;
+	signal BEAT_0_beat_out_top_LED : std_logic;
+	signal top_ARD_GPS_0_rx : std_logic;
+	signal SERVO_0_servos_top_ARD : std_logic_vector((2-1) downto 0);
+	signal PING_0_trigger_top_PMOD1 : std_logic_vector((3-1) downto 0);
+	signal top_PMOD1_PING_0_echo : std_logic_vector((3-1) downto 0);
 
 begin
 
@@ -97,7 +142,7 @@ wbm_ack =>  Master_0_wbm_Intercon_0_wbs.ack
 
 Intercon_0 : wishbone_intercon
 generic map(
-memory_map => ("000000000000000X", "000000000001XXXX", "000000000010XXXX", "000000000000001X")
+memory_map => ("000000001XXXXXXX", "00000000000001XX", "000000000001XXXX", "000000000000000X")
 )
 port map(
 	gls_clk => gls_clk, gls_reset => gls_reset,
@@ -110,123 +155,121 @@ wbs_strobe =>  Master_0_wbm_Intercon_0_wbs.strobe,
 wbs_write =>  Master_0_wbm_Intercon_0_wbs.write,
 wbs_ack =>  Master_0_wbm_Intercon_0_wbs.ack,
 
-wbm_address(0) =>  Intercon_0_wbm_GPIO_0_wbs.address,
-wbm_address(1) =>  Intercon_0_wbm_PWM_0_wbs.address,
-wbm_address(2) =>  Intercon_0_wbm_Servo_0_wbs.address,
-wbm_address(3) =>  Intercon_0_wbm_watchdog_0_wbs.address,
-wbm_writedata(0) =>  Intercon_0_wbm_GPIO_0_wbs.writedata,
-wbm_writedata(1) =>  Intercon_0_wbm_PWM_0_wbs.writedata,
-wbm_writedata(2) =>  Intercon_0_wbm_Servo_0_wbs.writedata,
-wbm_writedata(3) =>  Intercon_0_wbm_watchdog_0_wbs.writedata,
-wbm_readdata(0) =>  Intercon_0_wbm_GPIO_0_wbs.readdata,
-wbm_readdata(1) =>  Intercon_0_wbm_PWM_0_wbs.readdata,
-wbm_readdata(2) =>  Intercon_0_wbm_Servo_0_wbs.readdata,
-wbm_readdata(3) =>  Intercon_0_wbm_watchdog_0_wbs.readdata,
-wbm_cycle(0) =>  Intercon_0_wbm_GPIO_0_wbs.cycle,
-wbm_cycle(1) =>  Intercon_0_wbm_PWM_0_wbs.cycle,
-wbm_cycle(2) =>  Intercon_0_wbm_Servo_0_wbs.cycle,
-wbm_cycle(3) =>  Intercon_0_wbm_watchdog_0_wbs.cycle,
-wbm_strobe(0) =>  Intercon_0_wbm_GPIO_0_wbs.strobe,
-wbm_strobe(1) =>  Intercon_0_wbm_PWM_0_wbs.strobe,
-wbm_strobe(2) =>  Intercon_0_wbm_Servo_0_wbs.strobe,
-wbm_strobe(3) =>  Intercon_0_wbm_watchdog_0_wbs.strobe,
-wbm_write(0) =>  Intercon_0_wbm_GPIO_0_wbs.write,
-wbm_write(1) =>  Intercon_0_wbm_PWM_0_wbs.write,
-wbm_write(2) =>  Intercon_0_wbm_Servo_0_wbs.write,
-wbm_write(3) =>  Intercon_0_wbm_watchdog_0_wbs.write,
-wbm_ack(0) =>  Intercon_0_wbm_GPIO_0_wbs.ack,
-wbm_ack(1) =>  Intercon_0_wbm_PWM_0_wbs.ack,
-wbm_ack(2) =>  Intercon_0_wbm_Servo_0_wbs.ack,
-wbm_ack(3) =>  Intercon_0_wbm_watchdog_0_wbs.ack	
+wbm_address(0) =>  Intercon_0_wbm_GPS_0_wbs.address,
+wbm_address(1) =>  Intercon_0_wbm_PING_0_wbs.address,
+wbm_address(2) =>  Intercon_0_wbm_SERVO_0_wbs.address,
+wbm_address(3) =>  Intercon_0_wbm_WATCH_0_wbs.address,
+wbm_writedata(0) =>  Intercon_0_wbm_GPS_0_wbs.writedata,
+wbm_writedata(1) =>  Intercon_0_wbm_PING_0_wbs.writedata,
+wbm_writedata(2) =>  Intercon_0_wbm_SERVO_0_wbs.writedata,
+wbm_writedata(3) =>  Intercon_0_wbm_WATCH_0_wbs.writedata,
+wbm_readdata(0) =>  Intercon_0_wbm_GPS_0_wbs.readdata,
+wbm_readdata(1) =>  Intercon_0_wbm_PING_0_wbs.readdata,
+wbm_readdata(2) =>  Intercon_0_wbm_SERVO_0_wbs.readdata,
+wbm_readdata(3) =>  Intercon_0_wbm_WATCH_0_wbs.readdata,
+wbm_cycle(0) =>  Intercon_0_wbm_GPS_0_wbs.cycle,
+wbm_cycle(1) =>  Intercon_0_wbm_PING_0_wbs.cycle,
+wbm_cycle(2) =>  Intercon_0_wbm_SERVO_0_wbs.cycle,
+wbm_cycle(3) =>  Intercon_0_wbm_WATCH_0_wbs.cycle,
+wbm_strobe(0) =>  Intercon_0_wbm_GPS_0_wbs.strobe,
+wbm_strobe(1) =>  Intercon_0_wbm_PING_0_wbs.strobe,
+wbm_strobe(2) =>  Intercon_0_wbm_SERVO_0_wbs.strobe,
+wbm_strobe(3) =>  Intercon_0_wbm_WATCH_0_wbs.strobe,
+wbm_write(0) =>  Intercon_0_wbm_GPS_0_wbs.write,
+wbm_write(1) =>  Intercon_0_wbm_PING_0_wbs.write,
+wbm_write(2) =>  Intercon_0_wbm_SERVO_0_wbs.write,
+wbm_write(3) =>  Intercon_0_wbm_WATCH_0_wbs.write,
+wbm_ack(0) =>  Intercon_0_wbm_GPS_0_wbs.ack,
+wbm_ack(1) =>  Intercon_0_wbm_PING_0_wbs.ack,
+wbm_ack(2) =>  Intercon_0_wbm_SERVO_0_wbs.ack,
+wbm_ack(3) =>  Intercon_0_wbm_WATCH_0_wbs.ack	
 );
 
-GPIO_0 : wishbone_gpio
+GPS_0 : wishbone_gps
+generic map(BAUDRATE => 115_200)
+port map(
+	gls_clk => gls_clk, gls_reset => gls_reset,
+
+wbs_address =>  Intercon_0_wbm_GPS_0_wbs.address,
+wbs_writedata =>  Intercon_0_wbm_GPS_0_wbs.writedata,
+wbs_readdata =>  Intercon_0_wbm_GPS_0_wbs.readdata,
+wbs_cycle =>  Intercon_0_wbm_GPS_0_wbs.cycle,
+wbs_strobe =>  Intercon_0_wbm_GPS_0_wbs.strobe,
+wbs_write =>  Intercon_0_wbm_GPS_0_wbs.write,
+wbs_ack =>  Intercon_0_wbm_GPS_0_wbs.ack,
+
+rx_in =>  top_ARD_GPS_0_rx
+	
+);
+
+PING_0 : wishbone_ping
 -- no generics
+generic map(nb_ping => 3)
 port map(
 	gls_clk => gls_clk, gls_reset => gls_reset,
 
-wbs_address =>  Intercon_0_wbm_GPIO_0_wbs.address,
-wbs_writedata =>  Intercon_0_wbm_GPIO_0_wbs.writedata,
-wbs_readdata =>  Intercon_0_wbm_GPIO_0_wbs.readdata,
-wbs_cycle =>  Intercon_0_wbm_GPIO_0_wbs.cycle,
-wbs_strobe =>  Intercon_0_wbm_GPIO_0_wbs.strobe,
-wbs_write =>  Intercon_0_wbm_GPIO_0_wbs.write,
-wbs_ack =>  Intercon_0_wbm_GPIO_0_wbs.ack,
+wbs_address =>  Intercon_0_wbm_PING_0_wbs.address,
+wbs_writedata =>  Intercon_0_wbm_PING_0_wbs.writedata,
+wbs_readdata =>  Intercon_0_wbm_PING_0_wbs.readdata,
+wbs_cycle =>  Intercon_0_wbm_PING_0_wbs.cycle,
+wbs_strobe =>  Intercon_0_wbm_PING_0_wbs.strobe,
+wbs_write =>  Intercon_0_wbm_PING_0_wbs.write,
+wbs_ack =>  Intercon_0_wbm_PING_0_wbs.ack,
 
-gpio(7 downto 0) =>  GPIO_0_gpio_top_PMOD1
+trigger(2 downto 0) =>  PING_0_trigger_top_PMOD1
 ,
-gpio(15 downto 8) => open
+
+echo(2 downto 0) =>  top_PMOD1_PING_0_echo
 	
 );
 
-PWM_0 : wishbone_pwm
-generic map(
-nb_chan => 7
-)
-port map(
-	gls_clk => gls_clk, gls_reset => gls_reset,
-
-wbs_address =>  Intercon_0_wbm_PWM_0_wbs.address,
-wbs_writedata =>  Intercon_0_wbm_PWM_0_wbs.writedata,
-wbs_readdata =>  Intercon_0_wbm_PWM_0_wbs.readdata,
-wbs_cycle =>  Intercon_0_wbm_PWM_0_wbs.cycle,
-wbs_strobe =>  Intercon_0_wbm_PWM_0_wbs.strobe,
-wbs_write =>  Intercon_0_wbm_PWM_0_wbs.write,
-wbs_ack =>  Intercon_0_wbm_PWM_0_wbs.ack,
-
-pwm_out(2 downto 0) =>  PWM_0_pwm_out_top_PMOD2
-,
-pwm_out(6 downto 3) => open
-	
-);
-
-Servo_0 : wishbone_servo
+SERVO_0 : wishbone_servo
 generic map(
 nb_servos => 8
 )
 port map(
 	gls_clk => gls_clk, gls_reset => gls_reset,
 
-wbs_address =>  Intercon_0_wbm_Servo_0_wbs.address,
-wbs_writedata =>  Intercon_0_wbm_Servo_0_wbs.writedata,
-wbs_readdata =>  Intercon_0_wbm_Servo_0_wbs.readdata,
-wbs_cycle =>  Intercon_0_wbm_Servo_0_wbs.cycle,
-wbs_strobe =>  Intercon_0_wbm_Servo_0_wbs.strobe,
-wbs_write =>  Intercon_0_wbm_Servo_0_wbs.write,
-wbs_ack =>  Intercon_0_wbm_Servo_0_wbs.ack,
+wbs_address =>  Intercon_0_wbm_SERVO_0_wbs.address,
+wbs_writedata =>  Intercon_0_wbm_SERVO_0_wbs.writedata,
+wbs_readdata =>  Intercon_0_wbm_SERVO_0_wbs.readdata,
+wbs_cycle =>  Intercon_0_wbm_SERVO_0_wbs.cycle,
+wbs_strobe =>  Intercon_0_wbm_SERVO_0_wbs.strobe,
+wbs_write =>  Intercon_0_wbm_SERVO_0_wbs.write,
+wbs_ack =>  Intercon_0_wbm_SERVO_0_wbs.ack,
 
-failsafe =>  watchdog_0_reset_out_Servo_0_failsafe
+failsafe =>  WATCH_0_reset_out_SERVO_0_failsafe
 ,
 
-servos(1 downto 0) =>  Servo_0_servos_top_ARD
+servos(1 downto 0) =>  SERVO_0_servos_top_ARD
 ,
 servos(7 downto 2) => open
 	
 );
 
-watchdog_0 : wishbone_watchdog
+BEAT_0 : heart_beat
 -- no generics
 port map(
-	gls_clk => gls_clk, gls_reset => gls_reset,
+	gls_clk => gls_clk, gls_reset => WATCH_0_reset_out_SERVO_0_failsafe,
 
-wbs_address =>  Intercon_0_wbm_watchdog_0_wbs.address,
-wbs_writedata =>  Intercon_0_wbm_watchdog_0_wbs.writedata,
-wbs_readdata =>  Intercon_0_wbm_watchdog_0_wbs.readdata,
-wbs_cycle =>  Intercon_0_wbm_watchdog_0_wbs.cycle,
-wbs_strobe =>  Intercon_0_wbm_watchdog_0_wbs.strobe,
-wbs_write =>  Intercon_0_wbm_watchdog_0_wbs.write,
-wbs_ack =>  Intercon_0_wbm_watchdog_0_wbs.ack,
-
-reset_out =>  watchdog_0_reset_out_Servo_0_failsafe
+beat_out =>  BEAT_0_beat_out_top_LED
 	
 );
 
-beat_0 : heart_beat
+WATCH_0 : wishbone_watchdog
 -- no generics
 port map(
 	gls_clk => gls_clk, gls_reset => gls_reset,
 
-beat_out =>  beat_0_beat_out_top_LED
+wbs_address =>  Intercon_0_wbm_WATCH_0_wbs.address,
+wbs_writedata =>  Intercon_0_wbm_WATCH_0_wbs.writedata,
+wbs_readdata =>  Intercon_0_wbm_WATCH_0_wbs.readdata,
+wbs_cycle =>  Intercon_0_wbm_WATCH_0_wbs.cycle,
+wbs_strobe =>  Intercon_0_wbm_WATCH_0_wbs.strobe,
+wbs_write =>  Intercon_0_wbm_WATCH_0_wbs.write,
+wbs_ack =>  Intercon_0_wbm_WATCH_0_wbs.ack,
+
+reset_out =>  WATCH_0_reset_out_SERVO_0_failsafe
 	
 );
 
@@ -241,18 +284,49 @@ top_SCK_Master_0_sck <= SCK;
 
 -- Connecting outputs
 MISO <= Master_0_miso_top_MISO;
-LED(0) <= beat_0_beat_out_top_LED and (not watchdog_0_reset_out_Servo_0_failsafe);
-LED(1) <= ARD(2);
+LED(0) <= BEAT_0_beat_out_top_LED;
+LED(1) <= 'Z';
 
 -- Connecting inouts
-PMOD1(7 downto 0) <= GPIO_0_gpio_top_PMOD1;
-PMOD2(2 downto 0) <= PWM_0_pwm_out_top_PMOD2;
-PMOD2 <= (others => 'Z');
-PMOD3 <= (others => 'Z');
-PMOD4 <= (others => 'Z');
-ARD(1 downto 0) <= Servo_0_servos_top_ARD;
 
-ARD <= (others => 'Z');
+PMOD1(2 downto 0) <= PING_0_trigger_top_PMOD1;
+--PING_0_trigger_top_PMOD1 <= PMOD1(2 downto 0);
+
+
+--PMOD1(6 downto 4) <= top_PMOD1_PING_0_echo;
+top_PMOD1_PING_0_echo <= PMOD1(6 downto 4);
+
+
+PMOD1(3) <= 'Z';
+--'Z' <= PMOD1(3);
+
+
+PMOD1(7) <= 'Z';
+--'Z' <= PMOD1(7);
+
+
+PMOD2(7 downto 0) <= (others => 'Z');
+--(others => 'Z') <= PMOD2(7 downto 0);
+
+
+PMOD3(7 downto 0) <= (others => 'Z');
+--(others => 'Z') <= PMOD3(7 downto 0);
+
+
+PMOD4(7 downto 0) <= (others => 'Z');
+--(others => 'Z') <= PMOD4(7 downto 0);
+
+
+top_ARD_GPS_0_rx <= ARD(2);
+--top_ARD_GPS_0_rx <= ARD(5);
+
+
+ARD(1 downto 0) <= SERVO_0_servos_top_ARD;
+--SERVO_0_servos_top_ARD <= ARD(1 downto 0);
+
+ARD(5 downto 3) <= (others => 'Z');
+--(others => 'Z') <= ARD(4 downto 2);
+
 
 
 

@@ -140,9 +140,10 @@ port map(
 gen_trigs_echo : for i in 0 to nb_ping-1 generate
 	trigger(i) <=  active_trigger when sensor_counter = i else
 					'0' ;
-	ping_enable <= '1' when sensor_counter = i and enable_reg(conv_integer(sensor_counter)) = '1' else
-						'0' ;
 end generate ;		
+
+ping_enable <= '1' when enable_reg(conv_integer(sensor_counter)) = '1' else
+						'0' ;
 
 active_echo <= echo(conv_integer(sensor_counter)) ;
 

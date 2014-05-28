@@ -150,34 +150,8 @@ reset_fifo <= wbs_writedata(0) when write_ack = '1' else
 read_bloc : process(gls_clk, gls_reset)
 begin
     if gls_reset = '1' then
---        ctrl_register <= (others => '0');
---		  wbs_readdata <= (others => '0');
 		  read_ack <= '0' ;
     elsif rising_edge(gls_clk) then
-		 
---		 if read_ack = '1' and (wbs_strobe = '0' and wbs_cycle = '0' ) and  wbs_address(4)='0' then -- reset when read
---			pop_fifo <= '1' ;
---	     else
---			pop_fifo <= '0' ;
---		  end if ;
---		  
---		  ctrl_register(7 downto 0) <= nb_available ; 
---		  ctrl_register(15 downto 9) <= "0000000" ;
---		  
---		  ctrl_register(8) <= fifo_full ;
-		  --if reset_fifo = '1' then -- RS register for fifo full to detect overun
-		--			ctrl_register(8) <= '0' ;
-		 -- elsif fifo_full = '1' then
-		--			ctrl_register(8) <= '1' ;
-		 -- end if ;
-		  
-		  
---		  if wbs_address(4) = '0' then
---				wbs_readdata <= fifo_out ;
---		  else
---				wbs_readdata <= ctrl_register ;
---		  end if ;
-		  
         if (wbs_strobe = '1' and wbs_write = '0'  and wbs_cycle = '1') then
             read_ack <= '1';
         else
@@ -231,37 +205,7 @@ end process ;
 new_nmea16 <= new_nmea and mod_count ;
 nmea16 <= nmea_out & char_buffer  ;
 
---
----- handling nb_available manually ...
---process(gls_clk, gls_reset)
---begin
---	if gls_reset = '1' then
---			nb_available <= (others => '0');
---	elsif gls_clk'event and gls_clk = '1' then
---			if reset_fifo = '1' then
---				nb_available <= (others => '0');
---			elsif new_nmea16 = '1' and fifo_full = '0' and pop_fifo = '0' then
---				nb_available <= nb_available + 1 ;
---			elsif pop_fifo = '1' and fifo_empty = '0' and new_nmea16 = '0' then
---				nb_available <= nb_available - 1 ;
---			end if ;
---	end if ;
---end process ;
---
---fifo_0 : small_fifo 
---generic map( WIDTH => 16, DEPTH => 64, THRESHOLD => 4)
---port map(clk => gls_clk, 
---	  resetn => (not reset_fifo),
---	  push => new_nmea16, 
---	  pop => pop_fifo,
---	  full => fifo_full, 
---	  empty => fifo_empty, 
---	  limit => open,
---	  data_in => nmea16,
---	  data_out => fifo_out
---	  );
-	  
-	  
+	  	  
 -- handle address
 process(gls_clk, gls_reset)
 begin
