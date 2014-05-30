@@ -44,7 +44,7 @@ if __name__ == "__main__":
 		robot.resetWatchdog()
 		robot.setSteeringAngle(math.sin(i)*30.0)
 		print math.sin(i)*30.0
-		time.sleep(0.1)
+		time.sleep(0.01)
 		i =  i + 0.1
 		if i > (2*math.pi) :
 			i = 0

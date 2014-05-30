@@ -1,0 +1,104 @@
+from gps_service import Point
+import csv
+
+
+
+## Waypoint must be provided in degree decimal not degree minute
+class WayPointException(Exception):
+
+	def __init__(self, value):
+		self.value = value
+	def __str__(self):
+		return repr(self.value)
+
+class AbstractWayPointProvider(object):
+	
+	def __init__(self):
+		self.currentWayPointIndex = 0
+		self.waypoints = []
+	
+	def getNextWayPoint(self):
+       		raise NotImplementedError( "Should have implemented this" )
+	def getCurrentWayPoint(self):
+       		raise NotImplementedError( "Should have implemented this" )
+	def getNbWaypoint(self):
+       		raise len(self.waypoints)
+
+
+class StaticWayPointProvider(AbstractWayPointProvider):
+
+	def __init__(self):
+		super(StaticWayPointProvider, self).__init__()
+		self.waypoints.append( Point(40.575158, 75.755795))
+		self.waypoints.append( Point(40.575176, 75.755768 ))
+		self.waypoints.append( Point(40.575238, 75.755795 ))
+		self.waypoints.append( Point(40.575221, 75.755901 ))  
+
+
+	def getNextWayPoint(self):
+		if self.currentWayPointIndex < len(self.waypoints):
+       			self.currentWayPointIndex = self.currentWayPointIndex + 1
+		else:
+			raise WayPointException( "No more waypoints" )
+		return self.waypoints[self.currentWayPointIndex]
+
+	def getCurrentWayPoint(self):
+		return self.waypoints[self.currentWayPointIndex]
+	
+	
+
+class PlannerWayPointProvider(AbstractWayPointProvider):
+
+	def __init__(self, wp_file):
+		super(StaticWayPointProvider, self).__init__()
+		with open(wp_file) as tsv:
+    		for line in csv.reader(tsv, dialect="excel-tab"):
+			if len(line) == 12:
+				self.waypoints.append( Point(line[8], line[9] ))
+
+
+	def getNextWayPoint(self):
+		if self.currentWayPointIndex < len(self.waypoints):
+       			self.currentWayPointIndex = self.currentWayPointIndex + 1
+		else:
+			raise WayPointException( "No more waypoints" )
+		return self.waypoints[self.currentWayPointIndex]
+
+	def getCurrentWayPoint(self):
+		return self.waypoints[self.currentWayPointIndex]
+
+		
+	
+
+class LocalCoordinates():
+	
+	def __init__(self):
+		self.equatorial_radius = 6378137   #WGS-84 equatorial radius
+		self.equatorial_perimeter = (math.pi*2)*self.equatorial_radius
+		self.lat_scale_factor = (self.equatorial_perimeter)/360.0 	
+		def getPosition(self):
+		return self.current_pos
+
+	def setLatLonOrigin(self, lat, lon):
+		self.origPoint = Point(lat, lon)
+		toRad = math.pi/180.0
+		lon_radius = math.sin((math.pi/2)-(lat*toRad))* self.equatorial_radius		
+		lon_perimeter = (math.pi*2)*lon_radius
+		self.lon_scale_factor = (lon_perimeter)/360.0	
+	
+	def getXYPos(self, cp):
+		pos = {}
+		toRad = (2*math.pi)/360.0
+		diffLat = cp.getLatDeg()-self.origPoint.getLatDeg()
+		diffLon = cp.getLonDeg()-self.origPoint.getLonDeg()
+		x = diffLon * self.lon_scale_factor   
+		y = diffLat * self.lat_scale_factor 
+		dist = math.sqrt(pow(x, 2)+pow(y, 2))
+		pos["x"] = x
+		pos["y"] = y
+		pos["dist"] = dist
+		return pos
+
+
+
+
