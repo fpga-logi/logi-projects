@@ -334,8 +334,8 @@ PMOD1(2 downto 0) <= PING_0_trigger_top_PMOD1;
 --PING_0_trigger_top_PMOD1 <= PMOD1(2 downto 0);
 
 
-PMOD1(6 downto 4) <= top_PMOD1_PING_0_echo;
---top_PMOD1_PING_0_echo <= PMOD1(6 downto 4);
+--PMOD1(6 downto 4) <= top_PMOD1_PING_0_echo;
+top_PMOD1_PING_0_echo <= PMOD1(6 downto 4);
 
 
 PMOD1(3) <= 'Z';

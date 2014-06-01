@@ -47,8 +47,7 @@ architecture Behavioral of ping_sensor_v2 is
 	
 	
 	constant VAL_10us :integer:= 10 ; 	--10us 
-	constant TIMEOUT_VAL: integer := 50_000; --100ms
-	
+	constant TIMEOUT_VAL: integer := 100_000; --100ms
 	
 	signal ping_cnt_r: unsigned(31 downto 0);  --general purpose counter used in state mahine
 	signal ping_cnt_rst: std_logic;
