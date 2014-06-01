@@ -16,8 +16,12 @@ ESC_ARM_ANGLE = 0.0
 def populateSensorMap(robot, gps_service):
 	#pos = gps_service.getPosition()
 	valid = mpu9150.mpuRead()
-	euler =  mpu9150.getFusedEuler()
-	gyro = mpu9150.getRawGyro()
+	if valid >= 0:
+		euler =  mpu9150.getFusedEuler()
+		gyro = mpu9150.getRawGyro()
+	else:
+		euler = {0, 0, 0}
+		gyro = {0, 0, 0}
 	sensor_map = {}
 	sensor_map[Controller.imu_key] = (valid, euler, gyro)
 	sensor_map[Controller.gps_key] = gps_service.getPosition()
@@ -29,11 +33,22 @@ def nav_loop():
 	robot = UgvPlatform()
 	#robot.setColorLut('lut_file.lut')
 	#robot.initImu('accelcal.txt', 'magcal.txt')
-	mpu9150.mpuInit(1, 10, 4)
+	mpu_valid = -1
+	print "waiting for GPS fix"
+	gps_service = GpsService()
+	current_pos = gps_service.getPosition()
+	while not current_pos.valid:
+		time.sleep(1)
+		current_pos = gps_service.getPosition()
+		print current_pos.valid
+	while mpu_valid < 0:
+		time.sleep(1.0)
+		mpu_valid = mpu9150.mpuInit(1, 10, 4)
+	print mpu_valid
 	mpu9150.setMagCal('./magcal.txt')
 	mpu9150.setAccCal('./accelcal.txt')
+	#time.sleep(4)
 	wp = StaticWayPointProvider()
-	gps_service = GpsService()
 	controller = Controller()
 	threads.append(controller)
 	#gps_service.start()
@@ -48,7 +63,11 @@ def nav_loop():
 		sensors = populateSensorMap(robot, gps_service)
 		current_pos = sensors[Controller.gps_key]
 		imu_sample = sensors[Controller.imu_key]
-		print "lat : "+str(current_pos.lat)+" lon :"+str(current_pos.lon)+"imu:"+str(imu_sample)	
+		if imu_sample[0] < 0 :
+			time.sleep(0.05)
+			continue
+		#print "lat : "+str(current_pos.lat)+" lon :"+str(current_pos.lon)+"imu:"+str(imu_sample)	
+#		continue
 		cmd = controller.getCommand(sensors)
 		if cmd == None:
 			break

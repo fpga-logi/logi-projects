@@ -110,8 +110,8 @@ class LocalController(IController):
 		robot_gps = sensor_map[IController.gps_key]
 		
 		
-		cur_xy = getXYPos(robot_gps)
-		target_xy = getXYPos(cur_waypoint)
+		cur_xy = self.loc_coord.getXYPos(robot_gps)
+		target_xy = self.loc_coord.getXYPos(cur_waypoint)
 	
 		distance = math.sqrt(pow(cur_xy['x']-target_xy['x'] , 2)+pow(cur_xy['y']-target_xy['y'], 2))						
 
@@ -207,11 +207,11 @@ class PathController(IController):
 			print "Next heading"
 		if self.path_index >= len(self.path):
 			return None
-		heading = robot_imu[0][2]
+		heading = robot_imu[1][2]
 		heading_error = self.path[self.path_index][0] - heading
-		print heading_error
+		print "heading: "+str(heading)+" error : "+str(heading_error)
 		ctrl[IController.steering_key] = heading_error 
-		ctrl[IController.speed_key] = 160
+		ctrl[IController.speed_key] = 25
 		return ctrl
 
 

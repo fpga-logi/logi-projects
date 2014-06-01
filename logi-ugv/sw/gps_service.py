@@ -17,18 +17,16 @@ def DToDm(D):
 
 #point has lat lon encoded in degree not degree minute, gps coordinates must be converted
 class Point(object):
-	def __init__(self, lat, lon):
+	def __init__(self, lat, lon, valid = False):
 		self.lat = lat
 		self.lon = lon	
-
+		self.valid = valid
 	
 class GpsService():
 		
 
 	def __init__(self):
-		self.equatorial_radius = 6378137   #WGS-84 equatorial radius
-		self.equatorial_perimeter = (math.pi*2)*self.equatorial_radius
-		self.lat_scale_factor = (self.equatorial_perimeter)/360.0 	
+		self.current_pos = Point(0, 0, False) ; 	
 
 	def getPosition(self):
 		frame = logi.logiRead(0x080, 82)
@@ -42,7 +40,7 @@ class GpsService():
                               lat = -lat
                        if nmea_fields[6] == "W":
                               long = -long
-                       self.current_pos = Point(DmToD(lat), DmToD(long))
+                       self.current_pos = Point(DmToD(lat), DmToD(long), True)
 		return self.current_pos
 
 

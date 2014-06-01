@@ -11,8 +11,12 @@ BUFSIZE = 4096
 cli = socket( AF_INET,SOCK_STREAM)
 cli.connect((ADDR))
 
-cli.send('{ "steer" : 30.0, "time" : 2000.0, "speed" : 40 }')
-cli.send('{ "steer" : 0.0, "time" : 1000.0, "speed" : 0 }')
-cli.send('{ "steer" : -30.0, "time" : 2000.0, "speed" : -40 }')
+cli.send('{ "steer" : -10.0, "time" : 3000.0, "speed" : 75 }')
+cli.send('{ "steer" : -45.0, "time" : 800.0, "speed" : 75 }')
+cli.send('{ "steer" : -10.0, "time" : 2000.0, "speed" : 75 }')
+cli.send('{ "steer" : -45.0, "time" : 800.0, "speed" : 75 }')
+cli.send('{ "steer" : -10.0, "time" : 3000.0, "speed" : 75 }')
+cli.send('{ "steer" : -45.0, "time" : 800.0, "speed" : 75 }')
+cli.send('{ "steer" : -10.0, "time" : 3000.0, "speed" : 0 }')
 
 cli.close()
