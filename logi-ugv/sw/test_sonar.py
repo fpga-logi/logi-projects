@@ -9,5 +9,5 @@ while True:
 	for i in range(3):
 		sonar = logi.logiRead(0x0004+i, 2)
 		sonar_tp = (sonar[1] << 8) | sonar[0]
-		sonar_cm = float(sonar_tp)/57.0
+		sonar_cm = float(sonar_tp)/170.0
 		print "sonar "+str(i)+" :"+str(sonar_cm)+" cm"
