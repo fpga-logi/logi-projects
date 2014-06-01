@@ -1,0 +1,13 @@
+import logi
+import time
+from binascii import *
+from string import *
+
+while True:
+	time.sleep(0.1)
+	logi.logiWrite(0x0040, (0xFF, 0xFF))
+	sonar = logi.logiRead(0x0040, 2)
+	sonar_tp = (sonar[1] << 8) | sonar[0]
+	sonar_cm = float(sonar_tp)/57.0
+	if sonar_cm > 4.0 :
+		print "sonar : "+str(sonar_cm)+" cm"
