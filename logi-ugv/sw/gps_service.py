@@ -33,12 +33,12 @@ class GpsService():
                 frame_size = frame[0]
                 nmea_str = "".join(str(unichr(a)) for a in frame[2:frame_size+2])
                 nmea_fields =  split(nmea_str, ',')
-                if nmea_fields[2] == "A":
-                       lat = float(nmea_fields[3])
-                       long = float(nmea_fields[5])
-                       if nmea_fields[4] == "S":
+                if nmea_fields[6] > '0':
+                       lat = float(nmea_fields[2])
+                       long = float(nmea_fields[4])
+                       if nmea_fields[3] == "S":
                               lat = -lat
-                       if nmea_fields[6] == "W":
+                       if nmea_fields[5] == "W":
                               long = -long
                        self.current_pos = Point(DmToD(lat), DmToD(long), True)
 		return self.current_pos
