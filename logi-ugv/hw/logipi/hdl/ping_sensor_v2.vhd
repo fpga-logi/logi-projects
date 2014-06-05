@@ -1,16 +1,4 @@
 ------------------------------------------------------------------------------------
---The Timing diagram is shown below. You only need to supply a short 10uS 
---pulse to the trigger input to start the ranging, and then the module will send out 
---an 8 cycle burst of ultrasound at 40 kHz and raise its echo. The Echo is a 
---distance object that is pulse width and the range in proportion .You can 
---calculate the range through the time interval between sending trigger signal and 
---receiving echo signal. Formula: uS / 58 = centimeters or uS / 148 =inch; or: the 
---range = high level time * velocity (340M/S) / 2; we suggest to use over 60ms 
---measurement cycle, in order to prevent trigger signal to the echo signal. 
---
-
---usec counter is used to generate a 1us period signal that triggers the other counter
- 
 --state machine:
 --1) idle: wait for the period to start the ping sensing
 --2) trigger: send the 10us trigger pulse 
@@ -27,12 +15,11 @@ entity ping_sensor_v2 is
 generic (CLK_FREQ_NS : positive := 20);
 port( clk : in std_logic;
 		reset: in std_logic;
-		trigger_out: out std_logic;
-		echo_in: in std_logic;
+		ping_io: inout std_logic;
 		ping_enable: in std_logic;
-		state_debug: out std_logic_vector(1 downto 0);
 		echo_length : out std_logic_vector(15 downto 0);
 		echo_done_out: out std_logic;
+		state_debug: out std_logic_vector(1 downto 0);
 		timeout: out std_logic;
 		busy : out std_logic 
 );
@@ -41,11 +28,11 @@ end ping_sensor_v2;
 architecture Behavioral of ping_sensor_v2 is
 	type state_type is (idle, trigger, echo_wait, echo_cnt,wait_next); --,wait_sample_period);
 	signal state_reg, state_next: state_type;
-
+	
 	--@50Mhz
 	constant VAL_1us :integer:= 1_000/CLK_FREQ_NS;
 	
-	
+	--constant VAL_WAIT_NEXT_PING := 100;  --200us -- found that at least 170 us need on the parallax sensor.
 	constant VAL_10us :integer:= 10 ; 	--10us 
 	constant TIMEOUT_VAL: integer := 50_000; --100ms
 	
@@ -59,12 +46,16 @@ architecture Behavioral of ping_sensor_v2 is
 	signal timeout_cnt_r: unsigned(31 downto 0);
 	signal timeout_cnt_rst: std_logic;
 
-
 	signal trigger_out_temp : std_logic ;
+	signal trigger_out, echo_in: std_logic;
+
 	
 	signal end_usec, load_usec_counter : std_logic ;
 	signal usec_counter : std_logic_vector(31 downto 0);
 begin	
+
+ping_io <= trigger_out when state_reg = trigger else 'Z';
+echo_in <= ping_io;
 
 --register
 process(clk, reset)
@@ -87,14 +78,12 @@ begin
 			if (ping_enable = '1') then	--start trigger sequence
 				state_next <= trigger;				
 			end if;
-			
-			
+					
 		when trigger =>
 			if (ping_cnt_r >= VAL_10US) then
 				state_next <= echo_wait;
 			end if;	
-			
-			
+					
 		when echo_wait =>	--wait for echo to go high
 			if (echo_in = '1') then		--echo went high
 				state_next <= echo_cnt;	
@@ -112,6 +101,8 @@ begin
 
 		when	wait_next	=>	-- wait end of timeout to start next measurement
 			if (timeout_cnt_r >= TIMEOUT_VAL) then
+			--if (timeout_cnt_r >= VAL_WAIT_NEXT_PING) then
+					
 				state_next  <= idle;
 			end if;	
 	end case;
@@ -130,15 +121,13 @@ ping_cnt_rst <= '1' when state_reg = idle else
 					 '0' ;
 
 timeout_cnt_rst <= '1' when state_reg = idle else
-						 '1' when state_reg = trigger and ping_cnt_r >= VAL_10US else
-						 '0' ;
-						 
-						 
+					'1' when state_reg = trigger and ping_cnt_r >= VAL_10US else
+					'0' ;
+						 						 
 trigger_out_temp <= '1' when state_reg = trigger else
 					'0' ;
 
-
-						 
+					 
 echo_done <= '1' when state_reg = echo_cnt and echo_in = '0' else	
 				 '0' ;
 				 
@@ -146,7 +135,7 @@ timeout <= '1' when state_reg = echo_wait and timeout_cnt_r >= TIMEOUT_VAL else
 			  '1' when state_reg = echo_cnt and timeout_cnt_r >= TIMEOUT_VAL else
 			  '0' ;
 
-	busy <= '0' when state_reg = idle and ping_enable = '0' else
+busy <= '0' when state_reg = idle and ping_enable = '0' else
 			'1' ;
 
 -- timeout counter 

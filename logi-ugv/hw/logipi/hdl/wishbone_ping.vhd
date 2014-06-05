@@ -48,8 +48,9 @@ port(
 		  wbs_write     : in std_logic ;
 		  wbs_ack       : out std_logic;
 			
-	     trigger : out std_logic_vector(nb_ping-1 downto 0 );
-		  echo : in std_logic_vector(nb_ping-1 downto 0)
+			ping_io : inout std_logic
+	     --trigger : out std_logic_vector(nb_ping-1 downto 0 );
+		  --echo : in std_logic_vector(nb_ping-1 downto 0)
 
 );
 end wishbone_ping;
@@ -60,8 +61,9 @@ component ping_sensor_v2 is
 generic (CLK_FREQ_NS : positive := 20);
 port( clk : in std_logic;
 		reset: in std_logic;
-		trigger_out: out std_logic;
-		echo_in: in std_logic;
+		--trigger_out: out std_logic;
+		--echo_in: in std_logic;
+		ping_io: inout std_logic;
 		ping_enable: in std_logic;
 		state_debug: out std_logic_vector(1 downto 0);
 		echo_length : out std_logic_vector(15 downto 0);
@@ -128,8 +130,9 @@ gen_trigs_echo : for i in 0 to nb_ping-1 generate
 	port map( 
 				clk => gls_clk,
 				reset => gls_reset,
-				trigger_out => trigger(i),
-				echo_in =>  echo(i),
+				--trigger_out => trigger(i),
+				--echo_in =>  echo(i),
+				ping_io => ping_io,
 				ping_enable => enable_reg(i),
 				state_debug => open,
 				echo_length => ping_regs(i),

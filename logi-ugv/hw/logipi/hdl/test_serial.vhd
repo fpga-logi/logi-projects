@@ -131,9 +131,10 @@ port(
 		  wbs_cycle      : in std_logic ;
 		  wbs_write     : in std_logic ;
 		  wbs_ack       : out std_logic;
-			
-	     trigger : out std_logic_vector(nb_ping-1 downto 0 );
-		  echo : in std_logic_vector(nb_ping-1 downto 0)
+		
+		ping_io : inout std_logic
+	     --trigger : out std_logic_vector(nb_ping-1 downto 0 );
+		  --echo : in std_logic_vector(nb_ping-1 downto 0)
 
 );
 end component;
@@ -300,8 +301,9 @@ port map(
 			wbs_write =>  Intercon_0_wbm_PING_0_wbs.write,
 			wbs_ack =>  Intercon_0_wbm_PING_0_wbs.ack,
 			
-	     trigger(0) => PMOD1(0),
-		  echo(0) => PMOD1(1)
+			ping_io => PMOD1(0)
+	     --trigger(0) => PMOD1(0),
+		 --echo(0) => PMOD1(1)
 
 );
 
@@ -336,10 +338,6 @@ PMOD2 <= (others => 'Z');
 PMOD3 <= (others => 'Z');
 PMOD4 <= (others => 'Z');
 ARD <= (others => 'Z');
-
-
-
-
 
 -- system clock generation
 
