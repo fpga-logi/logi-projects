@@ -48,7 +48,7 @@ port(
 		  wbs_write     : in std_logic ;
 		  wbs_ack       : out std_logic;
 			
-			ping_io : inout std_logic
+			ping_io : inout std_logic_vector(nb_ping-1 downto 0 )
 	     --trigger : out std_logic_vector(nb_ping-1 downto 0 );
 		  --echo : in std_logic_vector(nb_ping-1 downto 0)
 
@@ -132,7 +132,7 @@ gen_trigs_echo : for i in 0 to nb_ping-1 generate
 				reset => gls_reset,
 				--trigger_out => trigger(i),
 				--echo_in =>  echo(i),
-				ping_io => ping_io,
+				ping_io => ping_io(i),
 				ping_enable => enable_reg(i),
 				state_debug => open,
 				echo_length => ping_regs(i),

@@ -181,7 +181,7 @@ wbm_ack(3) =>  Intercon_0_wbm_WATCH_0_wbs.ack,
 wbm_ack(4) =>  Intercon_0_wbm_REG_0_wbs.ack	
 );
 
-GPS_0 : wishbone_gps
+GPS_0 : entity work.wishbone_gps
 -- no generics
 port map(
 	gls_clk => gls_clk, gls_reset => gls_reset,
@@ -198,7 +198,7 @@ rx_in =>  top_ARD_GPS_0_rx
 	
 );
 
-PING_0 : wishbone_ping
+PING_0 : entity work.wishbone_ping
 -- no generics
 generic map(nb_ping => 3)
 port map(
@@ -212,10 +212,9 @@ wbs_strobe =>  Intercon_0_wbm_PING_0_wbs.strobe,
 wbs_write =>  Intercon_0_wbm_PING_0_wbs.write,
 wbs_ack =>  Intercon_0_wbm_PING_0_wbs.ack,
 
-trigger(2 downto 0) =>  PING_0_trigger_top_PMOD1
-,
-
-echo(2 downto 0) =>  top_PMOD1_PING_0_echo
+ping_io(2 downto 0) => PING_0_trigger_top_PMOD1
+--trigger(2 downto 0) =>  PING_0_trigger_top_PMOD1
+--echo(2 downto 0) =>  top_PMOD1_PING_0_echo
 	
 );
 
