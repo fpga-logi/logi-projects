@@ -11,157 +11,175 @@ use IEEE.STD_LOGIC_1164.ALL;
 use ieee.numeric_std.ALL;
 use ieee.std_logic_unsigned.all;
 
-entity ping_sensor_v2 is
+entity ping_sensor_v2  is
 generic (CLK_FREQ_NS : positive := 20);
-port( clk : in std_logic;
+port( 	clk : in std_logic;
 		reset: in std_logic;
-		ping_io: inout std_logic;
-		ping_enable: in std_logic;
+		--ping signals
+		ping_io: inout std_logic;  	--tristate option usage
+		--trigger_out: out std_logic;	--trigger output signal (if not using trisate)
+		--echo_in: in std_logic;  	--echo in signal (if not using trisate)
 		echo_length : out std_logic_vector(15 downto 0);
+		ping_enable: in std_logic;
 		echo_done_out: out std_logic;
-		state_debug: out std_logic_vector(1 downto 0);
+		state_debug: out std_logic_vector(2 downto 0);
 		timeout: out std_logic;
 		busy : out std_logic 
 );
-end ping_sensor_v2;
+end ping_sensor_v2 ;
 
 architecture Behavioral of ping_sensor_v2 is
-	type state_type is (idle, trigger, echo_wait, echo_cnt,wait_next); --,wait_sample_period);
+	type state_type is (idle, trigger, echo_wait, echo_cnt, echo_wait_low, wait_next); --,wait_sample_period);
 	signal state_reg, state_next: state_type;
 	
 	--@50Mhz
 	constant VAL_1us :integer:= 1_000/CLK_FREQ_NS;
-	
-	--constant VAL_WAIT_NEXT_PING := 100;  --200us -- found that at least 170 us need on the parallax sensor.
+	constant VAL_WAIT_NEXT_PING: integer := 5000; -- found that at least 170 us need on the parallax sensor.
 	constant VAL_10us :integer:= 10 ; 	--10us 
-	constant TIMEOUT_VAL: integer := 50_000; --100ms
+	constant TIMEOUT_VAL: integer := 50_000; --50ms
 	
-	signal ping_cnt_r: unsigned(31 downto 0);  --general purpose counter used in state mahine
-	signal ping_cnt_rst: std_logic;
-	signal echo_done: std_logic;
-	signal echo_clk_val_n, echo_clk_val_r : unsigned(31 downto 0);
-
-	signal cnt_timeout_r: unsigned(31 downto 0);	--timeout signals
+	signal echo_reading_r: unsigned(31 downto 0);
+		
+	--general purpose 1us counter used in state machine
+	signal cnt_us_r: unsigned(31 downto 0);
+	signal cnt_us_rst, cnt_us_rst_r: std_logic;
 	
-	signal timeout_cnt_r: unsigned(31 downto 0);
-	signal timeout_cnt_rst: std_logic;
-
-	signal trigger_out_temp : std_logic ;
-	signal trigger_out, echo_in: std_logic;
-
+	signal trigger_out_n, echo_done : std_logic ;
 	
+	--usec counter signals
 	signal end_usec, load_usec_counter : std_logic ;
 	signal usec_counter : std_logic_vector(31 downto 0);
+		
+	--IF USING TRISTATE VALUES
+	signal echo_in, trigger_out: std_logic;
+	
+	signal trigger_out_temp: std_logic;
+	
+	signal echo_in_r: std_logic;
+	
+	
 begin	
-
+--tristate option
 ping_io <= trigger_out when state_reg = trigger else 'Z';
-echo_in <= ping_io;
+echo_in <= ping_io;		--io set to input, assign internal signal
 
---register
+--registers
 process(clk, reset)
 begin
 	if reset = '1' then
 		state_reg <= idle;
+		echo_in_r <= '0';
 	elsif clk'event and clk = '1' then
 		state_reg <= state_next;
+		echo_in_r <= echo_in;
 	end if;
 end process ;
 
---need to pull out the counters!
-process(state_reg, ping_enable, echo_in, ping_cnt_r, timeout_cnt_r)
+process(state_reg, ping_enable, echo_in_r,cnt_us_r, end_usec)
 begin
 	state_next <= state_reg;
-
+	cnt_us_rst <= '0';
+	state_debug <= "000";
 	case state_reg is 
 		
 		when idle => 
+			state_debug <= "001";
 			if (ping_enable = '1') then	--start trigger sequence
-				state_next <= trigger;				
+				state_next <= trigger;	
+				cnt_us_rst <= '1';
 			end if;
-					
+								
 		when trigger =>
-			if (ping_cnt_r >= VAL_10US) then
+			state_debug <= "010";
+			--if (cnt_us_r >= VAL_10US) then
+			if (cnt_us_r >= VAL_10US and end_usec = '1') then
 				state_next <= echo_wait;
+				cnt_us_rst <= '1';
 			end if;	
 					
 		when echo_wait =>	--wait for echo to go high
-			if (echo_in = '1') then		--echo went high
+			state_debug <= "011";
+			if (echo_in_r = '1' and end_usec = '1') then		--echo went high
 				state_next <= echo_cnt;	
-			elsif (timeout_cnt_r >= TIMEOUT_VAL) then
-				state_next <= idle;
+				cnt_us_rst <= '1';
+			--elsif (cnt_us_r >= TIMEOUT_VAL) then
+			elsif (cnt_us_r >= TIMEOUT_VAL and end_usec = '1') then
+				--state_next <= idle;
+				state_next <= wait_next;
+				cnt_us_rst <= '1';
 			end if;	
 			
 		when echo_cnt =>					--cnt length of echo pulse
-			if (echo_in = '0') then		--ECHO received - DONE!
-				--state_next <= wait_sample_period;
+			state_debug <= "100";
+			if (echo_in_r = '0' and end_usec = '1') then		--ECHO received - DONE!
 				state_next <= wait_next;
-			elsif (timeout_cnt_r >= TIMEOUT_VAL) then	--check to see if the timeout
-				state_next <= idle;
-			end if;	
+				cnt_us_rst <= '1';
+			--elsif (cnt_us_r >= TIMEOUT_VAL ) then
+			elsif (cnt_us_r >= TIMEOUT_VAL and end_usec = '1') then	--check to see if the timeout
+				--state_next <= idle;
+				state_next <= echo_wait_low;
+				cnt_us_rst <= '1';
+			end if;				
 
+		when echo_wait_low	=>	--this will wait to ensure echo has gone low, sr04 will timeout @200ms with echo high
+			state_debug <= "110";
+			if(echo_in_r = '0' and end_usec = '1') then
+				cnt_us_rst <= '1';
+				state_next <= wait_next;
+			end if;
+			
 		when	wait_next	=>	-- wait end of timeout to start next measurement
-			if (timeout_cnt_r >= TIMEOUT_VAL) then
-			--if (timeout_cnt_r >= VAL_WAIT_NEXT_PING) then
-					
+			state_debug <= "101";
+			--if (cnt_us_r >= VAL_WAIT_NEXT_PING ) then
+			if (cnt_us_r >= VAL_WAIT_NEXT_PING and end_usec = '1') then  --putting lower values here throws wrencn in the works
+			--if (timeout_cnt_r >= VAL_WAIT_NEXT_PING) then  --wait minmum amount of time until next reading
 				state_next  <= idle;
+				cnt_us_rst <= '1';
 			end if;	
 	end case;
 end process;
 
-with state_reg select
-	state_debug <= "00" when idle,
-						"01" when trigger,
-						"10" when echo_wait,
-						"11" when echo_cnt,
-						"00" when others ;
 
-ping_cnt_rst <= '1' when state_reg = idle else
-					 '1' when state_reg = echo_wait and echo_in = '1' else
-					 '1' when state_reg = echo_cnt and echo_in = '0' else
-					 '0' ;
+-- with state_reg select
+-- state_debug <= "00" when idle,
+						-- "01" when trigger,
+						-- "10" when echo_wait,
+						-- "11" when echo_cnt,
+						-- "00" when others ;
 
-timeout_cnt_rst <= '1' when state_reg = idle else
-					'1' when state_reg = trigger and ping_cnt_r >= VAL_10US else
-					'0' ;
+-- cnt_us_rst <= 		'1' when state_reg = idle else
+					-- '1' when state_reg = trigger and cnt_us_r >= VAL_10US else  --reset the timeout after trigger is sent
+					-- '1' when state_reg = echo_wait and echo_in = '1' else
+					-- '1' when state_reg = echo_wait and cnt_us_r >= TIMEOUT_VAL else  --timeout
+					-- '1' when state_reg = echo_cnt and echo_in = '0' else  --restart counter when entering wait_next state.
+					-- '1' when state_reg = echo_cnt and cnt_us_r >= TIMEOUT_VAL else 
+					-- '0' ;				
 						 						 
-trigger_out_temp <= '1' when state_reg = trigger else
+trigger_out_n <= '1' when state_reg = trigger else
 					'0' ;
-
 					 
-echo_done <= '1' when state_reg = echo_cnt and echo_in = '0' else	
-				 '0' ;
+echo_done <= '1' when state_reg = echo_cnt and echo_in_r = '0' else	
+				'0' ;
 				 
-timeout <= '1' when state_reg = echo_wait and timeout_cnt_r >= TIMEOUT_VAL else	
-			  '1' when state_reg = echo_cnt and timeout_cnt_r >= TIMEOUT_VAL else
+timeout <= '1' when state_reg = echo_wait and cnt_us_r >= TIMEOUT_VAL else	
+			  '1' when state_reg = echo_cnt and cnt_us_r >= TIMEOUT_VAL else
 			  '0' ;
-
+			  
 busy <= '0' when state_reg = idle and ping_enable = '0' else
 			'1' ;
 
--- timeout counter 
+-- cnt_us_r  counter 
 process(clk, reset)
 begin
 	if reset = '1' then
-		timeout_cnt_r <= (others => '0');
+		cnt_us_r <= (others => '0');
 	elsif clk'event and clk = '1' then
-		if timeout_cnt_rst = '1' then
-			timeout_cnt_r <= (others => '0');
+		--if cnt_us_rst_r = '1' then		--trying to use latched rst to see if helps with value.... nope
+		if cnt_us_rst = '1' then		
+			cnt_us_r  <= (others => '0');
 		elsif end_usec = '1' then
-			timeout_cnt_r <= timeout_cnt_r + 1 ;
-		end if ;
-	end if ;
-end process ;
-
--- ping counter 
-process(clk, reset)
-begin
-	if reset = '1' then
-		ping_cnt_r <= (others => '0');
-	elsif clk'event and clk = '1' then
-		if ping_cnt_rst = '1' then
-			ping_cnt_r <= (others => '0');
-		elsif end_usec = '1' then
-			ping_cnt_r <= ping_cnt_r + 1 ;
+			cnt_us_r  <= cnt_us_r  + 1 ;
+			--This was not here.  Was creating a latch?
 		end if ;
 	end if ;
 end process ;
@@ -179,8 +197,8 @@ begin
 		end if ;
 	end if ;
 end process ;
-end_usec <= 			'1' when usec_counter = 0 else
-						'0' ;
+end_usec 		<= '1' when usec_counter = 0 else
+					'0' ;
 load_usec_counter <= '1' when state_reg = idle else
 							end_usec;
 
@@ -188,26 +206,37 @@ load_usec_counter <= '1' when state_reg = idle else
 process(clk, reset)
 begin
 	if reset = '1' then
-		echo_clk_val_r <= (others => '0');
+		echo_reading_r <= (others => '0');
 	elsif clk'event and clk = '1' then
 		if echo_done = '1' then
-			echo_clk_val_r <= ping_cnt_r ;
+			echo_reading_r <= cnt_us_r;
 		end if ;
 	end if ;
 end process ;
 
+
+--register drving trigger out
 process(clk, reset)
 begin
 	if reset = '1' then
 		trigger_out <= '0';
 	elsif clk'event and clk = '1' then
-		trigger_out <= trigger_out_temp ;
+		trigger_out <= trigger_out_n ;
 	end if ;
 end process ;
 
+--register latch the reset signal, getting glic
+process(clk, reset)
+begin
+	if reset = '1' then
+		cnt_us_rst_r <= '0';
+	elsif clk'event and clk = '1' then
+		cnt_us_rst_r <= cnt_us_rst ;
+	end if ;
+end process ;
 
 						
-echo_length <= std_logic_vector(echo_clk_val_r(15 downto 0)) ;						
+echo_length <= std_logic_vector(echo_reading_r(15 downto 0)) ;						
 echo_done_out <= echo_done;
 
 end Behavioral;
