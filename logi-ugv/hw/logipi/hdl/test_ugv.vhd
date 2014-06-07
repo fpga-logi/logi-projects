@@ -61,6 +61,22 @@ port(
 
 );
 end component;
+
+
+component encoder_interface is
+generic(FREQ_DIV : positive := 100);
+port(
+	clk, reset : in std_logic ;
+	channel_a, channel_b : in std_logic;
+	
+	period : out std_logic_vector(15 downto 0);
+	pv : out std_logic ;
+	
+	count : out std_logic_vector(15 downto 0);
+	reset_count : in std_logic 
+
+);
+end component;
 	
 	type wishbone_bus is
 	record
@@ -95,6 +111,8 @@ end component;
 	
 	-- my logic
 	signal gyro_x, gyro_offset : std_logic_vector(15 downto 0) := X"0000";
+	signal encoder_count, encoder_control : std_logic_vector(15 downto 0);
+	signal ARD_4_delayed : std_logic ;
 
 begin
 
@@ -131,7 +149,7 @@ wbm_ack =>  Master_0_wbm_Intercon_0_wbs.ack
 
 Intercon_0 : wishbone_intercon
 generic map(
-memory_map => ("000000001XXXXXXX", "00000000000001XX", "000000000001XXXX", "000000000000000X", "0000000000000010")
+memory_map => ("000000001XXXXXXX", "00000000000001XX", "000000000001XXXX", "000000000000000X", "000000000000001X")
 )
 port map(
 	gls_clk => gls_clk, gls_reset => gls_reset,
@@ -270,7 +288,7 @@ reset_out =>  WATCH_0_reset_out_SERVO_0_failsafe
 
 REG_0 : wishbone_register
 -- no generics
-generic map(nb_regs => 1)
+generic map(nb_regs => 2)
 port map(
 	gls_clk => gls_clk, gls_reset => gls_reset,
 
@@ -283,7 +301,9 @@ wbs_write =>  Intercon_0_wbm_REG_0_wbs.write,
 wbs_ack =>  Intercon_0_wbm_REG_0_wbs.ack,
 
 reg_out(0)(15 downto 0) => gyro_offset,
-reg_in(0)(15 downto 0) => gyro_x	
+reg_out(1)(15 downto 0) => encoder_control,
+reg_in(0)(15 downto 0) => gyro_x,
+reg_in(1)(15 downto 0) => encoder_count
 );
 
 
@@ -310,6 +330,21 @@ port map(
 		  DIN => PMOD4(1),
 		  SCLK => PMOD4(2),
 		  SSN => PMOD4(3)
+
+);
+
+enc0 : encoder_interface
+generic map(FREQ_DIV => 100)
+port map(
+	clk => gls_clk, reset => gls_reset,
+	channel_a => ARD(4), 
+	channel_b => '0',
+	
+	period => open,
+	pv => open,
+	
+	count => encoder_count,
+	reset_count => encoder_control(0) 
 
 );
 
@@ -358,14 +393,14 @@ PMOD4(7 downto 4) <= (others => 'Z');
 
 
 --ARD(5) <= top_ARD_GPS_0_rx;
-top_ARD_GPS_0_rx <= ARD(2);
+top_ARD_GPS_0_rx <= ARD(5);
 
 
 ARD(1 downto 0) <= SERVO_0_servos_top_ARD;
 --SERVO_0_servos_top_ARD <= ARD(1 downto 0);
 
 
-ARD(5 downto 3) <= (others => 'Z');
+ARD(3 downto 2) <= (others => 'Z');
 --(others => 'Z') <= ARD(4 downto 2);
 
 
