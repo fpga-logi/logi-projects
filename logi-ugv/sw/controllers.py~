@@ -3,7 +3,6 @@ from datetime import datetime
 from datetime import timedelta
 
 import gps_service
-import gps
 import socket
 import json
 import time
@@ -14,7 +13,7 @@ from math import radians, cos, sin, asin, sqrt, atan2 , degrees
 
 MAGN_VAR = 0.0
 
-ESC_ARM_ANGLE = -15.0
+ESC_ARM_ANGLE = 0
 
 
 def eulerToHeading(euler):
@@ -99,7 +98,7 @@ class LocalController(IController):
 	declination = 8.71 #boulder, 0.083 for Toulouse
 	
 	
-	__init__(self, home_point):
+	def __init__(self, home_point):
 		self.loc_coord = LocalCoordinates(home_point)
 
 
@@ -111,8 +110,8 @@ class LocalController(IController):
 		robot_gps = sensor_map[IController.gps_key]
 		
 		
-		cur_xy = getXYPos(robot_gps)
-		target_xy = getXYPos(cur_waypoint)
+		cur_xy = self.loc_coord.getXYPos(robot_gps)
+		target_xy = self.loc_coord.getXYPos(cur_waypoint)
 	
 		distance = math.sqrt(pow(cur_xy['x']-target_xy['x'] , 2)+pow(cur_xy['y']-target_xy['y'], 2))						
 
@@ -208,11 +207,11 @@ class PathController(IController):
 			print "Next heading"
 		if self.path_index >= len(self.path):
 			return None
-		heading = robot_imu[0][2]
+		heading = robot_imu[1][2]
 		heading_error = self.path[self.path_index][0] - heading
-		print heading_error
+		print "heading: "+str(heading)+" error : "+str(heading_error)
 		ctrl[IController.steering_key] = heading_error 
-		ctrl[IController.speed_key] = 10.0
+		ctrl[IController.speed_key] = 25
 		return ctrl
 
 
@@ -258,7 +257,7 @@ class EthernetController(IController, Thread):
 					if not json_obj.has_key('time'):
 						json_obj['time'] = 0.0
 					if not json_obj.has_key('speed'):
-						json_obj['speed'] = 0.0
+						json_obj['speed'] = 0
 					if not json_obj.has_key('steer'):
 						json_obj['steer'] = 0.0
 					self.cmd.append(json_obj)

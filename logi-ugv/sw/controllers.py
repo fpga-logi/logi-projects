@@ -2,12 +2,11 @@
 from datetime import datetime
 from datetime import timedelta
 
-import gps_service
 import socket
 import json
 import time
 from threading import Thread
-
+import math
 
 from math import radians, cos, sin, asin, sqrt, atan2 , degrees
 
@@ -307,7 +306,7 @@ class LocalCoordinates():
 		self.equatorial_radius = 6378137   #WGS-84 equatorial radius
 		self.equatorial_perimeter = (math.pi*2)*self.equatorial_radius
 		self.lat_scale_factor = (self.equatorial_perimeter)/360.0 	
-		if orig != Null:
+		if orig != None:
 			self.setOriginPoint(orig)
 	
 	def getPosition(self):
