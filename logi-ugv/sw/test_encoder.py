@@ -13,7 +13,7 @@ logi.logiWrite(0x0003, (0x00, 0x00))
 #2) start the script and push the on a given distance (20cm to 1m)
 #3) write-down the tick value at the end of the distance
 #4) report the distance in the CALIBRATE_DISTANCE variable, and report the tick count in the CALIBRATE_TICK in the script
-#5) run the script again, and verify that the reported distance is fine, you can adjust the CALIBRATE_TICK and CALIBRATE_DISTANCE to give better results.
+#5) run the script again, and verify that the reported distance is fine, you can adjust the CALIBRATE_TICK and CALIBRATE_DISTANCE to give 
 
 CALIBRATE_TICK = 1.0
 CALIBRATE_DISTANCE = 1.0 

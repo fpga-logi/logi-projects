@@ -10,14 +10,15 @@ class RobotState():
 	
 	def __init__(self):
 		#2D robot state, x position, y position, heading, speed
-		self.x = array([0.0, 0.0, 15.0, 2.0])
+		self.x = array([0.0, 0.0, 0.0, 0.0])
 		self.H = array([[1.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 1.0, 0.0], [0.0, 0.0, 0.0, 1.0]])
-		# process error, to be evaluated ? I believe no ...
-		self.Q = array([[0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.001, 0.0], [0.0, 0.0, 0.0, 0.001]])
+		# process error, to be evaluated ? I believe not ...
+		# some uncertainty is required on x and y for gps corrections to be taken into account
+		self.Q = array([[0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 1.0, 0.0], [0.0, 0.0, 0.0, 1.0]])
 		self.P = array([[1.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 1.0, 0.0], [0.0, 0.0, 0.0, 1.0]])
 
 		# need to estimate measurement error for GPS ...
-		self.R = array([[0.5, 0.0, 0.0, 0.0], [0.0, 0.5, 0.0, 0.0], [0.0, 0.0, 0.1, 0.0], [0.0, 0.0, 0.0, 0.1]])
+		self.R = array([[1.5, 0.0, 0.0, 0.0], [0.0, 1.5, 0.0, 0.0], [0.0, 0.0, 2.0, 0.0], [0.0, 0.0, 0.0, 1.0]])
 		# need to define Q, H
 
 	def computeStateEvolution(self, x, F):
@@ -66,9 +67,6 @@ class RobotState():
 		toRad = math.pi/180.0		
 
 		# Prediction
-		F = array([[1.0, 0, 0, math.sin(self.x[2]*toRad)*dt], \
-			[0, 1.0, 0, math.cos(self.x[2]*toRad)*dt],\
-			[0, 0, 1.0, 0], [0, 0, 0, 1.0]])
 
 		F = array([[1.0, 0, 0, math.cos(self.x[2]*toRad)*dt], \
 			[0, 1.0, 0, math.sin(self.x[2]*toRad)*dt],\
@@ -85,20 +83,27 @@ class RobotState():
 			self.H[1][1] = 1.0
 		#print "F="+str(F)	
 		self.x = self.computeStateEvolution(self.x, F)
-		if self.x[2] > 180.0:
+
+		#should not clamp this way, we'd better stay in 2pi to have better heading error measurement.
+		#if self.x[2] > 180.0:
+		#	self.x[2] = self.x[2] - 360.0
+		if self.x[2] > 360.0:
 			self.x[2] = self.x[2] - 360.0
+		if measured_heading < 0 :
+			measured_heading = 360.0 + measured_heading	
 		#print "x+="+str(self.x)
 		zp = self.computeMeasurementPrediction(self.x, self.H)
 		#print "Z+="+str(zp)
-		#if sensors == None:
-		#	return self.x
-		#Observation
-		#heading_measure = sensors[IController.imu_key][2] # heading estimate should be third value of the eulerian attitude
-		#odometry =  sensors[IController.odo]	
-		#speed = odometry/(TICK_PER_TURN) * (2*math.pi*WHEEL_RADIUS)
+	
 		z = array([measured_x, measured_y, measured_heading, measured_speed])
 		
 		v = self.computeMeasurementPredictionError(z,zp)
+		# clamp v for input based on heading and predicted heading, managing non-linearity on error for heading
+		if v[2] > 180.0:
+			v[2] = v[2] - 360.0
+		if v[2] < -180.0:
+			v[2] = v[2] + 360.0
+	
 		#print "V="+str(v)
 		#Correction		
 		self.P = self.computeStateCovariance(self.P, F, self.Q)
@@ -111,7 +116,9 @@ class RobotState():
 		self.P = self.computeUpdatedStateCovarianceExtended(W, self.P, self.H)
 		#print "P="+str(self.P)
 		self.x = self.computeUpdatedState(self.x, W, v)	
-		if self.x[2] > 180.0: # clamp heading to 180.0 to match measurement type
+
+		# still need to handle non contiguity on 360.0 to 0.0 ... should take minimum distance between the two instead of direct difference.
+		if self.x[2] > 360.0: # clamp heading to 180.0 to match measurement type
 			self.x[2] = self.x[2] - 360.0
 			
 		# http://www.cs.cmu.edu/~motionplanning/papers/sbp_papers/integrated3/kleeman_kalman_basics.pdf
@@ -165,14 +172,16 @@ class RobotState():
 
 
 def drawCircle(state, dt):
-	state = state + dt
+	angular_speed = 5.0
+	state = state + angular_speed
+	radius = 2.0
 	if state > 360.0:
 		state = 0.0
 	toRad = math.pi/180.0 
-	x = math.cos(state*toRad)*20.0
-	y = math.sin(state*toRad)*20.0
-	speed = (math.tan(0.1*toRad)*20.0)/dt # constant speed
+	speed = (math.tan(angular_speed*toRad)*radius)/dt # constant speed
 	heading = state + 90.0 
+	x = math.cos(state*toRad)*radius
+	y = math.sin(state*toRad)*radius
 	if heading > 180.0:
 		heading = heading - 360.0
 	return (x, y, heading, speed, state)
@@ -181,16 +190,17 @@ def drawLine(state, dt):
 	state = state + dt
 	speed = 2.0
 	heading = 16.0
-	x = math.sin(heading*toRad)*state*speed
-	y = math.cos(heading*toRad)*state*speed
+	x = math.cos(heading*toRad)*state*speed
+	y = math.sin(heading*toRad)*state*speed
 	return (x, y, heading, speed, state)
 	
 
 if __name__ == "__main__":
 	state = RobotState()
 	toRad = math.pi/180.0
-	heading = 16.0
-	speed = 2.0
+	heading = 0.0
+	speed = 0.0
+	dt = 0.020
 
 	
 	x_pos = []
@@ -199,10 +209,10 @@ if __name__ == "__main__":
 	y_pos_true =[]
 	x_pos_noise = []
 	y_pos_noise =[]
-	state.x[0] = 20.0
+	state.x[0] = 0.0
 	state.x[1] = 0.0
-	state.x[2] = 90.0
-	state.x[3] = 0.3
+	state.x[2] = 0.0
+	state.x[3] = 0.0
 	
 	x_pos.append(state.x[0])
 	y_pos.append(state.x[1])
@@ -219,23 +229,23 @@ if __name__ == "__main__":
 	speed_filtered = []
 	heading_filtered.append(state.x[2])
 	speed_filtered.append(state.x[3])
-	true_x = 20.0
+	true_x = 0.0
 	true_y = 0.0	
-	noisy_x = 20.0
+	noisy_x = 0.0
 	noisy_y = 0.0
 	state_mem = 0.0	
-	for i in range(100):
-		true_x, true_y, heading, speed, state_mem  = drawLine(state_mem , 0.1)
-		noised_heading = random.normal(loc=heading, scale=2.0)
-		noised_speed = random.normal(loc=speed, scale=0.1)
+	for i in range(5000):
+		true_x, true_y, heading, speed, state_mem  = drawCircle(state_mem , dt)
+		noised_heading = random.normal(loc=heading, scale=1.0)
+		noised_speed = abs(random.normal(loc=speed, scale=0.1))
 		#print "heading :"+str(noised_heading)+", speed :"+str(speed)
 		#true_x = true_x + math.sin(heading*toRad)*0.1*speed
 		#true_y = true_y +  math.cos(heading*toRad)*0.1*speed
 		x_pos_true.append(true_x)
 		y_pos_true.append(true_y)
 		
-		noisy_x = noisy_x + math.cos(noised_heading*toRad)*0.1*noised_speed
-		noisy_y = noisy_y +  math.sin(noised_heading*toRad)*0.1*noised_speed
+		noisy_x = random.normal(loc=true_x, scale=1.5) + math.cos(noised_heading*toRad)*dt*noised_speed
+		noisy_y = random.normal(loc=true_y, scale=1.5) +  math.sin(noised_heading*toRad)*dt*noised_speed
 		#print str(noisy_x)+", "+str(noisy_y)
 
 		x_pos_noise.append(noisy_x)
@@ -243,22 +253,24 @@ if __name__ == "__main__":
 		heading_noised.append(noised_heading)
 		speed_noised.append(noised_speed)
 		
-		if i % 2 == 0:
-			state.kalmanLoop( noised_heading, noised_speed, random.normal(loc=true_x, scale=0.2), random.normal(loc=true_y, scale=0.2), 0.1)
+		if i % 5 == 0:
+			state.kalmanLoop( noised_heading, noised_speed, random.normal(loc=true_x, scale=1.5), random.normal(loc=true_y, scale=1.5), dt)
 		else:	
-			state.kalmanLoop( noised_heading, noised_speed, None, None, 0.1)
+			state.kalmanLoop( noised_heading, noised_speed, None, None, dt)
 		x_pos.append(state.x[0])
 		y_pos.append(state.x[1])
 		heading_filtered.append(state.x[2])
 		speed_filtered.append(state.x[3])
+		print "etimated speed : "+str(state.x[3])+", true speed : "+str(speed)
+		print "etimated heading : "+str(state.x[2])+", true heading : "+str(heading)
 		
 	plt.subplot(211)
-	plt.plot(x_pos, y_pos, x_pos_true, y_pos_true, x_pos_noise, y_pos_noise, '+k')
+	plt.plot(x_pos, y_pos, 'r',x_pos_true,y_pos_true, 'b')
 	#plt.plot(x_pos_true, y_pos_true)
-	plt.plot(x_pos_noise, y_pos_noise)
+	#plt.plot(x_pos_noise, y_pos_noise, '+')
 
 	plt.subplot(212)
-	plt.plot(heading_noised, speed_noised, '+k', heading_filtered, speed_filtered)
+	plt.plot(heading_noised, speed_noised, '+b', heading_filtered, speed_filtered, '-r')
 
 	plt.show()
 	
