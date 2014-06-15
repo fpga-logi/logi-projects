@@ -111,7 +111,7 @@ end component;
 	
 	-- my logic
 	signal gyro_x, gyro_offset : std_logic_vector(15 downto 0) := X"0000";
-	signal encoder_count, encoder_control : std_logic_vector(15 downto 0);
+	signal encoder_count, encoder_control, encoder_speed: std_logic_vector(15 downto 0);
 	signal ARD_4_delayed : std_logic ;
 
 begin
@@ -149,7 +149,7 @@ wbm_ack =>  Master_0_wbm_Intercon_0_wbs.ack
 
 Intercon_0 : wishbone_intercon
 generic map(
-memory_map => ("000000001XXXXXXX", "00000000000001XX", "000000000001XXXX", "000000000000000X", "000000000000001X")
+memory_map => ("000000001XXXXXXX", "00000000000001XX", "000000000001XXXX", "000000000000000X", "00000000000011XX")
 )
 port map(
 	gls_clk => gls_clk, gls_reset => gls_reset,
@@ -288,7 +288,7 @@ reset_out =>  WATCH_0_reset_out_SERVO_0_failsafe
 
 REG_0 : wishbone_register
 -- no generics
-generic map(nb_regs => 2)
+generic map(nb_regs => 4)
 port map(
 	gls_clk => gls_clk, gls_reset => gls_reset,
 
@@ -302,8 +302,12 @@ wbs_ack =>  Intercon_0_wbm_REG_0_wbs.ack,
 
 reg_out(0)(15 downto 0) => gyro_offset,
 reg_out(1)(15 downto 0) => encoder_control,
+reg_out(2)(15 downto 0) => open,
+reg_out(3)(15 downto 0) => open,
 reg_in(0)(15 downto 0) => gyro_x,
-reg_in(1)(15 downto 0) => encoder_count
+reg_in(1)(15 downto 0) => encoder_count,
+reg_in(2)(15 downto 0) => encoder_speed,
+reg_in(3)(15 downto 0) => open
 );
 
 
@@ -340,7 +344,7 @@ port map(
 	channel_a => ARD(4), 
 	channel_b => '0',
 	
-	period => open,
+	period => encoder_speed,
 	pv => open,
 	
 	count => encoder_count,
