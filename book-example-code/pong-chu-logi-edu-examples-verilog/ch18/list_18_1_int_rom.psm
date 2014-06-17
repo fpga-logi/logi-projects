@@ -1,0 +1,418 @@
+;=========================================================
+; Square circuit with interrupt interface 
+;=========================================================
+;Program operation:
+;  - read a and b from switch
+;  - calculate a*a + b*b 
+;  - use interrupt to refresh 7-seg led display
+
+;=========================================================
+; Data ram address alias
+;=========================================================
+constant a_lsb, 00    
+constant b_lsb, 02    
+constant aa_lsb, 04    
+constant aa_msb, 05   
+constant bb_lsb, 06    
+constant bb_msb, 07   
+constant aabb_lsb, 08    
+constant aabb_msb, 09   
+constant aabb_cout, 0A   
+constant led0, 10
+constant led1, 11
+constant led2, 12
+constant led3, 13
+
+;=========================================================
+; Register alias
+;=========================================================
+;commonly used local variables
+namereg s0, data       ;reg for temporary data
+namereg s1, addr       ;reg for temporary mem & i/o port addr
+namereg s2, i          ;general-purpose loop index
+;global variables
+namereg sc, switch_a_b ;ram offset for current switch input 
+namereg sb, led_pos    ;led disp position (0, 1, 2 or 3)
+namereg se, count_msb  ;timer tick count 8 MSBs
+namereg sf, count_lsb  ;timer tick count 8 LSBs
+
+;=========================================================
+; Port alias
+;=========================================================
+;------------input port definitions---------------------
+constant rd_flag_port, 00 
+; 2 flags (xxxxxxsc):
+constant sw_port, 01       ;8-bit switches
+;------------output port definitions---------------------
+constant an_port, 00
+constant sseg_port, 01
+
+;=========================================================
+; Main program
+;=========================================================
+;Calling hierarchy:
+;
+;main
+;  - init
+;  - proc_btn
+;      - init
+;  - proc_uart
+;  - square
+;      - mult_soft
+;  - load_led_pttn 
+;      - get_lower_nibble
+;      - get_upper_nibble
+;      - hex_to_led
+;  - display_mux_out
+; =========================================================
+   call init               ;initialization
+forever:
+   ;main loop body
+   call proc_btn           ;check & process buttons
+   call square             ;calculate square
+   call load_led_pttn      ;store led patterns to ram
+   call display_mux_out    ; multiplex led patterns
+   jump forever
+
+;=========================================================
+;routine: init
+;  function: perform initialization, clear register/ram
+;  output register: 
+;    switch_a_b: cleared to 0
+;  temp register: data, i
+;=========================================================
+init:
+   enable interrupt
+   ;clear memory
+   load i, 40              ;unitize loop index to 64
+   load data, 00
+clr_mem_loop:
+   store data, (i)
+   sub i, 01               ;dec loop index
+   jump nz, clr_mem_loop   ;repeat until i=0
+   ;clear registers
+   load switch_a_b, 00
+   load led_pos, 00
+   load count_msb, 00
+   load count_lsb, 00
+   return
+
+;=========================================================
+;routine: proc_btn
+;  function: check two buttons and process the display
+;  input reg: 
+;     switch_a_b: ram offset (0 for a and 2 for b)   
+;  output register: 
+;     s3: store input port flag      
+;     switch_a_b: may be toggled
+;  temp register used: data, addr
+;=========================================================
+proc_btn:
+   input s3, rd_flag_port  ;get flag
+   ;check and process c button
+   test s3, 01             ;check c button flag
+   jump z, chk_btns        ;flag not set
+   call init               ;flag set, clear
+   jump proc_btn_done
+chk_btns:
+   ;check and process s button
+   test s3, 02             ;check s button flag
+   jump z, proc_btn_done   ;flag not set
+   input data, sw_port     ;get switch
+   load addr, a_lsb        ;get addr of a
+   add addr, switch_a_b    ;add offset
+   store data, (addr)      ;write data to ram
+   ;update current disp position
+   xor switch_a_b, 02      ;toggle between 00, 02
+proc_btn_done:
+   return
+
+;=========================================================
+;routine: load_led_pttn
+;  function: read 3 LSBs of switch input and convert the 
+;            desired values to four led patterns and 
+;            load them to ram
+;            switch: 000:a; 001:b; 010:a^2; 011:b^2;
+;                    others: a^2 + b^2
+;  tmp register used: data, addr
+;    s6: data from sw input port
+
+;=========================================================
+load_led_pttn:
+   input s6, sw_port       ;get switch
+   sl0 s6                  ;*2 to obtain addr offset
+   compare s6, 08          ;sw>100?
+   jump c, sw_ok           ;no
+   load s6, 08             ;yes, sw error, make default
+sw_ok:
+   ;process byte 0, lower nibble
+   load addr, a_lsb
+   add addr, s6            ;get lower addr
+   fetch data, (s6)        ;get lower byte
+   call get_lower_nibble   ;get lower nibble
+   call hex_to_led         ;convert to led pattern
+   store data, led0
+   ;process byte 0, upper nibble
+   fetch data, (addr)
+   call get_upper_nibble                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+   call hex_to_led
+   store data, led1
+   ;process byte 1, lower nibble
+   add addr, 01            ;get upper addr
+   fetch data, (addr)
+   call get_lower_nibble
+   call hex_to_led
+   store data, led2
+   ;process byte 1, upper nibble
+   fetch data, (addr)
+   call get_upper_nibble
+   call hex_to_led
+   ;check for sw=100 to process carry as led dp
+   compare s6, 08          ;display final result?
+   jump nz, led_done       ;no
+   add addr, 01            ;get carry addr
+   fetch s6, (addr)        ;s6 to store carry
+   test s6, 01             ;carry=1?
+   jump z, led_done        ;no
+   and data, 7F            ;yes, assert msb (dp) to 0
+led_done:
+   store data, led3
+   return
+
+;=========================================================
+;routine: hex_to_led
+;  function: convert a hex digit to 7-seg led pattern
+;  input register: data
+;  output register: data
+;=========================================================
+hex_to_led:                 
+   compare data, 00         
+   jump nz, comp_hex_1    
+   load data, 81          ;7seg pattern 0
+   jump hex_done          
+comp_hex_1:                 
+   compare   data, 01         
+   jump nz, comp_hex_2    
+   load data, CF          ;7seg pattern 1
+   jump hex_done          
+comp_hex_2:                 
+   compare data, 02         
+   jump nz, comp_hex_3    
+   load data, 92          ;7seg pattern 2
+   jump hex_done          
+comp_hex_3:                 
+   compare data, 03         
+   jump nz, comp_hex_4    
+   load data, 86          ;7seg pattern 3
+   jump hex_done          
+comp_hex_4:                 
+   compare data, 04         
+   jump nz, comp_hex_5    
+   load data, CC          ;7seg pattern 4
+   jump hex_done          
+comp_hex_5:                 
+   compare data, 05         
+   jump nz, comp_hex_6    
+   load data, A4          ;7seg pattern 5
+   jump hex_done          
+comp_hex_6:                 
+   compare data, 06         
+   jump nz, comp_hex_7    
+   load data, A0          ;7seg pattern 6
+   jump hex_done          
+comp_hex_7:                 
+   compare data, 07         
+   jump nz, comp_hex_8    
+   load data, 8F          ;7seg pattern 7
+   jump hex_done          
+comp_hex_8:                 
+   compare data, 08         
+   jump nz, comp_hex_9    
+   load data, 80          ;7seg pattern 8
+   jump hex_done          
+comp_hex_9:                 
+   compare data, 09         
+   jump nz, comp_hex_a    
+   load data, 84          ;7seg pattern 9
+   jump hex_done          
+comp_hex_a:                 
+   compare data, 0A         
+   jump nz, comp_hex_b    
+   load data, 88          ;7seg pattern a
+   jump hex_done          
+comp_hex_b:
+   compare data, 0B
+   jump nz, comp_hex_c
+   load data, E0          ;7seg pattern b
+   jump hex_done
+comp_hex_c:
+   compare data, 0C
+   jump nz, comp_hex_d
+   load data, B1          ;7seg pattern C
+   jump hex_done
+comp_hex_d:
+   compare data, 0D
+   jump nz, comp_hex_e
+   load data, C2          ;7seg pattern d
+   jump hex_done
+comp_hex_e:
+   compare data, 0E
+   jump nz, comp_hex_f
+   load data, B0          ;7seg pattern E
+   jump hex_done
+comp_hex_f:
+   load data, B8          ;7seg pattern f
+hex_done:
+   return
+   
+;=========================================================
+;routine: get_lower_nibble
+;  function: get lower 4-bit of data
+;  input register: data
+;  output register: data
+;=========================================================
+get_lower_nibble:
+   and data, 0F           ;clear upper nibble
+   return
+
+;=========================================================
+;routine: get_lupper_nible
+;  function: get upper 4-bit of in_data
+;  input register: data
+;  output register: data
+;=========================================================
+get_upper_nibble:
+   sr0 data               ;right shift 4 times
+   sr0 data
+   sr0 data
+   sr0 data
+   return
+
+;=========================================================
+;routine: square
+;  function: calculate a*a + b*b
+;     data/result stored in ram started w/ SQ_BASE_ADDR     
+;  temp register: s3, s4, s5, s6, data
+;=========================================================
+square: 
+   ;calculate a*a
+   fetch s3, a_lsb        ;load a
+   fetch s4, a_lsb        ;load a
+   call mult_soft         ;calculate a*a
+   store s6, aa_lsb       ;store lower byte of a*a
+   store s5, aa_msb       ;store upper byte of a*a
+   ;calculate b*b
+   fetch s3, b_lsb        ;load b
+   fetch s4, b_lsb        ;load b
+   call mult_soft         ;calculate b*b
+   store s6, bb_lsb       ;store lower byte of b*b
+   store s5, bb_msb       ;store upper byte of b*b
+   ;calculate a*a+b*b
+   fetch data, aa_lsb     ;get lower byte of a*a
+   add data, s6           ;add lower byte of a*a+b*b
+   store data, aabb_lsb   ;store lower byte of a*a+b*b
+   fetch data, aa_msb     ;get upper byte of a*a
+   addcy data, s5         ;add upper byte of a*a+b*b
+   store data, aabb_msb   ;store upper byte of a*a+b*b
+   load data, 00          ;clear data, but keep carry
+   addcy data, 00         ;get carry from previous +
+   store data, aabb_cout  ;store carry of a*a+b*b
+   return
+
+;=========================================================
+;routine: mult_soft
+;  function: 8-bit unsigned multiplier using
+;           shift-and-add algorithm
+;  input register:
+;     s3: multiplicand
+;     s4: multiplier
+;  output register:
+;     s5: upper byte of product
+;     s6: lower byte of product
+;  temp register: i
+;=========================================================
+mult_soft:
+   load s5, 00            ;clear s5
+   load i, 08             ;initialize loop index
+mult_loop:
+   sr0  s4                ;shift lsb to carry
+   jump nc, shift_prod    ;lsb is 0
+   add s5, s3             ;lsb is 1
+shift_prod:
+   sra s5                 ;shift upper byte right,
+                          ;carry to MSB, LSB to carry
+   sra s6                 ;shift lower byte right,
+                          ;lsb of s5 to MSB of s6
+   sub i, 01              ;dec loop index
+   jump nz, mult_loop     ;repeat until i=0
+   return
+
+;=========================================================
+;routine: display_mux_out
+;  function: generate enable pulse & led pattern
+;            for 4-digit 7-segment led display
+;  input register:
+;     count_msb, count_lsb: timer count
+;     led_pos: current led position
+;  output register:
+;     led_pos: updated led position
+;  tmp register: data, addr
+;=========================================================
+display_mux_out:
+   compare count_msb, 02  ;count=00000100_00000000
+   jump c, mux_out_done
+   ;clear time counter (count > 20)
+   load count_lsb, 00
+   load count_msb, 00
+   ;update 7-segment led position
+   add led_pos, 01
+   compare led_pos, 04
+   jump nz, gen_an_signal
+   load led_pos, 00       ;led_pos wraps around
+gen_an_signal:
+   ;generate 4-bit anode enable signal
+   load data, 0E           ;xxxx_1110
+   compare led_pos, 00
+   jump z, shift_an_0
+   compare led_pos, 01
+   jump z, shift_an_1
+   compare led_pos, 02
+   jump z, shift_an_2
+   sl1 data                ;shift 1110 3 times
+shift_an_2:
+   sl1 data                ;shift 1110 2 times
+shift_an_1:
+   sl1 data                ;shift 1110 1 times
+shift_an_0:
+   output data, an_port
+   ;output 7-seg led pattern
+   load addr, led0
+   add addr, led_pos
+   fetch data, (addr)
+   output data, sseg_port
+mux_out_done:
+   return
+
+;=========================================================
+;routine: interrupt service routine
+;  function: increment 16-bit counter
+;  input register:
+;     count_msb, count_lsb: timer count
+;  output register:
+;     count_msb, count_lsb: incremented
+;=========================================================
+int_service_routine:
+   add count_lsb, 01      ;inc 16-bit counter
+   addcy count_msb, 00
+   returni enable
+
+;=========================================================
+;interrupt vector
+;=========================================================
+   address 3FF
+   jump int_service_routine
+
+
+
+
+
