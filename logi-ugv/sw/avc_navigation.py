@@ -31,12 +31,12 @@ def speedFromSteering(steering):
 	return speed
 		
 
-def populateSensorMap(robot, gps_service):
+def populateSensorMap(robot, gps_service, speed_service, imu_service):
 	pos = robot.getPosition()
 	sensor_map = {}
-	sensor_map[Controller.imu_key] = (1, robot.getEuler(), robot.getGyro())
-	sensor_map[Controller.gps_key] = pos
-	sensor_map[Controller.speed] = pos
+	sensor_map[Controller.imu_key] = imu_service.getAttitude()
+	sensor_map[Controller.gps_key] = robot.getPosition()
+	sensor_map[Controller.speed] = speed_service.getSpeed()
 	return sensor_map
 	
 
@@ -60,17 +60,14 @@ def nav_loop():
 	old_gps = current_pos
 	
 	#initiliaze mpu system
-	while mpu_valid < 0:
-		time.sleep(0.5)
-		mpu_valid = mpu9150.mpuInit(1, CONTROL_RATE, 4)
-	print mpu_valid
+	imu_service = ImuService(CONTROL_RATE)
 	
 	#setting mpu calibration files (calibration should be re-run before every run)
-	mpu9150.setMagCal('./magcal.txt')
-	mpu9150.setAccCal('./accelcal.txt')
 	for i in range(1000): # flushing a bit of sensor fifo to stabilize sensor
 		time.sleep(1/CONTROL_RATE)
-		mpu9150.mpuRead()
+		imu_service.getAttitude()
+	
+	speed_service = SpeedService()
 
 	#initializing actuators and failsafe
 	robot.setSteeringAngle(0.0)
@@ -95,7 +92,7 @@ def nav_loop():
 		xy_origin_pos = coordinates_system.convertGpstoEuclidian(origin_pos)
 
 		# populate the sensor structure to make sure we read all sensors only once per loop
-		sensors = populateSensorMap(robot, gps_service)
+		sensors = populateSensorMap(robot, gps_service, speed_service, imu_service)
 		
 		#imu has no valid sample, IMU helps keep the control loop rate as it delivers values at the right pace
 		if sensor[IController.imu_key][0] < 0 : #invalid imu sample, wait a bit to read next
@@ -127,7 +124,7 @@ def nav_loop():
 		#steering can be extracted from curvature while speed must be computed from curvature and max_speed
 		steering = sinh(WHEEL_BASE * path_curvature) 
 		#command needs to be computed for speed using PID control or direct P control
-		speed = speedFromSteering(steering))	
+		speed = speedFromSteering(steering)	
 		robot.setSpeed(speed)
 		robot.setSteeringAngle(steering)
 
