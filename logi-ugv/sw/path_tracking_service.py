@@ -36,18 +36,21 @@ class PurePursuit():
 				
 		#compute coordinates of lookahead point
 		tetha = math.atan(eq_path[0]) # compute line angle
-		look_ahead_point_y = (self.look_ahead_dist * math.sin(tetha)) + cross_y
-		look_ahead_point_x = (self.look_ahead_dist * math.cos(tetha)) + cross_x
-
+		if point_A.x < point_B.x:
+			look_ahead_point_y = cross_y + (self.look_ahead_dist * math.sin(tetha)) 
+			look_ahead_point_x = cross_x + (self.look_ahead_dist * math.cos(tetha))
+		else:
+			look_ahead_point_y = cross_y - (self.look_ahead_dist * math.sin(tetha)) 
+			look_ahead_point_x = cross_x - (self.look_ahead_dist * math.cos(tetha))
 		dist_to_look_ahead = math.sqrt(math.pow(cross_x - look_ahead_point_x, 2) + math.pow(cross_y - look_ahead_point_y, 2))
 		dist_to_target = math.sqrt(math.pow(cross_x - point_B.x, 2) + math.pow(cross_y - point_B.y, 2))
 		
 		# look ahead point is ahead of target, using target as look_ahead
 		if dist_to_look_ahead > dist_to_target :
+			print "further than next waypoint"
 			look_ahead_point_y = point_B.y
 			look_ahead_point_x = point_B.x
 				
-		# should check that the look_ahead point is not further that the target waypoint
 				
 		# now translating and rotating to center on robot
 		look_ahead_point_x_trans = look_ahead_point_x - pos.x
@@ -56,39 +59,39 @@ class PurePursuit():
 		
 		#rotation to align on robot reference frame, heading pointing 90
 		rotation_tetha = 90.0 - heading
-		look_ahead_point_x_rob = look_ahead_point_x_trans * math.cos(toRad*rotation_tetha) + look_ahead_point_y_trans * math.sin(toRad*rotation_tetha)
-		look_ahead_point_y_rob = look_ahead_point_x_trans * -math.sin(toRad*rotation_tetha) + look_ahead_point_y_trans * math.cos(toRad*rotation_tetha)
+		look_ahead_point_x_rob = look_ahead_point_x_trans * math.cos(toRad*rotation_tetha) - look_ahead_point_y_trans * math.sin(toRad*rotation_tetha)
+		look_ahead_point_y_rob = look_ahead_point_x_trans * math.sin(toRad*rotation_tetha) + look_ahead_point_y_trans * math.cos(toRad*rotation_tetha)
 		
+		print rotation_tetha
+		print look_ahead_point_x_rob
+		print look_ahead_point_y_rob
 		# following is based on 
 		# http://www8.cs.umu.se/kurser/TDBD17/VT06/utdelat/Assignment%20Papers/Path%20Tracking%20for%20a%20Miniature%20Robot.pdf
 		
-		print look_ahead_point_x_rob
-		print look_ahead_point_y_rob
 		D_square = pow(look_ahead_point_x_rob, 2) + pow(look_ahead_point_y_rob, 2)
 		r = D_square/(2.0*look_ahead_point_x_rob)
 		curvature = 1.0/r
-
-
 		
+	
 		plt.subplot(211)
 		plt.plot(point_A.x, point_A.y, '+r')
 		plt.plot(point_B.x, point_B.y, '+g' )
 		plt.plot(pos.x,  pos.y, '+b')
 		plt.plot(cross_x, cross_y, '+k')
 		plt.plot(look_ahead_point_x, look_ahead_point_y, '+c')
-	#	
+		
 		path_x = numpy.linspace(point_A.x,point_B.x,100) # 100 linearly spaced numbers
 		path_y = eq_path[0]*path_x + eq_path[1]
 		plt.plot(path_x, path_y)
 		equ_x = numpy.linspace(cross_x, pos.x, 100) # 100 linearly spaced numbers
 		equ_y = eq_orth[0]*equ_x + eq_orth[1]
 		plt.plot(equ_x, equ_y, 'r')
-		plt.axis([0.0, 25, 0.0, 25])
+		#plt.axis([0.0, 25, 0.0, 25])
 
 
 		
 		plt.subplot(212)
-		circ = plt.Circle((0,r),r,color='r', fill=False)
+		circ = plt.Circle((r, 0),r,color='r', fill=False)
 		plt.plot(0.0, 0.0, '+r')
 		plt.plot(look_ahead_point_x_rob, look_ahead_point_y_rob, '+b')
 		plt.plot(r, 0.0, '+k')
@@ -97,13 +100,15 @@ class PurePursuit():
 		plt.show()
 
 		return curvature
+		
 
 
 if __name__ == "__main__":	
 	path = PurePursuit()
-	curv = path.computeSteering(EuclidianPoint(3.0, 4.0), EuclidianPoint(25.0, 4.0), EuclidianPoint(10.0, 4.0), 90.0)
+	curv = path.computeSteering(EuclidianPoint(0.0, 0.0), EuclidianPoint(-5.0, -1.0), EuclidianPoint(0.0, -1.0), 270.0)
+	steering = math.sinh(0.30 * curv)*(180.0/math.pi)
 	print curv
-		
+	print steering
 		
 
 		

@@ -12,10 +12,11 @@ class GpsPoint(object):
 
 class EuclidianPoint(object):
 	def __init__(self, x, y, time = 0.0, valid = False):
-		self.x = lat
-		self.y = lon	
+		self.x = x
+		self.y = y	
 		self.time = time
 		self.dil = 100.0
+	
 	def setDilution(self, dil):
 		self.dil = dil
 		
