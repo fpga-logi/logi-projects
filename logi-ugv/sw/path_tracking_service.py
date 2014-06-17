@@ -5,13 +5,7 @@ import time
 import math
 import matplotlib.pyplot as plt
 
-
-class EuclidianPoint():
-	
-	
-	def __init__(self, x, y):
-		self.x = x
-		self.y = y
+from coordinates import EuclidianPoint
 		
 
 class PurePursuit():
@@ -41,11 +35,18 @@ class PurePursuit():
 			cross_y = eq_path[1]
 				
 		#compute coordinates of lookahead point
-		
 		tetha = math.atan(eq_path[0]) # compute line angle
 		look_ahead_point_y = (self.look_ahead_dist * math.sin(tetha)) + cross_y
 		look_ahead_point_x = (self.look_ahead_dist * math.cos(tetha)) + cross_x
+
+		dist_to_look_ahead = math.sqrt(math.pow(cross_x - look_ahead_point_x, 2) + math.pow(cross_y - look_ahead_point_y, 2))
+		dist_to_target = math.sqrt(math.pow(cross_x - point_B.x, 2) + math.pow(cross_y - point_B.y, 2))
 		
+		# look ahead point is ahead of target, using target as look_ahead
+		if dist_to_look_ahead > dist_to_target :
+			look_ahead_point_y = point_B.y
+			look_ahead_point_x = point_B.x
+				
 		# should check that the look_ahead point is not further that the target waypoint
 				
 		# now translating and rotating to center on robot
