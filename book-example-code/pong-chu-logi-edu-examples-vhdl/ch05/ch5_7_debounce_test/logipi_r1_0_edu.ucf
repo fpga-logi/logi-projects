@@ -45,14 +45,3 @@ NET "sseg<5>"  LOC = P117	; 	# segment f 		p3_9
 NET "sseg<6>"  LOC = P138	; 	# segment g			p3_1
 NET "sseg<7>"  LOC = P139	; 	# decimal point 	p2_10	
 
-#========================================================
-# UART for Rpi
-# TX = FGPA TX  = Host RX				
-# RX = FPGA RX  = Host TX				
-#========================================================
-#NET "rx"  LOC =pxx;		--use tx on rpi
-#NET "tx"  LOC =pxx;  	--use rx on rpi
-
-NET "PWM<0>"  LOC =pxx;	#P4_9
-NET "PWN<1>"  LOC =pxx;  	#P4_1
-

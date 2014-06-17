@@ -19,7 +19,7 @@
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="1"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="3"/>
     </file>
-    <file xil_pn:name="../logipi_r1_0_edu.ucf" xil_pn:type="FILE_UCF">
+    <file xil_pn:name="logipi_r1_0_edu.ucf" xil_pn:type="FILE_UCF">
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../list_ch06_01_02_debounce.vhd" xil_pn:type="FILE_VHDL">

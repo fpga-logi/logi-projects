@@ -1,4 +1,10 @@
 -- Listing 4.21
+--// notes to run on logi:
+--// * the read write functions are controlled by btn(0)=write and btn(1)=read
+--// * the sw(1:0) controls the write data that is written into the fifo when write btn is pushed.
+--// * When btn(1) is pushed the data is read from the fifo and dispalyed on bit(1:0) of the leds.
+--// * the 4xsseg dispaly is used to emulate 8x linear leds that will display the buffer
+--// status and read data.  
 library ieee;
 use ieee.std_logic_1164.all;
 entity fifo_test is
