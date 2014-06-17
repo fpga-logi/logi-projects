@@ -5,13 +5,16 @@ from path_tracking_service import PurePursuit as TrackingService
 from state_estimate_service import RobotState
 from ugv_platform import UgvPlatform as Robot
 from coordinates import  *
-from waypoint_provider import PlannerWayPointProvider as WayPointProvider
+from waypoint_provider import PlannerWayPointProvider 
 
 
 from gps_service import GpsService
 from speed_service import SpeedService
 
 import math
+
+
+PLANNER_WAYPOINT_FILE_PATH = ""
 
 CONTROL_RATE = 50 # rate at which the control is run
 TRACKER_RATE = 1 # rate at which the path tracking algorithm is run
@@ -41,7 +44,7 @@ def nav_loop():
 	robot = Robot()
 	state = RobotState()
 	path_tracker = TrackingService()
-	wp = WayPointProvider() # use whatever WaypointProvider
+	wp = PlannerWayPointProvider(PLANNER_WAYPOINT_FILE_PATH) # use whatever WaypointProvider
 	
 
 	mpu_valid = -1
