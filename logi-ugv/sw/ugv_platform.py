@@ -21,7 +21,7 @@ class UgvPlatform(object):
 		logi_hal.setServoPulse(ugv_map.SERVO_0, ESC_CHANNEL, int(pos+128))
 
 	def setSpeedFailSafe(self, pos):	
-		logi_hal.setServoFailSafeAngle(ugv_map.SERVO_0, ESC_CHANNEL, pos)
+		logi_hal.setServoFailSafeAngle(ugv_map.SERVO_0, ESC_CHANNEL, int(pos+128))
 	
 	def setSteeringFailSafe(self, angle):
 		logi_hal.setServoFailSafeAngle(ugv_map.SERVO_0, STEERING_CHANNEL, angle)

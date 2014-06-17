@@ -53,7 +53,6 @@ class IController:
 	# sensor map index
 	gps_key = "gps"
 	imu_key = "imu"
-	blobs_key = "blobs"
 	odometry_key = "odo"
 
 	# actuator map index
@@ -299,44 +298,4 @@ class EthernetController(IController, Thread):
 		self.serversocket.close()
 		self._Thread__stop()
 	
-	
-class LocalCoordinates():
-	
-	def __init__(self, orig):
-		self.equatorial_radius = 6378137   #WGS-84 equatorial radius
-		self.equatorial_perimeter = (math.pi*2)*self.equatorial_radius
-		self.lat_scale_factor = (self.equatorial_perimeter)/360.0 	
-		if orig != None:
-			self.setOriginPoint(orig)
-	
-	def getPosition(self):
-		return self.current_pos
-
-	def setLatLonOrigin(self, lat, lon):
-		self.origPoint = Point(lat, lon)
-		toRad = math.pi/180.0
-		lon_radius = math.sin((math.pi/2)-(lat*toRad))* self.equatorial_radius		
-		lon_perimeter = (math.pi*2)*lon_radius
-		self.lon_scale_factor = (lon_perimeter)/360.0
-	
-	def setOriginPoint(self, orig):
-		self.origPoint = orig
-		toRad = math.pi/180.0
-		lon_radius = math.sin((math.pi/2)-(orig.lat*toRad))* self.equatorial_radius		
-		lon_perimeter = (math.pi*2)*lon_radius
-		self.lon_scale_factor = (lon_perimeter)/360.0	
-	
-	def getXYPos(self, cp):
-		pos = {}
-		toRad = (2*math.pi)/360.0
-		diffLat = cp.lat - self.origPoint.lat
-		diffLon = cp.lon - self.origPoint.lon
-		x = diffLon * self.lon_scale_factor   
-		y = diffLat * self.lat_scale_factor 
-		dist = math.sqrt(pow(x, 2)+pow(y, 2))
-		pos["x"] = x
-		pos["y"] = y
-		pos["dist"] = dist
-		return pos
-
 	

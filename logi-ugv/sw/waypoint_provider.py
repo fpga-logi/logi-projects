@@ -55,17 +55,23 @@ class PlannerWayPointProvider(AbstractWayPointProvider):
 			for line in csv.reader(tsv, dialect="excel-tab"):
 				if len(line) == 12:
 					self.waypoints.append( Point(line[8], line[9] ))
-
+		elf.currentWayPointIndex = 1
 
 	def getNextWayPoint(self):
 		if self.currentWayPointIndex < len(self.waypoints):
        			self.currentWayPointIndex = self.currentWayPointIndex + 1
 		else:
-			raise WayPointException( "No more waypoints" )
+			return None
 		return self.waypoints[self.currentWayPointIndex]
 
 	def getCurrentWayPoint(self):
 		return self.waypoints[self.currentWayPointIndex]
+	
+	def getPreviousWayPoint(self):
+		if self.currentWayPointIndex != 0:
+			return self.waypoints[self.currentWayPointIndex-1]
+		else:
+			return None
 
 		
 	
