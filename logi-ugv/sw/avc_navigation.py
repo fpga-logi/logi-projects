@@ -46,8 +46,17 @@ def populateSensorMap(robot, gps_service, speed_service, imu_service):
 
 def nav_loop():
 	robot = Robot()
+	#initializing actuators and failsafe
+	robot.setSteeringAngle(0.0)
+	robot.setSpeed(0)
+	robot.setSpeedFailsafe(0)
+	robot.setSteeringFailsafe(0.0)
+
+	#initializing state estimate service
 	state = RobotState()
+	# initializing path tracker
 	path_tracker = TrackingService()
+	#initializing waypoint provider
 	wp = PlannerWayPointProvider(PLANNER_WAYPOINT_FILE_PATH) # use whatever WaypointProvider
 	
 
@@ -73,11 +82,6 @@ def nav_loop():
 	
 	# initalize speed service that reads encoders
 	speed_service = SpeedService()
-	#initializing actuators and failsafe
-	robot.setSteeringAngle(0.0)
-	robot.setSpeed(0)
-	robot.setSpeedFailsafe(0)
-	robot.setSteeringFailsafe(0.0)
 	
 	#initialize PID variables
 	target_speed = 0.0
@@ -110,7 +114,7 @@ def nav_loop():
 		
 		#converting gps pos to the local coordinates system
 		xy_pos = coordinates_system.convertGpstoEuclidian(sensors[Controller.gps_key])
-		new_gps_fix = sensors[Controller.gps_key].time != old_gps.time
+		new_gps_fix = (sensors[Controller.gps_key].time != old_gps.time) and sensors[Controller.gps_key].valid and old_gps.valid
 		old_gps = sensors[Controller.gps_key]
 		
 		# we have a new fix, integrate it to the kalman filter
