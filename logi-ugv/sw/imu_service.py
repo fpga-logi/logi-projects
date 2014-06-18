@@ -8,9 +8,12 @@ class ImuService():
 		while mpu_valid < 0:
 			time.sleep(0.5)
 			self.mpu_valid = mpu9150.mpuInit(1, update_rate, 4)
-		mpu9150.setMagCal('./magcal.txt')
-		mpu9150.setAccCal('./accelcal.txt')
+		
 
+	def setCalibrationFiles(self, mag, acc):
+		mpu9150.setMagCal(mag)
+		mpu9150.setAccCal(acc)
+		
 	def getAttitude(self):
 		valid = mpu9150.mpuRead()
 		return (valid, robot.getEuler(), robot.getGyro()) 		

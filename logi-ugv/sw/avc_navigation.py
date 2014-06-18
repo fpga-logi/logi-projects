@@ -23,6 +23,10 @@ WHEEL_BASE = 0.30 # distance between front and rear axle
 DT = 1/CONTROL_RATE
 DIST_TOLERANCE = 2.0
 
+P = 30.0
+I = 0.75
+D = -2.0
+
 
 
 #compute the speed based on current steering. This will need to be adjusted to avoid drifting
@@ -60,20 +64,25 @@ def nav_loop():
 	old_gps = current_pos
 	
 	#initiliaze mpu system
-	imu_service = ImuService(CONTROL_RATE)
-	
+	imu_service = ImuService(CONTROL_RATE) # initialize imu at given rate, wait until the IMU is initialized
 	#setting mpu calibration files (calibration should be re-run before every run)
+	imu_service.setCalibrationFiles('./magcal.txt', 'acc_cal.txt')
 	for i in range(1000): # flushing a bit of sensor fifo to stabilize sensor
 		time.sleep(1/CONTROL_RATE)
 		imu_service.getAttitude()
 	
+	# initalize speed service that reads encoders
 	speed_service = SpeedService()
-
 	#initializing actuators and failsafe
 	robot.setSteeringAngle(0.0)
 	robot.setSpeed(0)
 	robot.setSpeedFailsafe(0)
 	robot.setSteeringFailsafe(0.0)
+	
+	#initialize PID variables
+	target_speed = 0.0
+	old_error = 0.0
+	integral = 0.0
 	
 	while True:
 		#reseting watchdog at the beginning of loop
@@ -124,8 +133,22 @@ def nav_loop():
 		#steering can be extracted from curvature while speed must be computed from curvature and max_speed
 		steering = math.sinh(path_curvature)*(math.pi/180.0)
 		#command needs to be computed for speed using PID control or direct P control
-		speed = speedFromSteering(steering)	
+		target_speed = speedFromSteering(steering)	
 		robot.setSpeed(speed)
+		
+		# doing the PID math, PID term needs to be adjusted
+		error = (target_speed - sensor[IController.odometry_key])
+        	derivative = error - old_error
+        	old_error = error
+        	cmd = error * P + derivative * D + integral * I
+        	integral = integral + error
+		if cmd < 0.0 :
+                	cmd = 0
+        	if cmd > 127.0:
+                	cmd = 127
+		# end of PID math
+		robot.setSpeed(cmd)
+		
 		robot.setSteeringAngle(steering)
 
 		# if we reached target, move to the next

@@ -71,8 +71,9 @@ class PurePursuit():
 		D_square = pow(look_ahead_point_x_rob, 2) + pow(look_ahead_point_y_rob, 2)
 		r = D_square/(2.0*look_ahead_point_x_rob)
 		curvature = 1.0/r
+		return curvature
 		
-	
+'''	
 		plt.subplot(211)
 		plt.plot(point_A.x, point_A.y, '+r')
 		plt.plot(point_B.x, point_B.y, '+g' )
@@ -100,7 +101,7 @@ class PurePursuit():
 		plt.show()
 
 		return curvature
-		
+'''		
 
 
 if __name__ == "__main__":	
