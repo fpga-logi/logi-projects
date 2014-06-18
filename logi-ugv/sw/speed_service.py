@@ -14,11 +14,12 @@ class SpeedService():
 	def getSpeed(self):
 		enc_reg = logi.logiRead(ENCODER_PERIOD_ADDRESS, 2)
         	enc_val = (enc_reg[1] << 8) | enc_reg[0]
-        	if enc_val == 32767:
+        	if enc_val == 32767: # cannot measure tick period smaller than 32767us
                 	self.current_speed = 0.0
-		elif enc_val == 0:
+		elif enc_val == 0: # saturate to maximum known speed ... should never reach that
 			self.current_speed = 15.0
-        	self.current_speed = DISTANCE_BETWEEN_TICKS/(float(enc_val)/1000000.0)
+		else:
+        		self.current_speed = DISTANCE_BETWEEN_TICKS/(float(enc_val)/1000000.0)
 		return self.current_speed
 
 

@@ -19,6 +19,7 @@ PLANNER_WAYPOINT_FILE_PATH = ""
 CONTROL_RATE = 50 # rate at which the control is run
 TRACKER_RATE = 1 # rate at which the path tracking algorithm is run
 MAX_SPEED_MS = 10.0 # 10m/s is max speed (36km/h), this parameter must be adjusted depending on required agressivity
+MIN_SPEED_MS = 3.5
 WHEEL_BASE = 0.30 # distance between front and rear axle
 DT = 1/CONTROL_RATE
 DIST_TOLERANCE = 2.0
@@ -30,8 +31,12 @@ D = -2.0
 
 
 #compute the speed based on current steering. This will need to be adjusted to avoid drifting
-def speedFromSteering(steering):
-	speed = MAX_SPEED_MS * cos(steering) # need to adjusted ... 
+def speedFromSteeringAndDistance(steering):
+	if distance == 0.0:
+		distance = 0.01
+	speed = (MAX_SPEED_MS * cos(steering)) - (1/math.pow(distance, 2) * MAX_SPEED_MS/10)# need to be adjusted ... 
+	if speed < MIN_SPEED_MS:
+		speed = MIN_SPEED_MS
 	return speed
 		
 
@@ -133,12 +138,19 @@ def nav_loop():
 			tracker_counter = 0
 		else:
 			tracker_counter = tracker_counter + 1	
+		
+		# if we reached target, move to the next
+		distance_to_target = xy_pos.distanceTo(xy_target_pos)
+		if distance_to_target < DIST_TOLERANCE:
+			wp.getNextWayPoint()
+			# for tracker to be executed on next iteration
+			tracker_counter = (CONTROL_RATE/TRACKER_RATE)
 				
 		#steering can be extracted from curvature while speed must be computed from curvature and max_speed
 		steering = math.sinh(path_curvature)*(math.pi/180.0)
 		#command needs to be computed for speed using PID control or direct P control
-		target_speed = speedFromSteering(steering)	
-		robot.setSpeed(speed)
+		target_speed = speedFromSteeringAndDistance(steering, distance_to_target)	
+
 		
 		# doing the PID math, PID term needs to be adjusted
 		error = (target_speed - sensor[IController.odometry_key])
@@ -154,12 +166,6 @@ def nav_loop():
 		robot.setSpeed(cmd)
 		
 		robot.setSteeringAngle(steering)
-
-		# if we reached target, move to the next
-		if xy_pos.distanceTo(xy_target_pos) < DIST_TOLERANCE:
-			wp.getNextWayPoint()
-			# for tracker to be executed on next iteration
-			tracker_counter = (CONTROL_RATE/TRACKER_RATE)
 					
 	
 	# if ever we quit the loop, we need to set the speed to 0 and steering to 0
