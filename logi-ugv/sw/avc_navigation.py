@@ -13,17 +13,19 @@ from speed_service import SpeedService
 
 import math
 
-
-PLANNER_WAYPOINT_FILE_PATH = ""
+#path of file containning the waypoints, we should adjust translation of  course over real gps coordinates. Otherwise it can cause the 
+#car course to be shifted compared to the wanted one
+PLANNER_WAYPOINT_FILE_PATH = "./avc_waypoints.txt"
 
 CONTROL_RATE = 50 # rate at which the control is run
-TRACKER_RATE = 1 # rate at which the path tracking algorithm is run
+TRACKER_RATE = 5 # rate at which the path tracking algorithm is run
 MAX_SPEED_MS = 10.0 # 10m/s is max speed (36km/h), this parameter must be adjusted depending on required agressivity
-MIN_SPEED_MS = 3.5
-WHEEL_BASE = 0.30 # distance between front and rear axle
-DT = 1/CONTROL_RATE
-DIST_TOLERANCE = 2.0
+MIN_SPEED_MS = 3.5 # minimum speed base on what the encoder can measure and what speed the motor can generate
+WHEEL_BASE = 0.30 # distance between front and rear axle, should be used for curvature to steering computation
+DT = 1/CONTROL_RATE # period of control loop
+DIST_TOLERANCE = 2.0 # distance at which the waypoint is assumed to be reached
 
+# PID controller weights. will need to be changed if we move to hardware implementation
 P = 30.0
 I = 0.75
 D = -2.0
@@ -32,7 +34,7 @@ D = -2.0
 
 #compute the speed based on current steering. This will need to be adjusted to avoid drifting
 def speedFromSteeringAndDistance(steering):
-	if distance == 0.0:
+	if distance == 0.0: # avoi division by zero
 		distance = 0.01
 	speed = (MAX_SPEED_MS * cos(steering)) - (1/math.pow(distance, 2) * MAX_SPEED_MS/10)# need to be adjusted ... 
 	if speed < MIN_SPEED_MS:
@@ -40,6 +42,7 @@ def speedFromSteeringAndDistance(steering):
 	return speed
 		
 
+#ensure that the sensors are read only once. This avoid the communication with the FPGA to be everywhere in the code
 def populateSensorMap(robot, gps_service, speed_service, imu_service):
 	pos = robot.getPosition()
 	sensor_map = {}
@@ -47,6 +50,23 @@ def populateSensorMap(robot, gps_service, speed_service, imu_service):
 	sensor_map[Controller.gps_key] = robot.getPosition()
 	sensor_map[Controller.speed] = speed_service.getSpeed()
 	return sensor_map
+	
+# navigation loop
+#1) initialize all sensors/services and local coordinates system
+#2) Wait for start button to be pressed
+#3) Start of control loop
+#	Read all sensors
+#	Get current and previous waypoint
+#	Transform everything to local coordinates system
+#	Run the kalman filter, integrate gps in kalman filter if there is a new gps fix
+#	Compute path tracking algorithm
+#	Compute steering based on path tracking 
+#	Compute distance to target, if lower than a given threshold, switch to next waypoint
+#		If there is not next waypoint, end control loop
+#	Compute speed based on steering and distance to target
+#	Compute speed command using PID control
+# 	Re-start loop
+
 	
 
 def nav_loop():
@@ -94,8 +114,13 @@ def nav_loop():
 	integral = 0.0
 	
 	while True:
+		# need to read start button
+		if not start_pressed :		
+			time.sleep(0.2)
+			continue
 		#reseting watchdog at the beginning of loop
 		robot.resetWatchdog()
+		
 		
 		#waypoint service provide the current waypoint
 		target_pos= wp.getCurrentWayPoint()
