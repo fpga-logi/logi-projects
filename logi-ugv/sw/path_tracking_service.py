@@ -105,8 +105,8 @@ class PurePursuit():
 
 if __name__ == "__main__":	
 	path = PurePursuit()
-	curv = path.computeSteering(EuclidianPoint(0.0, 0.0), EuclidianPoint(-5.0, -1.0), EuclidianPoint(0.0, -1.0), 270.0)
-	steering = math.sinh(0.30 * curv)*(180.0/math.pi)
+	curv = path.computeSteering(EuclidianPoint(0.0, 0.0), EuclidianPoint(-5.0, -1.0), EuclidianPoint(0.0, -1.0), 90.0)
+	steering = math.sinh(curv)*(180.0/math.pi)
 	print curv
 	print steering
 		

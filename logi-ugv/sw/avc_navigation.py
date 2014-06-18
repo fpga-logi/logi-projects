@@ -122,7 +122,7 @@ def nav_loop():
 			tracker_counter = tracker_counter + 1	
 				
 		#steering can be extracted from curvature while speed must be computed from curvature and max_speed
-		steering = sinh(WHEEL_BASE * path_curvature) 
+		steering = math.sinh(path_curvature)*(math.pi/180.0)
 		#command needs to be computed for speed using PID control or direct P control
 		speed = speedFromSteering(steering)	
 		robot.setSpeed(speed)
