@@ -51,39 +51,39 @@ void close_test_log(){
 }
 
 void test_log(enum dbg_level lvl, char * test_name, char * fmt, ...){
-	/*int msg_size ;	
+	int msg_size ;	
 	unsigned long int ts;
 	va_list args;
     	va_start(args,fmt);
 	ts = time(NULL); 
 	msg_size = sprintf(text_buffer, "%ld", ts);
-	fwrite(text_buffer, sizeof(char), msg_size, log_file); //writing timestamp to file
-	fwrite(",", sizeof(char), 1, log_file); 
-	fwrite(test_name, sizeof(char), strlen(test_name), log_file); //writing test name
-	fwrite(",", sizeof(char), 1, log_file); 
+	//fwrite(text_buffer, sizeof(char), msg_size, log_file); //writing timestamp to file
+	//fwrite(",", sizeof(char), 1, log_file); 
+	//fwrite(test_name, sizeof(char), strlen(test_name), log_file); //writing test name
+	//fwrite(",", sizeof(char), 1, log_file); 
 	msg_size = vsprintf(text_buffer, fmt, args);
 	switch(lvl){
 		case INFO :
-			if(log_file != NULL){
+			/*if(log_file != NULL){
 				fwrite("INFO,", sizeof(char), 5, log_file);			
 				fwrite(text_buffer, sizeof(char), msg_size, log_file);
-			}
+			}*/
 			printf("INFO : ");			
 			vprintf(fmt,args);
 			break ;
 		case WARNING : 
-			if(log_file != NULL){
+			/*if(log_file != NULL){
 				fwrite("WARNING,", sizeof(char), 8, log_file);				
 				fwrite(text_buffer, sizeof(char), msg_size, log_file);
-			}
+			}*/
 			printf("WARNING : ");
 			vprintf(fmt,args);
 			break ;
 		case ERROR : 			
-			if(log_file != NULL){
+			/*if(log_file != NULL){
 				fwrite("ERROR,", sizeof(char), 6, log_file);				
 				fwrite(text_buffer, sizeof(char), msg_size, log_file);
-			}
+			}*/
 			printf("ERROR : ");
 			vprintf(fmt,args);
 			break ;
@@ -91,7 +91,7 @@ void test_log(enum dbg_level lvl, char * test_name, char * fmt, ...){
 			break ;	
 	}
 	va_end(args);
-	printf("\n");*/
+	printf("\n");
 }	
 
 
@@ -313,7 +313,7 @@ int main(int argc, char ** argv){
 		#endif
 
 		#ifdef TEST_PMOD_3_4
-		testPMOD34() 
+		testPMOD34(); 
 		#endif
 
 		#ifdef TEST_ARD
