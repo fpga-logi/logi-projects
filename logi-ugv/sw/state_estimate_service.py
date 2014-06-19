@@ -1,7 +1,7 @@
 
 from numpy  import *
 from math import *
-
+import matplotlib.pyplot as plt
 
 
 class RobotState():
@@ -231,8 +231,8 @@ if __name__ == "__main__":
 	noisy_x = 0.0
 	noisy_y = 0.0
 	state_mem = 0.0	
-	for i in range(5000):
-		true_x, true_y, heading, speed, state_mem  = drawCircle(state_mem , dt)
+	for i in range(100):
+		true_x, true_y, heading, speed, state_mem  = drawLine(state_mem , dt)
 		noised_heading = random.normal(loc=heading, scale=1.0)
 		noised_speed = abs(random.normal(loc=speed, scale=0.1))
 		#print "heading :"+str(noised_heading)+", speed :"+str(speed)
@@ -251,9 +251,9 @@ if __name__ == "__main__":
 		speed_noised.append(noised_speed)
 		
 		if i % 5 == 0:
-			state.kalmanLoop( noised_heading, noised_speed, random.normal(loc=true_x, scale=1.5), random.normal(loc=true_y, scale=1.5), dt)
+			state.computeEKF( noised_heading, noised_speed, random.normal(loc=true_x, scale=1.5), random.normal(loc=true_y, scale=1.5), dt)
 		else:	
-			state.kalmanLoop( noised_heading, noised_speed, None, None, dt)
+			state.computeEKF( noised_heading, noised_speed, None, None, dt)
 		x_pos.append(state.x[0])
 		y_pos.append(state.x[1])
 		heading_filtered.append(state.x[2])

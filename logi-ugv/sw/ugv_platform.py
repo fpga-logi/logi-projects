@@ -35,7 +35,7 @@ class UgvPlatform(object):
 if __name__ == "__main__":
 	robot = UgvPlatform()
 	time.sleep(2)
-	robot.setSpeedFailSafe(0.0)
+	robot.setSpeedFailSafe(0)
 	robot.setSteeringFailSafe(0.0)
 	robot.setSpeed(0)
 	robot.resetWatchdog()
