@@ -63,9 +63,9 @@ if __name__ == "__main__":
 		time.sleep(0.1)
 		curr_pos = service.getPosition()
 		nmea_str = str(curr_pos.lat)+", "+str(curr_pos.lon)+", "+str(curr_pos.dil)+"\n"
-		xypos = coord.getXYPos(curr_pos)
-		xy_str = str(xypos.x)+", "+str(xypos.y)+"\n"
-		xy_file.write(xy_str)
-		nmea_file.write(nmea_str)
+#		xypos = coord.convertGpstoEuclidian(curr_pos)
+#		xy_str = str(xypos.x)+", "+str(xypos.y)+"\n"
+#		xy_file.write(xy_str)
+#		nmea_file.write(nmea_str)
 #		print nmea_str
 		#print mpu9150.getFusedEuler()
