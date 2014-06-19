@@ -266,6 +266,7 @@ COMPONENT SDRAM_Controller
 	-- frequency divider
 	signal freq_count : std_logic_vector(15 downto 0);
 	signal gpio_sig, lvds_sig : std_logic ;
+	signal freq_sel : std_logic_vector(15 downto 0);
 begin
 
 
@@ -279,8 +280,16 @@ begin
 end process ;
 
 --divide of main freq for peripherals
-gpio_sig <= freq_count(1);
-lvds_sig <= freq_count(0);
+with freq_sel select 
+	gpio_sig <= freq_count(0) when X"0000",
+					freq_count(1) when X"0001",
+					freq_count(2) when X"0002",
+					freq_count(3) when others ;
+with freq_sel select 					
+	lvds_sig <= freq_count(0) when X"0000",
+					freq_count(1) when X"0001",
+					freq_count(2) when X"0002",
+					freq_count(3) when others ;
 
 gls_reset <= (NOT clock_locked); -- system reset while clock not locked
 gls_resetn <= NOT gls_reset ; -- for preipherals with active low reset
@@ -489,7 +498,7 @@ reg0 : wishbone_register
 			reg_out(0)(15 downto 3) => open,
 			reg_out(0)(2) => SATA_ENABLE,
 			reg_out(0)(1 downto 0) => LED,
-			reg_out(1) => open,
+			reg_out(1) => freq_sel,
 			reg_out(2) => open,
 			reg_out(3) => open,
 			reg_out(4) => open,
