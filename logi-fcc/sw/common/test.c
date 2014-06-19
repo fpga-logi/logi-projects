@@ -297,6 +297,16 @@ int test_arduino_port(){
 int main(int argc, char ** argv){
 	char c [10];	
 	char * argv2 [3];
+	
+	//selecting base frequency
+	if(c > 0){
+		
+		unsigned int freq_sel = atoi(argv[1]);
+		float res_freq = 100.0/((freq_sel+1.0)*2.0) ;
+		printf("Selecting frequency %f \n", res_freq);
+		wishbone_write((unsigned char *) &freq_sel, 2, REG1);	
+	}
+	
 	init_test_log();	
 	test_log(INFO,"MAIN", "Press Enter to begin testing \n");
 	while(fgets(c, 2, stdin) == NULL);
