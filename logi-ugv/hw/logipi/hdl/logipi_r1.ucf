@@ -75,7 +75,7 @@ NET "SS" LOC = "P79" | IOSTANDARD = LVTTL;
 
 #ARDUINO HEADERS########################################################################												
 NET "ARD<5>" LOC= "P84" | IOSTANDARD = LVTTL ;				#D13
-NET "ARD<4>" LOC= "P87" | IOSTANDARD = LVTTL ;				#D12
+NET "ARD<4>" LOC= "P87" | IOSTANDARD = LVTTL | PULLUP ;				#D12
 NET "ARD<3>" LOC= "P51" | IOSTANDARD = LVTTL ;			#D11
 NET "ARD<2>" LOC= "P74" | IOSTANDARD = LVTTL ;				#D10
 NET "ARD<1>" LOC= "P64" | IOSTANDARD = LVTTL ;		#D9
