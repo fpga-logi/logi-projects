@@ -1,6 +1,6 @@
-from gps_service import Point
-import csv
 
+import csv
+import coordinates
 
 
 ## Waypoint must be provided in degree decimal not degree minute
@@ -29,10 +29,10 @@ class StaticWayPointProvider(AbstractWayPointProvider):
 
 	def __init__(self):
 		super(StaticWayPointProvider, self).__init__()
-		self.waypoints.append( Point(40.575158, 75.755795))
-		self.waypoints.append( Point(40.575176, 75.755768 ))
-		self.waypoints.append( Point(40.575238, 75.755795 ))
-		self.waypoints.append( Point(40.575221, 75.755901 ))  
+		self.waypoints.append( GpsPoint(40.575158, 75.755795))
+		self.waypoints.append( GpsPoint(40.575176, 75.755768 ))
+		self.waypoints.append( GpsPoint(40.575238, 75.755795 ))
+		self.waypoints.append( GpsPoint(40.575221, 75.755901 ))  
 
 
 	def getNextWayPoint(self):
@@ -51,12 +51,21 @@ class PlannerWayPointProvider(AbstractWayPointProvider):
 
 	def __init__(self, wp_file):
 		super(StaticWayPointProvider, self).__init__()
+		self.xy_waypoints = []
+		i = 0
 		with open(wp_file) as tsv:
 			for line in csv.reader(tsv, dialect="excel-tab"):
 				if len(line) == 12:
-					self.waypoints.append( Point(line[8], line[9] ))
-		elf.currentWayPointIndex = 1
+					if i == 0:
+						xy_coord = LocalCoordinates(GpsPoint(line[8], Gpsline[9] ))
+						self.xy_waypoints.append(convertGpstoEuclidian(GpsPoint(line[8], Gpsline[9] )))
+					else:
+						self.xy_waypoints.append(convertGpstoEuclidian(GpsPoint(line[8], Gpsline[9] )))
+					self.waypoints.append( GpsPoint(line[8], Gpsline[9] ))
+		self.currentWayPointIndex = 1
 
+	
+	
 	def getNextWayPoint(self):
 		if self.currentWayPointIndex < len(self.waypoints):
        			self.currentWayPointIndex = self.currentWayPointIndex + 1
@@ -68,8 +77,25 @@ class PlannerWayPointProvider(AbstractWayPointProvider):
 		return self.waypoints[self.currentWayPointIndex]
 	
 	def getPreviousWayPoint(self):
+                if self.currentWayPointIndex != 0:
+                        return self.waypoints[self.currentWayPointIndex-1]
+                else:
+                        return None
+
+	 def getNextWayPointXY(self):
+                if self.currentWayPointIndex < len(self.waypoints):
+                        self.currentWayPointIndex = self.currentWayPointIndex + 1
+                else:
+                        return None
+                return self.xy_waypoints[self.currentWayPointIndex]
+
+        def getCurrentWayPointXY(self):
+                return self.xy_waypoints[self.currentWayPointIndex]
+
+
+	def getPreviousWayPointXY(self):
 		if self.currentWayPointIndex != 0:
-			return self.waypoints[self.currentWayPointIndex-1]
+			return self.xy_waypoints[self.currentWayPointIndex-1]
 		else:
 			return None
 

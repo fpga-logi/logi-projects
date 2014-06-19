@@ -123,7 +123,7 @@ def nav_loop():
 		
 		
 		#waypoint service provide the current waypoint
-		target_pos= wp.getCurrentWayPoint()
+		target_pos= wp.getCurrentWayPointXY()
 		
 	
 		#no target point means path is done
