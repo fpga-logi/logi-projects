@@ -1,4 +1,4 @@
-
+import math
 
 class GpsPoint(object):
 	def __init__(self, lat, lon, time = 0.0, valid = False):
@@ -34,7 +34,7 @@ class LocalCoordinates():
 		self.equatorial_perimeter = (math.pi*2)*self.equatorial_radius
 		self.lat_scale_factor = (self.equatorial_perimeter)/360.0 	
 		if orig != None:
-			self.setOriginPoint(orig)
+			self.setOriginGpsPoint(orig)
 	
 	def getPosition(self):
 		return self.current_pos
@@ -49,7 +49,7 @@ class LocalCoordinates():
 	def setOriginGpsPoint(self, orig):
 		self.origPoint = orig
 		toRad = math.pi/180.0
-		lon_radius = math.sin((math.pi/2)-(orig.lat*toRad))* self.equatorial_radius		
+		lon_radius = math.sin((math.pi/2)-(orig.lat*toRad)) * self.equatorial_radius	
 		lon_perimeter = (math.pi*2)*lon_radius
 		self.lon_scale_factor = (lon_perimeter)/360.0	
 	
@@ -61,6 +61,6 @@ class LocalCoordinates():
 		x = diffLon * self.lon_scale_factor   
 		y = diffLat * self.lat_scale_factor 
 		eucPoint = EuclidianPoint(x, y, cp.time, cp.valid)
-		eucPoint.setDilution(cp.dilution) 
+		eucPoint.setDilution(cp.dil) 
 		return eucPoint
 
