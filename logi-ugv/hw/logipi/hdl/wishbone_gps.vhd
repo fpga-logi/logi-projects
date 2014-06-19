@@ -174,7 +174,7 @@ port map( clk => gls_clk, reset => gls_reset ,
 );
 
 filter_nmea : nmea_frame_extractor
-generic map(nmea_header => "$GPRMC")
+generic map(nmea_header => "$GPGGA")
 port map(
 	clk => gls_clk, reset => (gls_reset or reset_fifo),
 	nmea_byte_in => rx_register,
