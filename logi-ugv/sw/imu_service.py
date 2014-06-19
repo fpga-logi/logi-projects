@@ -31,3 +31,14 @@ class ImuService():
 			euler = (0.0, 0.0, 0.0)
 		return (valid, euler, robot.getGyro()) 		
 		
+
+
+if __name__ == "__main__":
+	imu_service = ImuService(50)
+        imu_service.setCalibrationFiles('./magcal.txt', './accelcal.txt')
+	while True:	
+		attitude = imu_service.getAttitude()
+		if attitude[0] >= 0:
+			print attitude[1]
+		time.sleep(0.020) 	
+	
