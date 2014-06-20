@@ -7,6 +7,16 @@ from gps_service import *
 from speed_service import *
 from imu_service import *
 
+
+
+def rotateMag(heading):
+	if heading > 0.0:
+		heading = heading - 180.0
+	else:
+		heading = heading + 180.0
+	return heading
+
+
 if __name__ == "__main__":
 	x_pos = []
 	y_pos = []
@@ -27,17 +37,18 @@ if __name__ == "__main__":
         imu_service.setCalibrationFiles('./magcal.txt', './accelcal.txt')
 	dt = 0.020
 	var = 100.0
-	heading = 0.0
-	while var > 1.0:	
+	heading = -90.0
+	while heading > 5.0 or heading < -5.0 :	
 		attitude = imu_service.getAttitude()
 		print attitude
 		if attitude[0] >= 0:
-			var = heading - attitude[1][2]
-			heading = attitude[1][2]
+			heading = rotateMag(attitude[1][2])
+			print heading
 		time.sleep(0.020) 	
 	print "Sytem calibrated and ready to go !"
 	state_service.x[0] = 0.0
 	state_service.x[1] = 0.0
+	# heading varry in clock wise direction ...
 	state_service.x[2] = heading
 	state_service.x[3] = 0.0
 	old_enc = 0
@@ -51,7 +62,9 @@ if __name__ == "__main__":
 			time.sleep(0.01)
 			continue
 		speed = speed_service.getSpeed()
-		state_service.computeEKF( euler[2], speed, None, None, dt)
+		# heading varry in clock wise direction ...
+		heading = rotateMag(euler[2])	
+		state_service.computeEKF( heading, speed, None, None, dt)
 		#print state_service.x
 		x_pos.append(state_service.x[0])
 		y_pos.append(state_service.x[1])
