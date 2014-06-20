@@ -47,7 +47,7 @@ class PurePursuit():
 		
 		# look ahead point is ahead of target, using target as look_ahead
 		if dist_to_look_ahead > dist_to_target :
-			print "further than next waypoint"
+			#print "further than next waypoint"
 			look_ahead_point_y = point_B.y
 			look_ahead_point_x = point_B.x
 				
@@ -100,7 +100,7 @@ class PurePursuit():
 		plt.gca().add_artist(circ)
 		plt.show()
 
-		#positive value is turning left, negative value is turning right
+		#positive value is turning right, negative value is turning left
 		return curvature
 '''		
 

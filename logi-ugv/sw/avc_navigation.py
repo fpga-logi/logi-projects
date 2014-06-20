@@ -185,7 +185,7 @@ def nav_loop():
 			tracker_counter = (CONTROL_RATE/TRACKER_RATE)
 				
 		#steering can be extracted from curvature while speed must be computed from curvature and max_speed
-		steering = math.sinh(path_curvature)*(math.pi/180.0)
+		steering = -1 * math.sinh(path_curvature)*(math.pi/180.0) #should take into account wheel base, curvature is reversed compared to steering
 		#command needs to be computed for speed using PID control or direct P control
 		target_speed = speedFromSteeringAndDistance(steering, distance_to_target)	
 
