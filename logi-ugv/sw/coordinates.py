@@ -49,7 +49,7 @@ class LocalCoordinates():
 	def setOriginGpsPoint(self, orig):
 		self.origPoint = orig
 		toRad = math.pi/180.0
-		lon_radius = math.sin((math.pi/2)-(orig.lat*toRad)) * self.equatorial_radius	
+		lon_radius = math.sin((math.pi/2)-(orig.lat*toRad))* self.equatorial_radius		
 		lon_perimeter = (math.pi*2)*lon_radius
 		self.lon_scale_factor = (lon_perimeter)/360.0	
 	

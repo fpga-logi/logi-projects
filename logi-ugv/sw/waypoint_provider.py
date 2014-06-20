@@ -1,7 +1,6 @@
 
 import csv
-from coordinates import *
-import matplotlib.pyplot as plt
+import coordinates
 
 
 ## Waypoint must be provided in degree decimal not degree minute
@@ -51,21 +50,19 @@ class StaticWayPointProvider(AbstractWayPointProvider):
 class PlannerWayPointProvider(AbstractWayPointProvider):
 
 	def __init__(self, wp_file):
-		super(AbstractWayPointProvider, self).__init__()
-		self.waypoints = []
+		super(StaticWayPointProvider, self).__init__()
 		self.xy_waypoints = []
 		i = 0
 		with open(wp_file) as tsv:
 			for line in csv.reader(tsv, dialect="excel-tab"):
 				if len(line) == 12:
 					if i == 0:
-						xy_coord = LocalCoordinates(GpsPoint(float(line[8]), float(line[9]) ))
-						self.xy_waypoints.append(xy_coord.convertGpstoEuclidian(GpsPoint(float(line[8]), float(line[9]) )))
+						xy_coord = LocalCoordinates(GpsPoint(line[8], Gpsline[9] ))
+						self.xy_waypoints.append(convertGpstoEuclidian(GpsPoint(line[8], Gpsline[9] )))
 					else:
-						self.xy_waypoints.append(xy_coord.convertGpstoEuclidian(GpsPoint(float(line[8]), float(line[9]) )))
-					self.waypoints.append( GpsPoint(float(line[8]), float(line[9]) ))
-					i = i + 1
-		self.currentWayPointIndex = 1
+						self.xy_waypoints.append(convertGpstoEuclidian(GpsPoint(line[8], Gpsline[9] )))
+					self.waypoints.append( GpsPoint(line[8], Gpsline[9] ))
+		elf.currentWayPointIndex = 1
 
 	
 	
@@ -85,8 +82,8 @@ class PlannerWayPointProvider(AbstractWayPointProvider):
                 else:
                         return None
 
-	def getNextWayPointXY(self): 
-                if (self.currentWayPointIndex+1) < len(self.waypoints):
+	 def getNextWayPointXY(self):
+                if self.currentWayPointIndex < len(self.waypoints):
                         self.currentWayPointIndex = self.currentWayPointIndex + 1
                 else:
                         return None
@@ -106,15 +103,6 @@ class PlannerWayPointProvider(AbstractWayPointProvider):
 	
 
 
-if __name__ == "__main__":
-	x_p = []
-	y_p = []
-	wp_provider = PlannerWayPointProvider('./avc_waypoints.txt')
-	wp = wp_provider.getCurrentWayPointXY()	
-	while wp != None:
-		x_p.append(wp.x)
-		y_p.append(wp.y)
-		wp = wp_provider.getNextWayPointXY()
-	plt.plot(x_p, y_p, 'r')
-	plt.show()
-	
+
+
+

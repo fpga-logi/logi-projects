@@ -30,7 +30,7 @@ class GpsService():
 		frame = logi.logiRead(0x080, 82)
                 frame_size = frame[0]
                 nmea_str = "".join(str(unichr(a)) for a in frame[2:frame_size+2])
-                nmea_fields =  split(nmea_str, ',')
+		nmea_fields =  split(nmea_str, ',')
 		if nmea_fields[6] > '0':
 			lat = float(nmea_fields[2])
 			long = float(nmea_fields[4])
@@ -63,9 +63,9 @@ if __name__ == "__main__":
 		time.sleep(0.1)
 		curr_pos = service.getPosition()
 		nmea_str = str(curr_pos.lat)+", "+str(curr_pos.lon)+", "+str(curr_pos.dil)+"\n"
-#		xypos = coord.convertGpstoEuclidian(curr_pos)
-#		xy_str = str(xypos.x)+", "+str(xypos.y)+"\n"
-#		xy_file.write(xy_str)
-#		nmea_file.write(nmea_str)
+		xypos = coord.convertGpstoEuclidian(curr_pos)
+		xy_str = str(xypos.x)+", "+str(xypos.y)+"\n"
+		xy_file.write(xy_str)
+		nmea_file.write(nmea_str)
 #		print nmea_str
 		#print mpu9150.getFusedEuler()

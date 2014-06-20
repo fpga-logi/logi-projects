@@ -27,10 +27,10 @@ if __name__ == "__main__":
         print "waiting for GPS fix"
         gps_service = GpsService()
         current_pos = gps_service.getPosition()
-        while not current_pos.valid:
-                time.sleep(1)
-                current_pos = gps_service.getPosition()
-                print current_pos.valid
+        #while not current_pos.valid:
+        #        time.sleep(1)
+        #        current_pos = gps_service.getPosition()
+        #        print current_pos.valid
        
         imu_service = ImuService(50)
 	speed_service = SpeedService()

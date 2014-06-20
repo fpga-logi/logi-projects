@@ -33,7 +33,7 @@ if __name__ == "__main__":
 	I = 0.75
 	D = -2.0
 
-	target_speed = 4.0
+	target_speed = 3.5
 	old_error = 0.0
 	integral = 0.0
 	while True:

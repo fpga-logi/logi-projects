@@ -29,7 +29,7 @@ class UgvPlatform(object):
 	def setSteeringAngle(self, angle):
 		logi_hal.setServoAngle(ugv_map.SERVO_0, STEERING_CHANNEL, angle)
 
-	def getPushButtons(self, pb):
+	def getPushButtons(self):
 		return (logi_hal.readRegister(ugv_map.REG_0, 3) & 0x0003)
 
 	def resetWatchdog(self):
@@ -45,8 +45,8 @@ if __name__ == "__main__":
 	i = 0
 	while True:
 		robot.resetWatchdog()
-		robot.setSteeringAngle(math.sin(i)*30.0)
-		print math.sin(i)*30.0
+		robot.setSteeringAngle(math.sin(i)*35.0)
+		print math.sin(i)*35.0
 		time.sleep(0.01)
 		i =  i + 0.1
 		if i > (2*math.pi) :

@@ -58,7 +58,7 @@ class PurePursuit():
 		
 		
 		#rotation to align on robot reference frame, heading pointing 90
-		rotation_tetha = 90.0 - heading
+		rotation_tetha = heading
 		look_ahead_point_x_rob = look_ahead_point_x_trans * math.cos(toRad*rotation_tetha) - look_ahead_point_y_trans * math.sin(toRad*rotation_tetha)
 		look_ahead_point_y_rob = look_ahead_point_x_trans * math.sin(toRad*rotation_tetha) + look_ahead_point_y_trans * math.cos(toRad*rotation_tetha)
 		
@@ -71,9 +71,9 @@ class PurePursuit():
 		D_square = pow(look_ahead_point_x_rob, 2) + pow(look_ahead_point_y_rob, 2)
 		r = D_square/(2.0*look_ahead_point_x_rob)
 		curvature = 1.0/r
-		return curvature
+		#return curvature
 		
-'''	
+	
 		plt.subplot(211)
 		plt.plot(point_A.x, point_A.y, '+r')
 		plt.plot(point_B.x, point_B.y, '+g' )
@@ -100,13 +100,14 @@ class PurePursuit():
 		plt.gca().add_artist(circ)
 		plt.show()
 
+		#positive value is turning left, negative value is turning right
 		return curvature
-'''		
+		
 
 
 if __name__ == "__main__":	
 	path = PurePursuit()
-	curv = path.computeSteering(EuclidianPoint(0.0, 0.0), EuclidianPoint(-5.0, -1.0), EuclidianPoint(0.0, -1.0), 90.0)
+	curv = path.computeSteering(EuclidianPoint(0.0, 0.0), EuclidianPoint(-5.0, -1.0), EuclidianPoint(0.0, 1.0), -90.0)
 	steering = math.sinh(curv)*(180.0/math.pi)
 	print curv
 	print steering
