@@ -62,18 +62,18 @@ class PurePursuit():
 		look_ahead_point_x_rob = look_ahead_point_x_trans * math.cos(toRad*rotation_tetha) - look_ahead_point_y_trans * math.sin(toRad*rotation_tetha)
 		look_ahead_point_y_rob = look_ahead_point_x_trans * math.sin(toRad*rotation_tetha) + look_ahead_point_y_trans * math.cos(toRad*rotation_tetha)
 		
-		print rotation_tetha
-		print look_ahead_point_x_rob
-		print look_ahead_point_y_rob
+		#print rotation_tetha
+		#print look_ahead_point_x_rob
+		#print look_ahead_point_y_rob
 		# following is based on 
 		# http://www8.cs.umu.se/kurser/TDBD17/VT06/utdelat/Assignment%20Papers/Path%20Tracking%20for%20a%20Miniature%20Robot.pdf
 		
 		D_square = pow(look_ahead_point_x_rob, 2) + pow(look_ahead_point_y_rob, 2)
 		r = D_square/(2.0*look_ahead_point_x_rob)
 		curvature = 1.0/r
-		#return curvature
+		return curvature
 		
-	
+'''	
 		plt.subplot(211)
 		plt.plot(point_A.x, point_A.y, '+r')
 		plt.plot(point_B.x, point_B.y, '+g' )
@@ -102,7 +102,7 @@ class PurePursuit():
 
 		#positive value is turning left, negative value is turning right
 		return curvature
-		
+'''		
 
 
 if __name__ == "__main__":	
