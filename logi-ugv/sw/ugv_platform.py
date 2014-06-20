@@ -29,6 +29,9 @@ class UgvPlatform(object):
 	def setSteeringAngle(self, angle):
 		logi_hal.setServoAngle(ugv_map.SERVO_0, STEERING_CHANNEL, angle)
 
+	def getPushButtons(self, pb):
+		return (logi_hal.readRegister(ugv_map.REG_0, 3) & 0x0003)
+
 	def resetWatchdog(self):
 		logi_hal.resetWatchdog((ugv_map.WATCH_0))
 

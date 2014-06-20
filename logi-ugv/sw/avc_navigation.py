@@ -112,12 +112,22 @@ def nav_loop():
 	target_speed = 0.0
 	old_error = 0.0
 	integral = 0.0
-	
+	start_script = 0 
+	start_script_old = 0
+	run = False
 	while True:
 		# need to read start button
-		if not start_pressed :		
-			time.sleep(0.2)
-			continue
+		start_script = getPushButtons() & 0x01
+
+
+		# detecting rising edge to start the script (pb are active low)
+		if run == True and start_script_old = 0x00 and start_script = 0x01:
+			run = False	
+		elif run == False and start_script_old = 0x00 and start_script = 0x01:
+			run = True
+
+		start_script_old = start_script
+		
 		#reseting watchdog at the beginning of loop
 		robot.resetWatchdog()
 		
@@ -176,21 +186,22 @@ def nav_loop():
 		#command needs to be computed for speed using PID control or direct P control
 		target_speed = speedFromSteeringAndDistance(steering, distance_to_target)	
 
-		
-		# doing the PID math, PID term needs to be adjusted
-		error = (target_speed - sensor[IController.odometry_key])
-        	derivative = error - old_error
-        	old_error = error
-        	cmd = error * P + derivative * D + integral * I
-        	integral = integral + error
-		if cmd < 0.0 :
-                	cmd = 0
-        	if cmd > 127.0:
-                	cmd = 127
-		# end of PID math
-		robot.setSpeed(cmd)
-		
-		robot.setSteeringAngle(steering)
+		# trying to detect falling edge to start driving
+		if run == True :		
+			# doing the PID math, PID term needs to be adjusted
+			error = (target_speed - sensor[IController.odometry_key])
+			derivative = error - old_error
+			old_error = error
+			cmd = error * P + derivative * D + integral * I
+			integral = integral + error
+			if cmd < 0.0 :
+		        	cmd = 0
+			if cmd > 127.0:
+		        	cmd = 127
+			# end of PID math
+			robot.setSpeed(cmd)
+			robot.setSteeringAngle(steering)
+		time.sleep(0.020)
 					
 	
 	# if ever we quit the loop, we need to set the speed to 0 and steering to 0
