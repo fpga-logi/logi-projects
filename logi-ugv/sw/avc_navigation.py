@@ -12,7 +12,7 @@ from gps_service import GpsService
 from speed_service import SpeedService
 
 import math
-
+import time
 #path of file containning the waypoints, we should adjust translation of  course over real gps coordinates. Otherwise it can cause the 
 #car course to be shifted compared to the wanted one
 PLANNER_WAYPOINT_FILE_PATH = "./avc_waypoints.txt"
@@ -74,8 +74,8 @@ def nav_loop():
 	#initializing actuators and failsafe
 	robot.setSteeringAngle(0.0)
 	robot.setSpeed(0)
-	robot.setSpeedFailsafe(0)
-	robot.setSteeringFailsafe(0.0)
+	robot.setSpeedFailSafe(0)
+	robot.setSteeringFailSafe(0.0)
 
 	#initializing state estimate service
 	state = RobotState()
@@ -124,10 +124,10 @@ def nav_loop():
 
 
 		# detecting rising edge to start the script (pb are active low)
-		if run == True and start_script_old = 0x00 and start_script = 0x01:
+		if run == True and start_script_old == 0x00 and start_script == 0x01:
 			print "starting trajectory !!!!!"
 			run = False	
-		elif run == False and start_script_old = 0x00 and start_script = 0x01:
+		elif run == False and start_script_old == 0x00 and start_script == 0x01:
 			print "stoping vehicle !!!!!"
 			run = True
 
