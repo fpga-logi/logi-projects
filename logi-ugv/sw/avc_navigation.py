@@ -115,6 +115,9 @@ def nav_loop():
 	start_script = 0 
 	start_script_old = 0
 	run = False
+
+	#reseting watchdog before we start
+	robot.resetWatchdog()
 	while True:
 		# need to read start button
 		start_script = getPushButtons() & 0x01
@@ -122,14 +125,13 @@ def nav_loop():
 
 		# detecting rising edge to start the script (pb are active low)
 		if run == True and start_script_old = 0x00 and start_script = 0x01:
+			print "starting trajectory !!!!!"
 			run = False	
 		elif run == False and start_script_old = 0x00 and start_script = 0x01:
+			print "stoping vehicle !!!!!"
 			run = True
 
 		start_script_old = start_script
-		
-		#reseting watchdog at the beginning of loop
-		robot.resetWatchdog()
 		
 		
 		#waypoint service provide the current waypoint
@@ -201,6 +203,8 @@ def nav_loop():
 			# end of PID math
 			robot.setSpeed(cmd)
 			robot.setSteeringAngle(steering)
+			#reseting watchdog before for next iteration
+			robot.resetWatchdog()
 		time.sleep(0.020)
 					
 	

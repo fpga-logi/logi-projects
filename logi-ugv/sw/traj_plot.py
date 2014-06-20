@@ -23,7 +23,8 @@ if __name__ == "__main__":
                 corner_y_pos.append(xy[1])
 	
 	plt.plot(corner_x_pos, corner_y_pos, 'k')
-        plt.show()
+        plt.axis([0.0, 30.0, -15.0, 15.0])
+	plt.show()
 	exit()
 	
 

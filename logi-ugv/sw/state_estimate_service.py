@@ -16,7 +16,7 @@ class RobotState():
 		self.P = array([[1.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 1.0, 0.0], [0.0, 0.0, 0.0, 1.0]])
 
 		# need to estimate measurement error for GPS ...
-		self.R = array([[1.5, 0.0, 0.0, 0.0], [0.0, 1.5, 0.0, 0.0], [0.0, 0.0, 2.0, 0.0], [0.0, 0.0, 0.0, 1.0]])
+		self.R = array([[3.0, 0.0, 0.0, 0.0], [0.0, 3.0, 0.0, 0.0], [0.0, 0.0, 2.0, 0.0], [0.0, 0.0, 0.0, 1.0]])
 		# need to define Q, H
 
 	def computeStateEvolution(self, x, F):
@@ -66,9 +66,14 @@ class RobotState():
 
 		# Prediction
 
-		F = array([[1.0, 0, 0, math.cos(self.x[2]*toRad)*dt], \
-			[0, 1.0, 0, math.sin(self.x[2]*toRad)*dt],\
-			[0, 0, 1.0, 0], [0, 0, 0, 1.0]])
+		#F = array([[1.0, 0, 0, math.cos(self.x[2]*toRad)*dt], \
+		#	[0, 1.0, 0, math.sin(self.x[2]*toRad)*dt],\
+		#	[0, 0, 1.0, 0], [0, 0, 0, 1.0]])
+		
+		F = array([[1.0, 0, 0, math.sin(self.x[2]*toRad)*dt], \
+                        [0, 1.0, 0, math.cos(self.x[2]*toRad)*dt],\
+                        [0, 0, 1.0, 0], [0, 0, 0, 1.0]])
+		
 		if measured_x == None:
 			self.H[0][0] = 0.0
 			measured_x = 0.0
@@ -172,13 +177,13 @@ def drawCircle(state, dt):
 	angular_speed = 5.0
 	state = state + angular_speed
 	radius = 2.0
-	if state > 360.0:
+	if state >= 360.0:
 		state = 0.0
 	toRad = math.pi/180.0 
 	speed = (math.tan(angular_speed*toRad)*radius)/dt # constant speed
 	heading = state + 90.0 
-	x = math.cos(state*toRad)*radius
-	y = math.sin(state*toRad)*radius
+	x = math.sin(state*toRad)*radius
+	y = math.cos(state*toRad)*radius
 	if heading > 180.0:
 		heading = heading - 360.0
 	return (x, y, heading, speed, state)
@@ -187,8 +192,8 @@ def drawLine(state, dt):
 	state = state + dt
 	speed = 2.0
 	heading = 16.0
-	x = math.cos(heading*toRad)*state*speed
-	y = math.sin(heading*toRad)*state*speed
+	x = math.sin(heading*toRad)*state*speed
+	y = math.cos(heading*toRad)*state*speed
 	return (x, y, heading, speed, state)
 	
 
@@ -231,9 +236,9 @@ if __name__ == "__main__":
 	noisy_x = 0.0
 	noisy_y = 0.0
 	state_mem = 0.0	
-	for i in range(100):
+	for i in range(1000):
 		true_x, true_y, heading, speed, state_mem  = drawLine(state_mem , dt)
-		noised_heading = random.normal(loc=heading, scale=1.0)
+		noised_heading = random.normal(loc=heading, scale=2.0)
 		noised_speed = abs(random.normal(loc=speed, scale=0.1))
 		#print "heading :"+str(noised_heading)+", speed :"+str(speed)
 		#true_x = true_x + math.sin(heading*toRad)*0.1*speed
@@ -241,8 +246,8 @@ if __name__ == "__main__":
 		x_pos_true.append(true_x)
 		y_pos_true.append(true_y)
 		
-		noisy_x = random.normal(loc=true_x, scale=1.5) + math.cos(noised_heading*toRad)*dt*noised_speed
-		noisy_y = random.normal(loc=true_y, scale=1.5) +  math.sin(noised_heading*toRad)*dt*noised_speed
+		noisy_x = random.normal(loc=true_x, scale=3.0) + math.cos(noised_heading*toRad)*dt*noised_speed
+		noisy_y = random.normal(loc=true_y, scale=3.0) +  math.sin(noised_heading*toRad)*dt*noised_speed
 		#print str(noisy_x)+", "+str(noisy_y)
 
 		x_pos_noise.append(noisy_x)
@@ -250,7 +255,7 @@ if __name__ == "__main__":
 		heading_noised.append(noised_heading)
 		speed_noised.append(noised_speed)
 		
-		if i % 5 == 0:
+		if i % 50 == 0:
 			state.computeEKF( noised_heading, noised_speed, random.normal(loc=true_x, scale=1.5), random.normal(loc=true_y, scale=1.5), dt)
 		else:	
 			state.computeEKF( noised_heading, noised_speed, None, None, dt)
