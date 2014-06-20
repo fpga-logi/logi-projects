@@ -92,6 +92,7 @@ def nav_loop():
 	# wainting to get a valid GPS fix. Maybe should also wait to get a good fix before starting
 	while not current_pos.valid:
 		time.sleep(1)
+		print "Waiting for GPS fix"
 		current_pos = gps_service.getPosition()
 	#initializing local coordinates system to start on current spot
 	coordinates_system = LocalCoordinates(current_pos)
@@ -205,7 +206,8 @@ def nav_loop():
 			robot.setSteeringAngle(steering)
 			#reseting watchdog before for next iteration
 			robot.resetWatchdog()
-		time.sleep(0.020)
+		# no need to sleep, we run at full speed !
+		#time.sleep(0.020)
 					
 	
 	# if ever we quit the loop, we need to set the speed to 0 and steering to 0
