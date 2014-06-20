@@ -307,7 +307,8 @@ reg_out(3)(15 downto 0) => open,
 reg_in(0)(15 downto 0) => gyro_x,
 reg_in(1)(15 downto 0) => encoder_count,
 reg_in(2)(15 downto 0) => encoder_speed,
-reg_in(3)(15 downto 0) => open
+reg_in(3)(15 downto 2) => open,
+reg_in(3)(1 downto 0) => PB
 );
 
 
