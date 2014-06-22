@@ -35,6 +35,32 @@ class UgvPlatform(object):
 	def resetWatchdog(self):
 		logi_hal.resetWatchdog((ugv_map.WATCH_0))
 
+
+class SimulatedUgvPlatform(object):
+	
+	def __init__(self):
+		print "initialized"
+	
+	def setSpeed(self, pos):	
+		print "set speed "+str(pos)
+
+	def setSpeedFailSafe(self, pos):	
+		print "set speed failsafe "+str(pos)
+	
+	def setSteeringFailSafe(self, angle):
+		print "set steering failsafe "+str(angle)
+	
+	def setSteeringAngle(self, angle):
+		print "set steering "+str(angle)
+
+	def getPushButtons(self):
+		return 0x03
+
+	def resetWatchdog(self):
+		print "reset watchdog "
+
+
+
 if __name__ == "__main__":
 	robot = UgvPlatform()
 	time.sleep(2)

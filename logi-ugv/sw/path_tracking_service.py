@@ -3,7 +3,7 @@
 import numpy
 import time
 import math
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 from coordinates import EuclidianPoint
 		
@@ -19,6 +19,8 @@ class PurePursuit():
 		toRad = math.pi/180.0		
 		eq_path = [0, 0]	
 		# compute path equation
+		if (point_A.x - point_B.x) == 0:
+			return 0.0
 		eq_path[0] = (point_A.y - point_B.y)/(point_A.x - point_B.x)
 		eq_path[1] = point_B.y - (point_B.x*eq_path[0])
 		#compute equation of line orthogonal to path and passing by current position
@@ -107,7 +109,7 @@ class PurePursuit():
 
 if __name__ == "__main__":	
 	path = PurePursuit()
-	curv = path.computeSteering(EuclidianPoint(0.0, 0.0), EuclidianPoint(-5.0, -1.0), EuclidianPoint(0.0, 1.0), -90.0)
+	curv = path.computeSteering(EuclidianPoint(0.0, 0.0), EuclidianPoint(-25.0, -8.0), EuclidianPoint(0.0, 0.0), 76.83)
 	steering = math.sinh(curv)*(180.0/math.pi)
 	print curv
 	print steering

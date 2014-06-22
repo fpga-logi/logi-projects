@@ -24,7 +24,7 @@ class GpsService():
 		
 
 	def __init__(self):
-		self.current_pos = GpsPoint(0.0, 0.0, False) ; 	
+		self.current_pos = GpsPoint(0.0, 0.0, 0.0, False) ; 	
 
 	def getPosition(self):
 		frame = logi.logiRead(0x080, 82)
@@ -42,6 +42,15 @@ class GpsService():
 			self.current_pos = GpsPoint(DmToD(lat), DmToD(long), time, True)
 			self.current_pos.setDilution(float(nmea_fields[8])*7.0)
 			
+		return self.current_pos
+
+
+class SimulatedGpsService():
+		
+	def __init__(self):
+		self.current_pos = GpsPoint(0.0, 0.0, 0.0, True) ; 	
+
+	def getPosition(self):
 		return self.current_pos
 
 

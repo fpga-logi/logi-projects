@@ -2,8 +2,10 @@ import math
 import logi
 import time	
 
+CALIB_NB_TICKS = 324.0
+CALIB_DISTANCE = 1.0
 
-DISTANCE_BETWEEN_TICKS = 0.0048
+DISTANCE_BETWEEN_TICKS = CALIB_DISTANCE/CALIB_NB_TICKS
 ENCODER_PERIOD_ADDRESS = 0x000E
 class SpeedService():
 		
@@ -21,6 +23,16 @@ class SpeedService():
 		else:
         		self.current_speed = DISTANCE_BETWEEN_TICKS/(float(enc_val)/1000000.0)
 		return self.current_speed
+
+
+class SimulatedSpeedService():
+		
+	def __init__(self):
+		self.current_speed = 0.0 ; 	
+
+	def getSpeed(self):
+		return self.current_speed
+
 
 
 if __name__ == "__main__":

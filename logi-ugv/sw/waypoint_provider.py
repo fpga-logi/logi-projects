@@ -62,12 +62,15 @@ class PlannerWayPointProvider(AbstractWayPointProvider):
 					else:
 						self.xy_waypoints.append(xy_coord.convertGpstoEuclidian(GpsPoint(float(line[8]), float(line[9]) )))
 					self.waypoints.append( GpsPoint(float(line[8]), float(line[9]) ))
+					print "wp["+str(i)+"] = "+line[8]+", "+line[9]                               
+					i = i + 1
+
 		self.currentWayPointIndex = 1
 
 	
 	
 	def getNextWayPoint(self):
-		if self.currentWayPointIndex < len(self.waypoints):
+		if self.currentWayPointIndex < (len(self.waypoints)-1):
        			self.currentWayPointIndex = self.currentWayPointIndex + 1
 		else:
 			return None
@@ -83,7 +86,7 @@ class PlannerWayPointProvider(AbstractWayPointProvider):
                         return None
 
 	def getNextWayPointXY(self):
-                if self.currentWayPointIndex < len(self.waypoints):
+                if self.currentWayPointIndex < (len(self.waypoints)-1):
                         self.currentWayPointIndex = self.currentWayPointIndex + 1
                 else:
                         return None

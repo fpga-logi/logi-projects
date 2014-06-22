@@ -3,13 +3,21 @@ import numpy
 
 from path_tracking_service import PurePursuit as TrackingService
 from state_estimate_service import RobotState
-from ugv_platform import UgvPlatform as Robot
 from coordinates import  *
 from waypoint_provider import PlannerWayPointProvider 
+from controllers import IController
 
+#Use for Simulation
+from ugv_platform import SimulatedUgvPlatform as Robot
+from gps_service import SimulatedGpsService as GpsService
+from speed_service import SimulatedSpeedService as SpeedService
+from imu_service import ImuService as ImuService
 
-from gps_service import GpsService
-from speed_service import SpeedService
+#Use for real world scenario
+#from ugv_platform import UgvPlatform as Robot
+#from gps_service import GpsService as GpsService
+#from speed_service import SpeedService as SpeedService
+#from imu_service import ImuService as ImuService
 
 import math
 import time
@@ -19,8 +27,8 @@ PLANNER_WAYPOINT_FILE_PATH = "./avc_waypoints.txt"
 
 CONTROL_RATE = 50 # rate at which the control is run
 TRACKER_RATE = 5 # rate at which the path tracking algorithm is run
-MAX_SPEED_MS = 10.0 # 10m/s is max speed (36km/h), this parameter must be adjusted depending on required agressivity
-MIN_SPEED_MS = 3.5 # minimum speed base on what the encoder can measure and what speed the motor can generate
+MAX_SPEED_MS = 5.0 # 10m/s is max speed (36km/h), this parameter must be adjusted depending on required agressivity
+MIN_SPEED_MS = 3.0 # minimum speed base on what the encoder can measure and what speed the motor can generate
 WHEEL_BASE = 0.30 # distance between front and rear axle, should be used for curvature to steering computation
 DT = 1/CONTROL_RATE # period of control loop
 DIST_TOLERANCE = 2.0 # distance at which the waypoint is assumed to be reached
@@ -33,10 +41,10 @@ D = -2.0
 
 
 #compute the speed based on current steering. This will need to be adjusted to avoid drifting
-def speedFromSteeringAndDistance(steering):
-	if distance == 0.0: # avoi division by zero
+def speedFromSteeringAndDistance(steering, distance):
+	if distance == 0.0: # avoid division by zero
 		distance = 0.01
-	speed = (MAX_SPEED_MS * cos(steering)) - (1/math.pow(distance, 2) * MAX_SPEED_MS/10)# need to be adjusted ... 
+	speed = (MAX_SPEED_MS * math.cos(steering)) - (1/math.pow(distance, 2) * MAX_SPEED_MS/5)# need to be adjusted ... 
 	if speed < MIN_SPEED_MS:
 		speed = MIN_SPEED_MS
 	return speed
@@ -44,11 +52,11 @@ def speedFromSteeringAndDistance(steering):
 
 #ensure that the sensors are read only once. This avoid the communication with the FPGA to be everywhere in the code
 def populateSensorMap(robot, gps_service, speed_service, imu_service):
-	pos = robot.getPosition()
+	pos = gps_service.getPosition()
 	sensor_map = {}
-	sensor_map[Controller.imu_key] = imu_service.getAttitude()
-	sensor_map[Controller.gps_key] = robot.getPosition()
-	sensor_map[Controller.speed] = speed_service.getSpeed()
+	sensor_map[IController.imu_key] = imu_service.getAttitude()
+	sensor_map[IController.gps_key] = gps_service.getPosition()
+	sensor_map[IController.odometry_key] = speed_service.getSpeed()
 	return sensor_map
 	
 # navigation loop
@@ -101,7 +109,7 @@ def nav_loop():
 	#initiliaze mpu system
 	imu_service = ImuService(CONTROL_RATE) # initialize imu at given rate, wait until the IMU is initialized
 	#setting mpu calibration files (calibration should be re-run before every run)
-	imu_service.setCalibrationFiles('./magcal.txt', 'acc_cal.txt')
+	imu_service.setCalibrationFiles('./magcal.txt', 'accelcal.txt')
 	for i in range(1000): # flushing a bit of sensor fifo to stabilize sensor
 		time.sleep(1/CONTROL_RATE)
 		imu_service.getAttitude()
@@ -114,65 +122,74 @@ def nav_loop():
 	old_error = 0.0
 	integral = 0.0
 	start_script = 0 
-	start_script_old = 0
+	start_script_old = 0x01
 	run = False
-
+	tracker_counter = 0
+	path_curvature = 0.0
+	steering = 0.0
+	
 	#reseting watchdog before we start
 	robot.resetWatchdog()
 	while True:
 		# need to read start button
-		start_script = getPushButtons() & 0x01
+		start_script = robot.getPushButtons() & 0x01
 
 
 		# detecting rising edge to start the script (pb are active low)
-		if run == True and start_script_old == 0x00 and start_script == 0x01:
+		if run == False and start_script_old == 0x00 and start_script == 0x01:
 			print "starting trajectory !!!!!"
-			run = False	
-		elif run == False and start_script_old == 0x00 and start_script == 0x01:
+			run = True	
+		elif run == True and start_script_old == 0x00 and start_script == 0x01:
 			print "stoping vehicle !!!!!"
-			run = True
+			run = False
 
 		start_script_old = start_script
 		
 		
 		#waypoint service provide the current waypoint
-		target_pos= wp.getCurrentWayPointXY()
+		xy_target_pos= wp.getCurrentWayPointXY()
 		
 	
 		#no target point means path is done
-		if target_pos == None: # done with the path
+		if xy_target_pos == None: # done with the path
 			break
-		xy_target_pos = coordinates_system.convertGpstoEuclidian(target_pos)
+
 		#get previous waypoint to draw the path between the two
-		origin_pos = wp.getPreviousWaypoint()
-		xy_origin_pos = coordinates_system.convertGpstoEuclidian(origin_pos)
+		xy_origin_pos = wp.getPreviousWayPointXY()
 
 		# populate the sensor structure to make sure we read all sensors only once per loop
 		sensors = populateSensorMap(robot, gps_service, speed_service, imu_service)
 		
 		#imu has no valid sample, IMU helps keep the control loop rate as it delivers values at the right pace
-		if sensor[IController.imu_key][0] < 0 : #invalid imu sample, wait a bit to read next
+		if sensors[IController.imu_key][0] < 0 : #invalid imu sample, wait a bit to read next
 			time.sleep(0.01)
 			continue
 		
 		#converting gps pos to the local coordinates system
-		xy_pos = coordinates_system.convertGpstoEuclidian(sensors[Controller.gps_key])
-		new_gps_fix = (sensors[Controller.gps_key].time != old_gps.time) and sensors[Controller.gps_key].valid and old_gps.valid
-		old_gps = sensors[Controller.gps_key]
+		xy_pos = coordinates_system.convertGpstoEuclidian(sensors[IController.gps_key])
+		new_gps_fix = (sensors[IController.gps_key].time != old_gps.time) and sensors[IController.gps_key].valid and old_gps.valid
+		old_gps = sensors[IController.gps_key]
 		
 		# we have a new fix, integrate it to the kalman filter
-		robot_heading = sensor[IController.imu_key][1][2]		
+		robot_heading = sensors[IController.imu_key][1][2]		
 		if new_gps_fix :
-			robot_state = state_estimate_service.computeEKF(robot_heading, sensor[IController.odometry_key], xy_pos.x, xy_pos.y, DT)
+			robot_state = state.computeEKF(robot_heading, sensors[IController.odometry_key], xy_pos.x, xy_pos.y, DT)
 		else:
-			robot_state = state_estimate_service.computeEKF(robot_heading, sensor[IController.odometry_key], None, None, DT)
+			robot_state = state.computeEKF(robot_heading, sensors[IController.odometry_key], None, None, DT)
 		
 		# updating xy_pos to estimated pos
 		xy_pos = EuclidianPoint(robot_state[0], robot_state[1], xy_pos.time, True)
 		robot_heading = robot_state[2]
-		# execute tracker at a fraction at the control rate update
+		# execute tracker at a fraction of the control rate update
 		if tracker_counter >= (CONTROL_RATE/TRACKER_RATE):
 			path_curvature = path_tracker.computeSteering(xy_origin_pos, xy_target_pos, xy_pos, robot_heading)
+			#steering can be extracted from curvature while speed must be computed from curvature and max_speed
+			steering = -1 * math.sinh(path_curvature)*(180.0/math.pi) #should take into account wheel base, curvature is reversed compared to steering
+			print "Old Pos : "+str(xy_origin_pos.x)+", "+str(xy_origin_pos.y)
+			print "Next Pos : "+str(xy_target_pos.x)+", "+str(xy_target_pos.y)
+			print "Current Pos : "+str(xy_pos.x)+", "+str(xy_pos.y)
+			print "Heading : "+str(robot_heading)
+			print "New steering : "+str(steering)
 			tracker_counter = 0
 		else:
 			tracker_counter = tracker_counter + 1	
@@ -184,15 +201,13 @@ def nav_loop():
 			# for tracker to be executed on next iteration
 			tracker_counter = (CONTROL_RATE/TRACKER_RATE)
 				
-		#steering can be extracted from curvature while speed must be computed from curvature and max_speed
-		steering = -1 * math.sinh(path_curvature)*(math.pi/180.0) #should take into account wheel base, curvature is reversed compared to steering
 		#command needs to be computed for speed using PID control or direct P control
 		target_speed = speedFromSteeringAndDistance(steering, distance_to_target)	
 
 		# trying to detect falling edge to start driving
 		if run == True :		
 			# doing the PID math, PID term needs to be adjusted
-			error = (target_speed - sensor[IController.odometry_key])
+			error = (target_speed - sensors[IController.odometry_key])
 			derivative = error - old_error
 			old_error = error
 			cmd = error * P + derivative * D + integral * I
@@ -206,6 +221,9 @@ def nav_loop():
 			robot.setSteeringAngle(steering)
 			#reseting watchdog before for next iteration
 			robot.resetWatchdog()
+		else:
+			robot.setSpeed(0)
+			robot.setSteeringAngle(0.0)
 		# no need to sleep, we run at full speed !
 		#time.sleep(0.020)
 					
