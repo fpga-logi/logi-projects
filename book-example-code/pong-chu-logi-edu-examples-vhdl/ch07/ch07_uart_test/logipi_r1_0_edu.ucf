@@ -1,0 +1,61 @@
+##========================================================
+##    Pin assignments
+##    Logi-Pi - Pong Chu book compatible - (work in progress)
+##   	- Intended for use the the Logi-Pi and EDU expansion 
+##  SW, PB, LEDs on LOGI-Pi have reversed ordering from silkdscreen based upon
+## using the EDU with the LOGI-Pi upside down.
+##========================================================
+
+##========================================================
+NET "clk" TNM_NET = clk;
+TIMESPEC TS_clk = PERIOD "clk" 50 MHz HIGH 50%;
+
+##========================================================
+## clock and reset
+##========================================================
+NET "clk"    LOC = P85;
+
+##========================================================
+## Buttons
+##========================================================
+NET "btn_n<1>"   LOC = P102;	
+NET "btn_n<0>"   LOC = P101;
+#NET "reset_n"  	LOC = P101;	#--reset needs to be moved around depending on application, use sw or button
+
+#========================================================
+# 2 discrete LEDs
+#========================================================
+NET "led<0>"  LOC = P105	;
+NET "led<1>"  LOC = P104	;
+
+# This controls segments from 0:3 right to left 
+#========================================================
+# 4-digit time-multiplexed 7-segment LED display
+#========================================================
+# This is from 3-0 right to left
+# digit enable					
+NET "an<3>"  LOC = 	P144	;	#p2_7	
+NET "an<2>"  LOC = 	P142	;  #p2_1	
+NET "an<1>"  LOC = 	P15	;  #p2_3	
+NET "an<0>"  LOC = 	P14	;  #p2_4	
+#NET "an_l"   LOC =   P141	;	#p2_2	
+
+# This is wired low bit = a , etc.  the book code is reversed order.
+# 7-segment led segments
+NET "sseg<0>"  LOC = P118	; 	# segment a			p3_8
+NET "sseg<1>"  LOC = P119	; 	# segment b			p3_7
+NET "sseg<2>"  LOC = P137	; 	# segment c			p3_2
+NET "sseg<3>"  LOC = P143	; 	# segment d			p2_8
+NET "sseg<4>"  LOC = P140	; 	# segment e			p2_9
+NET "sseg<5>"  LOC = P117	; 	# segment f 		p3_9
+NET "sseg<6>"  LOC = P138	; 	# segment g			p3_1
+NET "sseg<7>"  LOC = P139	; 	# decimal point 	p2_10	
+
+#========================================================
+# UART for Rpi
+# TX = FGPA TX  = Host RX				
+# RX = FPGA RX  = Host TX				
+#========================================================
+NET "rx" 				LOC= "P83" 	;	#Pi output FPGA input		#Shared with Arduino TX
+NET "tx" 				LOC= "P82" 	;	#Pi input FPGA output		#Shared with Arduino RX
+

@@ -24,10 +24,6 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity logibone_blink is
 port( OSC_FPGA : in std_logic;
-
-		-- i2c pins 
-		ARD_SCL, ARD_SDA : inout std_logic ;
-		--onboard
 		LED : out std_logic_vector(1 downto 0)
 );
 end logibone_blink;
@@ -38,10 +34,6 @@ architecture Behavioral of logibone_blink is
 	signal counter_output : std_logic_vector(31 downto 0);
 	
 begin
-	
-		
-	ARD_SCL <= 'Z' ;
-	ARD_SDA <= 'Z' ;
 	
 	process(OSC_FPGA)
 	begin

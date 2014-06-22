@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\private\Logi-projects\New-book-example\logi-pi-edu\vhdl\pong-chu-mark1-examples-vhdl\ch12\ch12_02_vga_sync_test\vga_test.ncd
+OUTFILE=E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\private\Logi-projects\New-book-example\logi-pi-edu\vhdl\pong-chu-mark1-examples-vhdl\ch12\ch12_02_vga_sync_test\vga_test.bit
+FAMILY=Spartan6
+PART=xc6slx9-2tqg144
+WORKINGDIR=E:\Dropbox\Prj\Valent\LOGI-FAMILY\1logi-github\private\Logi-projects\New-book-example\logi-pi-edu\vhdl\pong-chu-mark1-examples-vhdl\ch12\ch12_02_vga_sync_test
+LICENSE=WebPack
+USER_INFO=202672454_0_0_477
