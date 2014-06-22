@@ -37,7 +37,7 @@ use work.logi_primitive_pack.all ;
 entity wishbone_gps is
 generic(
 			wb_size : natural := 16 ; -- Data port size for wishbone
-			baudrate : positive := 115_200
+			baudrate : positive := 9_600
 		  );
 port(
 -- Syscon signals

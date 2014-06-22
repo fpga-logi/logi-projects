@@ -38,23 +38,12 @@ END ping_tb;
 ARCHITECTURE behavior OF ping_tb IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
- 
-    COMPONENT logipi_ping
-    PORT(
-         clk : IN  std_logic;
-         reset : IN  std_logic;
-         trigger_out : OUT  std_logic;
-         echo_in : IN  std_logic;
-         ping_enable : IN  std_logic
-        );
-    END COMPONENT;
 	 
 	 COMPONENT ping_sensor_v2
     PORT(
          clk : IN  std_logic;
          reset : IN  std_logic;
-         trigger_out : OUT  std_logic;
-         echo_in : IN  std_logic;
+			ping_io: inout std_logic;
          ping_enable : IN  std_logic;
 			echo_length : out std_logic_vector(15 downto 0);
 		   echo_done_out: out std_logic
@@ -65,13 +54,12 @@ ARCHITECTURE behavior OF ping_tb IS
    --Inputs
    signal clk : std_logic := '0';
    signal reset : std_logic := '0';
-   signal echo_in : std_logic := '0';
    signal ping_enable : std_logic := '0';
 	signal echo_length : std_logic_vector(15 downto 0);
 	signal echo_done : std_logic ;
 
- 	--Outputs
-   signal trigger_out : std_logic;
+ 	--inout
+   signal ping_io : std_logic;
 
    -- Clock period definitions
    constant clk_period : time := 20 ns;
@@ -82,8 +70,7 @@ BEGIN
    uut: ping_sensor_v2 PORT MAP (
           clk => clk,
           reset => reset,
-          trigger_out => trigger_out,
-          echo_in => echo_in,
+          ping_io => ping_io,
           ping_enable => ping_enable, 
 			 echo_length => echo_length,
 			 echo_done_out => echo_done
@@ -108,32 +95,36 @@ BEGIN
 		reset <= '0';
 		ping_enable <= '1' ;
 		
+		ping_io <= '0' ;
+		wait for 10 ns;
+		ping_io <= 'Z' ;
 		-- normal case
-		wait until trigger_out = '1' ;
-		wait until trigger_out = '0' ;
+		wait until ping_io = '1';
+		wait until ping_io = '0' or ping_io = 'Z';
 		wait for 5ms ;
-		echo_in <= '1';
+		ping_io <= '1';
 		wait for 15ms ;
-		echo_in <= '0';
-		
+		ping_io <= '0';
+		wait for 1ms ;
+		ping_io <= 'Z' ;
 		-- timeout case after echo in rises
-		wait until trigger_out = '1' ;
-		wait until trigger_out = '0' ;
+		wait until ping_io = '1' ;
+		wait until ping_io = '0' ;
 		wait for 5ms ;
-		echo_in <= '1';
+		ping_io <= '1';
 		
 		-- timeout case after trigger sent
-		wait until trigger_out = '1' ;
-		echo_in <= '0';
-		wait until trigger_out = '0' ;
+		wait until ping_io = '1' ;
+		ping_io <= '0';
+		wait until ping_io = '0' ;
 
 		while true loop
-				wait until trigger_out = '1' ;
-				wait until trigger_out = '0' ;
+				wait until ping_io = '1' ;
+				wait until ping_io = '0' ;
 				wait for 5ms ;
-				echo_in <= '1';
+				ping_io <= '1';
 				wait for 15ms ;
-				echo_in <= '0';
+				ping_io <= '0';
 		end loop ;
 		
 		
