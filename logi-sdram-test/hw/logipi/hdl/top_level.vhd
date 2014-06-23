@@ -29,7 +29,7 @@ end top_level;
 
 architecture Behavioral of top_level is
    constant sdram_address_width : natural := 24;
-   constant sdram_column_bits   : natural := 10;
+   constant sdram_column_bits   : natural := 9;
    constant sdram_startup_cycles: natural := 10100; -- 100us, plus a little more
    constant cycles_per_refresh  : natural := (64000*100)/8192-1;
    constant test_width          : natural := sdram_address_width-1; -- each 32-bit word is two 16-bit SDRAM addresses 
@@ -191,7 +191,7 @@ PLL_BASE_inst : PLL_BASE generic map (
       CLKFBOUT_PHASE => 0.0,                -- Phase offset in degrees of the clock feedback output (0.0-360.0).
       CLKIN_PERIOD   => 20.00,              -- Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
       -- CLKOUT0_DIVIDE - CLKOUT5_DIVIDE: Divide amount for CLKOUT# clock output (1-128)
-      CLKOUT0_DIVIDE => 10,       CLKOUT1_DIVIDE => 10,
+      CLKOUT0_DIVIDE => 8,       CLKOUT1_DIVIDE => 8,
       CLKOUT2_DIVIDE => 1,       CLKOUT3_DIVIDE => 1,
       CLKOUT4_DIVIDE => 1,       CLKOUT5_DIVIDE => 1,
       -- CLKOUT0_DUTY_CYCLE - CLKOUT5_DUTY_CYCLE: Duty cycle for CLKOUT# clock output (0.01-0.99).
