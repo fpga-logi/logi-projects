@@ -34,6 +34,10 @@ architecture Behavioral of top_level is
    constant cycles_per_refresh  : natural := (64000*100)/8192-1;
    constant test_width          : natural := sdram_address_width-1; -- each 32-bit word is two 16-bit SDRAM addresses 
 
+	constant test_frequency : natural := 100_000_000 ;
+	constant freq_multiplier : natural := 16 ;
+	constant freq_divider : natural := (freq_multiplier*50_000_000)/test_frequency ;
+
 	COMPONENT SDRAM_Controller
     generic (
       sdram_address_width : natural;
@@ -187,11 +191,11 @@ Inst_SDRAM_Controller: SDRAM_Controller GENERIC MAP (
    
 PLL_BASE_inst : PLL_BASE generic map (
       BANDWIDTH      => "OPTIMIZED",        -- "HIGH", "LOW" or "OPTIMIZED" 
-      CLKFBOUT_MULT  => 16 ,                 -- Multiply value for all CLKOUT clock outputs (1-64)
+      CLKFBOUT_MULT  => freq_multiplier ,                 -- Multiply value for all CLKOUT clock outputs (1-64)
       CLKFBOUT_PHASE => 0.0,                -- Phase offset in degrees of the clock feedback output (0.0-360.0).
       CLKIN_PERIOD   => 20.00,              -- Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
       -- CLKOUT0_DIVIDE - CLKOUT5_DIVIDE: Divide amount for CLKOUT# clock output (1-128)
-      CLKOUT0_DIVIDE => 8,       CLKOUT1_DIVIDE => 8,
+      CLKOUT0_DIVIDE => freq_divider,       CLKOUT1_DIVIDE => freq_divider,
       CLKOUT2_DIVIDE => 1,       CLKOUT3_DIVIDE => 1,
       CLKOUT4_DIVIDE => 1,       CLKOUT5_DIVIDE => 1,
       -- CLKOUT0_DUTY_CYCLE - CLKOUT5_DUTY_CYCLE: Duty cycle for CLKOUT# clock output (0.01-0.99).
