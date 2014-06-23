@@ -174,6 +174,7 @@ process(clk)
                 -- Blink the LED every time the counter roles over (for later use)
                if test_counter = terminal_count then
                   b <= not b;
+						has_errored <= '0';
                end if;          
                -- Move on to the next transaction
                test_counter <= test_counter+1;                  
@@ -184,10 +185,9 @@ process(clk)
                wanted   <= read_pattern;
                if data_out /= read_pattern then
                   has_errored <= '1';
-                  e <= '0';
-               else
-                  read_counter <= read_counter+1;                  
+                  --e <= '0'; -- keep running the test whatever happens !
                end if;
+					read_counter <= read_counter+1;  
             end if;
          end if;
       end if;
