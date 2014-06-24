@@ -138,7 +138,7 @@ mem_interface0 : spi_wishbone_wrapper
 
 -- Intercon -----------------------------------------------------------
 inter0 : wishbone_intercon 
-generic map(memory_map  => ("0000000000000000", "0000000001XXXXXX"))
+generic map(memory_map  => ("00000000000000XX", "0000000001XXXXXX"))
 port map(
 	-- Syscon signals
 		  gls_reset   => sys_reset ,
