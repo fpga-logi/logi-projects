@@ -148,7 +148,7 @@ port map
 -- Intercon -----------------------------------------------------------
 -- Intercon -----------------------------------------------------------
 inter0 : wishbone_intercon 
-generic map(memory_map  => ("00000000000000XX", "0000000001XXXXXX"))
+generic map(memory_map  => ("00000000000000XX", "00001XXXXXXXXXXX"))
 port map(
 	-- Syscon signals
 		  gls_reset   => sys_reset ,
