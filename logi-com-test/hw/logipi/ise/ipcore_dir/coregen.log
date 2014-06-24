@@ -1,0 +1,57 @@
+INFO:sim:172 - Generating IP...
+Resolving generics for 'clock_gen'...
+Applying external generics to 'clock_gen'...
+Delivering associated files for 'clock_gen'...
+WARNING:sim - Component clk_wiz_v3_5 does not have a valid model name for VHDL
+   synthesis
+Delivering EJava files for 'clock_gen'...
+Delivered 3 files into directory
+/home/jpiat/development/FPGA/logi-family/logi-projects/logi-com-test/hw/logipi/i
+se/ipcore_dir/tmp/_cg/clock_gen
+Delivered 1 file into directory
+/home/jpiat/development/FPGA/logi-family/logi-projects/logi-com-test/hw/logipi/i
+se/ipcore_dir/tmp/_cg/clock_gen
+Generating ASY schematic symbol...
+Loading device for application Rf_Device from file '6slx9.nph' in environment
+/opt/Xilinx/14.1/ISE_DS/ISE/.
+INFO:sim:949 - Finished generation of ASY schematic symbol.
+Generating SYM schematic symbol for 'clock_gen'...
+Generating ISE project...
+XCO file found: clock_gen.xco
+XMDF file found: clock_gen_xmdf.tcl
+Adding
+/home/jpiat/development/FPGA/logi-family/logi-projects/logi-com-test/hw/logipi/i
+se/ipcore_dir/tmp/_cg/clock_gen/example_design/clock_gen_exdes.ucf -view all
+-origin_type created
+Adding
+/home/jpiat/development/FPGA/logi-family/logi-projects/logi-com-test/hw/logipi/i
+se/ipcore_dir/tmp/_cg/clock_gen/example_design/clock_gen_exdes.vhd -view all
+-origin_type created
+INFO:HDLCompiler:1061 - Parsing VHDL file
+   "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-com-test/hw/logi
+   pi/ise/ipcore_dir/tmp/_cg/clock_gen/example_design/clock_gen_exdes.vhd" into
+   library work
+INFO:ProjectMgmt - Parsing design hierarchy completed successfully.
+Adding
+/home/jpiat/development/FPGA/logi-family/logi-projects/logi-com-test/hw/logipi/i
+se/ipcore_dir/tmp/_cg/clock_gen.asy -view all -origin_type imported
+Adding
+/home/jpiat/development/FPGA/logi-family/logi-projects/logi-com-test/hw/logipi/i
+se/ipcore_dir/tmp/_cg/clock_gen.vhd -view all -origin_type created
+INFO:HDLCompiler:1061 - Parsing VHDL file
+   "/home/jpiat/development/FPGA/logi-family/logi-projects/logi-com-test/hw/logi
+   pi/ise/ipcore_dir/tmp/_cg/clock_gen.vhd" into library work
+INFO:ProjectMgmt - Parsing design hierarchy completed successfully.
+Adding
+/home/jpiat/development/FPGA/logi-family/logi-projects/logi-com-test/hw/logipi/i
+se/ipcore_dir/tmp/_cg/clock_gen.vho -view all -origin_type imported
+WARNING:coreutil - WARNING: This core does not have a top level called
+   "/clock_gen"
+   WARNING: Top level has been set to "/clock_gen_exdes"
+Generating README file...
+Generating FLIST file...
+INFO:sim:948 - Finished FLIST file generation.
+Launching README viewer...
+Moving files to output directory...
+Finished moving files to output directory
+Wrote CGP file for project 'clock_gen'.
