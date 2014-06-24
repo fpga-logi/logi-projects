@@ -24,32 +24,35 @@ int main(int argc, char ** argv){
 		writeVals[i] = ~i ;
 	}		
 		
-	gettimeofday(&temp1,NULL);
-	if((i = wishbone_write(writeVals, NB_VAL, 0x0040)) < NB_VAL){
-		printf("Write error !, returned %d \n", i);
-	}
-	gettimeofday(&temp2,NULL);
-	elapsed_s_sec=temp2.tv_sec-temp1.tv_sec;
-	elapsed_u_sec=temp2.tv_usec-temp1.tv_usec;
-	elapsed_u_time=(elapsed_s_sec)*100000+elapsed_u_sec;	
-	printf("Time in Microsecond=%ld \n",elapsed_u_time);
-	printf("W Speed=====%d KB/Sec \n",(NB_VAL*1000)/elapsed_u_time );
-	
-	gettimeofday(&temp1,NULL);
-        if((i = wishbone_read(readVals, NB_VAL, 0x0040)) < NB_VAL){
-                printf("Read error !, returned %d \n", i);
-        }
-        gettimeofday(&temp2,NULL);
-        elapsed_s_sec=temp2.tv_sec-temp1.tv_sec;
-        elapsed_u_sec=temp2.tv_usec-temp1.tv_usec;
-        elapsed_u_time=(elapsed_s_sec)*100000+elapsed_u_sec;    
-        printf("Time in Microsecond=%ld \n",elapsed_u_time);
-        printf("R Speed=====%d KB/Sec \n",(NB_VAL*1000)/elapsed_u_time );
-	
-	for(i=0; i < NB_VAL/2; i ++){
-                if(readVals[i] != writeVals[i]){
-			printf("Transfer failed [%u] = %04x \n", i, readVals[i]);
+	while(1){
+		gettimeofday(&temp1,NULL);
+		if((i = wishbone_write(writeVals, NB_VAL, 0x0040)) < NB_VAL){
+			printf("Write error !, returned %d \n", i);
 		}
-        }
+		gettimeofday(&temp2,NULL);
+		elapsed_s_sec=temp2.tv_sec-temp1.tv_sec;
+		elapsed_u_sec=temp2.tv_usec-temp1.tv_usec;
+		elapsed_u_time=(elapsed_s_sec)*100000+elapsed_u_sec;	
+		printf("Time in Microsecond=%ld \n",elapsed_u_time);
+		printf("W Speed=====%d KB/Sec \n",(NB_VAL*1000)/elapsed_u_time );
+	
+		gettimeofday(&temp1,NULL);
+		if((i = wishbone_read(readVals, NB_VAL, 0x0040)) < NB_VAL){
+		        printf("Read error !, returned %d \n", i);
+		}
+		gettimeofday(&temp2,NULL);
+		elapsed_s_sec=temp2.tv_sec-temp1.tv_sec;
+		elapsed_u_sec=temp2.tv_usec-temp1.tv_usec;
+		elapsed_u_time=(elapsed_s_sec)*100000+elapsed_u_sec;    
+		printf("Time in Microsecond=%ld \n",elapsed_u_time);
+		printf("R Speed=====%d KB/Sec \n",(NB_VAL*1000)/elapsed_u_time );
+	
+		for(i=0; i < NB_VAL/2; i ++){
+		        if(readVals[i] != writeVals[i]){
+				printf("Transfer failed [%u] = %04x \n", i, readVals[i]);
+			}
+		}
+		sleep(1);
+	}
 	return 0 ;
 }
