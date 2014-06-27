@@ -35,7 +35,8 @@ entity SDRAM_Controller is
       sdram_address_width : natural;
       sdram_column_bits   : natural;
       sdram_startup_cycles: natural;
-      cycles_per_refresh  : natural
+      cycles_per_refresh  : natural ;
+		very_low_speed : positive := 0
     );
     Port ( clk           : in  STD_LOGIC;
            reset         : in  STD_LOGIC;
@@ -161,7 +162,7 @@ architecture Behavioral of SDRAM_Controller is
    signal iob_dq_hiz       : std_logic := '1';
 
    -- signals for when to read the data off of the bus
-   signal data_ready_delay : std_logic_vector( 4 downto 0);   
+   signal data_ready_delay : std_logic_vector( 4 - (very_low_speed) downto 0);   
    
    -- bit indexes used when splitting the address into row/colum/bank.
    constant start_of_col  : natural := 0;
