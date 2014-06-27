@@ -34,7 +34,7 @@ architecture Behavioral of top_level is
    constant cycles_per_refresh  : natural := (64000*100)/8192-1;
    constant test_width          : natural := sdram_address_width-1; -- each 32-bit word is two 16-bit SDRAM addresses 
 
-	constant test_frequency : natural := 80_000_000 ;
+	constant test_frequency : natural := 50_000_000 ;
 	constant freq_multiplier : natural := 16 ;
 	constant freq_divider : natural := (freq_multiplier*50_000_000)/test_frequency ;
 
@@ -43,7 +43,8 @@ architecture Behavioral of top_level is
       sdram_address_width : natural;
       sdram_column_bits   : natural;
       sdram_startup_cycles: natural;
-      cycles_per_refresh  : natural
+      cycles_per_refresh  : natural;
+		very_low_speed : positive := 0
     );
     PORT(
 		clk             : IN std_logic;
@@ -161,7 +162,8 @@ Inst_SDRAM_Controller: SDRAM_Controller GENERIC MAP (
       sdram_address_width => sdram_address_width,
       sdram_column_bits   => sdram_column_bits,
       sdram_startup_cycles=> sdram_startup_cycles,
-      cycles_per_refresh  => cycles_per_refresh
+      cycles_per_refresh  => cycles_per_refresh,
+		very_low_speed => 1 -- only when using controller in sub 80Mhz
    ) PORT MAP(
       clk             => clk,
       reset           => '0',
