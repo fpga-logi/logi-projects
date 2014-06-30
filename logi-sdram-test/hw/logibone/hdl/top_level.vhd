@@ -28,15 +28,20 @@ entity top_level is
 end top_level;
 
 architecture Behavioral of top_level is
-   constant sdram_address_width : natural := 24;
+   
+	constant test_frequency : natural := 100_000_000/32 ;
+	constant test_frequency_mhz : natural := test_frequency/1_000_000 ;
+	constant freq_multiplier : natural := 8 ;
+	constant freq_divider : natural := (freq_multiplier*50_000_000)/test_frequency ;
+	
+	constant low_speed_test : positive := 1 ;
+	
+	constant sdram_address_width : natural := 24;
    constant sdram_column_bits   : natural := 9;
    constant sdram_startup_cycles: natural := 10100; -- 100us, plus a little more
-   constant cycles_per_refresh  : natural := (64000*100)/8192-1;
+   constant cycles_per_refresh  : natural := (64000*test_frequency_mhz)/8192-1;
    constant test_width          : natural := sdram_address_width-1; -- each 32-bit word is two 16-bit SDRAM addresses 
 
-	constant test_frequency : natural := 50_000_000 ;
-	constant freq_multiplier : natural := 16 ;
-	constant freq_divider : natural := (freq_multiplier*50_000_000)/test_frequency ;
 
 	COMPONENT SDRAM_Controller
     generic (
@@ -163,7 +168,7 @@ Inst_SDRAM_Controller: SDRAM_Controller GENERIC MAP (
       sdram_column_bits   => sdram_column_bits,
       sdram_startup_cycles=> sdram_startup_cycles,
       cycles_per_refresh  => cycles_per_refresh,
-		very_low_speed => 1 -- only when using controller in sub 80Mhz
+		very_low_speed => low_speed_test -- only when using controller in sub 80Mhz
    ) PORT MAP(
       clk             => clk,
       reset           => '0',
