@@ -11,7 +11,7 @@
 #include "wishbone_wrapper.h"
 
 
-#define NB_VAL 16
+#define NB_VAL 1024
 
 int main(int argc, char ** argv){
 	int address ;
@@ -20,6 +20,13 @@ int main(int argc, char ** argv){
 	struct timeval temp1,temp2;
 	long elapsed_u_sec,elapsed_s_sec,elapsed_m_time,elapsed_u_time;
 	
+	wishbone_init();
+	if(argc > 1){
+		unsigned long int speed = 0 ;
+		speed = atof(argv[1])*1000000L ;
+		set_speed(speed);
+	}
+
 	for(i=0; i < NB_VAL/2; i ++){
 		writeVals[i] = ~i ;
 	}		

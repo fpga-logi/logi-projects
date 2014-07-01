@@ -25,8 +25,8 @@ unsigned int fifo_size ;
 static const char * device = "/dev/spidev0.0";
 static unsigned int mode = 0 ;
 static unsigned int bits = 8 ;
-//static unsigned long speed = 32000000UL ;
-static unsigned long speed = 4000000UL ;
+//unsigned long speed = 32000000UL ;
+unsigned long speed = 4000000UL ;
 static unsigned int delay = 0;
 
 static unsigned char com_buffer [4096] ;
@@ -37,6 +37,28 @@ int spi_init(void) ;
 int spi_transfer(unsigned char * send_buffer, unsigned char * receive_buffer, unsigned int size);
 int logipi_write(unsigned int add, unsigned char * data, unsigned int size, unsigned char inc);
 int logipi_read(unsigned int add, unsigned char * data, unsigned int size, unsigned char inc);
+
+
+int set_speed(unsigned long speed_arg){
+	
+	int ret ;
+	if(fd == 0){
+		spi_init();
+	}
+	speed = speed_arg ;
+	ret = ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed);
+	if (ret == -1){
+		printf("can't set max speed hz \n");
+		return -1 ;
+	}
+	ret = ioctl(fd, SPI_IOC_RD_MAX_SPEED_HZ, &speed);
+        if (ret == -1){
+                printf("can't get max speed hz \n");
+                return -1 ;
+        }
+
+	return 0 ;
+}
 
 int spi_init(void){
 	int ret ;
@@ -134,6 +156,13 @@ void spi_close(void){
 	close(fd);
 }
 
+
+int wishbone_init(void){
+	if(fd == 0){
+		spi_init();
+	}
+	return 0 ;
+}
 
 unsigned int wishbone_write(unsigned char * buffer, unsigned int length, unsigned int address){
 	unsigned int tr_size = 0, count = 0 ;
