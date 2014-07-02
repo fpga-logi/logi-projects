@@ -36,7 +36,7 @@ entity SDRAM_Controller is
       sdram_column_bits   : natural;
       sdram_startup_cycles: natural;
       cycles_per_refresh  : natural ;
-		very_low_speed : positive := 0
+		very_low_speed : natural := 0
     );
     Port ( clk           : in  STD_LOGIC;
            reset         : in  STD_LOGIC;
