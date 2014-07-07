@@ -140,6 +140,7 @@ begin
     end if;
 end process read_bloc;
 
+wbs_readdata <= X"DEAD" ;
 
 
 -- ram buffer instanciation
