@@ -264,8 +264,8 @@ end_count <= '1' when clk_count = 0 else
 -- value to in interval counter, value to load is computed for next state	
 with cur_state select
 	count_load_val	<= std_logic_vector(to_unsigned((clk_div*8)-1, 16) ) when EXPOSE,
-							std_logic_vector(to_unsigned((clk_div-1), 16) ) when BLANK,
-							std_logic_vector(to_unsigned((clk_div*8)-1, 16) )  when LATCH,
+							std_logic_vector(to_unsigned((clk_div*8)-1, 16) ) when BLANK,
+							std_logic_vector(to_unsigned((clk_div-1), 16) )  when LATCH,
 							std_logic_vector(to_unsigned((clk_div-1), 16) )  when UNBLANK,
 							std_logic_vector(to_unsigned((clk_div-1), 16) ) when SHIFT1,
 							next_pixel_div when SHIFT2,
