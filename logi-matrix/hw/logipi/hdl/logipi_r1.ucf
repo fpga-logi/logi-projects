@@ -68,10 +68,10 @@ NET "PMOD2<7>" LOC = "P139" | IOSTANDARD = LVTTL ;
 #NET "PMOD4<7>" LOC = "P133" | IOSTANDARD = LVTTL ;
 #
 ##RASPBERRY-PI CONNECTOR###############################################################
-#NET "MOSI" LOC = "P65" | IOSTANDARD = LVTTL;	#Shared - Used to clk bitstream data to fpga / ARduino MOSI
-#NET "MISO" LOC = "P75" | IOSTANDARD = LVTTL;
-#NET "SCK" LOC = "P70" | IOSTANDARD = LVTTL;	#Shared - Used to clk bitstream data to fpga / ARduino SCK
-#NET "SS" LOC = "P79" | IOSTANDARD = LVTTL;
+NET "MOSI" LOC = "P65" | IOSTANDARD = LVTTL;	#Shared - Used to clk bitstream data to fpga / ARduino MOSI
+NET "MISO" LOC = "P75" | IOSTANDARD = LVTTL;
+NET "SCK" LOC = "P70" | IOSTANDARD = LVTTL;	#Shared - Used to clk bitstream data to fpga / ARduino SCK
+NET "SS" LOC = "P79" | IOSTANDARD = LVTTL;
 #
 ##ARDUINO HEADERS########################################################################												
 #NET "ARD<5>" LOC= "P84" | IOSTANDARD = LVTTL ;				#D13

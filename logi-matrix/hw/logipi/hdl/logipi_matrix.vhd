@@ -15,8 +15,8 @@ entity logipi_matrix is
 		SS :  in std_logic;
 		SCK :  in std_logic;
 		LED :   out  std_logic_vector((2-1) downto 0);
-		PMOD1 :   inout  std_logic_vector((8-1) downto 0);
-		PMOD2 :   inout  std_logic_vector((8-1) downto 0);
+		PMOD1 :   out  std_logic_vector((8-1) downto 0);
+		PMOD2 :   out  std_logic_vector((8-1) downto 0);
 		PB :  in std_logic_vector((2-1) downto 0);
 		SW :  in std_logic_vector((2-1) downto 0)	
 	);
@@ -158,8 +158,9 @@ SCLK_OUT => PMOD2(6)
 
 
 LED <= PB ;
-PMOD1(3) <= 'Z' ;
-PMOD1(7) <= 'Z' ;
+PMOD1(3) <= '0' ;
+PMOD1(7) <= '0' ;
+PMOD2(7) <= '0' ;
 
 
 

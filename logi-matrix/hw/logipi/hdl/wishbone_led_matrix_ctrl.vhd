@@ -42,6 +42,7 @@ use work.logi_utils_pack.all ;
 entity wishbone_led_matrix_ctrl is
 generic(wb_size : positive := 16;
 		  clk_div : positive := 10;
+		  -- TODO: nb_panels is untested, still need to be validated
 		  nb_panels : positive := 1 ;
 		  expose_step : positive := 191 
 		  );
@@ -168,6 +169,7 @@ frame_buffer0 : dpram_NxN
 		spo => open,
 		dpo => pixel_data_line0
 	);
+	
 	
 write_mem1  <= wbs_strobe and wbs_write and wbs_cycle and wbs_address(9)  ;
 frame_buffer1 : dpram_NxN 
