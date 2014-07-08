@@ -321,7 +321,7 @@ end process;
 
 -- increment line counter after blanking
 with cur_state select							 
-	line_count_enable <= (end_count and rd_bit_3) when BLANK,
+	line_count_enable <= (end_count and rd_bit_3) when LATCH,
 							  '0' when others ;	
 
 -- rd_bit specify the bit to read from the color code 
@@ -340,7 +340,7 @@ begin
 end process;	
 
 with cur_state select							 
-	rd_bit_count_enable <= (end_count) when BLANK,
+	rd_bit_count_enable <= (end_count) when LATCH,
 							  '0' when others ;
 
 -- helper signals to simplify equations
@@ -421,7 +421,7 @@ begin
 	 if gls_reset = '1' then
 			A_OUT_Q <= (others => '0');
     elsif rising_edge(gls_clk) then
-		if cur_state = BLANK then
+		if cur_state = BLANK and end_count = '1' then
 			A_OUT_Q <= line_count ;
 		end if ;
 	end if;
