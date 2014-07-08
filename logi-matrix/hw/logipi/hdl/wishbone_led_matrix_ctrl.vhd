@@ -17,6 +17,13 @@
 -- Additional Comments: 
 --
 ----------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------
+-- This controller is based on Glen Atkins work (http://bikerglen.com/projects/lighting/led-panel-1up/)
+-- Minor modification on controller behavior to adapt to wishbone bus
+-- Major modification on coding style to meet XST guidelines
+----------------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
@@ -25,7 +32,8 @@ use IEEE.NUMERIC_STD.ALL;
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
 --use IEEE.NUMERIC_STD.ALL;
-
+library work;
+use work.logi_utils_pack.all ;
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
 --library UNISIM;
@@ -35,7 +43,7 @@ entity wishbone_led_matrix_ctrl is
 generic(wb_size : positive := 16;
 		  clk_div : positive := 10;
 		  nb_panels : positive := 1 ;
-		  expose_step : positive := 191
+		  expose_step : positive := 191 
 		  );
 port(
 		  -- Syscon signals
@@ -81,6 +89,8 @@ end component;
 
 type ctrl_state is (EXPOSE, BLANK, LATCH, UNBLANK, READ, SHIFT1, SHIFT2);
 
+constant LINE_SIZE : positive := 32*nb_panels ;
+constant RAM_SIZE : positive := LINE_SIZE*32 ;
 
 signal cur_state, next_state : ctrl_state ;
 signal read_ack : std_logic ;
@@ -89,7 +99,7 @@ signal write_ack, write_mem0, write_mem1 : std_logic ;
 
 signal next_pixel_div, bin_code_delay : std_logic_vector(15 downto 0);
 signal end_count : std_logic ;
-signal col_count : std_logic_vector((3+nb_panels) downto 0);
+signal col_count : std_logic_vector(nbit(LINE_SIZE)-1 downto 0);
 signal line_count : std_logic_vector(3 downto 0);
 signal clk_count, count_load_val : std_logic_vector(15 downto 0) ;
 signal rd_bit, exp_bit : std_logic_vector(1 downto 0);
@@ -147,13 +157,13 @@ wbs_readdata <= X"DEAD" ;
 
 write_mem0  <= wbs_strobe and wbs_write and wbs_cycle and (not wbs_address(9))  ;
 frame_buffer0 : dpram_NxN 
-	generic map(SIZE  => nb_panels * 512,  NBIT => 16, ADDR_WIDTH => 9)
+	generic map(SIZE  => RAM_SIZE/2,  NBIT => 16, ADDR_WIDTH => nbit(RAM_SIZE/2))
 	port map(
  		clk => gls_clk,
  		we => write_mem0, 
  		
  		di => wbs_writedata, 
-		a	=> wbs_address(8 downto 0) ,
+		a	=> wbs_address(nbit(RAM_SIZE/2)-1 downto 0) ,
  		dpra => pixel_addr, 
 		spo => open,
 		dpo => pixel_data_line0
@@ -161,13 +171,13 @@ frame_buffer0 : dpram_NxN
 	
 write_mem1  <= wbs_strobe and wbs_write and wbs_cycle and wbs_address(9)  ;
 frame_buffer1 : dpram_NxN 
-	generic map(SIZE  => nb_panels * 512,  NBIT => 16, ADDR_WIDTH => 9)
+	generic map(SIZE  => RAM_SIZE/2,  NBIT => 16, ADDR_WIDTH => nbit(RAM_SIZE/2))
 	port map(
  		clk => gls_clk,
  		we => write_mem1, 
  		
  		di => wbs_writedata, 
-		a	=> wbs_address(8 downto 0) ,
+		a	=> wbs_address(nbit(RAM_SIZE/2)-1 downto 0) ,
  		dpra => pixel_addr, 
 		spo => open,
 		dpo => pixel_data_line16	
@@ -280,7 +290,7 @@ begin
     end if;
 end process;
 -- helper signal to simplify equations
-end_of_col <= '1' when col_count = (nb_panels*32-1) else
+end_of_col <= '1' when col_count = (LINE_SIZE-1) else
 					 '0' ;
 
 -- the column count is reseted on end of blank
