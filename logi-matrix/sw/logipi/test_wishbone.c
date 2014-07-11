@@ -8,7 +8,7 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <sys/ioctl.h>
-#include "wishbone_wrapper.h"
+#include "includes/wishbone_wrapper.h"
 
 
 #define NB_VAL 1024
@@ -33,7 +33,7 @@ int main(int argc, char ** argv){
 		
 	while(1){
 		gettimeofday(&temp1,NULL);
-		if((i = wishbone_write(writeVals, NB_VAL, 0x0800)) < NB_VAL){
+		if((i = wishbone_write(writeVals, NB_VAL, 0x0000)) < NB_VAL){
 			printf("Write error !, returned %d \n", i);
 		}
 		gettimeofday(&temp2,NULL);
@@ -44,7 +44,7 @@ int main(int argc, char ** argv){
 		printf("W Speed=====%d KB/Sec \n",(NB_VAL*1000)/elapsed_u_time );
 	
 		gettimeofday(&temp1,NULL);
-		if((i = wishbone_read(readVals, NB_VAL, 0x0800)) < NB_VAL){
+		if((i = wishbone_read(readVals, NB_VAL, 0x0000)) < NB_VAL){
 		        printf("Read error !, returned %d \n", i);
 		}
 		gettimeofday(&temp2,NULL);
