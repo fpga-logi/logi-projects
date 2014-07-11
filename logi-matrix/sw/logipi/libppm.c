@@ -89,7 +89,28 @@ PPMImage *readPPM(const char *filename)
 }
 
 PPMImage* resizePPM (PPMImage* input){
-    return input;
+    int adj_y = input->y - ((input->y)%OUTPUT_HEIGHT);    
+    int adj_x = input->x - ((input->x)%OUTPUT_WIDTH);    
+
+    int height_gap = adj_y / (OUTPUT_HEIGHT-1);
+    int width_gap = adj_x / (OUTPUT_WIDTH-1);
+
+    PPMPixel* data = (PPMPixel*) malloc(OUTPUT_HEIGHT*OUTPUT_WIDTH*sizeof(PPMPixel));   
+ 
+    PPMImage* new = (PPMImage*) malloc(sizeof(PPMImage));
+    new->x = OUTPUT_WIDTH;
+    new->y = OUTPUT_HEIGHT;
+    new->data = data;
+
+    int i,j;
+    for (i=0;i<adj_y;i+=height_gap){
+        for (j=0;j<adj_x;j+=width_gap){
+            (new->data)[((i/height_gap)*OUTPUT_WIDTH + (j/width_gap))].red = (input->data)[(i*(input->x) + j)].red;
+            (new->data)[((i/height_gap)*OUTPUT_WIDTH + (j/width_gap))].green = (input->data)[(i*(input->x) + j)].green;
+            (new->data)[((i/height_gap)*OUTPUT_WIDTH + (j/width_gap))].blue = (input->data)[(i*(input->x) + j)].blue;
+        }
+    }
+    return new;
 }
 
 

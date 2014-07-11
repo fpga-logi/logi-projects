@@ -13,7 +13,7 @@
 #define RGB_COMPONENT_COLOR 255
 
 //define display size
-#define OUTPUT_HEIGHT 32 
+#define OUTPUT_HEIGHT 32
 #define OUTPUT_WIDTH 32
 typedef struct {       
     unsigned char red,green,blue;

@@ -13,7 +13,7 @@
 #include <signal.h>
 #include <memory.h>
 
-#include "includes/logilib.h"
+#include "logilib.h"
 #include "includes/gammalut.h"
 #include "includes/libppm.h"
 
@@ -26,10 +26,11 @@ int main (int argc, char *argv[])
     int row, col ;
     unsigned short int addr = 0 ;
     
-    int index;
-    for (index=0;index<FRAME_NUM;index++){
-        char filename[sizeof "data/frame10.txt"];
-        sprintf(filename, "data/frame%02d.txt", i);
+    int i;
+    for (i=0;i<FRAME_NUM;i++){
+        char filename[sizeof "data/frame_000.txt"];
+        sprintf(filename, "data/frame_%03d.ppm", i);
+	printf("opening %s\n",filename);
         
         // open raw image data
         PPMImage* input = readPPM(filename);
@@ -49,8 +50,7 @@ int main (int argc, char *argv[])
 	            addr ++ ;
             }
         } 
-        // close image file
-        fclose (fin);
+	usleep(1000000);
     }
     
     return 0;

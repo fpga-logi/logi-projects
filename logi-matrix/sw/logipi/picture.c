@@ -13,7 +13,7 @@
 #include <signal.h>
 #include <memory.h>
 
-#include "includes/logilib.h"
+#include "logilib.h"
 #include "includes/gammalut.h"
 int fd = 0;
 
