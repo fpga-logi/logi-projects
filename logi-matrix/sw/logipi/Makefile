@@ -18,8 +18,8 @@ libppm.o: libppm.c
 test_wishbone: test_wishbone.c wishbone_wrapper.o
 	$(CC) $(CFLAGS) -o $@ $^
 
-test_gif: libppm.o gif.c
-	$(CC) $(CFLAGS) -I$(SHARE_PATH) -L$(SHARE_PATH) -o $@ $^ -llogipi
+test_gif: libppm.o wishbone_wrapper.o gif.c
+	$(CC) $(CFLAGS) -o $@ $^
 
 picture: picture.c
 	$(CC) $(CFLAGS) -I$(SHARE_PATH) -L$(SHARE_PATH) -o $@ $^ -llogipi

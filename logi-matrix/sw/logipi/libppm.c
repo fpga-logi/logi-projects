@@ -88,12 +88,15 @@ PPMImage *readPPM(const char *filename)
     return img;
 }
 
-PPMImage* resizePPM (PPMImage* input){
-    int adj_y = input->y - ((input->y)%OUTPUT_HEIGHT);    
-    int adj_x = input->x - ((input->x)%OUTPUT_WIDTH);    
-
-    int height_gap = adj_y / (OUTPUT_HEIGHT-1);
-    int width_gap = adj_x / (OUTPUT_WIDTH-1);
+PPMImage* handle_shrink(PPMImage* input){
+    int height = input->y;
+    int width = input->x;
+    if ((height%OUTPUT_HEIGHT!=0) || (width%OUTPUT_WIDTH!=0)){
+	fprintf(stderr,"the original size needs to be multiple of %d and %d",OUTPUT_HEIGHT,OUTPUT_WIDTH);
+	exit(1);
+    }
+    int height_gap = input->y / OUTPUT_HEIGHT;
+    int width_gap = input->x / OUTPUT_WIDTH;
 
     PPMPixel* data = (PPMPixel*) malloc(OUTPUT_HEIGHT*OUTPUT_WIDTH*sizeof(PPMPixel));   
  
@@ -103,11 +106,34 @@ PPMImage* resizePPM (PPMImage* input){
     new->data = data;
 
     int i,j;
-    for (i=0;i<adj_y;i+=height_gap){
-        for (j=0;j<adj_x;j+=width_gap){
-            (new->data)[((i/height_gap)*OUTPUT_WIDTH + (j/width_gap))].red = (input->data)[(i*(input->x) + j)].red;
-            (new->data)[((i/height_gap)*OUTPUT_WIDTH + (j/width_gap))].green = (input->data)[(i*(input->x) + j)].green;
-            (new->data)[((i/height_gap)*OUTPUT_WIDTH + (j/width_gap))].blue = (input->data)[(i*(input->x) + j)].blue;
+    for (i=0;i<OUTPUT_HEIGHT;i++){
+        for (j=0;j<OUTPUT_WIDTH;j++){
+            (new->data)[(i*OUTPUT_WIDTH + j)].red = (input->data)[(i*height_gap*(input->x) + j*width_gap)].red;
+            (new->data)[(i*OUTPUT_WIDTH + j)].green = (input->data)[(i*height_gap*(input->x) + j*width_gap)].green;
+            (new->data)[(i*OUTPUT_WIDTH + j)].blue = (input->data)[(i*height_gap*(input->x) + j*width_gap)].blue;
+        }
+    }
+    return new;
+}
+
+
+PPMImage* handle_center(PPMImage* input){
+    int adj_y = ((input->y)-OUTPUT_HEIGHT) / 2;
+    int adj_x = ((input->x)-OUTPUT_WIDTH) / 2 ;
+
+    PPMPixel* data = (PPMPixel*) malloc(OUTPUT_HEIGHT*OUTPUT_WIDTH*sizeof(PPMPixel));   
+ 
+    PPMImage* new = (PPMImage*) malloc(sizeof(PPMImage));
+    new->x = OUTPUT_WIDTH;
+    new->y = OUTPUT_HEIGHT;
+    new->data = data;
+
+    int i,j;
+    for (i=adj_y;i<OUTPUT_HEIGHT+adj_y;i++){
+        for (j=adj_x;j<OUTPUT_WIDTH+adj_x;j++){
+            (new->data)[((i-adj_y)*OUTPUT_WIDTH + (j-adj_x))].red = (input->data)[(i*(input->x) + j)].red;
+            (new->data)[((i-adj_y)*OUTPUT_WIDTH + (j-adj_x))].green = (input->data)[(i*(input->x) + j)].green;
+            (new->data)[((i-adj_y)*OUTPUT_WIDTH + (j-adj_x))].blue = (input->data)[(i*(input->x) + j)].blue;
         }
     }
     return new;
@@ -115,7 +141,13 @@ PPMImage* resizePPM (PPMImage* input){
 
 
 
-
-
-
-
+PPMImage* resizePPM (PPMImage* input, int modes){
+    switch (modes){
+	case RESIZE_CENTER: return handle_center(input);
+	case RESIZE_SHRINK: return handle_shrink(input);
+	case RESIZE_SEAMCARVING: return input;
+	default: 
+	    fprintf(stderr,"error: undefined resizing mode");
+	    exit(1);
+    }	
+}

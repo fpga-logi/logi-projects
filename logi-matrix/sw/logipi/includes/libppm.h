@@ -15,6 +15,13 @@
 //define display size
 #define OUTPUT_HEIGHT 32
 #define OUTPUT_WIDTH 32
+
+//for different resizing modes
+#define RESIZE_CENTER 0
+#define RESIZE_SHRINK 1
+#define RESIZE_SEAMCARVING 2 /* not yet implemented */
+
+
 typedef struct {       
     unsigned char red,green,blue;
 } PPMPixel;
