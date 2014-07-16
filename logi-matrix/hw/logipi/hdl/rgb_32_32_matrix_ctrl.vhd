@@ -41,14 +41,13 @@ generic(
 		  -- TODO: nb_panels is untested, still need to be validated
 		  nb_panels : positive := 1 ;
 		  bits_per_color : INTEGER RANGE 1 TO 4 := 4 ;
-		  expose_step : positive := 191 
+		  expose_step_cycle: positive := 1910
 );
 
 port(
 
 		  clk, reset : in std_logic ;
-		  line_addr : in std_logic_vector(4 downto 0);
-		  col_addr : in std_logic_vector(nbit(32*nb_panels)-1 downto 0 );
+		  pixel_addr : in std_logic_vector((nbit(32*nb_panels)+5)-1 downto 0);
 		  pixel_value : in std_logic_vector(15 downto 0);
 		  write_pixel : in std_logic ;
 		  SCLK_OUT : out std_logic ;
@@ -85,37 +84,43 @@ constant RAM_SIZE : positive := LINE_SIZE*32 ;
 
 signal cur_state, next_state : ctrl_state ;
 
-signal next_pixel_div, bin_code_delay : std_logic_vector(15 downto 0);
+signal next_pixel_div, bin_code_delay, exposure_time : std_logic_vector(15 downto 0);
 signal end_count : std_logic ;
 signal col_count : std_logic_vector(nbit(LINE_SIZE)-1 downto 0);
 signal line_count : std_logic_vector(3 downto 0);
 signal clk_count, count_load_val : std_logic_vector(15 downto 0) ;
 signal rd_bit, exp_bit : std_logic_vector(1 downto 0);
-signal pixel_addr : std_logic_vector(nbit(RAM_SIZE/2)-1 downto 0);
+signal pixel_read_addr, line_base_addr : std_logic_vector(nbit(RAM_SIZE/2)-1 downto 0);
 signal line_count_enable, col_count_enable, rd_bit_count_enable : std_logic ;
 signal line_count_reset, col_count_reset : std_logic ;
-
 
 signal pixel_data_line0, pixel_data_line16 : std_logic_vector(15 downto 0);
 
 signal end_of_col, end_of_bits : std_logic ;
 signal shift_count : std_logic_vector(3 downto 0);
 
+signal end_of_exposure, load_exposure, load_count : std_logic ;
+
 signal SCLK_Q, LATCH_Q, BLANK_Q : std_logic ;
 signal R1_Q, G1_Q, B1_Q, R0_Q, G0_Q, B0_Q : std_logic ;
 signal A_OUT_Q : std_logic_vector(3 downto 0);
 
 
-signal pixel_write_addr : std_logic_vector((nbit(32*nb_panels)+5)-1 downto 0);
+signal pixel_write_addr, pixel_write_addr_line0, pixel_write_addr_line16 : std_logic_vector((nbit(32*nb_panels)+5)-1 downto 0);
 
 signal write_mem0, write_mem1 : std_logic ;
 begin
 
 
 -- ram buffer instanciation
-pixel_write_addr <= line_addr & col_addr ;
+pixel_write_addr <= pixel_addr  ;
+pixel_write_addr_line0 <= pixel_write_addr when pixel_write_addr < (32*nb_panels)*16 else
+									(others => '0');
+pixel_write_addr_line16 <= pixel_write_addr - (32*nb_panels)*16 when pixel_write_addr >= (32*nb_panels)*16 else
+									(others => '0'); -- only for simulation purpose ...
 
-write_mem0  <=  write_pixel and (not pixel_write_addr(nbit(32*nb_panels)+5-1))  ;
+write_mem0  <=  write_pixel when pixel_write_addr < (32*nb_panels)*16 else
+					 '0' ;
 frame_buffer0 : dpram_NxN 
 	generic map(SIZE  => RAM_SIZE/2,  NBIT => 16, ADDR_WIDTH => nbit(RAM_SIZE/2))
 	port map(
@@ -123,14 +128,16 @@ frame_buffer0 : dpram_NxN
  		we => write_mem0, 
  		
  		di => pixel_value, 
-		a	=> pixel_write_addr(pixel_write_addr'high-1 downto 0) ,
- 		dpra => pixel_addr, 
+		a	=> pixel_write_addr_line0(nbit(RAM_SIZE/2)-1 downto 0) ,
+ 		dpra => pixel_read_addr, 
 		spo => open,
 		dpo => pixel_data_line0
 	);
 	
 	
-write_mem1  <= write_pixel and pixel_write_addr(nbit(32*nb_panels)+5-1)  ;
+write_mem1  <=  write_pixel when pixel_write_addr >= (32*nb_panels)*16 else
+					 '0' ;
+					 
 frame_buffer1 : dpram_NxN 
 	generic map(SIZE  => RAM_SIZE/2,  NBIT => 16, ADDR_WIDTH => nbit(RAM_SIZE/2))
 	port map(
@@ -138,15 +145,15 @@ frame_buffer1 : dpram_NxN
  		we => write_mem1, 
  		
  		di => pixel_value, 
-		a	=> pixel_write_addr(pixel_write_addr'high-1 downto 0) ,
- 		dpra => pixel_addr, 
+		a	=> pixel_write_addr_line16(nbit(RAM_SIZE/2)-1 downto 0) ,
+ 		dpra => pixel_read_addr, 
 		spo => open,
 		dpo => pixel_data_line16	
 	); 
 
 
 -- ram buffer read address decoding
-pixel_addr <= line_count & col_count ;
+pixel_read_addr <= line_base_addr + std_logic_vector(resize(unsigned(col_count), pixel_read_addr'LENGTH)) ;
 
 
 
@@ -164,12 +171,12 @@ end process;
 
 
 -- state machine, state evolution process				 
-process(cur_state, end_count, col_count, end_of_col)
+process(cur_state, end_count, col_count, end_of_col, end_of_exposure)
 begin
     next_state <= cur_state ;
 	 case cur_state is 
 	   when EXPOSE =>
-			if end_count = '1' then
+			if end_of_exposure = '1' then
 				next_state <= BLANK ;
 			end if ;
 		when BLANK =>
@@ -208,7 +215,7 @@ begin
     if reset = '1' then
         clk_count <=  bin_code_delay;
     elsif rising_edge(clk) then
-		if end_count = '1' then
+		if load_count = '1' then
 			clk_count <= count_load_val ;
 		else
 			clk_count <= clk_count - 1 ;
@@ -219,6 +226,8 @@ end process;
 -- helper signal to simplify equations
 end_count <= '1' when clk_count = 0 else
 				 '0' ;
+load_count <= '1' when cur_state = EXPOSE else
+				  end_count;
 	
 -- value to in interval counter, value to load is computed for next state	
 with cur_state select
@@ -227,16 +236,30 @@ with cur_state select
 							std_logic_vector(to_unsigned((clk_div-1), 16) )  when LATCH,
 							std_logic_vector(to_unsigned((clk_div-1), 16) )  when UNBLANK,
 							std_logic_vector(to_unsigned((clk_div-1), 16) ) when SHIFT1,
-							next_pixel_div when SHIFT2,
+							std_logic_vector(to_unsigned((clk_div-1), 16) ) when SHIFT2,
 							std_logic_vector(to_unsigned((clk_div-1), 16) ) when others;
-							
--- handle the case when switching from SHIFT2 to SHIFT1 or SHIFT2 to EXPOSE
-next_pixel_div <= bin_code_delay when end_of_col = '1' else
-						std_logic_vector(to_unsigned((clk_div-1), 16) ) ;
+	
 
+-- counter for exposure time	
+process(clk, reset)
+begin
+    if reset = '1' then
+        exposure_time <=  bin_code_delay;
+    elsif rising_edge(clk) then
+		if load_exposure = '1' then
+			exposure_time <= bin_code_delay ;
+		elsif exposure_time > 0 then
+			exposure_time <= exposure_time - 1 ;
+		end if ;
+    end if;
+end process;
 
-
-
+end_of_exposure <= '1' when exposure_time = 0 else
+					 '0' ; 
+load_exposure <= '1' when cur_state = LATCH else
+					  '0' ;
+					  
+					  
 -- column counter, is incremented on each falling edge of sclk
 process(clk, reset)
 begin
@@ -245,7 +268,7 @@ begin
     elsif rising_edge(clk) then
 		if col_count_reset = '1' then
 			col_count <=  (others => '0') ;
-		elsif col_count_enable = '1' then 
+		elsif col_count_enable = '1' and col_count < (LINE_SIZE-1) then 
 			col_count <= col_count + 1 ;
 		end if ;
     end if;
@@ -271,9 +294,14 @@ process(clk, reset)
 begin
     if reset = '1' then
         line_count <=  (others => '0') ;
+		  line_base_addr <= (others => '0') ;
     elsif rising_edge(clk) then
-		if line_count_enable = '1' then 
+		if line_count_reset = '1' then
+			line_count <=  (others => '0') ;
+		   line_base_addr <= (others => '0') ;
+		elsif line_count_enable = '1' then 
 			line_count <= line_count + 1 ;
+			line_base_addr <= line_base_addr + (32*nb_panels) ;
 		end if ;
     end if;
 end process;	
@@ -282,21 +310,22 @@ end process;
 with cur_state select							 
 	line_count_enable <= (end_count and end_of_bits) when LATCH,
 							  '0' when others ;	
-
+line_count_reset <= '1' when line_count_enable = '1' and line_count = 15 else
+						  '0' ;
 -- rd_bit specify the bit to read from the color code 
 -- exp bit specify the bit being exposed on the matrix 
 process(clk, reset)
 begin
     if reset = '1' then
         rd_bit <=  (others => '0') ;
-		  exp_bit <= (others => '0') ;
+		  --exp_bit <= (others => '0') ;
     elsif rising_edge(clk) then
 		if end_of_bits = '1' and rd_bit_count_enable = '1' then
 			rd_bit <=  (others => '0') ;
-		   exp_bit <= rd_bit ;
+		   --exp_bit <= rd_bit ;
 		elsif rd_bit_count_enable = '1' then 
 			rd_bit <= rd_bit + 1 ;
-			exp_bit <= rd_bit ;
+			--exp_bit <= rd_bit ;
 		end if ;
     end if;
 end process;	
@@ -310,11 +339,11 @@ end_of_bits <= 	'1' when rd_bit = bits_per_color-1 else
 					'0' ;	
 
 -- The binary coded modulation delay is doubled for each exposed color bit
-with conv_integer(exp_bit) select
-	bin_code_delay <= std_logic_vector(to_unsigned(expose_step*clk_div, 16)) when 3,
-							std_logic_vector(to_unsigned(expose_step*clk_div*2, 16)) when 2,
-							std_logic_vector(to_unsigned(expose_step*clk_div*4, 16)) when 1,
-							std_logic_vector(to_unsigned(expose_step*clk_div*8, 16)) when others ;
+with conv_integer(rd_bit) select
+	bin_code_delay <= std_logic_vector(to_unsigned(expose_step_cycle, 16)) when 3,
+							std_logic_vector(to_unsigned(expose_step_cycle*2, 16)) when 2,
+							std_logic_vector(to_unsigned(expose_step_cycle*4, 16)) when 1,
+							std_logic_vector(to_unsigned(expose_step_cycle*8, 16)) when others ;
 
 
 -- output management

@@ -27,6 +27,7 @@ architecture structural of logipi_matrix is
 		generic(wb_size : positive := 16;
 			  clk_div : positive := 10;
 			  nb_panels : positive := 1 ;
+			  bits_per_color : INTEGER RANGE 1 TO 4 := 4 ;
 			  expose_step : positive := 191
 			  );
 		port(
@@ -107,7 +108,7 @@ wbm_ack =>  Master_0_wbm_Intercon_0_wbs.ack
 
 Intercon_0 : wishbone_intercon
 generic map(
-memory_map => (0 => "00000XXXXXXXXXXX")
+memory_map => (0 => "0XXXXXXXXXXXXXXX")
 )
 port map(
 	gls_clk => gls_clk, gls_reset => gls_reset,
@@ -130,7 +131,10 @@ wbm_ack(0) =>  Intercon_0_wbm_MAT_0_wbs.ack
 );
 
 MAT_0 : entity work.wishbone_led_matrix_ctrl
--- no generics
+generic map(
+			  nb_panels => 12,
+			  bits_per_color => 1
+			  )
 port map(
 	gls_clk => gls_clk, gls_reset => gls_reset,
 

@@ -45,7 +45,7 @@ generic(wb_size : positive := 16;
 		  -- TODO: nb_panels is untested, still need to be validated
 		  nb_panels : positive := 1 ;
 		  bits_per_color : INTEGER RANGE 1 TO 4 := 4 ;
-		  expose_step : positive := 191 
+		  expose_step_cycle : positive := 1910
 		  );
 port(
 		  -- Syscon signals
@@ -80,14 +80,13 @@ generic(
 		  -- TODO: nb_panels is untested, still need to be validated
 		  nb_panels : positive := 1 ;
 		  bits_per_color : INTEGER RANGE 1 TO 4 := 4 ;
-		  expose_step : positive := 191 
+		  expose_step_cycle : positive := 1910
 );
 
 port(
 
 		  clk, reset : in std_logic ;
-		  line_addr : in std_logic_vector(4 downto 0);
-		  col_addr : in std_logic_vector(nbit(32*nb_panels)-1 downto 0 );
+		  pixel_addr : in std_logic_vector((nbit(32*nb_panels)+5)-1 downto 0);
 		  pixel_value : in std_logic_vector(15 downto 0);
 		  write_pixel : in std_logic ;
 		  SCLK_OUT : out std_logic ;
@@ -103,10 +102,7 @@ end component;
 signal read_ack : std_logic ;
 signal write_ack, write_pixel: std_logic ;
 
-
-
-signal line_addr : std_logic_vector(4 downto 0);
-signal col_addr : std_logic_vector(nbit(32*nb_panels)-1 downto 0 );
+signal pixel_addr : std_logic_vector((nbit(32*nb_panels)+5)-1 downto 0);
 
 begin
 
@@ -149,19 +145,20 @@ wbs_readdata <= X"DEAD" ;
 
 write_pixel  <= wbs_strobe and wbs_write and wbs_cycle  ;
 
-line_addr <= wbs_address(nbit(32*nb_panels)+4 downto nbit(32*nb_panels));
-col_addr <= wbs_address(nbit(32*nb_panels)-1 downto 0); 
+pixel_addr <= wbs_address(pixel_addr'high downto 0);
+
+
 matrix_ctrl0 : rgb_32_32_matrix_ctrl
 generic map(
 		  clk_div => clk_div,
 		  nb_panels => nb_panels,
-		  expose_step => expose_step 
+		  expose_step_cycle => expose_step_cycle,
+		  bits_per_color => bits_per_color
 )
 port map(
 
 		  clk => gls_clk, reset => gls_reset,
-		  line_addr => line_addr,
-		  col_addr => col_addr,
+		  pixel_addr => pixel_addr,
 		  pixel_value => wbs_writedata,
 		  write_pixel => write_pixel,
 		  SCLK_OUT => SCLK_OUT,

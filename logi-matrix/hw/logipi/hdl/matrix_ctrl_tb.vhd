@@ -47,7 +47,7 @@ ARCHITECTURE behavior OF matrix_ctrl_tb IS
 		  -- TODO: nb_panels is untested, still need to be validated
 		  nb_panels : positive := 1 ;
 		  bits_per_color : INTEGER RANGE 1 TO 4 := 4 ;
-		  expose_step : positive := 191 
+		  expose_step_cycle : positive := 191 
 	 );
     PORT(
          gls_reset : IN  std_logic;
@@ -98,10 +98,10 @@ BEGIN
 	-- Instantiate the Unit Under Test (UUT)
    uut: wishbone_led_matrix_ctrl 
 	generic map(
-		  clk_div => 10,
-		  nb_panels => 2,
-		  bits_per_color => 1,
-		  expose_step => 191 
+		  clk_div => 5,
+		  nb_panels => 3,
+		  bits_per_color => 4,
+		  expose_step_cycle => 3000 
 	 )
 	PORT MAP (
           gls_reset => gls_reset,
@@ -141,12 +141,15 @@ BEGIN
       wait for 100 ns;	
 		gls_reset <= '0' ;
       wait for gls_clk_period*10;
-		for addr in 0 to 64 loop
+		for addr in 0 to ((32*32*3)-1) loop
 			wbs_strobe <= '0'; 
 			wbs_cycle <= '0'; 
 			wbs_write <= '0' ;
 			wbs_address <= std_logic_vector(to_unsigned(addr, 16));
-			wbs_writedata<= "0000100010001000";
+			wbs_writedata <= wbs_writedata + 1 ;
+			if wbs_writedata = (3*32) then
+				wbs_writedata <= (others => '0') ;
+			end if ;
 			wait for gls_clk_period ;
 			wbs_strobe <= '1'; 
 			wbs_cycle <= '1'; 
