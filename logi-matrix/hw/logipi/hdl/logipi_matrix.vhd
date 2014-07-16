@@ -132,8 +132,8 @@ wbm_ack(0) =>  Intercon_0_wbm_MAT_0_wbs.ack
 
 MAT_0 : entity work.wishbone_led_matrix_ctrl
 generic map(
-			  nb_panels => 12,
-			  bits_per_color => 1
+			  nb_panels => 4,
+			  bits_per_color => 4
 			  )
 port map(
 	gls_clk => gls_clk, gls_reset => gls_reset,

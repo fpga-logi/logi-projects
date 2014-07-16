@@ -213,7 +213,7 @@ end process;
 process(clk, reset)
 begin
     if reset = '1' then
-        clk_count <=  bin_code_delay;
+        clk_count <=  (others => '0');
     elsif rising_edge(clk) then
 		if load_count = '1' then
 			clk_count <= count_load_val ;
