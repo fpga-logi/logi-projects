@@ -241,12 +241,12 @@ with cur_state select
 	
 
 -- counter for exposure time	
-process(clk, reset)
+process(clk)
 begin
-    if reset = '1' then
-        exposure_time <=  bin_code_delay;
-    elsif rising_edge(clk) then
-		if load_exposure = '1' then
+    if rising_edge(clk) then
+	   if reset = '1' then
+			exposure_time <=  bin_code_delay;
+		elsif load_exposure = '1' then
 			exposure_time <= bin_code_delay ;
 		elsif exposure_time > 0 then
 			exposure_time <= exposure_time - 1 ;
