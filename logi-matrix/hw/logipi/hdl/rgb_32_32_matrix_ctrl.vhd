@@ -39,7 +39,7 @@ entity rgb_32_32_matrix_ctrl is
 generic(
 		  clk_div : positive := 10;
 		  -- TODO: nb_panels is untested, still need to be validated
-		  nb_panels : positive := 1 ;
+		  nb_panels : positive := 4 ;
 		  bits_per_color : INTEGER RANGE 1 TO 4 := 4 ;
 		  expose_step_cycle: positive := 1910
 );
@@ -47,8 +47,9 @@ generic(
 port(
 
 		  clk, reset : in std_logic ;
-		  pixel_addr : in std_logic_vector((nbit(32*nb_panels)+5)-1 downto 0);
-		  pixel_value : in std_logic_vector(15 downto 0);
+		  pixel_addr : in std_logic_vector((nbit(32*nb_panels*16))-1 downto 0);
+		  pixel_value_out : out std_logic_vector(15 downto 0);
+		  pixel_value_in : in std_logic_vector(15 downto 0);
 		  write_pixel : in std_logic ;
 		  SCLK_OUT : out std_logic ;
 		  BLANK_OUT : out std_logic ;
@@ -106,31 +107,35 @@ signal R1_Q, G1_Q, B1_Q, R0_Q, G0_Q, B0_Q : std_logic ;
 signal A_OUT_Q : std_logic_vector(3 downto 0);
 
 
-signal pixel_write_addr, pixel_write_addr_line0, pixel_write_addr_line16 : std_logic_vector((nbit(32*nb_panels)+5)-1 downto 0);
-
+signal pixel_write_addr, pixel_write_addr_line0, pixel_write_addr_line16 : std_logic_vector((nbit(32*nb_panels*16))-1 downto 0);
+signal pixel_value_out_0, pixel_value_out_1 : std_logic_vector(15 downto 0);
 signal write_mem0, write_mem1 : std_logic ;
 begin
 
 
 -- ram buffer instanciation
 pixel_write_addr <= pixel_addr  ;
-pixel_write_addr_line0 <= pixel_write_addr when pixel_write_addr < (32*nb_panels)*16 else
+pixel_write_addr_line0 <= pixel_write_addr when pixel_write_addr < ((32*nb_panels)*16) else
 									(others => '0');
 pixel_write_addr_line16 <= pixel_write_addr - (32*nb_panels)*16 when pixel_write_addr >= (32*nb_panels)*16 else
 									(others => '0'); -- only for simulation purpose ...
 
 write_mem0  <=  write_pixel when pixel_write_addr < (32*nb_panels)*16 else
 					 '0' ;
+					 
+pixel_value_out <= pixel_value_out_0 when pixel_addr < (32*nb_panels)*16 else
+						 pixel_value_out_1 ;
+					 
 frame_buffer0 : dpram_NxN 
 	generic map(SIZE  => RAM_SIZE/2,  NBIT => 16, ADDR_WIDTH => nbit(RAM_SIZE/2))
 	port map(
  		clk => clk,
  		we => write_mem0, 
  		
- 		di => pixel_value, 
+ 		di => pixel_value_in, 
 		a	=> pixel_write_addr_line0(nbit(RAM_SIZE/2)-1 downto 0) ,
  		dpra => pixel_read_addr, 
-		spo => open,
+		spo => pixel_value_out_0,
 		dpo => pixel_data_line0
 	);
 	
@@ -144,10 +149,10 @@ frame_buffer1 : dpram_NxN
  		clk => clk,
  		we => write_mem1, 
  		
- 		di => pixel_value, 
+ 		di => pixel_value_in, 
 		a	=> pixel_write_addr_line16(nbit(RAM_SIZE/2)-1 downto 0) ,
  		dpra => pixel_read_addr, 
-		spo => open,
+		spo => pixel_value_out_1,
 		dpo => pixel_data_line16	
 	); 
 
