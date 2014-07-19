@@ -87,7 +87,8 @@ port(
 
 		  clk, reset : in std_logic ;
 		  pixel_addr : in std_logic_vector((nbit(32*nb_panels*16))-1 downto 0);
-		  pixel_value : in std_logic_vector(15 downto 0);
+		  pixel_value_out : out std_logic_vector(15 downto 0);
+		  pixel_value_in : in std_logic_vector(15 downto 0);		  
 		  write_pixel : in std_logic ;
 		  SCLK_OUT : out std_logic ;
 		  BLANK_OUT : out std_logic ;
@@ -138,8 +139,6 @@ begin
     end if;
 end process read_bloc;
 
-wbs_readdata <= X"DEAD" ;
-
 
 -- ram buffer instanciation
 
@@ -159,7 +158,8 @@ port map(
 
 		  clk => gls_clk, reset => gls_reset,
 		  pixel_addr => pixel_addr,
-		  pixel_value => wbs_writedata,
+		  pixel_value_in => wbs_writedata,
+		  pixel_value_out => wbs_readdata,
 		  write_pixel => write_pixel,
 		  SCLK_OUT => SCLK_OUT,
 		  BLANK_OUT => BLANK_OUT,
