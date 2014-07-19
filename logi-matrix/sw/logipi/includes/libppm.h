@@ -12,9 +12,14 @@
 
 #define RGB_COMPONENT_COLOR 255
 
+#define HEIGHT_PER_PANEL 32
+#define WIDTH_PER_PANEL 32
+
+#define NUM_PANEL 4
+
 //define display size
-#define OUTPUT_HEIGHT 32
-#define OUTPUT_WIDTH 32
+#define OUTPUT_HEIGHT (HEIGHT_PER_PANEL * 2)
+#define OUTPUT_WIDTH (WIDTH_PER_PANEL * 2)
 
 //for different resizing modes
 #define RESIZE_CENTER 0
@@ -38,7 +43,7 @@ PPMImage* readPPM(const char* filename);
 /**!@brief resize the given array to 32 * 32
  *         might be interesting to do seam carving 
  */
-PPMImage* resize(PPMImage* input);
+PPMImage* resize(PPMImage* input,int modes);
 
 //more functionality?
 

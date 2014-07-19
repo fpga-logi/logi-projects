@@ -1,7 +1,7 @@
-/*!@file led_white.c
- * @brief testing code: turns the panel to white
+/*!@file led_white_4up.c
+ * @brief testing code: turns the panel to white with two writes
  * @author Xiaofan Li -- Carnegie Mellon University
- * @date July 8th 2014
+ * @date July 19th 2014
  */
 
 #include <unistd.h>
@@ -20,14 +20,17 @@
 
 
 //custom defines
-#define BUF_SIZE 0x7fff
-#define CHUNK_SIZE 1024
-#define DATA_ADR 0x0000
+#define BUF_SIZE 4096
+#define FIRST_DATA_ADR 0x0000
+#define SECOND_DATA_ADR (FIRST_DATA_ADR + ((BUF_SIZE) / 2)) 
+/* two byte addrressed*/
+
 
 int main(int argc, char ** argv){
 	int address ;
 	unsigned short i ;
-	char tx_buf[BUF_SIZE];
+	char tx_buf_1[BUF_SIZE];
+	char tx_buf_0[BUF_SIZE];
 
     //initialize the wishbone bus
 	wishbone_init();
@@ -41,20 +44,20 @@ int main(int argc, char ** argv){
     
     //filling the tx_buffer with stuff
 	for(i=0; i < BUF_SIZE; i ++){
-		tx_buf[i] = gammaLut[0xff]; /* should turn panel to white */
-	}		
+		tx_buf_0[i] = gammaLut[0x00]; /* should turn panel to white */
+	    tx_buf_1[i] = gammaLut[0x00];
+    }		
     
     //loop to refresh the display  
-	int loop = BUF_SIZE/CHUNK_SIZE;
 	while(1){
 		int i;
-		for (i=0;i<loop;i++){
-			char* start = tx_buf + loop * CHUNK_SIZE;
-			unsigned int adr = DATA_ADR + loop * CHUNK_SIZE;
-			if((i = wishbone_write(start, CHUNK_SIZE, adr)) < CHUNK_SIZE){
-				printf("Write error !, returned %d \n", i);
-			}
-		}
+	    if((i = wishbone_write(tx_buf_0, BUF_SIZE, FIRST_DATA_ADR)) < BUF_SIZE){
+	    	printf("Write error !, returned %d \n", i);
+	    }
+	    
+        if((i = wishbone_write(tx_buf_1, BUF_SIZE, SECOND_DATA_ADR)) < BUF_SIZE){
+	    	printf("Write error !, returned %d \n", i);
+	    }
         //refresh every second
 		//sleep(1);
         //TODO some logic to change display

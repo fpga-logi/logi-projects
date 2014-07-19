@@ -17,7 +17,6 @@
 #include "includes/gammalut.h"
 #include "includes/libppm.h"
 
-#define FRAME_NUM 3
 #define FRAME_BUF_SIZE 2048
 #define DATA_ADR 0x00
 
@@ -28,19 +27,28 @@ int main (int argc, char *argv[])
 {
     int row, col ;
     unsigned int addr = 0 ;
-    
+    char filename[sizeof "data/EXAMPLE_FOLDER_MAX_LENGTH/frame_000.txt"];    
+    int num_frames = 0;
+
+    if (argc != 3){
+	fprintf(stderr,"./test_gif <folder_name> <num_frame>");
+	exit(1);
+    }    
+    else {
+	num_frames = atoi(argv[2]);
+    }
+
     int i;
     while (1){
-      for (i=0;i<FRAME_NUM;i++){
+      for (i=0;i<num_frames;i++){
           printf("beginning of loop\n");
-          char filename[sizeof "data/frame_000.txt"];
-          sprintf(filename, "data/frame_%03d.ppm", i);
+          sprintf(filename, "data/%s/frame_%03d.ppm", argv[1],i);
           printf("opening %s\n",filename);
           
           // open raw image data
           PPMImage* input = (PPMImage*)readPPM(filename);
           printf("read file of size %d * %d\n",input->x,input->y);
-          PPMImage* adjusted = resizePPM(input,RESIZE_CENTER); 
+          PPMImage* adjusted = (PPMImage*)resizePPM(input,RESIZE_CENTER); 
           printf("adjusted to size %d * %d\n",adjusted->x,adjusted->y);
           
           // read image data from file and write to display
@@ -65,11 +73,11 @@ int main (int argc, char *argv[])
           //do one write of the frame buffer
           if((j = wishbone_write(frame_buf, FRAME_BUF_SIZE, DATA_ADR)) < FRAME_BUF_SIZE){
           	printf("Write error !, returned %d \n", j);
-            exit(1);
           }
           
           //sleep one second
-          usleep(500000);
+          usleep(100000);
+          printf("after sleep\n");
       }
     }
     
