@@ -21,8 +21,8 @@
 
 
 //custom defines
-#define BUF_SIZE 2048
-#define DATA_ADR 0x0005
+#define BUF_SIZE 0x7fff
+#define DATA_ADR 0x0000
 #define COLOR 0x00
 
 int main(int argc, char ** argv){
