@@ -111,7 +111,8 @@ wbm_ack =>  Master_0_wbm_Intercon_0_wbs.ack
 Intercon_0 : wishbone_intercon
 generic map(
 --memory_map => (0 => "00XXXXXXXXXXXXXX")
-memory_map => ("000XXXXXXXXXXXXX", "001XXXXXXXXXXXXX")
+memory_map => ("000XXXXXXXXXXXXX", -- panel 0 mapped at address 0x0000
+"001XXXXXXXXXXXXX") -- second panel mapped at address 0x2000
 )
 port map(
 	gls_clk => gls_clk, gls_reset => gls_reset,
