@@ -78,7 +78,7 @@ component rgb_32_32_matrix_ctrl is
 generic(
 		  clk_div : positive := 10;
 		  -- TODO: nb_panels is untested, still need to be validated
-		  nb_panels : positive := 1 ;
+		  nb_panels : positive := 4 ;
 		  bits_per_color : INTEGER RANGE 1 TO 4 := 4 ;
 		  expose_step_cycle : positive := 1910
 );
@@ -86,7 +86,7 @@ generic(
 port(
 
 		  clk, reset : in std_logic ;
-		  pixel_addr : in std_logic_vector((nbit(32*nb_panels)+5)-1 downto 0);
+		  pixel_addr : in std_logic_vector((nbit(32*nb_panels*16))-1 downto 0);
 		  pixel_value : in std_logic_vector(15 downto 0);
 		  write_pixel : in std_logic ;
 		  SCLK_OUT : out std_logic ;
@@ -102,7 +102,7 @@ end component;
 signal read_ack : std_logic ;
 signal write_ack, write_pixel: std_logic ;
 
-signal pixel_addr : std_logic_vector((nbit(32*nb_panels)+5)-1 downto 0);
+signal pixel_addr : std_logic_vector((nbit(32*nb_panels*16))-1 downto 0);
 
 begin
 

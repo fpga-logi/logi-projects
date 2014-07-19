@@ -17,6 +17,8 @@ entity logipi_matrix is
 		LED :   out  std_logic_vector((2-1) downto 0);
 		PMOD1 :   out  std_logic_vector((8-1) downto 0);
 		PMOD2 :   out  std_logic_vector((8-1) downto 0);
+		PMOD3 :   out  std_logic_vector((8-1) downto 0);
+		PMOD4 :   out  std_logic_vector((8-1) downto 0);
 		PB :  in std_logic_vector((2-1) downto 0);
 		SW :  in std_logic_vector((2-1) downto 0)	
 	);
@@ -70,7 +72,7 @@ architecture structural of logipi_matrix is
 
 	signal Master_0_wbm_Intercon_0_wbs : wishbone_bus;
 	signal Intercon_0_wbm_MAT_0_wbs : wishbone_bus;
-
+	signal Intercon_0_wbm_MAT_1_wbs : wishbone_bus;
 
 
 begin
@@ -108,7 +110,8 @@ wbm_ack =>  Master_0_wbm_Intercon_0_wbs.ack
 
 Intercon_0 : wishbone_intercon
 generic map(
-memory_map => (0 => "00XXXXXXXXXXXXXX")
+--memory_map => (0 => "00XXXXXXXXXXXXXX")
+memory_map => ("000XXXXXXXXXXXXX", "001XXXXXXXXXXXXX")
 )
 port map(
 	gls_clk => gls_clk, gls_reset => gls_reset,
@@ -122,12 +125,26 @@ wbs_write =>  Master_0_wbm_Intercon_0_wbs.write,
 wbs_ack =>  Master_0_wbm_Intercon_0_wbs.ack,
 
 wbm_address(0) =>  Intercon_0_wbm_MAT_0_wbs.address,
+wbm_address(1) =>  Intercon_0_wbm_MAT_1_wbs.address,
+
 wbm_writedata(0) =>  Intercon_0_wbm_MAT_0_wbs.writedata,
+wbm_writedata(1) =>  Intercon_0_wbm_MAT_1_wbs.writedata,
+
 wbm_readdata(0) =>  Intercon_0_wbm_MAT_0_wbs.readdata,
+wbm_readdata(1) =>  Intercon_0_wbm_MAT_1_wbs.readdata,
+
 wbm_cycle(0) =>  Intercon_0_wbm_MAT_0_wbs.cycle,
+wbm_cycle(1) =>  Intercon_0_wbm_MAT_1_wbs.cycle,
+
 wbm_strobe(0) =>  Intercon_0_wbm_MAT_0_wbs.strobe,
+wbm_strobe(1) =>  Intercon_0_wbm_MAT_1_wbs.strobe,
+
 wbm_write(0) =>  Intercon_0_wbm_MAT_0_wbs.write,
-wbm_ack(0) =>  Intercon_0_wbm_MAT_0_wbs.ack
+wbm_write(1) =>  Intercon_0_wbm_MAT_1_wbs.write,
+
+wbm_ack(0) =>  Intercon_0_wbm_MAT_0_wbs.ack,
+wbm_ack(1) =>  Intercon_0_wbm_MAT_1_wbs.ack
+
 );
 
 MAT_0 : entity work.wishbone_led_matrix_ctrl
@@ -161,10 +178,46 @@ SCLK_OUT => PMOD2(6)
 );
 
 
+MAT_1 : entity work.wishbone_led_matrix_ctrl
+generic map(
+			  nb_panels => 4,
+			  bits_per_color => 4
+			  )
+port map(
+	gls_clk => gls_clk, gls_reset => gls_reset,
+
+wbs_address =>  Intercon_0_wbm_MAT_1_wbs.address,
+wbs_writedata =>  Intercon_0_wbm_MAT_1_wbs.writedata,
+wbs_readdata =>  Intercon_0_wbm_MAT_1_wbs.readdata,
+wbs_cycle =>  Intercon_0_wbm_MAT_1_wbs.cycle,
+wbs_strobe =>  Intercon_0_wbm_MAT_1_wbs.strobe,
+wbs_write =>  Intercon_0_wbm_MAT_1_wbs.write,
+wbs_ack =>  Intercon_0_wbm_MAT_1_wbs.ack,
+
+R_OUT(0) => PMOD3(0),
+R_OUT(1) =>PMOD3(4),
+G_OUT(0) =>PMOD3(1),
+G_OUT(1) =>PMOD3(5),
+B_OUT(0) =>PMOD3(2),
+B_OUT(1) =>PMOD3(6),
+
+A_OUT => PMOD4(3 downto 0),
+BLANK_OUT => PMOD4(4),
+LATCH_OUT => PMOD4(5),
+SCLK_OUT => PMOD4(6)
+
+);
+
+
+
 LED <= PB ;
 PMOD1(3) <= '0' ;
 PMOD1(7) <= '0' ;
 PMOD2(7) <= '0' ;
+
+PMOD3(3) <= '0' ;
+PMOD3(7) <= '0' ;
+PMOD4(7) <= '0' ;
 
 
 
