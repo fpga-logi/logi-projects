@@ -408,7 +408,6 @@
   </properties>
 
   <bindings>
-    <binding xil_pn:location="/logibone_wishbone" xil_pn:name="../hdl/logibone_ra2_1.ucf"/>
     <binding xil_pn:location="/logibone_wishbone" xil_pn:name="../hdl/logibone_ra3.ucf"/>
   </bindings>
 
