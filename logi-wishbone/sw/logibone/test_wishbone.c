@@ -27,18 +27,18 @@ int main(int argc, char ** argv){
 	gettimeofday(&temp2,NULL);
 	elapsed_s_sec=temp2.tv_sec-temp1.tv_sec;
 	elapsed_u_sec=temp2.tv_usec-temp1.tv_usec;
-	elapsed_u_time=(elapsed_s_sec)*100000+elapsed_u_sec;	
+	elapsed_u_time=(elapsed_s_sec)*1000000+elapsed_u_sec;	
 	printf("Time in Microsecond=%ld \n",elapsed_u_time);
 	printf("W Speed=====%d KB/Sec \n",(BLOCK_SIZE*2*1000)/elapsed_u_time );
 	
 	gettimeofday(&temp1,NULL);
         if(pread(fd, writeVals, BLOCK_SIZE*2, 0) < BLOCK_SIZE*2){
-                printf("Write error !");
+                printf("Read error !");
         }
         gettimeofday(&temp2,NULL);
         elapsed_s_sec=temp2.tv_sec-temp1.tv_sec;
         elapsed_u_sec=temp2.tv_usec-temp1.tv_usec;
-        elapsed_u_time=(elapsed_s_sec)*100000+elapsed_u_sec;    
+        elapsed_u_time=(elapsed_s_sec)*1000000+elapsed_u_sec;    
         printf("Time in Microsecond=%ld \n",elapsed_u_time);
         printf("R Speed=====%d KB/Sec \n",(BLOCK_SIZE*2*1000)/elapsed_u_time );
 
