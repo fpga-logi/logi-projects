@@ -65,10 +65,13 @@ class RobotState():
 		toRad = math.pi/180.0		
 
 		# Prediction
-		# need to evaluate rotation ... heading evoluate clockwise and is Y oriented, need to correct
+		# compute state transition matrix for simple robot movement
+		# movement is based on heading and speed only
 		F = array([[1.0, 0, 0, math.sin(self.x[2]*toRad)*dt], \
 			[0, 1.0, 0, math.cos(self.x[2]*toRad)*dt],\
 			[0, 0, 1.0, 0], [0, 0, 0, 1.0]])
+
+		# if position was measured, integrate the position as a correction for next steps
 		if measured_x == None:
 			self.H[0][0] = 0.0
 			measured_x = 0.0
@@ -80,22 +83,26 @@ class RobotState():
 		else:
 			self.H[1][1] = 1.0
 		#print "F="+str(F)	
+		
+		# compute state evolution
 		self.x = self.computeStateEvolution(self.x, F)
 
-		#should not clamp this way, we'd better stay in 2pi to have better heading error measurement.
-		#if self.x[2] > 180.0:
-		#	self.x[2] = self.x[2] - 360.0
+		#use heading as 2pi modulus not pi -pi range
 		if self.x[2] > 360.0:
 			self.x[2] = self.x[2] - 360.0
 		if measured_heading < 0 :
 			measured_heading = 360.0 + measured_heading	
 		#print "x+="+str(self.x)
+
+		# compute measurement prediction, H consider direct measurement of state features
 		zp = self.computeMeasurementPrediction(self.x, self.H)
 		#print "Z+="+str(zp)
 	
 		z = array([measured_x, measured_y, measured_heading, measured_speed])
 		
+		# compute measurement prediction error
 		v = self.computeMeasurementPredictionError(z,zp)
+		
 		# clamp v for input based on heading and predicted heading, managing non-linearity on error for heading
 		if v[2] > 180.0:
 			v[2] = v[2] - 360.0
@@ -103,6 +110,7 @@ class RobotState():
 			v[2] = v[2] + 360.0
 	
 		#print "V="+str(v)
+		
 		#Correction		
 		self.P = self.computeStateCovariance(self.P, F, self.Q)
 		#print "P+="+str(self.P)			
@@ -125,41 +133,6 @@ class RobotState():
 		# we consider a constant speed model, thus acceleration and angular velocity are the error of the system
 		# it means that the measurement of the acceleration and angular speed (either by gyro, or differential on heading from IMU) 
 		# are direclty the noise of the system ! It allows to have a constant Q
-
-
-		#x(t+1) = Fx(t) + But
-		#
-		#	1 | 0 | 0 | sin(theta)*dt	
-		#F = 	0 | 1 | 0 | cos(theta)*dt
-		#	0 | 0 | 1 | 0
-		#	0 | 0 | 0 | 1
-		
-		#
-		#	(dt^2)/2
-		#B =	(dt^2)/2
-		#	dt
-		#	dt
-		
-		# maybe we should ignore command ... 
-		#	s'sin(theta')
-		#	s'cos(theta')
-		#ut = 	1
-		#	1
-		#	
-		
-		
-		# Start of Observation part
-		# measurement prediction, Zt = Hx (How to determine observation model ... Identity to start)
-		# measurement residual computation => noise v = z - Zt (easy ...)
-		# noise covariance computation Q = cov(v) (how to compute covariance) will be considered static (not best case)
-		# Start of correction part		
-		# State prediction covariance computation P = FPF'+ Q
-		# Measurement prediction covariance S = HPH' + R
-		# Filter gain computation W = PHS^(-1)
-		# Updated state covariance P = P - WSW'
-		
-		# Following can be computed even if model was not updated	
-		# Update state estimate x = x + Wv
 	
 		return self.x
 

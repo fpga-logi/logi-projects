@@ -19,37 +19,45 @@ class PurePursuit():
 		toRad = math.pi/180.0		
 		eq_path = [0, 0]	
 		# compute path equation
+
+		#special case, avoid division by zero ...
 		if (point_A.x - point_B.x) == 0:
 			return 0.0
+		
+		#compute path equation from A to B
 		eq_path[0] = (point_A.y - point_B.y)/(point_A.x - point_B.x)
 		eq_path[1] = point_B.y - (point_B.x*eq_path[0])
-		#compute equation of line orthogonal to path and passing by current position
 			
-		# case of equation ont being constant
+		# case of equation on being constant
 		if eq_path[0] != 0.0:	
 			eq_orth = [(-1/eq_path[0]), 0]
 			eq_orth[1] = pos.y - (eq_orth[0]*pos.x)
 			cross_x = (eq_orth[1] - eq_path[1])/(eq_path[0] - eq_orth[0])
 			cross_y = cross_x * eq_path[0] + eq_path[1]
 		else:
+			#compute equation of line orthogonal to path and passing by current position
 			eq_orth = [0.0, pos.x]
 			cross_x = pos.x
 			cross_y = eq_path[1]
 				
-		#compute coordinates of lookahead point
+		#compute coordinates of lookahead point on A to B path
 		tetha = math.atan(eq_path[0]) # compute line angle
+
+		# handle path direction to compute lokkahead point
 		if point_A.x < point_B.x:
 			look_ahead_point_y = cross_y + (self.look_ahead_dist * math.sin(tetha)) 
 			look_ahead_point_x = cross_x + (self.look_ahead_dist * math.cos(tetha))
 		else:
 			look_ahead_point_y = cross_y - (self.look_ahead_dist * math.sin(tetha)) 
 			look_ahead_point_x = cross_x - (self.look_ahead_dist * math.cos(tetha))
+		
+		#compute distance from cross position to look ahead
 		dist_to_look_ahead = math.sqrt(math.pow(cross_x - look_ahead_point_x, 2) + math.pow(cross_y - look_ahead_point_y, 2))
+		#compute distance to point B		
 		dist_to_target = math.sqrt(math.pow(cross_x - point_B.x, 2) + math.pow(cross_y - point_B.y, 2))
 		
 		# look ahead point is ahead of target, using target as look_ahead
 		if dist_to_look_ahead > dist_to_target :
-			#print "further than next waypoint"
 			look_ahead_point_y = point_B.y
 			look_ahead_point_x = point_B.x
 				
@@ -64,9 +72,6 @@ class PurePursuit():
 		look_ahead_point_x_rob = look_ahead_point_x_trans * math.cos(toRad*rotation_tetha) - look_ahead_point_y_trans * math.sin(toRad*rotation_tetha)
 		look_ahead_point_y_rob = look_ahead_point_x_trans * math.sin(toRad*rotation_tetha) + look_ahead_point_y_trans * math.cos(toRad*rotation_tetha)
 		
-		#print rotation_tetha
-		#print look_ahead_point_x_rob
-		#print look_ahead_point_y_rob
 		# following is based on 
 		# http://www8.cs.umu.se/kurser/TDBD17/VT06/utdelat/Assignment%20Papers/Path%20Tracking%20for%20a%20Miniature%20Robot.pdf
 		
