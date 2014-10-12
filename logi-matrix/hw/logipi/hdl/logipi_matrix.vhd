@@ -6,6 +6,7 @@ use UNISIM.VComponents.all;
 
 library work ;
 use work.logi_wishbone_pack.all ;
+use work.logi_wishbone_peripherals_pack.all ;
 
 entity logipi_matrix is
 	port(

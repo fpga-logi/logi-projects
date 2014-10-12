@@ -87,8 +87,8 @@ port(
 
 		  clk, reset : in std_logic ;
 		  pixel_addr : in std_logic_vector((nbit(32*nb_panels*16))-1 downto 0);
-		  pixel_value_out : out std_logic_vector(15 downto 0);
-		  pixel_value_in : in std_logic_vector(15 downto 0);		  
+		  pixel_value_out : out std_logic_vector(((bits_per_color*3) -1) downto 0);
+		  pixel_value_in : in std_logic_vector(((bits_per_color*3) -1) downto 0);		  
 		  write_pixel : in std_logic ;
 		  SCLK_OUT : out std_logic ;
 		  BLANK_OUT : out std_logic ;
@@ -158,8 +158,8 @@ port map(
 
 		  clk => gls_clk, reset => gls_reset,
 		  pixel_addr => pixel_addr,
-		  pixel_value_in => wbs_writedata,
-		  pixel_value_out => wbs_readdata,
+		  pixel_value_in => wbs_writedata((bits_per_color*3)-1 downto 0),
+		  pixel_value_out => wbs_readdata((bits_per_color*3)-1 downto 0),
 		  write_pixel => write_pixel,
 		  SCLK_OUT => SCLK_OUT,
 		  BLANK_OUT => BLANK_OUT,
@@ -169,7 +169,7 @@ port map(
 		  G_out => G_OUT,
 		  B_out => B_OUT
 );
-
+wbs_readdata (15 downto (bits_per_color*3)) <= (others => '0');
 	
 
 end Behavioral;

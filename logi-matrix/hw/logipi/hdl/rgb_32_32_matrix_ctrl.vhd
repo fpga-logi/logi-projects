@@ -48,8 +48,8 @@ port(
 
 		  clk, reset : in std_logic ;
 		  pixel_addr : in std_logic_vector((nbit(32*nb_panels*16))-1 downto 0);
-		  pixel_value_out : out std_logic_vector(15 downto 0);
-		  pixel_value_in : in std_logic_vector(15 downto 0);
+		  pixel_value_out : out std_logic_vector((bits_per_color*3)-1 downto 0);
+		  pixel_value_in : in std_logic_vector((bits_per_color*3)-1 downto 0);
 		  write_pixel : in std_logic ;
 		  SCLK_OUT : out std_logic ;
 		  BLANK_OUT : out std_logic ;
@@ -82,6 +82,7 @@ type ctrl_state is (EXPOSE, BLANK, LATCH, UNBLANK, READ, SHIFT1, SHIFT2);
 
 constant LINE_SIZE : positive := 32*nb_panels ;
 constant RAM_SIZE : positive := LINE_SIZE*32 ;
+constant BOTTOM_ADDRESS_OFFSET : positive := LINE_SIZE * 16 ;
 
 signal cur_state, next_state : ctrl_state ;
 
@@ -95,7 +96,9 @@ signal pixel_read_addr, line_base_addr : std_logic_vector(nbit(RAM_SIZE/2)-1 dow
 signal line_count_enable, col_count_enable, rd_bit_count_enable : std_logic ;
 signal line_count_reset, col_count_reset : std_logic ;
 
-signal pixel_data_line0, pixel_data_line16 : std_logic_vector(15 downto 0);
+signal pixel_data_line0, pixel_data_line16 : std_logic_vector((bits_per_color*3)-1 downto 0);
+signal pixel_data_line16_extended, pixel_data_line0_extended : std_logic_vector(15 downto 0) ;
+
 
 signal end_of_col, end_of_bits : std_logic ;
 signal shift_count : std_logic_vector(3 downto 0);
@@ -108,26 +111,28 @@ signal A_OUT_Q : std_logic_vector(3 downto 0);
 
 
 signal pixel_write_addr, pixel_write_addr_line0, pixel_write_addr_line16 : std_logic_vector((nbit(32*nb_panels*16))-1 downto 0);
-signal pixel_value_out_0, pixel_value_out_1 : std_logic_vector(15 downto 0);
+signal pixel_value_out_0, pixel_value_out_1 : std_logic_vector((bits_per_color*3)-1 downto 0);
 signal write_mem0, write_mem1 : std_logic ;
 begin
 
 
 -- ram buffer instanciation
 pixel_write_addr <= pixel_addr  ;
-pixel_write_addr_line0 <= pixel_write_addr when pixel_write_addr < ((32*nb_panels)*16) else
-									(others => '0');
-pixel_write_addr_line16 <= pixel_write_addr - (32*nb_panels)*16 when pixel_write_addr >= (32*nb_panels)*16 else
-									(others => '0'); -- only for simulation purpose ...
+pixel_write_addr_line0 <= pixel_write_addr ;
+									--when pixel_write_addr < ((32*nb_panels)*16) else
+									--(others => '0');
+pixel_write_addr_line16 <= pixel_write_addr - BOTTOM_ADDRESS_OFFSET ; 
+									--when pixel_write_addr >= (32*nb_panels)*16 else
+									--(others => '0'); -- only for simulation purpose ...
 
-write_mem0  <=  write_pixel when pixel_write_addr < (32*nb_panels)*16 else
+write_mem0  <=  write_pixel when pixel_write_addr < BOTTOM_ADDRESS_OFFSET else
 					 '0' ;
 					 
-pixel_value_out <= pixel_value_out_0 when pixel_addr < (32*nb_panels)*16 else
+pixel_value_out <= pixel_value_out_0 when pixel_addr < BOTTOM_ADDRESS_OFFSET else
 						 pixel_value_out_1 ;
 					 
 frame_buffer0 : dpram_NxN 
-	generic map(SIZE  => RAM_SIZE/2,  NBIT => 16, ADDR_WIDTH => nbit(RAM_SIZE/2))
+	generic map(SIZE  => RAM_SIZE/2,  NBIT => bits_per_color*3, ADDR_WIDTH => nbit(RAM_SIZE/2))
 	port map(
  		clk => clk,
  		we => write_mem0, 
@@ -139,12 +144,15 @@ frame_buffer0 : dpram_NxN
 		dpo => pixel_data_line0
 	);
 	
+pixel_data_line0_extended((bits_per_color*3)-1 downto 0) <= pixel_data_line0 ;
+pixel_data_line0_extended(15 downto (bits_per_color*3)) <= (others => '0') ;
+
 	
-write_mem1  <=  write_pixel when pixel_write_addr >= (32*nb_panels)*16 else
+write_mem1  <=  write_pixel when pixel_write_addr >= BOTTOM_ADDRESS_OFFSET else
 					 '0' ;
 					 
 frame_buffer1 : dpram_NxN 
-	generic map(SIZE  => RAM_SIZE/2,  NBIT => 16, ADDR_WIDTH => nbit(RAM_SIZE/2))
+	generic map(SIZE  => RAM_SIZE/2,  NBIT => bits_per_color*3, ADDR_WIDTH => nbit(RAM_SIZE/2))
 	port map(
  		clk => clk,
  		we => write_mem1, 
@@ -155,6 +163,8 @@ frame_buffer1 : dpram_NxN
 		spo => pixel_value_out_1,
 		dpo => pixel_data_line16	
 	); 
+pixel_data_line16_extended((bits_per_color*3)-1 downto 0) <= pixel_data_line16 ;
+pixel_data_line16_extended(15 downto (bits_per_color*3)) <= (others => '0') ;
 
 
 -- ram buffer read address decoding
@@ -306,7 +316,7 @@ begin
 		   line_base_addr <= (others => '0') ;
 		elsif line_count_enable = '1' then 
 			line_count <= line_count + 1 ;
-			line_base_addr <= line_base_addr + (32*nb_panels) ;
+			line_base_addr <= line_base_addr + LINE_SIZE ;
 		end if ;
     end if;
 end process;	
@@ -371,41 +381,41 @@ with cur_state select
 				 
 
 with conv_integer(rd_bit) select
-	R0_q <= pixel_data_line0(8) when 3, 
-			pixel_data_line0(9) when 2,
-			pixel_data_line0(10) when 1,
-			pixel_data_line0(11) when others;
+	R0_q <= pixel_data_line0_extended(8) when 3, 
+			pixel_data_line0_extended(9) when 2,
+			pixel_data_line0_extended(10) when 1,
+			pixel_data_line0_extended(11) when others;
 			
 with conv_integer(rd_bit) select
-	G0_q <= pixel_data_line0(4) when 3, 
-			pixel_data_line0(5) when 2,
-			pixel_data_line0(6) when 1,
-			pixel_data_line0(7) when others;
+	G0_q <= pixel_data_line0_extended(4) when 3, 
+			pixel_data_line0_extended(5) when 2,
+			pixel_data_line0_extended(6) when 1,
+			pixel_data_line0_extended(7) when others;
 			
 with conv_integer(rd_bit) select
-	B0_q <= pixel_data_line0(0) when 3, 
-			pixel_data_line0(1) when 2,
-			pixel_data_line0(2) when 1,
-			pixel_data_line0(3) when others;
+	B0_q <= pixel_data_line0_extended(0) when 3, 
+			pixel_data_line0_extended(1) when 2,
+			pixel_data_line0_extended(2) when 1,
+			pixel_data_line0_extended(3) when others;
 			
 			
 with conv_integer(rd_bit) select
-	R1_q <= pixel_data_line16(8) when 3, 
-			pixel_data_line16(9) when 2,
-			pixel_data_line16(10) when 1,
-			pixel_data_line16(11) when others;
+	R1_q <= pixel_data_line16_extended(8) when 3, 
+			pixel_data_line16_extended(9) when 2,
+			pixel_data_line16_extended(10) when 1,
+			pixel_data_line16_extended(11) when others;
 			
 with conv_integer(rd_bit) select
-	G1_q <= pixel_data_line16(4) when 3, 
-			pixel_data_line16(5) when 2,
-			pixel_data_line16(6) when 1,
-			pixel_data_line16(7) when others;
+	G1_q <= pixel_data_line16_extended(4) when 3, 
+			pixel_data_line16_extended(5) when 2,
+			pixel_data_line16_extended(6) when 1,
+			pixel_data_line16_extended(7) when others;
 			
 with conv_integer(rd_bit) select
-	B1_q <= pixel_data_line16(0) when 3, 
-			pixel_data_line16(1) when 2,
-			pixel_data_line16(2) when 1,
-			pixel_data_line16(3) when others;
+	B1_q <= pixel_data_line16_extended(0) when 3, 
+			pixel_data_line16_extended(1) when 2,
+			pixel_data_line16_extended(2) when 1,
+			pixel_data_line16_extended(3) when others;
 	
 	
 

@@ -99,7 +99,7 @@ BEGIN
    uut: wishbone_led_matrix_ctrl 
 	generic map(
 		  clk_div => 10,
-		  nb_panels => 4,
+		  nb_panels => 1,
 		  bits_per_color => 4,
 		  expose_step_cycle => 3000 
 	 )
@@ -141,16 +141,16 @@ BEGIN
       wait for 100 ns;	
 		gls_reset <= '0' ;
       wait for gls_clk_period*10;
-		for addr in 0 to ((32*32*4)-1) loop
+		for addr in 0 to ((32*32)-1) loop
 			wbs_strobe <= '0'; 
 			wbs_cycle <= '0'; 
 			wbs_write <= '0' ;
 			wbs_address <= std_logic_vector(to_unsigned(addr, 16));
---			if addr < 2048 then
---				wbs_writedata <= (others => '0') ;
---			else
+			if addr < 512 then
+				wbs_writedata <= (others => '0') ;
+			else
 				wbs_writedata <= (others => '1') ;
---			end if ;
+			end if ;
 			wait for gls_clk_period ;
 			wbs_strobe <= '1'; 
 			wbs_cycle <= '1'; 
