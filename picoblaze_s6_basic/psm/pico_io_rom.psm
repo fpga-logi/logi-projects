@@ -1,0 +1,53 @@
+;=========================================================
+; Port alias
+;=========================================================
+;------------input port definitions---------------------
+constant sw_port, 01 ;8-bit switches
+;------------output port definitions---------------------
+constant led_port, 05 
+
+;=========================================================
+; Register alias
+;=========================================================
+;commonly used local variables
+namereg s0, data  ;reg for temporary data
+namereg s1, addr  ;reg for temporary mem & i/o port addr
+namereg s2, i     ;general-purpose loop index
+;global variables
+namereg sf, sw_in     
+
+;=========================================================
+; Main program
+;=========================================================
+;Calling hierarchy:
+;
+;main
+   call clr_data_mem
+forever: 
+   call pb_sw_to_led
+   jump forever
+
+;=========================================================
+;routine: clr_data_mem
+;  function: clear data ram
+;  temp register: data, i
+;=========================================================
+clr_data_mem:
+   load i, 40              ;unitize loop index to 64
+   load data, 00
+clr_mem_loop:
+   store data, (i)
+   sub i, 01               ;dec loop index
+   jump nz, clr_mem_loop   ;repeat until i=0
+   return
+
+   
+;=========================================================
+;routine: output pb onto leds
+;=========================================================
+pb_sw_to_led:
+   input sw_in, sw_port    ;read switch input
+   load data, sw_in
+   output data, led_port
+   return
+

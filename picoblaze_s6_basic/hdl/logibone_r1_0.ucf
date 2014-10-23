@@ -1,0 +1,35 @@
+######################################################
+######################################################
+## These constraints are for MARK-1 RPI/FPGA shield ##
+######################################################
+######################################################
+#logi-bone
+######################
+# Timing Constraints #
+######################
+
+##### Grouping Constraints #####
+
+##### Clock Period Constraints #####
+
+
+#INST "gpmc2wishbone" LOC = SLICE_X1Y3;
+
+#PIN "pll0/clkout4_buf.O" CLOCK_DEDICATED_ROUTE = FALSE;
+#PIN "pll0/clkout5_buf.O" CLOCK_DEDICATED_ROUTE = FALSE;
+#######################
+# Pin LOC Constraints #
+#######################
+
+#OSCILLATOR
+NET "OSC_FPGA"				LOC = "P85";
+
+#LED######################################################################################
+NET "LED_OUT<0>"           LOC = "P140" | IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   # 
+NET "LED_OUT<1>"           LOC = "P74"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   # 
+#PUSH BUTTONS##############################################################################
+NET "PB_IN<0>"           LOC = "P83" | IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   # 
+NET "PB_IN<1>"           LOC = "P59" | IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   # 
+#PUSH BUTTONS##############################################################################
+NET "SW_IN<0>"           LOC = "P75" | IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   # 
+NET "SW_IN<1>"           LOC = "P78" | IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW  ;   # 
