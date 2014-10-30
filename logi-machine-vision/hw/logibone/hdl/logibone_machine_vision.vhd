@@ -75,36 +75,13 @@ architecture Behavioral of logibone_machine_vision is
 	signal clk_100Mhz, clk_120Mhz, clk_20Mhz, clk_50Mhz, clk_50Mhz_ext : std_logic ;
 
 	-- wishbone intercon signals
-	signal intercon_wrapper_wbm_address :  std_logic_vector(15 downto 0);
-	signal intercon_wrapper_wbm_readdata :  std_logic_vector(15 downto 0);
-	signal intercon_wrapper_wbm_writedata :  std_logic_vector(15 downto 0);
-	signal intercon_wrapper_wbm_strobe :  std_logic;
-	signal intercon_wrapper_wbm_write :  std_logic;
-	signal intercon_wrapper_wbm_ack :  std_logic;
-	signal intercon_wrapper_wbm_cycle :  std_logic;
+	signal master_intercon :  wishbone16_bus ;
+	signal intercon_fifo0 :  wishbone16_bus ;
 	
-	signal intercon_fifo0_wbm_address :  std_logic_vector(15 downto 0);
-	signal intercon_fifo0_wbm_readdata :  std_logic_vector(15 downto 0);
-	signal intercon_fifo0_wbm_writedata :  std_logic_vector(15 downto 0);
-	signal intercon_fifo0_wbm_strobe :  std_logic;
-	signal intercon_fifo0_wbm_write :  std_logic;
-	signal intercon_fifo0_wbm_ack :  std_logic;
-	signal intercon_fifo0_wbm_cycle :  std_logic;
-	
-	signal fifo0_cs : std_logic ;
 	
 	-- pixel pipeline 
-	signal pixel_from_interface : std_logic_vector(7 downto 0);
-	signal pxclk_from_interface, href_from_interface, vsync_from_interface : std_logic ;
-	signal pixel_from_sobel : std_logic_vector(7 downto 0);
-	signal pxclk_from_sobel, href_from_sobel, vsync_from_sobel : std_logic ;
-	signal pixel_from_gauss : std_logic_vector(7 downto 0);
-	signal pxclk_from_gauss, href_from_gauss, vsync_from_gauss : std_logic ;
-	signal pixel_from_hyst : std_logic_vector(7 downto 0);
-	signal pxclk_from_hyst, href_from_hyst, vsync_from_hyst : std_logic ;
+	signal fifo_pixel, sobel_pixel, gauss_pixel, hyst_pixel, output_pixel: y_pixel_bus ;
 	
-	signal output_pxclk, output_href , output_vsync : std_logic ;
-	signal output_pixel : std_logic_vector(7 downto 0);
 	
 	signal fifo_wr, fifo_rd, line_available : std_logic ;
 	signal fifo_input, fifo_output : std_logic_vector(15 downto 0);
@@ -149,13 +126,13 @@ port map
       gls_reset => sys_reset,
       gls_clk   => sys_clk,
       -- Wishbone interface signals
-      wbm_address    => intercon_wrapper_wbm_address,  -- Address bus
-      wbm_readdata   => intercon_wrapper_wbm_readdata,  -- Data bus for read access
-      wbm_writedata 	=> intercon_wrapper_wbm_writedata,  -- Data bus for write access
-      wbm_strobe     => intercon_wrapper_wbm_strobe,                      -- Data Strobe
-      wbm_write      => intercon_wrapper_wbm_write,                      -- Write access
-      wbm_ack        => intercon_wrapper_wbm_ack,                      -- acknowledge
-      wbm_cycle      => intercon_wrapper_wbm_cycle                       -- bus cycle in progress
+      wbm_address    => master_intercon.address,  -- Address bus
+      wbm_readdata   => master_intercon.readdata,  -- Data bus for read access
+      wbm_writedata 	=> master_intercon.writedata,  -- Data bus for write access
+      wbm_strobe     => master_intercon.strobe,                      -- Data Strobe
+      wbm_write      => master_intercon.write,                      -- Write access
+      wbm_ack        => master_intercon.ack,                      -- acknowledge
+      wbm_cycle      => master_intercon.cycle                       -- bus cycle in progress
     );
 
 
@@ -170,22 +147,22 @@ port map(
 		gls_clk   => sys_clk,
 		
 		
-		wbs_address    => intercon_wrapper_wbm_address,  	-- Address bus
-		wbs_readdata   => intercon_wrapper_wbm_readdata,  	-- Data bus for read access
-		wbs_writedata 	=> intercon_wrapper_wbm_writedata,  -- Data bus for write access
-		wbs_strobe     => intercon_wrapper_wbm_strobe,     -- Data Strobe
-		wbs_write      => intercon_wrapper_wbm_write,      -- Write access
-		wbs_ack        => intercon_wrapper_wbm_ack,        -- acknowledge
-		wbs_cycle      => intercon_wrapper_wbm_cycle,      -- bus cycle in progress
+		wbs_address    => master_intercon.address,  	-- Address bus
+		wbs_readdata   => master_intercon.readdata,  	-- Data bus for read access
+		wbs_writedata 	=> master_intercon.writedata,  -- Data bus for write access
+		wbs_strobe     => master_intercon.strobe,     -- Data Strobe
+		wbs_write      => master_intercon.write,      -- Write access
+		wbs_ack        => master_intercon.ack,        -- acknowledge
+		wbs_cycle      => master_intercon.cycle,      -- bus cycle in progress
 		
 		-- Wishbone master signals
-		wbm_address(0) => intercon_fifo0_wbm_address,
-		wbm_writedata(0)  => intercon_fifo0_wbm_writedata,
-		wbm_readdata(0)  => intercon_fifo0_wbm_readdata,
-		wbm_strobe(0)  => intercon_fifo0_wbm_strobe,
-		wbm_cycle(0)   => intercon_fifo0_wbm_cycle,
-		wbm_write(0)   => intercon_fifo0_wbm_write,
-		wbm_ack(0)      => intercon_fifo0_wbm_ack
+		wbm_address(0) => intercon_fifo0.address,
+		wbm_writedata(0)  => intercon_fifo0.writedata,
+		wbm_readdata(0)  => intercon_fifo0.readdata,
+		wbm_strobe(0)  => intercon_fifo0.strobe,
+		wbm_cycle(0)   => intercon_fifo0.cycle,
+		wbm_write(0)   => intercon_fifo0.write,
+		wbm_ack(0)      => intercon_fifo0.ack
 		
 );
 									      
@@ -194,8 +171,8 @@ fifo0 : wishbone_fifo
 generic map( ADDR_WIDTH => 16,
 			WIDTH	=> 16,
 			SIZE	=> 4096,
-			B_BURST_SIZE => 512,
-			A_BURST_SIZE => 159,
+			BURST_SIZE => 512,
+			A_THRESHOLD => 159,
 			SYNC_LOGIC_INTERFACE => false 
 			)
 port map(
@@ -203,31 +180,31 @@ port map(
 	gls_reset => sys_reset,
 	gls_clk   => sys_clk,
 	-- Wishbone signals
-	wbs_address => intercon_fifo0_wbm_address,
-	wbs_writedata => intercon_fifo0_wbm_writedata,
-	wbs_readdata  => intercon_fifo0_wbm_readdata,
-	wbs_strobe    => intercon_fifo0_wbm_strobe,
-	wbs_cycle     => intercon_fifo0_wbm_cycle,
-	wbs_write     => intercon_fifo0_wbm_write,
-	wbs_ack       => intercon_fifo0_wbm_ack,
+	wbs_address => intercon_fifo0.address,
+	wbs_writedata => intercon_fifo0.writedata,
+	wbs_readdata  => intercon_fifo0.readdata,
+	wbs_strobe    => intercon_fifo0.strobe,
+	wbs_cycle     => intercon_fifo0.cycle,
+	wbs_write     => intercon_fifo0.write,
+	wbs_ack       => intercon_fifo0.ack,
 		  
 	-- logic signals  
-	wrB => fifo_wr, rdA => fifo_rd,
-	inputB => fifo_input,
-	outputA => fifo_output,
-	emptyA => open, 
-	fullA => open,
-	emptyB => open, 
-	fullB => open,
-	burst_available_B => open,
-	burst_available_A	=> line_available
+	write_fifo => fifo_wr, read_fifo => fifo_rd,
+	fifo_input => fifo_input,
+	fifo_output => fifo_output,
+	read_fifo_empty => open, 
+	read_fifo_full => open,
+	write_fifo_empty => open, 
+	write_fifo_full => open,
+	write_fifo_threshold => open,
+	read_fifo_threshold	=> line_available
 );
 
 
 
 -- Vision pipeline
 
-pixel_from_fifo : fifo2pixel
+pixel_from_fifo : fifo_to_y
 	generic map(WIDTH => 320 , HEIGHT => 240)
 	port map(
 		clk => sys_clk, resetn => sys_resetn ,
@@ -238,27 +215,27 @@ pixel_from_fifo : fifo2pixel
 		fifo_data =>fifo_output,
 		
 		-- pixel side 
-		y_data =>  pixel_from_interface , 
- 		pixel_clock_out => pxclk_from_interface, 
-		hsync_out => href_from_interface, 
-		vsync_out =>vsync_from_interface 
+		pixel_out_data =>  fifo_pixel.data , 
+ 		pixel_out_clk => fifo_pixel.clk, 
+		pixel_out_hsync => fifo_pixel.hsync, 
+		pixel_out_vsync =>fifo_pixel.vsync 
 	
 	);
---fifo_rd <= '0' ;
---fifo_wr <= '0' ;
-	
---fifo_input <= X"00" & pixel_from_interface;	
---fifo_wr <= pxclk_from_interface and (not href_from_interface);
+
 
 gaussian_filter : gauss3x3 
 generic map(WIDTH => 320, HEIGHT => 240)
 port map(
  		clk => sys_clk, 
  		resetn => sys_resetn ,
- 		pixel_clock => pxclk_from_interface, hsync => href_from_interface, vsync => vsync_from_interface,
- 		pixel_clock_out => pxclk_from_gauss, hsync_out => href_from_gauss, vsync_out => vsync_from_gauss,
- 		pixel_data_in => pixel_from_interface,
- 		pixel_data_out => pixel_from_gauss
+ 		pixel_in_clk => fifo_pixel.clk, 
+		pixel_in_hsync => fifo_pixel.hsync, 
+		pixel_in_vsync => fifo_pixel.vsync,
+ 		pixel_out_clk => gauss_pixel.clk, 
+		pixel_out_hsync => gauss_pixel.hsync, 
+		pixel_out_vsync => gauss_pixel.vsync,
+ 		pixel_in_data => fifo_pixel.data,
+ 		pixel_out_data => gauss_pixel.data
 );
 
 sobel_filter : sobel3x3 
@@ -266,10 +243,14 @@ generic map(WIDTH => 320, HEIGHT => 240)
 port map(
  		clk => sys_clk, 
  		resetn => sys_resetn ,
- 		pixel_clock => pxclk_from_gauss, hsync => href_from_gauss, vsync => vsync_from_gauss,
- 		pixel_clock_out => pxclk_from_sobel, hsync_out => href_from_sobel, vsync_out => vsync_from_sobel,
- 		pixel_data_in => pixel_from_gauss,
- 		pixel_data_out => pixel_from_sobel
+ 		pixel_in_clk => gauss_pixel.clk, 
+		pixel_in_hsync => gauss_pixel.hsync, 
+		pixel_in_vsync => gauss_pixel.vsync,
+ 		pixel_out_clk => sobel_pixel.clk, 
+		pixel_out_hsync => sobel_pixel.hsync, 
+		pixel_out_vsync => sobel_pixel.vsync,
+ 		pixel_in_data => gauss_pixel.data,
+ 		pixel_out_data => sobel_pixel.data
 );
 
 hysteresis : hyst_threshold 
@@ -277,47 +258,37 @@ generic map(WIDTH => 320, HEIGHT => 240, LOW_THRESH => 50 , HIGH_THRESH => 90)
 port map(
  		clk => sys_clk, 
  		resetn => sys_resetn ,
- 		pixel_clock => pxclk_from_sobel, hsync => href_from_sobel, vsync => vsync_from_sobel,
- 		pixel_clock_out => pxclk_from_hyst, hsync_out => href_from_hyst, vsync_out => vsync_from_hyst,
- 		pixel_data_in => pixel_from_sobel,
- 		pixel_data_out => pixel_from_hyst
+ 		pixel_in_clk => sobel_pixel.clk, 
+		pixel_in_hsync => sobel_pixel.hsync, 
+		pixel_in_vsync => sobel_pixel.vsync,
+ 		pixel_out_clk => hyst_pixel.clk, 
+		pixel_out_hsync => hyst_pixel.hsync, 
+		pixel_out_vsync => hyst_pixel.vsync,
+ 		pixel_in_data => sobel_pixel.data,
+ 		pixel_out_data => hyst_pixel.data
 );
 
 
---output_pxclk <= pxclk_from_hyst ;
---output_href <= href_from_hyst ;
---output_vsync <= vsync_from_hyst ;
---output_pixel <= pixel_from_hyst ;
 
-output_pxclk <= pxclk_from_sobel ;
-output_href <= href_from_sobel ;
-output_vsync <= vsync_from_sobel ;
-output_pixel <= pixel_from_sobel ;
+output_pixel <= sobel_pixel ;
 
---output_pxclk <= pxclk_from_gauss ;
---output_href <= href_from_gauss ;
---output_vsync <= vsync_from_gauss ;
---output_pixel <= pixel_from_gauss ;
---
---output_pxclk <= pxclk_from_interface ;
---output_href <= href_from_interface ;
---output_vsync <= vsync_from_interface ;
---output_pixel <= pixel_from_interface ;
---output_pixel <= X"FF" ;	
 
-pixel_to_fifo : pixel2fifo
+pixel_to_fifo : y_to_fifo
 generic map(ADD_SYNC => false)
 port map(
-	clk => sys_clk, resetn => sys_resetn,
-	pixel_clock => output_pxclk, hsync => output_href, vsync =>  output_vsync,
-	pixel_data_in => output_pixel,
+	clk => sys_clk, 
+	resetn => sys_resetn,
+	pixel_in_clk => output_pixel.clk, 
+	pixel_in_hsync => output_pixel.hsync, 
+	pixel_in_vsync =>  output_pixel.vsync,
+	pixel_in_data => output_pixel.data,
 	fifo_data => fifo_input,
 	fifo_wr => fifo_wr
 
 );
 	
 
-LED(0) <= output_vsync;	
+LED(0) <= output_pixel.vsync;	
 LED(1) <= fifo_wr;	
 		  
 		  
