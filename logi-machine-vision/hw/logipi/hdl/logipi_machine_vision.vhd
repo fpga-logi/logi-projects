@@ -37,26 +37,23 @@ use work.logi_wishbone_peripherals_pack.all ;
 use work.filter_pack.all ;
 use work.image_pack.all ;
 
-entity logibone_machine_vision is
+entity logipi_machine_vision is
 port( OSC_FPGA : in std_logic;
 		PB : in std_logic_vector(1 downto 0);
 		SW : in std_logic_vector(1 downto 0);
 		LED : out std_logic_vector(1 downto 0);	
-		
-		-- I2C
-			
-		ARD_SCL, ARD_SDA : inout std_logic ;
-		
-		--gpmc interface
-		GPMC_CSN : in std_logic ;
-		GPMC_BEN:	in std_logic_vector(1 downto 0);
-		GPMC_WEN, GPMC_OEN, GPMC_ADVN :	in std_logic;
-		GPMC_CLK :	in std_logic;
-		GPMC_AD :	inout std_logic_vector(15 downto 0)	
-);
-end logibone_machine_vision;
 
-architecture Behavioral of logibone_machine_vision is
+		
+		--spi interface
+		MOSI :  in std_logic;
+		MISO :   out  std_logic;
+		SS :  in std_logic;
+		SCK :  in std_logic
+		
+);
+end logipi_machine_vision;
+
+architecture Behavioral of logipi_machine_vision is
 
 	component clock_gen
 	port
@@ -110,17 +107,14 @@ pll0 : clock_gen
 sys_clk <= clk_100Mhz;
 
 
-gpmc2wishbone : gpmc_wishbone_wrapper 
-generic map(sync => true, burst => false)
+spi2wishbone : spi_wishbone_wrapper 
 port map
     (
-      -- GPMC SIGNALS
-      gpmc_ad => GPMC_AD, 
-      gpmc_csn => GPMC_CSN,
-      gpmc_oen => GPMC_OEN,
-		gpmc_wen => GPMC_WEN,
-		gpmc_advn => GPMC_ADVN,
-		gpmc_clk => GPMC_CLK,
+      -- SPI SIGNALS
+      mosi => MOSI, 
+		ss => SS, 
+		sck => SCK,
+	   miso => MISO,
 		
       -- Global Signals
       gls_reset => sys_reset,

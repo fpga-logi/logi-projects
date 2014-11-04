@@ -1,0 +1,90 @@
+######################################################
+######################################################
+## These constraints are for LOGi-Pi RA3 FPGA Shield##
+######################################################
+######################################################
+
+######################
+# Timing Constraints #
+######################
+
+##### Grouping Constraints #####
+NET OSC_FPGA TNM_NET = clk50_grp;
+NET SCK TNM_NET = clk32_grp;
+
+##### Clock Period Constraints #####
+TIMESPEC TS_PER_CLK50 = PERIOD "clk50_grp" 20.0 ns ;
+TIMESPEC TS_PER_CLK32 = PERIOD "clk32_grp" 20.0 ns;
+NET "SCK" CLOCK_DEDICATED_ROUTE = FALSE;
+
+#######################
+# Pin LOC Constraints #
+######################
+NET "OSC_FPGA"      LOC = "P85" | IOSTANDARD = LVTTL;
+
+#Peripherals#############################################################
+NET "LED<0>"        LOC = "P105" | IOSTANDARD = LVTTL;		#SHARED WITH ARD_D6
+NET "LED<1>"        LOC = "P104" | IOSTANDARD = LVTTL;		#SHARED WITH ARD_D7
+NET "PB<0>"        LOC = "P102" | IOSTANDARD = LVTTL;
+NET "PB<1>"        LOC = "P101" | IOSTANDARD = LVTTL;
+NET "SW<0>"        LOC = "P99" | IOSTANDARD = LVTTL;
+NET "SW<1>"        LOC = "P100" | IOSTANDARD = LVTTL;
+
+#PMOD1#############################################################################
+#NET "PMOD1<0>" LOC = "P5" | IOSTANDARD = LVTTL ;
+#NET "PMOD1<1>" LOC = "P2" | IOSTANDARD = LVTTL ;
+#NET "PMOD1<2>" LOC = "P1" | IOSTANDARD = LVTTL ;
+#NET "PMOD1<3>" LOC = "P16" | IOSTANDARD = LVTTL ;
+#NET "PMOD1<4>" LOC = "P88" | IOSTANDARD = LVTTL ;
+#NET "PMOD1<5>" LOC = "P92" | IOSTANDARD = LVTTL ;
+#NET "PMOD1<6>" LOC = "P93" | IOSTANDARD = LVTTL ;
+#NET "PMOD1<7>" LOC = "P94" | IOSTANDARD = LVTTL ;
+##PMOD2#############################################################################
+#NET "PMOD2<0>" LOC = "P142" | IOSTANDARD = LVTTL ;
+#NET "PMOD2<1>" LOC = "P141" | IOSTANDARD = LVTTL ;
+#NET "PMOD2<2>" LOC = "P15" | IOSTANDARD = LVTTL ;
+#NET "PMOD2<3>" LOC = "P14" | IOSTANDARD = LVTTL ;
+#NET "PMOD2<4>" LOC = "P144" | IOSTANDARD = LVTTL ;
+#NET "PMOD2<5>" LOC = "P143" | IOSTANDARD = LVTTL ;
+#NET "PMOD2<6>" LOC = "P140" | IOSTANDARD = LVTTL ;
+#NET "PMOD2<7>" LOC = "P139" | IOSTANDARD = LVTTL ;
+##PMOD3#############################################################################
+#NET "PMOD3<0>" LOC = "P138" | IOSTANDARD = LVTTL ;
+#NET "PMOD3<1>" LOC = "P137" | IOSTANDARD = LVTTL ;
+#NET "PMOD3<2>" LOC = "P124" | IOSTANDARD = LVTTL ;
+#NET "PMOD3<3>" LOC = "P123" | IOSTANDARD = LVTTL ;
+#NET "PMOD3<4>" LOC = "P119" | IOSTANDARD = LVTTL ;
+#NET "PMOD3<5>" LOC = "P118" | IOSTANDARD = LVTTL ;
+#NET "PMOD3<6>" LOC = "P117" | IOSTANDARD = LVTTL ;
+#NET "PMOD3<7>" LOC = "P116" | IOSTANDARD = LVTTL ;
+##PMOD4#############################################################################
+#NET "PMOD4<0>" LOC = "P112" | IOSTANDARD = LVTTL ;
+#NET "PMOD4<1>" LOC = "P111" | IOSTANDARD = LVTTL ;
+#NET "PMOD4<2>" LOC = "P132" | IOSTANDARD = LVTTL ;
+#NET "PMOD4<3>" LOC = "P131" | IOSTANDARD = LVTTL ;
+#NET "PMOD4<4>" LOC = "P115" | IOSTANDARD = LVTTL ;
+#NET "PMOD4<5>" LOC = "P114" | IOSTANDARD = LVTTL ;
+#NET "PMOD4<6>" LOC = "P134" | IOSTANDARD = LVTTL ;
+#NET "PMOD4<7>" LOC = "P133" | IOSTANDARD = LVTTL ;
+#
+##RASPBERRY-PI CONNECTOR###############################################################
+NET "MOSI" LOC = "P65" | IOSTANDARD = LVTTL;	#Shared - Used to clk bitstream data to fpga / ARduino MOSI
+NET "MISO" LOC = "P75" | IOSTANDARD = LVTTL;
+NET "SCK" LOC = "P70" | IOSTANDARD = LVTTL;	#Shared - Used to clk bitstream data to fpga / ARduino SCK
+NET "SS" LOC = "P79" | IOSTANDARD = LVTTL;
+#
+##ARDUINO HEADERS########################################################################												
+#NET "ARD<5>" LOC= "P84" | IOSTANDARD = LVTTL ;				#D13
+#NET "ARD<4>" LOC= "P87" | IOSTANDARD = LVTTL | PULLUP ;				#D12
+#NET "ARD<3>" LOC= "P51" | IOSTANDARD = LVTTL ;			#D11
+#NET "ARD<2>" LOC= "P74" | IOSTANDARD = LVTTL ;				#D10
+#NET "ARD<1>" LOC= "P64" | IOSTANDARD = LVTTL ;		#D9
+#NET "ARD<0>" LOC= "P38" | IOSTANDARD = LVTTL ;		#D8
+
+#NET "SYS_SDA" LOC = "P98" | IOSTANDARD = LVTTL;			#Shared with Arduino SDA
+#NET "SYS_SCL" LOC = "P97" | IOSTANDARD = LVTTL;			#Shared with Arduino SCL
+
+
+
+
+
