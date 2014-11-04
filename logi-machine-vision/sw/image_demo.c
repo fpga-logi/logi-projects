@@ -19,7 +19,47 @@
 
 #define LINE_BURST 2
 
+#define REG_ADDR 0x0800
 #define FIFO_CMD_ADDR 0x0200
+
+
+#define GAUSS_SOURCE_FIFO 0
+#define GAUSS_SOURCE_SOBEL 1
+#define GAUSS_SOURCE_ERODE 2
+#define GAUSS_SOURCE_DILATE 3
+#define GAUSS_SOURCE_HYST 4
+
+#define SOBEL_SOURCE_FIFO 0
+#define SOBEL_SOURCE_GAUSS 1
+#define SOBEL_SOURCE_ERODE 2
+#define SOBEL_SOURCE_DILATE 3
+#define SOBEL_SOURCE_HYST 4
+
+#define ERODE_SOURCE_FIFO 0
+#define ERODE_SOURCE_GAUSS 1
+#define ERODE_SOURCE_SOBEL 2
+#define ERODE_SOURCE_DILATE 3
+#define ERODE_SOURCE_HYST 4
+
+#define DILATE_SOURCE_FIFO 0
+#define DILATE_SOURCE_GAUSS 1
+#define DILATE_SOURCE_SOBEL 2
+#define DILATE_SOURCE_ERODE 3
+#define DILATE_SOURCE_HYST 4
+
+#define HYST_SOURCE_FIFO 0
+#define HYST_SOURCE_GAUSS 1
+#define HYST_SOURCE_SOBEL 2
+#define HYST_SOURCE_ERODE 3
+#define HYST_SOURCE_DILATE 4
+
+#define OUTPUT_SOURCE_FIFO 0
+#define OUTPUT_SOURCE_GAUSS 1
+#define OUTPUT_SOURCE_SOBEL 2
+#define OUTPUT_SOURCE_ERODE 3
+#define OUTPUT_SOURCE_DILATE 4
+#define OUTPUT_SOURCE_HYST 5
+
 
 int min(int a, int b){
 	if(a > b ){
@@ -38,6 +78,7 @@ int main(int argc, char ** argv){
 	int i,j, res ;
 	unsigned int pos = 0 ;
 	unsigned short int cmd_buffer[4];
+	unsigned short int reg_buffer[6];
 	unsigned char image_buffer[(320*240)] ; //monochrome frame buffer
 	unsigned short fifo_state, fifo_data ;
 	if(logi_open() < 0){
@@ -57,6 +98,14 @@ int main(int argc, char ** argv){
 		exit(EXIT_FAILURE);
 	}
 	
+	//configuring for gauss->sobel->hysteresis->dilate->erode->output
+	reg_buffer[0] = GAUSS_SOURCE_FIFO ;
+	reg_buffer[1] = SOBEL_SOURCE_GAUSS ;
+	reg_buffer[2] = ERODE_SOURCE_DILATE ;
+	reg_buffer[3] = DILATE_SOURCE_HYST ;
+	reg_buffer[4] = HYST_SOURCE_SOBEL ;
+	reg_buffer[5] = OUTPUT_SOURCE_ERODE ;
+	logi_write(reg_buffer, 12, REG_ADDR);
 	printf("issuing reset to fifo \n");
 	cmd_buffer[1] = 0; 
 	cmd_buffer[2] = 0 ;
