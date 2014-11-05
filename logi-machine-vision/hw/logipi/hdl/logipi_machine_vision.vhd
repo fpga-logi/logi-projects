@@ -183,7 +183,7 @@ generic map( ADDR_WIDTH => 16,
 			SIZE	=> 4096,
 			BURST_SIZE => 512,
 			A_THRESHOLD => 159,
-			SYNC_LOGIC_INTERFACE => false 
+			SYNC_LOGIC_INTERFACE => true 
 			)
 port map(
 	-- Syscon signals
