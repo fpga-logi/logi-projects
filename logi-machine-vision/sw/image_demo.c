@@ -17,7 +17,7 @@
 #define IMAGE_WIDTH 320
 #define IMAGE_HEIGHT 240
 
-#define LINE_BURST 2
+#define LINE_BURST 1
 
 #define REG_ADDR 0x0800
 #define FIFO_CMD_ADDR 0x0200
