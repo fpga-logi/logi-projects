@@ -84,6 +84,8 @@ architecture Behavioral of logipi_machine_vision is
 	signal fifo_input, fifo_output : std_logic_vector(15 downto 0);
 	signal gauss_mux, sobel_mux, erode_mux, dilate_mux, hyst_mux, output_mux : std_logic_vector(15 downto 0);
 	
+	signal pipeline_reset, pipeline_resetn : std_logic ;
+	
 	for all : sobel3x3 use entity work.sobel3x3(RTL) ;
 	for all : gauss3x3 use entity work.gauss3x3(RTL) ;
 	
@@ -207,8 +209,11 @@ port map(
 	write_fifo_empty => open, 
 	write_fifo_full => open,
 	write_fifo_threshold => open,
-	read_fifo_threshold	=> line_available
+	read_fifo_threshold	=> line_available,
+	write_fifo_reset => pipeline_reset
 );
+pipeline_resetn <= (NOT pipeline_reset) ;
+
 
 reg0 : wishbone_register
 generic map( nb_regs => 6
@@ -249,7 +254,7 @@ port map(
 pixel_from_fifo : fifo_to_y
 	generic map(WIDTH => 320 , HEIGHT => 240)
 	port map(
-		clk => sys_clk, resetn => sys_resetn ,
+		clk => sys_clk, resetn => pipeline_resetn ,
 
 		-- fifo side
 		line_available => line_available ,
@@ -275,7 +280,7 @@ gaussian_filter : gauss3x3
 generic map(WIDTH => 320, HEIGHT => 240)
 port map(
  		clk => sys_clk, 
- 		resetn => sys_resetn ,
+ 		resetn => pipeline_resetn ,
  		pixel_in_clk => gauss_input.clk, 
 		pixel_in_hsync => gauss_input.hsync, 
 		pixel_in_vsync => gauss_input.vsync,
@@ -297,7 +302,7 @@ sobel_filter : sobel3x3
 generic map(WIDTH => 320, HEIGHT => 240)
 port map(
  		clk => sys_clk, 
- 		resetn => sys_resetn ,
+ 		resetn => pipeline_resetn ,
  		pixel_in_clk => sobel_input.clk, 
 		pixel_in_hsync => sobel_input.hsync, 
 		pixel_in_vsync => sobel_input.vsync,
@@ -319,7 +324,7 @@ hysteresis : hyst_threshold
 generic map(WIDTH => 320, HEIGHT => 240, LOW_THRESH => 50 , HIGH_THRESH => 90)
 port map(
  		clk => sys_clk, 
- 		resetn => sys_resetn ,
+ 		resetn => pipeline_resetn ,
  		pixel_in_clk => hyst_input.clk, 
 		pixel_in_hsync => hyst_input.hsync, 
 		pixel_in_vsync => hyst_input.vsync,
@@ -341,7 +346,7 @@ erode_filter : erode3x3
 generic map(WIDTH => 320, HEIGHT => 240)
 port map(
  		clk => sys_clk, 
- 		resetn => sys_resetn ,
+ 		resetn => pipeline_resetn ,
  		pixel_in_clk => erode_input.clk, 
 		pixel_in_hsync => erode_input.hsync, 
 		pixel_in_vsync => erode_input.vsync,
@@ -363,7 +368,7 @@ dilate_filter : dilate3x3
 generic map(WIDTH => 320, HEIGHT => 240)
 port map(
  		clk => sys_clk, 
- 		resetn => sys_resetn ,
+ 		resetn => pipeline_resetn ,
  		pixel_in_clk => dilate_input.clk, 
 		pixel_in_hsync => dilate_input.hsync, 
 		pixel_in_vsync => dilate_input.vsync,
@@ -388,7 +393,7 @@ pixel_to_fifo : y_to_fifo
 generic map(ADD_SYNC => false)
 port map(
 	clk => sys_clk, 
-	resetn => sys_resetn,
+	resetn => pipeline_resetn,
 	pixel_in_clk => output_pixel.clk, 
 	pixel_in_hsync => output_pixel.hsync, 
 	pixel_in_vsync =>  output_pixel.vsync,
