@@ -140,6 +140,29 @@ COMPONENT SDRAM_Controller
            error_testing   : out STD_LOGIC;
            blink           : out STD_LOGIC);
    END COMPONENT;
+	
+	
+	component Memory_tester_v2 is
+    Generic (address_width : natural := 23);
+    Port ( clk           : in  STD_LOGIC;
+
+			  pattern_select : in std_logic_vector(3 downto 0);
+				
+           cmd_enable      : out std_logic;
+           cmd_wr          : out std_logic;
+           cmd_address     : out std_logic_vector(address_width-1 downto 0);
+           cmd_byte_enable : out std_logic_vector(3 downto 0);
+           cmd_data_in     : out std_logic_vector(31 downto 0);    
+           cmd_ready       : in std_logic;
+
+           data_out        : in std_logic_vector(31 downto 0);
+           data_out_ready  : in std_logic;
+
+           debug           : out std_logic_vector(15 downto 0);    
+
+           error_testing : out STD_LOGIC;
+           blink         : out STD_LOGIC);
+	end component;
 
 	component wishbone_freq_gen is
 	generic(
@@ -546,9 +569,12 @@ port map(
 
 -- LOGIC 
 
-Inst_Memory_tester: Memory_tester GENERIC MAP(address_width => test_width) PORT MAP(
+Inst_Memory_tester: Memory_tester_v2 GENERIC MAP(address_width => test_width) PORT MAP(
       clk             => gls_clk,
 
+		pattern_select(3 downto 2) => "00",
+		pattern_select(1 downto 0) => sw,
+		
       cmd_address     => cmd_address(test_width-1 downto 0),
       cmd_wr          => cmd_wr,
       cmd_enable      => cmd_enable,
