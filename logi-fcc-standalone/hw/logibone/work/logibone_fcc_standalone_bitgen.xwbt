@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/logi-fcc-standalone/hw/logibone/work/logibone_fcc_standalone.ncd
+OUTFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/logi-fcc-standalone/hw/logibone/work/logibone_fcc_standalone.bit
+FAMILY=Spartan6
+PART=xc6slx9-2tqg144
+WORKINGDIR=/home/jpiat/development/FPGA/logi-family/logi-projects/logi-fcc-standalone/hw/logibone/work
+LICENSE=WebPack
+USER_INFO=208450455_1777487672_0_558
