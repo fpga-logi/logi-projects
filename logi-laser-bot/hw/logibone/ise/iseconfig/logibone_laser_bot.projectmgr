@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--This is an ISE project configuration file.-->
+<!--It holds project specific layout data for the projectmgr plugin.-->
+<!--Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.-->
+<Project version="2" owner="projectmgr" name="logibone_laser_bot" >
+   <!--This is an ISE project configuration file.-->
+   <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/gauss3x3 - Arithmetic |home|jpiat|development|FPGA|logi-family|hard-cv|hw|rtl|image|filter|gauss3x3.vhd</ClosedNode>
+         <ClosedNode>/gauss3x3 - RTL |home|jpiat|development|FPGA|logi-family|hard-cv|hw|rtl|image|filter|gauss3x3.vhd</ClosedNode>
+         <ClosedNode>/gauss3x3 - RTL |home|jpiat|development|FPGA|logi-family|hard-cv|hw|rtl|image|filter|gauss3x3.vhd/block0 - block3X3 - RTL</ClosedNode>
+         <ClosedNode>/logibone_cam_test - structural |home|jpiat|development|FPGA|logi-family|logi-projects|logi-laser-bot|hw|logibone|hdl|logibone_cam_test.vhd/CAM_0 - yuv_camera_interface - systemc</ClosedNode>
+         <ClosedNode>/logibone_cam_test - structural |home|jpiat|development|FPGA|logi-family|logi-projects|logi-laser-bot|hw|logibone|hdl|logibone_cam_test.vhd/FiFO_0 - wishbone_fifo - RTL</ClosedNode>
+         <ClosedNode>/logibone_cam_test - structural |home|jpiat|development|FPGA|logi-family|logi-projects|logi-laser-bot|hw|logibone|hdl|logibone_cam_test.vhd/FiFO_0 - wishbone_fifo - RTL/fifo_A - dp_fifo - Behavioral</ClosedNode>
+         <ClosedNode>/logibone_cam_test - structural |home|jpiat|development|FPGA|logi-family|logi-projects|logi-laser-bot|hw|logibone|hdl|logibone_cam_test.vhd/FiFO_0 - wishbone_fifo - RTL/fifo_B - dp_fifo - Behavioral</ClosedNode>
+         <ClosedNode>/logibone_cam_test - structural |home|jpiat|development|FPGA|logi-family|logi-projects|logi-laser-bot|hw|logibone|hdl|logibone_cam_test.vhd/GAUSS_0 - gauss3x3 - Arithmetic</ClosedNode>
+         <ClosedNode>/logibone_cam_test - structural |home|jpiat|development|FPGA|logi-family|logi-projects|logi-laser-bot|hw|logibone|hdl|logibone_cam_test.vhd/GAUSS_0 - gauss3x3 - RTL</ClosedNode>
+         <ClosedNode>/logibone_cam_test - structural |home|jpiat|development|FPGA|logi-family|logi-projects|logi-laser-bot|hw|logibone|hdl|logibone_cam_test.vhd/MAX_0 - max_pos_col - RTL</ClosedNode>
+         <ClosedNode>/logibone_cam_test - structural |home|jpiat|development|FPGA|logi-family|logi-projects|logi-laser-bot|hw|logibone|hdl|logibone_cam_test.vhd/MEM_0 - wishbone_shared_mem - Behavioral</ClosedNode>
+         <ClosedNode>/logibone_cam_test - structural |home|jpiat|development|FPGA|logi-family|logi-projects|logi-laser-bot|hw|logibone|hdl|logibone_cam_test.vhd/SOBEL_0 - sobel3x3 - RTL</ClosedNode>
+         <ClosedNode>/sobel3x3 - Arithmetic |home|jpiat|development|FPGA|logi-family|hard-cv|hw|rtl|image|filter|sobel3x3.vhd</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>logibone_cam_test - structural (/home/jpiat/development/FPGA/logi-family/logi-projects/logi-laser-bot/hw/logibone/hdl/logibone_cam_test.vhd)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000243000000020000000000000000000000000200000064ffffffff000000810000000300000002000002430000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>logibone_cam_test - structural (/home/jpiat/development/FPGA/logi-family/logi-projects/logi-laser-bot/hw/logibone/hdl/logibone_cam_test.vhd)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000129000000010000000100000000000000000000000064ffffffff000000810000000000000001000001290000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView guiview="File" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>logi_communication_pack.vhd</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >14</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000201000000040101000100000000000000000000000064ffffffff000000810000000000000004000000f00000000100000000000000290000000100000000000000840000000100000000000000640000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>logi_communication_pack.vhd</CurrentItem>
+   </ItemView>
+   <ItemView guiview="Library" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>work</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000128000000010001000100000000000000000000000064ffffffff000000810000000000000001000001280000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>work</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Configure Target Device</ClosedNode>
+         <ClosedNode>Design Utilities</ClosedNode>
+         <ClosedNode>Implement Design</ClosedNode>
+         <ClosedNode>Synthesize - XST</ClosedNode>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Generate Programming File</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000129000000010000000100000000000000000000000064ffffffff000000810000000000000001000001290000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Generate Programming File</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_UCF" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000129000000010000000100000000000000000000000064ffffffff000000810000000000000001000001290000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <SourceProcessView>000000ff00000000000000020000014c0000011d01000000060100000002</SourceProcessView>
+   <CurrentView>Implementation</CurrentView>
+</Project>
