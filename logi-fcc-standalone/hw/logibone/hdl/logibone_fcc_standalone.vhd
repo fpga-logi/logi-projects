@@ -148,11 +148,11 @@ i_error_blink : blinker PORT MAP(
    o => error_blink
    );
    
-      led(0) <= blink xor error_blink when sw(0) = '1' else
-					 vsync_from_interface when sw(1) = '1' else
+      led(0) <= blink xor error_blink when sw(0) = '0' else
+					 vsync_from_interface when sw(1) = '0' else
 					 '0'
 					 ;
-		led(1) <= error_blink when sw(0) = '1' else
+		led(1) <= error_blink when sw(0) = '0' else
 					 '0' ;
 
 Inst_Memory_tester: Memory_tester GENERIC MAP(address_width => test_width) PORT MAP(

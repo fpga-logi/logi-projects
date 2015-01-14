@@ -166,8 +166,8 @@ begin
   -----------------------------------------------------------
  sdram_clk_forward : ODDR2
    generic map(DDR_ALIGNMENT => "NONE", INIT => '0', SRTYPE => "SYNC")
-   port map (Q => sdram_clk, C0 => clk, C1 => not clk, CE => '1', R => '0', S => '0', D0 => '0', D1 => '1');
-
+   port map (Q => sdram_clk, C0 => clk, C1 => not clk, CE => not reset, R => '0', S => '0', D0 => '0', D1 => '1');
+	-- i have a doubt on how to wire the reset input to disable the clock output in that case ...
    -----------------------------------------------
    --!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
    --!! Ensure that all outputs are registered. !!
