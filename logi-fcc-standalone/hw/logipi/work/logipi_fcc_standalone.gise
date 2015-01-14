@@ -78,7 +78,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1421239433" xil_pn:in_ck="-1946523281156694919" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="883998319253372480" xil_pn:start_ts="1421239405">
+    <transform xil_pn:end_ts="1421263125" xil_pn:in_ck="-644181594318282425" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="883998319253372480" xil_pn:start_ts="1421263100">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -102,19 +102,21 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_ngo"/>
-      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
-      <outfile xil_pn:name="logipi_fcc_standalone.bld"/>
-      <outfile xil_pn:name="logipi_fcc_standalone.ngd"/>
-      <outfile xil_pn:name="logipi_fcc_standalone_ngdbuild.xrpt"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1421239462" xil_pn:in_ck="8647697197351231999" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="1448924893915930207" xil_pn:start_ts="1421239448">
       <status xil_pn:value="FailedRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
-      <outfile xil_pn:name="logipi_fcc_standalone_map.map"/>
-      <outfile xil_pn:name="logipi_fcc_standalone_map.mrp"/>
-      <outfile xil_pn:name="logipi_fcc_standalone_map.ngm"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
   </transforms>
 
