@@ -208,7 +208,7 @@ Inst_SDRAM_Controller: SDRAM_Controller PORT MAP(
 	camera0: yuv_camera_interface
 		port map(
 			clock => clk,
-			resetn => cam_test_reset,
+			resetn => (not cam_test_reset),
 			pixel_data => cam_data, 
 			pclk => cam_pclk, href => cam_href, vsync => cam_vsync,
 			pixel_out_clk => open, pixel_out_hsync => open, pixel_out_vsync => vsync_from_interface,
@@ -218,8 +218,9 @@ Inst_SDRAM_Controller: SDRAM_Controller PORT MAP(
 					
 		);	
 		
-	cam_xclk <= clk_cam_buff;
-	PMOD4(3) <= cam_xclk ;
+	cam_xclk <= clk_cam_buff when cam_test_reset = '0' else
+					'0' ;;
+	PMOD4(3) <= cam_xclk when ;
 	cam_data <= PMOD3(3) & PMOD3(7) & PMOD3(2) & PMOD3(6) & PMOD3(1) & PMOD3(5) & PMOD3(0) & PMOD3(4) ;
 	cam_pclk <= PMOD4(7) ;
 	cam_href <= PMOD4(1) ;

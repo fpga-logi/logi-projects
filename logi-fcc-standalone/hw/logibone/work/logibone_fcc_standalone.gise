@@ -31,6 +31,7 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="logibone_fcc_standalone.stx"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="logibone_fcc_standalone.syr"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="logibone_fcc_standalone.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="logibone_fcc_standalone_envsettings.html"/>
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="logibone_fcc_standalone_guide.ncd" xil_pn:origination="imported"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="logibone_fcc_standalone_summary.html"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="logibone_fcc_standalone_xst.xrpt"/>
@@ -67,7 +68,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1421240055" xil_pn:in_ck="448278999110386909" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-6125819433410236341" xil_pn:start_ts="1421240027">
+    <transform xil_pn:end_ts="1421241366" xil_pn:in_ck="448278999110386909" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-6125819433410236341" xil_pn:start_ts="1421241337">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
