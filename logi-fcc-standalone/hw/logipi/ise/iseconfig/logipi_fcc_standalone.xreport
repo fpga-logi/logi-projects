@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2014-12-08T22:56:19</DateModified>
+  <DateModified>2015-01-14T00:06:17</DateModified>
   <ModuleName>logipi_fcc_standalone</ModuleName>
-  <SummaryTimeStamp>2014-12-08T22:55:14</SummaryTimeStamp>
+  <SummaryTimeStamp>2015-01-14T00:02:55</SummaryTimeStamp>
   <SavedFilePath>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-fcc-standalone/hw/logipi/ise/iseconfig/logipi_fcc_standalone.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-fcc-standalone/hw/logipi/work</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-fcc-standalone/hw/logipi/work/</ImplementationReportsDirectory>
   <DateInitialized>2014-12-08T22:47:45</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

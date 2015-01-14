@@ -11,7 +11,8 @@ use IEEE.NUMERIC_STD.ALL;
 entity Memory_tester is
     Generic (address_width : natural := 23);
     Port ( clk           : in  STD_LOGIC;
-
+			  reset : in std_logic ;
+			
            cmd_enable      : out std_logic;
            cmd_wr          : out std_logic;
            cmd_address     : out std_logic_vector(address_width-1 downto 0);
@@ -138,9 +139,18 @@ rtp: process(read_pattern_index, read_addr)
     end case;
   end process;
   
-process(clk)
+process(clk, reset)
    begin
-      if rising_edge(clk) then         
+	
+		if reset = '1' then
+			test_counter <= (others => '0');
+			b <= '0' ;
+			debug <= (others => '0') ;
+			has_errored <= '0';
+			e <= '0'; 
+			read_counter <= (others => '0');
+			debug_dump <= (others => '0') ;
+      elsif rising_edge(clk) then         
          -------------------------------------------------------
          -- If a test failure is observed, the module will dump 
          -- out 8 words of status on the "debug" line. 

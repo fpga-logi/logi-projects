@@ -13,6 +13,10 @@ use UNISIM.VComponents.all;
 entity logibone_fcc_standalone is
     Port ( clk_50      : in  STD_LOGIC;
            led        : out  STD_LOGIC_VECTOR(1 downto 0);
+			  sw        : in  STD_LOGIC_VECTOR(1 downto 0);
+			  
+			  PMOD1, PMOD2 : inout std_logic_vector(7 downto 0);
+			  
            SDRAM_CLK   : out  STD_LOGIC;
            SDRAM_CKE   : out  STD_LOGIC;
            SDRAM_CS    : out  STD_LOGIC;
@@ -74,7 +78,7 @@ architecture Behavioral of logibone_fcc_standalone is
    COMPONENT Memory_tester
       Generic (address_width : natural := 23);
       Port ( clk           : in  STD_LOGIC;
-      
+				reset : in std_logic ;
            cmd_enable      : out std_logic;
            cmd_wr          : out std_logic;
            cmd_address     : out std_logic_vector(address_width-1 downto 0);
@@ -90,9 +94,22 @@ architecture Behavioral of logibone_fcc_standalone is
            error_testing   : out STD_LOGIC;
            blink           : out STD_LOGIC);
    END COMPONENT;
+	
+	component yuv_camera_interface is
+	port(
+ 		clock : in std_logic; 
+ 		resetn : in std_logic; 
+ 		pixel_data : in std_logic_vector(7 downto 0 ); 
+ 		pixel_out_y_data : out std_logic_vector(7 downto 0 ); 
+ 		pixel_out_u_data : out std_logic_vector(7 downto 0 ); 
+ 		pixel_out_v_data : out std_logic_vector(7 downto 0 ); 
+ 		pixel_out_clk, pixel_out_hsync, pixel_out_vsync : out std_logic; 
+ 		pclk, href,vsync : in std_logic
+	); 
+	end component;
 
    -- signals for clocking
-   signal clk, clku, clk_mem, clk_memu, clkfb, clkb   : std_logic;
+   signal clk, clku, clk_mem, clk_memu, clkfb, clkb, clk_cam, clk_cam_buff   : std_logic;
    
    -- signals to interface with the memory controller
    signal cmd_address     : std_logic_vector(22 downto 0) := (others => '0');
@@ -114,18 +131,33 @@ architecture Behavioral of logibone_fcc_standalone is
    signal iob_data        : std_logic_vector(15 downto 0);      
    signal error_blink     : std_logic;
  
-   begin
+   signal sdram_test_reset, cam_test_reset : std_logic ;
+	signal vsync_from_interface : std_logic ;
+	signal cam_data : std_logic_vector(7 downto 0);
+	signal cam_pclk, cam_href, cam_vsync, cam_xclk : std_logic ;
+
+	begin
+	
+	sdram_test_reset <= sw(0);
+	cam_test_reset <= sw(1);
+	
+	
 i_error_blink : blinker PORT MAP(
    clk => clk,
    i => error_testing,
    o => error_blink
    );
    
-      led(0) <= blink xor error_blink;
-		led(1) <= error_blink ;
+      led(0) <= blink xor error_blink when sw(0) = '1' else
+					 vsync_from_interface when sw(1) = '1' else
+					 '0'
+					 ;
+		led(1) <= error_blink when sw(0) = '1' else
+					 '0' ;
 
 Inst_Memory_tester: Memory_tester GENERIC MAP(address_width => test_width) PORT MAP(
       clk             => clk,
+		reset => sdram_test_reset ,
       
       cmd_address     => cmd_address(test_width-1 downto 0),
       cmd_wr          => cmd_wr,
@@ -148,7 +180,7 @@ Inst_Memory_tester: Memory_tester GENERIC MAP(address_width => test_width) PORT 
 Inst_SDRAM_Controller: SDRAM_Controller PORT MAP(
       clk             => clk,
       clk_mem         => clk_mem,
-      reset           => '0',
+      reset           => sdram_test_reset,
 
       cmd_address     => cmd_address,
       cmd_wr          => cmd_wr,
@@ -172,21 +204,42 @@ Inst_SDRAM_Controller: SDRAM_Controller PORT MAP(
       SDRAM_DATA      => SDRAM_DQ
    );
 
+
+	camera0: yuv_camera_interface
+		port map(
+			clock => clk,
+			resetn => cam_test_reset,
+			pixel_data => cam_data, 
+			pclk => cam_pclk, href => cam_href, vsync => cam_vsync,
+			pixel_out_clk => open, pixel_out_hsync => open, pixel_out_vsync => vsync_from_interface,
+			pixel_out_y_data => open,
+			pixel_out_u_data => open,
+			pixel_out_v_data => open
+					
+		);	
+		
+	cam_xclk <= clk_cam_buff;
+	PMOD2(3) <= cam_xclk ;
+	cam_data <= PMOD1(3) & PMOD1(7) & PMOD1(2) & PMOD1(6) & PMOD1(1) & PMOD1(5) & PMOD1(0) & PMOD1(4) ;
+	cam_pclk <= PMOD2(7) ;
+	cam_href <= PMOD2(1) ;
+	cam_vsync <= PMOD2(5) ;
+	PMOD2(0) <= 'Z' ;
    
 PLL_BASE_inst : PLL_BASE generic map (
       BANDWIDTH => "OPTIMIZED",             -- "HIGH", "LOW" or "OPTIMIZED" 
       --!CLKFBOUT_MULT => 24,                  -- Multiply value for all CLKOUT clock outputs (1-64)
-      --CLKFBOUT_MULT => 20,  --100mhz logi                -- Multiply value for all CLKOUT clock outputs (1-64)
+      CLKFBOUT_MULT => 12,  --100mhz logi                -- Multiply value for all CLKOUT clock outputs (1-64)
 		--CLKFBOUT_MULT => 18,		--150mhz logi
-		CLKFBOUT_MULT => 14,
+		--CLKFBOUT_MULT => 14,
 		CLKFBOUT_PHASE => 0.0,                -- Phase offset in degrees of the clock feedback output (0.0-360.0).
       --!CLKIN_PERIOD => 31.25,               -- Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
       CLKIN_PERIOD => 20.00,               -- Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
 
       -- CLKOUT0_DIVIDE - CLKOUT5_DIVIDE: Divide amount for CLKOUT# clock output (1-128)
       --CLKOUT0_DIVIDE => 10,       CLKOUT1_DIVIDE => 10,  --100mhz logi
-		CLKOUT0_DIVIDE => 7,       CLKOUT1_DIVIDE => 7,  --100mhz
-      CLKOUT2_DIVIDE => 1,       CLKOUT3_DIVIDE => 1,
+		CLKOUT0_DIVIDE => 6,       CLKOUT1_DIVIDE => 6,  --100mhz
+      CLKOUT2_DIVIDE => 25,       CLKOUT3_DIVIDE => 1,
       CLKOUT4_DIVIDE => 1,       CLKOUT5_DIVIDE => 1,
       -- CLKOUT0_DUTY_CYCLE - CLKOUT5_DUTY_CYCLE: Duty cycle for CLKOUT# clock output (0.01-0.99).
       CLKOUT0_DUTY_CYCLE => 0.5, CLKOUT1_DUTY_CYCLE => 0.5,
@@ -206,7 +259,7 @@ PLL_BASE_inst : PLL_BASE generic map (
       CLKFBOUT => CLKFB, -- 1-bit output: PLL_BASE feedback output
       -- CLKOUT0 - CLKOUT5: 1-bit (each) output: Clock outputs
       CLKOUT0 => CLKu,      CLKOUT1 => CLK_MEMu,
-      CLKOUT2 => open,      CLKOUT3 => open,
+      CLKOUT2 => clk_cam,      CLKOUT3 => open,
       CLKOUT4 => open,      CLKOUT5 => open,
       LOCKED  => open,  -- 1-bit output: PLL_BASE lock status output
       CLKFBIN => CLKFB, -- 1-bit input: Feedback clock input
@@ -218,5 +271,7 @@ PLL_BASE_inst : PLL_BASE generic map (
 BUFG_1 : BUFG port map (O => clkb,    I => clk_50);
 BUFG_2 : BUFG port map (O => clk_MEM, I => clk_MEMu);
 BUFG_3 : BUFG port map (O => clk,     I => clku);
+BUFG_4 : BUFG port map (O => clk_cam_buff,    I => clk_cam);
+
 
 end Behavioral;
