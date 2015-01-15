@@ -21,7 +21,6 @@ entity logipi_fcc_standalone is
 			  
            SDRAM_CLK   : out  STD_LOGIC;
            SDRAM_CKE   : out  STD_LOGIC;
-           SDRAM_CS    : out  STD_LOGIC;
            SDRAM_nRAS  : out  STD_LOGIC;
            SDRAM_nCAS  : out  STD_LOGIC;
            SDRAM_nWE   : out  STD_LOGIC;
@@ -203,7 +202,7 @@ Inst_SDRAM_Controller: SDRAM_Controller PORT MAP(
    
       SDRAM_CLK       => SDRAM_CLK,
       SDRAM_CKE       => SDRAM_CKE,
-      SDRAM_CS        => SDRAM_CS,
+      SDRAM_CS        => open,
       SDRAM_RAS       => SDRAM_nRAS,
       SDRAM_CAS       => SDRAM_nCAS,
       SDRAM_WE        => SDRAM_nWE,

@@ -23,27 +23,52 @@
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/bitgen.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/par.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="logipi_fcc_standalone.bgn" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="logipi_fcc_standalone.bit" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="logipi_fcc_standalone.bld"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="logipi_fcc_standalone.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_DRC" xil_pn:name="logipi_fcc_standalone.drc" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="logipi_fcc_standalone.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="logipi_fcc_standalone.ncd" xil_pn:subbranch="Par"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="logipi_fcc_standalone.ngc"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="logipi_fcc_standalone.ngd"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="logipi_fcc_standalone.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="logipi_fcc_standalone.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="logipi_fcc_standalone.par" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="logipi_fcc_standalone.pcf" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="logipi_fcc_standalone.prj"/>
+    <file xil_pn:fileType="FILE_TRCE_MISC" xil_pn:name="logipi_fcc_standalone.ptwx"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="logipi_fcc_standalone.stx"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="logipi_fcc_standalone.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="logipi_fcc_standalone.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="logipi_fcc_standalone.twx" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="logipi_fcc_standalone.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="logipi_fcc_standalone.ut" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:fileType="FILE_XPI" xil_pn:name="logipi_fcc_standalone.xpi"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="logipi_fcc_standalone.xst"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="logipi_fcc_standalone_envsettings.html"/>
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="logipi_fcc_standalone_guide.ncd" xil_pn:origination="imported"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="logipi_fcc_standalone_map.map" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="logipi_fcc_standalone_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="logipi_fcc_standalone_map.ncd" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="logipi_fcc_standalone_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="logipi_fcc_standalone_map.xrpt"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="logipi_fcc_standalone_ngdbuild.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="logipi_fcc_standalone_pad.csv" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="logipi_fcc_standalone_pad.txt" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="logipi_fcc_standalone_par.xrpt"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="logipi_fcc_standalone_summary.html"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="logipi_fcc_standalone_summary.xml"/>
+    <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="logipi_fcc_standalone_usage.xml"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="logipi_fcc_standalone_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="usage_statistics_webtalk.html"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="webtalk.log"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
@@ -78,10 +103,12 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1421263125" xil_pn:in_ck="-644181594318282425" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="883998319253372480" xil_pn:start_ts="1421263100">
+    <transform xil_pn:end_ts="1421324721" xil_pn:in_ck="-644181594318282425" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="883998319253372480" xil_pn:start_ts="1421324687">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="logipi_fcc_standalone.lso"/>
       <outfile xil_pn:name="logipi_fcc_standalone.ngc"/>
@@ -94,29 +121,67 @@
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1421239433" xil_pn:in_ck="-8640491301141694556" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-4720497417586841297" xil_pn:start_ts="1421239433">
+    <transform xil_pn:end_ts="1421325451" xil_pn:in_ck="-8640491301141694556" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-4720497417586841297" xil_pn:start_ts="1421325451">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1421239448" xil_pn:in_ck="8647697197351231998" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-6024219674134747598" xil_pn:start_ts="1421239433">
+    <transform xil_pn:end_ts="1421325464" xil_pn:in_ck="8647697197351231998" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-6024219674134747598" xil_pn:start_ts="1421325451">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputAdded"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+      <outfile xil_pn:name="logipi_fcc_standalone.bld"/>
+      <outfile xil_pn:name="logipi_fcc_standalone.ngd"/>
+      <outfile xil_pn:name="logipi_fcc_standalone_ngdbuild.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1421239462" xil_pn:in_ck="8647697197351231999" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="1448924893915930207" xil_pn:start_ts="1421239448">
-      <status xil_pn:value="FailedRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+    <transform xil_pn:end_ts="1421325511" xil_pn:in_ck="8647697197351231999" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="1448924893915930207" xil_pn:start_ts="1421325464">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+      <outfile xil_pn:name="logipi_fcc_standalone.pcf"/>
+      <outfile xil_pn:name="logipi_fcc_standalone_map.map"/>
+      <outfile xil_pn:name="logipi_fcc_standalone_map.mrp"/>
+      <outfile xil_pn:name="logipi_fcc_standalone_map.ncd"/>
+      <outfile xil_pn:name="logipi_fcc_standalone_map.ngm"/>
+      <outfile xil_pn:name="logipi_fcc_standalone_map.xrpt"/>
+      <outfile xil_pn:name="logipi_fcc_standalone_summary.xml"/>
+      <outfile xil_pn:name="logipi_fcc_standalone_usage.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1421325593" xil_pn:in_ck="-106540841733547880" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1421325511">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+      <outfile xil_pn:name="logipi_fcc_standalone.ncd"/>
+      <outfile xil_pn:name="logipi_fcc_standalone.pad"/>
+      <outfile xil_pn:name="logipi_fcc_standalone.par"/>
+      <outfile xil_pn:name="logipi_fcc_standalone.ptwx"/>
+      <outfile xil_pn:name="logipi_fcc_standalone.unroutes"/>
+      <outfile xil_pn:name="logipi_fcc_standalone.xpi"/>
+      <outfile xil_pn:name="logipi_fcc_standalone_pad.csv"/>
+      <outfile xil_pn:name="logipi_fcc_standalone_pad.txt"/>
+      <outfile xil_pn:name="logipi_fcc_standalone_par.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1421325662" xil_pn:in_ck="-7206857004092250793" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1421325593">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+      <outfile xil_pn:name="logipi_fcc_standalone.bgn"/>
+      <outfile xil_pn:name="logipi_fcc_standalone.bit"/>
+      <outfile xil_pn:name="logipi_fcc_standalone.drc"/>
+      <outfile xil_pn:name="logipi_fcc_standalone.ut"/>
+      <outfile xil_pn:name="usage_statistics_webtalk.html"/>
+      <outfile xil_pn:name="webtalk.log"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1421325593" xil_pn:in_ck="8647697197351231867" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1421325577">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+      <outfile xil_pn:name="logipi_fcc_standalone.twr"/>
+      <outfile xil_pn:name="logipi_fcc_standalone.twx"/>
     </transform>
   </transforms>
 
