@@ -157,13 +157,11 @@ i_error_blink : blinker PORT MAP(
    o => error_blink
    );
    
-      led(0) <= blink xor error_blink when sw(0) = '0' else
-					 '0'
-					 ;
-		led(1) <= error_blink when sw(0) = '0' else
-					 '0' ;
+      led(0) <= blink xor error_blink ;
+		led(1) <= error_blink ;
 
-Inst_Memory_tester: Memory_tester GENERIC MAP(address_width => test_width) PORT MAP(
+Inst_Memory_tester: Memory_tester GENERIC MAP(address_width => test_width) 
+	PORT MAP(
       clk             => clk,
 		reset => sdram_test_reset ,
       
@@ -220,10 +218,10 @@ begin
 		ten_cnt <= (others => '0');
 		hundred_cnt  <= (others => '0');
 		thousand_cnt  <= (others => '0');
-		divider_cnt <= std_logic_vector(to_unsigned(99_000_000, 32));
+		divider_cnt <= std_logic_vector(to_unsigned(9_999_999, 32));
 	elsif clk'event and clk = '1' then
 			if divider_cnt = 0 then
-				divider_cnt <= std_logic_vector(to_unsigned(99_000_000, 32));
+				divider_cnt <= std_logic_vector(to_unsigned(9_999_999, 32));
 				unit_cnt <= unit_cnt + 1 ;
 				if unit_cnt = 9 then
 					unit_cnt <= (others => '0');

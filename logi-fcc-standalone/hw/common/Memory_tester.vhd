@@ -147,9 +147,9 @@ process(clk, reset)
 			b <= '0' ;
 			debug <= (others => '0') ;
 			has_errored <= '0';
-			e <= '0'; 
+			e <= '1'; 
 			read_counter <= (others => '0');
-			debug_dump <= (others => '0') ;
+			debug_dump <= (others => '1');
       elsif rising_edge(clk) then         
          -------------------------------------------------------
          -- If a test failure is observed, the module will dump 
