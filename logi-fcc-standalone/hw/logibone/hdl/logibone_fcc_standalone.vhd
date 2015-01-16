@@ -218,7 +218,8 @@ Inst_SDRAM_Controller: SDRAM_Controller PORT MAP(
 		);	
 		
 	cam_xclk <= clk_cam_buff;
-	PMOD2(3) <= cam_xclk ;
+	PMOD2(3) <= cam_xclk when cam_test_reset = '0' else	
+					'0' ;
 	cam_data <= PMOD1(3) & PMOD1(7) & PMOD1(2) & PMOD1(6) & PMOD1(1) & PMOD1(5) & PMOD1(0) & PMOD1(4) ;
 	cam_pclk <= PMOD2(7) ;
 	cam_href <= PMOD2(1) ;
