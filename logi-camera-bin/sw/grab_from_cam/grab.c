@@ -1,0 +1,169 @@
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdarg.h>
+#include <time.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/mman.h>
+#include <string.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <sys/ioctl.h>
+#include "logilib.h"
+#include "config.h"
+
+
+#define IMAGE_WIDTH 640
+#define IMAGE_HEIGHT 480
+#define NB_CHAN 1
+
+
+char rgb_file_name [128] ;
+char yuv_file_name [128] ;
+char jpeg_file_name [128] ;
+
+
+
+
+int min(int a, int b){
+	if(a > b ){
+		return b ;	
+	}
+	return a ;
+}
+
+
+void yuv_to_rgb(char * buffer, char * picture){
+	int i ;	
+	float y, u, v ;
+	float r, g, b ;
+	for(i = 0 ; i < IMAGE_WIDTH*IMAGE_HEIGHT ; i ++){
+		y = (float) buffer[(i*NB_CHAN)] ;
+		if(NB_CHAN == 2){
+			if(i%2 == 0){
+				u = (float) buffer[(i*2)+1];
+				v = (float) buffer[(i*2)+3];
+			}else{
+				u = (float) buffer[(i*2)-1];
+	        		v = (float) buffer[(i*2)+1];
+			}
+		}else{
+			u = 128 ;
+			v = 128 ;
+		}
+		r =  y + (1.4075 * (v - 128.0));
+		g =  y - (0.3455 * (u - 128.0)) - (0.7169 * (v - 128.0));
+		b =  y + (1.7790 * (u - 128.0)) ;
+		picture[(i*3)] = (unsigned char) abs(min(r, 255)) ;
+		picture[(i*3)+1] = (unsigned char) abs(min(g, 255)) ;
+		picture[(i*3)+2] = (unsigned char) abs(min(b, 255)) ;
+	} 
+}
+
+void bin_to_gray(char * buffer, char * picture){
+	int i, j ;
+	char gray ;
+	for(i = 0 ; i < ((IMAGE_WIDTH*IMAGE_HEIGHT)/8) ; i += 1){
+		for(j = 0; j < 8 ; j ++){
+			gray = buffer[i] >> j & 0x01;
+			picture[i*8+j] = gray > 0 ? 0xFF: 0x00 ;
+		}
+	} 
+}
+
+int grab_frame(void){
+	unsigned short cmd_buffer[8] ;
+	unsigned short vsync1, vsync2 ;
+	FILE * yuv_fd, * jpeg_fd ;
+	int i,j, res, inc ;
+	unsigned int nbFrames = 1 ;
+	unsigned int pos = 0 ;
+	unsigned int nb = 0 ;
+	unsigned char * image_buffer, * start_buffer, * end_ptr; //yuv frame buffer
+	unsigned char *y_buffer ;
+	unsigned short fifo_state, fifo_data ;
+	unsigned int retry_counter = 0 ;
+	unsigned int retry_pixel = 0 ;
+	image_buffer = (unsigned char *) malloc((IMAGE_WIDTH*IMAGE_HEIGHT*NB_CHAN*4)/8+32);// 32 are the frame start, frame end indicators 
+	y_buffer = (unsigned char *) malloc(IMAGE_WIDTH*IMAGE_HEIGHT);
+	if(image_buffer == NULL || y_buffer == NULL){
+		printf("allocation error ! \n");
+		return -1 ;
+	}
+
+	for(inc = 0 ; inc < (nbFrames && retry_counter < 5) ; ){ 
+		sprintf(jpeg_file_name, "./grabbed_frame%04d.jpg", inc);
+		jpeg_fd  = fopen(jpeg_file_name, "wb");
+		if(jpeg_fd == NULL){
+			printf("Error opening output file \n");
+			exit(EXIT_FAILURE);
+		}
+		sprintf(yuv_file_name, "./grabbed_frame%04d.yuv", inc);
+                yuv_fd  = fopen(yuv_file_name, "wb");
+		if(yuv_fd == NULL){
+                        printf("Error opening output file \n");
+                        exit(EXIT_FAILURE);
+                }
+
+		printf("issuing reset to fifo \n");
+		cmd_buffer[0] = 0 ;
+		cmd_buffer[1] = 0 ;
+		cmd_buffer[2] = 0 ;
+		logi_write((unsigned char *) cmd_buffer, 6, FIFO_ADDR+FIFO_CMD_OFFSET);
+		logi_read((unsigned char *) cmd_buffer, 6, FIFO_ADDR+FIFO_CMD_OFFSET);
+		printf("fifo size : %d, free : %d, available : %d \n", cmd_buffer[0], cmd_buffer[1], cmd_buffer[2]);  // reading and printing fifo states
+		nb = 0 ;
+		retry_pixel = 0 ;
+		while(nb < (((IMAGE_WIDTH*IMAGE_HEIGHT*NB_CHAN)/8)*3)){
+			logi_read((unsigned char *) cmd_buffer, 6, FIFO_ADDR+FIFO_CMD_OFFSET);
+			while(cmd_buffer[2] < 512){
+				 logi_read((unsigned char *) cmd_buffer, 6, FIFO_ADDR+FIFO_CMD_OFFSET);
+				 //printf("%u\n", cmd_buffer[2]);
+			}
+			logi_read(&image_buffer[nb], 1024, FIFO_ADDR);
+			nb += 1024 ;
+		}
+		if(retry_pixel == 10000){
+			printf("no camera detected !\n");
+                        fclose(jpeg_fd);
+			return -1 ;
+		}
+		printf("nb : %u \n", nb);
+		start_buffer = image_buffer ;
+		end_ptr = &image_buffer[((IMAGE_WIDTH*IMAGE_HEIGHT*NB_CHAN)/8)*3];
+		vsync1 = *((unsigned short *) start_buffer) ;
+		vsync2 = *((unsigned short *) &start_buffer[((IMAGE_WIDTH*IMAGE_HEIGHT*NB_CHAN)/8)+2]) ;
+		while(vsync1 != 0x55AA && vsync2 != 0x55AA && start_buffer < end_ptr){
+			start_buffer+=2 ;
+			vsync1 = *((unsigned short *) start_buffer) ;
+			vsync2 = *((unsigned short *) &start_buffer[((IMAGE_WIDTH*IMAGE_HEIGHT*NB_CHAN)/8)+2]) ;
+		}
+		if(vsync1 == 0x55AA && vsync2 == 0x55AA){
+			inc ++ ;
+			printf("frame found !\n");
+		}else{
+			printf("sync not found !\n");
+			/*fclose(rgb_fd);*/
+                	fclose(yuv_fd);
+			fclose(jpeg_fd);
+			retry_counter ++ ;
+			continue ;
+		}
+		start_buffer += 2 ;
+		bin_to_gray(start_buffer, y_buffer);
+		fwrite(y_buffer, 1, IMAGE_WIDTH*IMAGE_HEIGHT*NB_CHAN, yuv_fd);
+		write_jpegfile(y_buffer, IMAGE_WIDTH, IMAGE_HEIGHT, 1, jpeg_fd, 100);
+		fclose(yuv_fd);
+		fclose(jpeg_fd);
+	}
+	if(retry_counter == 5){
+		return -1 ;
+	}
+	return 0 ;
+}
+
+int main(int argc, char ** argv){
+	return grab_frame();
+	
+}
