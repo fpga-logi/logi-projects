@@ -65,22 +65,10 @@ port( OSC_FPGA : in std_logic;
 end logi_camera_test;
 
 architecture Behavioral of logi_camera_test is
-
--- Component declaration
-	COMPONENT clock_gen
-	PORT(
-		CLK_IN1 : IN std_logic;          
-		CLK_OUT1 : OUT std_logic;
-		CLK_OUT2 : OUT std_logic;
-		CLK_OUT3 : OUT std_logic;
-		LOCKED : OUT std_logic
-		);
-	END COMPONENT;
-
-	
 	
 	-- Systemc clocking and reset
 	signal gls_clk, clk_100,  clk_96, clk_24, clk_locked : std_logic ;
+	signal osc_buff, clkfb : std_logic ;
 	signal gls_reset , gls_resetn : std_logic ;
 	
 	
@@ -147,16 +135,7 @@ begin
 	
 	CS_FLASH <= '1' ;
 
-	
-	sys_clocks_gen: clock_gen 
-	PORT MAP(
-		CLK_IN1 => OSC_FPGA,
-		CLK_OUT1 => clk_100,
-		CLK_OUT2 => clk_96, -- actual value is 100Mhz ...
-		CLK_OUT3 => clk_24, 
-		LOCKED => clk_locked
-	);
-	gls_clk <= clk_96 ;
+	gls_clk <= clk_100 ;
 
 	gls_reset <= not clk_locked ;
 	gls_resetn <= not gls_reset ;
@@ -241,8 +220,7 @@ begin
 	generic map( ADDR_WIDTH => 16,
 				WIDTH	=> 16,
 				SIZE	=> 8192,
-				B_BURST_SIZE => 4,
-				A_BURST_SIZE => 4,
+				BURST_SIZE => 4,
 				SYNC_LOGIC_INTERFACE => true 
 				)
 	port map(
@@ -259,16 +237,17 @@ begin
 		wbs_ack       => intercon_fifo0_wbm_ack,
 			  
 		-- logic signals  
-		wrB => preview_fifo_wr, rdA => '0',
-		inputB => preview_fifo_input,
-		outputA => open,
-		emptyA => open, 
-		fullA => open,
-		emptyB => open, 
-		fullB => open,
-		burst_available_B => open,
-		burst_available_A	=> open,
-		fifoB_reset => reset_pipeline
+		write_fifo => preview_fifo_wr, read_fifo=> '0',
+		fifo_input => preview_fifo_input,
+		fifo_output => open,
+		read_fifo_empty => open, 
+		read_fifo_full => open,
+		write_fifo_empty => open, 
+		write_fifo_full => open,
+		write_fifo_threshold => open,
+		read_fifo_threshold	=> open,
+		write_fifo_reset => reset_pipeline,
+		read_fifo_reset => open
 	);
 
  
@@ -351,11 +330,13 @@ cam_control_reg :  wishbone_register
 			clock => gls_clk,
 			resetn => gls_resetn,
 			pixel_data => cam_data, 
-			pxclk => cam_pclk, href => cam_href, vsync => cam_vsync,
-			pixel_clock_out => pxclk_from_interface, hsync_out => href_from_interface, vsync_out => vsync_from_interface,
-			y_data => pixel_y_from_interface,
-			u_data => pixel_u_from_interface,
-			v_data => pixel_v_from_interface
+			pclk => cam_pclk, href => cam_href, vsync => cam_vsync,
+			pixel_out_clk => pxclk_from_interface, 
+			pixel_out_hsync => href_from_interface, 
+			pixel_out_vsync => vsync_from_interface,
+			pixel_out_y_data => pixel_y_from_interface,
+			pixel_out_u_data => pixel_u_from_interface,
+			pixel_out_v_data => pixel_v_from_interface
 					
 		);	
 		
@@ -375,29 +356,69 @@ cam_control_reg :  wishbone_register
 		port map(
 			clk => gls_clk,
 			resetn => gls_resetn,
-			pixel_clock => pxclk_from_interface, 
-			hsync => href_from_interface,
-			vsync => vsync_from_interface,
-			pixel_clock_out => pxclk_from_ds, 
-			hsync_out => href_from_ds, 
-			vsync_out=> vsync_from_ds,
-			pixel_data_in => pixel_y_from_interface,
-			pixel_data_out=> pixel_y_from_ds
+			pixel_in_clk => pxclk_from_interface, 
+			pixel_in_hsync => href_from_interface,
+			pixel_in_vsync => vsync_from_interface,
+			pixel_out_clk => pxclk_from_ds, 
+			pixel_out_hsync => href_from_ds, 
+			pixel_out_vsync=> vsync_from_ds,
+			pixel_in_data => pixel_y_from_interface,
+			pixel_out_data => pixel_y_from_ds
 		); 
 		
-		pixel_to_fifo : yuv_pixel2fifo
+		pixel_to_fifo : yuv_to_fifo
 		port map(
 			clk => gls_clk, resetn => gls_resetn,
 			sreset => reset_pipeline , -- should wire to a register to allow to reset 
-			pixel_clock => pxclk_from_ds, 
-			hsync => href_from_ds, 
-			vsync => vsync_from_ds,
-			pixel_y => pixel_y_from_ds,
-			pixel_u => pixel_u_from_interface,--pixel_u_from_interface,
-			pixel_v => pixel_v_from_interface,
+			pixel_in_clk => pxclk_from_ds, 
+			pixel_in_hsync => href_from_ds, 
+			pixel_in_vsync => vsync_from_ds,
+			pixel_in_y_data => pixel_y_from_ds,
+			pixel_in_u_data => pixel_u_from_interface,--pixel_u_from_interface,
+			pixel_in_v_data => pixel_v_from_interface,
 			fifo_data => preview_fifo_input,
 			fifo_wr => preview_fifo_wr
 		);	
+
+-- system clock generation
+
+PLL_BASE_inst : PLL_BASE generic map (
+      BANDWIDTH      => "OPTIMIZED",        -- "HIGH", "LOW" or "OPTIMIZED" 
+      CLKFBOUT_MULT  => 12 ,                 -- Multiply value for all CLKOUT clock outputs (1-64)
+      CLKFBOUT_PHASE => 0.0,                -- Phase offset in degrees of the clock feedback output (0.0-360.0).
+      CLKIN_PERIOD   => 20.00,              -- Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
+      -- CLKOUT0_DIVIDE - CLKOUT5_DIVIDE: Divide amount for CLKOUT# clock output (1-128)
+      CLKOUT0_DIVIDE => 6,       CLKOUT1_DIVIDE => 25,
+      CLKOUT2_DIVIDE => 1,       CLKOUT3_DIVIDE => 1,
+      CLKOUT4_DIVIDE => 1,       CLKOUT5_DIVIDE => 1,
+      -- CLKOUT0_DUTY_CYCLE - CLKOUT5_DUTY_CYCLE: Duty cycle for CLKOUT# clock output (0.01-0.99).
+      CLKOUT0_DUTY_CYCLE => 0.5, CLKOUT1_DUTY_CYCLE => 0.5,
+      CLKOUT2_DUTY_CYCLE => 0.5, CLKOUT3_DUTY_CYCLE => 0.5,
+      CLKOUT4_DUTY_CYCLE => 0.5, CLKOUT5_DUTY_CYCLE => 0.5,
+      -- CLKOUT0_PHASE - CLKOUT5_PHASE: Output phase relationship for CLKOUT# clock output (-360.0-360.0).
+      CLKOUT0_PHASE => 0.0,      CLKOUT1_PHASE => 0.0, -- Capture clock
+      CLKOUT2_PHASE => 0.0,      CLKOUT3_PHASE => 0.0,
+      CLKOUT4_PHASE => 0.0,      CLKOUT5_PHASE => 0.0,
+      
+      CLK_FEEDBACK => "CLKFBOUT",           -- Clock source to drive CLKFBIN ("CLKFBOUT" or "CLKOUT0")
+      COMPENSATION => "SYSTEM_SYNCHRONOUS", -- "SYSTEM_SYNCHRONOUS", "SOURCE_SYNCHRONOUS", "EXTERNAL" 
+      DIVCLK_DIVIDE => 1,                   -- Division value for all output clocks (1-52)
+      REF_JITTER => 0.1,                    -- Reference Clock Jitter in UI (0.000-0.999).
+      RESET_ON_LOSS_OF_LOCK => FALSE        -- Must be set to FALSE
+   ) port map (
+      CLKFBOUT => clkfb, -- 1-bit output: PLL_BASE feedback output
+      -- CLKOUT0 - CLKOUT5: 1-bit (each) output: Clock outputs
+      CLKOUT0 => clk_100,      CLKOUT1 => clk_24,
+      CLKOUT2 => open,      CLKOUT3 => open,
+      CLKOUT4 => open,      CLKOUT5 => open,
+      LOCKED  => clk_locked,  -- 1-bit output: PLL_BASE lock status output
+      CLKFBIN => clkfb, -- 1-bit input: Feedback clock input
+      CLKIN   => osc_buff,  -- 1-bit input: Clock input
+      RST     => '0'    -- 1-bit input: Reset input
+   );
+
+    -- Buffering of clocks
+	BUFG_1 : BUFG port map (O => osc_buff,    I => OSC_FPGA);
 
 end Behavioral;
 
