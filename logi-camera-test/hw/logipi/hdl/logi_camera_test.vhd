@@ -219,7 +219,7 @@ begin
 	fifo0 : wishbone_fifo
 	generic map( ADDR_WIDTH => 16,
 				WIDTH	=> 16,
-				SIZE	=> 8192,
+				SIZE	=> 4096,
 				BURST_SIZE => 4,
 				SYNC_LOGIC_INTERFACE => true 
 				)
