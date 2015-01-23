@@ -228,7 +228,7 @@ intercon_wrapper_wbm_ack	<= intercon_led_mat_wbm_ack when led_mat_cs = '1' else
 										intercon_pwm0_wbm_ack when pwm0_cs = '1' else
 										'0' ;
 
-led_mat_interface : max7219_wb
+led_mat_interface : wishbone_max7219
 		generic map(
 				NB_DEVICE => 2, 
 				CLK_DIV => 10,
