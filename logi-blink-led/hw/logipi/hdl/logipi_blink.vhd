@@ -31,7 +31,7 @@ end logipi_blink;
 architecture Behavioral of logipi_blink is
 	
 	-- Led counter
-	signal counter_output : std_logic_vector(24 downto 0);
+	signal counter_output : std_logic_vector(31 downto 0);
 	
 begin
 	
