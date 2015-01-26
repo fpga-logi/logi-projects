@@ -61,24 +61,10 @@ end logipi_wishbone;
 
 architecture Behavioral of logipi_wishbone is
 
-	component clock_gen
-	port
-	(-- Clock in ports
-		CLK_IN1           : in     std_logic;
-		-- Clock out ports
-		CLK_OUT1          : out    std_logic;
-		CLK_OUT2          : out    std_logic;
-		CLK_OUT3          : out    std_logic;
-		CLK_OUT4          : out    std_logic;
-		CLK_OUT5          : out    std_logic;
-		-- Status and control signals
-		LOCKED            : out    std_logic
-	);
-	end component;
 
 	-- syscon
 	signal sys_reset, sys_resetn,sys_clk, clock_locked : std_logic ;
-	signal clk_100Mhz, clk_120Mhz, clk_24Mhz, clk_50Mhz, clk_50Mhz_ext : std_logic ;
+	signal clk_100Mhz, clk_100Mhz_pll, osc_buff, clkfb  : std_logic ;
 
 	-- wishbone intercon signals
 	signal intercon_wrapper_wbm_address :  std_logic_vector(15 downto 0);
@@ -127,21 +113,7 @@ begin
 sys_reset <= NOT PB(0); 
 sys_resetn <= NOT sys_reset ; -- for preipherals with active low reset
 
-pll0 : clock_gen
-  port map
-   (-- Clock in ports
-    CLK_IN1 => OSC_FPGA,
-    -- Clock out ports
-    CLK_OUT1 => clk_100Mhz,
-    CLK_OUT2 => clk_120Mhz,
-	 CLK_OUT3 => clk_24Mhz,
-	 CLK_OUT4 => clk_50Mhz,
-	 CLK_OUT5 => clk_50Mhz_ext,
-    -- Status and control signals
-    LOCKED => clock_locked);
-
-sys_clk <= clk_100Mhz;--clk_120Mhz ;
---GPMC_CLK <= clk_50Mhz_ext;
+sys_clk <= clk_100Mhz;
 
 
 
@@ -292,6 +264,46 @@ port map(
 			  wbs_ack       => intercon_mem0_wbm_ack
 		  );
 	 
+
+
+PLL_BASE_inst : PLL_BASE generic map (
+      BANDWIDTH      => "OPTIMIZED",        -- "HIGH", "LOW" or "OPTIMIZED" 
+      CLKFBOUT_MULT  => 12 ,                 -- Multiply value for all CLKOUT clock outputs (1-64)
+      CLKFBOUT_PHASE => 0.0,                -- Phase offset in degrees of the clock feedback output (0.0-360.0).
+      CLKIN_PERIOD   => 20.00,              -- Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
+      -- CLKOUT0_DIVIDE - CLKOUT5_DIVIDE: Divide amount for CLKOUT# clock output (1-128)
+      CLKOUT0_DIVIDE => 6,       CLKOUT1_DIVIDE =>1,
+      CLKOUT2_DIVIDE => 1,       CLKOUT3_DIVIDE => 1,
+      CLKOUT4_DIVIDE => 1,       CLKOUT5_DIVIDE => 1,
+      -- CLKOUT0_DUTY_CYCLE - CLKOUT5_DUTY_CYCLE: Duty cycle for CLKOUT# clock output (0.01-0.99).
+      CLKOUT0_DUTY_CYCLE => 0.5, CLKOUT1_DUTY_CYCLE => 0.5,
+      CLKOUT2_DUTY_CYCLE => 0.5, CLKOUT3_DUTY_CYCLE => 0.5,
+      CLKOUT4_DUTY_CYCLE => 0.5, CLKOUT5_DUTY_CYCLE => 0.5,
+      -- CLKOUT0_PHASE - CLKOUT5_PHASE: Output phase relationship for CLKOUT# clock output (-360.0-360.0).
+      CLKOUT0_PHASE => 0.0,      CLKOUT1_PHASE => 0.0, -- Capture clock
+      CLKOUT2_PHASE => 0.0,      CLKOUT3_PHASE => 0.0,
+      CLKOUT4_PHASE => 0.0,      CLKOUT5_PHASE => 0.0,
+      
+      CLK_FEEDBACK => "CLKFBOUT",           -- Clock source to drive CLKFBIN ("CLKFBOUT" or "CLKOUT0")
+      COMPENSATION => "SYSTEM_SYNCHRONOUS", -- "SYSTEM_SYNCHRONOUS", "SOURCE_SYNCHRONOUS", "EXTERNAL" 
+      DIVCLK_DIVIDE => 1,                   -- Division value for all output clocks (1-52)
+      REF_JITTER => 0.1,                    -- Reference Clock Jitter in UI (0.000-0.999).
+      RESET_ON_LOSS_OF_LOCK => FALSE        -- Must be set to FALSE
+   ) port map (
+      CLKFBOUT => clkfb, -- 1-bit output: PLL_BASE feedback output
+      -- CLKOUT0 - CLKOUT5: 1-bit (each) output: Clock outputs
+      CLKOUT0 => clk_100Mhz_pll,      CLKOUT1 => open,
+      CLKOUT2 => open,      CLKOUT3 => open,
+      CLKOUT4 => open,      CLKOUT5 => open,
+      LOCKED  => clock_locked,  -- 1-bit output: PLL_BASE lock status output
+      CLKFBIN => clkfb, -- 1-bit input: Feedback clock input
+      CLKIN   => osc_buff,  -- 1-bit input: Clock input
+      RST     => '0'    -- 1-bit input: Reset input
+   );
+
+    -- Buffering of clocks
+	BUFG_1 : BUFG port map (O => osc_buff,    I => OSC_FPGA);
+	BUFG_2 : BUFG port map (O => clk_100Mhz,    I => clk_100Mhz_pll);
 
 end Behavioral;
 
