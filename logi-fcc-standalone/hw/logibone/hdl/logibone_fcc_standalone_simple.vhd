@@ -88,8 +88,8 @@ architecture Behavioral of logibone_fcc_standalone_simple is
 
 	begin
 	
-	sdram_test_reset <= sw(0);
-	cam_test_reset <= sw(1);
+	sdram_test_reset <= not sw(0);
+	cam_test_reset <= not sw(1);
 	
 	
 i_error_blink : blinker PORT MAP(
@@ -98,10 +98,7 @@ i_error_blink : blinker PORT MAP(
    o => error_blink
    );
    
-      led(0) <= blink xor error_blink when sw(0) = '0' else
-					 vsync_from_interface when sw(1) = '0' else
-					 '0'
-					 ;
+      led(0) <= cam_vsync ;
 		led(1) <= error_blink when sw(0) = '0' else
 					 '0' ;
    
@@ -132,7 +129,7 @@ i_error_blink : blinker PORT MAP(
 			sdram_test_dq(sdram_test_dq'high-1 downto 0) <= sdram_test_dq(sdram_test_dq'high downto 1);
 			sdram_test_dq(sdram_test_dq'high) <= sdram_test_dq(0);
 			
-			error_testing <= sdram_test_addr(0) ;
+			error_testing <= '1' ;
 		end if ;
 	end process ;
 	
