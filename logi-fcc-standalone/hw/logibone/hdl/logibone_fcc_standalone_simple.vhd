@@ -92,11 +92,11 @@ architecture Behavioral of logibone_fcc_standalone_simple is
 	cam_test_reset <= not sw(1);
 	
 	
-i_error_blink : blinker PORT MAP(
-   clk => clk,
-   i => error_testing,
-   o => error_blink
-   );
+	i_error_blink : blinker PORT MAP(
+		clk => clk,
+		i => error_testing,
+		o => error_blink
+		);
    
       led(0) <= cam_vsync ;
 		led(1) <= error_blink when sw(0) = '0' else
@@ -113,9 +113,9 @@ i_error_blink : blinker PORT MAP(
 	
 	sdram_clk_forward : ODDR2
    generic map(DDR_ALIGNMENT => "NONE", INIT => '0', SRTYPE => "SYNC")
-   port map (Q => SDRAM_CLK, C0 => clk, C1 => not clk, CE => not sdram_test_reset, R => '0', S => '0', D0 => '0', D1 => '1');
+   port map (Q => SDRAM_CLK, C0 => CLK_MEM, C1 => not CLK_MEM, CE => not sdram_test_reset, R => '0', S => '0', D0 => '0', D1 => '1');
 	
-	process(clk, sdram_test_reset)
+	process(CLK_MEM, sdram_test_reset)
 	begin
 		if sdram_test_reset ='1' then
 			sdram_test_addr <= (others => '0') ;
@@ -123,12 +123,11 @@ i_error_blink : blinker PORT MAP(
 			sdram_test_dq <= (others => '0') ;
 			sdram_test_dq(sdram_test_dq'high) <= '1' ;
 			error_testing <= '0' ;
-		elsif rising_edge(clk) then
+		elsif rising_edge(CLK_MEM) then
 			sdram_test_addr(sdram_test_addr'high downto 1) <= sdram_test_addr(sdram_test_addr'high-1 downto 0);
 			sdram_test_addr(0) <= sdram_test_addr(sdram_test_addr'high);
 			sdram_test_dq(sdram_test_dq'high-1 downto 0) <= sdram_test_dq(sdram_test_dq'high downto 1);
-			sdram_test_dq(sdram_test_dq'high) <= sdram_test_dq(0);
-			
+			sdram_test_dq(sdram_test_dq'high) <= sdram_test_dq(0);		
 			error_testing <= '1' ;
 		end if ;
 	end process ;
@@ -159,20 +158,29 @@ i_error_blink : blinker PORT MAP(
 	PMOD2(0) <= 'Z' ;
    
 PLL_BASE_inst : PLL_BASE generic map (
+		--100mhz: 	M=12, D=6 ; M=8 D=4
+		--75Mhz 		M=12, D=8 
+		--50Mhz = 	M=12 D=12
+		--100mhz: 	M=12, D=6 
+		--75Mhz 		M=12, D=8 
+		--50Mhz = 	M=12 D=12 ; M=8 D=8
+		--30Mhz = 	M=8 D=13
+		--23.5Mhz = 	M=8 D=17
+		--8Mhz = 	M=8 D=50
+		--4Mhz = 	M=8 D=100
+		--3.125Mhz = 	M=8 D=128
       BANDWIDTH => "OPTIMIZED",             -- "HIGH", "LOW" or "OPTIMIZED" 
-      --!CLKFBOUT_MULT => 24,                  -- Multiply value for all CLKOUT clock outputs (1-64)
-      CLKFBOUT_MULT => 12,  --100mhz logi                -- Multiply value for all CLKOUT clock outputs (1-64)
-		--CLKFBOUT_MULT => 18,		--150mhz logi
-		--CLKFBOUT_MULT => 14,
+      CLKFBOUT_MULT => 8,  --100mhz logi                -- Multiply value for all CLKOUT clock outputs (1-64)
 		CLKFBOUT_PHASE => 0.0,                -- Phase offset in degrees of the clock feedback output (0.0-360.0).
       --!CLKIN_PERIOD => 31.25,               -- Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
       CLKIN_PERIOD => 20.00,               -- Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
 
       -- CLKOUT0_DIVIDE - CLKOUT5_DIVIDE: Divide amount for CLKOUT# clock output (1-128)
-      --CLKOUT0_DIVIDE => 10,       CLKOUT1_DIVIDE => 10,  --100mhz logi
-		CLKOUT0_DIVIDE => 6,       CLKOUT1_DIVIDE => 6,  --100mhz
-      CLKOUT2_DIVIDE => 25,       CLKOUT3_DIVIDE => 1,
-      CLKOUT4_DIVIDE => 1,       CLKOUT5_DIVIDE => 1,
+		CLKOUT0_DIVIDE => 8,  --SYSCLK = clk
+		CLKOUT1_DIVIDE => 10,  --SDRAM
+      CLKOUT2_DIVIDE => 128,  --CAM 
+		CLKOUT3_DIVIDE => 128,
+      CLKOUT4_DIVIDE => 128,       CLKOUT5_DIVIDE => 1,
       -- CLKOUT0_DUTY_CYCLE - CLKOUT5_DUTY_CYCLE: Duty cycle for CLKOUT# clock output (0.01-0.99).
       CLKOUT0_DUTY_CYCLE => 0.5, CLKOUT1_DUTY_CYCLE => 0.5,
       CLKOUT2_DUTY_CYCLE => 0.5, CLKOUT3_DUTY_CYCLE => 0.5,
@@ -190,8 +198,8 @@ PLL_BASE_inst : PLL_BASE generic map (
    ) port map (
       CLKFBOUT => CLKFB, -- 1-bit output: PLL_BASE feedback output
       -- CLKOUT0 - CLKOUT5: 1-bit (each) output: Clock outputs
-      CLKOUT0 => CLKu,      CLKOUT1 => CLK_MEMu,
-      CLKOUT2 => clk_cam,      CLKOUT3 => open,
+      CLKOUT0 => clku,      CLKOUT1 => CLK_MEMu,
+      CLKOUT2 => clk_cam,   CLKOUT3 => open,
       CLKOUT4 => open,      CLKOUT5 => open,
       LOCKED  => open,  -- 1-bit output: PLL_BASE lock status output
       CLKFBIN => CLKFB, -- 1-bit input: Feedback clock input
@@ -201,7 +209,7 @@ PLL_BASE_inst : PLL_BASE generic map (
 
    -- Buffering of clocks
 BUFG_1 : BUFG port map (O => clkb,    I => clk_50);
-BUFG_2 : BUFG port map (O => clk_MEM, I => clk_MEMu);
+BUFG_2 : BUFG port map (O => CLK_MEM, I => CLK_MEMu);
 BUFG_3 : BUFG port map (O => clk,     I => clku);
 BUFG_4 : BUFG port map (O => clk_cam_buff,    I => clk_cam);
 
