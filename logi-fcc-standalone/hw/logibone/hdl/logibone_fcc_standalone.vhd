@@ -10,6 +10,9 @@ use IEEE.NUMERIC_STD.ALL;
 library UNISIM;
 use UNISIM.VComponents.all;
 
+library work ;
+use work.conf_pack.all ;
+
 entity logibone_fcc_standalone is
     Port ( clk_50      : in  STD_LOGIC;
            led        : out  STD_LOGIC_VECTOR(1 downto 0);
@@ -109,7 +112,7 @@ architecture Behavioral of logibone_fcc_standalone is
 	end component;
 
    -- signals for clocking
-   signal clk, clku, clk_mem, clk_memu, clkfb, clkb, clk_cam, clk_cam_buff   : std_logic;
+   signal clk, clku, clk_mem, clk_memu, clkfb, clkb, clk_cam, clk_cam_buff, clk_locked   : std_logic;
    
    -- signals to interface with the memory controller
    signal cmd_address     : std_logic_vector(22 downto 0) := (others => '0');
@@ -136,6 +139,10 @@ architecture Behavioral of logibone_fcc_standalone is
 	signal cam_data : std_logic_vector(7 downto 0);
 	signal cam_pclk, cam_href, cam_vsync, cam_xclk : std_logic ;
 
+
+	signal rom_addr : std_logic_vector(7 downto 0);
+	signal rom_data : std_logic_vector(15 downto 0);
+	for all : yuv_register_rom use entity work.yuv_register_rom(ov7670_qvga);
 	begin
 	
 	sdram_test_reset <= sw(0);
@@ -205,6 +212,25 @@ Inst_SDRAM_Controller: SDRAM_Controller PORT MAP(
    );
 
 
+	conf_rom : yuv_register_rom
+		port map(
+			clk => clk_cam_buff, en => '1' ,
+			data => rom_data,
+			addr => rom_addr
+		);
+
+	camera_conf_block : i2c_conf 
+		generic map(ADD_WIDTH => 8 , SLAVE_ADD => "0100001")
+		port map(
+			clock => clk_cam_buff,  -- clk divider for i2c was fixed, need to move to generic
+			resetn => not clk_locked ,		
+			i2c_clk => clk_cam_buff ,
+			scl => PMOD2(6),
+			sda => PMOD2(2), 
+			reg_addr => rom_addr ,
+			reg_data => rom_data
+		);	
+
 	camera0: yuv_camera_interface
 		port map(
 			clock => clk,
@@ -271,7 +297,7 @@ PLL_BASE_inst : PLL_BASE generic map (
       CLKOUT0 => clku,      CLKOUT1 => CLK_MEMu,
       CLKOUT2 => clk_cam,   CLKOUT3 => open,
       CLKOUT4 => open,      CLKOUT5 => open,
-      LOCKED  => open,  -- 1-bit output: PLL_BASE lock status output
+      LOCKED  => clk_locked,  -- 1-bit output: PLL_BASE lock status output
       CLKFBIN => CLKFB, -- 1-bit input: Feedback clock input
       CLKIN   => clkb,  -- 1-bit input: Clock input
       RST     => '0'    -- 1-bit input: Reset input
