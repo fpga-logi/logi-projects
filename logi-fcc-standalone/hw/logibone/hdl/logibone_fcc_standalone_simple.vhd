@@ -207,7 +207,7 @@ PLL_BASE_inst : PLL_BASE generic map (
       -- CLKOUT0_DIVIDE - CLKOUT5_DIVIDE: Divide amount for CLKOUT# clock output (1-128)
 		CLKOUT0_DIVIDE => 8,  --SYSCLK = clk
 		CLKOUT1_DIVIDE => 10,  --SDRAM
-      CLKOUT2_DIVIDE => 128,  --CAM 
+      CLKOUT2_DIVIDE => 16,  --CAM @25Mhz
 		CLKOUT3_DIVIDE => 128,
       CLKOUT4_DIVIDE => 128,       CLKOUT5_DIVIDE => 1,
       -- CLKOUT0_DUTY_CYCLE - CLKOUT5_DUTY_CYCLE: Duty cycle for CLKOUT# clock output (0.01-0.99).
