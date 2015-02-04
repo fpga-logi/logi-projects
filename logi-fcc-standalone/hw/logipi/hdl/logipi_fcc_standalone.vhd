@@ -147,8 +147,8 @@ architecture Behavioral of logipi_fcc_standalone is
 	
 	begin
 	
-	sdram_test_reset <= sw(0);
-	sseg_test_reset <= sw(1);
+	sdram_test_reset <= not(sw(0));
+	sseg_test_reset <= not(sw(1));
 	
 	
 i_error_blink : blinker PORT MAP(
@@ -247,7 +247,7 @@ end process ;
 
 SSEG_0 : sseg_4x 
 generic map(
-		  clock_freq_hz => 100_000_000,
+		  clock_freq_hz => 50_000_000,
 		  refresh_rate_hz => 100
 	 )
 port map(
@@ -279,20 +279,30 @@ port map(
 
 
 PLL_BASE_inst : PLL_BASE generic map (
+		--100mhz: 	M=12, D=6 ; M=8 D=4
+		--75Mhz 		M=12, D=8 
+		--50Mhz = 	M=12 D=12
+		--100mhz: 	M=12, D=6 
+		--75Mhz 		M=12, D=8 
+		--50Mhz = 	M=12 D=12 ; M=8 D=8
+		--30Mhz = 	M=8 D=13
+		--25Mhz = M=8 D=16
+		--23.5Mhz = M=8 D=17
+		--8Mhz = 	M=8 D=50
+		--4Mhz = 	M=8 D=100
+		--3.125Mhz = 	M=8 D=128
       BANDWIDTH => "OPTIMIZED",             -- "HIGH", "LOW" or "OPTIMIZED" 
-      --!CLKFBOUT_MULT => 24,                  -- Multiply value for all CLKOUT clock outputs (1-64)
-      CLKFBOUT_MULT => 12,  --100mhz logi                -- Multiply value for all CLKOUT clock outputs (1-64)
-		--CLKFBOUT_MULT => 18,		--150mhz logi
-		--CLKFBOUT_MULT => 14,
+      CLKFBOUT_MULT => 8,                  -- Multiply value for all CLKOUT clock outputs (1-64)
 		CLKFBOUT_PHASE => 0.0,                -- Phase offset in degrees of the clock feedback output (0.0-360.0).
       --!CLKIN_PERIOD => 31.25,               -- Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
       CLKIN_PERIOD => 20.00,               -- Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
 
       -- CLKOUT0_DIVIDE - CLKOUT5_DIVIDE: Divide amount for CLKOUT# clock output (1-128)
-      --CLKOUT0_DIVIDE => 10,       CLKOUT1_DIVIDE => 10,  --100mhz logi
-		CLKOUT0_DIVIDE => 6,       CLKOUT1_DIVIDE => 6,  --100mhz
-      CLKOUT2_DIVIDE => 25,       CLKOUT3_DIVIDE => 1,
-      CLKOUT4_DIVIDE => 1,       CLKOUT5_DIVIDE => 1,
+		CLKOUT0_DIVIDE => 8,  --SYSCLK = clk
+		CLKOUT1_DIVIDE => 10,  --SDRAM
+      CLKOUT2_DIVIDE => 128,  
+		CLKOUT3_DIVIDE => 128,
+      CLKOUT4_DIVIDE => 128,       CLKOUT5_DIVIDE => 1,
       -- CLKOUT0_DUTY_CYCLE - CLKOUT5_DUTY_CYCLE: Duty cycle for CLKOUT# clock output (0.01-0.99).
       CLKOUT0_DUTY_CYCLE => 0.5, CLKOUT1_DUTY_CYCLE => 0.5,
       CLKOUT2_DUTY_CYCLE => 0.5, CLKOUT3_DUTY_CYCLE => 0.5,
