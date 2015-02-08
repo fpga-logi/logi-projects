@@ -280,11 +280,15 @@ begin
 			clock => clk_sys,
 			resetn => sys_resetn,
 			pixel_data => cam_data, 
-			pxclk => cam_pclk, href => cam_href, vsync => cam_vsync,
-			pixel_clock_out => pxclk_from_interface, hsync_out => href_from_interface, vsync_out => vsync_from_interface,
-			y_data => pixel_y_from_interface,
-			u_data => pixel_u_from_interface,
-			v_data => pixel_v_from_interface
+			pclk => cam_pclk, 
+			href => cam_href, 
+			vsync => cam_vsync,
+			pixel_out_clk => pxclk_from_interface, 
+			pixel_out_hsync => href_from_interface, 
+			pixel_out_vsync => vsync_from_interface,
+			pixel_out_y_data => pixel_y_from_interface,
+			pixel_out_u_data => pixel_u_from_interface,
+			pixel_out_v_data => pixel_v_from_interface
 					
 		);	
 		
@@ -306,14 +310,14 @@ begin
 		port map(
 					clk => clk_sys ,
 					resetn => sys_resetn ,
-					pixel_clock => pxclk_from_interface, 
-					hsync => href_from_interface, 
-					vsync =>  vsync_from_interface,
-					pixel_clock_out => pxclk_from_gauss, 
-					hsync_out => href_from_gauss, 
-					vsync_out => vsync_from_gauss, 
-					pixel_data_in => pixel_y_from_interface,  
-					pixel_data_out => pixel_from_gauss
+					pixel_in_clk => pxclk_from_interface, 
+					pixel_in_hsync => href_from_interface, 
+					pixel_in_vsync =>  vsync_from_interface,
+					pixel_out_clk => pxclk_from_gauss, 
+					pixel_out_hsync => href_from_gauss, 
+					pixel_out_vsync => vsync_from_gauss, 
+					pixel_in_data => pixel_y_from_interface,  
+					pixel_out_data => pixel_from_gauss
 		);		
 		
 	
@@ -323,10 +327,14 @@ begin
 		port map(
 			clk => clk_sys ,
 			resetn => sys_resetn ,
-			pixel_clock => pxclk_from_gauss, hsync => href_from_gauss, vsync =>  vsync_from_gauss,
-			pixel_clock_out => pxclk_from_sobel, hsync_out => href_from_sobel, vsync_out => vsync_from_sobel, 
-			pixel_data_in => pixel_from_gauss,  
-			pixel_data_out => pixel_from_sobel
+			pixel_in_clk => pxclk_from_gauss, 
+			pixel_in_hsync => href_from_gauss, 
+			pixel_in_vsync =>  vsync_from_gauss,
+			pixel_out_clk => pxclk_from_sobel, 
+			pixel_out_hsync => href_from_sobel, 
+			pixel_out_vsync => vsync_from_sobel, 
+			pixel_in_data => pixel_from_gauss,  
+			pixel_out_data => pixel_from_sobel
 		);	
 
 
@@ -335,13 +343,13 @@ begin
 	port map(
 			clk => clk_sys,
 			resetn => sys_resetn, 
-			pixel_clock => pxclk_from_interface, 
-			hsync => href_from_interface,
-			vsync => vsync_from_interface, 
-			pixel_clock_out =>pxclk_from_harris,
-			hsync_out => href_from_harris, 
-			vsync_out => vsync_from_harris,
-			pixel_data_in =>  pixel_y_from_interface,
+			pixel_in_clk => pxclk_from_interface, 
+			pixel_in_hsync => href_from_interface,
+			pixel_in_vsync => vsync_from_interface, 
+			pixel_out_clk =>pxclk_from_harris,
+			pixel_out_hsync => href_from_harris, 
+			pixel_out_vsync => vsync_from_harris,
+			pixel_in_data =>  pixel_y_from_interface,
 			harris_out => harris_resp 
 	);
 	signed_harris_resp <= signed(harris_resp) ;
@@ -358,32 +366,32 @@ begin
 		video_switch_inst: video_switch
 		generic map(NB	=>  4)
 		port map(
-			pixel_clock(0) => pxclk_from_interface, 
-			pixel_clock(1) => pxclk_from_gauss, 
-			pixel_clock(2) => pxclk_from_sobel, 
-			pixel_clock(3) => pxclk_from_harris,
+			pixel_in_clk(0) => pxclk_from_interface, 
+			pixel_in_clk(1) => pxclk_from_gauss, 
+			pixel_in_clk(2) => pxclk_from_sobel, 
+			pixel_in_clk(3) => pxclk_from_harris,
 
-			hsync(0) => href_from_interface,
-			hsync(1) => href_from_gauss, 
-			hsync(2) => href_from_sobel,
-			hsync(3) => href_from_harris,
-
-
-			vsync(0) => vsync_from_interface,
-			vsync(1) => vsync_from_gauss,
-			vsync(2) => vsync_from_sobel,
-			vsync(3) => vsync_from_harris,
-
-			pixel_data(0) => pixel_y_from_interface	,
-			pixel_data(1) => pixel_from_gauss	,
-			pixel_data(2) => pixel_from_sobel	,
-			pixel_data(3) => pixel_from_harris	,
+			pixel_in_hsync(0) => href_from_interface,
+			pixel_in_hsync(1) => href_from_gauss, 
+			pixel_in_hsync(2) => href_from_sobel,
+			pixel_in_hsync(3) => href_from_harris,
 
 
-			pixel_clock_out => pxclk_from_switch, 
-			hsync_out => href_from_switch, 
-			vsync_out => vsync_from_switch,
-			pixel_data_out => pixel_from_switch,
+			pixel_in_vsync(0) => vsync_from_interface,
+			pixel_in_vsync(1) => vsync_from_gauss,
+			pixel_in_vsync(2) => vsync_from_sobel,
+			pixel_in_vsync(3) => vsync_from_harris,
+
+			pixel_in_data(0) => pixel_y_from_interface	,
+			pixel_in_data(1) => pixel_from_gauss	,
+			pixel_in_data(2) => pixel_from_sobel	,
+			pixel_in_data(3) => pixel_from_harris	,
+
+
+			pixel_out_clk => pxclk_from_switch, 
+			pixel_out_hsync => href_from_switch, 
+			pixel_out_vsync => vsync_from_switch,
+			pixel_out_data => pixel_from_switch,
 			channel(1 downto 0) => switch_value(1 downto 0),
 			channel(7 downto 2) => "000000"
 		);
@@ -398,25 +406,25 @@ begin
 --			pixel_clock => pxclk_from_interface, 
 --			hsync => href_from_interface,
 --			vsync => vsync_from_interface,
-			pixel_clock => pxclk_from_switch, 
-			hsync => href_from_switch,
-			vsync => vsync_from_switch,
-			pixel_clock_out => pxclk_from_ds, 
-			hsync_out => href_from_ds, 
-			vsync_out=> vsync_from_ds,
-			pixel_data_in => pixel_from_switch,
-			pixel_data_out=> pixel_y_from_ds
+			pixel_in_clk => pxclk_from_switch, 
+			pixel_in_hsync => href_from_switch,
+			pixel_in_vsync => vsync_from_switch,
+			pixel_out_clk => pxclk_from_ds, 
+			pixel_out_hsync => href_from_ds, 
+			pixel_out_vsync=> vsync_from_ds,
+			pixel_in_data => pixel_from_switch,
+			pixel_out_data=> pixel_y_from_ds
 		); 
 		
-		pixel_to_fifo : yuv_pixel2fifo
+		pixel_to_fifo : yuv_to_fifo
 		port map(
 			clk => clk_sys, resetn => sys_resetn,
-			pixel_clock => pxclk_from_ds, 
-			hsync => href_from_ds, 
-			vsync => vsync_from_ds,
-			pixel_y => pixel_y_from_ds,
-			pixel_u => X"80",--pixel_u_from_interface,
-			pixel_v => X"80",--pixel_v_from_interface,
+			pixel_in_clk => pxclk_from_ds, 
+			pixel_in_hsync => href_from_ds, 
+			pixel_in_vsync => vsync_from_ds,
+			pixel_in_y_data => pixel_y_from_ds,
+			pixel_in_u_data => X"80",--pixel_u_from_interface,
+			pixel_in_v_data => X"80",--pixel_v_from_interface,
 			fifo_data => preview_fifo_input,
 			fifo_wr => preview_fifo_wr,
 			sreset => '0'			--mj added, not sure if this will conflict.  
