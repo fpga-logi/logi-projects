@@ -18,7 +18,13 @@ entity logibone_fcc_standalone_simple is
            led        : out  STD_LOGIC_VECTOR(1 downto 0);
 			  sw        : in  STD_LOGIC_VECTOR(1 downto 0);
 			  
-			  PMOD1, PMOD2 : inout std_logic_vector(7 downto 0);
+			  PMOD1: in std_logic_vector(7 downto 0); 
+			  --clk = 
+			  PMOD2 : inout std_logic_vector(7 downto 0);
+			 		  
+--			  PMOD2(7 downto 4): in std_logic_vector(3 downto 0);
+--			  PMOD2(2 downto 0): in std_logic_vector(2 downto 0);
+--			  PMOD2(3) : out std_logic;
 			  
            SDRAM_CLK   : out  STD_LOGIC;
            SDRAM_CKE   : out  STD_LOGIC;
@@ -46,6 +52,7 @@ architecture Behavioral of logibone_fcc_standalone_simple is
 	END COMPONENT;
 
    
+	
 	
 	component yuv_camera_interface is
 	port(
@@ -93,6 +100,7 @@ architecture Behavioral of logibone_fcc_standalone_simple is
 	signal rom_addr : std_logic_vector(7 downto 0);
 	signal rom_data : std_logic_vector(15 downto 0);
 	for all : yuv_register_rom use entity work.yuv_register_rom(ov7670_qvga);
+	
 	begin
 	
 	sdram_test_reset <= not sw(0);
@@ -194,12 +202,13 @@ PLL_BASE_inst : PLL_BASE generic map (
 		--75Mhz 		M=12, D=8 
 		--50Mhz = 	M=12 D=12 ; M=8 D=8
 		--30Mhz = 	M=8 D=13
-		--23.5Mhz = 	M=8 D=17
+		--25Mhz = M=8 D=16
+		--23.5Mhz = M=8 D=17
 		--8Mhz = 	M=8 D=50
 		--4Mhz = 	M=8 D=100
 		--3.125Mhz = 	M=8 D=128
       BANDWIDTH => "OPTIMIZED",             -- "HIGH", "LOW" or "OPTIMIZED" 
-      CLKFBOUT_MULT => 8,  --100mhz logi                -- Multiply value for all CLKOUT clock outputs (1-64)
+      CLKFBOUT_MULT => 8,                  -- Multiply value for all CLKOUT clock outputs (1-64)
 		CLKFBOUT_PHASE => 0.0,                -- Phase offset in degrees of the clock feedback output (0.0-360.0).
       --!CLKIN_PERIOD => 31.25,               -- Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
       CLKIN_PERIOD => 20.00,               -- Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
@@ -207,7 +216,7 @@ PLL_BASE_inst : PLL_BASE generic map (
       -- CLKOUT0_DIVIDE - CLKOUT5_DIVIDE: Divide amount for CLKOUT# clock output (1-128)
 		CLKOUT0_DIVIDE => 8,  --SYSCLK = clk
 		CLKOUT1_DIVIDE => 10,  --SDRAM
-      CLKOUT2_DIVIDE => 16,  --CAM @25Mhz
+      CLKOUT2_DIVIDE => 50,  --CAM 
 		CLKOUT3_DIVIDE => 128,
       CLKOUT4_DIVIDE => 128,       CLKOUT5_DIVIDE => 1,
       -- CLKOUT0_DUTY_CYCLE - CLKOUT5_DUTY_CYCLE: Duty cycle for CLKOUT# clock output (0.01-0.99).
