@@ -39,14 +39,18 @@ ARCHITECTURE behavior OF ping_tb IS
  
     -- Component Declaration for the Unit Under Test (UUT)
 	 
-	 COMPONENT ping_sensor_v2
+	 COMPONENT ping_sensor
     PORT(
-         clk : IN  std_logic;
-         reset : IN  std_logic;
-			ping_io: inout std_logic;
-         ping_enable : IN  std_logic;
-			echo_length : out std_logic_vector(15 downto 0);
-		   echo_done_out: out std_logic
+				clk : in std_logic;
+				reset: in std_logic;
+				--ping signals
+				ping_io: inout std_logic;  	--tristate option usage
+				echo_length : out std_logic_vector(15 downto 0);
+				ping_enable: in std_logic;
+				echo_done_out: out std_logic;
+				state_debug: out std_logic_vector(2 downto 0);
+				timeout: out std_logic;
+				busy : out std_logic
         );
     END COMPONENT;
     
@@ -67,7 +71,7 @@ ARCHITECTURE behavior OF ping_tb IS
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: ping_sensor_v2 PORT MAP (
+   uut: ping_sensor PORT MAP (
           clk => clk,
           reset => reset,
           ping_io => ping_io,
@@ -90,17 +94,19 @@ BEGIN
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
-      reset <= '1';
+      ping_io <= 'Z' ;
+		reset <= '1';
 		wait for 100 ns;	
 		reset <= '0';
 		ping_enable <= '1' ;
-		
-		ping_io <= '0' ;
 		wait for 10 ns;
 		ping_io <= 'Z' ;
 		-- normal case
 		wait until ping_io = '1';
-		wait until ping_io = '0' or ping_io = 'Z';
+		report "Ping gets triggered" ;
+		wait until ping_io = '0';
+		report "End of trigger" ;
+		ping_io <= '0';
 		wait for 5ms ;
 		ping_io <= '1';
 		wait for 15ms ;

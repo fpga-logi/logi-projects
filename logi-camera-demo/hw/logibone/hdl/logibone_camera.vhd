@@ -92,6 +92,23 @@ architecture Behavioral of logibone_camera is
 	signal intercon_fifo0_wbm_ack :  std_logic;
 	signal intercon_fifo0_wbm_cycle :  std_logic;
 	
+	signal intercon_reg0_wbm_address :  std_logic_vector(15 downto 0);
+	signal intercon_reg0_wbm_readdata :  std_logic_vector(15 downto 0);
+	signal intercon_reg0_wbm_writedata :  std_logic_vector(15 downto 0);
+	signal intercon_reg0_wbm_strobe :  std_logic;
+	signal intercon_reg0_wbm_write :  std_logic;
+	signal intercon_reg0_wbm_ack :  std_logic;
+	signal intercon_reg0_wbm_cycle :  std_logic;
+	
+	signal intercon_mem0_wbm_address :  std_logic_vector(15 downto 0);
+	signal intercon_mem0_wbm_readdata :  std_logic_vector(15 downto 0);
+	signal intercon_mem0_wbm_writedata :  std_logic_vector(15 downto 0);
+	signal intercon_mem0_wbm_strobe :  std_logic;
+	signal intercon_mem0_wbm_write :  std_logic;
+	signal intercon_mem0_wbm_ack :  std_logic;
+	signal intercon_mem0_wbm_cycle :  std_logic;
+	
+	
 	
 	
 	signal cam_data : std_logic_vector(7 downto 0);
@@ -181,7 +198,10 @@ port map
 
 
 intercon0 : wishbone_intercon
-generic map(memory_map => (0 => "000000XXXXXXXXXX") -- fifo0
+generic map(memory_map =>("000000XXXXXXXXXX",-- fifo0
+				 "0000010000000000",-- reg0 (cam reset, conf enable)
+				 "0000011XXXXXXXXX"-- conf rom 
+) 
 )
 port map(
 		gls_reset => gls_reset,
@@ -198,13 +218,33 @@ port map(
 		
 		-- Wishbone master signals
 		wbm_address(0) => intercon_fifo0_wbm_address,
-		
+		wbm_address(1) => intercon_reg0_wbm_address,
+		wbm_address(2) => intercon_mem0_wbm_address,
+
 		wbm_writedata(0)  => intercon_fifo0_wbm_writedata,
+		wbm_writedata(1)  => intercon_reg0_wbm_writedata,
+		wbm_writedata(2)  => intercon_mem0_wbm_writedata,
+
 		wbm_readdata(0)  => intercon_fifo0_wbm_readdata,
+		wbm_readdata(1)  => intercon_reg0_wbm_readdata,
+		wbm_readdata(2)  => intercon_mem0_wbm_readdata,
+
 		wbm_strobe(0)  => intercon_fifo0_wbm_strobe,
+		wbm_strobe(1)  => intercon_reg0_wbm_strobe,
+		wbm_strobe(2)  => intercon_mem0_wbm_strobe,
+
 		wbm_cycle(0)   => intercon_fifo0_wbm_cycle,
+		wbm_cycle(1)   => intercon_reg0_wbm_cycle,
+		wbm_cycle(2)   => intercon_mem0_wbm_cycle,
+
 		wbm_write(0)   => intercon_fifo0_wbm_write,
-		wbm_ack(0)      => intercon_fifo0_wbm_ack
+		wbm_write(1)   => intercon_reg0_wbm_write,
+		wbm_write(2)   => intercon_mem0_wbm_write,
+
+		wbm_ack(0)      => intercon_fifo0_wbm_ack,
+		wbm_ack(1)      => intercon_reg0_wbm_ack,
+		wbm_ack(2)      => intercon_mem0_wbm_ack
+
 		
 );
 
@@ -242,24 +282,59 @@ bi_fifo0 : wishbone_fifo
 		fifoB_reset => reset_pipeline
 		);
  
- conf_rom : yuv_register_rom
-	port map(
-	   clk => gls_clk, en => '1' ,
- 		data => rom_data,
- 		addr => rom_addr
-	); 
  
- camera_conf_block : i2c_conf 
-	generic map(ADD_WIDTH => 8 , SLAVE_ADD => "0100001")
-	port map(
-		clock => clk_24, 
-		resetn => gls_resetn ,		
- 		i2c_clk => clk_24 ,
-		scl => PMOD2(6),
- 		sda => PMOD2(2), 
-		reg_addr => rom_addr ,
-		reg_data => rom_data
-	);	
+ reg0 : wishbone_register
+	generic map(nb_regs =>1)
+	 port map 
+	 (
+		  gls_clk => gls_clk,
+			gls_reset => gls_reset,
+
+			wbs_address  => intercon_reg0_wbm_address , 
+			wbs_writedata => intercon_reg0_wbm_writedata,
+			wbs_readdata  => intercon_reg0_wbm_readdata,
+			wbs_strobe   => intercon_reg0_wbm_strobe,
+			wbs_cycle    => intercon_reg0_wbm_cycle,
+			wbs_write    => intercon_reg0_wbm_write,
+			wbs_ack      => intercon_reg0_wbm_ack,
+		  -- out signals
+		  reg_out(0)(0) => reset_conf,
+		  reg_in(0) => (others => '0')
+	 );
+ 
+mem0 :wishbone_shared_mem 
+generic map( mem_size => 128 )
+port map(
+			gls_clk => gls_clk,
+			gls_reset => gls_reset,
+
+			wbs_address  => intercon_mem0_wbm_address , 
+			wbs_writedata => intercon_mem0_wbm_writedata,
+			wbs_readdata  => intercon_mem0_wbm_readdata,
+			wbs_strobe   => intercon_mem0_wbm_strobe,
+			wbs_cycle    => intercon_mem0_wbm_cycle,
+			wbs_write    => intercon_mem0_wbm_write,
+			wbs_ack      => intercon_mem0_wbm_ack,
+		  
+		  
+		  -- Logic signals
+		  write_in => '0',
+		  addr_in => rom_addr,
+		  data_in => (others => '0'),
+		  data_out => rom_data
+		  );
+ 
+camera_conf_block : i2c_conf 
+generic map(ADD_WIDTH => 8 , SLAVE_ADD => "0100001")
+port map(
+	clock => clk_24, 
+	resetn => reset_conf ,		
+	i2c_clk => clk_24 ,
+	scl => PMOD2(6),
+	sda => PMOD2(2), 
+	reg_addr => rom_addr ,
+	reg_data => rom_data
+);	
 		
  camera0: yuv_camera_interface
 		port map(clock => gls_clk,
@@ -280,97 +355,6 @@ bi_fifo0 : wishbone_fifo
 	cam_vsync <= PMOD2(5) ;
 	PMOD2(0) <= cam_reset ;
 	cam_reset <= gls_resetn ;
-
-
-	
-	gauss3x3_0	: gauss3x3 
-		generic map(WIDTH => IMAGE_WIDTH,
-				  HEIGHT => IMAGE_HEIGHT)
-		port map(
-					clk => gls_clk ,
-					resetn => gls_resetn ,
-					pixel_clock => pxclk_from_interface, 
-					hsync => href_from_interface, 
-					vsync =>  vsync_from_interface,
-					pixel_clock_out => pxclk_from_gauss, 
-					hsync_out => href_from_gauss, 
-					vsync_out => vsync_from_gauss, 
-					pixel_data_in => pixel_y_from_interface,  
-					pixel_data_out => pixel_from_gauss
-		);		
-		
-	
-	sobel0: sobel3x3
-		generic map(WIDTH => IMAGE_WIDTH,
-				  HEIGHT => IMAGE_HEIGHT)
-		port map(
-			clk => gls_clk ,
-			resetn => gls_resetn ,
-			pixel_clock => pxclk_from_gauss, hsync => href_from_gauss, vsync =>  vsync_from_gauss,
-			pixel_clock_out => pxclk_from_sobel, hsync_out => href_from_sobel, vsync_out => vsync_from_sobel, 
-			pixel_data_in => pixel_from_gauss,  
-			pixel_data_out => pixel_from_sobel
-		);	
-
-
-	harris_detector : HARRIS 
-	generic map(WIDTH => IMAGE_WIDTH, HEIGHT => IMAGE_HEIGHT, WINDOW_SIZE => 5, DS_FACTOR => 2)
-	port map(
-			clk => gls_clk,
-			resetn => gls_resetn, 
-			pixel_clock => pxclk_from_interface, 
-			hsync => href_from_interface,
-			vsync => vsync_from_interface, 
-			pixel_clock_out =>pxclk_from_harris,
-			hsync_out => href_from_harris, 
-			vsync_out => vsync_from_harris,
-			pixel_data_in =>  pixel_y_from_interface,
-			harris_out => harris_resp 
-	);
-	signed_harris_resp <= signed(harris_resp) ;
-
-	pixel_from_harris <=  (others => '0') when harris_resp(15) = '1' else
-								  harris_resp(7 downto 0) when signed_harris_resp < 256 else
-								  (others => '1');
-								  
-								  
-								  
-
-
-
-		video_switch_inst: video_switch
-		generic map(NB	=>  4)
-		port map(
-			pixel_clock(0) => pxclk_from_interface, 
-			pixel_clock(1) => pxclk_from_gauss, 
-			pixel_clock(2) => pxclk_from_sobel, 
-			pixel_clock(3) => pxclk_from_harris,
-
-			hsync(0) => href_from_interface,
-			hsync(1) => href_from_gauss, 
-			hsync(2) => href_from_sobel,
-			hsync(3) => href_from_harris,
-
-
-			vsync(0) => vsync_from_interface,
-			vsync(1) => vsync_from_gauss,
-			vsync(2) => vsync_from_sobel,
-			vsync(3) => vsync_from_harris,
-
-			pixel_data(0) => pixel_y_from_interface	,
-			pixel_data(1) => pixel_from_gauss	,
-			pixel_data(2) => pixel_from_sobel	,
-			pixel_data(3) => pixel_from_harris	,
-
-
-			pixel_clock_out => pxclk_from_switch, 
-			hsync_out => href_from_switch, 
-			vsync_out => vsync_from_switch,
-			pixel_data_out => pixel_from_switch,
-			channel(1 downto 0) => switch_value(1 downto 0),
-			channel(7 downto 2) => "000000"
-		);
-		switch_value <= SW ;
 	
 
 	pixel_to_fifo : yuv_pixel2fifo
@@ -378,11 +362,11 @@ bi_fifo0 : wishbone_fifo
 			clk => gls_clk, resetn => gls_resetn,
 			sreset => reset_pipeline , -- should wire to a register to allow to reset 
 			pixel_clock => pxclk_from_switch, 
-			hsync => href_from_switch, 
-			vsync => vsync_from_switch,
-			pixel_y => pixel_from_switch,
-			pixel_u => X"80",
-			pixel_v => X"80",
+			hsync => href_from_interface, 
+			vsync => vsync_from_interface,
+			pixel_y => pixel_y_from_interface,
+			pixel_u => pixel_u_from_interface,
+			pixel_v => pixel_v_from_interface,
 			fifo_data => preview_fifo_input,
 			fifo_wr => preview_fifo_wr
 		);	

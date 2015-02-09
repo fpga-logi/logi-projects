@@ -24,7 +24,7 @@ TIMESPEC TS_PER_CLK100 = PERIOD "clk100_grp" 20.0 ns;
 #######################
 
 #OSCILLATOR
-NET "OSC_FPGA"				LOC = "P85";
+NET "OSC_FPGA"	LOC = "P85" | IOSTANDARD = LVTTL ;
 
 ##MISC###################################################################################
 #NET "ARD_SCL" LOC = "P80" | IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW ;
@@ -106,7 +106,7 @@ NET "LED<1>"           LOC = "P74"| IOSTANDARD = LVTTL | DRIVE = 2 | SLEW = SLOW
 
 #SDRAM###########################################################################################
 NET "SDRAM_CKE"	LOC = P24		| IOSTANDARD = LVTTL  | IOB=TRUE  ;	
-NET "SDRAM_CLK"	LOC = P23		| IOSTANDARD = LVTTL  | SLEW = FAST | IOB=TRUE  ;
+NET "SDRAM_CLK"	LOC = P23		| IOSTANDARD = LVTTL  | SLEW = SLOW | IOB=TRUE  ;
 NET "SDRAM_nCAS"	LOC = P143	| IOSTANDARD = LVTTL  | IOB=TRUE  ;	
 NET "SDRAM_nRAS"	LOC = P142	| IOSTANDARD = LVTTL  | IOB=TRUE  ;
 NET "SDRAM_nWE"	LOC = P144	| IOSTANDARD = LVTTL  | IOB=TRUE  ;

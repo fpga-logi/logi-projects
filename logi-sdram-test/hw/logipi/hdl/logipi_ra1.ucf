@@ -42,7 +42,7 @@ NET "LED<1>"        LOC = "P104" | IOSTANDARD = LVTTL;		#SHARED WITH ARD_D7
 
 #SDRAM#########################################################################
 NET "SDRAM_CKE"	LOC = "P48"		| IOSTANDARD = LVTTL ;
-NET "SDRAM_CLK"	LOC = "P50"	| IOSTANDARD = LVTTL | SLEW = FAST ;
+NET "SDRAM_CLK"	LOC = "P50"	| IOSTANDARD = LVTTL ;
 NET "SDRAM_nCAS"	LOC = "P7"	| IOSTANDARD = LVTTL  ;
 NET "SDRAM_nRAS"	LOC = "P6"	| IOSTANDARD = LVTTL ;
 NET "SDRAM_nWE"	LOC = "P8"	| IOSTANDARD = LVTTL  ;

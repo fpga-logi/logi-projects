@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2014-07-02T01:02:25</DateModified>
+  <DateModified>2014-11-18T11:00:51</DateModified>
   <ModuleName>top_level</ModuleName>
-  <SummaryTimeStamp>2014-07-01T01:19:10</SummaryTimeStamp>
+  <SummaryTimeStamp>2014-07-03T17:52:48</SummaryTimeStamp>
   <SavedFilePath>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-sdram-test/hw/logipi/ise/iseconfig/top_level.xreport</SavedFilePath>
   <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-sdram-test/hw/logipi/work/</ImplementationReportsDirectory>
   <DateInitialized>2014-06-23T20:14:29</DateInitialized>

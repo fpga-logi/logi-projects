@@ -26,6 +26,7 @@ static const char * device = "/dev/spidev0.0";
 static unsigned int mode = 0 ;
 static unsigned int bits = 8 ;
 static unsigned long speed = 32000000UL ;
+//static unsigned long speed = 4000000UL ;
 static unsigned int delay = 0;
 
 static unsigned char com_buffer [4096] ;

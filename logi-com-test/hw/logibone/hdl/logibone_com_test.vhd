@@ -35,22 +35,20 @@ library work ;
 use work.logi_wishbone_pack.all ;
 use work.logi_wishbone_peripherals_pack.all ;
 
-entity logibone_com_test is
-port( OSC_FPGA : in std_logic;		
-		-- I2C
-			
+entity logibone_com_test_spi is
+port( OSC_FPGA : in std_logic;
+
+		--i2c
 		ARD_SCL, ARD_SDA : inout std_logic ;
 		
-		--gpmc interface
-		GPMC_CSN : in std_logic ;
-		GPMC_BEN:	in std_logic_vector(1 downto 0);
-		GPMC_WEN, GPMC_OEN, GPMC_ADVN :	in std_logic;
-		GPMC_CLK :	in std_logic;
-		GPMC_AD :	inout std_logic_vector(15 downto 0)	
+		LED : out std_logic_vector(1 downto 0);
+		--spi
+		SYS_SPI_SCK, SYS_SPI_SS, SYS_SPI_MOSI : in std_logic ;
+		SYS_SPI_MISO : inout std_logic
 );
-end logibone_com_test;
+end logibone_com_test_spi;
 
-architecture Behavioral of logibone_com_test is
+architecture Behavioral of logibone_com_test_spi is
 
 	component clock_gen
 	port
@@ -93,7 +91,7 @@ architecture Behavioral of logibone_com_test is
 	signal intercon_mem0_wbm_cycle :  std_logic;
 	
 	signal pwm0_cs, reg_cs, mem0_cs : std_logic ;
-	
+	signal register_output : std_logic_vector(15 downto 0);
 
 -- registers signals
 	signal loopback_sig : std_logic_vector(15 downto 0);
@@ -119,30 +117,27 @@ pll0 : clock_gen
 sys_clk <= clk_100Mhz;
 
 
-gpmc2wishbone : gpmc_wishbone_wrapper 
-generic map(sync => true, burst => false)
-port map
-    (
-      -- GPMC SIGNALS
-      gpmc_ad => GPMC_AD, 
-      gpmc_csn => GPMC_CSN,
-      gpmc_oen => GPMC_OEN,
-		gpmc_wen => GPMC_WEN,
-		gpmc_advn => GPMC_ADVN,
-		gpmc_clk => GPMC_CLK,
-		
-      -- Global Signals
-      gls_reset => sys_reset,
-      gls_clk   => sys_clk,
-      -- Wishbone interface signals
-      wbm_address    => intercon_wrapper_wbm_address,  -- Address bus
-      wbm_readdata   => intercon_wrapper_wbm_readdata,  -- Data bus for read access
-      wbm_writedata 	=> intercon_wrapper_wbm_writedata,  -- Data bus for write access
-      wbm_strobe     => intercon_wrapper_wbm_strobe,                      -- Data Strobe
-      wbm_write      => intercon_wrapper_wbm_write,                      -- Write access
-      wbm_ack        => intercon_wrapper_wbm_ack,                      -- acknowledge
-      wbm_cycle      => intercon_wrapper_wbm_cycle                       -- bus cycle in progress
-    );
+mem_interface0 : spi_wishbone_wrapper
+		port map(
+			-- Global Signals
+			gls_reset => sys_reset,
+			gls_clk   => sys_clk,
+			
+			-- SPI signals
+			mosi => SYS_SPI_MOSI,
+			miso => SYS_SPI_MISO,
+			sck => SYS_SPI_SCK,
+			ss => SYS_SPI_SS,
+			
+			  -- Wishbone interface signals
+			wbm_address    => intercon_wrapper_wbm_address,  	-- Address bus
+			wbm_readdata   => intercon_wrapper_wbm_readdata,  	-- Data bus for read access
+			wbm_writedata 	=> intercon_wrapper_wbm_writedata,  -- Data bus for write access
+			wbm_strobe     => intercon_wrapper_wbm_strobe,                      -- Data Strobe
+			wbm_write      => intercon_wrapper_wbm_write,                      -- Write access
+			wbm_ack        => intercon_wrapper_wbm_ack,                      -- acknowledge
+			wbm_cycle      => intercon_wrapper_wbm_cycle                       -- bus cycle in progress
+			);
 
 
 -- Intercon -----------------------------------------------------------
@@ -201,7 +196,7 @@ register0 : wishbone_register
 		  wbs_ack       => intercon_register_wbm_ack,
 		 
 		  -- out signals
-		  reg_out(0) =>open,
+		  reg_out(0) =>register_output,
 		  reg_out(1) => open,
 		  reg_out(2) => loopback_sig,
 		  reg_out(3) => open,
@@ -233,6 +228,8 @@ port map(
 			  wbs_ack       => intercon_mem0_wbm_ack
 		  );
 	 
+	 
+LED <= register_output(1 downto 0);
 
 end Behavioral;
 

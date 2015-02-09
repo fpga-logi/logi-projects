@@ -28,12 +28,12 @@ entity top_level is
 end top_level;
 
 architecture Behavioral of top_level is
-  	constant test_frequency : natural := 100_000_000/2 ;
+  	constant test_frequency : natural := 133_000_000 ;
 	constant test_frequency_mhz : natural := test_frequency/1_000_000 ;
 	constant freq_multiplier : natural := 16 ;
 	constant freq_divider : natural := (freq_multiplier*50_000_000)/test_frequency ;
 	
-	constant low_speed_test : natural := 1 ; -- set only for sub 80Mhz test
+	constant low_speed_test : natural := 0 ; -- set only for sub 80Mhz test
 	
 	constant sdram_address_width : natural := 24;
    constant sdram_column_bits   : natural := 9;

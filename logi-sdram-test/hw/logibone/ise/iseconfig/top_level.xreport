@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2014-07-02T20:19:00</DateModified>
+  <DateModified>2014-07-03T21:17:38</DateModified>
   <ModuleName>top_level</ModuleName>
-  <SummaryTimeStamp>2014-07-02T18:21:50</SummaryTimeStamp>
+  <SummaryTimeStamp>2014-07-02T22:40:06</SummaryTimeStamp>
   <SavedFilePath>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-sdram-test/hw/logibone/ise/iseconfig/top_level.xreport</SavedFilePath>
   <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-sdram-test/hw/logibone/work/</ImplementationReportsDirectory>
   <DateInitialized>2014-06-24T19:29:46</DateInitialized>
@@ -23,7 +23,7 @@
    <view inputState="Translated" program="map" contextTags="FPGA_ONLY" hidden="true" type="Control_Sets" file="top_level_map.xrpt" label="Control Set Information" />
    <view inputState="Translated" program="map" locator="MAP_MODULE_HIERARCHY" contextTags="FPGA_ONLY" type="Module_Utilization" file="top_level_map.xrpt" label="Module Level Utilization" />
    <view inputState="Mapped" program="par" locator="CONSTRAINT_TABLE" contextTags="FPGA_ONLY" type="ConstraintsData" file="top_level.ptwx" label="Timing Constraints" translator="ptwxToTableXML.xslt" />
-   <view inputState="Mapped" program="par" locator="PAR_PINOUT_BY_PIN_NUMBER" contextTags="FPGA_ONLY" type="PinoutData" file="top_level_par.xrpt" label="Pinout Report" />
+   <view inputState="Mapped" program="par" locator="PAR_PINOUT_BY_PIN_NUMBER" contextTags="FPGA_ONLY" type="PinoutData" file="top_level_par.xrpt" showConstraints="0" label="Pinout Report" />
    <view inputState="Mapped" program="par" locator="PAR_CLOCK_TABLE" contextTags="FPGA_ONLY" type="ClocksData" file="top_level_par.xrpt" label="Clock Report" />
    <view inputState="Mapped" program="par" contextTags="FPGA_ONLY,EDK_OFF" type="Timing_Analyzer" file="top_level.twx" label="Static Timing" />
    <view inputState="Translated" program="cpldfit" contextTags="CPLD_ONLY,EDK_OFF" hidden="true" type="EXTERNAL_HTML" file="top_level_html/fit/report.htm" label="CPLD Fitter Report" />

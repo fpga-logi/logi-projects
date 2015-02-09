@@ -42,7 +42,7 @@ architecture structural of logibone_mat is
 		ack : std_logic;
 	end record;
 
-	signal gls_clk, gls_reset, clk_locked, osc_buff, clkfb : std_logic ;
+	signal gls_clk, gls_clk_buff, gls_reset, clk_locked, osc_buff, clkfb : std_logic ;
 
 	signal Master_0_wbm_Intercon_0_wbs_0 : wishbone_bus;
 	signal top_GPMC_CSN_Master_0_gpmc_csn_0 : std_logic;
@@ -226,7 +226,7 @@ PLL_BASE_inst : PLL_BASE generic map (
    ) port map (
       CLKFBOUT => clkfb, -- 1-bit output: PLL_BASE feedback output
       -- CLKOUT0 - CLKOUT5: 1-bit (each) output: Clock outputs
-      CLKOUT0 => gls_clk,      CLKOUT1 => open,
+      CLKOUT0 => gls_clk_buff,      CLKOUT1 => open,
       CLKOUT2 => open,      CLKOUT3 => open,
       CLKOUT4 => open,      CLKOUT5 => open,
       LOCKED  => clk_locked,  -- 1-bit output: PLL_BASE lock status output
@@ -237,5 +237,5 @@ PLL_BASE_inst : PLL_BASE generic map (
 
     -- Buffering of clocks
 	BUFG_1 : BUFG port map (O => osc_buff,    I => OSC_FPGA);
-
+	BUFG_2 : BUFG port map (O => gls_clk,    I => gls_clk_buff);
 end structural ;

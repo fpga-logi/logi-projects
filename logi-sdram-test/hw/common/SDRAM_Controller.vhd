@@ -404,7 +404,8 @@ main_proc: process(clk)
                   if save_wr = '0' then
                      state         <= s_read_1;
                      ready_for_new <= '1'; -- we will be ready for a new transaction next cycle!
-                  end if;
+						   got_transaction <= '0';
+						end if;
                end if;
                
             when s_read_3 => 
@@ -413,7 +414,8 @@ main_proc: process(clk)
                   if save_wr = '0' then
                      state         <= s_read_1;
                      ready_for_new <= '1'; -- we will be ready for a new transaction next cycle!
-                  end if;
+                     got_transaction <= '0';
+						end if;
                end if;
 
             when s_read_4 => 
@@ -423,7 +425,8 @@ main_proc: process(clk)
                   if save_wr = '0' then
                      state         <= s_read_1;
                      ready_for_new <= '1'; -- we will be ready for a new transaction next cycle!
-                  else
+							got_transaction <= '0';
+						else
                      state <= s_open_in_2; -- we have to wait for the read data to come back before we swutch the bus into HiZ
                   end if;
                end if;

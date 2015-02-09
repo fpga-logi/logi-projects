@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-01-17T22:54:27</DateModified>
+  <DateModified>2015-01-20T09:10:38</DateModified>
   <ModuleName>logipi_bin_cam</ModuleName>
   <SummaryTimeStamp>2015-01-13T23:42:32</SummaryTimeStamp>
   <SavedFilePath>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-camera-bin/hw/logipi/ise/iseconfig/logipi_bin_cam.xreport</SavedFilePath>

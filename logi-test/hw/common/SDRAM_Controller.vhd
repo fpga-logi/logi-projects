@@ -396,14 +396,15 @@ main_proc: process(clk)
                -- Set the data masks to read all bytes
                iob_dqm            <= (others => '0');
                dqm_sr(1 downto 0) <= (others => '0');
-               
+
             when s_read_2 =>
                state <= s_read_3;
                if forcing_refresh = '0' and got_transaction = '1' and can_back_to_back = '1' then
                   if save_wr = '0' then
                      state         <= s_read_1;
                      ready_for_new <= '1'; -- we will be ready for a new transaction next cycle!
-                  end if;
+							got_transaction <= '0'; -- reset got transaction
+						end if;
                end if;
                
             when s_read_3 => 
@@ -412,7 +413,8 @@ main_proc: process(clk)
                   if save_wr = '0' then
                      state         <= s_read_1;
                      ready_for_new <= '1'; -- we will be ready for a new transaction next cycle!
-                  end if;
+							got_transaction <= '0'; -- reset got transaction
+						end if;
                end if;
 
             when s_read_4 => 
@@ -422,7 +424,8 @@ main_proc: process(clk)
                   if save_wr = '0' then
                      state         <= s_read_1;
                      ready_for_new <= '1'; -- we will be ready for a new transaction next cycle!
-                  else
+							got_transaction <= '0'; -- reset got transaction
+						else
                      state <= s_open_in_2; -- we have to wait for the read data to come back before we swutch the bus into HiZ
                   end if;
                end if;
