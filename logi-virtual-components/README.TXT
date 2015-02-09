@@ -7,7 +7,7 @@ Generate Programming File using Xilinx ISE open: File | New Project | logi-virtu
 startx
 python2 virtual_component.py
 * TROUBLESHOOTING **********
-Please note this currently remains broken: builds and displays in window, but no functionality.
+
 * SUGGESTIONS **************
 Open up the individual project folder to build each project.
 *************************************************************************************
