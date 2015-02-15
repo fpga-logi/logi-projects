@@ -28,11 +28,11 @@ use IEEE.NUMERIC_STD.ALL;
 
 library work ;
 use work.utils_pack.all ;
-use work.peripheral_pack.all ;
+use work.logi_wishbone_pack.all ;
+use work.logi_wishbone_peripherals_pack.all ;
 use work.interface_pack.all ;
 use work.conf_pack.all ;
 use work.image_pack.all ;
-use work.primitive_pack.all ;
 use work.feature_pack.all ;
 use work.filter_pack.all ;
 
@@ -67,22 +67,11 @@ end logipi_camera;
 
 architecture Behavioral of logipi_camera is
 
--- Component declaration
-	COMPONENT clock_gen
-	PORT(
-		CLK_IN1 : IN std_logic;          
-		CLK_OUT1 : OUT std_logic;
-		CLK_OUT2 : OUT std_logic;
-		CLK_OUT3 : OUT std_logic;
-		LOCKED : OUT std_logic
-		);
-	END COMPONENT;
-
 	
 	-- Systemc clocking and reset
 	signal clk_sys, clk_100,  clk_96, clk_24, clk_locked : std_logic ;
 	signal clk_100_unbuf,  clk_24_unbuf, osc_buff, clkfb : std_logic ;
-	signal resetn , sys_resetn : std_logic ;
+	signal resetn , sys_resetn, sys_reset : std_logic ;
 	
 	
 	-- Led counter
@@ -102,9 +91,30 @@ architecture Behavioral of logipi_camera is
 	signal preview_fifo_wr : std_logic ;
 	
 	
-	-- Peripheral chip select
-	signal cs_preview_fifo : std_logic ;
+	-- wishbone intercon signals
+	signal intercon_wrapper_wbm_address :  std_logic_vector(15 downto 0);
+	signal intercon_wrapper_wbm_readdata :  std_logic_vector(15 downto 0);
+	signal intercon_wrapper_wbm_writedata :  std_logic_vector(15 downto 0);
+	signal intercon_wrapper_wbm_strobe :  std_logic;
+	signal intercon_wrapper_wbm_write :  std_logic;
+	signal intercon_wrapper_wbm_ack :  std_logic;
+	signal intercon_wrapper_wbm_cycle :  std_logic;
+
+	signal intercon_fifo0_wbm_address :  std_logic_vector(15 downto 0);
+	signal intercon_fifo0_wbm_readdata :  std_logic_vector(15 downto 0);
+	signal intercon_fifo0_wbm_writedata :  std_logic_vector(15 downto 0);
+	signal intercon_fifo0_wbm_strobe :  std_logic;
+	signal intercon_fifo0_wbm_write :  std_logic;
+	signal intercon_fifo0_wbm_ack :  std_logic;
+	signal intercon_fifo0_wbm_cycle :  std_logic;
 	
+	signal intercon_reg0_wbm_address :  std_logic_vector(15 downto 0);
+	signal intercon_reg0_wbm_readdata :  std_logic_vector(15 downto 0);
+	signal intercon_reg0_wbm_writedata :  std_logic_vector(15 downto 0);
+	signal intercon_reg0_wbm_strobe :  std_logic;
+	signal intercon_reg0_wbm_write :  std_logic;
+	signal intercon_reg0_wbm_ack :  std_logic;
+	signal intercon_reg0_wbm_cycle :  std_logic;
 	
 	-- Camera configuration and interface signals
 	signal cam_data : std_logic_vector(7 downto 0);
@@ -132,6 +142,7 @@ architecture Behavioral of logipi_camera is
 	signal pixel_y_from_ds, pixel_u_from_ds, pixel_v_from_ds : std_logic_vector(7 downto 0);
 	signal pxclk_from_ds, href_from_ds, vsync_from_ds : std_logic ;
 	
+	signal reset_pipeline : std_logic ;
 	signal switch_value : std_logic_vector(1 downto 0);
 	signal deb_pb : std_logic ;
 	
@@ -145,16 +156,9 @@ begin
 	
 	CS_FLASH <= '1' ;
 	
-	resetn <= PB(0) ;
-
-	reset0: reset_generator 
-	generic map(HOLD_0 => 1000)
-	port map(
-		clk => clk_sys, 
-		resetn => resetn ,
-		resetn_0 => sys_resetn
-		);
-
+	sys_resetn <= clk_locked ;
+	sys_reset <= not clk_locked ;
+	clk_sys <= clk_100 ;
 
 	divider : simple_counter 
 	generic map(NBIT => 32)
@@ -194,56 +198,128 @@ begin
 			Q => switch_value
 			);
 
--- Memory interface instantiation
-	mem_interface0 : spi2ad_bus
-		generic map(ADDR_WIDTH => 16 , DATA_WIDTH =>  16)
+mem_interface0 : spi_wishbone_wrapper
+			port map(
+				-- Global Signals
+				gls_reset => sys_reset,
+				gls_clk   => clk_sys,
+				
+				-- SPI signals
+				mosi => SYS_SPI_MOSI,
+				miso => SYS_SPI_MISO,
+				sck => SYS_SPI_SCK,
+				ss => RP_SPI_CE0N,
+				
+				  -- Wishbone interface signals
+				wbm_address    => intercon_wrapper_wbm_address,  	-- Address bus
+				wbm_readdata   => intercon_wrapper_wbm_readdata,  	-- Data bus for read access
+				wbm_writedata 	=> intercon_wrapper_wbm_writedata,  -- Data bus for write access
+				wbm_strobe     => intercon_wrapper_wbm_strobe,                      -- Data Strobe
+				wbm_write      => intercon_wrapper_wbm_write,                      -- Write access
+				wbm_ack        => intercon_wrapper_wbm_ack,                      -- acknowledge
+				wbm_cycle      => intercon_wrapper_wbm_cycle                       -- bus cycle in progress
+				);
+				
+	intercon0 : wishbone_intercon
+		generic map(memory_map => 
+		("0000XXXXXXXXXXXX", "0001000000000000"
+		))
 		port map(
-			clk => clk_sys ,
-			resetn => sys_resetn ,
-			mosi => SYS_SPI_MOSI,
-			miso => SYS_SPI_MISO,
-			sck => SYS_SPI_SCK,
-			ss => RP_SPI_CE0N,
-			data_bus_out	=> bus_data_out,
-			data_bus_in	=> bus_data_in ,
-			addr_bus	=> bus_addr, 
-			wr => bus_wr , rd => bus_rd 
-		);
+			gls_reset => sys_reset,
+			gls_clk   => clk_sys,
+			
+			
+			wbs_address    => intercon_wrapper_wbm_address,  	-- Address bus
+			wbs_readdata   => intercon_wrapper_wbm_readdata,  	-- Data bus for read access
+			wbs_writedata 	=> intercon_wrapper_wbm_writedata,  -- Data bus for write access
+			wbs_strobe     => intercon_wrapper_wbm_strobe,                      -- Data Strobe
+			wbs_write      => intercon_wrapper_wbm_write,                      -- Write access
+			wbs_ack        => intercon_wrapper_wbm_ack,                      -- acknowledge
+			wbs_cycle      => intercon_wrapper_wbm_cycle,                       -- bus cycle in progress
+			
+			-- Wishbone master signals
+			wbm_address(0) => intercon_fifo0_wbm_address,
+			wbm_address(1) => intercon_reg0_wbm_address,
+			
+			wbm_writedata(0)  => intercon_fifo0_wbm_writedata,
+			wbm_writedata(1)  => intercon_reg0_wbm_writedata,
+			
+			wbm_readdata(0)  => intercon_fifo0_wbm_readdata,
+			wbm_readdata(1)  => intercon_reg0_wbm_readdata,
 
--- chip select configuration
-	cs_preview_fifo <= '1' when bus_addr(15 downto 3) = "0000000000000" else
-				  '0' ; -- 8 * 16bit address space
+			wbm_strobe(0)  => intercon_fifo0_wbm_strobe,
+			wbm_strobe(1)  => intercon_reg0_wbm_strobe,
+			
+			wbm_cycle(0)   => intercon_fifo0_wbm_cycle,
+			wbm_cycle(1)   => intercon_reg0_wbm_cycle,
 
-	bus_data_in <=  bus_preview_fifo_out when cs_preview_fifo = '1' else
-						(others => '0');
+			wbm_write(0)   => intercon_fifo0_wbm_write,
+			wbm_write(1)   => intercon_reg0_wbm_write,
+			
+			wbm_ack(0)      => intercon_fifo0_wbm_ack,
+			wbm_ack(1)      => intercon_reg0_wbm_ack
+		);			
 						
-	-- Peripherals instantiation
-	fifo_preview : fifo_peripheral 
-		generic map(ADDR_WIDTH => 16,
-						WIDTH => 16, 
-						SIZE => 8192,--8192, 
-						BURST_SIZE => 4,
-						SYNC_LOGIC_INTERFACE => false)
-		port map(
-			clk => clk_sys,
-			resetn => sys_resetn,
-			addr_bus => bus_addr,
-			wr_bus => bus_wr,
-			rd_bus => bus_rd,
-			cs_bus => cs_preview_fifo,
-			wrB => preview_fifo_wr,
-			rdA => '0',
-			data_bus_in => bus_data_out,
-			data_bus_out => bus_preview_fifo_out,
-			inputB => preview_fifo_input, 
-			outputA => open,
-			emptyA => open,
-			fullA => open,
-			emptyB => open,
-			fullB => open,
-			burst_available_B => open
-		);	
+	fifo0 : wishbone_fifo
+	generic map( ADDR_WIDTH => 16,
+				WIDTH	=> 16,
+				SIZE	=> 4096,
+				BURST_SIZE => 4,
+				SYNC_LOGIC_INTERFACE => true 
+				)
+	port map(
+		-- Syscon signals
+		gls_reset => sys_reset,
+		gls_clk   => clk_sys,
+		-- Wishbone signals
+		wbs_address => intercon_fifo0_wbm_address,
+		wbs_writedata => intercon_fifo0_wbm_writedata,
+		wbs_readdata  => intercon_fifo0_wbm_readdata,
+		wbs_strobe    => intercon_fifo0_wbm_strobe,
+		wbs_cycle     => intercon_fifo0_wbm_cycle,
+		wbs_write     => intercon_fifo0_wbm_write,
+		wbs_ack       => intercon_fifo0_wbm_ack,
+			  
+		-- logic signals  
+		write_fifo => preview_fifo_wr, 
+		read_fifo=> '0',
+		fifo_input => preview_fifo_input,
+		fifo_output => open,
+		read_fifo_empty => open, 
+		read_fifo_full => open,
+		write_fifo_empty => open, 
+		write_fifo_full => open,
+		write_fifo_threshold => open,
+		read_fifo_threshold	=> open,
+		write_fifo_reset => reset_pipeline,
+		read_fifo_reset => open
+	);
  
+cam_control_reg :  wishbone_register
+	generic map( nb_regs=> 1,
+				wb_size  => 16  -- Data port size for wishbone
+			  )
+	port map(
+			-- Syscon signals
+			gls_reset => sys_reset,
+			gls_clk   => clk_sys,
+			-- Wishbone signals
+			wbs_address => intercon_reg0_wbm_address,
+			wbs_writedata => intercon_reg0_wbm_writedata,
+			wbs_readdata  => intercon_reg0_wbm_readdata,
+			wbs_strobe    => intercon_reg0_wbm_strobe,
+			wbs_cycle     => intercon_reg0_wbm_cycle,
+			wbs_write     => intercon_reg0_wbm_write,
+			wbs_ack       => intercon_reg0_wbm_ack,
+
+
+			-- Logic signals
+			reg_out(0)=> open,
+			--reg_out(1)=> open,
+			reg_in(0) => X"BEEF"
+			--reg_in(1) => X"DEAD"
+
+	);
  
 -- Camera Interface and configuration instantiation 
 	conf_rom : yuv_register_rom
@@ -414,11 +490,15 @@ begin
 			pixel_in_hsync => href_from_ds, 
 			pixel_in_vsync => vsync_from_ds,
 			pixel_in_y_data => pixel_y_from_ds,
+--			pixel_in_clk => pxclk_from_interface, 
+--			pixel_in_hsync => href_from_interface, 
+--			pixel_in_vsync => vsync_from_interface,
+--			pixel_in_y_data => pixel_y_from_interface,
 			pixel_in_u_data => X"80",--pixel_u_from_interface,
 			pixel_in_v_data => X"80",--pixel_v_from_interface,
 			fifo_data => preview_fifo_input,
 			fifo_wr => preview_fifo_wr,
-			sreset => '0'			--mj added, not sure if this will conflict.  
+			sreset => reset_pipeline			--mj added, not sure if this will conflict.  
 		);	
 		
 		
