@@ -7,5 +7,10 @@ Generate Programming File using Xilinx ISE open: File | New Project | logi-edu-d
 * TROUBLESHOOTING **********
 
 * SUGGESTIONS **************
-Open up the individual project folder to build each project.
+Open up the individual project folders such as logi-pi-edu-pong to build each project.
+
+Recreate logi-pi-vga using logi-projects/logi-edu/logi-edu-demo/hw/logipi/hdl/vga
+let a button and the switches change whether each of Red Green and Blue are grey or coloured
+hint: see PongChu chapter 12.
+
 *************************************************************************************
