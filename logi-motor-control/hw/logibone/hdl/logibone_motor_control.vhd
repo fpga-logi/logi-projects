@@ -47,6 +47,27 @@ port(
 
 );
 end component;
+
+component wishbone_pwm is
+generic( nb_chan : positive := 7;
+			wb_size : natural := 16  -- Data port size for wishbone
+		  );
+port(
+		  -- Syscon signals
+		  gls_reset    : in std_logic ;
+		  gls_clk      : in std_logic ;
+		  -- Wishbone signals
+		  wbs_address       : in std_logic_vector(15 downto 0) ;
+		  wbs_writedata : in std_logic_vector( wb_size-1 downto 0);
+		  wbs_readdata  : out std_logic_vector( wb_size-1 downto 0);
+		  wbs_strobe    : in std_logic ;
+		  wbs_cycle      : in std_logic ;
+		  wbs_write     : in std_logic ;
+		  wbs_ack       : out std_logic;
+		  
+		  pwm_out : out std_logic_vector(nb_chan-1 downto 0)
+);
+end component;
 	
 	type wishbone_bus is
 	record
@@ -64,6 +85,8 @@ end component;
 	signal Master_0_wbm_Intercon_0_wbs_0 : wishbone_bus;
 	
 	signal Intercon_0_wbm_REG0_0_wbs : wishbone_bus;
+	signal Intercon_0_wbm_PWM_0_wbs : wishbone_bus;
+
 
 	signal BEAT_0_beat_out_top_LED : std_logic;
 
@@ -72,6 +95,8 @@ end component;
 	-- my logic
 	signal encoder_count, encoder_control, encoder_speed: std_logic_vector(15 downto 0);
 	signal CHAN_A, CHAN_B : std_logic ;
+	signal pwm_sig : std_logic ;
+	signal dir_control : std_logic_vector(15 downto 0);
 begin
 
 
@@ -107,7 +132,7 @@ port map(
 
 Intercon_0 : wishbone_intercon
 generic map(
-memory_map => (0 => "0000000000000XXX")
+memory_map => ("000000000000000X", "00000000000001XX")
 )
 port map(
 	gls_clk => gls_clk, gls_reset => gls_reset,
@@ -121,11 +146,23 @@ port map(
 	wbs_ack =>  Master_0_wbm_Intercon_0_wbs_0.ack,
 
 wbm_address(0) =>  Intercon_0_wbm_REG0_0_wbs.address,
+wbm_address(1) =>  Intercon_0_wbm_PWM_0_wbs.address,
+
 wbm_writedata(0) =>  Intercon_0_wbm_REG0_0_wbs.writedata,
+wbm_writedata(1) =>  Intercon_0_wbm_PWM_0_wbs.writedata,
+
 wbm_readdata(0) =>  Intercon_0_wbm_REG0_0_wbs.readdata,
+wbm_readdata(1) =>  Intercon_0_wbm_PWM_0_wbs.readdata,
+
 wbm_cycle(0) =>  Intercon_0_wbm_REG0_0_wbs.cycle,
+wbm_cycle(1) =>  Intercon_0_wbm_PWM_0_wbs.cycle,
+
 wbm_write(0) =>  Intercon_0_wbm_REG0_0_wbs.write,
-wbm_ack(0) =>  Intercon_0_wbm_REG0_0_wbs.ack
+wbm_write(1) =>  Intercon_0_wbm_PWM_0_wbs.write,
+
+wbm_ack(0) =>  Intercon_0_wbm_REG0_0_wbs.ack,
+wbm_ack(1) =>  Intercon_0_wbm_PWM_0_wbs.ack
+
 );
 
 BEAT_0 : heart_beat
@@ -139,7 +176,7 @@ beat_out =>  BEAT_0_beat_out_top_LED
 
 REG_0 : wishbone_register
 -- no generics
-generic map(nb_regs => 4)
+generic map(nb_regs => 2)
 port map(
 	gls_clk => gls_clk, gls_reset => gls_reset,
 
@@ -152,14 +189,9 @@ wbs_write =>  Intercon_0_wbm_REG0_0_wbs.write,
 wbs_ack =>  Intercon_0_wbm_REG0_0_wbs.ack,
 
 reg_out(0)(15 downto 0) => encoder_control,
-reg_out(1)(15 downto 0) => open,
-reg_out(2)(15 downto 0) => open,
-reg_out(3)(15 downto 0) => open,
+reg_out(1)(15 downto 0) => dir_control,
 reg_in(0)(15 downto 0) => encoder_count,
-reg_in(1)(15 downto 0) => encoder_speed,
-reg_in(2)(15 downto 0) => open,
-reg_in(3)(15 downto 2) => open,
-reg_in(3)(1 downto 0) => PB
+reg_in(1)(15 downto 0) => encoder_speed
 );
 
 
@@ -179,6 +211,23 @@ port map(
 );
 
 
+PWM_0 : wishbone_pwm 
+generic map( nb_chan => 1)
+port map(
+		  -- Syscon signals
+		  gls_clk => gls_clk, gls_reset => gls_reset,
+		  -- Wishbone signals
+			wbs_address =>  Intercon_0_wbm_PWM_0_wbs.address,
+			wbs_writedata =>  Intercon_0_wbm_PWM_0_wbs.writedata,
+			wbs_readdata =>  Intercon_0_wbm_PWM_0_wbs.readdata,
+			wbs_cycle =>  Intercon_0_wbm_PWM_0_wbs.cycle,
+			wbs_strobe =>  Intercon_0_wbm_PWM_0_wbs.strobe,
+			wbs_write =>  Intercon_0_wbm_PWM_0_wbs.write,
+			wbs_ack =>  Intercon_0_wbm_PWM_0_wbs.ack,
+		  
+		  pwm_out(0) => pwm_sig
+);
+
 
 LED(0) <= BEAT_0_beat_out_top_LED;
 LED(1) <= 'Z';
@@ -189,7 +238,8 @@ LED(1) <= 'Z';
 CHAN_B <= PMOD1(3);
 CHAN_A <= PMOD1(2);
 --'Z' <= PMOD1(7);
-PMOD1(1 downto 0) <= (others => 'Z'); --probably where you want to wire your PWM outputs
+PMOD1(0) <= pwm_sig;
+PMOD1(1) <= dir_control(0);
 PMOD1(7 downto 4) <= (others => 'Z');
 PMOD2(7 downto 0) <= (others => 'Z');
 
