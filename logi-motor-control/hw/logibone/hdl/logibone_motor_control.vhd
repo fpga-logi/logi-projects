@@ -97,6 +97,8 @@ end component;
 	signal CHAN_A, CHAN_B : std_logic ;
 	signal pwm_sig : std_logic ;
 	signal dir_control : std_logic_vector(15 downto 0);
+	
+	signal loop_back : std_logic_vector(15 downto 0);
 begin
 
 
@@ -132,7 +134,7 @@ port map(
 
 Intercon_0 : wishbone_intercon
 generic map(
-memory_map => ("000000000000000X", "00000000000001XX")
+memory_map => ("00000000000000XX", "00000000000001XX")
 )
 port map(
 	gls_clk => gls_clk, gls_reset => gls_reset,
@@ -161,7 +163,10 @@ wbm_write(0) =>  Intercon_0_wbm_REG0_0_wbs.write,
 wbm_write(1) =>  Intercon_0_wbm_PWM_0_wbs.write,
 
 wbm_ack(0) =>  Intercon_0_wbm_REG0_0_wbs.ack,
-wbm_ack(1) =>  Intercon_0_wbm_PWM_0_wbs.ack
+wbm_ack(1) =>  Intercon_0_wbm_PWM_0_wbs.ack,
+
+wbm_strobe(0) =>  Intercon_0_wbm_REG0_0_wbs.strobe,
+wbm_strobe(1) =>  Intercon_0_wbm_PWM_0_wbs.strobe
 
 );
 
@@ -176,7 +181,7 @@ beat_out =>  BEAT_0_beat_out_top_LED
 
 REG_0 : wishbone_register
 -- no generics
-generic map(nb_regs => 2)
+generic map(nb_regs => 3)
 port map(
 	gls_clk => gls_clk, gls_reset => gls_reset,
 
@@ -190,8 +195,10 @@ wbs_ack =>  Intercon_0_wbm_REG0_0_wbs.ack,
 
 reg_out(0)(15 downto 0) => encoder_control,
 reg_out(1)(15 downto 0) => dir_control,
+reg_out(2) => loop_back,
 reg_in(0)(15 downto 0) => encoder_count,
-reg_in(1)(15 downto 0) => encoder_speed
+reg_in(1)(15 downto 0) => encoder_speed,
+reg_in(2) => loop_back
 );
 
 
@@ -230,7 +237,7 @@ port map(
 
 
 LED(0) <= BEAT_0_beat_out_top_LED;
-LED(1) <= 'Z';
+LED(1) <= pwm_sig;
 
 -- Connecting inouts
 
