@@ -77,7 +77,7 @@ port( OSC_FPGA : in std_logic;
 	  ARD_D : inout std_logic_vector(13 downto 8);
 	  
 	  -- pi GPIO
-	  RP_GPIO_GEN : inout std_logic_vector(4 downto 2)
+	  RP_GPIO_GEN : inout std_logic_vector(4 downto 3)
 );
 end logipi_test;
 
@@ -236,6 +236,9 @@ COMPONENT SDRAM_Controller
 	-- Memory debug signals
 	signal debug_long_register : std_logic_vector(127 downto 0);
 	signal debug_sent_counter : std_logic_vector(2 downto 0);
+	
+	signal dummy :std_logic;
+	
 begin
 
 
@@ -402,7 +405,8 @@ gpio2 : wishbone_gpio
 			wbs_cycle      => intercon_gpio2_wbm_cycle, 
 			gpio(15 downto 12) => open,  -- connect to arduino pins and pi expansion port
 			gpio(11 downto 9) => open,
-			gpio(8 downto 6) => RP_GPIO_GEN(4 downto 2),  
+			gpio(8 downto 7) => RP_GPIO_GEN(4 downto 3),  
+			gpio(6) => dummy,		-- GEN3 was removed from pi IO in r1.5  Just adding dummy placment.
 			gpio(5 downto 0) => ARD_D(13 downto 8)
 	 );	
 	
