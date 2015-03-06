@@ -242,6 +242,11 @@ begin
 gls_reset <= (NOT clock_locked); -- system reset while clock not locked
 gls_resetn <= NOT gls_reset ; -- for preipherals with active low reset
 
+
+SYS_SCL <= 'Z' ;
+SYS_SDA <= 'Z' ;
+
+
 pll0 : clock_gen
   port map
    (-- Clock in ports
