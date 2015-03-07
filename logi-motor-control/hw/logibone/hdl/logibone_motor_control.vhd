@@ -93,9 +93,11 @@ end component;
 	
 	
 	-- my logic
-	signal encoder_count, encoder_control, encoder_speed: std_logic_vector(15 downto 0);
-	signal CHAN_A, CHAN_B : std_logic ;
-	signal pwm_sig : std_logic ;
+	signal encoder_count0, encoder_control, encoder_speed0: std_logic_vector(15 downto 0);
+	signal encoder_count1, encoder_speed1: std_logic_vector(15 downto 0);
+	signal CHAN_A0, CHAN_B0 : std_logic ;
+	signal CHAN_A1, CHAN_B1 : std_logic ;
+	signal pwm_sig0,pwm_sig1 : std_logic ;
 	signal dir_control : std_logic_vector(15 downto 0);
 	
 	signal loop_back : std_logic_vector(15 downto 0);
@@ -196,8 +198,8 @@ wbs_ack =>  Intercon_0_wbm_REG0_0_wbs.ack,
 reg_out(0)(15 downto 0) => encoder_control,
 reg_out(1)(15 downto 0) => dir_control,
 reg_out(2) => loop_back,
-reg_in(0)(15 downto 0) => encoder_count,
-reg_in(1)(15 downto 0) => encoder_speed,
+reg_in(0)(15 downto 0) => encoder_count0,
+reg_in(1)(15 downto 0) => encoder_count1,
 reg_in(2) => loop_back
 );
 
@@ -206,20 +208,35 @@ enc0 : encoder_interface
 generic map(FREQ_DIV => 100)
 port map(
 	clk => gls_clk, reset => gls_reset,
-	channel_a => CHAN_A, 
-	channel_b => CHAN_B,
+	channel_a => CHAN_A0, 
+	channel_b => CHAN_B0,
 	
-	period => encoder_speed,
+	period => encoder_speed0,
 	pv => open,
 	
-	count => encoder_count,
+	count => encoder_count0,
 	reset_count => encoder_control(0) 
+
+);
+
+enc1 : encoder_interface
+generic map(FREQ_DIV => 100)
+port map(
+	clk => gls_clk, reset => gls_reset,
+	channel_a => CHAN_A1, 
+	channel_b => CHAN_B1,
+	
+	period => encoder_speed1,
+	pv => open,
+	
+	count => encoder_count1,
+	reset_count => encoder_control(8) 
 
 );
 
 
 PWM_0 : wishbone_pwm 
-generic map( nb_chan => 1)
+generic map( nb_chan => 2)
 port map(
 		  -- Syscon signals
 		  gls_clk => gls_clk, gls_reset => gls_reset,
@@ -232,26 +249,27 @@ port map(
 			wbs_write =>  Intercon_0_wbm_PWM_0_wbs.write,
 			wbs_ack =>  Intercon_0_wbm_PWM_0_wbs.ack,
 		  
-		  pwm_out(0) => pwm_sig
+		  pwm_out(0) => pwm_sig0,
+		  pwm_out(1) => pwm_sig1
 );
 
 
 LED(0) <= BEAT_0_beat_out_top_LED;
-LED(1) <= pwm_sig;
+LED(1) <= pwm_sig0;
 
 -- Connecting inouts
 
-
-CHAN_B <= PMOD1(3);
-CHAN_A <= PMOD1(2);
---'Z' <= PMOD1(7);
-PMOD1(1) <= pwm_sig;
+CHAN_A0 <= PMOD1(2);
+CHAN_B0 <= PMOD1(3);
 PMOD1(0) <= dir_control(0);
+PMOD1(1) <= pwm_sig0;
 PMOD1(7 downto 4) <= (others => 'Z');
-PMOD2(7 downto 0) <= (others => 'Z');
 
-
-
+CHAN_A1 <= PMOD2(2);
+CHAN_B1 <= PMOD2(3);
+PMOD2(0) <= dir_control(8);
+PMOD2(1) <= pwm_sig1;
+PMOD2(7 downto 4) <= (others => 'Z');
 
 
 
