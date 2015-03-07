@@ -245,8 +245,8 @@ LED(1) <= pwm_sig;
 CHAN_B <= PMOD1(3);
 CHAN_A <= PMOD1(2);
 --'Z' <= PMOD1(7);
-PMOD1(0) <= pwm_sig;
-PMOD1(1) <= dir_control(0);
+PMOD1(1) <= pwm_sig;
+PMOD1(0) <= dir_control(0);
 PMOD1(7 downto 4) <= (others => 'Z');
 PMOD2(7 downto 0) <= (others => 'Z');
 
