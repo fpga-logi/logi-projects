@@ -96,7 +96,7 @@
 
 #ifdef LOGIBONE
 
-#define LOAD_CMD "dd if=./logibone_test.bit of=/dev/logibone bs=4M"
+#define LOAD_CMD "/usr/bin/logi_loader ./logibone_test.bit"
 #define GPIO0 0x0004
 #define GPIO0DIR 0x0006
 #define GPIO1 0x0008
