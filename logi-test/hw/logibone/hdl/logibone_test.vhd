@@ -254,7 +254,7 @@ ARD_SDA <= 'Z' ;
 
 
 gpmc2wishbone : gpmc_wishbone_wrapper 
-generic map(sync => true, burst => true)
+generic map(sync => true, burst => false)
 port map
     (
       -- GPMC SIGNALS
