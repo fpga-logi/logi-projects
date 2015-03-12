@@ -156,7 +156,8 @@ pll0 : clock_gen
     CLK_OUT1 => clk_100Mhz,
 	 CLK_OUT2 => clk_50Mhz,
     -- Status and control signals
-    LOCKED => clock_locked);
+    LOCKED => clock_locked
+	 );
 
 gls_clk <= clk_100Mhz;
 vga_clk <= clk_50Mhz;
@@ -264,7 +265,7 @@ gpio0 : wishbone_gpio
 			wbs_cycle      => intercon_gpio0_wbm_cycle, 
 			--MAP GPIO TO IO PI											 TEST1-OUT	TEST1-DIR EXPECT-PORT TEST1-REVERSE = INVERTED FROM TEST1
 			gpio(7) =>PMOD4(7),		--NES_DATA1       PMOD4(7)		0			0				1
-			gpio(6) =>PMOD4(6),			--PWM1            PMOD4(6)		0			0				1
+			gpio(6) =>PMOD4(6),		--PWM1            PMOD4(6)		0			0				1
 			gpio(5) =>PMOD4(5),		--PS2D_1          PMOD4(5)		0			0				1
 			gpio(4) =>PMOD4(4),		--PS2C_1          PMOD4(4)		1			1				0
 			gpio(3) =>PMOD4(3),		--NES_DAT2        PMOD4(3)		0			0				1
@@ -288,24 +289,24 @@ sseg0 : wishbone_7seg4x
 			wbs_ack        => intercon_sseg0_wbm_ack,    
 			wbs_cycle      => intercon_sseg0_wbm_cycle, 
 			
-			sseg_edu_cathode_out => sseg_edu_cathode_out,
-			sseg_edu_anode_out => sseg_edu_anode_out
+			sseg_cathode_out => sseg_edu_cathode_out,
+			sseg_anode_out => sseg_edu_anode_out
 	 );
 
-	PMOD2(4) <= sseg_edu_cathode_out(0); -- cathode 0
-	PMOD2(0) <= sseg_edu_cathode_out(1); -- cathode 1
-	PMOD2(2) <= sseg_edu_cathode_out(2); -- cathode 2
-	PMOD2(3) <= sseg_edu_cathode_out(3); -- cathode 3
-	PMOD2(1) <= sseg_edu_cathode_out(4); -- cathode 4
+	PMOD2(5) <= sseg_edu_cathode_out(0); -- cathode 0
+	PMOD2(1) <= sseg_edu_cathode_out(1); -- cathode 1
+	PMOD3(0) <= sseg_edu_cathode_out(2); -- cathode 2
+	PMOD3(1) <= sseg_edu_cathode_out(3); -- cathode 3
+	PMOD2(2) <= sseg_edu_cathode_out(4); -- cathode 4
 
-	PMOD3(5) <= sseg_edu_anode_out(0); --A
-	PMOD3(4) <= sseg_edu_anode_out(1); --B
-	PMOD3(1) <= sseg_edu_anode_out(2); --C
-	PMOD2(5) <= sseg_edu_anode_out(3); --D
-	PMOD2(6) <= sseg_edu_anode_out(4); --E
-	PMOD3(6) <= sseg_edu_anode_out(5); --F
-	PMOD3(0) <= sseg_edu_anode_out(6); --G
-	PMOD2(7) <= sseg_edu_anode_out(7); --DP
+	PMOD3(6) <= sseg_edu_anode_out(0); --A
+	PMOD3(5) <= sseg_edu_anode_out(1); --B
+	PMOD3(3) <= sseg_edu_anode_out(2); --C
+	PMOD2(6) <= sseg_edu_anode_out(3); --D
+	PMOD2(7) <= sseg_edu_anode_out(4); --E
+	PMOD3(7) <= sseg_edu_anode_out(5); --F
+	PMOD3(2) <= sseg_edu_anode_out(6); --G
+	PMOD3(4) <= sseg_edu_anode_out(7); --DP
 
 
 -- following code tests the audio out.
@@ -338,16 +339,16 @@ PMOD1(3) <= vga_hsync ;
 PMOD1(7) <= vga_vsync ;	
 PMOD1(0) <= vga_red(2);		
 PMOD1(4) <= vga_red(1);		
-PMOD3(7) <= vga_red(0); 	
+PMOD2(4) <= vga_red(0); 	
 PMOD1(1) <= vga_green(2);	
 PMOD1(5) <= vga_green(1);	
-PMOD3(3) <= vga_green(0);	
+PMOD2(3) <= vga_green(0);	
 PMOD1(2) <= vga_blue(2);	
 PMOD1(6) <= vga_blue(1);	
-PMOD3(2) <= vga_blue(0);	
+PMOD2(0) <= vga_blue(0);	
 
 		
-LED(0) <=  sseg_edu_cathode_out(0);
+LED(0) <= sseg_edu_cathode_out(0);
 LED(1) <= PB(0) ;
 	
 end Behavioral;
