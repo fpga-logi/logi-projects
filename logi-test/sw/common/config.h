@@ -50,6 +50,32 @@ Second test :
 #define TEST_OPEN	//removing test jigs test (open)
 
 
+#define LED_MASK 0x0003
+#define PB_MASK 0x0003
+#define SW_MASK 0x000C
+#define SDRAM_ERROR_MASK 0x0010
+#define SDRAM_SUCCESS_MASK 0x0020
+
+#define SATA_WRITE_SHIFT 2
+#define SATA_READ_SHIFT 6
+
+
+
+#ifdef LOGIPI
+
+#define LOAD_CMD "/usr/bin/logi_loader logipi_test.bit"
+#define GPIO0 0x0002
+#define GPIO0DIR 0x0003
+#define GPIO1 0x0004
+#define GPIO1DIR 0x0005
+#define GPIO2 0x0006
+#define GPIO2DIR 0x0007
+#define REG0  0x0010
+#define REG1  0x0011
+#define REG2  0x0012
+#define REG_DEBUG_RAM 0x0013
+#define MEM0  0x1000
+
 #define GPIO_TEST1_DIR 0xA5A5	
 #define GPIO_TEST1_1 0x2121
 #define GPIO_TEST1_1_EXPECTED 0x1212
@@ -63,49 +89,22 @@ Second test :
 #define GPIO_TEST2_2_EXPECTED 0x8484
 
 
-
-#define LED_MASK 0x0003
-#define PB_MASK 0x0003
-#define SW_MASK 0x000C
-#define SDRAM_ERROR_MASK 0x0010
-#define SDRAM_SUCCESS_MASK 0x0020
-
-#define SATA_WRITE_SHIFT 2
-#define SATA_READ_SHIFT 6
-
-#ifdef LOGIPI
-
-
-#define LOAD_CMD "/usr/bin/logi_loader ./logipi_test.bit"
-#define GPIO0 0x0002 //PMOD 1 for LSB and PMOD 2 for MSB
-#define GPIO0DIR 0x0003
-#define GPIO1 0x0004 //PMOD 1 for LSB and PMOD 2 for MSB
-#define GPIO1DIR 0x0005
-#define GPIO2 0x0006 //ARD[5:0] for LSB
-#define GPIO2DIR 0x0007
-#define REG0  0x0010
-#define REG1  0x0011
-#define REG2  0x0012
-#define REG_DEBUG_RAM 0x0013
-#define MEM0  0x1000
-
-
-//1-2-3-1-2-3
-
 #define ARD_MASK 0x003F
 #define ARD_TEST1_DIR 0x0015	
 #define ARD_TEST1_1 0x0011
-#define ARD_TEST1_1_EXPECTED 0x000A
+#define ARD_TEST1_1_EXPECTED 0x0022
 #define ARD_TEST1_2 0x0004
-#define ARD_TEST1_2_EXPECTED 0x0020
+#define ARD_TEST1_2_EXPECTED 0x0008
 
 #define ARD_TEST2_DIR 0x002A	
 #define ARD_TEST2_1 0x0022
-#define ARD_TEST2_1_EXPECTED 0x0014
+#define ARD_TEST2_1_EXPECTED 0x0011
 #define ARD_TEST2_2 0x0008
-#define ARD_TEST2_2_EXPECTED 0x0001
+#define ARD_TEST2_2_EXPECTED 0x0004
 
 #define LOG_PATH "/home/pi/tests_log/%ld_test.log"
+
+#endif
 
 #endif
 
