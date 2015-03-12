@@ -61,12 +61,12 @@
 #ifdef LOGIPI
 
 
-#define LOAD_CMD "/usr/bin/logi_loader ./logibone_test.bit"
-#define GPIO0 0x0002
+#define LOAD_CMD "/usr/bin/logi_loader ./logipi_test.bit"
+#define GPIO0 0x0002 //PMOD 1 for LSB and PMOD 2 for MSB
 #define GPIO0DIR 0x0003
-#define GPIO1 0x0004
+#define GPIO1 0x0004 //PMOD 1 for LSB and PMOD 2 for MSB
 #define GPIO1DIR 0x0005
-#define GPIO2 0x0006
+#define GPIO2 0x0006 //ARD[5:0] for LSB
 #define GPIO2DIR 0x0007
 #define REG0  0x0010
 #define REG1  0x0011
@@ -98,7 +98,7 @@
 #ifdef LOGIBONE
 
 #define LOAD_CMD "/usr/bin/logi_loader ./logibone_test.bit"
-#define GPIO0 0x0004
+#define GPIO0 0x0004 
 #define GPIO0DIR 0x0006
 #define GPIO1 0x0008
 #define GPIO1DIR 0x000A
