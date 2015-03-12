@@ -1,3 +1,28 @@
+
+
+/*
+
+
+PMOD Diagram
+
+vcc gnd 3 2 1 0
+vcc gnd 7 6 5 4
+
+test jiig for PMOD test shorts upper row pins with lower row pins one by one :
+
+- 0 & 4 are shorted
+- 1 & 5 are shorted
+- 2 & 6 are shorted
+- 3 & 7 are shorted
+
+*/
+
+
+
+
+
+
+
 //DEFINE WHICH TESTS TO RUN
 //COMMENT OUT TESTS YOU DO NOT WANT TO RUN
 #define TEST_SDRAM 		//test the SDRAM
