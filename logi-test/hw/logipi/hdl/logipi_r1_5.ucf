@@ -76,17 +76,17 @@ NET "SDRAM_DQ<14>" 		LOC = "P56"			| IOSTANDARD = LVTTL ;
 NET "SDRAM_DQ<15>"		LOC = "P55"			| IOSTANDARD = LVTTL ;
 
 #PMOD1#############################################################################
-NET "PMOD1<0>" 			LOC = "P5" 			| IOSTANDARD = LVTTL;
-NET "PMOD1<1>" 			LOC = "P2" 			| IOSTANDARD = LVTTL;
-NET "PMOD1<2>" 			LOC = "P1" 			| IOSTANDARD = LVTTL;
-NET "PMOD1<3>" 			LOC = "P16" 		| IOSTANDARD = LVTTL;
-NET "PMOD1<4>"				LOC = "P88" 		| IOSTANDARD = LVTTL;
-NET "PMOD1<5>" 			LOC = "P92" 		| IOSTANDARD = LVTTL;
-NET "PMOD1<6>" 			LOC = "P93" 		| IOSTANDARD = LVTTL;
-NET "PMOD1<7>" 			LOC = "P94" 		| IOSTANDARD = LVTTL;
+NET "PMOD1<0>" 			LOC = "P5" 			| IOSTANDARD = LVTTL | PULLUP;
+NET "PMOD1<1>" 			LOC = "P2" 			| IOSTANDARD = LVTTL | PULLUP;
+NET "PMOD1<2>" 			LOC = "P1" 			| IOSTANDARD = LVTTL | PULLUP;
+NET "PMOD1<3>" 			LOC = "P16" 		| IOSTANDARD = LVTTL | PULLUP;
+NET "PMOD1<4>"				LOC = "P88" 		| IOSTANDARD = LVTTL | PULLUP;
+NET "PMOD1<5>" 			LOC = "P92" 		| IOSTANDARD = LVTTL | PULLUP;
+NET "PMOD1<6>" 			LOC = "P93" 		| IOSTANDARD = LVTTL | PULLUP;
+NET "PMOD1<7>" 			LOC = "P94" 		| IOSTANDARD = LVTTL | PULLUP;
 #PMOD2#############################################################################
-NET "PMOD2<0>" 			LOC = "P142" 		| IOSTANDARD = LVTTL;
-NET "PMOD2<1>" 			LOC = "P141" 		| IOSTANDARD = LVTTL;
+NET "PMOD2<0>" 			LOC = "P142" 		| IOSTANDARD = LVTTL | PULLUP;
+NET "PMOD2<1>" 			LOC = "P141" 		| IOSTANDARD = LVTTL | PULLUP;
 NET "PMOD2<2>" 			LOC = "P15" 		| IOSTANDARD = LVTTL;
 NET "PMOD2<3>" 			LOC = "P14" 		| IOSTANDARD = LVTTL;
 NET "PMOD2<4>" 			LOC = "P144" 		| IOSTANDARD = LVTTL;
