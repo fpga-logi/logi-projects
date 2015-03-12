@@ -15,6 +15,16 @@ test jiig for PMOD test shorts upper row pins with lower row pins one by one :
 - 2 & 6 are shorted
 - 3 & 7 are shorted
 
+First test :
+ - set 0, 2 and 5, 7 as output others as inputs
+ - writes '1' on 0, and 5, espect to read '1' on 1 and 4 
+ - writes '1' on 2, and 7, espect to read '1' on 6 and 3
+
+Second test :
+ - set 1, 3 and 4, 6 as output others as inputs
+ - writes '1' on 1, and 4, espect to read '1' on 0 and 5 
+ - writes '1' on 3, and 6, espect to read '1' on 2 and 7
+
 */
 
 
@@ -30,17 +40,14 @@ test jiig for PMOD test shorts upper row pins with lower row pins one by one :
 #define TEST_PMOD_1_2	//test pmod 1 and pmod2 (shared jig)
 #ifdef LOGIPI
 #define TEST_PMOD_3_4	//test pmod 3 and pmod4 (shared jig)
-#define TEST_RPI_GPIO
+//#define TEST_RPI_GPIO
 #endif
 #define TEST_SW		//test dip switches
 #define TEST_PB		//test the pushbuttons
 #define TEST_COMM	//test communication between host/fpga
 #define TEST_LVDS 	//testing the LVDS pins
 #define TEST_ARD	//testing arduino connector pins
-//#define TEST_OPEN	//removing test jigs test (open)
-
-
-#ifdef OLD_TEST
+#define TEST_OPEN	//removing test jigs test (open)
 
 
 #define GPIO_TEST1_DIR 0xA5A5	
@@ -55,23 +62,6 @@ test jiig for PMOD test shorts upper row pins with lower row pins one by one :
 #define GPIO_TEST2_2 0x4848
 #define GPIO_TEST2_2_EXPECTED 0x8484
 
-
-#else
-
-#define GPIO_TEST1_DIR 0x5555	
-#define GPIO_TEST1_1 0x1111
-#define GPIO_TEST1_1_EXPECTED 0x2828
-#define GPIO_TEST1_2 0x4444
-#define GPIO_TEST1_2_EXPECTED 0x8282
-
-#define GPIO_TEST2_DIR 0xAAAA
-#define GPIO_TEST2_1 0x2222
-#define GPIO_TEST2_1_EXPECTED 0x4141
-#define GPIO_TEST2_2 0x8888
-#define GPIO_TEST2_2_EXPECTED 0x1414
-
-
-#endif
 
 
 #define LED_MASK 0x0003
