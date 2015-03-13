@@ -12,8 +12,7 @@ use UNISIM.VComponents.all;
 
 entity top_level is
     Port ( OSC_FPGA      : in    STD_LOGIC;
-           --led         : out   STD_LOGIC_VECTOR( 1 downto 0);
-			  led         : out   STD_LOGIC_VECTOR( 0 downto 0);
+           led         : out   STD_LOGIC_VECTOR( 1 downto 0);
            SDRAM_CLK   : out   STD_LOGIC;
            SDRAM_CKE   : out   STD_LOGIC;
            SDRAM_CS    : out   STD_LOGIC;
@@ -140,8 +139,8 @@ i_error_blink : blinker PORT MAP(
    o => error_blink
    );
    
-   led(0) <= error_blink;
- --  led(1) <= blink;
+   led(0) <= blink;
+   led(1) <= error_blink;
 
 Inst_Memory_tester: Memory_tester GENERIC MAP(address_width => test_width) PORT MAP(
       clk             => clk,
