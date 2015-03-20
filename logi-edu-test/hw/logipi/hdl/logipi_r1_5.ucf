@@ -1,0 +1,153 @@
+##############################################################################
+# Timing Constraints #
+##############################################################################
+
+##### Grouping Constraints #####
+NET OSC_FPGA TNM_NET = clk50_grp;
+#NET DRAM_CLK TNM_NET = clk100_grp;
+NET SYS_SPI_SCK TNM_NET = clk32_grp;
+
+##### Clock Period Constraints #####
+TIMESPEC TS_PER_CLK50 = PERIOD "clk50_grp" 20.0 ns ;
+#TIMESPEC TS_PER_CLK100 = PERIOD "clk100_grp" 10.0 ns;
+TIMESPEC TS_PER_CLK32 = PERIOD "clk32_grp" 20.0 ns;
+#PIN "sys_clocks_gen/clkout2_buf.O" CLOCK_DEDICATED_ROUTE = FALSE;
+NET "SYS_SPI_SCK" CLOCK_DEDICATED_ROUTE = FALSE;
+
+##############################################################################
+# Pin LOC Constraints #
+##############################################################################
+NET "OSC_FPGA"      	LOC = "P85" 		| IOSTANDARD = LVTTL;
+
+#Peripherals#############################################################
+NET "LED<0>"       		LOC = "P105" 		| IOSTANDARD = LVTTL;		#SHARED WITH ARD_D6
+NET "LED<1>"       		LOC = "P104" 		| IOSTANDARD = LVTTL;		#SHARED WITH ARD_D7
+NET "PB<0>"        		LOC = "P102" 		| IOSTANDARD = LVTTL;
+NET "PB<1>"        		LOC = "P101" 		| IOSTANDARD = LVTTL;
+#NET "SW<0>"        		LOC = "P99" 		| IOSTANDARD = LVTTL;
+#NET "SW<1>"        		LOC = "P100" 		| IOSTANDARD = LVTTL;
+	
+
+##SATA###########################################################################
+#NET "SATA_D1_P"			LOC = "P127"		| IOSTANDARD = LVDS_33;
+#NET "SATA_D1_N"			LOC = "P126"		| IOSTANDARD = LVDS_33;
+#NET "SATA_D2_P"			LOC = "P121"		| IOSTANDARD = LVDS_33;
+#NET "SATA_D2_N"			LOC = "P120"		| IOSTANDARD = LVDS_33;
+#			
+##SDRAM#########################################################################
+#NET "SDRAM_CKE"			LOC = "P48"			| IOSTANDARD = LVTTL ;
+#NET "SDRAM_CLK"			LOC = "P50"			| IOSTANDARD = LVTTL | SLEW = FAST ;
+#NET "SDRAM_nCAS"		LOC = "P7"			| IOSTANDARD = LVTTL ;
+#NET "SDRAM_nRAS"		LOC = "P6"			| IOSTANDARD = LVTTL ;
+#NET "SDRAM_nWE"			LOC = "P8"			| IOSTANDARD = LVTTL ;
+##NET "DRAM_CS_N" #CS IS PULLED LOW TO SAVE ON PIN COUNT - Can be pulled high with solder jumper on bottom of board
+#NET "SDRAM_BA<0>"		LOC = "P26"			| IOSTANDARD = LVTTL ;
+#NET "SDRAM_BA<1>"		LOC = "P27"			| IOSTANDARD = LVTTL ;
+#NET "SDRAM_DQM<0>"		LOC = "P9"			| IOSTANDARD = LVTTL ;
+#NET "SDRAM_DQM<1>" 		LOC = "P67"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_ADDR<0>"		LOC = "P30"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_ADDR<1>"		LOC = "P32"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_ADDR<2>"		LOC = "P33"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_ADDR<3>"		LOC = "P34"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_ADDR<4>"		LOC = "P35"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_ADDR<5>"		LOC = "P40"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_ADDR<6>"		LOC = "P41"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_ADDR<7>"		LOC = "P43"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_ADDR<8>"		LOC = "P44"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_ADDR<9>"		LOC = "P45"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_ADDR<10>"	LOC = "P29"			| IOSTANDARD = LVTTL ;		
+#NET "SDRAM_ADDR<11>"	LOC = "P46"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_ADDR<12>"	LOC = "P47"			| IOSTANDARD = LVTTL ;		
+#NET "SDRAM_DQ<0>" 		LOC = "P24"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_DQ<1>" 		LOC = "P23"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_DQ<2>" 		LOC = "P22"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_DQ<3>" 		LOC = "P21"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_DQ<4>" 		LOC = "P17"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_DQ<5>" 		LOC = "P12"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_DQ<6>" 		LOC = "P11"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_DQ<7>" 		LOC = "P10"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_DQ<8>" 		LOC = "P66"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_DQ<9>" 		LOC = "P62"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_DQ<10>" 		LOC = "P61"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_DQ<11>" 		LOC = "P59"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_DQ<12>" 		LOC = "P58"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_DQ<13>"		LOC = "P57"			| IOSTANDARD = LVTTL ;		
+#NET "SDRAM_DQ<14>" 		LOC = "P56"			| IOSTANDARD = LVTTL ;	
+#NET "SDRAM_DQ<15>"		LOC = "P55"			| IOSTANDARD = LVTTL ;
+
+#PMOD1#############################################################################
+NET "PMOD1<0>" 			LOC = "P5" 			| IOSTANDARD = LVTTL;	#VGA_R2
+NET "PMOD1<1>" 			LOC = "P2" 			| IOSTANDARD = LVTTL;	#VGA_G2
+NET "PMOD1<2>" 			LOC = "P1" 			| IOSTANDARD = LVTTL;	#VGA_B2
+NET "PMOD1<3>" 			LOC = "P16" 		| IOSTANDARD = LVTTL;	#VGA_HS
+NET "PMOD1<4>"				LOC = "P88" 		| IOSTANDARD = LVTTL;	#VGA_R1
+NET "PMOD1<5>" 			LOC = "P92" 		| IOSTANDARD = LVTTL;	#VGA_G1
+NET "PMOD1<6>" 			LOC = "P93" 		| IOSTANDARD = LVTTL;	#VGA_B1
+NET "PMOD1<7>" 			LOC = "P94" 		| IOSTANDARD = LVTTL;	#VGA_VS
+#PMOD2#############################################################################
+NET "PMOD2<0>" 			LOC = "P142" 		| IOSTANDARD = LVTTL; 	#VGA_B0
+NET "PMOD2<1>" 			LOC = "P141" 		| IOSTANDARD = LVTTL;	#SSEG_A2
+NET "PMOD2<2>" 			LOC = "P15" 		| IOSTANDARD = LVTTL;	#SSEG_L
+NET "PMOD2<3>" 			LOC = "P14" 		| IOSTANDARD = LVTTL;	#VGA_G0
+NET "PMOD2<4>" 			LOC = "P144" 		| IOSTANDARD = LVTTL;	#VGA_R0
+NET "PMOD2<5>" 			LOC = "P143" 		| IOSTANDARD = LVTTL;	#SSEG_A1
+NET "PMOD2<6>" 			LOC = "P140" 		| IOSTANDARD = LVTTL;	#SSEG_D
+NET "PMOD2<7>" 			LOC = "P139" 		| IOSTANDARD = LVTTL;	#SSEG_E
+#PMOD3#############################################################################
+NET "PMOD3<0>" 			LOC = "P138" 		| IOSTANDARD = LVTTL; 	#SSEG_A3
+NET "PMOD3<1>" 			LOC = "P137" 		| IOSTANDARD = LVTTL;	#SSEG_A4
+NET "PMOD3<2>" 			LOC = "P124" 		| IOSTANDARD = LVTTL;	#SSEG_G
+NET "PMOD3<3>" 			LOC = "P123" 		| IOSTANDARD = LVTTL;	#SSEG_C
+NET "PMOD3<4>" 			LOC = "P119" 		| IOSTANDARD = LVTTL;	#SSEG_DP
+NET "PMOD3<5>" 			LOC = "P118" 		| IOSTANDARD = LVTTL;	#SSEG_B
+NET "PMOD3<6>" 			LOC = "P117" 		| IOSTANDARD = LVTTL;	#SSEG_A
+NET "PMOD3<7>" 			LOC = "P116" 		| IOSTANDARD = LVTTL;	#SSEG_F
+#PMOD4#############################################################################
+NET "PMOD4<0>" 			LOC = "P112" 		| IOSTANDARD = LVTTL;	#PWM2
+NET "PMOD4<1>" 			LOC = "P111" 		| IOSTANDARD = LVTTL;	#NES_CLK
+NET "PMOD4<2>" 			LOC = "P132" 		| IOSTANDARD = LVTTL;	#NES_LAT
+NET "PMOD4<3>" 			LOC = "P131" 		| IOSTANDARD = LVTTL;	#NES2_DAT
+NET "PMOD4<4>" 			LOC = "P115" 		| IOSTANDARD = LVTTL;	#PS2_1_CLK
+NET "PMOD4<5>" 			LOC = "P114" 		| IOSTANDARD = LVTTL;	#PS2_1_DAT
+NET "PMOD4<6>" 			LOC = "P134" 		| IOSTANDARD = LVTTL;	#PWM1
+NET "PMOD4<7>" 			LOC = "P133" 		| IOSTANDARD = LVTTL;	#NES1_DAT
+
+#PMOD4 LVDS CONSTRAINTS#############################################################
+#NET "P4_1_LVDS3_P" 		LOC = "P112" 		| IOSTANDARD = LVDS_33;
+#NET "P4_2_LVDS3_N" 		LOC = "P111" 		| IOSTANDARD = LVDS_33;
+#NET "P4_3_LVDS1_P" 		LOC = "P132" 		| IOSTANDARD = LVDS_33;
+#NET "P4_4_LVDS1_N" 		LOC = "P131" 		| IOSTANDARD = LVDS_33;
+#NET "P4_7_LVDS4_P" 		LOC = "P115" 		| IOSTANDARD = LVDS_33;
+#NET "P4_8_LVDS4_N" 		LOC = "P114" 		| IOSTANDARD = LVDS_33;
+#NET "P4_9_LVDS2_P" 		LOC = "P134" 		| IOSTANDARD = LVDS_33;
+#NET "P4_10_LVDS2_N"		LOC = "P133" 		| IOSTANDARD = LVDS_33;
+
+#RASPBERRY-PI CONNECTOR###############################################################
+NET "SYS_SPI_MOSI" 		LOC = "P80" 		| IOSTANDARD = LVTTL;			#Shared - Used to clk bitstream data to fpga / ARduino MOSI
+NET "SYS_SPI_MISO" 		LOC = "P75" 		| IOSTANDARD = LVTTL;
+NET "SYS_SPI_SCK" 			LOC = "P78" 		| IOSTANDARD = LVTTL;			#Shared - Used to clk bitstream data to fpga / ARduino SCK
+NET "RP_SPI_CE0N" 			LOC = "P79" 		| IOSTANDARD = LVTTL;
+#!##NET "RP_SPI_CE1N"			LOC = "P78"			| IOSTANDARD = LVTTL;
+#NET "SYS_SDA"				LOC = "P98" 		| IOSTANDARD = LVTTL;			#Shared with Arduino SDA
+#NET "SYS_SCL"				LOC = "P97" 		| IOSTANDARD = LVTTL;			#Shared with Arduino SCL
+#UART FROM RASPBERRY PI - As labelled in the Rpi (master) schematic 
+#NET "SYS_TX" 				LOC= "P83" 			| IOSTANDARD = LVTTL;	#Pi output FPGA input		#Shared with Arduino TX
+#NET "SYS_RX" 				LOC= "P82" 			| IOSTANDARD = LVTTL;	#Pi input FPGA output		#Shared with Arduino RX
+#NET "RP_GPIO_GCLK" 		LOC = "P95"			| IOSTANDARD = LVTTL;
+#NET "RP_GPIO_GEN2" 		LOC = "P81"			| IOSTANDARD = LVTTL;
+#NET "RP_GPIO_GEN3" 		LOC = "P80"			| IOSTANDARD = LVTTL;
+
+#ARDUINO HEADERS########################################################################
+#SYS_SCL																		#Shared with RPI i2c		
+#SYS_SDA																		#Shared with RPI i2c													
+#NET "ARD_SCK"				LOC= "P84"			| IOSTANDARD = LVTTL;			#D13
+#NET "ARD_MISO" 			LOC= "P87"			| IOSTANDARD = LVTTL;			#D12
+#NET "ARD_MOSI" 			LOC= "P51"			| IOSTANDARD = LVTTL;		   `#D11
+#NET "ARD_SS" 				LOC= "P74"			| IOSTANDARD = LVTTL;			#D10
+#NET "ARD_D9_FLSH_DI" 		LOC= "P64"			| IOSTANDARD = LVTTL;			#D9
+#NET "ARD_D8_FLSH_CS" 		LOC= "P38"			| IOSTANDARD = LVTTL;			#D8
+
+
+
+
+

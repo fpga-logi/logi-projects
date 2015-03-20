@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2014-07-03T21:17:38</DateModified>
+  <DateModified>2015-03-12T13:51:08</DateModified>
   <ModuleName>top_level</ModuleName>
-  <SummaryTimeStamp>2014-07-02T22:40:06</SummaryTimeStamp>
-  <SavedFilePath>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-sdram-test/hw/logibone/ise/iseconfig/top_level.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/jpiat/development/FPGA/logi-family/logi-projects/logi-sdram-test/hw/logibone/work/</ImplementationReportsDirectory>
+  <SummaryTimeStamp>2015-03-12T13:46:53</SummaryTimeStamp>
+  <SavedFilePath>H:/Dropbox/1LOGI/1LOGI_SRC/1logi-github/1LOGI-REPO/logi-projects/logi-sdram-test/hw/logibone/ise/iseconfig/top_level.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>H:/Dropbox/1LOGI/1LOGI_SRC/1logi-github/1LOGI-REPO/logi-projects/logi-sdram-test/hw/logibone/work\</ImplementationReportsDirectory>
   <DateInitialized>2014-06-24T19:29:46</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

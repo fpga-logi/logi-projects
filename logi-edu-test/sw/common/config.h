@@ -14,7 +14,7 @@
 #define GPIO0DIR 0x0001
 #define SSEG_0 0x0004	//SSEGX4 WB ADDRESS
 
-//NOTES FOR THE GPIO TEST:
+//NOTES FOR THE GPIO TEST R1.0 and R1.1
 /*--SHORTS - PASS THROUGH CONNECTIONS ON PMOD PORT4
 pwm2	<-> pwm1 		= p4_0	<->  p4_6   //
 nesclk 	<-> nes_data2 	= p4_1	<->	 p4_3
@@ -22,6 +22,7 @@ neslat 	<-> nes_data1  	= p4_2	<->	 p4_7
 ps2c_1 	<-> ps2d_1		= p4_4	<->	 p4_5 */ //
 
 
+//R1.0 and R1.1
 #define GPIO_TEST1_DIR 0x0056			//IO tristate direction 1 = output, P4_1, P4_2, P4_4, P4_6 as outputs	
 #define GPIO_TEST1_1 0x00012			//values assigned to output pins, testing P4_4, P4_1 
 #define GPIO_TEST1_1_EXPECTED 0xFF28	//pattern received at the input pins P4_3, P4_5 should be high
@@ -33,6 +34,10 @@ ps2c_1 	<-> ps2d_1		= p4_4	<->	 p4_5 */ //
 #define GPIO_TEST2_1_EXPECTED 0xFF06 	// P4_2 P4_1 high
 #define GPIO_TEST2_2 0x0021 			// testing P4_5, P4_0
 #define GPIO_TEST2_2_EXPECTED 0xFF50 	// P4_4, P4_6 high
+
+
+
+
 
 
 #endif
