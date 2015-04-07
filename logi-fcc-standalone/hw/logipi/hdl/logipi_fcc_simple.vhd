@@ -246,22 +246,37 @@ port map(
 
 );
 
-	PMOD2(4) <= sseg_edu_cathode_out(0); -- cathode 0
-	PMOD2(0) <= sseg_edu_cathode_out(1); -- cathode 1
-	PMOD2(2) <= sseg_edu_cathode_out(2); -- cathode 2
-	PMOD2(3) <= sseg_edu_cathode_out(3); -- cathode 3
-	PMOD2(1) <= sseg_edu_cathode_out(4); -- cathode 4
+--LOGI-EDU R1.0
+--	PMOD2(4) <= sseg_edu_cathode_out(0); -- cathode 0
+--	PMOD2(0) <= sseg_edu_cathode_out(1); -- cathode 1
+--	PMOD2(2) <= sseg_edu_cathode_out(2); -- cathode 2
+--	PMOD2(3) <= sseg_edu_cathode_out(3); -- cathode 3
+--	PMOD2(1) <= sseg_edu_cathode_out(4); -- cathode 4
+--
+--	PMOD3(5) <= sseg_edu_anode_out(0); --A
+--	PMOD3(4) <= sseg_edu_anode_out(1); --B
+--	PMOD3(1) <= sseg_edu_anode_out(2); --C
+--	PMOD2(5) <= sseg_edu_anode_out(3); --D
+--	PMOD2(6) <= sseg_edu_anode_out(4); --E
+--	PMOD3(6) <= sseg_edu_anode_out(5); --F
+--	PMOD3(0) <= sseg_edu_anode_out(6); --G
+--	PMOD2(7) <= sseg_edu_anode_out(7); --DP
 
-	PMOD3(5) <= sseg_edu_anode_out(0); --A
-	PMOD3(4) <= sseg_edu_anode_out(1); --B
-	PMOD3(1) <= sseg_edu_anode_out(2); --C
-	PMOD2(5) <= sseg_edu_anode_out(3); --D
-	PMOD2(6) <= sseg_edu_anode_out(4); --E
-	PMOD3(6) <= sseg_edu_anode_out(5); --F
-	PMOD3(0) <= sseg_edu_anode_out(6); --G
-	PMOD2(7) <= sseg_edu_anode_out(7); --DP
+--LOGI-EDU R1.1 150406
+	PMOD2(5) <= sseg_edu_cathode_out(0); -- cathode 0
+	PMOD2(1) <= sseg_edu_cathode_out(1); -- cathode 1
+	PMOD3(0) <= sseg_edu_cathode_out(2); -- cathode 2
+	PMOD3(1) <= sseg_edu_cathode_out(3); -- cathode 3
+	PMOD2(2) <= sseg_edu_cathode_out(4); -- cathode 4
 
-
+	PMOD3(6) <= sseg_edu_anode_out(0); --A
+	PMOD3(5) <= sseg_edu_anode_out(1); --B
+	PMOD3(3) <= sseg_edu_anode_out(2); --C
+	PMOD2(6) <= sseg_edu_anode_out(3); --D
+	PMOD2(7) <= sseg_edu_anode_out(4); --E
+	PMOD3(7) <= sseg_edu_anode_out(5); --F
+	PMOD3(2) <= sseg_edu_anode_out(6); --G
+	PMOD3(4) <= sseg_edu_anode_out(7); --DP
 
 
 
