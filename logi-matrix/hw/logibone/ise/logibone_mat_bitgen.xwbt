@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/logi-matrix/hw/logibone/ise/logibone_mat.ncd
+OUTFILE=/home/jpiat/development/FPGA/logi-family/logi-projects/logi-matrix/hw/logibone/ise/logibone_mat.bit
+FAMILY=Spartan6
+PART=xc6slx9-2tqg144
+WORKINGDIR=/home/jpiat/development/FPGA/logi-family/logi-projects/logi-matrix/hw/logibone/ise
+LICENSE=WebPack
+USER_INFO=208450455_1777487672_0_558
