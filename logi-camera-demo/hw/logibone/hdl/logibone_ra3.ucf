@@ -15,9 +15,7 @@ NET "GPMC_CLK" TNM_NET = clk100_grp;
 TIMESPEC TS_PER_CLK50 = PERIOD "clk50_grp" 20.0 ns;
 TIMESPEC TS_PER_CLK100 = PERIOD "clk100_grp" 20.0 ns;
 
-#INST "gpmc2wishbone" LOC = SLICE_X1Y3;
-
-PIN "sys_clocks_gen/clkout2_buf.O" CLOCK_DEDICATED_ROUTE = FALSE;
+PIN "BUFG_3.O" CLOCK_DEDICATED_ROUTE = FALSE;
 NET "PMOD2<7>" CLOCK_DEDICATED_ROUTE = FALSE;
 #######################
 # Pin LOC Constraints #
