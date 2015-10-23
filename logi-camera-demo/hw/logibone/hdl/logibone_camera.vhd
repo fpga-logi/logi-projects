@@ -153,8 +153,8 @@ begin
 	ARD_SCL <= 'Z' ;
 	ARD_SDA <= 'Z' ;
 		
-	sys_resetn <= clk_locked ;
-	sys_reset <= not clk_locked ;
+	sys_resetn <= clk_locked AND PB(0);
+	sys_reset <= not sys_resetn ;
 	clk_sys <= clk_100 ;
 
 	divider : simple_counter 
