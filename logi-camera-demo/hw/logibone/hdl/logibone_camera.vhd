@@ -242,7 +242,7 @@ port map
 	generic map( ADDR_WIDTH => 16,
 				WIDTH	=> 16,
 				SIZE	=> 4096,
-				BURST_SIZE => 4,
+				BURST_SIZE => 512,
 				SYNC_LOGIC_INTERFACE => true 
 				)
 	port map(
@@ -404,7 +404,7 @@ cam_control_reg :  wishbone_register
 								  (others => '1');
 								  
 								  
-								  
+	switch_value <= SW;							  
 
 
 
